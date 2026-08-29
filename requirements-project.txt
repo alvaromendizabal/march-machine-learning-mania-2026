@@ -1,0 +1,5 @@
+# Additional project/development tools not guaranteed to be in ml-modeling
+kaggle
+pytest
+ruff
+pre-commit

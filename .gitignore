@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments and secrets
+.venv/
+venv/
+env/
+.env
+.env.*
+*.key
+*.pem
+kaggle.json
+.kaggle/
+
+# Kaggle downloads and generated data
+*.zip
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Model artifacts and generated outputs
+models/*
+!models/.gitkeep
+submissions/*.csv
+reports/figures/*
+!reports/figures/.gitkeep
+*.pkl
+*.pickle
+*.joblib
+*.cbm
+*.pt
+*.pth
+*.h5
+*.keras
+*.onnx
+*.log
+
+# Editors and operating systems
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

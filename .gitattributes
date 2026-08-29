@@ -1,0 +1,5 @@
+# Notebook-aware Git filters. Run nbstripout --install and nbdime config-git --enable once.
+*.ipynb filter=nbstripout
+*.ipynb diff=jupyternotebook
+
+*.ipynb	merge=jupyternotebook

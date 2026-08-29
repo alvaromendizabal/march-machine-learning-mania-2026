@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/march_mania/__init__.py
+src/march_mania/io.py
+src/march_mania/paths.py
+src/march_mania/reshape.py
+src/march_mania/validation.py
+src/march_mania_2026.egg-info/PKG-INFO
+src/march_mania_2026.egg-info/SOURCES.txt
+src/march_mania_2026.egg-info/dependency_links.txt
+src/march_mania_2026.egg-info/top_level.txt
+tests/test_reshape.py
