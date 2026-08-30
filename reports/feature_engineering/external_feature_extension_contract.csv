@@ -1,0 +1,6 @@
+FeatureFamily,Status,RequiredData,ScientificRequirement
+travel_distance_and_time_zones,not_built,timestamped team home coordinates and venue latitude/longitude,historically correct location as of each season; no current-only geocoding assumptions
+altitude_and_environment,not_built,venue altitude and historically correct game location,source version and timestamp must be preserved
+player_availability_and_injuries,not_built,"historical timestamped rosters, minutes, injuries, suspensions",only information known before each historical tournament
+betting_and_prediction_markets,not_built,timestamped pregame or pre-tournament market probabilities,historical snapshots; no closing-line leakage for earlier forecast dates
+external_power_ratings,not_built,historical KenPom/BartTorvik/NET/AP snapshots,licensed/reproducible source with as-of dates for every validation season

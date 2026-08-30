@@ -1,0 +1,5 @@
+Architecture,Role,TrainingPopulation,FeatureUniverse,Calibration,BlendWeights,MatchedComparisonSeasonsJSON
+separate_men,primary,men only,common + men_only,men-specific out-of-fold only,men-specific nested OOF only,"[2016, 2017, 2018, 2019, 2021]"
+separate_women,primary,women only,common + women_only,women-specific out-of-fold only,women-specific nested OOF only,"[2016, 2017, 2018, 2019, 2021]"
+pooled_common,mandatory challenger,men + women,common only + explicit gender terms,pooled and gender-conditional variants compared in nested OOF,nested OOF only,"[2016, 2017, 2018, 2019, 2021]"
+partial_pooling,eligible final challenger,blend pooled and gender-specific predictions,prediction-level blend,after constituent OOF predictions only,"nonnegative, sum-to-one, gender-specific, nested OOF","[2016, 2017, 2018, 2019, 2021]"

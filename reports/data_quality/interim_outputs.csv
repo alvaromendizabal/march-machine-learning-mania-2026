@@ -1,0 +1,17 @@
+Table,Rows,Columns,Path
+cities,510,3,C:\Users\alvaro\ML\march-mania-2026\data\interim\cities.parquet
+coaches_men,13900,5,C:\Users\alvaro\ML\march-mania-2026\data\interim\coaches_men.parquet
+conferences,51,2,C:\Users\alvaro\ML\march-mania-2026\data\interim\conferences.parquet
+game_cities,181473,7,C:\Users\alvaro\ML\march-mania-2026\data\interim\game_cities.parquet
+games_compact_canonical,345386,18,C:\Users\alvaro\ML\march-mania-2026\data\interim\games_compact_canonical.parquet
+games_detailed_team_long,428252,39,C:\Users\alvaro\ML\march-mania-2026\data\interim\games_detailed_team_long.parquet
+massey_ordinals_men,5865001,5,C:\Users\alvaro\ML\march-mania-2026\data\interim\massey_ordinals_men.parquet
+men_seed_round_slots,776,5,C:\Users\alvaro\ML\march-mania-2026\data\interim\men_seed_round_slots.parquet
+men_tourney_slots,2653,4,C:\Users\alvaro\ML\march-mania-2026\data\interim\men_tourney_slots.parquet
+seasons,71,7,C:\Users\alvaro\ML\march-mania-2026\data\interim\seasons.parquet
+seeds,4506,7,C:\Users\alvaro\ML\march-mania-2026\data\interim\seeds.parquet
+submission_matchups,651277,7,C:\Users\alvaro\ML\march-mania-2026\data\interim\submission_matchups.parquet
+team_conferences,23606,4,C:\Users\alvaro\ML\march-mania-2026\data\interim\team_conferences.parquet
+teams,760,5,C:\Users\alvaro\ML\march-mania-2026\data\interim\teams.parquet
+tournament_targets,4302,18,C:\Users\alvaro\ML\march-mania-2026\data\interim\tournament_targets.parquet
+women_tourney_slots,1847,4,C:\Users\alvaro\ML\march-mania-2026\data\interim\women_tourney_slots.parquet

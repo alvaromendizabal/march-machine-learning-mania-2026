@@ -1,0 +1,23 @@
+Check,Passed,Details
+regular compact only,True,"rows=341,084"
+regular detailed only,True,"rows=423,432"
+maximum feature day <= cutoff,True,cutoff=132
+target/future NCAA labels quarantined,True,quarantined_rows=0
+unique team-season snapshots,True,duplicates=0
+snapshot day fixed at cutoff,True,cutoff=132
+snapshot source games do not exceed cutoff,True,max_last_game_day=132
+every snapshot has compact exposure,True,zero_game_rows=0
+binary target labels,True,invalid_rows=0
+lower-TeamID orientation,True,invalid_rows=0
+unique target keys,True,duplicates=0
+historical target teams have compact snapshots,True,missing=0
+all outer training seasons precede validation,True,outer_folds=61
+locked seasons absent from development outer folds,True,"locked=[2022, 2023, 2024, 2025]"
+all inner training seasons precede inner and outer validation,True,inner_folds=243
+locked seasons absent from development inner folds,True,"locked=[2022, 2023, 2024, 2025]"
+LOSO manifest explicitly identifies future-relative training,True,LOSO is secondary only
+locked benchmark manifest covers every locked season,True,"test_seasons=[np.int64(2022), np.int64(2023), np.int64(2024), np.int64(2025)]"
+static benchmark training ends in 2021,True,development_last_season=2021
+prequential benchmark training precedes test season,True,recipe remains frozen after 2021
+Stage 2 season and gender routing valid,True,"rows=132,133"
+Stage 2 IDs unique and lower-ID oriented,True,duplicate_ids=0

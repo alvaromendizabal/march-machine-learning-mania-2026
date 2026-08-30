@@ -1,0 +1,57 @@
+Check,Passed,Severity,Details
+Required core tables are present,True,ERROR,All required tables found
+Men/women TeamIDs do not overlap,True,ERROR,Overlap count: 0
+Men TeamIDs are below 3000,True,ERROR,Teams checked: 381
+Women TeamIDs are at least 3000,True,ERROR,Teams checked: 379
+MRegularSeasonCompactResults: unique game keys,True,ERROR,Duplicate rows: 0
+MRegularSeasonCompactResults: teams differ,True,ERROR,Invalid rows: 0
+MRegularSeasonCompactResults: winner score exceeds loser score,True,ERROR,Invalid rows: 0
+MRegularSeasonCompactResults: regular-season DayNum <= 132,True,ERROR,Rows above 132: 0
+WRegularSeasonCompactResults: unique game keys,True,ERROR,Duplicate rows: 0
+WRegularSeasonCompactResults: teams differ,True,ERROR,Invalid rows: 0
+WRegularSeasonCompactResults: winner score exceeds loser score,True,ERROR,Invalid rows: 0
+WRegularSeasonCompactResults: regular-season DayNum <= 132,True,ERROR,Rows above 132: 0
+MNCAATourneyCompactResults: unique game keys,True,ERROR,Duplicate rows: 0
+MNCAATourneyCompactResults: teams differ,True,ERROR,Invalid rows: 0
+MNCAATourneyCompactResults: winner score exceeds loser score,True,ERROR,Invalid rows: 0
+MNCAATourneyCompactResults: target-season outcomes excluded from modeling inputs,True,WARNING,Rows for 2026: 0. Never use these as features or training labels when replaying the 2026 forecast.
+WNCAATourneyCompactResults: unique game keys,True,ERROR,Duplicate rows: 0
+WNCAATourneyCompactResults: teams differ,True,ERROR,Invalid rows: 0
+WNCAATourneyCompactResults: winner score exceeds loser score,True,ERROR,Invalid rows: 0
+WNCAATourneyCompactResults: target-season outcomes excluded from modeling inputs,True,WARNING,Rows for 2026: 0. Never use these as features or training labels when replaying the 2026 forecast.
+MRegularSeasonDetailedResults: unique game keys,True,ERROR,Duplicate rows: 0
+MRegularSeasonDetailedResults: teams differ,True,ERROR,Invalid rows: 0
+MRegularSeasonDetailedResults: winner score exceeds loser score,True,ERROR,Invalid rows: 0
+MRegularSeasonDetailedResults: regular-season DayNum <= 132,True,ERROR,Rows above 132: 0
+MRegularSeasonDetailedResults: made shots do not exceed attempts,True,ERROR,Violations: 0
+MRegularSeasonDetailedResults: box-score points reconcile,True,WARNING,Rows with mismatch: 0
+MRegularSeasonDetailedResults: estimated possession gap audit,False,WARNING,Rows with absolute gap > 7: 487; inspect rather than dropping automatically.
+WRegularSeasonDetailedResults: unique game keys,True,ERROR,Duplicate rows: 0
+WRegularSeasonDetailedResults: teams differ,True,ERROR,Invalid rows: 0
+WRegularSeasonDetailedResults: winner score exceeds loser score,True,ERROR,Invalid rows: 0
+WRegularSeasonDetailedResults: regular-season DayNum <= 132,True,ERROR,Rows above 132: 0
+WRegularSeasonDetailedResults: made shots do not exceed attempts,True,ERROR,Violations: 0
+WRegularSeasonDetailedResults: box-score points reconcile,True,WARNING,Rows with mismatch: 0
+WRegularSeasonDetailedResults: estimated possession gap audit,False,WARNING,Rows with absolute gap > 7: 687; inspect rather than dropping automatically.
+MNCAATourneyDetailedResults: unique game keys,True,ERROR,Duplicate rows: 0
+MNCAATourneyDetailedResults: teams differ,True,ERROR,Invalid rows: 0
+MNCAATourneyDetailedResults: winner score exceeds loser score,True,ERROR,Invalid rows: 0
+MNCAATourneyDetailedResults: target-season outcomes excluded from modeling inputs,True,WARNING,Rows for 2026: 0. Never use these as features or training labels when replaying the 2026 forecast.
+MNCAATourneyDetailedResults: made shots do not exceed attempts,True,ERROR,Violations: 0
+MNCAATourneyDetailedResults: box-score points reconcile,True,WARNING,Rows with mismatch: 0
+MNCAATourneyDetailedResults: estimated possession gap audit,False,WARNING,Rows with absolute gap > 7: 6; inspect rather than dropping automatically.
+WNCAATourneyDetailedResults: unique game keys,True,ERROR,Duplicate rows: 0
+WNCAATourneyDetailedResults: teams differ,True,ERROR,Invalid rows: 0
+WNCAATourneyDetailedResults: winner score exceeds loser score,True,ERROR,Invalid rows: 0
+WNCAATourneyDetailedResults: target-season outcomes excluded from modeling inputs,True,WARNING,Rows for 2026: 0. Never use these as features or training labels when replaying the 2026 forecast.
+WNCAATourneyDetailedResults: made shots do not exceed attempts,True,ERROR,Violations: 0
+WNCAATourneyDetailedResults: box-score points reconcile,True,WARNING,Rows with mismatch: 0
+WNCAATourneyDetailedResults: estimated possession gap audit,False,WARNING,Rows with absolute gap > 7: 11; inspect rather than dropping automatically.
+M: compact games have detailed rows from documented start,True,ERROR,Missing detailed rows: 0 (limited early women's gaps are documented).
+W: compact games have detailed rows from documented start,False,WARNING,Missing detailed rows: 221 (limited early women's gaps are documented).
+SampleSubmissionStage1: IDs have three components,True,ERROR,Rows: 519144
+SampleSubmissionStage1: lower TeamID is first,True,ERROR,Violations: 0
+SampleSubmissionStage1: matchups do not mix genders,True,ERROR,Violations: 0
+SampleSubmissionStage2: IDs have three components,True,ERROR,Rows: 132133
+SampleSubmissionStage2: lower TeamID is first,True,ERROR,Violations: 0
+SampleSubmissionStage2: matchups do not mix genders,True,ERROR,Violations: 0

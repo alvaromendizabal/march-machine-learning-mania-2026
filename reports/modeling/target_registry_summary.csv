@@ -1,0 +1,5 @@
+DatasetRole,Gender,Games,Seasons,MinSeason,MaxSeason,Team1WinRate
+development,M,2317,36,1985,2021,0.5045317220543807
+development,W,1449,23,1998,2021,0.5307108350586611
+locked_benchmark,M,268,4,2022,2025,0.5746268656716418
+locked_benchmark,W,268,4,2022,2025,0.44402985074626866

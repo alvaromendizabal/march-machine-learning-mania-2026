@@ -1,0 +1,40 @@
+{
+  "notebook": "01_split_protocol_and_pre_tournament_snapshots.ipynb",
+  "status": "complete",
+  "split_contract_sha256": "84d6ab4fc44e59286e1a8bad08df1b89d5881c7be88055c716665d0c29e1937b",
+  "feature_cutoff_day": 132,
+  "target_season": 2026,
+  "development_last_season": 2021,
+  "locked_benchmark_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "compact_team_game_rows": 682168,
+  "detailed_physical_game_quality_rows": 211716,
+  "team_season_snapshots": 23604,
+  "historical_tournament_targets": 4302,
+  "outer_folds": 61,
+  "inner_folds": 243,
+  "secondary_loso_folds": 106,
+  "locked_benchmark_manifest_rows": 40,
+  "stage2_matchups": 132133,
+  "men_stage2_matchups": 66430,
+  "women_stage2_matchups": 65703,
+  "target_team_compact_snapshot_coverage": 1.0,
+  "stage2_both_snapshot_coverage": 1.0,
+  "quarantined_target_or_future_outcome_rows": 0,
+  "blocking_leakage_checks_failed": 0,
+  "artifact_sha256": {
+    "compact_team_long": "c7d339d0c2f704264f6ba9d1271c00d63a44f3af886b38ee776eddef0250535c",
+    "detailed_regular_game_quality_flags": "4347237c9c98c7eb4603a2918857cefac459048f04693b5052612338366733bf",
+    "team_season_snapshot_base": "3935bfaf4d133c6ba08e769bdeb20a5ac3b1ee990b1f2491b01a96382155a30c",
+    "modeling_target_registry": "d211a43d844d1d4a98aa8a6bfda799215c46a7dd7630a80652ea4abb532f0752",
+    "fold_manifest_outer": "f49926b0fa2638d6818106ee15340d5ebd32206cc39ba39a4602eccb0be1f6b5",
+    "fold_manifest_inner": "b6ed4aedcf4bc425c122d896cda6e57a4e4683526e68aefa318165c5eb284f5f",
+    "fold_manifest_secondary_loso": "cae2ac80239b2617301d3c3181d1d132b136d546e5ac293ef255ff55fe53b7ae",
+    "fold_manifest_locked_benchmark": "187160acbe31d36614c741ce4a5b67c8ae624ff8ddd407ca78f04cec806ce1bd",
+    "submission_routing": "771e17cf714cb9d793a8ffee59647a92e4ab2469923f3c185ee7df584cc66542"
+  }
+}

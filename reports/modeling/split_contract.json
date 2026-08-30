@@ -1,0 +1,83 @@
+{
+  "contract_version": 1,
+  "target_season": 2026,
+  "feature_cutoff_day": 132,
+  "locked_benchmark_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "excluded_target_seasons": [
+    2020
+  ],
+  "development_last_season": 2021,
+  "locked_benchmark_modes": {
+    "primary": "prequential_refit_with_recipe_frozen_after_2021",
+    "sensitivity": "static_target_model_fit_through_2021"
+  },
+  "primary_architecture": "separate_gender_models",
+  "challenger_architectures": [
+    "pooled_common_feature_model",
+    "partial_pooling_blend"
+  ],
+  "universes": {
+    "compact": {
+      "M": {
+        "first_season": 1985,
+        "minimum_prior_training_seasons": 10
+      },
+      "W": {
+        "first_season": 1998,
+        "minimum_prior_training_seasons": 8
+      }
+    },
+    "rich": {
+      "M": {
+        "first_season": 2003,
+        "minimum_prior_training_seasons": 8
+      },
+      "W": {
+        "first_season": 2010,
+        "minimum_prior_training_seasons": 6,
+        "complete_detailed_coverage_from": 2013
+      }
+    }
+  },
+  "nested_tuning": {
+    "maximum_inner_validation_seasons": 4,
+    "minimum_inner_prior_seasons": {
+      "M": 4,
+      "W": 3,
+      "Pooled": 3
+    }
+  },
+  "evaluation": {
+    "primary_selection_metric": "macro_mean_outer_season_brier",
+    "secondary_selection_metric": "game_weighted_outer_brier",
+    "mandatory_reports": [
+      "brier_by_season",
+      "brier_by_gender",
+      "log_loss",
+      "roc_auc",
+      "calibration_intercept",
+      "calibration_slope",
+      "reliability_curve",
+      "season_clustered_uncertainty"
+    ]
+  },
+  "quality_thresholds": {
+    "absolute_possession_gap_warning": 7.0,
+    "minimum_detailed_coverage_for_rich_features": 0.9
+  },
+  "rules": [
+    "Tournament seasons are indivisible groups.",
+    "Every training season must be earlier than its validation season.",
+    "Locked benchmark seasons are excluded from all development folds.",
+    "Same-season NCAA outcomes never enter pre-tournament features.",
+    "Any learned preprocessing is fit inside the relevant training fold.",
+    "Men and women have separate primary models and calibrators.",
+    "Pooled models use only common features and are challengers, not assumed winners."
+  ],
+  "contract_sha256": "84d6ab4fc44e59286e1a8bad08df1b89d5881c7be88055c716665d0c29e1937b"
+}

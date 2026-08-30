@@ -1,0 +1,71 @@
+feature_contract_version: 1
+source_split_contract_sha256: 84d6ab4fc44e59286e1a8bad08df1b89d5881c7be88055c716665d0c29e1937b
+target_season: 2026
+feature_cutoff_day: 132
+possession_coefficients:
+- 0.475
+- 0.44
+primary_possession_coefficient: 0.475
+possession_gap_clean_threshold: 7.0
+recent_game_windows:
+- 5
+- 10
+- 20
+late_day_thresholds:
+- 90
+- 110
+- 120
+ewm_halflife_games:
+- 5
+- 10
+- 20
+pythagorean_exponents:
+- 8.0
+- 10.0
+- 11.5
+- 13.91
+elo_variants:
+- name: standard
+  k: 20.0
+  home_advantage: 100.0
+  carryover: 0.75
+  mov: none
+- name: mov_log
+  k: 20.0
+  home_advantage: 100.0
+  carryover: 0.75
+  mov: log1p
+- name: mov_538
+  k: 20.0
+  home_advantage: 100.0
+  carryover: 0.75
+  mov: fivethirtyeight
+- name: season_reset_mov
+  k: 24.0
+  home_advantage: 75.0
+  carryover: 0.0
+  mov: fivethirtyeight
+margin_ridge_alphas:
+- 5.0
+- 25.0
+bradley_terry_c_values:
+- 0.25
+- 1.0
+adjusted_efficiency_ridge_alphas:
+- 10.0
+- 50.0
+seed_prior_pseudocounts:
+- 2.0
+- 8.0
+stable_massey_system_count: 20
+stable_massey_selection_ends: 2021
+correlation_warning_threshold: 0.985
+drift_psi_warning_threshold: 0.2
+computational_switches:
+  run_bradley_terry: true
+  run_colley: true
+  run_pagerank: true
+  run_adjusted_efficiency: true
+  run_massey_consensus: true
+  run_coach_history: true
+feature_contract_sha256: 4827ee3f980360d679466b754a283164cf55d32f3839aaf669baf3364f96aa21

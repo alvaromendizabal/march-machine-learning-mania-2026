@@ -1,0 +1,11 @@
+CandidateSet,Features,SeedAware,RichUniverse,Pooled
+men_compact_seed_free,432,False,False,False
+men_compact_seed_aware,459,True,False,False
+men_rich_seed_free,1043,False,True,False
+men_rich_seed_aware,1070,True,True,False
+women_compact_seed_free,408,False,False,False
+women_compact_seed_aware,435,True,False,False
+women_rich_seed_free,936,False,True,False
+women_rich_seed_aware,963,True,True,False
+pooled_rich_seed_free,936,False,True,True
+pooled_rich_seed_aware,963,True,True,True

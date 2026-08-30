@@ -1,0 +1,36 @@
+Table,FileName,Rows,Columns,SizeMB,Sha256,ColumnNames
+Cities,Cities.csv,510,3,0.009,a852359df15128c635dbd42ed00f5e8b1ad9bd81edf86c9c3381c322d7f17043,CityID | City | State
+Conferences,Conferences.csv,51,2,0.002,2e0822230c5f5f178f08c22387ac8ccde652d9e93978bc2f58a76183c693aa98,ConfAbbrev | Description
+MConferenceTourneyGames,MConferenceTourneyGames.csv,7093,5,0.178,7d09a081abe4a6d404b18afd63af0d6d9ff6c897d6a8f9c5946a2a02ab73da2a,Season | ConfAbbrev | DayNum | WTeamID | LTeamID
+MGameCities,MGameCities.csv,92438,6,2.842,28d453732bb7fa55fbb8d23d8d4e9cdbf9728377624b6035366c9a090f3cc537,Season | DayNum | WTeamID | LTeamID | CRType | CityID
+MMasseyOrdinals,MMasseyOrdinals.csv,5865001,5,123.151,a14234e3fe3b63efe286fbbaf9bbc550ef2e52688c50ceadb2acb593e57634f8,Season | RankingDayNum | SystemName | TeamID | OrdinalRank
+MNCAATourneyCompactResults,MNCAATourneyCompactResults.csv,2585,8,0.074,5260a076b4e0937aa0420fd5eb72789b9931c662ed071c5060407458d8de8a05,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT
+MNCAATourneyDetailedResults,MNCAATourneyDetailedResults.csv,1449,34,0.138,a4a2c782fa68a6ad140dc56d2fac2755eafa9d17076ad1491d6f802c9c51d7ba,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT | WFGM | WFGA | WFGM3 | WFGA3 | WFTM | WFTA | WOR | WDR | WAst | WTO | WStl | WBlk | WPF | LFGM | LFGA | LFGM3 | LFGA3 | LFTM | LFTA | LOR | LDR | LAst | LTO | LStl | LBlk | LPF
+MNCAATourneySeedRoundSlots,MNCAATourneySeedRoundSlots.csv,776,5,0.015,33a429e77b5d3d81695cf557f813f8c35832cc319a348bd4884dccc8e3dd3f88,Seed | GameRound | GameSlot | EarlyDayNum | LateDayNum
+MNCAATourneySeeds,MNCAATourneySeeds.csv,2694,3,0.039,413916a4136af69346826ce433d749c6c6cbc96afd88a43d8645877d20d01691,Season | Seed | TeamID
+MNCAATourneySlots,MNCAATourneySlots.csv,2653,4,0.051,935f7cbcb7100d9ed0ddeec6e7f2a1745bd62c78779d804f782b91cd6e7eed14,Season | Slot | StrongSeed | WeakSeed
+MRegularSeasonCompactResults,MRegularSeasonCompactResults.csv,198577,8,5.551,f50b602151584b598d015a78355e7ffee533b031a66b8d9711ca01ad08b99e69,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT
+MRegularSeasonDetailedResults,MRegularSeasonDetailedResults.csv,124529,34,11.814,5a7afaa262c2c725476ae3ee2a6abbf88ddc4a5973aab83d7140134a18b3d84d,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT | WFGM | WFGA | WFGM3 | WFGA3 | WFTM | WFTA | WOR | WDR | WAst | WTO | WStl | WBlk | WPF | LFGM | LFGA | LFGM3 | LFGA3 | LFTM | LFTA | LOR | LDR | LAst | LTO | LStl | LBlk | LPF
+MSeasons,MSeasons.csv,42,6,0.002,984af245340df5c304348c2cc1899e770d5511ce0622de022591834b6e23a579,Season | DayZero | RegionW | RegionX | RegionY | RegionZ
+MSecondaryTourneyCompactResults,MSecondaryTourneyCompactResults.csv,1865,9,0.061,141e274ebe5a17266e302857d7c3a24ad20bd78692feb926465de946b1e53810,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT | SecondaryTourney
+MSecondaryTourneyTeams,MSecondaryTourneyTeams.csv,1895,3,0.027,6a0c95b7b540b6de0de72423d8d87c41f6f51d4d8b02275d1fdb9a4951e3baaa,Season | SecondaryTourney | TeamID
+MTeamCoaches,MTeamCoaches.csv,13900,5,0.396,e0fe04e53ea35f4a120f0368164c2a7035d5a0b1ab427a078a27304bd16003bc,Season | TeamID | FirstDayNum | LastDayNum | CoachName
+MTeamConferences,MTeamConferences.csv,13753,3,0.226,a798dcd8ac5ddfbcbe13fe6217054f05ccc8b952b0c662eb3f1973ae6be3f6bc,Season | TeamID | ConfAbbrev
+MTeamSpellings,MTeamSpellings.csv,1178,2,0.022,181d08d5c862bde7c50eb8e664135d831f830647869522b6d8ad4e44ebabbefc,TeamNameSpelling | TeamID
+MTeams,MTeams.csv,381,4,0.01,2f5d3b1bc6bf6afbf80a6900f1aa1bfaebfa68b33a8d66dc29034800b1dd7b24,TeamID | TeamName | FirstD1Season | LastD1Season
+SampleSubmissionStage1,SampleSubmissionStage1.csv,519144,2,9.902,dfe58d5ca7e698f67567238b62dea8d8241f3abe9cfd51fba91ef67fa5fbd92d,ID | Pred
+SampleSubmissionStage2,SampleSubmissionStage2.csv,132133,2,2.52,53b79f12315ae43353899cf659bc89e027bedbde70929e213b6922a877b33ffc,ID | Pred
+WConferenceTourneyGames,WConferenceTourneyGames.csv,6777,5,0.17,8acb5601145c278d96acc8975bcab4979b227d64f95bd196e42c6cba9b402409,Season | ConfAbbrev | DayNum | WTeamID | LTeamID
+WGameCities,WGameCities.csv,89035,6,2.737,6ecab5867c2551e5b63b9fce8f88a743e142a6874475f04783de41bf9d6ededc,Season | DayNum | WTeamID | LTeamID | CRType | CityID
+WNCAATourneyCompactResults,WNCAATourneyCompactResults.csv,1717,8,0.049,13c44b67f2d4ea2661ef59ab0be720b3f3feede5f1de8ee419a8a46f7d99a6a5,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT
+WNCAATourneyDetailedResults,WNCAATourneyDetailedResults.csv,961,34,0.092,b0f609ad133d14e991cf8d036f5afc610b77ef168b63223404c352d9b9658c5f,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT | WFGM | WFGA | WFGM3 | WFGA3 | WFTM | WFTA | WOR | WDR | WAst | WTO | WStl | WBlk | WPF | LFGM | LFGA | LFGM3 | LFGA3 | LFTM | LFTA | LOR | LDR | LAst | LTO | LStl | LBlk | LPF
+WNCAATourneySeeds,WNCAATourneySeeds.csv,1812,3,0.026,fd80613514ac62ed63afcfc1ed0024c525ff02f4b43bd7a97ebccdb74a424ec6,Season | Seed | TeamID
+WNCAATourneySlots,WNCAATourneySlots.csv,1847,4,0.035,e0cc399a1099465fc74b1c7d0d0475fb5249f307164f1a5a6e36ca536d6fe0d9,Season | Slot | StrongSeed | WeakSeed
+WRegularSeasonCompactResults,WRegularSeasonCompactResults.csv,142507,8,3.977,ca8702630335ac5b8d00a5e5f09abc5aa10666b7584ac1db61b48784c77d4090,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT
+WRegularSeasonDetailedResults,WRegularSeasonDetailedResults.csv,87187,34,8.272,0c416b6e59da818ea7356913caa7be2641b465ae97014551c617e0ccbefe432f,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT | WFGM | WFGA | WFGM3 | WFGA3 | WFTM | WFTA | WOR | WDR | WAst | WTO | WStl | WBlk | WPF | LFGM | LFGA | LFGM3 | LFGA3 | LFTM | LFTA | LOR | LDR | LAst | LTO | LStl | LBlk | LPF
+WSeasons,WSeasons.csv,29,6,0.001,35a640047fc1a6b071a3566779361f20267b3f96889333c94f31967a39b02181,Season | DayZero | RegionW | RegionX | RegionY | RegionZ
+WSecondaryTourneyCompactResults,WSecondaryTourneyCompactResults.csv,906,9,0.03,7c84377237ca2afcc466664aacb101ce61b3e5426f63f0880c1a215552211792,Season | DayNum | WTeamID | WScore | LTeamID | LScore | WLoc | NumOT | SecondaryTourney
+WSecondaryTourneyTeams,WSecondaryTourneyTeams.csv,904,3,0.014,0430fcffddf8d69946baeaddc17143aaf0a7c425f1a55625c98b9342b9d300ab,Season | SecondaryTourney | TeamID
+WTeamConferences,WTeamConferences.csv,9853,3,0.162,be4d13c60f1c567de7bdb927c8801cc62e4d3ff3297d05ca15276b7c219c1805,Season | TeamID | ConfAbbrev
+WTeamSpellings,WTeamSpellings.csv,1171,2,0.022,670b9035831b5c080927d844c040579b04eafc6c9e249d2ca0b4bc21c158f631,TeamNameSpelling | TeamID
+WTeams,WTeams.csv,379,2,0.006,2567f2c56791d5966f131f5dba8b5adaa2795d8a98c9dde89f545d91a409c88d,TeamID | TeamName

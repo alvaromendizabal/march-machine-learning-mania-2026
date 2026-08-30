@@ -1,0 +1,5 @@
+Gender,PrimaryModelRoute,FeatureRoute,Matchups,BothSnapshotsAvailableRate
+M,men_specific_final,seed_aware,2278,1.0
+M,men_specific_final,seed_free_fallback,64152,1.0
+W,women_specific_final,seed_aware,2278,1.0
+W,women_specific_final,seed_free_fallback,63425,1.0

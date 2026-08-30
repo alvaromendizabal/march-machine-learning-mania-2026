@@ -1,0 +1,5 @@
+Gender,FeatureRoute,Matchups,BothSnapshotsAvailable,BothSeedsAvailable
+M,seed_aware,2278,1.0,1.0
+M,seed_free_fallback,64152,1.0,0.0
+W,seed_aware,2278,1.0,1.0
+W,seed_free_fallback,63425,1.0,0.0

@@ -1,0 +1,14 @@
+Stage,Experiment,Blocks,Purpose
+0,constant_probability,none,absolute Brier baseline
+1,seed_only,selection_committee_prior + prequential_seed_priors,committee-information baseline
+2,compact_basic,compact_performance,long-history results baseline
+3,compact_plus_dynamic_ratings,compact_performance + dynamic_ratings + global_strength_ratings,chronological and global strength
+4,schedule_context,previous + schedule_and_accomplishment + conference_context,opponent and accomplishment adjustment
+5,rich_efficiency,previous + detailed_efficiency + opponent_adjusted_efficiency,possession and style information
+6,history_context,previous + prior_program_history + prior_coach_history,strictly prior tournament experience
+7,men_massey,previous + massey_consensus (men only),public ranking consensus and disagreement
+8,matchup_interactions,previous + matchup_interactions,basketball style compatibility
+9,full_candidate_bank,all legally available blocks,regularized/tree selection under nested validation
+10,leave_one_block_out,full bank minus one block at a time,marginal contribution and robustness
+11,quality_sensitivity,all vs clean-possession vs robust variants,data-quality dependence
+12,architecture_comparison,separate gender vs pooled common vs partial pooling,scientific architecture decision

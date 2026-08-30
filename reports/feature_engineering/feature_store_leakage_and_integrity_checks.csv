@@ -1,0 +1,18 @@
+Check,Passed,Details
+source split contract unchanged,True,84d6ab4fc44e59286e1a8bad08df1b89d5881c7be88055c716665d0c29e1937b
+team feature key unique,True,"rows=23,604"
+historical matchup key unique,True,"rows=4,302"
+Stage 2 ID unique,True,"rows=132,133"
+historical lower-ID orientation,True,Team1ID < Team2ID
+Stage 2 lower-ID orientation,True,Team1ID < Team2ID
+Stage 2 full snapshot coverage,True,coverage=1.000000
+same-season cutoff preserved,True,max snapshot day=132
+no target or identifier fields in candidates,True,"candidate_features=1,070"
+women and pooled candidates exclude men-only sources,True,Massey/coach features restricted to men's sets
+seed-free routes exclude seed features,True,all seed-free candidate sets
+historical seed priors are prequential,True,max source season < prediction season
+program priors use earlier seasons,True,max source season < prediction season
+all symmetry checks pass,True,"checks=1,056"
+historical rows match target registry,True,"4,302 rows"
+Stage 2 rows match routing registry,True,"132,133 rows"
+all candidate sets nonempty,True,"{""men_compact_seed_free"": 432, ""men_compact_seed_aware"": 459, ""men_rich_seed_free"": 1043, ""men_rich_seed_aware"": 1070, ""women_compact_seed_free"": 408, ""women_compact_seed_aware"": 435, ""women_rich_seed_free"": 936, ""women_rich_seed_aware"": 963, ""pooled_rich_seed_free"": 936, ""pooled_rich_seed_aware"": 963}"
