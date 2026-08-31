@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Mapping
 from pathlib import Path
-from typing import Mapping
 
 import pandas as pd
 
@@ -38,9 +38,7 @@ def sha256_file(path: str | Path, chunk_size: int = 1024 * 1024) -> str:
     return digest.hexdigest()
 
 
-def build_inventory(
-    tables: Mapping[str, pd.DataFrame], csv_files: list[Path]
-) -> pd.DataFrame:
+def build_inventory(tables: Mapping[str, pd.DataFrame], csv_files: list[Path]) -> pd.DataFrame:
     file_by_stem = {path.stem: path for path in csv_files}
     records = []
     for name, frame in sorted(tables.items()):

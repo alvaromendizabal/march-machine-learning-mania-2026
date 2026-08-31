@@ -1,7 +1,0 @@
-Method,RawKind,MacroSeasonBrier,GameWeightedBrier,SeasonBrierStd,WorstSeasonBrier,ComplexityRank,HadFallback,FailureMessage,BestMeanMethod,OneSEThreshold,WithinOneSE,Selected,OuterFoldID,Model
-identity,probability,0.15755999893426817,0.1575599989342682,0.01902207226579521,0.17386329289422908,0,False,,True,0.16854239747746955,True,True,rich_Pooled_2016,constrained_ensemble
-platt,probability,0.15975660938860037,0.15975660938860034,0.019007185157524243,0.17753635078540875,2,False,,False,0.16854239747746955,True,False,rich_Pooled_2016,constrained_ensemble
-temperature,probability,0.15992901669875748,0.15992901669875748,0.018226883207800647,0.17673762011761385,1,False,,False,0.16854239747746955,True,False,rich_Pooled_2016,constrained_ensemble
-beta,probability,0.16007109790547777,0.16007109790547774,0.01946510230684329,0.17760169276475166,3,False,,False,0.16854239747746955,True,False,rich_Pooled_2016,constrained_ensemble
-spline,probability,0.1607548996078685,0.1607548996078685,0.019694973701761424,0.17788607765352366,4,False,,False,0.16854239747746955,True,False,rich_Pooled_2016,constrained_ensemble
-isotonic,probability,0.16969024301739774,0.16969024301739769,0.022706325027359947,0.18798656913075046,5,False,,False,0.16854239747746955,False,False,rich_Pooled_2016,constrained_ensemble

@@ -1,7 +1,0 @@
-Method,RawKind,MacroSeasonBrier,GameWeightedBrier,SeasonBrierStd,WorstSeasonBrier,ComplexityRank,HadFallback,FailureMessage,BestMeanMethod,OneSEThreshold,WithinOneSE,Selected,OuterFoldID,Model,ValidationSeason,SeedAware
-temperature,probability,0.13682575906381794,0.13682575906381797,0.025738355612356555,0.1631475944093492,1,False,,True,0.1516858056051103,True,False,rich_W_2018,hist_classifier,2018,True
-identity,probability,0.13734795171988884,0.13734795171988887,0.032591208804396754,0.16850059339346649,0,False,,False,0.1516858056051103,True,True,rich_W_2018,hist_classifier,2018,True
-beta,probability,0.14247146554111612,0.1424714655411161,0.024171481675799678,0.1700076693598295,3,False,,False,0.1516858056051103,True,False,rich_W_2018,hist_classifier,2018,True
-spline,probability,0.1446836758512233,0.1446836758512233,0.02386570198518274,0.17108433748596327,4,False,,False,0.1516858056051103,True,False,rich_W_2018,hist_classifier,2018,True
-isotonic,probability,0.14468607017480442,0.14468607017480448,0.02211610788595549,0.16975264818271402,5,False,,False,0.1516858056051103,True,False,rich_W_2018,hist_classifier,2018,True
-platt,probability,0.14528543623187956,0.14528543623187956,0.020017328224047976,0.16828118469893083,2,False,,False,0.1516858056051103,True,False,rich_W_2018,hist_classifier,2018,True

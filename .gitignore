@@ -52,3 +52,44 @@ reports/figures/*
 .idea/
 Thumbs.db
 .DS_Store
+
+# Local datasets and generated modeling artifacts
+data/
+models/
+outputs/
+submissions/
+
+# Model and optimization artifacts
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.h5
+*.keras
+*.sqlite
+*.sqlite3
+
+# Secrets and credentials
+.env
+.env.*
+kaggle.json
+credentials.json
+*.key
+*.pem
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Editors and operating-system files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

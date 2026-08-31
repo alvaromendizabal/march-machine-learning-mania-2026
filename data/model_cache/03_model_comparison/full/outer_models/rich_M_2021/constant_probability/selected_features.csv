@@ -1,1 +1,0 @@
-Feature,Block,MissingRate,NonMissingRows,UniqueValues,GlobalCorrelation,MedianAbsoluteSeasonCorrelation,SeasonSignConsistency,SeasonCoverage,SeasonCorrelationIQR,StabilityScore,Mandatory,InPrecorrelationPool,Selected,SelectionRank,ExclusionReason,OuterFoldID,InnerFoldID,Model,SeedAware

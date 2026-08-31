@@ -1,4 +1,0 @@
-Method,RawKind,MacroSeasonBrier,GameWeightedBrier,SeasonBrierStd,WorstSeasonBrier,ComplexityRank,HadFallback,FailureMessage,BestMeanMethod,OneSEThreshold,WithinOneSE,Selected,OuterFoldID,Model,ValidationSeason,SeedAware
-raw_spline,margin,0.1616246178932139,0.1616246178932139,0.02157638638180349,0.1785033467905271,4,False,,True,0.1740817503788875,True,False,rich_Pooled_2017,ridge_margin,2017,True
-raw_platt,margin,0.16192346472827912,0.1619234647282791,0.02204017074908719,0.1792495873528365,2,False,,False,0.1740817503788875,True,True,rich_Pooled_2017,ridge_margin,2017,True
-raw_isotonic,margin,0.16343017378906635,0.16343017378906632,0.02249723415233583,0.18298790098818493,5,False,,False,0.1740817503788875,True,False,rich_Pooled_2017,ridge_margin,2017,True

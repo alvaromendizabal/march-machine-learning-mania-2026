@@ -1,7 +1,0 @@
-Method,RawKind,MacroSeasonBrier,GameWeightedBrier,SeasonBrierStd,WorstSeasonBrier,ComplexityRank,HadFallback,FailureMessage,BestMeanMethod,OneSEThreshold,WithinOneSE,Selected,OuterFoldID,Model,ValidationSeason,SeedAware
-identity,probability,0.15846208135864503,0.15846208135864506,0.02131223063014194,0.17843745995239643,0,False,,True,0.17076670344998887,True,True,rich_Pooled_2018,tensorflow_mlp,2018,True
-beta,probability,0.15987151163390398,0.159871511633904,0.015826968351721718,0.17669140004099054,3,False,,False,0.17076670344998887,True,False,rich_Pooled_2018,tensorflow_mlp,2018,True
-temperature,probability,0.15997519879270902,0.15997519879270902,0.020074488060006723,0.17930491816169408,1,False,,False,0.17076670344998887,True,False,rich_Pooled_2018,tensorflow_mlp,2018,True
-platt,probability,0.16072419745977876,0.16072419745977876,0.015597548297155954,0.17743365245303713,2,False,,False,0.17076670344998887,True,False,rich_Pooled_2018,tensorflow_mlp,2018,True
-spline,probability,0.1609549578868251,0.16095495788682512,0.015731583059907028,0.17686204338802392,4,False,,False,0.17076670344998887,True,False,rich_Pooled_2018,tensorflow_mlp,2018,True
-isotonic,probability,0.1678037554494011,0.16780375544940113,0.01913109926923266,0.18920945571378464,5,False,,False,0.17076670344998887,True,False,rich_Pooled_2018,tensorflow_mlp,2018,True

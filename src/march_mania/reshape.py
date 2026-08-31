@@ -5,7 +5,21 @@ from collections.abc import Mapping
 import numpy as np
 import pandas as pd
 
-BOX_STATS = ["FGM", "FGA", "FGM3", "FGA3", "FTM", "FTA", "OR", "DR", "Ast", "TO", "Stl", "Blk", "PF"]
+BOX_STATS = [
+    "FGM",
+    "FGA",
+    "FGM3",
+    "FGA3",
+    "FTM",
+    "FTA",
+    "OR",
+    "DR",
+    "Ast",
+    "TO",
+    "Stl",
+    "Blk",
+    "PF",
+]
 
 
 def invert_location(values: pd.Series) -> pd.Series:
@@ -48,8 +62,10 @@ def combine_seeds(tables: Mapping[str, pd.DataFrame]) -> pd.DataFrame:
             continue
         frame = tables[name].copy()
         frame.insert(0, "Gender", _gender_from_table_name(name))
-        parsed = frame["Seed"].astype("string").str.extract(
-            r"^(?P<Region>[WXYZ])(?P<SeedNum>\d{2})(?P<PlayIn>[ab]?)$"
+        parsed = (
+            frame["Seed"]
+            .astype("string")
+            .str.extract(r"^(?P<Region>[WXYZ])(?P<SeedNum>\d{2})(?P<PlayIn>[ab]?)$")
         )
         frame["Region"] = parsed["Region"]
         frame["SeedNum"] = pd.to_numeric(parsed["SeedNum"], errors="coerce").astype("Int64")
@@ -119,7 +135,9 @@ def canonicalize_compact_results(tables: Mapping[str, pd.DataFrame]) -> pd.DataF
         )
         frames.append(out)
     result = pd.concat(frames, ignore_index=True, sort=False)
-    return result.sort_values(["Gender", "Season", "DayNum", "Team1ID", "Team2ID"]).reset_index(drop=True)
+    return result.sort_values(["Gender", "Season", "DayNum", "Team1ID", "Team2ID"]).reset_index(
+        drop=True
+    )
 
 
 def detailed_results_to_team_long(tables: Mapping[str, pd.DataFrame]) -> pd.DataFrame:
@@ -184,7 +202,9 @@ def detailed_results_to_team_long(tables: Mapping[str, pd.DataFrame]) -> pd.Data
 
     result = pd.concat(frames, ignore_index=True, sort=False)
     result["Margin"] = result["TeamScore"] - result["OppScore"]
-    return result.sort_values(["Gender", "Season", "DayNum", "GameKey", "TeamID"]).reset_index(drop=True)
+    return result.sort_values(["Gender", "Season", "DayNum", "GameKey", "TeamID"]).reset_index(
+        drop=True
+    )
 
 
 def parse_submission_tables(tables: Mapping[str, pd.DataFrame]) -> pd.DataFrame:

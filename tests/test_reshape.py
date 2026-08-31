@@ -40,9 +40,19 @@ def test_detailed_creates_two_rows_per_game():
         "NumOT": 0,
     }
     for stat, w_value, l_value in [
-        ("FGM", 30, 25), ("FGA", 60, 58), ("FGM3", 8, 7), ("FGA3", 20, 18),
-        ("FTM", 12, 13), ("FTA", 16, 18), ("OR", 8, 7), ("DR", 25, 23),
-        ("Ast", 18, 15), ("TO", 10, 12), ("Stl", 7, 5), ("Blk", 4, 3), ("PF", 17, 19),
+        ("FGM", 30, 25),
+        ("FGA", 60, 58),
+        ("FGM3", 8, 7),
+        ("FGA3", 20, 18),
+        ("FTM", 12, 13),
+        ("FTA", 16, 18),
+        ("OR", 8, 7),
+        ("DR", 25, 23),
+        ("Ast", 18, 15),
+        ("TO", 10, 12),
+        ("Stl", 7, 5),
+        ("Blk", 4, 3),
+        ("PF", 17, 19),
     ]:
         row[f"W{stat}"] = w_value
         row[f"L{stat}"] = l_value

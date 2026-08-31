@@ -26,10 +26,9 @@ import csv
 import json
 import re
 import subprocess
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Iterable
-
 
 CANONICAL_NOTEBOOKS = [
     "00_data_audit_and_preparation.ipynb",
@@ -175,9 +174,7 @@ def replace_text_safely(path: Path) -> tuple[bool, int]:
         "research-grade",
         updated,
     )
-    filename_reference_replacements = int(
-        original.count(OLD_NOTEBOOK_02)
-    )
+    filename_reference_replacements = int(original.count(OLD_NOTEBOOK_02))
 
     if updated == original:
         return False, 0
@@ -194,17 +191,12 @@ def rename_notebook_02(root: Path, git_repo: bool) -> str:
     destination = notebooks / NEW_NOTEBOOK_02
 
     if destination.exists() and source.exists():
-        return (
-            "Both old and new notebook-02 filenames exist; "
-            "no automatic rename was attempted."
-        )
+        return "Both old and new notebook-02 filenames exist; no automatic rename was attempted."
     if destination.exists():
         return "Canonical notebook-02 filename already exists."
     if not source.exists():
         alternate_candidates = sorted(
-            path
-            for path in notebooks.glob("02*.ipynb")
-            if PROMOTIONAL_PATTERN.search(path.name)
+            path for path in notebooks.glob("02*.ipynb") if PROMOTIONAL_PATTERN.search(path.name)
         )
         if len(alternate_candidates) != 1:
             return (
@@ -235,11 +227,7 @@ def tracked_files(root: Path, git_repo: bool) -> list[str]:
     result = run_git(root, ["ls-files", "-z"])
     if result.returncode != 0:
         return []
-    return [
-        item.replace("\\", "/")
-        for item in result.stdout.split("\0")
-        if item
-    ]
+    return [item.replace("\\", "/") for item in result.stdout.split("\0") if item]
 
 
 def phrase_matches(root: Path) -> list[str]:
@@ -249,9 +237,7 @@ def phrase_matches(root: Path) -> list[str]:
             text = path.read_text(encoding="utf-8")
         except UnicodeDecodeError:
             continue
-        if PROMOTIONAL_PATTERN.search(text) or PROMOTIONAL_PATTERN.search(
-            path.name
-        ):
+        if PROMOTIONAL_PATTERN.search(text) or PROMOTIONAL_PATTERN.search(path.name):
             matches.append(str(path.relative_to(root)))
     return sorted(set(matches))
 
@@ -360,8 +346,7 @@ def audit_repository(root: Path) -> list[AuditRecord]:
         relative
         for relative in tracked
         if relative.startswith(FORBIDDEN_TRACKED_PREFIXES)
-        or Path(relative).name.lower()
-        in {name.lower() for name in FORBIDDEN_TRACKED_BASENAMES}
+        or Path(relative).name.lower() in {name.lower() for name in FORBIDDEN_TRACKED_BASENAMES}
     )
     records.append(
         AuditRecord(
@@ -373,10 +358,7 @@ def audit_repository(root: Path) -> list[AuditRecord]:
         )
     )
 
-    checkpoints = sorted(
-        str(path.relative_to(root))
-        for path in root.rglob(".ipynb_checkpoints")
-    )
+    checkpoints = sorted(str(path.relative_to(root)) for path in root.rglob(".ipynb_checkpoints"))
     records.append(
         AuditRecord(
             "git_hygiene",
@@ -399,34 +381,21 @@ def audit_repository(root: Path) -> list[AuditRecord]:
     )
 
     tests_directory = root / "tests"
-    test_files = (
-        list(tests_directory.rglob("test_*.py"))
-        if tests_directory.exists()
-        else []
-    )
+    test_files = list(tests_directory.rglob("test_*.py")) if tests_directory.exists() else []
     records.append(
         AuditRecord(
             "testing",
             "Automated tests are present",
             "PASS" if test_files else "FAIL",
-            json.dumps(
-                [str(path.relative_to(root)) for path in test_files]
-            ),
+            json.dumps([str(path.relative_to(root)) for path in test_files]),
             True,
         )
     )
 
-    final_readiness = (
-        root
-        / "reports"
-        / "final_2026"
-        / "04_readiness_summary.json"
-    )
+    final_readiness = root / "reports" / "final_2026" / "04_readiness_summary.json"
     if final_readiness.exists():
         try:
-            readiness = json.loads(
-                final_readiness.read_text(encoding="utf-8")
-            )
+            readiness = json.loads(final_readiness.read_text(encoding="utf-8"))
             final_ok = (
                 readiness.get("status") == "complete"
                 and int(
@@ -440,15 +409,9 @@ def audit_repository(root: Path) -> list[AuditRecord]:
             details = json.dumps(
                 {
                     "status": readiness.get("status"),
-                    "blocking_final_check_failures":
-                        readiness.get(
-                            "blocking_final_check_failures"
-                        ),
+                    "blocking_final_check_failures": readiness.get("blocking_final_check_failures"),
                     "stage2_rows": readiness.get("stage2_rows"),
-                    "bracket_reporting_completed":
-                        readiness.get(
-                            "bracket_reporting_completed"
-                        ),
+                    "bracket_reporting_completed": readiness.get("bracket_reporting_completed"),
                 }
             )
         except Exception as exc:
@@ -472,9 +435,7 @@ def audit_repository(root: Path) -> list[AuditRecord]:
 
 
 def write_reports(root: Path, records: list[AuditRecord]) -> None:
-    report_directory = (
-        root / "reports" / "repository_release"
-    )
+    report_directory = root / "reports" / "repository_release"
     report_directory.mkdir(parents=True, exist_ok=True)
 
     table = [asdict(record) for record in records]
@@ -502,22 +463,13 @@ def write_reports(root: Path, records: list[AuditRecord]) -> None:
     summary = {
         "status": (
             "PASS"
-            if not any(
-                record.blocking and record.status == "FAIL"
-                for record in records
-            )
+            if not any(record.blocking and record.status == "FAIL" for record in records)
             else "FAIL"
         ),
         "blocking_failures": [
-            record.check
-            for record in records
-            if record.blocking and record.status == "FAIL"
+            record.check for record in records if record.blocking and record.status == "FAIL"
         ],
-        "warnings": [
-            record.check
-            for record in records
-            if record.status == "WARN"
-        ],
+        "warnings": [record.check for record in records if record.status == "WARN"],
         "records": table,
     }
     json_path.write_text(
@@ -567,16 +519,10 @@ def main() -> int:
     write_reports(root, records)
 
     for record in records:
-        print(
-            f"{record.status:4} | "
-            f"{record.category:18} | "
-            f"{record.check}"
-        )
+        print(f"{record.status:4} | {record.category:18} | {record.check}")
 
     blocking_failures = [
-        record
-        for record in records
-        if record.blocking and record.status == "FAIL"
+        record for record in records if record.blocking and record.status == "FAIL"
     ]
     print()
     print(

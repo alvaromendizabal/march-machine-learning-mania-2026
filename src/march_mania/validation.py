@@ -55,9 +55,24 @@ def run_raw_data_audit(
     if "MTeams" in tables and "WTeams" in tables:
         men = set(tables["MTeams"]["TeamID"])
         women = set(tables["WTeams"]["TeamID"])
-        record("Men/women TeamIDs do not overlap", men.isdisjoint(women), "ERROR", f"Overlap count: {len(men & women)}")
-        record("Men TeamIDs are below 3000", all(team < 3000 for team in men), "ERROR", f"Teams checked: {len(men)}")
-        record("Women TeamIDs are at least 3000", all(team >= 3000 for team in women), "ERROR", f"Teams checked: {len(women)}")
+        record(
+            "Men/women TeamIDs do not overlap",
+            men.isdisjoint(women),
+            "ERROR",
+            f"Overlap count: {len(men & women)}",
+        )
+        record(
+            "Men TeamIDs are below 3000",
+            all(team < 3000 for team in men),
+            "ERROR",
+            f"Teams checked: {len(men)}",
+        )
+        record(
+            "Women TeamIDs are at least 3000",
+            all(team >= 3000 for team in women),
+            "ERROR",
+            f"Teams checked: {len(women)}",
+        )
 
     for name in RESULT_TABLES:
         if name not in tables:
@@ -65,15 +80,35 @@ def run_raw_data_audit(
         df = tables[name]
         keys = ["Season", "DayNum", "WTeamID", "LTeamID"]
         duplicate_count = int(df.duplicated(keys).sum())
-        record(f"{name}: unique game keys", duplicate_count == 0, "ERROR", f"Duplicate rows: {duplicate_count}")
+        record(
+            f"{name}: unique game keys",
+            duplicate_count == 0,
+            "ERROR",
+            f"Duplicate rows: {duplicate_count}",
+        )
         same_team_count = int((df["WTeamID"] == df["LTeamID"]).sum())
-        record(f"{name}: teams differ", same_team_count == 0, "ERROR", f"Invalid rows: {same_team_count}")
+        record(
+            f"{name}: teams differ",
+            same_team_count == 0,
+            "ERROR",
+            f"Invalid rows: {same_team_count}",
+        )
         score_order_count = int((df["WScore"] <= df["LScore"]).sum())
-        record(f"{name}: winner score exceeds loser score", score_order_count == 0, "ERROR", f"Invalid rows: {score_order_count}")
+        record(
+            f"{name}: winner score exceeds loser score",
+            score_order_count == 0,
+            "ERROR",
+            f"Invalid rows: {score_order_count}",
+        )
 
         if "RegularSeason" in name:
             bad_day = int((df["DayNum"] > 132).sum())
-            record(f"{name}: regular-season DayNum <= 132", bad_day == 0, "ERROR", f"Rows above 132: {bad_day}")
+            record(
+                f"{name}: regular-season DayNum <= 132",
+                bad_day == 0,
+                "ERROR",
+                f"Rows above 132: {bad_day}",
+            )
 
         if "NCAATourney" in name:
             target_rows = int((df["Season"] == target_season).sum())
@@ -81,7 +116,11 @@ def run_raw_data_audit(
                 f"{name}: target-season outcomes excluded from modeling inputs",
                 target_rows == 0,
                 "WARNING",
-                f"Rows for {target_season}: {target_rows}. Never use these as features or training labels when replaying the {target_season} forecast.",
+                (
+                    f"Rows for {target_season}: {target_rows}. Never use these as "
+                    "features or training labels when replaying the "
+                    f"{target_season} forecast."
+                ),
             )
 
         if "Detailed" in name:
@@ -89,12 +128,22 @@ def run_raw_data_audit(
             for prefix in ("W", "L"):
                 for made, attempted in (("FGM", "FGA"), ("FGM3", "FGA3"), ("FTM", "FTA")):
                     bad_attempts += int((df[f"{prefix}{made}"] > df[f"{prefix}{attempted}"]).sum())
-            record(f"{name}: made shots do not exceed attempts", bad_attempts == 0, "ERROR", f"Violations: {bad_attempts}")
+            record(
+                f"{name}: made shots do not exceed attempts",
+                bad_attempts == 0,
+                "ERROR",
+                f"Violations: {bad_attempts}",
+            )
 
             w_rebuilt = 2 * df["WFGM"] + df["WFGM3"] + df["WFTM"]
             l_rebuilt = 2 * df["LFGM"] + df["LFGM3"] + df["LFTM"]
             point_mismatch = int(((w_rebuilt != df["WScore"]) | (l_rebuilt != df["LScore"])).sum())
-            record(f"{name}: box-score points reconcile", point_mismatch == 0, "WARNING", f"Rows with mismatch: {point_mismatch}")
+            record(
+                f"{name}: box-score points reconcile",
+                point_mismatch == 0,
+                "WARNING",
+                f"Rows with mismatch: {point_mismatch}",
+            )
 
             # Audit signal only; do not automatically remove flagged games.
             w_poss = df["WFGA"] - df["WOR"] + df["WTO"] + 0.475 * df["WFTA"]
@@ -105,7 +154,10 @@ def run_raw_data_audit(
                 f"{name}: estimated possession gap audit",
                 suspicious == 0,
                 "WARNING",
-                f"Rows with absolute gap > 7: {suspicious}; inspect rather than dropping automatically.",
+                (
+                    f"Rows with absolute gap > 7: {suspicious}; "
+                    "inspect rather than dropping automatically."
+                ),
             )
 
     for gender in ("M", "W"):
@@ -116,8 +168,12 @@ def run_raw_data_audit(
         compact = tables[compact_name]
         detailed = tables[detailed_name]
         start = 2003 if gender == "M" else 2010
-        compact_keys = compact.loc[compact["Season"] >= start, ["Season", "DayNum", "WTeamID", "LTeamID"]]
-        detailed_keys = detailed.loc[detailed["Season"] >= start, ["Season", "DayNum", "WTeamID", "LTeamID"]]
+        compact_keys = compact.loc[
+            compact["Season"] >= start, ["Season", "DayNum", "WTeamID", "LTeamID"]
+        ]
+        detailed_keys = detailed.loc[
+            detailed["Season"] >= start, ["Season", "DayNum", "WTeamID", "LTeamID"]
+        ]
         merged = compact_keys.merge(detailed_keys.drop_duplicates(), how="left", indicator=True)
         missing_detail = int((merged["_merge"] == "left_only").sum())
         severity = "WARNING" if gender == "W" else "ERROR"
@@ -140,7 +196,17 @@ def run_raw_data_audit(
             t2 = pd.to_numeric(parts[2], errors="coerce")
             bad_order = int((t1 >= t2).sum())
             mixed_gender = int((((t1 < 3000) & (t2 >= 3000)) | ((t1 >= 3000) & (t2 < 3000))).sum())
-            record(f"{name}: lower TeamID is first", bad_order == 0, "ERROR", f"Violations: {bad_order}")
-            record(f"{name}: matchups do not mix genders", mixed_gender == 0, "ERROR", f"Violations: {mixed_gender}")
+            record(
+                f"{name}: lower TeamID is first",
+                bad_order == 0,
+                "ERROR",
+                f"Violations: {bad_order}",
+            )
+            record(
+                f"{name}: matchups do not mix genders",
+                mixed_gender == 0,
+                "ERROR",
+                f"Violations: {mixed_gender}",
+            )
 
     return pd.DataFrame(records)

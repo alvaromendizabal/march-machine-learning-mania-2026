@@ -1,7 +1,0 @@
-Method,RawKind,MacroSeasonBrier,GameWeightedBrier,SeasonBrierStd,WorstSeasonBrier,ComplexityRank,HadFallback,FailureMessage,BestMeanMethod,OneSEThreshold,WithinOneSE,Selected,OuterFoldID,Model,ValidationSeason,SeedAware
-identity,probability,0.16049148063931892,0.16049148063931892,0.015927062347494195,0.17186327651430078,0,False,,True,0.16968697437304464,True,True,rich_Pooled_2017,lgb_classifier,2017,True
-temperature,probability,0.16120140878782693,0.1612014087878269,0.015878476149325974,0.17256350605153678,1,False,,False,0.16968697437304464,True,False,rich_Pooled_2017,lgb_classifier,2017,True
-platt,probability,0.16467798950205761,0.16467798950205761,0.019474493009273144,0.17663305692437511,2,False,,False,0.16968697437304464,True,False,rich_Pooled_2017,lgb_classifier,2017,True
-beta,probability,0.16491280681182732,0.16491280681182732,0.018540361679651392,0.1768885587989395,3,False,,False,0.16968697437304464,True,False,rich_Pooled_2017,lgb_classifier,2017,True
-spline,probability,0.16542357691972723,0.16542357691972726,0.019976985437848815,0.17707245379422634,4,False,,False,0.16968697437304464,True,False,rich_Pooled_2017,lgb_classifier,2017,True
-isotonic,probability,0.17219123421253268,0.17219123421253268,0.019025498503611765,0.1835471040141223,5,False,,False,0.16968697437304464,False,False,rich_Pooled_2017,lgb_classifier,2017,True
