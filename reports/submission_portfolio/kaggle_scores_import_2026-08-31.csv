@@ -1,0 +1,16 @@
+Candidate,KaggleBrier,ObservedAtUTC,Notes
+challenger_temperature_m_0p80_w_1p20,0.1285329,2026-08-31T00:00:00Z,Candidate 05; best observed score in the screenshot.
+challenger,0.1299012,2026-08-31T00:00:00Z,Original challenger submission.
+challenger_shrink_m_0p90_w_1p00,0.1302315,2026-08-31T00:00:00Z,Candidate 06.
+mprimary_wchallenger_temperature_m_1p10_w_1p10,0.1308119,2026-08-31T00:00:00Z,Candidate 10.
+mprimary_wchallenger_temperature_m_1p00_w_1p10,0.1308516,2026-08-31T00:00:00Z,Candidate 07.
+mprimary_wchallenger_temperature_m_0p90_w_1p10,0.1312028,2026-08-31T00:00:00Z,Candidate 03.
+blend_mprimary_090_wprimary_005,0.1313161,2026-08-31T00:00:00Z,Candidate 12.
+m_primary_w_challenger,0.1316817,2026-08-31T00:00:00Z,Candidate 01: men's primary plus women's challenger.
+development_blend,0.1318165,2026-08-31T00:00:00Z,Original development-frozen blend submission.
+blend_mprimary_100_wprimary_005,0.1318634,2026-08-31T00:00:00Z,Candidate 04.
+mprimary_wchallenger_temperature_m_0p90_w_1p00,0.1320329,2026-08-31T00:00:00Z,Candidate 08.
+blend_mprimary_100_wprimary_015,0.1323341,2026-08-31T00:00:00Z,Candidate 09.
+blend_mprimary_100_wprimary_025,0.1329478,2026-08-31T00:00:00Z,Candidate 11.
+m_challenger_w_primary,0.1403312,2026-08-31T00:00:00Z,Candidate 02: men's challenger plus women's primary.
+primary,0.1421117,2026-08-31T00:00:00Z,Original primary submission.
