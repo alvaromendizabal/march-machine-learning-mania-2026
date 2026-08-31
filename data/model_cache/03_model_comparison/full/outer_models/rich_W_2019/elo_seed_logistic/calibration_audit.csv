@@ -1,0 +1,7 @@
+Method,RawKind,MacroSeasonBrier,GameWeightedBrier,SeasonBrierStd,WorstSeasonBrier,ComplexityRank,HadFallback,FailureMessage,BestMeanMethod,OneSEThreshold,WithinOneSE,Selected,OuterFoldID,Model,ValidationSeason,SeedAware
+identity,probability,0.16173753601788718,0.16173753601788715,0.01847288406948744,0.1767324328543609,0,False,,True,0.1724028606081145,True,True,rich_W_2019,elo_seed_logistic,2019,True
+temperature,probability,0.16240521295208957,0.1624052129520896,0.014128407443929545,0.1748560449328218,1,False,,False,0.1724028606081145,True,False,rich_W_2019,elo_seed_logistic,2019,True
+platt,probability,0.16725250258617744,0.16725250258617747,0.020506964038723118,0.1795717480000278,2,False,,False,0.1724028606081145,True,False,rich_W_2019,elo_seed_logistic,2019,True
+beta,probability,0.16916426793322345,0.1691642679332235,0.022127008113505996,0.1853186824138315,3,False,,False,0.1724028606081145,True,False,rich_W_2019,elo_seed_logistic,2019,True
+spline,probability,0.17528284817160375,0.1752828481716037,0.022064862506798105,0.19273231136317082,4,False,,False,0.1724028606081145,False,False,rich_W_2019,elo_seed_logistic,2019,True
+isotonic,probability,0.19323397644574972,0.19323397644574977,0.012990481793359062,0.20561045407487855,5,False,,False,0.1724028606081145,False,False,rich_W_2019,elo_seed_logistic,2019,True

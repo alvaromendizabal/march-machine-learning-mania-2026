@@ -1,0 +1,11 @@
+Check,Passed,Details
+all 180 core model tasks remain complete,True,expected=180; completed=180; failed=0
+no model/ensemble/ablation failures registered,True,registered=0
+requested separate and pooled framework coverage remains complete,True,"[{""Gender"":""M"",""Architecture"":""separate_gender"",""Complete"":true,""MissingModels"":[]},{""Gender"":""M"",""Architecture"":""pooled_common"",""Complete"":true,""MissingModels"":[]},{""Gender"":""W"",""Architecture"":""separate_gender"",""Complete"":true,""MissingModels"":[]},{""Gender"":""W"",""Architecture"":""pooled_common"",""Complete"":true,""MissingModels"":[]}]"
+complete metric suite is finite,True,missing_before=0; missing_after=0
+TensorFlow interpretation repaired for men and women,True,"[{""Gender"": ""M"", ""Architecture"": ""pooled_common"", ""Model"": ""tensorflow_mlp"", ""ValidationSeason"": 2021, ""RowsExplained"": 66, ""SelectedFeatures"": 72, ""AttributionMethod"": ""tensorflow_integrated_gradients"", ""AttributionCompletenessMAE"": 0.03053588978946209, ""TopAttributionFeature"": ""context__season_centered_2000"", ""TopPermutationFeature"": ""seedprior__favorite_seed_games"", ""Status"": ""complete"", ""Error"": null}, {""Gender"": ""W"", ""Architecture"": ""separate_gender"", ""Model"": ""tensorflow_mlp"", ""ValidationSeason"": 2021, ""RowsExplained"": 63, ""SelectedFeatures"": 52, ""AttributionMethod"": ""tensorflow_integrated_gradients"", ""AttributionCompletenessMAE"": 0.047100979834795, ""TopAttributionFeature"": ""diff__compact__rest_days_mean"", ""TopPermutationFeature"": ""diff__norm__schedule__opponent_strength_mean__pct"", ""Status"": ""complete"", ""Error"": null}]"
+all requested interpretation pairs are complete,True,expected=10; completed=10
+locked benchmark remains absent,True,"locked=[2022, 2023, 2024, 2025]"
+Stage 2 remains unloaded,True,model selection state only
+feature ablation output remains available,True,rows=40
+interactive report files still exist,True,reports=21

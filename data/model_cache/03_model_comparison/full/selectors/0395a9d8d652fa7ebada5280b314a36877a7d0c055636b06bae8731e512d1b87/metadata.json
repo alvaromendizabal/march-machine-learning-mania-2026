@@ -1,0 +1,79 @@
+{
+  "payload": {
+    "selection_key": "rich_M_2016__ablation__seed_only__xgb_classifier",
+    "target_column": "Team1Win",
+    "family": "tree",
+    "pooled": false,
+    "training_seasons": [
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015
+    ],
+    "training_rows": 847,
+    "candidate_hash": "fc9ca009834262711a62e9f552ce278df14ec62c91e2c754c32d513e92a717ee",
+    "mode_caps": {
+      "linear": 60,
+      "tree": 120,
+      "neural": 72,
+      "margin": 100,
+      "pool": 240
+    },
+    "contracts": {
+      "split": "84d6ab4fc44e59286e1a8bad08df1b89d5881c7be88055c716665d0c29e1937b",
+      "feature": "4827ee3f980360d679466b754a283164cf55d32f3839aaf669baf3364f96aa21",
+      "model": "9be79f1ff1b575bf1c9c7f623e6aa9e07099e23579b145b9295720421bcc1c60",
+      "historical_store": "93dc3472ee3d47eb64604dddcdde884d8392adc415c4e5f314ee1f6ad4a36711"
+    }
+  },
+  "selected_features": [
+    "seedprior__team1_prob_pc2p0",
+    "seedprior__favorite_seed_games",
+    "seedprior__pooled_pair_games",
+    "seedprior__exact_pair_games",
+    "seedprior__effective_games_pc2p0",
+    "seedprior__generic_gender_games",
+    "seedprior__favorite_prob_pc2p0",
+    "diff__seed__number",
+    "diff__seed__top4",
+    "diff__seed__top8",
+    "diff__seed__playin",
+    "absdiff__seed__number",
+    "seedprior__pooled_gap_games",
+    "seedprior__gap_games",
+    "seedprior__history_games"
+  ],
+  "effective_cap": 105,
+  "precorrelation_pool": [
+    "seedprior__team1_prob_pc2p0",
+    "seedprior__team1_prob_pc8p0",
+    "seedprior__favorite_seed_games",
+    "seedprior__pooled_pair_games",
+    "seedprior__exact_pair_games",
+    "seedprior__effective_games_pc2p0",
+    "seedprior__effective_games_pc8p0",
+    "seedprior__generic_gender_games",
+    "seedprior__favorite_prob_pc2p0",
+    "seedprior__favorite_prob_pc8p0",
+    "diff__seed__number",
+    "diff__seed__strength",
+    "diff__seed__top4",
+    "diff__seed__top8",
+    "diff__seed__playin",
+    "absdiff__seed__number",
+    "seedprior__pooled_gap_games",
+    "seedprior__gap_games",
+    "seedprior__history_games"
+  ],
+  "mandatory_features": [],
+  "selector_hash": "176320a8ab0a230b02401b9c57eb6255d15cf3eb512a308071a29a06c713d394"
+}

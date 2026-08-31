@@ -1,0 +1,161 @@
+model_contract_version: 4
+source_split_contract_sha256: 84d6ab4fc44e59286e1a8bad08df1b89d5881c7be88055c716665d0c29e1937b
+source_feature_contract_sha256: 4827ee3f980360d679466b754a283164cf55d32f3839aaf669baf3364f96aa21
+target_season: 2026
+development_last_season: 2021
+locked_benchmark_seasons:
+- 2022
+- 2023
+- 2024
+- 2025
+matched_outer_validation_seasons:
+- 2016
+- 2017
+- 2018
+- 2019
+- 2021
+primary_selection_metric: macro_mean_season_brier
+winner_reporting:
+  lowest_score_winner: minimum macro mean season Brier
+  recommended_winner: lowest complexity within one standard error of the minimum
+  classification_threshold: 0.5
+secondary_metrics:
+- game_weighted_brier
+- log_loss
+- roc_auc
+- average_precision
+- pr_auc
+- accuracy
+- balanced_accuracy
+- precision
+- recall
+- f1
+- matthews_correlation
+- calibration_intercept
+- calibration_slope
+- expected_calibration_error
+architectures:
+  separate:
+  - men
+  - women
+  pooled:
+  - pooled_common
+  prediction_level_challengers:
+  - partial_pooling
+  - constrained_cross_family_ensemble
+targets:
+  classification: Team1Win
+  margin_regression: Team1Margin
+feature_selection:
+  fit_scope: inner_or_outer_training_rows_only
+  missingness_max: 0.45
+  minimum_nonmissing_rows: 40
+  near_zero_variance_tolerance: 1.0e-10
+  correlation_prune_threshold: 0.985
+  linear_feature_cap: 60
+  tree_feature_cap: 120
+  neural_feature_cap: 72
+  margin_feature_cap: 100
+  row_adaptive_linear_divisor: 14
+  row_adaptive_tree_divisor: 8
+  row_adaptive_neural_divisor: 12
+  row_adaptive_margin_divisor: 9
+  block_balancing: true
+  mandatory_core_signals:
+  - seed difference
+  - margin-aware Elo
+  - robust scoring margin
+  - schedule strength
+  - adjusted net efficiency
+  - Massey consensus when legally available
+  - gender context for pooled models
+model_families:
+- constant_probability
+- seed_logistic
+- elo_seed_logistic
+- elastic_net_logistic
+- histogram_gradient_boosting
+- xgboost_classifier
+- lightgbm_classifier
+- pytorch_mlp
+- tensorflow_mlp
+- ridge_margin
+- xgboost_margin
+- lightgbm_margin
+optimization:
+  sampler: independent_tpe
+  experimental_sampler_options: false
+  parallel_trials: false
+  persistent_sqlite_studies: true
+boosting_rules:
+  outer_validation_never_used_for_early_stopping: true
+  outer_round_count: median inner-fold best iteration
+  xgboost_tree_method: hist
+  xgboost_device: cpu
+  lightgbm_deterministic: true
+  lightgbm_force_col_wise: true
+  maximum_threads: 4
+neural_rules:
+  outer_validation_never_used_for_epoch_selection: true
+  outer_epoch_count: median inner-fold best epoch
+  frameworks:
+  - pytorch
+  - tensorflow
+  matched_architecture: true
+  deterministic_seeds: true
+  maximum_threads: 4
+  tensorflow_prediction_path: direct_eager_model_call
+  tensorflow_session_cleanup: tf.keras.utils.clear_session
+calibration:
+  fit_source: inner_oof_predictions_only
+  probability_methods:
+  - identity
+  - temperature
+  - platt
+  - beta
+  - spline
+  - isotonic
+  margin_methods:
+  - raw_platt
+  - raw_spline
+  - raw_isotonic
+  selection: cross_fitted_by_inner_validation_season_one_se_rule
+ablation:
+  reference_models:
+  - elastic_logistic
+  - xgb_classifier
+  method: forward feature-block ladder under identical outer folds
+  selection_use: diagnostic; no locked-benchmark influence
+ensemble:
+  weights: nonnegative_simplex
+  objective: macro_season_brier_plus_l2_penalty
+  maximum_members: 6
+  redundancy_correlation_threshold: 0.995
+  partial_pooling: gender_specific_prequential_blend
+resource_policy:
+  checkpoint_checked_before_memory_gate: true
+  memory_pressure_is_not_model_failure: true
+  hard_headroom_gb_by_model:
+    constant_probability: 0.1
+    seed_logistic: 0.2
+    elo_seed_logistic: 0.2
+    elastic_logistic: 0.3
+    ridge_margin: 0.3
+    hist_classifier: 0.4
+    xgb_classifier: 0.45
+    xgb_margin: 0.45
+    lgb_classifier: 0.45
+    lgb_margin: 0.45
+    torch_mlp: 0.55
+    tensorflow_mlp: 0.6
+  absolute_emergency_floor_gb: 0.25
+  soft_warning_floor_gb: 1.0
+  minimum_virtual_memory_headroom_gb: 0.5
+  windows_working_set_trim_under_pressure: true
+  model_execution: sequential
+  checkpoint_resume: true
+benchmark_boundary:
+  locked_labels_loaded_here: false
+  locked_evaluation_begins_in_replacement_notebook_04: true
+run_profile: full
+model_contract_sha256: 9be79f1ff1b575bf1c9c7f623e6aa9e07099e23579b145b9295720421bcc1c60

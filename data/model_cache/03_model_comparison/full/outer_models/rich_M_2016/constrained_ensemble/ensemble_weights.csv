@@ -1,0 +1,7 @@
+OuterFoldID,Model,Weight,ValidationSeason,Architecture,Universe,Gender,MacroSeasonBrier,KeptForWeightOptimization
+rich_M_2016,torch_mlp,0.3676260629100517,2016,separate_gender,rich,M,0.1868076535177742,True
+rich_M_2016,xgb_classifier,0.22963023205202518,2016,separate_gender,rich,M,0.1880785189191105,True
+rich_M_2016,lgb_classifier,0.20449149048589005,2016,separate_gender,rich,M,0.18840485505845736,True
+rich_M_2016,tensorflow_mlp,0.19825221455203293,2016,separate_gender,rich,M,0.1884762612464714,True
+rich_M_2016,elastic_logistic,1.4806325823790763e-16,2016,separate_gender,rich,M,0.19261093952951694,True
+rich_M_2016,xgb_margin,0.0,2016,separate_gender,rich,M,0.19556172778333614,True

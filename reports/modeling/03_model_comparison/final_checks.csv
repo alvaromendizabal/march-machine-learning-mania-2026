@@ -1,0 +1,19 @@
+Check,Passed,Blocking,Details
+development rows only,True,True,"rows=3,766"
+locked seasons absent from all model-selection rows,True,True,"locked=[2022, 2023, 2024, 2025]"
+Stage 2 matrix was not loaded,True,True,Stage 2 remains on disk: C:\Users\alvaro\ML\march-mania-2026\data\processed\stage2_matchup_feature_store_v1.parquet
+matched outer seasons preserved,True,True,"[2016, 2017, 2018, 2019, 2021]"
+all planned core model tasks completed,True,True,expected=180; completed=180; failed=0
+"no registered model, ensemble, or ablation failures",True,True,registered_failures=0
+all requested frameworks completed in separate and pooled architectures,True,True,"[{""Gender"":""M"",""Architecture"":""separate_gender"",""Complete"":true,""MissingModels"":[]},{""Gender"":""M"",""Architecture"":""pooled_common"",""Complete"":true,""MissingModels"":[]},{""Gender"":""W"",""Architecture"":""separate_gender"",""Complete"":true,""MissingModels"":[]},{""Gender"":""W"",""Architecture"":""pooled_common"",""Complete"":true,""MissingModels"":[]}]"
+complete finite probability and classification metric suite,True,True,"metrics=['AUCPR', 'Accuracy', 'AveragePrecision', 'BalancedAccuracy', 'CalibrationIntercept', 'CalibrationSlope', 'ECE', 'F1', 'GameWeightedBrier', 'LogLoss', 'MCC', 'MacroSeasonBrier', 'Precision', 'ROCAUC', 'Recall']; nonfinite_values=0"
+OOF probabilities are finite and bounded,True,True,"rows=17,523"
+OOF prediction keys are unique within model streams,True,True,OuterFoldID + Architecture + Model + TargetKey
+model-family feature caps respected,True,True,"{""elastic_logistic"": 60, ""xgb_classifier"": 120, ""lgb_classifier"": 120, ""torch_mlp"": 72, ""tensorflow_mlp"": 72, ""ridge_margin"": 100, ""xgb_margin"": 100, ""lgb_margin"": 100}"
+ensemble weights are nonnegative,True,True,minimum=0.00000000
+ensemble weights sum to one,True,True,min=1.00000000; max=1.00000000
+feature ablation completed,True,True,rows=40
+interpretation completed for every requested framework and tournament,True,True,expected=10; completed=10
+interactive Plotly reports created,True,True,reports=21; missing=[]
+source feature store integrity preserved,True,True,feature_checks=17; symmetry_checks=1056
+winner summary contains both tournaments,True,True,"[""M"", ""W""]"

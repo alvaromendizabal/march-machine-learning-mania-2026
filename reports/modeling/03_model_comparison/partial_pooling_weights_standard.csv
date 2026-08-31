@@ -1,0 +1,11 @@
+Gender,ValidationSeason,SeparateWeight,PooledWeight,WeightSource,PriorSeasons,PriorRows
+M,2016,0.75,0.25,preregistered_cold_start,[],0
+M,2017,0.75,0.25,preregistered_cold_start,[2016],67
+M,2018,0.5659245935862985,0.43407540641370146,prior_aligned_outer_oof,"[2016, 2017]",134
+M,2019,0.4400855073912751,0.559914492608725,prior_aligned_outer_oof,"[2016, 2017, 2018]",201
+M,2021,0.3063308722930467,0.6936691277069533,prior_aligned_outer_oof,"[2016, 2017, 2018, 2019]",268
+W,2016,0.75,0.25,preregistered_cold_start,[],0
+W,2017,0.75,0.25,preregistered_cold_start,[2016],63
+W,2018,0.09165603872242054,0.9083439612775794,prior_aligned_outer_oof,"[2016, 2017]",126
+W,2019,0.21576407696100328,0.7842359230389967,prior_aligned_outer_oof,"[2016, 2017, 2018]",189
+W,2021,0.33463264926962594,0.6653673507303741,prior_aligned_outer_oof,"[2016, 2017, 2018, 2019]",252

@@ -1,0 +1,14 @@
+{
+  "Gender": "M",
+  "Architecture": "pooled_common",
+  "Model": "tensorflow_mlp",
+  "ValidationSeason": 2021,
+  "RowsExplained": 66,
+  "SelectedFeatures": 72,
+  "AttributionMethod": "tensorflow_integrated_gradients",
+  "AttributionCompletenessMAE": 0.03053588978946209,
+  "TopAttributionFeature": "context__season_centered_2000",
+  "TopPermutationFeature": "seedprior__favorite_seed_games",
+  "Status": "complete",
+  "Error": null
+}

@@ -1,0 +1,2 @@
+Method,RawKind,MacroSeasonBrier,ComplexityRank,Selected,OuterFoldID,Model,ValidationSeason,SeedAware
+identity,probability,0.25,0,True,rich_M_2019,constant_probability,2019,True

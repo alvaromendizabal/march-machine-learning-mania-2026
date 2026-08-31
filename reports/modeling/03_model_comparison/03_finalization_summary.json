@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "timestamp_utc": "2026-08-31T17:53:11.066825+00:00",
+  "finalization_version": 2,
+  "core_tasks": {
+    "expected": 180,
+    "completed": 180,
+    "failed": 0
+  },
+  "registered_failures": 0,
+  "metric_integrity_issues": 0,
+  "explanation_pairs": {
+    "expected": 10,
+    "completed": 10
+  },
+  "blocking_failures": [],
+  "recipe_path": "C:\\Users\\alvaro\\ML\\march-mania-2026\\configs\\model_recipe.yaml",
+  "recipe_status": "frozen_development_recipe"
+}

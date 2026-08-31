@@ -1,0 +1,7 @@
+Method,RawKind,MacroSeasonBrier,GameWeightedBrier,SeasonBrierStd,WorstSeasonBrier,ComplexityRank,HadFallback,FailureMessage,BestMeanMethod,OneSEThreshold,WithinOneSE,Selected,OuterFoldID,Model,ValidationSeason,SeedAware
+platt,probability,0.16437524576476661,0.16437524576476661,0.0211800585962831,0.18385125946999342,2,False,,True,0.1766035582967827,True,False,rich_Pooled_2016,elastic_logistic,2016,True
+identity,probability,0.1646097233451385,0.16460972334513851,0.01904992043103907,0.18015045185273848,0,False,,False,0.1766035582967827,True,True,rich_Pooled_2016,elastic_logistic,2016,True
+beta,probability,0.16505415594030085,0.16505415594030087,0.02202727243252333,0.18565893566708977,3,False,,False,0.1766035582967827,True,False,rich_Pooled_2016,elastic_logistic,2016,True
+spline,probability,0.16534071071922884,0.16534071071922887,0.0208067590258793,0.18503193113524105,4,False,,False,0.1766035582967827,True,False,rich_Pooled_2016,elastic_logistic,2016,True
+temperature,probability,0.16672816948617863,0.16672816948617863,0.018524447814100595,0.1823423493784911,1,False,,False,0.1766035582967827,True,False,rich_Pooled_2016,elastic_logistic,2016,True
+isotonic,probability,0.17306040181289004,0.17306040181289004,0.024178079292434724,0.19251362456241872,5,False,,False,0.1766035582967827,True,False,rich_Pooled_2016,elastic_logistic,2016,True

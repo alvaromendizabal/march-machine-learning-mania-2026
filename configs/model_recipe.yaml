@@ -1,0 +1,166 @@
+recipe_version: 1
+status: frozen_development_recipe
+created_from_run_profile: full
+source_contracts:
+  split: 84d6ab4fc44e59286e1a8bad08df1b89d5881c7be88055c716665d0c29e1937b
+  feature: 4827ee3f980360d679466b754a283164cf55d32f3839aaf669baf3364f96aa21
+  model: 9be79f1ff1b575bf1c9c7f623e6aa9e07099e23579b145b9295720421bcc1c60
+  historical_store: 93dc3472ee3d47eb64604dddcdde884d8392adc415c4e5f314ee1f6ad4a36711
+locked_benchmark_evaluated: false
+locked_benchmark_seasons:
+- 2022
+- 2023
+- 2024
+- 2025
+matched_validation_seasons: &id001
+- 2016
+- 2017
+- 2018
+- 2019
+- 2021
+primary_selections:
+  men:
+    gender: M
+    comparison_seasons: *id001
+    raw_best:
+      architecture: pooled_common
+      model: hist_classifier
+      model_display: Histogram boosting
+      macro_season_brier: 0.1806688479903381
+      game_weighted_brier: 0.18058886562262222
+      roc_auc: 0.8077200577200577
+      average_precision: 0.7722920521232517
+      precision: 0.6987951807228916
+      recall: 0.7532467532467533
+      f1: 0.725
+      calibration_slope: 0.8322309939398992
+      ece: 0.06241587541575848
+      complexity_rank: 4
+    recommended:
+      architecture: separate_gender
+      model: elastic_logistic
+      model_display: Rich elastic-net logistic
+      macro_season_brier: 0.18679921336650537
+      game_weighted_brier: 0.18671039954105978
+      roc_auc: 0.7944805194805195
+      average_precision: 0.7701025989822741
+      precision: 0.6666666666666666
+      recall: 0.7532467532467533
+      f1: 0.7073170731707317
+      calibration_slope: 0.9423059564701983
+      ece: 0.06841916378314224
+      complexity_rank: 3
+    best_separate:
+      architecture: separate_gender
+      model: ridge_margin
+      model_display: Ridge margin
+      macro_season_brier: 0.18265410931260168
+      game_weighted_brier: 0.18260968120435814
+      roc_auc: 0.7998917748917749
+      average_precision: 0.7847463682431212
+      precision: 0.6785714285714286
+      recall: 0.7402597402597403
+      f1: 0.7080745341614907
+      calibration_slope: 0.9308954666700768
+      ece: 0.054962204615839456
+      complexity_rank: 7
+    best_pooled:
+      architecture: pooled_common
+      model: hist_classifier
+      model_display: Histogram boosting
+      macro_season_brier: 0.1806688479903381
+      game_weighted_brier: 0.18058886562262222
+      roc_auc: 0.8077200577200577
+      average_precision: 0.7722920521232517
+      precision: 0.6987951807228916
+      recall: 0.7532467532467533
+      f1: 0.725
+      calibration_slope: 0.8322309939398992
+      ece: 0.06241587541575848
+      complexity_rank: 4
+    architecture: separate_gender
+    model: elastic_logistic
+    macro_season_brier: 0.18679921336650537
+    one_se_threshold: 0.19452243248690718
+    complexity_rank: 3
+  women:
+    gender: W
+    comparison_seasons: *id001
+    raw_best:
+      architecture: pooled_common
+      model: xgb_classifier
+      model_display: XGBoost classifier
+      macro_season_brier: 0.14868358783438557
+      game_weighted_brier: 0.1486835878343856
+      roc_auc: 0.8699105055228574
+      average_precision: 0.8686935624625586
+      precision: 0.7560975609756098
+      recall: 0.7898089171974523
+      f1: 0.7725856697819314
+      calibration_slope: 1.0135435724762516
+      ece: 0.06808284912554044
+      complexity_rank: 5
+    recommended:
+      architecture: pooled_common
+      model: seed_logistic
+      model_display: Seed logistic
+      macro_season_brier: 0.15297833079837614
+      game_weighted_brier: 0.1529783307983761
+      roc_auc: 0.8585624445698621
+      average_precision: 0.8538047342013328
+      precision: 0.7592592592592593
+      recall: 0.7834394904458599
+      f1: 0.7711598746081505
+      calibration_slope: 1.3965525926216675
+      ece: 0.05939511366425055
+      complexity_rank: 1
+    best_separate:
+      architecture: separate_gender
+      model: lgb_classifier
+      model_display: LightGBM classifier
+      macro_season_brier: 0.14877543558028994
+      game_weighted_brier: 0.14877543558028997
+      roc_auc: 0.8704748851084415
+      average_precision: 0.8563875822068496
+      precision: 0.7730061349693251
+      recall: 0.802547770700637
+      f1: 0.7875
+      calibration_slope: 0.9942310194379871
+      ece: 0.06459261123612246
+      complexity_rank: 6
+    best_pooled:
+      architecture: pooled_common
+      model: xgb_classifier
+      model_display: XGBoost classifier
+      macro_season_brier: 0.14868358783438557
+      game_weighted_brier: 0.1486835878343856
+      roc_auc: 0.8699105055228574
+      average_precision: 0.8686935624625586
+      precision: 0.7560975609756098
+      recall: 0.7898089171974523
+      f1: 0.7725856697819314
+      calibration_slope: 1.0135435724762516
+      ece: 0.06808284912554044
+      complexity_rank: 5
+    architecture: pooled_common
+    model: seed_logistic
+    macro_season_brier: 0.15297833079837614
+    one_se_threshold: 0.15339303052283668
+    complexity_rank: 1
+training_procedure:
+  feature_selector: block_aware_season_stability
+  hyperparameter_search: bounded_nested_optuna
+  boosting_rounds: median_inner_best_iteration
+  neural_epochs: median_inner_best_epoch
+  calibration: cross_fitted_by_inner_season
+  ensemble: nonnegative_simplex_with_redundancy_pruning
+  separate_and_pooled_comparison: true
+  pytorch_and_tensorflow_compared: true
+resource_guards:
+  linear_feature_cap: 60
+  tree_feature_cap: 120
+  neural_feature_cap: 72
+  margin_feature_cap: 100
+  maximum_threads: 4
+  stage2_loaded_during_selection: false
+recipe_sha256: 92a52d4e16ca29b847ba14a37032417713256c7101388f63ca263203adeb12ac

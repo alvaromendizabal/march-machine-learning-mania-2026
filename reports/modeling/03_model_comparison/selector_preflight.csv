@@ -1,0 +1,13 @@
+GenderContext,ModelFamily,TrainingRows,CandidateFeatures,PrecorrelationPool,AdaptiveCap,SelectedFeatures,SelectedBlocks,MandatoryRetained
+M,linear,1181,1070,120,60,60,5,6
+M,tree,1181,1070,240,120,120,11,6
+M,neural,1181,1070,144,72,72,6,6
+M,margin,1181,1070,200,100,100,8,6
+W,linear,693,963,98,49,49,4,5
+W,tree,693,963,172,86,86,9,5
+W,neural,693,963,114,57,57,5,5
+W,margin,693,963,154,77,77,7,5
+Pooled,linear,1874,963,120,60,60,5,6
+Pooled,tree,1874,963,240,120,120,11,6
+Pooled,neural,1874,963,144,72,72,6,6
+Pooled,margin,1874,963,200,100,100,8,6

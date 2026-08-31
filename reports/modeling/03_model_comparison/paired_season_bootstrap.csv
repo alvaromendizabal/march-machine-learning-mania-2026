@@ -1,0 +1,3 @@
+Gender,ModelA,ModelB,Rows,Seasons,MeanBrierDifferenceAminusB,CILower,CIUpper,ProbabilityALowerBrier
+M,separate_gender/elastic_logistic,separate_gender/seed_logistic,334,5,-0.014083241466309206,-0.01745668635784382,-0.011141401514600432,1.0
+W,pooled_common/seed_logistic,pooled_common/seed_logistic,315,5,0.0,0.0,0.0,0.0

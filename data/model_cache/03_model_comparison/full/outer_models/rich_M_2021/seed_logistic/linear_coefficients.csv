@@ -1,0 +1,7 @@
+OuterFoldID,ValidationSeason,Gender,Architecture,Universe,Model,Feature,Block,StandardizedCoefficient
+rich_M_2021,2021,M,separate_gender,rich,seed_logistic,matchup__seed_diff,matchup_context,-1.3601080179214478
+rich_M_2021,2021,M,separate_gender,rich,seed_logistic,matchup__seed_gap_abs,matchup_context,0.013954856432974339
+rich_M_2021,2021,M,separate_gender,rich,seed_logistic,matchup__team1_is_seed_favorite,matchup_context,-0.12555956840515137
+rich_M_2021,2021,M,separate_gender,rich,seed_logistic,seedprior__effective_games_pc8p0,prequential_seed_priors,0.019628988578915596
+rich_M_2021,2021,M,separate_gender,rich,seed_logistic,seedprior__favorite_prob_pc8p0,prequential_seed_priors,-0.00654542027041316
+rich_M_2021,2021,M,separate_gender,rich,seed_logistic,seedprior__team1_prob_pc8p0,prequential_seed_priors,-8.467570296488702e-05

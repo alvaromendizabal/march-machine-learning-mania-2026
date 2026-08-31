@@ -1,0 +1,8 @@
+Feature,Block,MissingRate,NonMissingRows,UniqueValues,GlobalCorrelation,MedianAbsoluteSeasonCorrelation,SeasonSignConsistency,SeasonCoverage,SeasonCorrelationIQR,StabilityScore,Mandatory,InPrecorrelationPool,Selected,SelectionRank,ExclusionReason,OuterFoldID,InnerFoldID,Model,SeedAware
+matchup__seed_diff,matchup_context,,1225,29,,,,,,,True,True,True,1,preregistered_baseline,rich_Pooled_2016,,seed_logistic,True
+matchup__seed_gap_abs,matchup_context,,1225,15,,,,,,,True,True,True,2,preregistered_baseline,rich_Pooled_2016,,seed_logistic,True
+matchup__team1_is_seed_favorite,matchup_context,,1225,2,,,,,,,True,True,True,3,preregistered_baseline,rich_Pooled_2016,,seed_logistic,True
+seedprior__effective_games_pc8p0,prequential_seed_priors,,1225,306,,,,,,,True,True,True,4,preregistered_baseline,rich_Pooled_2016,,seed_logistic,True
+seedprior__favorite_prob_pc8p0,prequential_seed_priors,,1225,484,,,,,,,True,True,True,5,preregistered_baseline,rich_Pooled_2016,,seed_logistic,True
+seedprior__team1_prob_pc8p0,prequential_seed_priors,,1225,704,,,,,,,True,True,True,6,preregistered_baseline,rich_Pooled_2016,,seed_logistic,True
+context__women,matchup_context,,1225,2,,,,,,,True,True,True,7,preregistered_baseline,rich_Pooled_2016,,seed_logistic,True

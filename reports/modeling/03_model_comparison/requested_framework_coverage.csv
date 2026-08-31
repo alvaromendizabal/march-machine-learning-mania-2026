@@ -1,0 +1,5 @@
+Gender,Architecture,RequestedModels,CompletedModels,MissingModels,Complete
+M,separate_gender,"['elastic_logistic', 'lgb_classifier', 'tensorflow_mlp', 'torch_mlp', 'xgb_classifier']","['elastic_logistic', 'lgb_classifier', 'tensorflow_mlp', 'torch_mlp', 'xgb_classifier']",[],True
+M,pooled_common,"['elastic_logistic', 'lgb_classifier', 'tensorflow_mlp', 'torch_mlp', 'xgb_classifier']","['elastic_logistic', 'lgb_classifier', 'tensorflow_mlp', 'torch_mlp', 'xgb_classifier']",[],True
+W,separate_gender,"['elastic_logistic', 'lgb_classifier', 'tensorflow_mlp', 'torch_mlp', 'xgb_classifier']","['elastic_logistic', 'lgb_classifier', 'tensorflow_mlp', 'torch_mlp', 'xgb_classifier']",[],True
+W,pooled_common,"['elastic_logistic', 'lgb_classifier', 'tensorflow_mlp', 'torch_mlp', 'xgb_classifier']","['elastic_logistic', 'lgb_classifier', 'tensorflow_mlp', 'torch_mlp', 'xgb_classifier']",[],True

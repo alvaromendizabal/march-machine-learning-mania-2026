@@ -1,0 +1,49 @@
+{
+  "repair_version": 1,
+  "timestamp_utc": "2026-08-31T03:50:30.766026+00:00",
+  "status": "passed",
+  "core_tasks": {
+    "expected": 180,
+    "completed": 180,
+    "failed": 0
+  },
+  "metric_missingness": {
+    "before": 0,
+    "after": 0
+  },
+  "interpretation_pairs": {
+    "expected": 10,
+    "completed": 10
+  },
+  "tensorflow_repairs": [
+    {
+      "Gender": "M",
+      "Architecture": "pooled_common",
+      "Model": "tensorflow_mlp",
+      "ValidationSeason": 2021,
+      "RowsExplained": 66,
+      "SelectedFeatures": 72,
+      "AttributionMethod": "tensorflow_integrated_gradients",
+      "AttributionCompletenessMAE": 0.03053588978946209,
+      "TopAttributionFeature": "context__season_centered_2000",
+      "TopPermutationFeature": "seedprior__favorite_seed_games",
+      "Status": "complete",
+      "Error": null
+    },
+    {
+      "Gender": "W",
+      "Architecture": "separate_gender",
+      "Model": "tensorflow_mlp",
+      "ValidationSeason": 2021,
+      "RowsExplained": 63,
+      "SelectedFeatures": 52,
+      "AttributionMethod": "tensorflow_integrated_gradients",
+      "AttributionCompletenessMAE": 0.047100979834795,
+      "TopAttributionFeature": "diff__compact__rest_days_mean",
+      "TopPermutationFeature": "diff__norm__schedule__opponent_strength_mean__pct",
+      "Status": "complete",
+      "Error": null
+    }
+  ],
+  "checks_failed": []
+}

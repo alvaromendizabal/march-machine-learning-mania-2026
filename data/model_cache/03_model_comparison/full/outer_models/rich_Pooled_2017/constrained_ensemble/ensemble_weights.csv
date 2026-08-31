@@ -1,0 +1,7 @@
+OuterFoldID,Model,Weight,ValidationSeason,Architecture,Universe,Gender,MacroSeasonBrier,KeptForWeightOptimization
+rich_Pooled_2017,xgb_classifier,0.29521484706276974,2017,pooled_common,rich,Pooled,0.15917587526796986,True
+rich_Pooled_2017,lgb_margin,0.3062960954003985,2017,pooled_common,rich,Pooled,0.16024168367181188,True
+rich_Pooled_2017,lgb_classifier,0.12238936231708575,2017,pooled_common,rich,Pooled,0.16049148063931892,True
+rich_Pooled_2017,elastic_logistic,0.20165041557034907,2017,pooled_common,rich,Pooled,0.1605889927192918,True
+rich_Pooled_2017,ridge_margin,0.07444927964939695,2017,pooled_common,rich,Pooled,0.16192346472827912,True
+rich_Pooled_2017,xgb_margin,0.0,2017,pooled_common,rich,Pooled,0.1625608981915174,True

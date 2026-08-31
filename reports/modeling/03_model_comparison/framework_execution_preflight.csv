@@ -1,0 +1,6 @@
+Model,ModelDisplay,OuterFoldID,ValidationSeason,OuterRows,InnerOOFRows,SelectedFeatures,CalibrationMethod,ElapsedSeconds,Passed
+elastic_logistic,Rich elastic-net logistic,rich_M_2021,2021,66,201,60,identity,0.011214000000109081,True
+xgb_classifier,XGBoost classifier,rich_M_2021,2021,66,201,120,identity,0.010491900000033638,True
+lgb_classifier,LightGBM classifier,rich_M_2021,2021,66,201,120,identity,0.010592300000098476,True
+torch_mlp,PyTorch MLP,rich_M_2021,2021,66,201,72,identity,0.010563699999693199,True
+tensorflow_mlp,TensorFlow MLP,rich_M_2021,2021,66,201,72,identity,0.015228700000079698,True

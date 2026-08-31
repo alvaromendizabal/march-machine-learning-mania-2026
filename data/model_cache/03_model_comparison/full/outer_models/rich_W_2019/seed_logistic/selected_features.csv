@@ -1,0 +1,7 @@
+Feature,Block,MissingRate,NonMissingRows,UniqueValues,GlobalCorrelation,MedianAbsoluteSeasonCorrelation,SeasonSignConsistency,SeasonCoverage,SeasonCorrelationIQR,StabilityScore,Mandatory,InPrecorrelationPool,Selected,SelectionRank,ExclusionReason,OuterFoldID,InnerFoldID,Model,SeedAware
+matchup__seed_diff,matchup_context,,567,25,,,,,,,True,True,True,1,preregistered_baseline,rich_W_2019,,seed_logistic,True
+matchup__seed_gap_abs,matchup_context,,567,14,,,,,,,True,True,True,2,preregistered_baseline,rich_W_2019,,seed_logistic,True
+matchup__team1_is_seed_favorite,matchup_context,,567,2,,,,,,,True,True,True,3,preregistered_baseline,rich_W_2019,,seed_logistic,True
+seedprior__effective_games_pc8p0,prequential_seed_priors,,567,149,,,,,,,True,True,True,4,preregistered_baseline,rich_W_2019,,seed_logistic,True
+seedprior__favorite_prob_pc8p0,prequential_seed_priors,,567,203,,,,,,,True,True,True,5,preregistered_baseline,rich_W_2019,,seed_logistic,True
+seedprior__team1_prob_pc8p0,prequential_seed_priors,,567,315,,,,,,,True,True,True,6,preregistered_baseline,rich_W_2019,,seed_logistic,True
