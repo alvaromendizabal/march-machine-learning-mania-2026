@@ -1,0 +1,5 @@
+Submission,Path,Rows,SHA256,Purpose
+primary,C:\Users\alvaro\ML\march-mania-2026\submissions\submission_2026_primary.csv,132133,f19d0fa1c2e5f6f9ad80a346dffa40adeda6a95d45c5f5696ac92acaa0012e5e,Predeclared one-standard-error recommendation
+challenger,C:\Users\alvaro\ML\march-mania-2026\submissions\submission_2026_challenger.csv,132133,ba813d600a73cc97cc61c73ffe68f17bdfec049772780a445ef5928d8729550d,Lowest development Brier-score model
+development_blend,C:\Users\alvaro\ML\march-mania-2026\submissions\submission_2026_development_blend.csv,132133,ec72fecc916ed54125e7f8e86f4b838836a965654c76086787a75ead4f68c3ba,Blend weight frozen on development OOF
+default,C:\Users\alvaro\ML\march-mania-2026\submissions\submission_2026.csv,132133,f19d0fa1c2e5f6f9ad80a346dffa40adeda6a95d45c5f5696ac92acaa0012e5e,Alias of the primary submission

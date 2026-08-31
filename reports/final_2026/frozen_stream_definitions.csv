@@ -1,0 +1,7 @@
+StreamID,Gender,Role,Architecture,Model,ModelDisplay,CandidateSet,Calibration,PrimaryWeightInBlend,shrinkage,clip_floor
+M_primary,M,primary,separate_gender,elastic_logistic,Rich elastic-net logistic,men_rich_seed_aware,identity,0.17,1.0,1e-06
+M_challenger,M,challenger,pooled_common,hist_classifier,Histogram boosting,pooled_rich_seed_aware,identity,,1.0,1e-06
+W_primary,W,primary,pooled_common,seed_logistic,Seed logistic,pooled_rich_seed_aware,identity,0.37,1.0,1e-06
+W_challenger,W,challenger,pooled_common,xgb_classifier,XGBoost classifier,pooled_rich_seed_aware,identity,,1.0,1e-06
+M_fallback,M,fallback,separate_gender,elastic_logistic,Seed-free elastic-net logistic,men_rich_seed_free,identity,,1.0,1e-06
+W_fallback,W,fallback,separate_gender,elastic_logistic,Seed-free elastic-net logistic,women_rich_seed_free,identity,,1.0,1e-06

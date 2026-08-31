@@ -1,0 +1,7 @@
+StreamID,Model,Architecture,Rows,Features,SymmetryError,Status,Error
+M_primary,elastic_logistic,separate_gender,66,60,0.0,complete,
+M_challenger,hist_classifier,pooled_common,66,120,2.220446049250313e-16,complete,
+W_primary,seed_logistic,pooled_common,63,7,0.0,complete,
+W_challenger,xgb_classifier,pooled_common,63,120,0.0,complete,
+M_fallback,elastic_logistic,separate_gender,66,60,0.0,complete,
+W_fallback,elastic_logistic,separate_gender,63,45,0.0,complete,

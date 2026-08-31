@@ -1,0 +1,47 @@
+{
+  "task_signature": "fc9e53dffbd0c16a98e51d3fe5f54ecabc1f94bcf4ea2a81a8300364d7ab247e",
+  "protocol": "prequential_refit",
+  "stream_id": "W_primary",
+  "season": 2023,
+  "training_seasons": [
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2021,
+    2022
+  ],
+  "features": [
+    "matchup__seed_diff",
+    "matchup__seed_gap_abs",
+    "matchup__team1_is_seed_favorite",
+    "seedprior__effective_games_pc8p0",
+    "seedprior__favorite_prob_pc8p0",
+    "seedprior__team1_prob_pc8p0",
+    "context__women"
+  ],
+  "selector_hash": null,
+  "calibration": "identity",
+  "guard": {
+    "shrinkage": 1.0,
+    "clip_floor": 1e-06
+  },
+  "parameters": {
+    "C": 0.5
+  },
+  "fixed_iterations": null,
+  "prediction_sha256": "39ee424271dbdd69df51bfd4df7209c025cda72488deabe56f9d671cdf48efb4"
+}

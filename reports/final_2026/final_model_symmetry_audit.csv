@@ -1,0 +1,7 @@
+StreamID,Rows,MaximumSymmetryError
+M_primary,50,0.0
+M_challenger,50,2.220446049250313e-16
+W_primary,50,0.0
+W_challenger,50,0.0
+M_fallback,50,0.0
+W_fallback,50,0.0

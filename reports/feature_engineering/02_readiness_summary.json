@@ -1,5 +1,5 @@
 {
-  "notebook": "02_state_of_the_art_feature_store.ipynb",
+  "notebook": "02_feature_store_and_diagnostics.ipynb",
   "status": "complete",
   "split_contract_sha256": "84d6ab4fc44e59286e1a8bad08df1b89d5881c7be88055c716665d0c29e1937b",
   "feature_contract_sha256": "4827ee3f980360d679466b754a283164cf55d32f3839aaf669baf3364f96aa21",

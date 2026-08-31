@@ -1,0 +1,49 @@
+Season,Rows,Brier,Protocol,StreamID,Gender,Role,ModelDisplay
+2022,67,0.241557189485021,prequential_refit,M_blend,M,development_blend,Development-frozen blend
+2023,67,0.22320418244301077,prequential_refit,M_blend,M,development_blend,Development-frozen blend
+2024,67,0.19402975751467919,prequential_refit,M_blend,M,development_blend,Development-frozen blend
+2025,67,0.13546766629737086,prequential_refit,M_blend,M,development_blend,Development-frozen blend
+2022,67,0.24780766474938687,prequential_refit,M_challenger,M,challenger,Histogram boosting
+2023,67,0.226970913525763,prequential_refit,M_challenger,M,challenger,Histogram boosting
+2024,67,0.19531830812018963,prequential_refit,M_challenger,M,challenger,Histogram boosting
+2025,67,0.13432088195287373,prequential_refit,M_challenger,M,challenger,Histogram boosting
+2022,67,0.22017936742708435,prequential_refit,M_primary,M,primary,Rich elastic-net logistic
+2023,67,0.20988172924044118,prequential_refit,M_primary,M,primary,Rich elastic-net logistic
+2024,67,0.1942697460423261,prequential_refit,M_primary,M,primary,Rich elastic-net logistic
+2025,67,0.14885810284734027,prequential_refit,M_primary,M,primary,Rich elastic-net logistic
+2022,67,0.16112182467830188,prequential_refit,W_blend,W,development_blend,Development-frozen blend
+2023,67,0.16920656164780437,prequential_refit,W_blend,W,development_blend,Development-frozen blend
+2024,67,0.1274508908805062,prequential_refit,W_blend,W,development_blend,Development-frozen blend
+2025,67,0.11657877078167285,prequential_refit,W_blend,W,development_blend,Development-frozen blend
+2022,67,0.1574252910093952,prequential_refit,W_challenger,W,challenger,XGBoost classifier
+2023,67,0.17173130249797033,prequential_refit,W_challenger,W,challenger,XGBoost classifier
+2024,67,0.12906329573790962,prequential_refit,W_challenger,W,challenger,XGBoost classifier
+2025,67,0.11130734269603974,prequential_refit,W_challenger,W,challenger,XGBoost classifier
+2022,67,0.17308546819034965,prequential_refit,W_primary,W,primary,Seed logistic
+2023,67,0.17212844726381396,prequential_refit,W_primary,W,primary,Seed logistic
+2024,67,0.13405771825265939,prequential_refit,W_primary,W,primary,Seed logistic
+2025,67,0.1319383247707794,prequential_refit,W_primary,W,primary,Seed logistic
+2022,67,0.24155720365922917,static_block,M_blend,M,development_blend,Development-frozen blend
+2023,67,0.22148101406581183,static_block,M_blend,M,development_blend,Development-frozen blend
+2024,67,0.19638609860353165,static_block,M_blend,M,development_blend,Development-frozen blend
+2025,67,0.13533165677283635,static_block,M_blend,M,development_blend,Development-frozen blend
+2022,67,0.24780766474938687,static_block,M_challenger,M,challenger,Histogram boosting
+2023,67,0.2253617547420222,static_block,M_challenger,M,challenger,Histogram boosting
+2024,67,0.19824143175423498,static_block,M_challenger,M,challenger,Histogram boosting
+2025,67,0.13521629082706546,static_block,M_challenger,M,challenger,Histogram boosting
+2022,67,0.22017945384021523,static_block,M_primary,M,primary,Rich elastic-net logistic
+2023,67,0.21100516971201871,static_block,M_primary,M,primary,Rich elastic-net logistic
+2024,67,0.19517671621796376,static_block,M_primary,M,primary,Rich elastic-net logistic
+2025,67,0.14514262787859208,static_block,M_primary,M,primary,Rich elastic-net logistic
+2022,67,0.1622033431685672,static_block,W_blend,W,development_blend,Development-frozen blend
+2023,67,0.16981575768109633,static_block,W_blend,W,development_blend,Development-frozen blend
+2024,67,0.12444807120866812,static_block,W_blend,W,development_blend,Development-frozen blend
+2025,67,0.1181763458731938,static_block,W_blend,W,development_blend,Development-frozen blend
+2022,67,0.1589527056157652,static_block,W_challenger,W,challenger,XGBoost classifier
+2023,67,0.1725448401238379,static_block,W_challenger,W,challenger,XGBoost classifier
+2024,67,0.12537451526891036,static_block,W_challenger,W,challenger,XGBoost classifier
+2025,67,0.11412082878455786,static_block,W_challenger,W,challenger,XGBoost classifier
+2022,67,0.17308546819034965,static_block,W_primary,W,primary,Seed logistic
+2023,67,0.17210508054821033,static_block,W_primary,W,primary,Seed logistic
+2024,67,0.13298337046665817,static_block,W_primary,W,primary,Seed logistic
+2025,67,0.13154100415443953,static_block,W_primary,W,primary,Seed logistic

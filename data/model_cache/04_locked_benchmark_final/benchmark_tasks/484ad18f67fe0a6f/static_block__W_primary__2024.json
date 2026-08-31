@@ -1,0 +1,46 @@
+{
+  "task_signature": "db99804908a57dd218bb5f48c941782991e8a0bda8dc5b5739b547cf2610dc5e",
+  "protocol": "static_block",
+  "stream_id": "W_primary",
+  "season": 2024,
+  "training_seasons": [
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2021
+  ],
+  "features": [
+    "matchup__seed_diff",
+    "matchup__seed_gap_abs",
+    "matchup__team1_is_seed_favorite",
+    "seedprior__effective_games_pc8p0",
+    "seedprior__favorite_prob_pc8p0",
+    "seedprior__team1_prob_pc8p0",
+    "context__women"
+  ],
+  "selector_hash": null,
+  "calibration": "identity",
+  "guard": {
+    "shrinkage": 1.0,
+    "clip_floor": 1e-06
+  },
+  "parameters": {
+    "C": 0.5
+  },
+  "fixed_iterations": null,
+  "prediction_sha256": "476f12c31a84979a392cd2ec5a4567e34c15fd362c16350e74aa61c263397e38"
+}

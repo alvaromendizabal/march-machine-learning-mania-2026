@@ -1,0 +1,61 @@
+{
+  "notebook": "04_locked_benchmark_and_final_submission.ipynb",
+  "notebook_implementation_version": 3,
+  "status": "complete",
+  "locked_benchmark_consumed": true,
+  "locked_benchmark_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "post_benchmark_retuning_permitted": false,
+  "benchmark_protocols": [
+    "prequential_refit",
+    "static_block"
+  ],
+  "benchmark_prediction_rows": 3216,
+  "final_model_streams": [
+    "M_challenger",
+    "M_fallback",
+    "M_primary",
+    "W_challenger",
+    "W_fallback",
+    "W_primary"
+  ],
+  "stage2_rows": 132133,
+  "men_stage2_rows": 66430,
+  "women_stage2_rows": 65703,
+  "seed_aware_rows": 4556,
+  "seed_free_rows": 127577,
+  "plotly_reports": [
+    "benchmark_protocol_sensitivity.html",
+    "championship_probabilities_M.html",
+    "championship_probabilities_W.html",
+    "development_handoff_scorecard.html",
+    "final_model_feature_importance.html",
+    "locked_benchmark_leaderboard.html",
+    "locked_brier_by_season.html",
+    "locked_confusion_M.html",
+    "locked_confusion_W.html",
+    "locked_pr_M.html",
+    "locked_pr_W.html",
+    "locked_reliability_M.html",
+    "locked_reliability_W.html",
+    "locked_roc_M.html",
+    "locked_roc_W.html",
+    "locked_seed_gap_slices.html",
+    "stage2_primary_vs_challenger.html",
+    "stage2_probability_distributions.html"
+  ],
+  "blocking_final_check_failures": 0,
+  "recipe_sha256": "92a52d4e16ca29b847ba14a37032417713256c7101388f63ca263203adeb12ac",
+  "blueprint_sha256": "fe018aa50049709a74f9fdcc43d8bbdc7c6510d0091f47a57ecc2467e6c888d7",
+  "primary_submission": "C:\\Users\\alvaro\\ML\\march-mania-2026\\submissions\\submission_2026_primary.csv",
+  "primary_submission_sha256": "f19d0fa1c2e5f6f9ad80a346dffa40adeda6a95d45c5f5696ac92acaa0012e5e",
+  "challenger_submission": "C:\\Users\\alvaro\\ML\\march-mania-2026\\submissions\\submission_2026_challenger.csv",
+  "challenger_submission_sha256": "ba813d600a73cc97cc61c73ffe68f17bdfec049772780a445ef5928d8729550d",
+  "blend_submission": "C:\\Users\\alvaro\\ML\\march-mania-2026\\submissions\\submission_2026_development_blend.csv",
+  "blend_submission_sha256": "ec72fecc916ed54125e7f8e86f4b838836a965654c76086787a75ead4f68c3ba",
+  "bracket_reporting_completed": true
+}

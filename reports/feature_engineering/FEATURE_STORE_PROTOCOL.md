@@ -1,4 +1,4 @@
-# State-of-the-Art Feature Store Protocol
+# research-grade Feature Store Protocol
 
 ## Boundaries
 

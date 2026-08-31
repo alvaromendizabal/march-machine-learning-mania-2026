@@ -1,0 +1,18 @@
+{
+  "lock_version": 2,
+  "consumed_at_utc": "2026-08-31T18:56:56.330758+00:00",
+  "benchmark_signature": "484ad18f67fe0a6f112ce51376520c44b26ff2b9e58a83941ff94a7309fcae62",
+  "blueprint_sha256": "fe018aa50049709a74f9fdcc43d8bbdc7c6510d0091f47a57ecc2467e6c888d7",
+  "recipe_sha256": "92a52d4e16ca29b847ba14a37032417713256c7101388f63ca263203adeb12ac",
+  "historical_store_sha256": "93dc3472ee3d47eb64604dddcdde884d8392adc415c4e5f314ee1f6ad4a36711",
+  "locked_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "prediction_path": "C:\\Users\\alvaro\\ML\\march-mania-2026\\data\\processed\\locked_benchmark_predictions.parquet",
+  "prediction_sha256": "8806466f06eef1dc0545884bfd750ce4c77f1ec165355209ca7a77aa129580bf",
+  "metrics_sha256": "0f80e009de5df32081fcddf5cc2c8dc6f11fd6445f80921ed93ebe89d5f93e3b",
+  "post_benchmark_retuning_permitted": false
+}

@@ -1,0 +1,210 @@
+blueprint_version: 3
+created_before_locked_labels_loaded: true
+source_contracts:
+  split: 84d6ab4fc44e59286e1a8bad08df1b89d5881c7be88055c716665d0c29e1937b
+  feature: 4827ee3f980360d679466b754a283164cf55d32f3839aaf669baf3364f96aa21
+  model: 9be79f1ff1b575bf1c9c7f623e6aa9e07099e23579b145b9295720421bcc1c60
+  recipe: 92a52d4e16ca29b847ba14a37032417713256c7101388f63ca263203adeb12ac
+  historical_store: 93dc3472ee3d47eb64604dddcdde884d8392adc415c4e5f314ee1f6ad4a36711
+  stage2_store: d4710a2d24c818a92418b21c8e4403a325e63fcdcf8b82aa86dcc22ba2281452
+  development_oof: 4e664df9e200eb6ab4526ea41513723ee4da2e7a99c72bea7ea992ed78d9bfc5
+locked_seasons:
+- 2022
+- 2023
+- 2024
+- 2025
+target_season: 2026
+benchmark_protocols:
+- prequential_refit
+- static_block
+post_benchmark_retuning_allowed: false
+parameter_rule: median_or_mode_of_matching_nested_development_outer_folds
+iteration_rule: median_inner_selected_iteration_from_development
+calibration_rule: development_only_cross_fitted_one_standard_error_selection
+probability_guard_rule: development_only_shrink_and_clip_without_sharpening
+blend_rule: development_only_macro_season_brier_grid
+feature_selector: notebook03_block_aware_season_stability
+stage2_batch_size: 12000
+streams:
+  M_primary:
+    stream_id: M_primary
+    output_gender: M
+    role: primary
+    architecture: separate_gender
+    training_gender: M
+    model: elastic_logistic
+    model_display: Rich elastic-net logistic
+    candidate_set: men_rich_seed_aware
+    seed_aware: true
+    development_macro_season_brier: 0.18679921336650537
+    parameters:
+      C: 0.03196839887802083
+      l1_ratio: 0.35105997634686714
+    fixed_iterations: null
+    parameter_provenance:
+      source: median_or_mode_of_nested_development_outer_folds
+      records: 5
+      metadata_paths:
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2016\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2017\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2018\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2019\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2021\elastic_logistic\metadata.json
+    calibration_method: identity
+    probability_guard:
+      shrinkage: 1.0
+      clip_floor: 1.0e-06
+  M_challenger:
+    stream_id: M_challenger
+    output_gender: M
+    role: challenger
+    architecture: pooled_common
+    training_gender: Pooled
+    model: hist_classifier
+    model_display: Histogram boosting
+    candidate_set: pooled_rich_seed_aware
+    seed_aware: true
+    development_macro_season_brier: 0.1806688479903381
+    parameters:
+      learning_rate: 0.04
+      max_leaf_nodes: 15
+      max_depth: 4
+      min_samples_leaf: 25
+      l2_regularization: 5.0
+      max_iter: 300
+    fixed_iterations: 300
+    parameter_provenance:
+      source: median_or_mode_of_nested_development_outer_folds
+      records: 5
+      metadata_paths:
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2016\hist_classifier\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2017\hist_classifier\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2018\hist_classifier\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2019\hist_classifier\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2021\hist_classifier\metadata.json
+    calibration_method: identity
+    probability_guard:
+      shrinkage: 1.0
+      clip_floor: 1.0e-06
+  W_primary:
+    stream_id: W_primary
+    output_gender: W
+    role: primary
+    architecture: pooled_common
+    training_gender: Pooled
+    model: seed_logistic
+    model_display: Seed logistic
+    candidate_set: pooled_rich_seed_aware
+    seed_aware: true
+    development_macro_season_brier: 0.15297833079837614
+    parameters:
+      C: 0.5
+    fixed_iterations: null
+    parameter_provenance:
+      source: median_or_mode_of_nested_development_outer_folds
+      records: 5
+      metadata_paths:
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2016\seed_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2017\seed_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2018\seed_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2019\seed_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2021\seed_logistic\metadata.json
+    calibration_method: identity
+    probability_guard:
+      shrinkage: 1.0
+      clip_floor: 1.0e-06
+  W_challenger:
+    stream_id: W_challenger
+    output_gender: W
+    role: challenger
+    architecture: pooled_common
+    training_gender: Pooled
+    model: xgb_classifier
+    model_display: XGBoost classifier
+    candidate_set: pooled_rich_seed_aware
+    seed_aware: true
+    development_macro_season_brier: 0.14868358783438557
+    parameters:
+      eta: 0.02916947253396034
+      max_depth: 2
+      min_child_weight: 15.671784700603585
+      subsample: 0.7144525308138557
+      colsample_bytree: 0.6502804392436135
+      reg_alpha: 0.02610492632410803
+      reg_lambda: 8.34690596682805
+      gamma: 0.34724653997464383
+      max_bin: 64
+    fixed_iterations: 201
+    parameter_provenance:
+      source: median_or_mode_of_nested_development_outer_folds
+      records: 5
+      metadata_paths:
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2016\xgb_classifier\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2017\xgb_classifier\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2018\xgb_classifier\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2019\xgb_classifier\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_Pooled_2021\xgb_classifier\metadata.json
+    calibration_method: identity
+    probability_guard:
+      shrinkage: 1.0
+      clip_floor: 1.0e-06
+  M_fallback:
+    stream_id: M_fallback
+    output_gender: M
+    role: fallback
+    architecture: separate_gender
+    training_gender: M
+    model: elastic_logistic
+    model_display: Seed-free elastic-net logistic
+    candidate_set: men_rich_seed_free
+    seed_aware: false
+    development_macro_season_brier: null
+    parameters:
+      C: 0.03196839887802083
+      l1_ratio: 0.35105997634686714
+    fixed_iterations: null
+    parameter_provenance:
+      source: median_or_mode_of_nested_development_outer_folds
+      records: 5
+      metadata_paths:
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2016\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2017\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2018\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2019\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_M_2021\elastic_logistic\metadata.json
+    calibration_method: identity
+    probability_guard:
+      shrinkage: 1.0
+      clip_floor: 1.0e-06
+  W_fallback:
+    stream_id: W_fallback
+    output_gender: W
+    role: fallback
+    architecture: separate_gender
+    training_gender: W
+    model: elastic_logistic
+    model_display: Seed-free elastic-net logistic
+    candidate_set: women_rich_seed_free
+    seed_aware: false
+    development_macro_season_brier: null
+    parameters:
+      C: 0.1267244292052112
+      l1_ratio: 0.8394179201020194
+    fixed_iterations: null
+    parameter_provenance:
+      source: median_or_mode_of_nested_development_outer_folds
+      records: 5
+      metadata_paths:
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_W_2016\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_W_2017\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_W_2018\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_W_2019\elastic_logistic\metadata.json
+      - C:\Users\alvaro\ML\march-mania-2026\data\model_cache\03_model_comparison\full\outer_models\rich_W_2021\elastic_logistic\metadata.json
+    calibration_method: identity
+    probability_guard:
+      shrinkage: 1.0
+      clip_floor: 1.0e-06
+blend_weights:
+  M: 0.17
+  W: 0.37
+blueprint_sha256: fe018aa50049709a74f9fdcc43d8bbdc7c6510d0091f47a57ecc2467e6c888d7
