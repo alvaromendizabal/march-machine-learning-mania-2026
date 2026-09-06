@@ -1,96 +1,58 @@
-# March Machine Learning Mania 2026
+# NCAA tournament probability forecasting
 
-A reproducible local project for auditing, preparing, modeling, calibrating, explaining, and comparing NCAA men's and women's tournament forecasts.
+Forecasting men's and women's college basketball tournament games with chronological evaluation, calibrated probability diagnostics, and reproducible experiments.
 
-## Project principles
+**Current phase: feature research and AWS Studio migration.** The original modeling notebooks and results are preserved. A compact, tested research pipeline now compares feature families, saves resumable fold checkpoints, and produces a standalone interactive report.
 
-1. Raw Kaggle files are immutable and excluded from Git.
-2. Historical features must be built only from information available before each tournament.
-3. Tournament outcomes are labels, never same-season inputs.
-4. Validation is season-based, with expanding-window evaluation as the primary estimate.
-5. Probabilities are evaluated and calibrated for Brier score.
-6. Men's and women's models/calibrators are evaluated both separately and jointly.
-7. Notebooks are for exploration; reusable logic belongs under `src/march\\\_mania/`.
+[Studio setup and commands](docs/studio.md) · [Research protocol and evidence audit](docs/research_protocol.md) · [Research notebook](notebooks/05_feature_research.ipynb)
 
-## Structure
+## Results and their limits
 
-* `data/raw/`: unmodified Kaggle competition files; ignored by Git
-* `data/interim/`: canonicalized tables ready for feature engineering; ignored by Git
-* `data/processed/`: future model matrices and fold-specific feature stores; ignored by Git
-* `notebooks/`: ordered exploratory notebooks
-* `src/march\\\_mania/`: reusable loading, reshaping, and validation code
-* `tests/`: unit tests for structural transformations
-* `configs/`: experiment configuration
-* `references/`: supplied starter notebook and data description
-* `reports/`: versioned data-quality manifests/audits plus generated figures
-* `submissions/`: generated Kaggle files; CSVs ignored by Git
+| Recorded submission | Observed Brier ↓ | Evidence |
+|---|---:|---|
+| Original challenger | 0.1299012 | Repository score log |
+| Development-frozen blend | 0.1318165 | Repository score log |
+| Original primary | 0.1421117 | Repository score log |
+| Best recorded temperature refinement | 0.1281386 | Post-result exploratory refinement |
 
-## First run
+These are repository-recorded scores, not independently authenticated Kaggle standings. The recalled approximately 0.121 result has not yet been located. Post-result refinements are not untouched validation and do not establish a medal. New feature research has no measured real-data improvement yet.
 
-From Miniforge Prompt:
+## Reproducible research
 
-```bat
-conda activate ml-modeling
-cd /d "%USERPROFILE%\\\\ML\\\\march-mania-2026"
-python -m pip install --upgrade-strategy only-if-needed kaggle pytest ruff pre-commit
-python -m pip install -e . --no-deps
-python -m pip check
+```bash
+python3 scripts/bootstrap.py
+.venv/bin/python scripts/inspect_data.py march-machine-learning-mania-2026.zip
+.venv/bin/march-research --preflight
+.venv/bin/march-research --output outputs/research --s3 s3://YOUR_BUCKET/research
 ```
 
-\## Local data setup
+A locked Python 3.12 environment, fixed random seeds and CPU thread limits make the run reproducible. UTC events, task heartbeats, elapsed time and checksum-verified checkpoints make it observable and resumable. Git stores code and evidence; private S3 stores input snapshots and generated models/results. See the [Studio guide](docs/studio.md) for the provisioned project bucket and exact commands.
 
+The feature ladder evaluates seeds, opponent-adjusted strength, schedule quality, efficiency, recent form and nonlinear matchup interactions. The default protocol runs **120 matched fold tasks**. Models are intentionally fixed while testing the feature hypotheses. Brier is the primary probability metric, supported by log loss, discrimination, calibration and paired season uncertainty.
 
+## Project map
 
-Download the official competition ZIP manually. Extract all CSV files directly into:
+| Path | Purpose |
+|---|---|
+| `notebooks/00_data_audit_and_preparation.ipynb` | Historical raw-data audit |
+| `notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb` | Historical split and snapshot protocol |
+| `notebooks/02_feature_store_and_diagnostics.ipynb` | Original rich feature store |
+| `notebooks/03_model_comparison_and_diagnostics.ipynb` | Original nested model comparison |
+| `notebooks/04_locked_benchmark_and_final_submission.ipynb` | Historical benchmark and submission |
+| `notebooks/05_feature_research.ipynb` | Auditable feature research and results review |
+| `src/march_mania/` | Reusable preparation, features, experiment runtime and reporting |
+| `configs/research.json` | Explicit research boundaries and runtime configuration |
+| `tests/` | Structural, temporal, probability, failure, resume and restore tests |
+| `reports/` | Historical results and documented validation evidence |
+| `docs/` | Research rationale and operational instructions |
 
+The original environment exports document the older notebooks. The new lockfile covers the research runner and notebook 05; it does not claim to migrate every optional legacy model framework.
 
+## Development
 
-`data/raw/march-machine-learning-mania-2026/`
-
-
-
-The CSV files must be directly inside that directory rather than inside an additional nested folder.
-
-
-
-Raw and generated datasets are excluded from Git. After extracting the files, start JupyterLab from the repository root:
-
-
-
-```bat
-
-jupyter lab
-
+```bash
+uv sync --locked --group dev
+uv run --locked python scripts/quality.py
 ```
 
-Open `notebooks/00\\\_data\\\_audit\\\_and\\\_preparation.ipynb` with the `Python (ml-modeling)` kernel and run all cells.
-
-## What notebook 00 produces
-
-It does not build predictive features. It creates stable structural tables that later feature code can consume:
-
-* `table\\\_inventory.csv`
-* `data\\\_manifest.json`
-* `raw\\\_data\\\_audit.csv` (small and safe to commit)
-* `teams.parquet`
-* `seasons.parquet`
-* `seeds.parquet`
-* `games\\\_compact\\\_canonical.parquet`
-* `tournament\\\_targets.parquet`
-* `games\\\_detailed\\\_team\\\_long.parquet`
-* `team\\\_conferences.parquet`
-* `game\\\_cities.parquet`
-* `massey\\\_ordinals\\\_men.parquet`
-* `submission\\\_matchups.parquet`
-
-## Planned notebook sequence
-
-* `00\\\_data\\\_audit\\\_and\\\_preparation.ipynb`: immutable raw-data audit and canonicalization
-* `01\\\_leakage\\\_safe\\\_team\\\_snapshots.ipynb`: pre-tournament team-season feature tables
-* `02\\\_baselines\\\_and\\\_validation.ipynb`: seed, Elo, and logistic baselines with season-based folds
-* `03\\\_efficiency\\\_and\\\_strength\\\_features.ipynb`: possession, efficiency, schedule, and ranking features
-* `04\\\_model\\\_comparison.ipynb`: logistic, XGBoost, LightGBM, and optional neural baselines
-* `05\\\_calibration\\\_and\\\_ensemble.ipynb`: OOF calibration, blending, and uncertainty analysis
-* `06\\\_explainability.ipynb`: SHAP, permutation importance, PDP/ALE, and stability checks
-* `07\\\_submission.ipynb`: final training, Stage 2 matchups, validation, and submission artifact
-
+The quality gate compiles, lints, checks formatting and types, then runs unit and end-to-end tests with JUnit and coverage artifacts. Raw Kaggle files, environments, generated datasets, checkpoints and model binaries are excluded from Git. Use ordinary module names and edit the canonical implementation; Git history records revisions.

@@ -93,3 +93,8 @@ __pycache__/
 .idea/
 Thumbs.db
 .DS_Store
+
+# Reproducible research tooling and generated metadata
+.tools/
+*.egg-info/
+*.tmp
