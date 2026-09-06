@@ -8,6 +8,7 @@ import subprocess
 import sys
 import threading
 import time
+import tomllib
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -54,7 +55,17 @@ def main() -> int:
     try:
         if not executable.exists():
             command([sys.executable, "-m", "venv", str(root / ".tools")], root)
-        command([str(executable), "-m", "pip", "install", f"uv=={UV_VERSION}"], root)
+        command(
+            [
+                str(executable),
+                "-m",
+                "pip",
+                "--disable-pip-version-check",
+                "install",
+                f"uv=={UV_VERSION}",
+            ],
+            root,
+        )
         command([str(uv), "sync", "--locked", "--group", "dev", "--python", "3.12.13"], root)
         command(
             [
@@ -73,6 +84,10 @@ def main() -> int:
             ],
             root,
         )
+        for entry in tomllib.loads((root / "pyproject.toml").read_text())["project"]["scripts"]:
+            path = root / ".venv" / (f"Scripts/{entry}.exe" if os.name == "nt" else f"bin/{entry}")
+            if not path.is_file():
+                raise ValueError(f"Expected project command is missing after installation: {entry}")
         command([str(uv), "run", "--locked", "python", "scripts/quality.py"], root)
         print(
             json.dumps(
@@ -85,7 +100,7 @@ def main() -> int:
             flush=True,
         )
         return 0
-    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+    except (ValueError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
         print(
             json.dumps(
                 {

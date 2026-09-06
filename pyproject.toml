@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "march-mania-2026"
-version = "0.3.0"
+version = "0.4.0"
 description = "Leakage-safe NCAA tournament forecasting project"
 requires-python = ">=3.12,<3.13"
 dependencies = [
@@ -31,7 +31,7 @@ check_untyped_defs = true
 files = ["src/march_mania/features.py", "src/march_mania/runtime.py",
          "src/march_mania/research.py", "src/march_mania/research_report.py",
          "src/march_mania/advanced_features.py", "src/march_mania/feature_store.py",
-         "src/march_mania/data.py"]
+         "src/march_mania/data.py", "src/march_mania/rankings.py", "src/march_mania/encoding.py"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -40,6 +40,7 @@ where = ["src"]
 pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-q"
+filterwarnings = ["error"]
 
 [tool.ruff]
 line-length = 100
