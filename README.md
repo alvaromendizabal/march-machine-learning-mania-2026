@@ -2,7 +2,7 @@
 
 Forecasting men's and women's college basketball tournament games with chronological evaluation, calibrated probability diagnostics, and reproducible experiments.
 
-**Current phase: rebuilt notebook 02 and measured feature ablations.** The feature store now has 80 registered matchup features, official Kaggle ingestion, and resumable season/model checkpoints. A real-data run completed 400 folds and exactly reproduced 3,894 control forecasts from notebook 05. Historical implementations remain in Git history; historical model and submission evidence remains available.
+**Current phase: rebuilt notebook 02 and measured feature ablations.** The feature store now has 104 registered matchup features, official Kaggle ingestion, and resumable season/model checkpoints. A real-data run completed 480 folds and reproduced 3,894 control forecasts to numerical precision from notebook 05. Historical implementations remain in Git history; historical model and submission evidence remains available.
 
 [Feature definitions and run commands](docs/feature_store.md) · [Notebook 02](notebooks/02_feature_store_and_diagnostics.ipynb) · [Notebook 05 evidence](notebooks/05_feature_research.ipynb) · [Studio](docs/studio.md)
 
@@ -29,17 +29,26 @@ metrics are not directly comparable with the single-season Kaggle scores above.
 The current new run uses eight official CSV files; external rankings and the
 official sample submission await the full authenticated Kaggle pull in Studio.
 
+Forward-only seed encoding scored 0.190539 for men and 0.144785 for women;
+team encoding scored 0.193162 and 0.146568. These additions did not beat the
+stronger existing feature candidates and are not promoted automatically. Their
+bootstrap intervals include zero. Massey feature correctness is tested, but its
+real-data Brier benefit remains unmeasured until the full Kaggle pull.
+
 ## Reproducible research
 
 ```bash
-python3 scripts/bootstrap.py
-.venv/bin/march-data --output data/kaggle --s3 s3://YOUR_BUCKET/data
-.venv/bin/march-features --raw data/kaggle/raw --output outputs/feature_store --s3 s3://YOUR_BUCKET/feature-store
+(
+  set -e
+  python3 scripts/bootstrap.py
+  .venv/bin/march-data --output data/kaggle --s3 s3://YOUR_BUCKET/data
+  .venv/bin/march-features --raw data/kaggle/raw --run-root outputs/feature_store --require-massey --s3 s3://YOUR_BUCKET/feature-store
+)
 ```
 
 A locked Python 3.12 environment, fixed random seeds and CPU thread limits make the run reproducible. UTC events, task heartbeats, elapsed time and checksum-verified checkpoints make it observable and resumable. Git stores code and evidence; private S3 stores input snapshots and generated models/results. See the [Studio guide](docs/studio.md) for the provisioned project bucket and exact commands.
 
-The rebuilt store evaluates adjusted offense/defense, opponent-adjusted Four Factors, residual form, shooting posteriors and uncertainty, tempo, dynamic Elo, program history, dated ranking consensus, and contextual interactions. The benchmark has **400 folds without external rankings**, or **420 with men's rankings**. Models remain fixed to isolate feature effects. The smaller notebook 05 benchmark remains reproducible through `march-research` using a new output directory when code or inputs change.
+The rebuilt store evaluates adjusted offense/defense, opponent-adjusted Four Factors, residual form, shooting posteriors and uncertainty, tempo, dynamic Elo, program history, publication-cohort ranking consensus and trends, forward-only team/seed/rank target encoding, and contextual interactions. Exact estimator inputs and encoding history boundaries are audited per fold. The benchmark has **480 folds without external rankings**, or **540 with men's rankings**. Models remain fixed to isolate feature effects. The smaller notebook 05 benchmark remains reproducible through `march-research` using a new output directory when code or inputs change.
 
 ## Project map
 

@@ -28,7 +28,7 @@ def test_feature_store_real_workflow_and_resume(raw, tmp_path):
     output = tmp_path / "features"
     result = run(raw, output, config)
     assert result["status"] == "completed"
-    assert result["fold_tasks"] == 160
+    assert result["fold_tasks"] == 192
     assert result["elapsed_seconds"] > 0
     assert result["sources"] == {
         "massey": False,
@@ -42,10 +42,21 @@ def test_feature_store_real_workflow_and_resume(raw, tmp_path):
     assert models == {str(p): p.stat().st_mtime_ns for p in output.glob("fold_*/model.joblib")}
     forecasts = pd.read_parquet(output / "predictions.parquet")
     assert not forecasts.duplicated(["Gender", "Season", "ID", "block", "model"]).any()
-    assert forecasts.groupby(["Gender", "Season", "ID"]).size().eq(40).all()
+    assert forecasts.groupby(["Gender", "Season", "ID"]).size().eq(48).all()
     events = [json.loads(line) for line in (output / "events.jsonl").read_text().splitlines()]
     assert all("timestamp" in event and "elapsed_seconds" in event for event in events)
-    assert sum(event["event"] == "task_reused" for event in events) == 172
+    assert sum(event["event"] == "task_reused" for event in events) == 206
+    import joblib
+
+    usage = pd.read_csv(output / "feature_usage.csv")
+    for model_path in output.glob("fold_*/model.joblib"):
+        model = joblib.load(model_path)
+        fold_usage = pd.read_csv(model_path.parent / "feature_usage.csv")
+        assert model["features"] == fold_usage.loc[fold_usage.fitted, "feature"].tolist()
+        assert model["estimator"].n_features_in_ == len(model["features"])
+    assert usage.feature.str.startswith("diff_te_team").any()
+    assert usage.feature.str.startswith("diff_te_seed").any()
+    assert not usage.feature.str.startswith("diff_rank_").any()
     config["ridge_alpha"] = 21
     with pytest.raises(ValueError, match="changed"):
         run(raw, output, config)
@@ -71,8 +82,11 @@ def test_optional_rankings_and_sample_submission_are_integrated(raw, tmp_path):
     config = settings()
     config.update(last_season=2016, validation_seasons=[2016])
     output = tmp_path / "optional"
-    result = run(raw, output, config)
-    assert result["fold_tasks"] == 84
+    root = output
+    result = run(raw, root, config, managed=True, require_massey=True)
+    output = root / result["fingerprint"]
+    assert json.loads((root / "latest.json").read_text())["directory"] == result["fingerprint"]
+    assert result["fold_tasks"] == 108
     assert result["sources"]["massey"] and result["sources"]["sample_submission"]
     features = pd.read_parquet(output / "submission_features.parquet")
     assert features.ID.tolist() == sample.ID.tolist()
@@ -95,3 +109,10 @@ def test_feature_store_protocol_guards(field, value):
     config[field] = value
     with pytest.raises(ValueError):
         validate_config(config)
+
+
+def test_required_massey_fails_before_any_run_is_created(raw, tmp_path):
+    output = tmp_path / "required"
+    with pytest.raises(FileNotFoundError, match="MMasseyOrdinals"):
+        run(raw, output, settings(), require_massey=True)
+    assert not output.exists()

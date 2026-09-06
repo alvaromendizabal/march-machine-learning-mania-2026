@@ -23,6 +23,7 @@ from march_mania.advanced_features import (
     elo_history,
     pair_features,
 )
+from march_mania.encoding import encode_history
 from march_mania.features import read_official
 from march_mania.research import finalize_run, fit_fold
 from march_mania.research_report import write_report
@@ -100,7 +101,11 @@ def feature_registry() -> pd.DataFrame:
         family = reverse.get(name, "interactions" if name in INTERACTIONS else "core")
         source = {
             "history": "prior-season NCAA results and seeds",
-            "rankings": "Massey ordinals at or before DayNum 132",
+            "rankings": "Massey publication cohorts at or before DayNum 132",
+            "rank_trends": "matched Massey systems at historical as-of cutoffs",
+            "target_team": "NCAA team outcomes from strictly earlier training seasons",
+            "target_seed": "NCAA outcomes grouped by historical season seed",
+            "target_rank": "NCAA outcomes grouped by historical pre-cutoff Massey decile",
             "dynamic": "regular-season compact history at or before DayNum 132",
         }.get(family, "current regular-season compact/detailed results and tournament seeds")
         rows.append(
@@ -113,25 +118,17 @@ def feature_registry() -> pd.DataFrame:
                 else "antisymmetric interaction; see advanced_features.py",
                 "cutoff_day": 132,
                 "swap_parity": -1,
-                "missing_policy": "training-fold median; absent ranking family excluded",
+                "missing_policy": "training-fold preprocessing; unavailable/zero columns audited",
+                "label_policy": "strictly prior seasons; fixed prior and smoothing"
+                if family.startswith("target_")
+                else "no current/future tournament outcomes",
                 "evidence": "candidate; requires ablation",
             }
         )
     return pd.DataFrame(rows)
 
 
-def run(
-    raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None = None
-) -> dict[str, Any]:
-    validate_config(config)
-    output.mkdir(parents=True, exist_ok=True)
-    with FileLock(str(output / ".run.lock"), timeout=0):
-        return _run(raw, output, config, mirror_uri)
-
-
-def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None) -> dict[str, Any]:
-    log = EventLog(output / "events.jsonl")
-    log.emit("run_started", protocol=config["protocol"])
+def prepare_inputs(raw: Path, config: dict[str, Any]) -> tuple:
     data, paths = read_official(raw)
     optional = [
         p for p in [raw / "MMasseyOrdinals.csv", raw / "SampleSubmissionStage2.csv"] if p.exists()
@@ -141,6 +138,8 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
         Path(__file__).parent / name
         for name in [
             "advanced_features.py",
+            "rankings.py",
+            "encoding.py",
             "feature_store.py",
             "features.py",
             "research.py",
@@ -156,12 +155,47 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
         "source": {str(p.relative_to(root)): digest(p) for p in sources},
         "environment": {k: v for k, v in identity.items() if k != "platform"},
     }
+    return data, paths, optional, root, identity, inputs
+
+
+def run(
+    raw: Path,
+    output: Path,
+    config: dict[str, Any],
+    mirror_uri: str | None = None,
+    *,
+    managed: bool = False,
+    require_massey: bool = False,
+) -> dict[str, Any]:
+    validate_config(config)
+    if require_massey and not (raw / "MMasseyOrdinals.csv").is_file():
+        raise FileNotFoundError("MMasseyOrdinals.csv is required; complete march-data first")
+    prepared = prepare_inputs(raw, config)
+    run_hash = fingerprint(prepared[-1])
+    destination = output / run_hash if managed else output
+    destination.mkdir(parents=True, exist_ok=True)
+    with FileLock(str(destination / ".run.lock"), timeout=0):
+        summary = _run(raw, destination, config, mirror_uri, prepared, require_massey)
+        if managed:
+            atomic_json(output / "latest.json", {"fingerprint": run_hash, "directory": run_hash})
+        return summary
+
+
+def _run(
+    raw: Path,
+    output: Path,
+    config: dict[str, Any],
+    mirror_uri: str | None,
+    prepared: tuple,
+    require_massey: bool,
+) -> dict[str, Any]:
+    log = EventLog(output / "events.jsonl")
+    log.emit("run_started", protocol=config["protocol"], output_directory=str(output.resolve()))
+    data, paths, optional, root, identity, inputs = prepared
     run_hash = fingerprint(inputs)
     manifest = output / "manifest.json"
     if manifest.exists() and json.loads(manifest.read_text())["fingerprint"] != run_hash:
-        raise ValueError(
-            "Inputs/configuration/code/environment changed; choose a new output directory"
-        )
+        raise ValueError("Inputs changed; use --run-root for automatic versioned runs")
     commit = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=root, capture_output=True, text=True, check=False
     ).stdout.strip()
@@ -188,8 +222,9 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
         else None
     )
     years = [y for y in range(config["first_season"], config["last_season"] + 1) if y != 2020]
-    all_teams, matrices = [], []
+    all_teams, matrices, encoding_audits = [], [], []
     for gender, tables in data.items():
+        snapshots = []
 
         def build_elo(target: Path, tables: dict[str, pd.DataFrame] = tables) -> list[Path]:
             history = elo_history(
@@ -227,8 +262,23 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
                 return [path]
 
             destination = store.task(f"snapshot_{gender.lower()}_{season}", build)
-            all_teams.append(pd.read_parquet(destination / "teams.parquet"))
-        teams = pd.concat(all_teams, ignore_index=True).query("Gender == @gender")
+            snapshots.append(pd.read_parquet(destination / "teams.parquet"))
+        base_teams = pd.concat(snapshots, ignore_index=True)
+
+        def build_encoding(
+            target: Path,
+            base_teams: pd.DataFrame = base_teams,
+            tables: dict[str, pd.DataFrame] = tables,
+        ) -> list[Path]:
+            encoded, audit = encode_history(base_teams, tables["NCAATourneyCompactResults"])
+            encoded.to_parquet(target / "teams.parquet", index=False)
+            audit.to_csv(target / "encoding_audit.csv", index=False)
+            return [target / "teams.parquet", target / "encoding_audit.csv"]
+
+        encoded_path = store.task(f"encoding_{gender.lower()}", build_encoding)
+        teams = pd.read_parquet(encoded_path / "teams.parquet")
+        all_teams.append(teams)
+        encoding_audits.append(pd.read_csv(encoded_path / "encoding_audit.csv"))
         pairs = labeled_pairs(tables, gender, years)
         matrix = pair_features(teams, pairs)
         matrix["y"], matrix["DayNum"] = pairs.y.to_numpy(), pairs.DayNum.to_numpy()
@@ -239,6 +289,7 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
     matrix = pd.concat(matrices, ignore_index=True)
     teams.to_parquet(output / "teams.parquet", index=False)
     matrix.to_parquet(output / "features.parquet", index=False)
+    pd.concat(encoding_audits, ignore_index=True).to_csv(output / "encoding_audit.csv", index=False)
     registry = feature_registry()
     registry.to_csv(output / "feature_registry.csv", index=False)
     coverage = (
@@ -252,6 +303,14 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
         .reset_index()
     )
     coverage.to_csv(output / "coverage.csv", index=False)
+    if require_massey:
+        evaluated = coverage.loc[
+            (coverage.Gender == "M") & coverage.Season.isin(config["validation_seasons"])
+        ]
+        if (evaluated.ranking_teams == 0).any():
+            raise ValueError("Required Massey data has no legal coverage in a validation season")
+    for row in coverage.to_dict("records"):
+        log.emit("feature_coverage", **{str(k): v for k, v in row.items()})
     pd.DataFrame(
         {
             "feature": registry.feature,
@@ -276,7 +335,7 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
         "roster_minutes": False,
     }
     atomic_json(output / "source_availability.json", availability)
-    predictions = []
+    predictions, usage = [], []
     tasks = [
         (gender, season, block, columns, model)
         for gender in ("M", "W")
@@ -298,32 +357,74 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
             model: str = model,
             block: str = block,
         ) -> list[Path]:
+            fitted = [
+                c for c in columns if train[c].notna().any() and train[c].fillna(0).ne(0).any()
+            ]
+            if not fitted:
+                raise ValueError("No informative training features in the requested block")
             with threadpool_limits(limits=config["threads"]):
-                estimator, probability = fit_fold(train, valid, columns, model, config["seed"])
+                estimator, probability = fit_fold(train, valid, fitted, model, config["seed"])
+            coefficients = (
+                dict(zip(fitted, estimator[-1].coef_[0], strict=True))
+                if model == "logistic"
+                else {}
+            )
+            audit = pd.DataFrame(
+                [
+                    {
+                        "Gender": str(valid.Gender.iloc[0]),
+                        "Season": int(valid.Season.iloc[0]),
+                        "block": block,
+                        "model": model,
+                        "feature": c,
+                        "fitted": c in fitted,
+                        "train_nonmissing": int(train[c].notna().sum()),
+                        "validation_nonmissing": int(valid[c].notna().sum()),
+                        "train_games": len(train),
+                        "validation_games": len(valid),
+                        "standardized_coefficient": coefficients.get(c),
+                        "status": "fitted" if c in fitted else "no_training_signal",
+                    }
+                    for c in columns
+                ]
+            )
+            audit.to_csv(target / "feature_usage.csv", index=False)
             result = valid[["Gender", "Season", "DayNum", "ID", "y"]].copy()
             result["p"], result["block"], result["model"] = probability, block, model
             result.to_parquet(target / "predictions.parquet", index=False)
-            joblib.dump({"estimator": estimator, "features": columns}, target / "model.joblib")
+            joblib.dump({"estimator": estimator, "features": fitted}, target / "model.joblib")
             atomic_json(
                 target / "fold.json",
                 {
                     "train_seasons": sorted(train.Season.unique().tolist()),
                     "validation_season": int(valid.Season.iloc[0]),
-                    "features": columns,
+                    "features": fitted,
+                    "requested_features": columns,
+                    "encoding_rule": "each row uses only strictly earlier training seasons",
                     "physical_train_games": len(train),
                     "validation_games": len(valid),
                 },
             )
-            return [target / name for name in ("predictions.parquet", "model.joblib", "fold.json")]
+            return [
+                target / name
+                for name in (
+                    "predictions.parquet",
+                    "model.joblib",
+                    "fold.json",
+                    "feature_usage.csv",
+                )
+            ]
 
         destination = store.task(f"fold_{gender.lower()}_{season}_{block}_{model}", evaluate)
         predictions.append(pd.read_parquet(destination / "predictions.parquet"))
+        usage.append(pd.read_csv(destination / "feature_usage.csv"))
         log.emit(
             "progress",
             completed=completed,
             total=len(tasks),
             percent=round(100 * completed / len(tasks), 1),
         )
+    pd.concat(usage, ignore_index=True).to_csv(output / "feature_usage.csv", index=False)
     forecasts = pd.concat(predictions, ignore_index=True)
     forecasts.to_parquet(output / "predictions.parquet", index=False)
     comparisons = [(name, "strength") for name in [*FAMILIES, "interactions"]]
@@ -348,15 +449,26 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw", type=Path, default=Path("data/kaggle/raw"))
-    parser.add_argument("--output", type=Path, default=Path("outputs/feature_store"))
+    destinations = parser.add_mutually_exclusive_group()
+    destinations.add_argument("--output", type=Path, help="Exact run directory (strict identity)")
+    destinations.add_argument("--run-root", type=Path, help="Parent for content-addressed runs")
+    parser.add_argument("--require-massey", action="store_true")
     parser.add_argument("--config", type=Path, default=Path("configs/feature_store.json"))
     parser.add_argument("--s3")
     args = parser.parse_args()
+    output = args.output or args.run_root or Path("outputs/feature_store")
     try:
-        run(args.raw, args.output, json.loads(args.config.read_text()), args.s3)
+        run(
+            args.raw,
+            output,
+            json.loads(args.config.read_text()),
+            args.s3,
+            managed=args.output is None,
+            require_massey=args.require_massey,
+        )
         return 0
     except Exception as error:
-        EventLog(args.output / "events.jsonl").emit(
+        EventLog(output / "events.jsonl").emit(
             "command_failed", error_type=type(error).__name__, error=str(error)
         )
         return 1

@@ -1,10 +1,10 @@
 {
   "summary": {
-    "elapsed_seconds": 81.295,
+    "elapsed_seconds": 111.622,
     "evidence_status": "retrospective-feature-store",
-    "feature_count": 80,
-    "fingerprint": "a27836b3cf936c23433709d502b39fa1c614ce0e279499fe239ad870b054a394",
-    "fold_tasks": 400,
+    "feature_count": 104,
+    "fingerprint": "5ef4aefcf59f87fbf964f8a35e63650beded30e7e39463bbe4754f20bbdd4588",
+    "fold_tasks": 480,
     "remote_run_uri": null,
     "sources": {
       "massey": false,
@@ -17,8 +17,8 @@
   },
   "manifest": {
     "evidence_status": "retrospective-feature-store",
-    "fingerprint": "a27836b3cf936c23433709d502b39fa1c614ce0e279499fe239ad870b054a394",
-    "git_commit": "2791d6b41a840e8c05f8eabe1ada312ea5ab671f",
+    "fingerprint": "5ef4aefcf59f87fbf964f8a35e63650beded30e7e39463bbe4754f20bbdd4588",
+    "git_commit": "bfe2c3a63195033f42b1ab15b058b3bd1c70c726",
     "inputs": {
       "config": {
         "feature_cutoff_day": 132,
@@ -58,49 +58,70 @@
         "scipy": "1.16.3"
       },
       "source": {
-        "pyproject.toml": "94c1514d783bfd9d22fa43371a3d452b6306913cf502404df72c7b58cfb01f24",
-        "src/march_mania/advanced_features.py": "8f5b80c926c6f2e07d6d731f4e6afbff5c07783aed83afbcd68c4ebdcadcca67",
-        "src/march_mania/feature_store.py": "901e24ea399924c25deba7e47ebfdb24663e391a07c5720c0d231a47d59f1ab1",
+        "pyproject.toml": "2d3a8bbdd6f5a40ec0101226a1fc5b75029d6a25a99e38464c4ede960349633b",
+        "src/march_mania/advanced_features.py": "f3c9b4fb3fdd08a5cf5eb9ce40784cb4ad6c061d3fdce9f032bd54a451cab416",
+        "src/march_mania/encoding.py": "49e61f4820bde51228e6d2e9c00e51a46937f7ef9dfa980db48c4a47a5ca2727",
+        "src/march_mania/feature_store.py": "8f68c2437dae849efb260cb2babfe40a5f8f8f2b7ffee73af32f350d9cc910cc",
         "src/march_mania/features.py": "dddf436532445df0587b4c421d719fc2f367a491479439d8aedd17a8a18863f1",
+        "src/march_mania/rankings.py": "30a9b854ffb8c0a4fae3a819ce13e2066280993b371244f7156c517b967b7764",
         "src/march_mania/research.py": "50e4dbc56a85ed1856ae52df74d511017849257954e5aff73afdf7db1e10cff3",
         "src/march_mania/research_report.py": "9758126b93f6f0e6d3ad9bccd90ef82b413851b2ac15c8b584650ce272d2c6f7",
         "src/march_mania/runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
-        "uv.lock": "2aa772814dbdbef0c90dc7ca07206af9ac307ab70a0bf4af90012674f29e0b84"
+        "uv.lock": "ed2a6f73bcd35ad0593e35a08d54fddc442202cb6cd3e008969debb66225c594"
       }
     },
     "platform": "Linux-6.18.35-x86_64-with-glibc2.39"
   },
   "sha256": {
-    "feature_registry.csv": "cfbaf9987bab56292fb050480e568ca715782db3c0c693ba8b37c6fab00ffd87",
-    "diagnostics.csv": "107d86b2231b711b9abd2683b7fcda46a74b38e345ab80b6a06d9391883e8fa0",
+    "feature_registry.csv": "317cb4fafa404ef809e0cbb1708326c34ef98b7a97be288a591eaba6be1a226b",
+    "diagnostics.csv": "90397ab70de6f2ab761f24f5d1044a7bd86327c56af219b6d9dc8f2434138989",
     "coverage.csv": "e905086b92807da1fa2f8201fcee36c17a5ec39adcfe53f703508299269ac5bb",
     "source_availability.json": "523d1f960c267fa329670f283650a24cc57b1ce9cca1590fac5b27984af52113",
-    "leaderboard.csv": "c1a1cb26bdfcb6817cfef53b7b7e51eed6bb5e3e38caa772147d8df0991042d7",
-    "metrics_by_season.csv": "3a0a471d7f707fdb37a84a906f4a21e01414bf29a36ef31ce8f184e44b7661aa",
-    "combined_metrics_by_season.csv": "99bc0d6935fd2d7d734677ba93f1865a22ee9299058530b1b5020071ae479ead",
-    "ablation_intervals.csv": "8f0949b58681e5613cd797cf999dbdc7c473ff5f173156fee28a380e56885326",
-    "reliability.csv": "3e528b7741064c85aa80764add3e3819cc8a29b6d97d2c996d3abc5d6bbfed19",
-    "interpretation.json": "755cc2e200fbb109421069a52d3ab055f5671bce1064818fefbc1f08150a92be"
+    "leaderboard.csv": "1ce9afef6b06f5595bd9c8b443685d9ea0edb5f44c2c0ebb69d769fd492eb68f",
+    "metrics_by_season.csv": "4abfcc0f59a0386c8df7656c22f0e95ab4e5baf93de68c87724c217eb2e44be4",
+    "combined_metrics_by_season.csv": "6a1ae9084cc44cd5b86707797df759c9f010feeb0f21a54106ab98d078045e21",
+    "ablation_intervals.csv": "d038d67e669591706b0f61215089a56fba4574691d4f6b80b172231c4df2656b",
+    "reliability.csv": "433a7cc1d8a6a80a39919e7dbe3044d3d474c2375deaca105c43168c16ce99fe",
+    "interpretation.json": "755cc2e200fbb109421069a52d3ab055f5671bce1064818fefbc1f08150a92be",
+    "encoding_audit.csv": "86a0af48032b53f6a1a3b53d884fc47b21c25844a48de1f6ddf85f3c6f3c69d2",
+    "feature_usage.csv": "80a9a5151895eec55aab85e50763bf694511c2d35d5d0d88707827e831b9554d"
   },
   "control_reproduction": {
     "matched_predictions": 3894,
-    "max_absolute_probability_difference": 0.0
+    "max_absolute_probability_difference": 3.1086244689504383e-15
+  },
+  "artifact_scopes": {
+    "feature_usage.csv": "full block, logistic model, all validation seasons; complete audit in S3 archive"
   },
   "archive": {
-    "s3_uri": "s3://sagemaker-march-mania-560403859723-us-west-2/feature-store/a27836b3cf936c23433709d502b39fa1c614ce0e279499fe239ad870b054a394/run.zip",
-    "sha256": "31697b5200a0581cfacdb5ce1f8871d9f3ffa3220ba371d66de1cf16daccb1cc",
-    "bytes": 38101402,
-    "files": 1689,
-    "checksum_sha256": "MWl7UgCgWBz6zbXOH4hx2fP/oyILo3HWbeHPFtrMscw=",
+    "s3_uri": "s3://sagemaker-march-mania-560403859723-us-west-2/feature-store/5ef4aefcf59f87fbf964f8a35e63650beded30e7e39463bbe4754f20bbdd4588/run.zip",
+    "sha256": "38ed08b0bb28cdda53e7df8980d37a560e6a0b2602a1aaf1e00f67739bd6d822",
+    "bytes": 47609610,
+    "files": 2499,
+    "verification": "S3 HeadObject full-object SHA-256 and size verified",
+    "checksum_sha256": "OO0IsLsozdpT59+JgNN6Vg5qCyYCoarx4A9nc5vW2CI=",
     "encryption": "AES256",
-    "last_modified": "2026-09-06T22:58:33+00:00",
-    "version_id": "JX4JmEbA3RFeNUsUgyoL87sWLCKSGMqt"
+    "version_id": "EOz1__4Cu0Idj9eIGTniOnIDOIZkT_jY",
+    "last_modified": "2026-09-06T23:35:33+00:00"
   },
   "recovery": {
-    "restored_files": 1689,
-    "reused_tasks": 428,
+    "restored_files": 2499,
+    "reused_tasks": 510,
     "retrained_tasks": 0,
-    "elapsed_seconds": 15.326,
+    "elapsed_seconds": 13.732,
     "fingerprint_preserved": true
+  },
+  "previous_run": {
+    "fingerprint": "a27836b3cf936c23433709d502b39fa1c614ce0e279499fe239ad870b054a394",
+    "archive": {
+      "s3_uri": "s3://sagemaker-march-mania-560403859723-us-west-2/feature-store/a27836b3cf936c23433709d502b39fa1c614ce0e279499fe239ad870b054a394/run.zip",
+      "sha256": "31697b5200a0581cfacdb5ce1f8871d9f3ffa3220ba371d66de1cf16daccb1cc",
+      "bytes": 38101402,
+      "files": 1689,
+      "checksum_sha256": "MWl7UgCgWBz6zbXOH4hx2fP/oyILo3HWbeHPFtrMscw=",
+      "encryption": "AES256",
+      "last_modified": "2026-09-06T22:58:33+00:00",
+      "version_id": "JX4JmEbA3RFeNUsUgyoL87sWLCKSGMqt"
+    }
   }
 }

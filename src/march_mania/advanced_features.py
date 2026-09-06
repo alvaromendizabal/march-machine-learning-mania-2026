@@ -12,7 +12,9 @@ import pandas as pd
 from scipy import sparse
 from sklearn.linear_model import Ridge
 
+from march_mania.encoding import ENCODING_FAMILIES, ENCODING_FEATURES
 from march_mania.features import KEYS, feature_blocks, snapshot, team_games
+from march_mania.rankings import LEVEL_FEATURES, TREND_FEATURES, ranking_snapshot
 
 FAMILIES = {
     "adjusted": ["adj_offense", "adj_defense", "recent_offense", "recent_defense"],
@@ -40,13 +42,9 @@ FAMILIES = {
     "tempo": ["tempo", "tempo_sd", "three_dependence", "possession_gap", "clean_coverage"],
     "dynamic": ["elo", "elo_mov", "elo_change", "elo_mov_change"],
     "history": ["prior_wins", "prior_appearances", "prior_seed"],
-    "rankings": [
-        "rank_consensus",
-        "rank_disagreement",
-        "rank_momentum",
-        "rank_systems",
-        "rank_age",
-    ],
+    "rankings": LEVEL_FEATURES,
+    "rank_trends": TREND_FEATURES,
+    **ENCODING_FAMILIES,
 }
 INTERACTIONS = [
     "pace_strength",
@@ -251,45 +249,6 @@ def elo_snapshot(compact: pd.DataFrame, season: int, cutoff: int) -> pd.DataFram
     return history.loc[history.Season == season].drop(columns="Season").reset_index(drop=True)
 
 
-def ranking_snapshot(rankings: pd.DataFrame, season: int, cutoff: int) -> pd.DataFrame:
-    """Latest available rank per system/team, with a 14-day staleness limit."""
-    required = ["Season", "RankingDayNum", "SystemName", "TeamID", "OrdinalRank"]
-    if not set(required).issubset(rankings) or rankings[required].isna().any().any():
-        raise ValueError("Invalid ranking schema")
-    legal = rankings.loc[(rankings.Season == season) & (rankings.RankingDayNum <= cutoff)]
-    if legal.duplicated(required[:-1]).any() or (legal.OrdinalRank <= 0).any():
-        raise ValueError("Duplicate or invalid ordinal ranks")
-
-    def latest(day: int) -> pd.DataFrame:
-        selected = legal.loc[legal.RankingDayNum.between(day - 14, day)]
-        selected = (
-            selected.sort_values("RankingDayNum")
-            .drop_duplicates(["SystemName", "TeamID"], keep="last")
-            .copy()
-        )
-        maximum = selected.groupby("SystemName").OrdinalRank.transform("max")
-        selected["rating"] = 1 - (selected.OrdinalRank - 1) / (maximum - 1).clip(lower=1)
-        return selected
-
-    current, previous = latest(cutoff), latest(cutoff - 30)
-    if current.empty:
-        return pd.DataFrame(columns=["TeamID", *FAMILIES["rankings"]])
-    current["age"] = cutoff - current.RankingDayNum
-    result = current.groupby("TeamID").agg(
-        rank_consensus=("rating", "median"),
-        rank_disagreement=("rating", "std"),
-        rank_systems=("SystemName", "nunique"),
-        rank_age=("age", "mean"),
-    )
-    # Momentum compares the same systems, so changing vendor coverage is not a trend.
-    paired = current.merge(
-        previous, on=["SystemName", "TeamID"], suffixes=("_now", "_past"), validate="one_to_one"
-    )
-    paired["change"] = paired.rating_now - paired.rating_past
-    result["rank_momentum"] = paired.groupby("TeamID").change.median()
-    return result.reset_index()
-
-
 def advanced_snapshot(
     tables: dict[str, pd.DataFrame],
     gender: str,
@@ -368,8 +327,10 @@ def advanced_snapshot(
             validate="one_to_one",
         )
     else:
-        for column in FAMILIES["rankings"]:
+        for column in LEVEL_FEATURES + TREND_FEATURES:
             result[column] = np.nan
+    for column in ENCODING_FEATURES:
+        result[column] = np.nan
     result["snapshot_day"] = cutoff
     return result
 
@@ -395,8 +356,11 @@ def pair_features(teams: pd.DataFrame, pairs: pd.DataFrame) -> pd.DataFrame:
         for column in feature_blocks()["full"]
         if column.startswith("diff_")
     ]
-    for feature in [*base, *[c for family in FAMILIES.values() for c in family]]:
-        result["diff_" + feature] = joined["a_" + feature] - joined["b_" + feature]
+    differences = {
+        "diff_" + feature: joined["a_" + feature] - joined["b_" + feature]
+        for feature in [*base, *[c for family in FAMILIES.values() for c in family]]
+    }
+    result = pd.concat([result, pd.DataFrame(differences)], axis=1)
     for rate in ["efg", "tov", "orb", "ftr", "three_rate"]:
         result["matchup_" + rate] = (
             joined["a_" + rate] * joined["b_opp_" + rate]
@@ -439,7 +403,7 @@ def candidate_blocks(include_rankings: bool = True) -> dict[str, list[str]]:
     families = {
         name: ["diff_" + c for c in columns]
         for name, columns in FAMILIES.items()
-        if include_rankings or name != "rankings"
+        if include_rankings or name not in {"rankings", "rank_trends", "target_rank"}
     }
     families["interactions"] = INTERACTIONS
     full = list(
