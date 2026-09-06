@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-09-06T23:02:14.207695+00:00",
+  "tests": 59,
+  "failures": 0,
+  "line_coverage": 0.8908,
+  "quality": {
+    "checks": [
+      {
+        "check": "compile",
+        "status": "passed",
+        "seconds": 0.06482666900046752
+      },
+      {
+        "check": "lint",
+        "status": "passed",
+        "seconds": 0.0642865570007416
+      },
+      {
+        "check": "format",
+        "status": "passed",
+        "seconds": 0.06538273799742456
+      },
+      {
+        "check": "types",
+        "status": "passed",
+        "seconds": 0.4674294579999696
+      },
+      {
+        "check": "tests",
+        "status": "passed",
+        "seconds": 88.43806495600074
+      }
+    ],
+    "elapsed_seconds": 89.10122059100104
+  },
+  "source_sha256": {
+    "src/march_mania/__init__.py": "fb8f7f61008dfb3648a0f2d5046109b11b5f0868a91c898ede383d014f9a8e73",
+    "src/march_mania/advanced_features.py": "8f5b80c926c6f2e07d6d731f4e6afbff5c07783aed83afbcd68c4ebdcadcca67",
+    "src/march_mania/data.py": "7f87a0a2376a020096e7d5ac9e7f9ae650d6e8c5364b1a329d0f22719e5c4a41",
+    "src/march_mania/feature_store.py": "901e24ea399924c25deba7e47ebfdb24663e391a07c5720c0d231a47d59f1ab1",
+    "src/march_mania/features.py": "dddf436532445df0587b4c421d719fc2f367a491479439d8aedd17a8a18863f1",
+    "src/march_mania/io.py": "46decedac7173a2c806ae5a87bd5caaee31706817ca15ce0aab799b238bd45a0",
+    "src/march_mania/paths.py": "90c6af595fd0b9df6aab7d2d3161c350f6e0f2a00efd4771798b0da51b939aa5",
+    "src/march_mania/research.py": "50e4dbc56a85ed1856ae52df74d511017849257954e5aff73afdf7db1e10cff3",
+    "src/march_mania/research_report.py": "9758126b93f6f0e6d3ad9bccd90ef82b413851b2ac15c8b584650ce272d2c6f7",
+    "src/march_mania/reshape.py": "2820d630c10c554ec861fb0de9fb359c759d27de42bb8711b96dac8d0f008541",
+    "src/march_mania/runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
+    "src/march_mania/validation.py": "6d4fe5a339b11e255f087f27927335160e324fcc7aab5021d354bb711b80e235",
+    "tests/conftest.py": "eb9759c02b9f0d9c511093a7874cf27121f60724fd285f9d93cee932d2e9251d",
+    "tests/test_advanced_features.py": "2295c72e5d19c9ca4da6093170b5533f2413052a520402760c6a48c0ef4496cb",
+    "tests/test_archive.py": "80b78498964ac1340b2a5b8fca6009f292b778c945766ebb364dde9688c751d7",
+    "tests/test_commands.py": "93ed2f4bde0b4f668814aac04ca27ff99a180d810e96d06f33e232da60b1c7a9",
+    "tests/test_data.py": "ab98a02ad91ac30ba40833b87862168190ae2c9534792e7fb95efeb883d7c47d",
+    "tests/test_feature_store.py": "0c640b844792776cf454c44ce45c0c4e93189a54acdbb03ca6deeaaf838ce793",
+    "tests/test_features.py": "e2f9b77bf43bc06b58f6a9aab5948d995e77319e6ab6190ff1bffdc90ae12b9d",
+    "tests/test_research.py": "232a603e5d1f737e739953c8493439dd38389d8e92ae2ef20bb63d91401caaa2",
+    "tests/test_reshape.py": "9c1d265187fc9b7d64570e8cc8c637d4925853bc48361ca1105cd2f071507bc1",
+    "tests/test_runtime.py": "b3d2f426f0dea313e26673e5ff4ed4e1fabd3b6ebd8745d6382332305b713f02",
+    "tests/test_storage.py": "40319ca32604b6d7e25c1bd9deec0fae3a1935ce2f4710251e4135229aec0ec5",
+    "scripts/archive.py": "b6bc01d0d3c0294a853c0d3556892831928c9fef978131f548810d303ae1125c",
+    "scripts/notebook.py": "4d22803f020507570548e791d942b63d04261c444280ec5e4c1da54588874da2",
+    "scripts/quality.py": "675a0310765d7263b40d3926c6403b7c1a291a41ab00d05200e2c40d2f3bbfa3"
+  },
+  "notebook_validation": "all code cells executed locally in-process; static figures inspected; actual Jupyter kernel execution required by CI",
+  "official_data_run": {
+    "folds": 400,
+    "seconds": 81.295,
+    "matched_control_predictions": 3894,
+    "maximum_control_probability_difference": 0.0
+  },
+  "recovery": {
+    "restored_files": 1689,
+    "reused_tasks": 428,
+    "retrained_tasks": 0,
+    "elapsed_seconds": 15.326,
+    "fingerprint_preserved": true
+  },
+  "live_kaggle_download": "requires credentials in the existing AWS Studio runtime; local missing-auth path verified"
+}

@@ -4,17 +4,20 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "march-mania-2026"
-version = "0.2.0"
+version = "0.3.0"
 description = "Leakage-safe NCAA tournament forecasting project"
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "numpy==2.2.6", "pandas==2.3.3", "scipy==1.16.3", "scikit-learn==1.7.2",
   "pyarrow==21.0.0", "PyYAML==6.0.3", "joblib==1.5.2", "plotly==6.3.1",
   "threadpoolctl==3.6.0", "psutil==7.1.0", "filelock==3.20.0", "boto3>=1.40,<2",
+  "kaggle==2.2.4",
 ]
 
 [project.scripts]
 march-research = "march_mania.research:main"
+march-features = "march_mania.feature_store:main"
+march-data = "march_mania.data:main"
 
 [dependency-groups]
 dev = ["pytest==8.4.2", "pytest-cov==7.0.0", "ruff==0.13.3", "mypy==1.18.2",
@@ -26,7 +29,9 @@ python_version = "3.12"
 ignore_missing_imports = true
 check_untyped_defs = true
 files = ["src/march_mania/features.py", "src/march_mania/runtime.py",
-         "src/march_mania/research.py", "src/march_mania/research_report.py"]
+         "src/march_mania/research.py", "src/march_mania/research_report.py",
+         "src/march_mania/advanced_features.py", "src/march_mania/feature_store.py",
+         "src/march_mania/data.py"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

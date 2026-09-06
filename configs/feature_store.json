@@ -1,0 +1,12 @@
+{
+  "protocol": "retrospective-feature-store",
+  "first_season": 2013,
+  "last_season": 2026,
+  "validation_seasons": [2016, 2017, 2018, 2019, 2021],
+  "feature_cutoff_day": 132,
+  "minimum_prior_seasons": 3,
+  "ridge_alpha": 20.0,
+  "seed": 2026,
+  "threads": 2,
+  "heartbeat_seconds": 15
+}

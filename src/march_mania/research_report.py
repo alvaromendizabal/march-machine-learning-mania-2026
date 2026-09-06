@@ -44,20 +44,28 @@ def probability_metrics(y: np.ndarray, p: np.ndarray) -> dict[str, float | None]
     }
 
 
-def paired_season_intervals(predictions: pd.DataFrame, seed: int) -> pd.DataFrame:
+def paired_season_intervals(
+    predictions: pd.DataFrame, seed: int, comparisons: list[tuple[str, str]] | None = None
+) -> pd.DataFrame:
     """Paired loss deltas, resampling entire seasons rather than dependent games."""
-    comparisons = [
-        ("strength", "seed"),
-        ("efficiency", "strength"),
-        ("recent", "efficiency"),
-        ("matchup", "efficiency"),
-        ("full", "recent"),
-        ("full", "matchup"),
-    ]
+    comparisons = (
+        comparisons
+        if comparisons is not None
+        else [
+            ("strength", "seed"),
+            ("efficiency", "strength"),
+            ("recent", "efficiency"),
+            ("matchup", "efficiency"),
+            ("full", "recent"),
+            ("full", "matchup"),
+        ]
+    )
     rng = np.random.default_rng(seed)
     records = []
     for (gender, model), group in predictions.groupby(["Gender", "model"]):
         for candidate, baseline in comparisons:
+            if candidate not in set(group.block) or baseline not in set(group.block):
+                continue
             keys = ["Gender", "Season", "ID"]
             left = group.loc[group.block == candidate, keys + ["y", "p"]]
             right = group.loc[group.block == baseline, keys + ["y", "p"]]
@@ -86,7 +94,12 @@ def paired_season_intervals(predictions: pd.DataFrame, seed: int) -> pd.DataFram
     return pd.DataFrame(records)
 
 
-def write_report(predictions: pd.DataFrame, output: Path, seed: int) -> None:
+def write_report(
+    predictions: pd.DataFrame,
+    output: Path,
+    seed: int,
+    comparisons: list[tuple[str, str]] | None = None,
+) -> None:
     records = []
     for keys, group in predictions.groupby(["Gender", "Season", "block", "model"]):
         records.append(
@@ -127,7 +140,7 @@ def write_report(predictions: pd.DataFrame, output: Path, seed: int) -> None:
             }
         )
     pd.DataFrame(combined).to_csv(output / "combined_metrics_by_season.csv", index=False)
-    intervals = paired_season_intervals(predictions, seed)
+    intervals = paired_season_intervals(predictions, seed, comparisons)
     intervals.to_csv(output / "ablation_intervals.csv", index=False)
     curves = []
     for keys, group in predictions.groupby(["Gender", "block", "model"]):
@@ -156,7 +169,7 @@ def write_report(predictions: pd.DataFrame, output: Path, seed: int) -> None:
     )
     figures = [
         px.bar(
-            summary,
+            summary.loc[~summary.block.str.startswith("without_")],
             x="block",
             y="macro_season_brier",
             color="model",
@@ -165,7 +178,7 @@ def write_report(predictions: pd.DataFrame, output: Path, seed: int) -> None:
             title="Matched-season feature comparison",
         ),
         px.line(
-            metrics,
+            metrics.loc[~metrics.block.str.startswith("without_")],
             x="Season",
             y="brier",
             color="block",
@@ -205,7 +218,10 @@ def write_report(predictions: pd.DataFrame, output: Path, seed: int) -> None:
             mode="lines",
             line={"color": "#667085", "dash": "dot"},
             name="Perfect calibration",
-        )
+        ),
+        row="all",
+        col="all",
+        exclude_empty_subplots=True,
     )
     for fig in figures:
         fig.update_layout(

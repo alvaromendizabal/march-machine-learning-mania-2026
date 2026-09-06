@@ -22,6 +22,7 @@ def main() -> int:
         "scripts/quality.py",
         "scripts/inspect_data.py",
         "scripts/notebook.py",
+        "scripts/archive.py",
     ]
     checks = [
         ("compile", [sys.executable, "-m", "compileall", "-q", *scopes]),
@@ -38,6 +39,9 @@ def main() -> int:
                 "--cov=march_mania.runtime",
                 "--cov=march_mania.research",
                 "--cov=march_mania.research_report",
+                "--cov=march_mania.advanced_features",
+                "--cov=march_mania.feature_store",
+                "--cov=march_mania.data",
                 "--cov-report=term-missing",
                 "--cov-report=xml:outputs/validation/coverage.xml",
                 "--junitxml=outputs/validation/junit.xml",

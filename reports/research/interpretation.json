@@ -1,0 +1,9 @@
+{
+  "calibration": "diagnostic only; no calibrator fitted on validation outcomes",
+  "historical_limit": "2022-2026 excluded; development years were previously explored",
+  "official_metric": "game-weighted Brier (mean squared probability error)",
+  "selection_metric": "macro mean season Brier",
+  "status": "retrospective development research; no automatic model promotion",
+  "threshold_metrics": "0.5 threshold; positive class is lower TeamID winning",
+  "uncertainty": "paired season bootstrap; few seasons imply unstable intervals"
+}

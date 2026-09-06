@@ -21,6 +21,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from threadpoolctl import threadpool_limits
 
+from march_mania.advanced_features import candidate_blocks
 from march_mania.features import feature_blocks, matchups, read_official, snapshot
 from march_mania.research_report import write_report
 from march_mania.runtime import (
@@ -63,7 +64,7 @@ def fit_fold(
         raise ValueError("Empty fold or temporal train/validation overlap")
     if train.y.nunique() != 2:
         raise ValueError("Training labels must contain both classes")
-    if not set(columns).issubset(feature_blocks()["full"]):
+    if not columns or not set(columns).issubset(candidate_blocks()["full"]):
         raise ValueError("Unknown feature or label in model matrix")
     x = train[columns].to_numpy(dtype=float)
     y = train.y.to_numpy(dtype=int)
@@ -282,6 +283,8 @@ def _run(raw: Path, output: Path, config: dict[str, Any], mirror_uri: str | None
 def finalize_run(
     output: Path, summary: dict[str, Any], mirror: Mirror | None, log: EventLog
 ) -> dict[str, Any]:
+    summary["elapsed_seconds"] = round(time.monotonic() - log.started, 3)
+    log.emit("artifacts_ready", elapsed_seconds=summary["elapsed_seconds"])
     summary["status"] = "uploading" if mirror else "completed"
     atomic_json(output / "summary.json", summary)
     if mirror:
