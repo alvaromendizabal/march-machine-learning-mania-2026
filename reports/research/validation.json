@@ -1,0 +1,61 @@
+{
+  "validated_at_utc": "2026-09-06T21:55:20.423410+00:00",
+  "audit_base": "cf005b42910f217a34f87017e6647d1b74f46ab8",
+  "quality": {
+    "checks": [
+      {
+        "check": "compile",
+        "status": "passed",
+        "seconds": 0.11521494899716345
+      },
+      {
+        "check": "lint",
+        "status": "passed",
+        "seconds": 0.08098866199725308
+      },
+      {
+        "check": "format",
+        "status": "passed",
+        "seconds": 0.07339426500038826
+      },
+      {
+        "check": "types",
+        "status": "passed",
+        "seconds": 2.1494830309966346
+      },
+      {
+        "check": "tests",
+        "status": "passed",
+        "seconds": 27.630384642001445
+      }
+    ],
+    "elapsed_seconds": 30.051855392001016
+  },
+  "tests": {
+    "tests": "39",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "26.050"
+  },
+  "research_module_line_coverage": 0.8998,
+  "test_data": "synthetic official-schema fixtures; no measured real-data improvement",
+  "notebook": "schema valid; all code cells executed in-process; static figure inspected",
+  "limitations": [
+    "Local host disallows Jupyter kernel sockets; CI will execute the notebook kernel.",
+    "Local HTML browser preview blocked; report structure and generation tested.",
+    "Official Kaggle data not available in this workspace.",
+    "S3 SDK uploads/restores unit-tested; Studio role permissions simulated; live run pending."
+  ],
+  "source_sha256": {
+    "src/march_mania/__init__.py": "fb8f7f61008dfb3648a0f2d5046109b11b5f0868a91c898ede383d014f9a8e73",
+    "src/march_mania/features.py": "dddf436532445df0587b4c421d719fc2f367a491479439d8aedd17a8a18863f1",
+    "src/march_mania/io.py": "46decedac7173a2c806ae5a87bd5caaee31706817ca15ce0aab799b238bd45a0",
+    "src/march_mania/paths.py": "90c6af595fd0b9df6aab7d2d3161c350f6e0f2a00efd4771798b0da51b939aa5",
+    "src/march_mania/research.py": "ff664319b139678bba19329b44bfb2fe7b2aeb0f8a96b19329f715112a2f353e",
+    "src/march_mania/research_report.py": "ae74aa5650787aacfc049e3ea13ced3c4213ec93949446f0c5a3c5d0328790cb",
+    "src/march_mania/reshape.py": "2820d630c10c554ec861fb0de9fb359c759d27de42bb8711b96dac8d0f008541",
+    "src/march_mania/runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
+    "src/march_mania/validation.py": "6d4fe5a339b11e255f087f27927335160e324fcc7aab5021d354bb711b80e235"
+  }
+}
