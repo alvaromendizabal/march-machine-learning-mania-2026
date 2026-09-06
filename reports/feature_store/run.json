@@ -1,0 +1,106 @@
+{
+  "summary": {
+    "elapsed_seconds": 81.295,
+    "evidence_status": "retrospective-feature-store",
+    "feature_count": 80,
+    "fingerprint": "a27836b3cf936c23433709d502b39fa1c614ce0e279499fe239ad870b054a394",
+    "fold_tasks": 400,
+    "remote_run_uri": null,
+    "sources": {
+      "massey": false,
+      "player_availability": false,
+      "roster_minutes": false,
+      "sample_submission": false
+    },
+    "status": "completed",
+    "team_snapshots": 9200
+  },
+  "manifest": {
+    "evidence_status": "retrospective-feature-store",
+    "fingerprint": "a27836b3cf936c23433709d502b39fa1c614ce0e279499fe239ad870b054a394",
+    "git_commit": "2791d6b41a840e8c05f8eabe1ada312ea5ab671f",
+    "inputs": {
+      "config": {
+        "feature_cutoff_day": 132,
+        "first_season": 2013,
+        "heartbeat_seconds": 15,
+        "last_season": 2026,
+        "minimum_prior_seasons": 3,
+        "protocol": "retrospective-feature-store",
+        "ridge_alpha": 20.0,
+        "seed": 2026,
+        "threads": 2,
+        "validation_seasons": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2021
+        ]
+      },
+      "data": {
+        "MNCAATourneyCompactResults.csv": "5260a076b4e0937aa0420fd5eb72789b9931c662ed071c5060407458d8de8a05",
+        "MNCAATourneySeeds.csv": "413916a4136af69346826ce433d749c6c6cbc96afd88a43d8645877d20d01691",
+        "MRegularSeasonCompactResults.csv": "f50b602151584b598d015a78355e7ffee533b031a66b8d9711ca01ad08b99e69",
+        "MRegularSeasonDetailedResults.csv": "5a7afaa262c2c725476ae3ee2a6abbf88ddc4a5973aab83d7140134a18b3d84d",
+        "WNCAATourneyCompactResults.csv": "13c44b67f2d4ea2661ef59ab0be720b3f3feede5f1de8ee419a8a46f7d99a6a5",
+        "WNCAATourneySeeds.csv": "fd80613514ac62ed63afcfc1ed0024c525ff02f4b43bd7a97ebccdb74a424ec6",
+        "WRegularSeasonCompactResults.csv": "ca8702630335ac5b8d00a5e5f09abc5aa10666b7584ac1db61b48784c77d4090",
+        "WRegularSeasonDetailedResults.csv": "0c416b6e59da818ea7356913caa7be2641b465ae97014551c617e0ccbefe432f"
+      },
+      "environment": {
+        "joblib": "1.5.2",
+        "numpy": "2.2.6",
+        "pandas": "2.3.3",
+        "pyarrow": "21.0.0",
+        "python": "3.12.13",
+        "scikit-learn": "1.7.2",
+        "scipy": "1.16.3"
+      },
+      "source": {
+        "pyproject.toml": "94c1514d783bfd9d22fa43371a3d452b6306913cf502404df72c7b58cfb01f24",
+        "src/march_mania/advanced_features.py": "8f5b80c926c6f2e07d6d731f4e6afbff5c07783aed83afbcd68c4ebdcadcca67",
+        "src/march_mania/feature_store.py": "901e24ea399924c25deba7e47ebfdb24663e391a07c5720c0d231a47d59f1ab1",
+        "src/march_mania/features.py": "dddf436532445df0587b4c421d719fc2f367a491479439d8aedd17a8a18863f1",
+        "src/march_mania/research.py": "50e4dbc56a85ed1856ae52df74d511017849257954e5aff73afdf7db1e10cff3",
+        "src/march_mania/research_report.py": "9758126b93f6f0e6d3ad9bccd90ef82b413851b2ac15c8b584650ce272d2c6f7",
+        "src/march_mania/runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
+        "uv.lock": "2aa772814dbdbef0c90dc7ca07206af9ac307ab70a0bf4af90012674f29e0b84"
+      }
+    },
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.39"
+  },
+  "sha256": {
+    "feature_registry.csv": "cfbaf9987bab56292fb050480e568ca715782db3c0c693ba8b37c6fab00ffd87",
+    "diagnostics.csv": "107d86b2231b711b9abd2683b7fcda46a74b38e345ab80b6a06d9391883e8fa0",
+    "coverage.csv": "e905086b92807da1fa2f8201fcee36c17a5ec39adcfe53f703508299269ac5bb",
+    "source_availability.json": "523d1f960c267fa329670f283650a24cc57b1ce9cca1590fac5b27984af52113",
+    "leaderboard.csv": "c1a1cb26bdfcb6817cfef53b7b7e51eed6bb5e3e38caa772147d8df0991042d7",
+    "metrics_by_season.csv": "3a0a471d7f707fdb37a84a906f4a21e01414bf29a36ef31ce8f184e44b7661aa",
+    "combined_metrics_by_season.csv": "99bc0d6935fd2d7d734677ba93f1865a22ee9299058530b1b5020071ae479ead",
+    "ablation_intervals.csv": "8f0949b58681e5613cd797cf999dbdc7c473ff5f173156fee28a380e56885326",
+    "reliability.csv": "3e528b7741064c85aa80764add3e3819cc8a29b6d97d2c996d3abc5d6bbfed19",
+    "interpretation.json": "755cc2e200fbb109421069a52d3ab055f5671bce1064818fefbc1f08150a92be"
+  },
+  "control_reproduction": {
+    "matched_predictions": 3894,
+    "max_absolute_probability_difference": 0.0
+  },
+  "archive": {
+    "s3_uri": "s3://sagemaker-march-mania-560403859723-us-west-2/feature-store/a27836b3cf936c23433709d502b39fa1c614ce0e279499fe239ad870b054a394/run.zip",
+    "sha256": "31697b5200a0581cfacdb5ce1f8871d9f3ffa3220ba371d66de1cf16daccb1cc",
+    "bytes": 38101402,
+    "files": 1689,
+    "checksum_sha256": "MWl7UgCgWBz6zbXOH4hx2fP/oyILo3HWbeHPFtrMscw=",
+    "encryption": "AES256",
+    "last_modified": "2026-09-06T22:58:33+00:00",
+    "version_id": "JX4JmEbA3RFeNUsUgyoL87sWLCKSGMqt"
+  },
+  "recovery": {
+    "restored_files": 1689,
+    "reused_tasks": 428,
+    "retrained_tasks": 0,
+    "elapsed_seconds": 15.326,
+    "fingerprint_preserved": true
+  }
+}

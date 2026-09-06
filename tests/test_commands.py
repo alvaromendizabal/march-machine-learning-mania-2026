@@ -38,8 +38,9 @@ def test_preflight_failure_names_missing_files(tmp_path):
 def test_notebook_schema_and_code_are_valid():
     import nbformat
 
-    notebook = nbformat.read(Path("notebooks/05_feature_research.ipynb"), as_version=4)
-    nbformat.validate(notebook)
-    for index, cell in enumerate(notebook.cells):
-        if cell.cell_type == "code":
-            compile(cell.source, f"cell-{index}", "exec")
+    for name in ["02_feature_store_and_diagnostics.ipynb", "05_feature_research.ipynb"]:
+        notebook = nbformat.read(Path("notebooks") / name, as_version=4)
+        nbformat.validate(notebook)
+        for index, cell in enumerate(notebook.cells):
+            if cell.cell_type == "code":
+                compile(cell.source, f"cell-{index}", "exec")

@@ -1,6 +1,6 @@
 # Feature research protocol
 
-This phase creates a small, testable research path inside the existing project. The five historical notebooks and their score records remain available. No new model improvement is claimed until real-data experiments complete.
+This document records the compact notebook 05 protocol. Its first real-data run is complete; verified scores and hashes are in `reports/research`. The next phase rebuilds canonical notebook 02 using the [feature-store contract](feature_store.md). Historical implementations remain in Git history.
 
 ## Evidence audit: 2026-09-06
 

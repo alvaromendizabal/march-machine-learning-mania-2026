@@ -1,9 +1,19 @@
-# Research implementation validation
+# Notebook 05 evidence
 
-The implementation passes **39 tests**, with **90% line coverage across the four new research modules**. Compilation, lint, formatting and mypy gates pass. The original three reshaping tests remain included.
+The first official-data benchmark completed **120 folds in 31.545 seconds**.
+Its original AWS run contains 533 artifacts. The eight raw-file hashes and the
+result-object hashes were verified against S3. `run.json` records the original
+manifest, completion summary and checksums for the result tables in this folder.
 
-The synthetic integration test trains 48 fold tasks across both genders, every feature set and both model families; a repeat run reuses all 48 models and all 10 season snapshots. Dedicated tests cover time cutoffs, future-outcome isolation, probability complementarity, missing snapshots, invalid data, corrupted checkpoints, concurrent writers, upload failures, restore checksums, unsafe object paths, ZIP immutability, missing-file diagnostics and notebook structure.
+Strength logistic leads both compact benchmarks: mean season Brier 0.191268 for
+men and 0.144308 for women. The full 25-feature candidate worsens both scores.
+These are retrospective development results, not new Kaggle submission scores.
 
-`validation.json` records timings, environment-independent test totals and source hashes. This is implementation evidence. It is not a competition score or evidence of predictive improvement. The official CSVs are still required for the 120-task real-data experiment.
+`validation.json` preserves the original implementation gate: 39 synthetic tests
+and 90% coverage across its four modules. It is historical engineering evidence.
+Current rebuilt-store validation is recorded in `../feature_store/validation.json`.
 
-The notebook code cells executed in-process because this host restricts kernel sockets. Its static chart was inspected. CI additionally executes it through a Jupyter kernel. HTML report generation and data contracts are tested; browser visual inspection was blocked by the current browser policy. AWS resource configuration was verified; the first live S3 transfer from Studio remains pending.
+Canonical notebook 05 now displays the completed run. Rebuilt notebook 02 tests
+additional feature families and records the next experiments in `../feature_store`.
+Static notebook plots have been rendered and inspected. CI executes both review
+notebooks in their actual Jupyter kernel.

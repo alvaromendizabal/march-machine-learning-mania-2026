@@ -1,102 +1,95 @@
-# Studio setup and first real run
+# March Mania Studio
 
-## Provisioned resources
+The existing private space is **March Mania Research** (`march-mania-dev`) in
+**Oregon / us-west-2**, domain `d-njhxv1erusdc`, profile
+`default-20260902T115323`. Its JupyterLab app was verified running on 2026-09-06.
+It has 50 GB persistent EBS, a configured `ml.m7i.xlarge` CPU instance, SageMaker
+Distribution CPU 4.4.2, and a 60-minute idle timeout.
 
-Verified on 2026-09-06:
+[Open the existing Studio](https://8i0hrdxm55pbptj.studio.us-west-2.sagemaker.aws/jupyterlab/default)
 
-- Region: **Oregon (`us-west-2`)**.
-- Existing domain: `d-njhxv1erusdc`; owner profile: `default-20260902T115323`.
-- Private JupyterLab space: **`march-mania-dev`**, display name **March Mania Research**.
-- Persistent EBS: **50 GB**; configured CPU: **`ml.m7i.xlarge`**; image: SageMaker Distribution CPU **4.4.2**.
-- Idle timeout: **60 minutes**. Compute was not started by this setup.
-- Dedicated bucket: `sagemaker-march-mania-560403859723-us-west-2`.
-- Bucket versioning enabled, AES256 server-side encryption enabled, all four public-access blocks enabled.
-- IAM policy simulation allowed the existing Studio role to list the bucket and read/write research objects. This is not a substitute for the first live transfer from the Studio runtime.
+The private bucket is `sagemaker-march-mania-560403859723-us-west-2`. Encryption,
+versioning and public-access blocking are enabled. The notebook 05 run's 533 S3
+artifacts and completed summary verified that transfers from Studio work.
 
-[Open the SageMaker console in Oregon](https://us-west-2.console.aws.amazon.com/sagemaker/home?region=us-west-2#/studio). Launch the existing domain/profile, choose **JupyterLab → March Mania Research → Run space**, then **Open JupyterLab**. Starting the space incurs compute charges; stopped-space storage and S3 also have storage charges. Stop the space when finished. Persistent EBS survives stopping the app; deleting the space removes its EBS data. S3 provides the independent copy.
+## Update the existing checkout
 
-## 1. Clone and bootstrap
-
-In the new space's terminal:
+Save notebook work before updating. In the repository terminal:
 
 ```bash
-git clone https://github.com/alvaromendizabal/march-machine-learning-mania-2026.git
-cd march-machine-learning-mania-2026
+git status --short
+git pull --ff-only
 python3 scripts/bootstrap.py
 ```
 
-If already cloned, enter that directory and use `git pull --ff-only` when the worktree is clean. Bootstrap installs its own pinned uv under `.tools/`, creates the locked Python 3.12 environment under `.venv/`, registers **Python (March Mania)**, and runs the quality gate. It never upgrades the Studio base environment or uses `exec`, `exit`, or shell replacement. Each command prints timestamps, elapsed seconds and a heartbeat.
+If Git reports modified notebooks, preserve those changes in a named commit or
+stash before pulling. Do not discard notes to make an update proceed. Bootstrap
+creates the locked project environment and kernel without changing the Studio
+base environment, then runs timestamped quality checks with heartbeats.
 
-## 2. Upload the official competition ZIP once
-
-Download the official ZIP using your Kaggle account after accepting the competition's data terms. Upload `march-machine-learning-mania-2026.zip` into the repository root with JupyterLab's file browser. Then:
-
-```bash
-.venv/bin/python scripts/inspect_data.py march-machine-learning-mania-2026.zip
-.venv/bin/march-research --preflight
-```
-
-The extractor locates the eight required CSV basenames even inside a ZIP folder. It refuses duplicate basenames and different contents at an existing raw-data path. The research pipeline does not need the original processed Parquet files. Raw data remains outside Git. The first S3-backed run saves these exact inputs.
-
-## 3. Start the feature benchmark
+## Pull Kaggle and build notebook 02
 
 ```bash
-.venv/bin/march-research \
-  --output outputs/research \
-  --s3 s3://sagemaker-march-mania-560403859723-us-west-2/research
+.venv/bin/march-data --output data/kaggle \
+  --s3 s3://sagemaker-march-mania-560403859723-us-west-2/data
+.venv/bin/march-features --raw data/kaggle/raw \
+  --output outputs/feature_store \
+  --s3 s3://sagemaker-march-mania-560403859723-us-west-2/feature-store
 ```
 
-Expect `task_started`, `heartbeat`, `task_completed`, `task_uploaded`, and `progress` events. The default run has 120 model-fold tasks, plus season snapshot tasks. Every event includes UTC and total elapsed seconds; heartbeat events also include the current task's elapsed seconds. Memory usage is reported when the host permits it.
+Existing Kaggle credentials are used in the Studio runtime. If authentication
+fails, run `.venv/bin/kaggle auth login` there and repeat `march-data`. Kaggle's
+competition data terms must be accepted by the account. No credential is needed
+in source code or a notebook.
 
-To watch from a second terminal:
+Repeat the same commands after interruption. Completed downloads, season
+snapshots and model folds are verified by checksum and reused. An unfinished
+estimator restarts its fit. Source/configuration/data/dependency changes require
+a new run directory. The original `outputs/research` experiment remains intact.
 
 ```bash
-tail -f outputs/research/events.jsonl
+tail -f outputs/feature_store/events.jsonl
+.venv/bin/python scripts/notebook.py --execute
 ```
 
-An open terminal does not guarantee protection from Studio idle shutdown. If compute stops or the terminal session ends, restart the space and repeat the exact benchmark command. Completed, checksum-valid tasks are reused; only unfinished or corrupt tasks recompute. Individual estimators restart their unfinished fit; this is task-level resumption, not iteration-level booster checkpointing.
+The notebook command executes both canonical review notebooks and writes rendered
+copies into `outputs/validation`. In Jupyter, open canonical notebook 02 using
+**Python (March Mania)** and choose **Run All** to refresh its visible outputs.
+Open `outputs/feature_store/report.html` for interactive charts.
 
-A failed S3 upload fails the command explicitly. Completed local model artifacts remain reusable; repeating the command retries their uploads without retraining. Local logs are live; S3 logs synchronize at task boundaries and completion. An interrupted task can lose progress since its latest completed checkpoint.
+See [the complete feature contract](feature_store.md) for definitions, artifacts,
+limits and the model-development handoff. Notebook 03 retains its historical
+schema until that migration is completed.
 
-## 4. Review the notebook and report
+## Durability and restoration
 
-Open `notebooks/05_feature_research.ipynb` using **Python (March Mania)**. It shows the original score evidence, the new feature ladder, and results when the run exists. It is a review surface; the terminal command owns training.
+Stopping the app retains its EBS data; deleting the space removes that volume.
+Private S3 provides the independent copy. The `--s3` commands upload inputs,
+per-task outputs, checkpoints and the final completion record. A failed upload
+fails explicitly and can be retried without recomputing completed tasks.
 
-Completed run artifacts:
-
-- `report.html`: self-contained interactive comparison, season trends, ablation intervals and reliability charts; download and open in your browser if Jupyter's HTML viewer suppresses scripts.
-- `leaderboard.csv`, `metrics_by_season.csv`, `combined_metrics_by_season.csv`, `ablation_intervals.csv`, `reliability.csv`.
-- `features.parquet`, `predictions.parquet`, `coverage.csv`.
-- Per-fold `model.joblib`, `predictions.parquet`, `fold.json`, `checkpoint.json`.
-- `manifest.json`, `summary.json`, `events.jsonl`.
-
-The run is retrospective development evidence, not an improved Kaggle score. Do not choose a winner from one favorable season.
-
-## 5. Restore onto a replacement space
-
-`summary.json` contains the exact remote run URI. Before completion, the URI is the configured S3 prefix plus the fingerprint in `manifest.json` (also visible under the bucket's `research/` folder).
+A portable archive can preserve a completed run plus the exact raw inputs and
+hashed source files:
 
 ```bash
-.venv/bin/march-research \
-  --restore s3://sagemaker-march-mania-560403859723-us-west-2/research/REPLACE_WITH_RUN_FINGERPRINT \
-  --output outputs/restored
+.venv/bin/python scripts/archive.py create \
+  --run outputs/feature_store --raw data/kaggle/raw \
+  --destination outputs/feature_store.zip
+.venv/bin/python scripts/archive.py restore outputs/feature_store.zip \
+  --destination outputs/restored_feature_store
 ```
 
-Use an empty destination and the same code/dependency revision. The restore checks SHA256 metadata before publishing downloaded files. Resume with the restored raw inputs:
+Restoration validates ZIP CRC and SHA-256, rejects unsafe paths, and reuses
+already restored matching files. It refuses to overwrite different contents.
+The archive contains `run/`, `raw/` and `source/`; use the recorded source and
+locked environment when resuming `run/`.
 
-```bash
-.venv/bin/march-research \
-  --raw outputs/restored/raw \
-  --output outputs/restored \
-  --s3 s3://sagemaker-march-mania-560403859723-us-west-2/research
-```
+The first rebuilt-store archive's private S3 location and checksum are recorded
+in `reports/feature_store/run.json`. Download it from S3 before running the
+restore command. Regular Studio runs also retain individual mirrored objects;
+`march-research --restore EXACT_REMOTE_RUN_URI --output EMPTY_DIRECTORY` uses
+the shared, checksum-verifying S3 restore implementation for either run type.
 
-Code, data, dependency or experiment changes require a new output directory. Existing experiments remain intact and comparable. Load model files only from your own trusted runs.
-
-## GitHub workflow
-
-Changes use ordinary file names, a feature branch, a documented pull request and CI before merge. `scripts/quality.py` checks all package code, tests, and the four new setup/validation scripts; mypy checks the four new research modules. The large legacy notebook implementations and release scripts are preserved and are not claimed to have been revalidated on real data in this phase. CI validation files are retained as Actions artifacts; source and documented validation summaries are retained in Git.
-
-The `uv.lock` environment is for the new research path. The historical Windows environment exports remain provenance for notebooks 00–04; migration of their optional XGBoost, LightGBM, SHAP, Optuna and neural dependencies remains separate work.
-
-[Persistent Studio spaces](https://aws.amazon.com/blogs/machine-learning/boost-productivity-on-amazon-sagemaker-studio-introducing-jupyterlab-spaces-and-generative-ai-tools/) · [Configure a space](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-updated-jl-user-guide-configure-space.html)
+GitHub retains code, rendered notebooks and small evidence tables. Raw data and
+model artifacts remain outside the public repository. Changes pass through a
+feature branch, documented pull request and CI before merge.
