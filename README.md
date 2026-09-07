@@ -1,119 +1,95 @@
 # NCAA tournament probability forecasting
 
-Forecasting men's and women's college basketball tournament games with chronological evaluation, calibrated probability diagnostics, and reproducible experiments.
+Season-aware forecasting for the men's and women's NCAA tournaments: basketball-informed
+features, nested temporal model selection, calibrated probabilities and interpretable diagnostics.
 
-**Current phase: executed notebooks 00 → 01 → 02 → 03, with saved results.**
-The official Kaggle download is verified: 35 CSV files, 181 MB, recorded on
-2026-09-07. The current run builds 124 features and 9,200 team snapshots, evaluates
-660 folds, and exactly reproduces 18,878 comparable earlier forecasts.
-The model comparison adds 497 candidate fits, 20 nested selection contexts,
-and 14,946 predictions over 649 tournament games. Open the notebooks to review
-their outputs; running them is optional.
+## Start here
 
-[Start with notebook 00](notebooks/00_data_audit_and_preparation.ipynb) ·
-[Split protocol](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) ·
-[Feature evidence](notebooks/02_feature_store_and_diagnostics.ipynb) ·
-[Model comparison](notebooks/03_model_comparison_and_diagnostics.ipynb) ·
-[Studio commands](docs/studio.md)
+**Open the notebooks and read their saved outputs. No AWS login, dataset download,
+GPU or notebook execution is needed to review the project.**
 
-## Results and their limits
-
-| Current nested model comparison | Mean season Brier ↓ | Game-weighted Brier ↓ |
-|---|---:|---:|
-| Men: ranking logistic | 0.188476 | 0.188409 |
-| Men: pooled common-feature blend | 0.190919 | 0.190840 |
-| Women: separate logistic | 0.143867 | 0.143867 |
-| Women: pooled common-feature blend | 0.146494 | 0.146494 |
-
-Logistic regression, histogram boosting, XGBoost and LightGBM use earlier-season
-OOF predictions for feature/hyperparameter selection, forward calibration, and
-regularized convex ensembles. Common models share the same 101 eligible features
-across separate and pooled fits; men's ranking logistic is an additional stream.
-All 124 features remain in the upstream research store. New runs do not overwrite
-historical evidence or automatically promote a submission recipe.
-
-The current comparison does not improve on the earlier reported rich-feature
-men's result. PyTorch/TensorFlow and margin-regression results remain historical;
-they have not been rerun under this current schema. See the
-[model evidence and limitations](reports/model_comparison/README.md).
-
-| Recorded submission | Observed Brier ↓ | Evidence |
-|---|---:|---|
-| Original challenger | 0.1299012 | Repository score log |
-| Development-frozen blend | 0.1318165 | Repository score log |
-| Original primary | 0.1421117 | Repository score log |
-| Best recorded temperature refinement | 0.1281386 | Post-result exploratory refinement |
-
-These are repository-recorded scores, not independently authenticated Kaggle standings. The recalled approximately 0.121 result has not yet been located. Post-result refinements are not untouched validation and do not establish a medal.
-
-| Development candidate | Men: mean season Brier ↓ | Women: mean season Brier ↓ |
-|---|---:|---:|
-| Strength logistic | 0.191268 | 0.144308 |
-| Best observed current candidate | 0.187602 (Massey rankings) | 0.143597 (dynamic Elo) |
-| New ball-control family | 0.190589 | 0.145600 |
-| New schedule context | 0.191737 | 0.147245 |
-| New scoring shape | 0.193138 | 0.145602 |
-
-Twenty additional features preserve the earlier 104. They test passing,
-defensive activity, foul rates, schedule context and nonlinear scoring summaries.
-The men's ball-control family modestly improves the strength baseline, but its
-paired season-bootstrap interval includes zero. None of the new families beats
-the strongest current candidate. The full logistic model performs worse, so
-feature count is not used as a measure of quality. No new final recipe is promoted.
-
-These are exploratory five-season development results. The earlier men's rich
-system reports 0.180669; its original predictions are still needed for an exact
-paired comparison. Single-season Kaggle scores are not directly comparable with
-these averages. The previously consumed 2022–2025 benchmark is not relabeled as
-untouched validation. See the [full evidence](reports/feature_store/README.md).
-
-## Reproducible research
-
-```bash
-(
-  set -e
-  python3 scripts/bootstrap.py
-  .venv/bin/march-data --output data/kaggle --s3 s3://YOUR_BUCKET/data
-  .venv/bin/march-audit --raw data/kaggle/raw --run-root outputs/data_review --s3 s3://YOUR_BUCKET/data-review
-  .venv/bin/march-features --raw data/kaggle/raw --run-root outputs/feature_store --require-massey --s3 s3://YOUR_BUCKET/feature-store
-)
-```
-
-A locked Python 3.12 environment, fixed random seeds and CPU thread limits make the run reproducible. UTC events, task heartbeats, elapsed time and checksum-verified checkpoints make it observable and resumable. Git stores code and evidence; private S3 stores input snapshots and generated models/results. See the [Studio guide](docs/studio.md) for the provisioned project bucket and exact commands.
-
-The rebuilt store evaluates adjusted offense/defense, opponent-adjusted Four Factors, residual form, shooting posteriors and uncertainty, tempo, dynamic Elo, program history, publication-cohort ranking consensus and trends, forward-only team/seed/rank target encoding, and contextual interactions. Exact estimator inputs and encoding history boundaries are audited per fold. The benchmark has **600 folds without external rankings**, or **660 with men's rankings**. Models remain fixed to isolate feature effects. The smaller notebook 05 benchmark remains reproducible through `march-research` using a new output directory when code or inputs change.
-
-## Project map
-
-| Path | Purpose |
+| Notebook | What an employer can inspect |
 |---|---|
-| `notebooks/00_data_audit_and_preparation.ipynb` | Current raw-data provenance, coverage and basketball exploration |
-| `notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb` | Current temporal split and snapshot evidence |
-| `notebooks/02_feature_store_and_diagnostics.ipynb` | Rebuilt feature store, measured ablations and source coverage |
-| `notebooks/03_model_comparison_and_diagnostics.ipynb` | Executed nested model comparison, calibration and interpretation |
-| `notebooks/04_locked_benchmark_and_final_submission.ipynb` | Historical benchmark and submission |
-| `notebooks/05_feature_research.ipynb` | Auditable feature research and results review |
-| `src/march_mania/` | Reusable preparation, features, experiment runtime and reporting |
-| `configs/research.json` | Explicit research boundaries and runtime configuration |
-| `configs/feature_store.json` | Rebuilt store's snapshot range and development evaluation |
-| `tests/` | Structural, temporal, probability, failure, resume and restore tests |
-| `reports/` | Historical results and documented validation evidence |
-| `docs/` | Research rationale and operational instructions |
+| [00 · Data](notebooks/00_data_audit_and_preparation.ipynb) | Official-file provenance, coverage and basketball data quality |
+| [01 · Validation](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | Prediction cutoff, whole-season splits and pre-tournament snapshots |
+| [02 · Features](notebooks/02_feature_store_and_diagnostics.ipynb) | 124-feature definitions, ablations, uncertainty and feature diagnostics |
+| [03 · Models](notebooks/03_model_comparison_and_diagnostics.ipynb) | Executed nested comparison, calibration, ensembles, errors and interpretation |
+| [04 · Benchmark and submissions](notebooks/04_locked_benchmark_and_final_submission.ipynb) | Earlier benchmark evidence, its limitations, submission manifests and audit contract |
 
-The lockfile covers notebooks 00, 01, 02, 03 and 05, ingestion, data review,
-feature benchmarks and the current four-family tabular model comparison.
-Notebook 04 retains its historical contract. Reconciling the older rich-feature
-and neural/margin evidence precedes freezing a new final submission recipe.
+[05 · Feature research](notebooks/05_feature_research.ipynb) is an optional research appendix,
+not another prerequisite. The original notebook filenames remain canonical.
 
-Maintainers execute and publish notebook outputs with
-`python scripts/notebook.py --execute --publish`. CI executes these five notebooks
-in real Jupyter kernels. Readers can open the saved outputs directly.
+## Current model evidence
 
-## Development
+The completed current-schema experiment contains **497 candidate fits**, **20 nested selection
+contexts**, **14,946 saved prediction rows** and **649 distinct validation games**. Men and women
+are evaluated separately and with a shared-feature pooled alternative. The executed families
+are logistic regression, histogram boosting, XGBoost and LightGBM.
+
+| Stream | Game-weighted Brier ↓ | Mean season Brier ↓ |
+|---|---:|---:|
+| Men's ranking logistic | 0.188409 | 0.188476 |
+| Men's pooled common blend | 0.190840 | 0.190919 |
+| Women's separate logistic | 0.143867 | 0.143867 |
+| Women's pooled common blend | 0.146494 | 0.146494 |
+
+These are **retrospective development results** for 2016–2019 and 2021, not Kaggle leaderboard
+scores or a newly untouched test. Model selection and calibration use earlier-season predictions
+inside each outer fold. The tables distinguish game-weighted Brier from equal-season averaging.
+Notebook 03 recomputes both from saved predictions and reports log loss, ROC AUC, average precision,
+calibration, season-clustered uncertainty and held-out permutation diagnostics.
+
+The [official competition metric](https://www.kaggle.com/competitions/march-machine-learning-mania-2026)
+is Brier score. Our local tournament evaluation includes play-ins; the official 2026 scored set does
+not. The metric formula matches, but the game populations must not be conflated.
+
+The [earlier submission log](reports/submission_portfolio/kaggle_scores.csv) records a challenger
+score of **0.1299012** and a later temperature-refinement score of **0.1281386**. These records are
+not independently authenticated Kaggle receipts. The latter is post-result sensitivity analysis,
+not confirmatory validation. Historical neural models, the consumed 2022–2025 benchmark and the
+original final model card describe the **earlier feature schema**, not current-schema retraining.
+
+## Engineering that can be inspected
+
+Reusable Python lives in `src/march_mania`; notebooks explain the results rather than holding
+hidden training state. Tests cover temporal boundaries, game uniqueness, symmetry, probability
+validity, checkpoint corruption, failure recovery and notebook publication. Meaningful warnings
+are not hidden; tests treat warnings as errors, and publication rejects emitted warning/error outputs.
+
+Runs emit UTC timestamps, total and task elapsed time, progress and 15-second heartbeats.
+Completed model tasks are content-verified and reused. A failed estimator restarts that fit,
+not earlier successful fits. Notebook execution similarly reuses **whole completed notebooks**;
+a failed notebook restarts from its first cell because its old kernel state is not trustworthy.
+Canonical notebooks are replaced atomically only after successful execution. Changed code,
+configuration, evidence or environments invalidate the relevant publication cache.
+
+Private S3 archives preserve completed experiments independently of Studio's persistent volume.
+The feature and model archive references and checksums are in their `reports/*/run.json` records.
+CI preserves JUnit, coverage, UTC logs, notebook checkpoints and the exact source under validation.
+No trained model binaries, raw competition data or credentials belong in Git.
+
+## Maintainer commands
+
+The existing Studio checkout can be updated with `python3 scripts/update.py` from its project
+folder. It preserves edited notebooks, fast-forwards `main`, installs the lock and runs checks.
+
+For a fresh reproduction environment:
 
 ```bash
 uv sync --locked --group dev
+uv run --locked python -m ipykernel install --user --name march-mania
 uv run --locked python scripts/quality.py
+uv run --locked python scripts/notebook.py --execute --publish
 ```
 
-The quality gate compiles, lints, checks formatting and types, then runs unit and end-to-end tests with JUnit and coverage artifacts. Raw Kaggle files, environments, generated datasets, checkpoints and model binaries are excluded from Git. Use ordinary module names and edit the canonical implementation; Git history records revisions.
+[Studio and resume instructions](docs/studio.md) cover data, feature/model execution and optional
+S3 replication. The notebook command executes all six canonical notebooks and resumes verified
+completed ones on repeat runs.
+
+`scripts/portfolio_release.py --help` explains how to audit and package an **existing real CSV**
+against the official Stage 2 template, preserving its exact bytes and optional recorded checksum.
+It does not generate probabilities, invent missing predictions, retune models or submit to Kaggle.
+Notebook 04 makes file availability explicit. The original competitive deadline was March 19,
+2026 at 16:00 UTC; later releases are retrospective.
+
+MIT-licensed code. Competition data remains subject to Kaggle's terms.

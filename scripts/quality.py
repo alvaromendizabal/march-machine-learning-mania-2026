@@ -6,6 +6,7 @@ import json
 import subprocess
 import sys
 import time
+import tomllib
 from pathlib import Path
 
 from bootstrap import command
@@ -22,14 +23,17 @@ def main() -> int:
         "scripts/quality.py",
         "scripts/inspect_data.py",
         "scripts/notebook.py",
+        "scripts/portfolio_release.py",
         "scripts/archive.py",
         "scripts/update.py",
     ]
+    typed_files = tomllib.loads((root / "pyproject.toml").read_text())["tool"]["mypy"]["files"]
+    typed_files = [*typed_files, "src/march_mania/publication"]
     checks = [
         ("compile", [sys.executable, "-m", "compileall", "-q", *scopes]),
         ("lint", [sys.executable, "-m", "ruff", "check", *scopes]),
         ("format", [sys.executable, "-m", "ruff", "format", "--check", *scopes]),
-        ("types", [sys.executable, "-m", "mypy"]),
+        ("types", [sys.executable, "-m", "mypy", *typed_files]),
         (
             "tests",
             [
@@ -49,6 +53,9 @@ def main() -> int:
                 "--cov=march_mania.data_review",
                 "--cov=march_mania.modeling",
                 "--cov=march_mania.model_report",
+                "--cov=march_mania.publication.notebooks",
+                "--cov=march_mania.notebook_support",
+                "--cov=march_mania.publication.submission",
                 "--cov-report=term-missing",
                 "--cov-report=xml:outputs/validation/coverage.xml",
                 "--junitxml=outputs/validation/junit.xml",
