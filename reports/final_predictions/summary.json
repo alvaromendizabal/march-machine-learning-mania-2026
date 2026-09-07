@@ -1,0 +1,19 @@
+{
+  "benchmark_model_fits": 16,
+  "benchmark_status": "2022-2025 previously consumed; retrospective only",
+  "exact_zero_or_one": 0,
+  "final_model_fits": 4,
+  "final_training_max_season": 2025,
+  "fingerprint": "794abeba97c0589751b3848117ce8588386a154b97b9ee3310127e9ef55b4c46",
+  "future_labels_used": false,
+  "kaggle_submission_sent": false,
+  "maximum_probability": 0.9999888806333708,
+  "minimum_probability": 9.947930441567276e-06,
+  "model_fits": 20,
+  "prediction_meaning": "Probability that the lower-TeamID team wins",
+  "rows": 132133,
+  "scored_population": "Local benchmark includes play-ins; not identical to Kaggle scored games",
+  "status": "completed",
+  "submission_sha256": "1be5445fadc1c47531bbede2a5892327524a2aaa667663f0628d13b8057facb4",
+  "template_order_verified": true
+}

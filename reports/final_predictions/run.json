@@ -1,0 +1,173 @@
+{
+  "fingerprint": "794abeba97c0589751b3848117ce8588386a154b97b9ee3310127e9ef55b4c46",
+  "inputs": {
+    "config": {
+      "benchmark_seasons": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "calibration": "identity",
+      "chunk_size": 10000,
+      "families": {
+        "M": "rank_logistic",
+        "W": "logistic"
+      },
+      "first_training_season": 2013,
+      "heartbeat_seconds": 15,
+      "prediction_season": 2026,
+      "protocol": "retrospective-final-prediction",
+      "seed": 2026,
+      "selection_seasons": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2021
+      ],
+      "threads": 2
+    },
+    "data": {
+      "features": "bc7ad209e23a65e3c49d982fa2dac095d06731204b82881cf67330885053d048",
+      "history": "01519aecac540da21346c0a28210fb112f8295c335f72a71025d0e77480763a1",
+      "matchups": "6a87cc27ed2818bd49043b387bb76ae53a3b00d839a10360b2a614dfa0ce2477",
+      "template": "53b79f12315ae43353899cf659bc89e027bedbde70929e213b6922a877b33ffc"
+    },
+    "environment": {
+      "joblib": "1.5.2",
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "pyarrow": "21.0.0",
+      "python": "3.12.13",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.16.3"
+    },
+    "source": {
+      "pyproject.toml": "c3aea1c2d445a7c1c59377895468306b035c384da6866b94174d398a857aee3b",
+      "src/march_mania/__init__.py": "fb8f7f61008dfb3648a0f2d5046109b11b5f0868a91c898ede383d014f9a8e73",
+      "src/march_mania/advanced_features.py": "101a633a7e174910a5a9d77a694ead4f6ed2bb789c34f1291d44d6b8218e5ded",
+      "src/march_mania/context_features.py": "9e1b21fad9c6fe1c1b1560bc279a282e4f3871eac29e32fdeee3ce95206526ff",
+      "src/march_mania/data.py": "7f87a0a2376a020096e7d5ac9e7f9ae650d6e8c5364b1a329d0f22719e5c4a41",
+      "src/march_mania/data_review.py": "ff75b61e30b87fdcf413f3d28ada9c7bcc5bbafdb79a00c563da20b088f4961c",
+      "src/march_mania/encoding.py": "49e61f4820bde51228e6d2e9c00e51a46937f7ef9dfa980db48c4a47a5ca2727",
+      "src/march_mania/feature_store.py": "6bcf5caad09233e31d2b22cd4e42f3602c21b31c6dd642f1f67acfbeadb37d3d",
+      "src/march_mania/features.py": "dddf436532445df0587b4c421d719fc2f367a491479439d8aedd17a8a18863f1",
+      "src/march_mania/io.py": "46decedac7173a2c806ae5a87bd5caaee31706817ca15ce0aab799b238bd45a0",
+      "src/march_mania/model_report.py": "7758377e4043f87d88f620e3e2826a5a0f1ea309c41a030e5544201416b4cce0",
+      "src/march_mania/modeling.py": "fb924f37dc3b83e0c66c698a1d665eb6804bf9a4feb1be92828476ff743985b6",
+      "src/march_mania/notebook_support.py": "a5cb439aa21b5037a06ba7fe00d1cc3bd8c7fa423d369262cce56ec1c96a3486",
+      "src/march_mania/paths.py": "90c6af595fd0b9df6aab7d2d3161c350f6e0f2a00efd4771798b0da51b939aa5",
+      "src/march_mania/publication/artifacts.py": "69ef4d5bb6b37b3ec60ff6a4b322a842911293fb6f64d85756220896cfbf0103",
+      "src/march_mania/publication/inference.py": "0bb089a9f4612a03321426137a39b930fa3a7f1fab7bf8770f8697aac3ca7348",
+      "src/march_mania/publication/submission.py": "7062baf8961c2de85a0e63c2622cbff98d4405c3a3e57f1821e76dd30a5c6a47",
+      "src/march_mania/rankings.py": "30a9b854ffb8c0a4fae3a819ce13e2066280993b371244f7156c517b967b7764",
+      "src/march_mania/research.py": "50e4dbc56a85ed1856ae52df74d511017849257954e5aff73afdf7db1e10cff3",
+      "src/march_mania/research_report.py": "9758126b93f6f0e6d3ad9bccd90ef82b413851b2ac15c8b584650ce272d2c6f7",
+      "src/march_mania/reshape.py": "2820d630c10c554ec861fb0de9fb359c759d27de42bb8711b96dac8d0f008541",
+      "src/march_mania/runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
+      "src/march_mania/validation.py": "6d4fe5a339b11e255f087f27927335160e324fcc7aab5021d354bb711b80e235",
+      "uv.lock": "d0b1b6c2395c14f0a7236ff16acfd009ab906906719d8187e7d8685643d8c20a"
+    }
+  },
+  "recipe": {
+    "calibration": "identity",
+    "genders": {
+      "M": {
+        "candidate": {
+          "block": "rankings",
+          "family": "rank_logistic",
+          "name": "rank_logistic_1",
+          "parameter": 0.3
+        },
+        "features": {
+          "seed_free": [
+            "diff_strength",
+            "diff_schedule_strength",
+            "diff_win_rate",
+            "diff_margin",
+            "diff_margin_sd",
+            "diff_rank_consensus",
+            "diff_rank_mean",
+            "diff_rank_disagreement",
+            "diff_rank_iqr",
+            "diff_rank_lower",
+            "diff_rank_upper",
+            "diff_rank_top25",
+            "diff_rank_top50",
+            "diff_rank_systems",
+            "diff_rank_coverage",
+            "diff_rank_age",
+            "diff_rank_max_age",
+            "diff_rank_logit"
+          ],
+          "seeded": [
+            "diff_seed",
+            "diff_strength",
+            "diff_schedule_strength",
+            "diff_win_rate",
+            "diff_margin",
+            "diff_margin_sd",
+            "diff_rank_consensus",
+            "diff_rank_mean",
+            "diff_rank_disagreement",
+            "diff_rank_iqr",
+            "diff_rank_lower",
+            "diff_rank_upper",
+            "diff_rank_top25",
+            "diff_rank_top50",
+            "diff_rank_systems",
+            "diff_rank_coverage",
+            "diff_rank_age",
+            "diff_rank_max_age",
+            "diff_rank_logit"
+          ]
+        },
+        "seed_free_note": "Same regularization; remove every seed-dependent input"
+      },
+      "W": {
+        "candidate": {
+          "block": "dynamic",
+          "family": "logistic",
+          "name": "logistic_dynamic_1",
+          "parameter": 0.3
+        },
+        "features": {
+          "seed_free": [
+            "diff_strength",
+            "diff_schedule_strength",
+            "diff_win_rate",
+            "diff_margin",
+            "diff_margin_sd",
+            "diff_elo",
+            "diff_elo_mov",
+            "diff_elo_change",
+            "diff_elo_mov_change"
+          ],
+          "seeded": [
+            "diff_seed",
+            "diff_strength",
+            "diff_schedule_strength",
+            "diff_win_rate",
+            "diff_margin",
+            "diff_margin_sd",
+            "diff_elo",
+            "diff_elo_mov",
+            "diff_elo_change",
+            "diff_elo_mov_change"
+          ]
+        },
+        "seed_free_note": "Same regularization; remove every seed-dependent input"
+      }
+    },
+    "selection_metric": "mean season Brier",
+    "selection_seasons": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2021
+    ],
+    "selection_status": "retrospective development; not a new holdout"
+  }
+}

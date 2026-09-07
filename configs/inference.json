@@ -1,0 +1,13 @@
+{
+  "protocol": "retrospective-final-prediction",
+  "selection_seasons": [2016, 2017, 2018, 2019, 2021],
+  "benchmark_seasons": [2022, 2023, 2024, 2025],
+  "prediction_season": 2026,
+  "first_training_season": 2013,
+  "families": {"M": "rank_logistic", "W": "logistic"},
+  "calibration": "identity",
+  "seed": 2026,
+  "threads": 2,
+  "chunk_size": 10000,
+  "heartbeat_seconds": 15
+}

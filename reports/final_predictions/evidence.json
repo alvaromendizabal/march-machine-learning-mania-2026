@@ -1,0 +1,14 @@
+{
+  "sha256": {
+    "benchmark_predictions.csv": "21e15272db20054463789f80de309034876e855a2e8bbd25838f21e8422993f3",
+    "fit_audits.json": "287e62fd4a643be2ab19f1e746ed6f2d0d73a6a193da21ce3a96344e2cc373fa",
+    "metrics.csv": "c272120f621d29b8f3387b5975775104d322ee34eea8510ba922dfbe504ffc3c",
+    "metrics_by_season.csv": "35fb7fe96f924e6bc5e05caaa4d9f0f9eec0a8517e8485287462b8fe8933d9ec",
+    "recipe.json": "495358882f44b6b9310aa35d2be0b4b97bc1bcb0e93b0cc3f3a260d49d1d6748",
+    "reliability.csv": "07a65b9aed053f57061140e0b126793d7997576e1c1ac601f0f81371ddb3c4d8",
+    "resume.json": "278bc8be28a3e2cc573b08dc85eb9aaf835b7267519dfe250d8bd7fda91eac1b",
+    "routes.csv": "4a07e96344d1527fbbfadaf5eacb14c019c207acd23c01e36c75600fd0069b5b",
+    "run.json": "6f3e465eda0d76ab3433a95bc1c025d47b928fa3308148786745d947a4cd7263",
+    "summary.json": "7b5a0b8f46e26391ac5e21a02e21c5fc9084652b6b4b21f89cd2d6e410ca25f9"
+  }
+}

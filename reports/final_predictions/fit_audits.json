@@ -1,0 +1,178 @@
+[
+  {
+    "calibration": "identity",
+    "candidate": {
+      "block": "rankings",
+      "family": "rank_logistic",
+      "name": "rank_logistic_1",
+      "parameter": 0.3
+    },
+    "features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_rank_consensus",
+      "diff_rank_mean",
+      "diff_rank_disagreement",
+      "diff_rank_iqr",
+      "diff_rank_lower",
+      "diff_rank_upper",
+      "diff_rank_top25",
+      "diff_rank_top50",
+      "diff_rank_systems",
+      "diff_rank_coverage",
+      "diff_rank_age",
+      "diff_rank_max_age",
+      "diff_rank_logit"
+    ],
+    "gender": "M",
+    "prediction_season": 2026,
+    "route": "seeded",
+    "training_games": 803,
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  {
+    "calibration": "identity",
+    "candidate": {
+      "block": "rankings",
+      "family": "rank_logistic",
+      "name": "rank_logistic_1",
+      "parameter": 0.3
+    },
+    "features": [
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_rank_consensus",
+      "diff_rank_mean",
+      "diff_rank_disagreement",
+      "diff_rank_iqr",
+      "diff_rank_lower",
+      "diff_rank_upper",
+      "diff_rank_top25",
+      "diff_rank_top50",
+      "diff_rank_systems",
+      "diff_rank_coverage",
+      "diff_rank_age",
+      "diff_rank_max_age",
+      "diff_rank_logit"
+    ],
+    "gender": "M",
+    "prediction_season": 2026,
+    "route": "seed_free",
+    "training_games": 803,
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  {
+    "calibration": "identity",
+    "candidate": {
+      "block": "dynamic",
+      "family": "logistic",
+      "name": "logistic_dynamic_1",
+      "parameter": 0.3
+    },
+    "features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_elo",
+      "diff_elo_mov",
+      "diff_elo_change",
+      "diff_elo_mov_change"
+    ],
+    "gender": "W",
+    "prediction_season": 2026,
+    "route": "seeded",
+    "training_games": 772,
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  {
+    "calibration": "identity",
+    "candidate": {
+      "block": "dynamic",
+      "family": "logistic",
+      "name": "logistic_dynamic_1",
+      "parameter": 0.3
+    },
+    "features": [
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_elo",
+      "diff_elo_mov",
+      "diff_elo_change",
+      "diff_elo_mov_change"
+    ],
+    "gender": "W",
+    "prediction_season": 2026,
+    "route": "seed_free",
+    "training_games": 772,
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  }
+]
