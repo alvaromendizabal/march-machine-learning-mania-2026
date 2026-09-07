@@ -138,6 +138,7 @@ def prepare_inputs(raw: Path, config: dict[str, Any]) -> tuple:
         Path(__file__).parent / name
         for name in [
             "advanced_features.py",
+            "context_features.py",
             "rankings.py",
             "encoding.py",
             "feature_store.py",

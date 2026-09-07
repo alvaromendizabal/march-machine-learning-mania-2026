@@ -45,6 +45,10 @@ def write_fixture(raw: Path) -> Path:
                                     side + "OR": int(rng.integers(6, 15)),
                                     side + "DR": int(rng.integers(18, 29)),
                                     side + "TO": int(rng.integers(7, 17)),
+                                    side + "Ast": 14 if side == "W" else 10,
+                                    side + "Stl": 7 if side == "W" else 5,
+                                    side + "Blk": 4 if side == "W" else 2,
+                                    side + "PF": 16 if side == "W" else 20,
                                 }
                             )
                         regular.append(record)

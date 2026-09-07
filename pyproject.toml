@@ -18,6 +18,7 @@ dependencies = [
 march-research = "march_mania.research:main"
 march-features = "march_mania.feature_store:main"
 march-data = "march_mania.data:main"
+march-audit = "march_mania.data_review:main"
 
 [dependency-groups]
 dev = ["pytest==8.4.2", "pytest-cov==7.0.0", "ruff==0.13.3", "mypy==1.18.2",
@@ -31,7 +32,8 @@ check_untyped_defs = true
 files = ["src/march_mania/features.py", "src/march_mania/runtime.py",
          "src/march_mania/research.py", "src/march_mania/research_report.py",
          "src/march_mania/advanced_features.py", "src/march_mania/feature_store.py",
-         "src/march_mania/data.py", "src/march_mania/rankings.py", "src/march_mania/encoding.py"]
+         "src/march_mania/data.py", "src/march_mania/rankings.py", "src/march_mania/encoding.py", "src/march_mania/context_features.py",
+         "src/march_mania/data_review.py"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

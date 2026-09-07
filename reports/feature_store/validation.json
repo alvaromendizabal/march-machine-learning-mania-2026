@@ -1,44 +1,12 @@
 {
-  "checks": [
-    {
-      "check": "compile",
-      "status": "passed",
-      "seconds": 0.11546852299943566
-    },
-    {
-      "check": "lint",
-      "status": "passed",
-      "seconds": 0.11531693799770437
-    },
-    {
-      "check": "format",
-      "status": "passed",
-      "seconds": 0.06530262799788034
-    },
-    {
-      "check": "types",
-      "status": "passed",
-      "seconds": 0.41752764099874184
-    },
-    {
-      "check": "tests",
-      "status": "passed",
-      "seconds": 142.23387763699793
-    }
-  ],
-  "elapsed_seconds": 142.94905075099814,
-  "tests": 76,
-  "failures": 0,
-  "errors": 0,
-  "line_coverage": 0.8939,
-  "warnings_policy": "all pytest warnings are errors",
-  "source_fingerprint": "5ef4aefcf59f87fbf964f8a35e63650beded30e7e39463bbe4754f20bbdd4588",
-  "notebook_execution": "Both canonical review notebooks executed locally; notebook 02 figures inspected. GitHub CI independently executes both notebooks as a merge gate.",
-  "recovery": {
-    "restored_files": 2499,
-    "reused_tasks": 510,
-    "retrained_tasks": 0,
-    "elapsed_seconds": 13.732,
-    "fingerprint_preserved": true
-  }
+  "all_sample_ids_and_order_preserved": true,
+  "feature_count": 124,
+  "fold_tasks": 660,
+  "max_control_probability_change": 0.0,
+  "new_final_model_promoted": false,
+  "notebook_validation": "Local cell execution without kernel sockets; real Jupyter kernel execution required by GitHub CI.",
+  "official_sample_rows": 132133,
+  "prior_run_fingerprint": "554cee2384b92a822f973e415054bce2d2fca3df68a4efcaf6bd11c4e8e24c69",
+  "reason": "New families did not beat strongest existing candidates; development intervals are exploratory.",
+  "same_physical_game_controls": 18878
 }

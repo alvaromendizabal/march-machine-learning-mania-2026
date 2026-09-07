@@ -1,6 +1,6 @@
 {
-  "massey": false,
+  "massey": true,
   "player_availability": false,
   "roster_minutes": false,
-  "sample_submission": false
+  "sample_submission": true
 }
