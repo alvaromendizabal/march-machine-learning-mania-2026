@@ -22,5 +22,9 @@
   already been consumed. Never describe it as a new untouched holdout.
 - Current model families: logistic, histogram boosting, XGBoost and LightGBM.
   Historical PyTorch/TensorFlow and margin results are not current-schema reruns.
-- Current review notebooks: 00, 01, 02, 03 and 05. Notebook 04 retains the historical
-  benchmark/submission contract until its next deliberate migration.
+- Current review notebooks: 00 through 05. Notebook 04 is an executed review of
+  the earlier benchmark and submission lineage, not current-schema final retraining.
+- Notebook publication uses content-verified whole-notebook checkpoints. Never
+  resume individual cells without restoring kernel state. Never publish errors
+  or unresolved warning outputs. The submission release command audits existing
+  prediction bytes; it does not fabricate probabilities or send a Kaggle submission.

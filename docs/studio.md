@@ -11,7 +11,7 @@ The official Kaggle snapshot was downloaded at **2026-09-07 00:09:59 UTC**:
 manifest. The subsequent 104-feature run completed 540 fold tasks and 9,200
 team snapshots. Its private S3 fingerprint begins `554cee2384b92`.
 
-The current reading sequence is **00 → 01 → 02 → 03**. These are executable views over
+The current reading sequence is **00 → 01 → 02 → 03 → 04**. These are executable views over
 persisted Python-pipeline outputs; their cell state is not a dependency.
 
 | Notebook | What to inspect |
@@ -20,11 +20,12 @@ persisted Python-pipeline outputs; their cell state is not a dependency.
 | 01 | Exact training/validation seasons, prediction cutoff and snapshot coverage |
 | 02 | Feature definitions, actual fitted inputs, Brier ablations and uncertainty |
 | 03 | Model comparison, calibration, ensembles, uncertainty and feature diagnostics |
+| 04 | Earlier benchmark, historical checksums and submission-file evidence |
 
 Notebook 03 now uses the current feature schema and has executed outputs. The
-497-fit comparison completed successfully. Notebook 04 retains the earlier
-benchmark/submission contract. Neither the feature experiment nor the current
-model comparison creates a new submission.
+497-fit comparison completed successfully. Notebook 04 now executes a review of the earlier benchmark and submission records.
+It does not rerun the historical models, reopen the consumed benchmark or generate
+a current-schema submission. Notebook 05 remains an optional research appendix.
 
 ## Update the checkout
 
@@ -44,7 +45,7 @@ on Studio's persistent volume; experiment artifacts are separately backed by S3.
 
 ## Review completed evidence
 
-Open notebooks **00, 01, 02 and 03** and inspect their saved outputs. You do not
+Open notebooks **00, 01, 02, 03 and 04** and inspect their saved outputs. You do not
 need to use Run All. The maintainer executes and publishes notebook outputs.
 Fresh clones can also execute the recorded evidence without downloading private
 raw data. Every notebook labels local completed runs or recorded Git evidence.
@@ -91,7 +92,7 @@ reuses completed season/model tasks; an interrupted estimator restarts that fit.
 Data, code, configuration or dependency changes create a new fingerprinted run.
 Prior completed experiments remain available.
 
-Maintainers execute all five current review notebooks and publish their outputs:
+Maintainers execute all six canonical notebooks and publish their outputs:
 
 ```bash
 .venv/bin/python scripts/notebook.py --execute --publish
@@ -123,5 +124,36 @@ and `source/`. Published run archives and checksums are recorded in
 `reports/feature_store/run.json` and `reports/model_comparison/run.json`.
 For model archives, `raw/features.parquet` is the exact upstream model matrix.
 The private archive also contains the standalone interactive report in `run/report.html`.
+
+## Notebook publication and submission release
+
+The notebook runner records cell start/end, UTC timestamps, cell/task/total elapsed
+time and a task heartbeat. Completed notebooks are reused only when their inputs,
+source, environment and saved output checksums still match. An interrupted notebook
+restarts from its first cell; earlier completed notebooks and all model checkpoints
+remain intact. Publication is atomic, and concurrent publishers cannot race.
+Warning or error outputs block publication instead of being hidden.
+
+To independently replicate notebook checkpoints, add this option to the execution command:
+
+```bash
+.venv/bin/python scripts/notebook.py --execute --publish \
+  --s3 s3://sagemaker-march-mania-560403859723-us-west-2/notebooks
+```
+
+The release utility now has one responsibility: audit and durably package an existing
+prediction CSV. The old installer and score-driven refinement generator have been
+removed from the active utility; Git history retains their implementation and the
+historical score records remain unchanged. Inspect its required arguments with:
+
+```bash
+.venv/bin/python scripts/portfolio_release.py --help
+```
+
+Provide the actual prediction file, official `SampleSubmissionStage2.csv`, and the
+recorded SHA-256 when available. An optional `--s3` prefix mirrors the exact CSV and
+audit. A manifest without the corresponding CSV is not a validated release. This
+command does not train a new final model or upload to Kaggle. Late-submission
+availability must be checked on Kaggle; the original deadline has passed.
 
 GitHub changes pass through a feature branch, documented pull request and CI.
