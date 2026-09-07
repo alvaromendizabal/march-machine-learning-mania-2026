@@ -22,8 +22,11 @@
   already been consumed. Never describe it as a new untouched holdout.
 - Current model families: logistic, histogram boosting, XGBoost and LightGBM.
   Historical PyTorch/TensorFlow and margin results are not current-schema reruns.
-- Current review notebooks: 00 through 05. Notebook 04 is an executed review of
-  the earlier benchmark and submission lineage, not current-schema final retraining.
+- Current review notebooks: 00 through 05. Notebook 04 presents the executed current
+  final fit, retrospective benchmark, complete 2026 CSV audit and S3 recovery evidence.
+- Final prediction code is `publication/inference.py`; `configs/inference.json` freezes
+  pre-2022 development selection. Never tune it on the consumed benchmark or 2026 results.
+  Keep historical model lineages distinct. Generation is not an accepted Kaggle upload.
 - Notebook publication uses content-verified whole-notebook checkpoints. Never
   resume individual cells without restoring kernel state. Never publish errors
   or unresolved warning outputs. The submission release command audits existing

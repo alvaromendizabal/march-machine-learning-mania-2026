@@ -20,12 +20,13 @@ persisted Python-pipeline outputs; their cell state is not a dependency.
 | 01 | Exact training/validation seasons, prediction cutoff and snapshot coverage |
 | 02 | Feature definitions, actual fitted inputs, Brier ablations and uncertainty |
 | 03 | Model comparison, calibration, ensembles, uncertainty and feature diagnostics |
-| 04 | Earlier benchmark, historical checksums and submission-file evidence |
+| 04 | Actual final fits, retrospective benchmark, prediction coverage and recovery |
 
 Notebook 03 now uses the current feature schema and has executed outputs. The
-497-fit comparison completed successfully. Notebook 04 now executes a review of the earlier benchmark and submission records.
-It does not rerun the historical models, reopen the consumed benchmark or generate
-a current-schema submission. Notebook 05 remains an optional research appendix.
+497-fit comparison completed successfully. The final-prediction stage then generated 132,133
+actual 2026 probabilities, preserving four final estimators and 16 retrospective benchmark
+estimators. Notebook 04 presents those results and verified S3 recovery. No 2026 tournament
+outcomes enter fitting, and no Kaggle upload is claimed. Notebook 05 remains an optional appendix.
 
 ## Update the checkout
 
@@ -53,6 +54,47 @@ raw data. Every notebook labels local completed runs or recorded Git evidence.
 If notebook 02 finds an older local 104-feature run, it selects the recorded
 124-feature evidence. The older run stays intact. A completed current-schema
 local run takes precedence over recorded Git evidence.
+
+## Get the completed prediction file
+
+No retraining is needed. The [successful run's validation artifact](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34083821689/artifacts/10004608823)
+contains `final/submission.csv`. Its exact SHA-256 is
+`1be5445fadc1c47531bbede2a5892327524a2aaa667663f0628d13b8057facb4`.
+The independent versioned private S3 copy is:
+
+```text
+s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/794abeba97c0589751b3848117ce8588386a154b97b9ee3310127e9ef55b4c46/publication/submission.csv
+```
+
+The same run prefix preserves 53 task checkpoints, fitted estimators, prediction chunks,
+manifest, source archive and UTC logs. Do not delete these to clean the Git repository.
+
+## Reproduce or restore the final run
+
+GitHub **Actions → Final predictions → Run workflow** uses short-lived AWS OIDC credentials.
+Only this repository's `main` and `feat/final-predictions` branches are trusted. The role can read
+the two exact verified input archives and read/write the final-predictions prefix. It cannot
+launch AWS compute, delete S3 objects or access unrelated buckets. No long-lived keys are stored.
+
+From an already configured Studio checkout, the equivalent command is:
+
+```bash
+.venv/bin/python -W error -m march_mania.publication.inference \
+  --download-inputs \
+  --s3 s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions
+```
+
+This verifies/reuses the two input archives and restores completed final-run tasks. It does not
+rerun the 497-fit comparison. A changed code/config/data/environment fingerprint creates a new
+run rather than reusing incompatible results. A failed estimator restarts only that fit;
+completed estimators and forecast chunks are verified and reused. The tested fresh-directory
+recovery restored all 53 tasks and reproduced the CSV exactly with zero repeated fits.
+The workflow executes all six review notebooks and, on its feature branch only, commits the
+selected public reports and executed notebook outputs. It never auto-pushes generated evidence
+to `main`; the maintainer reviews and merges through a pull request.
+
+The original ranked Kaggle deadline has passed. Check late-submission availability on Kaggle
+before attempting an upload; generating this CSV does not establish a score or an accepted receipt.
 
 ## Maintainer reproduction and resume
 
