@@ -67,6 +67,8 @@ def restore_archive(archive: Path, destination: Path, expected: str) -> None:
 def download_input(record: dict[str, Any], target: Path, log: EventLog) -> Path:
     """Download through the AWS role chain; never write credentials to artifacts."""
     uri = record.get("uri", record.get("s3_uri"))
+    if not isinstance(uri, str):
+        raise ValueError("Recorded archive URI must be a string")
     parsed = urlparse(uri)
     if parsed.scheme != "s3" or not parsed.netloc or not parsed.path.strip("/"):
         raise ValueError("Recorded archive must use an explicit S3 object")
