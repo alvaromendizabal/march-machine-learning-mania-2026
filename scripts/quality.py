@@ -45,6 +45,8 @@ def main() -> int:
                 "--cov=march_mania.data",
                 "--cov=march_mania.rankings",
                 "--cov=march_mania.encoding",
+                "--cov=march_mania.context_features",
+                "--cov=march_mania.data_review",
                 "--cov-report=term-missing",
                 "--cov-report=xml:outputs/validation/coverage.xml",
                 "--junitxml=outputs/validation/junit.xml",

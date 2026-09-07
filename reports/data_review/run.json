@@ -1,0 +1,20 @@
+{
+  "sha256": {
+    "inventory.csv": "76aa714ad615140fd6c6c6b1793eb2829fe7d88f64906e34695130c93b7aa0f8",
+    "seasons.csv": "f1db14e0ace6e8eb57e0e6e637d6d64fe3c14c39e002c5596d746b647a3b4100",
+    "splits.csv": "5b7f456b3d51bdcf1abdc04cbc4afbdd64beb613a571cb9643528002fd866682"
+  },
+  "summary": {
+    "download_hashes_verified": true,
+    "download_recorded_at": "2026-09-07T00:09:59.084292+00:00",
+    "elapsed_seconds": 4.374,
+    "files": 35,
+    "fingerprint": "9717c5ffda691f1e4d496956d60769cf55e8d84513c301dd9f7218ba5e382ad2",
+    "official_metric": "Brier score (lower is better)",
+    "raw_directory": "data/kaggle/raw",
+    "remote_run_uri": null,
+    "source": "Kaggle competition API",
+    "status": "completed",
+    "total_bytes": 181009577
+  }
+}

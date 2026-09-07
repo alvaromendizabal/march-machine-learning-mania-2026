@@ -1,8 +1,8 @@
 # Notebook 02: feature store and temporal evidence
 
 Notebook 02 reviews a tested, importable feature pipeline. Its current contract
-contains **104 candidate matchup features**: 75 basketball/history features,
-20 Massey features, and 9 target-history features. Without Massey, 81 candidates
+contains **124 candidate matchup features**: 95 basketball/history features,
+20 Massey features, and 9 target-history features. Without Massey, 101 candidates
 remain eligible. Exact fitted columns depend on training availability and are
 recorded per model. Feature count is not evidence of forecasting quality.
 
@@ -109,7 +109,7 @@ values. Notebook 02 displays these audits before the performance plots.
 
 All additions and drop-one comparisons use expanding training seasons and the
 same 2016–2019/2021 development games. The fixed recipes are logistic regression
-and histogram gradient boosting. There are 480 folds without Massey, or 540
+and histogram gradient boosting. There are 600 folds without Massey, or 660
 when the men's Massey families are available. The official Brier score is
 reported both pooled by game and averaged by season; the latter is a diagnostic
 for year-to-year robustness, not a substitute for the official aggregation.
@@ -163,3 +163,29 @@ model selection. The 2026 event is closed; new work is retrospective research.
 - [Kaggle competition data](https://www.kaggle.com/competitions/march-machine-learning-mania-2026/data)
 - [Scikit-learn target encoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.TargetEncoder.html)
 - [Scikit-learn temporal cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation-of-time-series-data)
+
+
+## Additional context candidates
+
+The earlier 104 features remain. The 20 additional hypotheses are tested as
+three family additions to the strength baseline and as drop-one ablations:
+
+| Family | Definition | Reason to test |
+|---|---|---|
+| Ball control (10) | Assists/field goals; assists/turnovers; steals/shared possessions; blocks/opponent two-point attempts; fouls/shared possessions; each for the team and its opponents | Passing, pressure, rim protection and foul burden beyond the existing Four Factors |
+| Schedule context (6) | Neutral and road scoring margins shrunk by five zero-margin pseudo-games; Beta(2.5,2.5) win rate against top-quartile adjusted-strength opponents; elite-game fraction; games in the last 14 days; reported overtime fraction | Schedule composition, venue robustness and workload |
+| Scoring shape (4) | Pythagorean win expectation with fixed exponent 11.5; minimum adjusted offense/defense; absolute offense/defense gap; 10th-percentile scoring margin | Nonlinear strength, balance and downside performance |
+
+These are season summaries at DayNum 132, not pre-game predictions for the
+regular-season games used in their construction. The Pythagorean exponent,
+priors and thresholds are frozen before evaluation. All resulting matchup
+features are team-1 minus team-2 and reverse sign under a swap. Missing extra box
+columns or zero denominators remain missing and are recorded by the fitted-input
+audit. No player injury, roster, minutes, tracking or betting inputs are invented.
+
+The raw audit identifies a reported-overtime anomaly: the men's 2019 file marks
+13 of 5,463 regular games as overtime (0.24%), compared with approximately 6% in
+adjacent seasons. This is a source-quality finding, not proof of the true count.
+Overtime fraction and overtime-normalized pace therefore carry this limitation;
+the new candidates remain exploratory and are not promoted into a final recipe
+automatically. The audit's ordinary tables make the discrepancy visible.

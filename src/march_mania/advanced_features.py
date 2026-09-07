@@ -12,6 +12,7 @@ import pandas as pd
 from scipy import sparse
 from sklearn.linear_model import Ridge
 
+from march_mania.context_features import CONTEXT_FAMILIES, context_snapshot
 from march_mania.encoding import ENCODING_FAMILIES, ENCODING_FEATURES
 from march_mania.features import KEYS, feature_blocks, snapshot, team_games
 from march_mania.rankings import LEVEL_FEATURES, TREND_FEATURES, ranking_snapshot
@@ -45,6 +46,7 @@ FAMILIES = {
     "rankings": LEVEL_FEATURES,
     "rank_trends": TREND_FEATURES,
     **ENCODING_FAMILIES,
+    **CONTEXT_FAMILIES,
 }
 INTERACTIONS = [
     "pace_strength",
@@ -331,6 +333,12 @@ def advanced_snapshot(
             result[column] = np.nan
     for column in ENCODING_FEATURES:
         result[column] = np.nan
+    result = result.merge(
+        context_snapshot(compact, detailed, result, season, cutoff),
+        on="TeamID",
+        how="left",
+        validate="one_to_one",
+    )
     result["snapshot_day"] = cutoff
     return result
 

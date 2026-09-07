@@ -1,30 +1,28 @@
-# Notebook 02 evidence
+# Feature-store evidence
 
-The current 104-feature contract completed **480 real-data folds in 111.622
-seconds** using the eight official CSVs preserved from the verified Studio run.
-Massey and the official sample were unavailable. Tests exercise their integration
-with synthetic data; synthetic performance is never reported as Kaggle evidence.
+The current run uses the exact 35-file Kaggle download recorded on 2026-09-07.
+It builds 124 features, 9,200 team snapshots and all 132,133 official Stage 2
+matchup rows. It evaluates 660 model folds on 2016–2019 and 2021, with men's
+Massey coverage included. `run.json` records source/data/environment hashes and
+checksums for every published aggregate evidence file.
 
-The files here are checksummed in `run.json`. `feature_usage.csv` is a compact
-view of the full-feature logistic models; the independent S3 archive contains
-all folds, every fitted estimator and the complete feature-use audit. The archive
-also contains raw inputs, source files, dependency lock and task checkpoints.
+The prior 104-feature experiment remains in private S3 under fingerprint
+`554cee2384b92a822f973e415054bce2d2fca3df68a4efcaf6bd11c4e8e24c69`.
+All 18,878 comparable control forecasts reproduce exactly (maximum probability
+difference 0.0). Full/drop-one models change because their feature sets change.
 
-A full restoration reused all **510 tasks**, with **zero refits**, in 13.732
-seconds. Each saved model's actual feature dimension and ordered column list are
-checked against its feature audit in integration tests. Pytest treats warnings
-as errors. Both review notebooks execute in the GitHub CI kernel gate.
+| Logistic candidate | Men: mean season Brier | Women: mean season Brier |
+|---|---:|---:|
+| Strength baseline | 0.191268 | 0.144308 |
+| Add ball control | 0.190589 | 0.145600 |
+| Add schedule context | 0.191737 | 0.147245 |
+| Add scoring shape | 0.193138 | 0.145602 |
+| Best observed existing family | 0.187602 (rankings) | 0.143597 (dynamic Elo) |
 
-The fixed strength control is reproduced on 3,894 matched forecasts within
-3.2e-15 probability tolerance. Seed target encoding slightly improved men's
-mean-season Brier (0.191268 to 0.190539), with a bootstrap interval crossing zero;
-it was weaker than the Four Factors candidate. Team encoding hurt both genders,
-and seed encoding did not improve women. No candidate is promoted automatically.
-Massey's real-data benefit has not been measured by this run.
+The men's ball-control delta is -0.000679, with a paired season-bootstrap 95%
+interval [-0.011127, 0.010139]. It is exploratory evidence, not an established
+improvement. The all-feature logistic model is worse than the compact baseline.
+No new final model or submission recipe is promoted from this experiment.
 
-`manifest.git_commit` identifies the base checkout at run start. The benchmark
-ran on the feature branch's working implementation before its publication commit;
-per-file `manifest.inputs.source` hashes identify the exact evaluated code.
-The previous experiment and archive remain linked from `run.json` and retained
-in Git history. Do not compare its full-block score with the current full block
-as though they contained identical features.
+The Git feature-usage table includes the full block for both model families.
+Every per-candidate and per-fold audit is retained in the private run archive.

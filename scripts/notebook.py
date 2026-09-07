@@ -29,7 +29,12 @@ def main() -> int:
     thread = threading.Thread(target=heartbeat, daemon=True)
     thread.start()
     try:
-        for name in ["02_feature_store_and_diagnostics.ipynb", "05_feature_research.ipynb"]:
+        for name in [
+            "00_data_audit_and_preparation.ipynb",
+            "01_split_protocol_and_pre_tournament_snapshots.ipynb",
+            "02_feature_store_and_diagnostics.ipynb",
+            "05_feature_research.ipynb",
+        ]:
             started = time.monotonic()
             log.emit("notebook_started", notebook=name)
             notebook = nbformat.read(root / "notebooks" / name, as_version=4)

@@ -2,9 +2,15 @@
 
 Forecasting men's and women's college basketball tournament games with chronological evaluation, calibrated probability diagnostics, and reproducible experiments.
 
-**Current phase: rebuilt notebook 02 and measured feature ablations.** The feature store now has 104 registered matchup features, official Kaggle ingestion, and resumable season/model checkpoints. A real-data run completed 480 folds and reproduced 3,894 control forecasts to numerical precision from notebook 05. Historical implementations remain in Git history; historical model and submission evidence remains available.
+**Current phase: one coherent 00 → 01 → 02 workflow, with measured feature evidence.**
+The official Kaggle download is verified: 35 CSV files, 181 MB, recorded on
+2026-09-07. The current run builds 124 features and 9,200 team snapshots, evaluates
+660 folds, and exactly reproduces 18,878 comparable earlier forecasts.
 
-[Feature definitions and run commands](docs/feature_store.md) · [Notebook 02](notebooks/02_feature_store_and_diagnostics.ipynb) · [Notebook 05 evidence](notebooks/05_feature_research.ipynb) · [Studio](docs/studio.md)
+[Start with notebook 00](notebooks/00_data_audit_and_preparation.ipynb) ·
+[Split protocol](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) ·
+[Feature evidence](notebooks/02_feature_store_and_diagnostics.ipynb) ·
+[Studio commands](docs/studio.md)
 
 ## Results and their limits
 
@@ -19,21 +25,24 @@ These are repository-recorded scores, not independently authenticated Kaggle sta
 
 | Development candidate | Men: mean season Brier ↓ | Women: mean season Brier ↓ |
 |---|---:|---:|
-| Notebook 05 strength logistic | 0.191268 | 0.144308 |
-| Best observed new candidate | 0.188058 (adjusted Four Factors) | 0.143597 (dynamic Elo) |
+| Strength logistic | 0.191268 | 0.144308 |
+| Best observed current candidate | 0.187602 (Massey rankings) | 0.143597 (dynamic Elo) |
+| New ball-control family | 0.190589 | 0.145600 |
+| New schedule context | 0.191737 | 0.147245 |
+| New scoring shape | 0.193138 | 0.145602 |
 
-New improvements are exploratory: their paired season intervals include zero.
-The earlier men's rich system reports a stronger 0.180669. Its original forecasts
-are still needed for an exact paired comparison. These multi-season development
-metrics are not directly comparable with the single-season Kaggle scores above.
-The current new run uses eight official CSV files; external rankings and the
-official sample submission await the full authenticated Kaggle pull in Studio.
+Twenty additional features preserve the earlier 104. They test passing,
+defensive activity, foul rates, schedule context and nonlinear scoring summaries.
+The men's ball-control family modestly improves the strength baseline, but its
+paired season-bootstrap interval includes zero. None of the new families beats
+the strongest current candidate. The full logistic model performs worse, so
+feature count is not used as a measure of quality. No new final recipe is promoted.
 
-Forward-only seed encoding scored 0.190539 for men and 0.144785 for women;
-team encoding scored 0.193162 and 0.146568. These additions did not beat the
-stronger existing feature candidates and are not promoted automatically. Their
-bootstrap intervals include zero. Massey feature correctness is tested, but its
-real-data Brier benefit remains unmeasured until the full Kaggle pull.
+These are exploratory five-season development results. The earlier men's rich
+system reports 0.180669; its original predictions are still needed for an exact
+paired comparison. Single-season Kaggle scores are not directly comparable with
+these averages. The previously consumed 2022–2025 benchmark is not relabeled as
+untouched validation. See the [full evidence](reports/feature_store/README.md).
 
 ## Reproducible research
 
@@ -42,20 +51,21 @@ real-data Brier benefit remains unmeasured until the full Kaggle pull.
   set -e
   python3 scripts/bootstrap.py
   .venv/bin/march-data --output data/kaggle --s3 s3://YOUR_BUCKET/data
+  .venv/bin/march-audit --raw data/kaggle/raw --run-root outputs/data_review --s3 s3://YOUR_BUCKET/data-review
   .venv/bin/march-features --raw data/kaggle/raw --run-root outputs/feature_store --require-massey --s3 s3://YOUR_BUCKET/feature-store
 )
 ```
 
 A locked Python 3.12 environment, fixed random seeds and CPU thread limits make the run reproducible. UTC events, task heartbeats, elapsed time and checksum-verified checkpoints make it observable and resumable. Git stores code and evidence; private S3 stores input snapshots and generated models/results. See the [Studio guide](docs/studio.md) for the provisioned project bucket and exact commands.
 
-The rebuilt store evaluates adjusted offense/defense, opponent-adjusted Four Factors, residual form, shooting posteriors and uncertainty, tempo, dynamic Elo, program history, publication-cohort ranking consensus and trends, forward-only team/seed/rank target encoding, and contextual interactions. Exact estimator inputs and encoding history boundaries are audited per fold. The benchmark has **480 folds without external rankings**, or **540 with men's rankings**. Models remain fixed to isolate feature effects. The smaller notebook 05 benchmark remains reproducible through `march-research` using a new output directory when code or inputs change.
+The rebuilt store evaluates adjusted offense/defense, opponent-adjusted Four Factors, residual form, shooting posteriors and uncertainty, tempo, dynamic Elo, program history, publication-cohort ranking consensus and trends, forward-only team/seed/rank target encoding, and contextual interactions. Exact estimator inputs and encoding history boundaries are audited per fold. The benchmark has **600 folds without external rankings**, or **660 with men's rankings**. Models remain fixed to isolate feature effects. The smaller notebook 05 benchmark remains reproducible through `march-research` using a new output directory when code or inputs change.
 
 ## Project map
 
 | Path | Purpose |
 |---|---|
-| `notebooks/00_data_audit_and_preparation.ipynb` | Historical raw-data audit |
-| `notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb` | Historical split and snapshot protocol |
+| `notebooks/00_data_audit_and_preparation.ipynb` | Current raw-data provenance, coverage and basketball exploration |
+| `notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb` | Current temporal split and snapshot evidence |
 | `notebooks/02_feature_store_and_diagnostics.ipynb` | Rebuilt feature store, measured ablations and source coverage |
 | `notebooks/03_model_comparison_and_diagnostics.ipynb` | Original nested model comparison |
 | `notebooks/04_locked_benchmark_and_final_submission.ipynb` | Historical benchmark and submission |
@@ -67,7 +77,7 @@ The rebuilt store evaluates adjusted offense/defense, opponent-adjusted Four Fac
 | `reports/` | Historical results and documented validation evidence |
 | `docs/` | Research rationale and operational instructions |
 
-The lockfile covers rebuilt notebook 02, notebook 05, ingestion and the feature benchmarks. Notebooks 00, 01, 03 and 04 retain their historical contracts and environment requirements. Migrating notebook 03's nested tuning/calibration to the new feature schema precedes a new final submission recipe.
+The lockfile covers notebooks 00, 01, 02 and 05, ingestion, data review and the feature benchmarks. Notebooks 03 and 04 retain their historical contracts and environment requirements. Migrating notebook 03's nested tuning/calibration to the new feature schema precedes a new final submission recipe.
 
 ## Development
 
