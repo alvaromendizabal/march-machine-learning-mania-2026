@@ -2,17 +2,40 @@
 
 Forecasting men's and women's college basketball tournament games with chronological evaluation, calibrated probability diagnostics, and reproducible experiments.
 
-**Current phase: one coherent 00 → 01 → 02 workflow, with measured feature evidence.**
+**Current phase: executed notebooks 00 → 01 → 02 → 03, with saved results.**
 The official Kaggle download is verified: 35 CSV files, 181 MB, recorded on
 2026-09-07. The current run builds 124 features and 9,200 team snapshots, evaluates
 660 folds, and exactly reproduces 18,878 comparable earlier forecasts.
+The model comparison adds 497 candidate fits, 20 nested selection contexts,
+and 14,946 predictions over 649 tournament games. Open the notebooks to review
+their outputs; running them is optional.
 
 [Start with notebook 00](notebooks/00_data_audit_and_preparation.ipynb) ·
 [Split protocol](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) ·
 [Feature evidence](notebooks/02_feature_store_and_diagnostics.ipynb) ·
+[Model comparison](notebooks/03_model_comparison_and_diagnostics.ipynb) ·
 [Studio commands](docs/studio.md)
 
 ## Results and their limits
+
+| Current nested model comparison | Mean season Brier ↓ | Game-weighted Brier ↓ |
+|---|---:|---:|
+| Men: ranking logistic | 0.188476 | 0.188409 |
+| Men: pooled common-feature blend | 0.190919 | 0.190840 |
+| Women: separate logistic | 0.143867 | 0.143867 |
+| Women: pooled common-feature blend | 0.146494 | 0.146494 |
+
+Logistic regression, histogram boosting, XGBoost and LightGBM use earlier-season
+OOF predictions for feature/hyperparameter selection, forward calibration, and
+regularized convex ensembles. Common models share the same 101 eligible features
+across separate and pooled fits; men's ranking logistic is an additional stream.
+All 124 features remain in the upstream research store. New runs do not overwrite
+historical evidence or automatically promote a submission recipe.
+
+The current comparison does not improve on the earlier reported rich-feature
+men's result. PyTorch/TensorFlow and margin-regression results remain historical;
+they have not been rerun under this current schema. See the
+[model evidence and limitations](reports/model_comparison/README.md).
 
 | Recorded submission | Observed Brier ↓ | Evidence |
 |---|---:|---|
@@ -67,7 +90,7 @@ The rebuilt store evaluates adjusted offense/defense, opponent-adjusted Four Fac
 | `notebooks/00_data_audit_and_preparation.ipynb` | Current raw-data provenance, coverage and basketball exploration |
 | `notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb` | Current temporal split and snapshot evidence |
 | `notebooks/02_feature_store_and_diagnostics.ipynb` | Rebuilt feature store, measured ablations and source coverage |
-| `notebooks/03_model_comparison_and_diagnostics.ipynb` | Original nested model comparison |
+| `notebooks/03_model_comparison_and_diagnostics.ipynb` | Executed nested model comparison, calibration and interpretation |
 | `notebooks/04_locked_benchmark_and_final_submission.ipynb` | Historical benchmark and submission |
 | `notebooks/05_feature_research.ipynb` | Auditable feature research and results review |
 | `src/march_mania/` | Reusable preparation, features, experiment runtime and reporting |
@@ -77,7 +100,14 @@ The rebuilt store evaluates adjusted offense/defense, opponent-adjusted Four Fac
 | `reports/` | Historical results and documented validation evidence |
 | `docs/` | Research rationale and operational instructions |
 
-The lockfile covers notebooks 00, 01, 02 and 05, ingestion, data review and the feature benchmarks. Notebooks 03 and 04 retain their historical contracts and environment requirements. Migrating notebook 03's nested tuning/calibration to the new feature schema precedes a new final submission recipe.
+The lockfile covers notebooks 00, 01, 02, 03 and 05, ingestion, data review,
+feature benchmarks and the current four-family tabular model comparison.
+Notebook 04 retains its historical contract. Reconciling the older rich-feature
+and neural/margin evidence precedes freezing a new final submission recipe.
+
+Maintainers execute and publish notebook outputs with
+`python scripts/notebook.py --execute --publish`. CI executes these five notebooks
+in real Jupyter kernels. Readers can open the saved outputs directly.
 
 ## Development
 

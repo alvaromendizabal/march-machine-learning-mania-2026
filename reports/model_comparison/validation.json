@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "check": "compile",
+      "status": "passed",
+      "seconds": 0.06475615999806905
+    },
+    {
+      "check": "lint",
+      "status": "passed",
+      "seconds": 0.06531893899955321
+    },
+    {
+      "check": "format",
+      "status": "passed",
+      "seconds": 0.06419503699726192
+    },
+    {
+      "check": "types",
+      "status": "passed",
+      "seconds": 0.3148590909986524
+    },
+    {
+      "check": "tests",
+      "status": "passed",
+      "seconds": 193.20401615700393
+    }
+  ],
+  "elapsed_seconds": 193.71394685500127
+}
