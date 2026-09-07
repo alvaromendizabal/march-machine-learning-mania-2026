@@ -212,3 +212,15 @@ def test_failed_mirror_retries_upload_without_reexecuting(project, monkeypatch):
     Mirror.fail = False
     run(project, s3="s3://example/notebooks")
     assert Client.calls == 1
+
+
+def test_new_submission_bytes_invalidate_notebook_evidence(project):
+    before = dependency_hashes(project)
+    folder = project / "submissions"
+    folder.mkdir()
+    path = folder / "submission.csv"
+    path.write_text("ID,Pred\n2026_1101_1102,0.5\n")
+    restored = dependency_hashes(project)
+    assert restored != before
+    path.write_text("ID,Pred\n2026_1101_1102,0.6\n")
+    assert dependency_hashes(project) != restored

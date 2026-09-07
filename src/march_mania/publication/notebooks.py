@@ -48,7 +48,9 @@ def dependency_hashes(root: Path) -> dict[str, str]:
     Log files, fitted binaries and the publication cache are not notebook inputs.
     Actual table bytes are hashed; a stale manifest cannot conceal changed data.
     """
-    folders = [root / name for name in ("src", "scripts", "configs", "reports", "data")]
+    folders = [
+        root / name for name in ("src", "scripts", "configs", "reports", "data", "submissions")
+    ]
     folders.extend(
         root / "outputs" / name
         for name in ("data_review", "feature_store", "model_comparison", "research")
