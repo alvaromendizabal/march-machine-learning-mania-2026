@@ -17,7 +17,12 @@ from march_mania.runtime import EventLog
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--execute", action="store_true")
+    parser.add_argument(
+        "--publish", action="store_true", help="Save executed outputs in canonical notebooks"
+    )
     args = parser.parse_args()
+    if args.publish and not args.execute:
+        parser.error("--publish requires --execute")
     root = Path(__file__).resolve().parents[1]
     log = EventLog(root / "outputs/validation/notebooks.jsonl")
     stop = threading.Event()
@@ -33,6 +38,7 @@ def main() -> int:
             "00_data_audit_and_preparation.ipynb",
             "01_split_protocol_and_pre_tournament_snapshots.ipynb",
             "02_feature_store_and_diagnostics.ipynb",
+            "03_model_comparison_and_diagnostics.ipynb",
             "05_feature_research.ipynb",
         ]:
             started = time.monotonic()
@@ -52,6 +58,8 @@ def main() -> int:
                 output = root / "outputs/validation" / name
                 output.parent.mkdir(parents=True, exist_ok=True)
                 nbformat.write(notebook, output)
+                if args.publish:
+                    nbformat.write(notebook, root / "notebooks" / name)
             log.emit(
                 "notebook_completed", notebook=name, task_elapsed_seconds=time.monotonic() - started
             )

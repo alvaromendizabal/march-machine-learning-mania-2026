@@ -1,0 +1,3697 @@
+[
+  {
+    "Gender": "M",
+    "Season": 2016,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "weights": {
+          "hist": 0.026559072522857902,
+          "lightgbm": 0.08896335766184013,
+          "logistic": 0.6923441832160676,
+          "seed": 0.04991695425781572,
+          "xgboost": 0.14221643234141862
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1811185124420822,
+            "season": 2015,
+            "temperature_brier": 0.18402037513612093
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.179714447641778,
+            "season": 2015,
+            "temperature_brier": 0.17995007393960877
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_strength_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16984917714246478,
+            "season": 2015,
+            "temperature_brier": 0.16887164592931603
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.8346517266666565
+      },
+      "rank_logistic": {
+        "candidate": "rank_logistic_0",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17600057454929394,
+            "season": 2015,
+            "temperature_brier": 0.17793515626719988
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18810396296492712,
+            "season": 2015,
+            "temperature_brier": 0.182239294274539
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.6233374899642372
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18400268340566264,
+            "season": 2015,
+            "temperature_brier": 0.18076898303268965
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.7051897790940728
+      }
+    },
+    "route": "M"
+  },
+  {
+    "Gender": "M",
+    "Season": 2017,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "weights": {
+          "hist": 0.022764447782620646,
+          "lightgbm": 0.06901756457550032,
+          "logistic": 0.6123752382136584,
+          "seed": 0.14289861650769228,
+          "xgboost": 0.15294413292052836
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1811185124420822,
+            "season": 2015,
+            "temperature_brier": 0.18402037513612093
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20800328828274328,
+            "season": 2016,
+            "temperature_brier": 0.20948207372813712
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.179714447641778,
+            "season": 2015,
+            "temperature_brier": 0.17995007393960877
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20775937925657204,
+            "season": 2016,
+            "temperature_brier": 0.21085268034928456
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_strength_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16984917714246478,
+            "season": 2015,
+            "temperature_brier": 0.16887164592931603
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19826999746787724,
+            "season": 2016,
+            "temperature_brier": 0.20017567085396984
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "rank_logistic": {
+        "candidate": "rank_logistic_0",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17600057454929394,
+            "season": 2015,
+            "temperature_brier": 0.17793515626719988
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19222384320671862,
+            "season": 2016,
+            "temperature_brier": 0.19251406305494487
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18810396296492712,
+            "season": 2015,
+            "temperature_brier": 0.182239294274539
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.2039741973259739,
+            "season": 2016,
+            "temperature_brier": 0.2084563851582909
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "temperature",
+        "temperature": 0.7172922682228013
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18547201043573677,
+            "season": 2015,
+            "temperature_brier": 0.1819261992069541
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20143367880876464,
+            "season": 2016,
+            "temperature_brier": 0.20633564872059088
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "M"
+  },
+  {
+    "Gender": "M",
+    "Season": 2018,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "weights": {
+          "hist": 0.02145724614373046,
+          "lightgbm": 0.05516665057103633,
+          "logistic": 0.6170601394901158,
+          "seed": 0.1844437475075105,
+          "xgboost": 0.12187221628760692
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1811185124420822,
+            "season": 2015,
+            "temperature_brier": 0.18402037513612093
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20800328828274328,
+            "season": 2016,
+            "temperature_brier": 0.20948207372813712
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18829964090584825,
+            "season": 2017,
+            "temperature_brier": 0.18826176621201754
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.179714447641778,
+            "season": 2015,
+            "temperature_brier": 0.17995007393960877
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20775937925657204,
+            "season": 2016,
+            "temperature_brier": 0.21085268034928456
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18782328584689914,
+            "season": 2017,
+            "temperature_brier": 0.18796404447270718
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_strength_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16984917714246478,
+            "season": 2015,
+            "temperature_brier": 0.16887164592931603
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19826999746787724,
+            "season": 2016,
+            "temperature_brier": 0.20017567085396984
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17290696355760962,
+            "season": 2017,
+            "temperature_brier": 0.17290469265896485
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "rank_logistic": {
+        "candidate": "rank_logistic_0",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17600057454929394,
+            "season": 2015,
+            "temperature_brier": 0.17793515626719988
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19222384320671862,
+            "season": 2016,
+            "temperature_brier": 0.19251406305494487
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.16858500689898734,
+            "season": 2017,
+            "temperature_brier": 0.16672719939399896
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18810396296492712,
+            "season": 2015,
+            "temperature_brier": 0.182239294274539
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.2039741973259739,
+            "season": 2016,
+            "temperature_brier": 0.2084563851582909
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18403753799750455,
+            "season": 2017,
+            "temperature_brier": 0.1808420621922426
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "temperature",
+        "temperature": 0.7178938517207162
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18547201043573677,
+            "season": 2015,
+            "temperature_brier": 0.1819261992069541
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20143367880876464,
+            "season": 2016,
+            "temperature_brier": 0.20633564872059088
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18762597834810255,
+            "season": 2017,
+            "temperature_brier": 0.18870999681704975
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "M"
+  },
+  {
+    "Gender": "M",
+    "Season": 2019,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "weights": {
+          "hist": 0.012368532285676654,
+          "lightgbm": 0.11809892749682158,
+          "logistic": 0.5747623426006454,
+          "seed": 0.1563270393176261,
+          "xgboost": 0.13844315829923032
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1811185124420822,
+            "season": 2015,
+            "temperature_brier": 0.18402037513612093
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20800328828274328,
+            "season": 2016,
+            "temperature_brier": 0.20948207372813712
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18829964090584825,
+            "season": 2017,
+            "temperature_brier": 0.18826176621201754
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.20114491412630725,
+            "season": 2018,
+            "temperature_brier": 0.20153707980339264
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1802949819377012,
+            "season": 2015,
+            "temperature_brier": 0.18071331139759664
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.21218024616675912,
+            "season": 2016,
+            "temperature_brier": 0.2153846834391863
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18930666192286022,
+            "season": 2017,
+            "temperature_brier": 0.1891011822009369
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19374859435519576,
+            "season": 2018,
+            "temperature_brier": 0.1932987648487015
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_strength_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16984917714246478,
+            "season": 2015,
+            "temperature_brier": 0.16887164592931603
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19826999746787724,
+            "season": 2016,
+            "temperature_brier": 0.20017567085396984
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17290696355760962,
+            "season": 2017,
+            "temperature_brier": 0.17290469265896485
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19573651587350382,
+            "season": 2018,
+            "temperature_brier": 0.19637903957652084
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "rank_logistic": {
+        "candidate": "rank_logistic_0",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17600057454929394,
+            "season": 2015,
+            "temperature_brier": 0.17793515626719988
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19222384320671862,
+            "season": 2016,
+            "temperature_brier": 0.19251406305494487
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.16858500689898734,
+            "season": 2017,
+            "temperature_brier": 0.16672719939399896
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.20575186090583122,
+            "season": 2018,
+            "temperature_brier": 0.20999645432988098
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18810396296492712,
+            "season": 2015,
+            "temperature_brier": 0.182239294274539
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.2039741973259739,
+            "season": 2016,
+            "temperature_brier": 0.2084563851582909
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18403753799750455,
+            "season": 2017,
+            "temperature_brier": 0.1808420621922426
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.2070770422367941,
+            "season": 2018,
+            "temperature_brier": 0.2110460075471195
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "temperature",
+        "temperature": 0.7771441623734745
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18400268340566264,
+            "season": 2015,
+            "temperature_brier": 0.18076898303268965
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20304546685307412,
+            "season": 2016,
+            "temperature_brier": 0.20903882273318705
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18953978583399106,
+            "season": 2017,
+            "temperature_brier": 0.19081283313410802
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19637414909297002,
+            "season": 2018,
+            "temperature_brier": 0.19774976209227088
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "M"
+  },
+  {
+    "Gender": "M",
+    "Season": 2021,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "weights": {
+          "hist": 0.04496410905709067,
+          "lightgbm": 0.13441140069937338,
+          "logistic": 0.5454538621658644,
+          "seed": 0.14168591566353095,
+          "xgboost": 0.13348471241414056
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1811185124420822,
+            "season": 2015,
+            "temperature_brier": 0.18402037513612093
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20800328828274328,
+            "season": 2016,
+            "temperature_brier": 0.20948207372813712
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18829964090584825,
+            "season": 2017,
+            "temperature_brier": 0.18826176621201754
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.20114491412630725,
+            "season": 2018,
+            "temperature_brier": 0.20153707980339264
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.16879550232130752,
+            "season": 2019,
+            "temperature_brier": 0.1689884886107952
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1802949819377012,
+            "season": 2015,
+            "temperature_brier": 0.18071331139759664
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.21218024616675912,
+            "season": 2016,
+            "temperature_brier": 0.2153846834391863
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18930666192286022,
+            "season": 2017,
+            "temperature_brier": 0.1891011822009369
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19374859435519576,
+            "season": 2018,
+            "temperature_brier": 0.1932987648487015
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.16932977186355685,
+            "season": 2019,
+            "temperature_brier": 0.16980954564108788
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_strength_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16984917714246478,
+            "season": 2015,
+            "temperature_brier": 0.16887164592931603
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19826999746787724,
+            "season": 2016,
+            "temperature_brier": 0.20017567085396984
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17290696355760962,
+            "season": 2017,
+            "temperature_brier": 0.17290469265896485
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19573651587350382,
+            "season": 2018,
+            "temperature_brier": 0.19637903957652084
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.1673467109951192,
+            "season": 2019,
+            "temperature_brier": 0.1673881455020951
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "rank_logistic": {
+        "candidate": "rank_logistic_0",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17600057454929394,
+            "season": 2015,
+            "temperature_brier": 0.17793515626719988
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19222384320671862,
+            "season": 2016,
+            "temperature_brier": 0.19251406305494487
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.16858500689898734,
+            "season": 2017,
+            "temperature_brier": 0.16672719939399896
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.20575186090583122,
+            "season": 2018,
+            "temperature_brier": 0.20999645432988098
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.16489357012420033,
+            "season": 2019,
+            "temperature_brier": 0.1639340775618839
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18810396296492712,
+            "season": 2015,
+            "temperature_brier": 0.182239294274539
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.2039741973259739,
+            "season": 2016,
+            "temperature_brier": 0.2084563851582909
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18403753799750455,
+            "season": 2017,
+            "temperature_brier": 0.1808420621922426
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.2070770422367941,
+            "season": 2018,
+            "temperature_brier": 0.2110460075471195
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.18040030510291716,
+            "season": 2019,
+            "temperature_brier": 0.1779798912309957
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "temperature",
+        "temperature": 0.7727079131242266
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.18400268340566264,
+            "season": 2015,
+            "temperature_brier": 0.18076898303268965
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20304546685307412,
+            "season": 2016,
+            "temperature_brier": 0.20903882273318705
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18953978583399106,
+            "season": 2017,
+            "temperature_brier": 0.19081283313410802
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19637414909297002,
+            "season": 2018,
+            "temperature_brier": 0.19774976209227088
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.1719578451290727,
+            "season": 2019,
+            "temperature_brier": 0.17185785153910246
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "M"
+  },
+  {
+    "Gender": "W",
+    "Season": 2016,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "weights": {
+          "hist": 0.15275107174167746,
+          "lightgbm": 0.11072116674020888,
+          "logistic": 0.3975374965012752,
+          "seed": 0.0,
+          "xgboost": 0.33899026501683854
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11991401160767183,
+            "season": 2015,
+            "temperature_brier": 0.11779643615015052
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.7712267459784602
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_full_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.13212050536411427,
+            "season": 2015,
+            "temperature_brier": 0.13163013750045718
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.7902988059800747
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11579177061129681,
+            "season": 2015,
+            "temperature_brier": 0.11635565344947636
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15069457713737022,
+            "season": 2015,
+            "temperature_brier": 0.14700526826149166
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.676244395925003
+      },
+      "xgboost": {
+        "candidate": "xgboost_full_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12330418015592855,
+            "season": 2015,
+            "temperature_brier": 0.11928220150307897
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.6670986796750501
+      }
+    },
+    "route": "W"
+  },
+  {
+    "Gender": "W",
+    "Season": 2017,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "weights": {
+          "hist": 0.23054959049865725,
+          "lightgbm": 0.1922304618309251,
+          "logistic": 0.4201395378333192,
+          "seed": 9.211917803106914e-19,
+          "xgboost": 0.15708040983709837
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11991401160767183,
+            "season": 2015,
+            "temperature_brier": 0.11779643615015052
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.148130672572382,
+            "season": 2016,
+            "temperature_brier": 0.15066656248898058
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12199908306802686,
+            "season": 2015,
+            "temperature_brier": 0.12186631102539781
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1450218322501929,
+            "season": 2016,
+            "temperature_brier": 0.14548590135826753
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11579177061129681,
+            "season": 2015,
+            "temperature_brier": 0.11635565344947636
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1525268421747092,
+            "season": 2016,
+            "temperature_brier": 0.16036244250251058
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15069457713737022,
+            "season": 2015,
+            "temperature_brier": 0.14700526826149166
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1677106632025314,
+            "season": 2016,
+            "temperature_brier": 0.1746422666020067
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1255422412899646,
+            "season": 2015,
+            "temperature_brier": 0.12007638358574411
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.14872497567380477,
+            "season": 2016,
+            "temperature_brier": 0.15438328694605172
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "W"
+  },
+  {
+    "Gender": "W",
+    "Season": 2018,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "weights": {
+          "hist": 0.23024888651614472,
+          "lightgbm": 0.10112133510859098,
+          "logistic": 0.47123581672386633,
+          "seed": 0.06084665238891304,
+          "xgboost": 0.13654730926248482
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11991401160767183,
+            "season": 2015,
+            "temperature_brier": 0.11779643615015052
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.148130672572382,
+            "season": 2016,
+            "temperature_brier": 0.15066656248898058
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.141317129983874,
+            "season": 2017,
+            "temperature_brier": 0.14096450220622436
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12343728442860134,
+            "season": 2015,
+            "temperature_brier": 0.12329760405972127
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.14955720114564744,
+            "season": 2016,
+            "temperature_brier": 0.1508580303098752
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.14106272478981552,
+            "season": 2017,
+            "temperature_brier": 0.14061455799421768
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11579177061129681,
+            "season": 2015,
+            "temperature_brier": 0.11635565344947636
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1525268421747092,
+            "season": 2016,
+            "temperature_brier": 0.16036244250251058
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.12975938940037735,
+            "season": 2017,
+            "temperature_brier": 0.1296805393882925
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15069457713737022,
+            "season": 2015,
+            "temperature_brier": 0.14700526826149166
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1677106632025314,
+            "season": 2016,
+            "temperature_brier": 0.1746422666020067
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.14484212673218866,
+            "season": 2017,
+            "temperature_brier": 0.14115424396229334
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "temperature",
+        "temperature": 0.7589515861319346
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12310910917325674,
+            "season": 2015,
+            "temperature_brier": 0.11719795170503439
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15461529540429694,
+            "season": 2016,
+            "temperature_brier": 0.16319475968380034
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.13810808437613706,
+            "season": 2017,
+            "temperature_brier": 0.13757985062180453
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "W"
+  },
+  {
+    "Gender": "W",
+    "Season": 2019,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "weights": {
+          "hist": 0.15680594549350432,
+          "lightgbm": 0.07952737774545869,
+          "logistic": 0.4404074418379607,
+          "seed": 0.12378057396734268,
+          "xgboost": 0.1994786609557334
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11991401160767183,
+            "season": 2015,
+            "temperature_brier": 0.11779643615015052
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.148130672572382,
+            "season": 2016,
+            "temperature_brier": 0.15066656248898058
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.141317129983874,
+            "season": 2017,
+            "temperature_brier": 0.14096450220622436
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.17118698091782902,
+            "season": 2018,
+            "temperature_brier": 0.17619298172886694
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12343728442860134,
+            "season": 2015,
+            "temperature_brier": 0.12329760405972127
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.14955720114564744,
+            "season": 2016,
+            "temperature_brier": 0.1508580303098752
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.14106272478981552,
+            "season": 2017,
+            "temperature_brier": 0.14061455799421768
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.16800799177914888,
+            "season": 2018,
+            "temperature_brier": 0.17175648475957012
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11579177061129681,
+            "season": 2015,
+            "temperature_brier": 0.11635565344947636
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1525268421747092,
+            "season": 2016,
+            "temperature_brier": 0.16036244250251058
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.12975938940037735,
+            "season": 2017,
+            "temperature_brier": 0.1296805393882925
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.1571931356375187,
+            "season": 2018,
+            "temperature_brier": 0.1561687378928063
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15069457713737022,
+            "season": 2015,
+            "temperature_brier": 0.14700526826149166
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1677106632025314,
+            "season": 2016,
+            "temperature_brier": 0.1746422666020067
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.14484212673218866,
+            "season": 2017,
+            "temperature_brier": 0.14115424396229334
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.16461320008169195,
+            "season": 2018,
+            "temperature_brier": 0.16909246267516675
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "xgboost": {
+        "candidate": "xgboost_full_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12330418015592855,
+            "season": 2015,
+            "temperature_brier": 0.11928220150307897
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1877688010583678,
+            "season": 2016,
+            "temperature_brier": 0.20155464897392913
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.1303357123165959,
+            "season": 2017,
+            "temperature_brier": 0.13041065728502202
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.16264651827451437,
+            "season": 2018,
+            "temperature_brier": 0.1646821330918193
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "W"
+  },
+  {
+    "Gender": "W",
+    "Season": 2021,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "weights": {
+          "hist": 0.19359427411923705,
+          "lightgbm": 0.11655650476443086,
+          "logistic": 0.4459599659689308,
+          "seed": 0.1487373154296519,
+          "xgboost": 0.09515193971774938
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11991401160767183,
+            "season": 2015,
+            "temperature_brier": 0.11779643615015052
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.148130672572382,
+            "season": 2016,
+            "temperature_brier": 0.15066656248898058
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.141317129983874,
+            "season": 2017,
+            "temperature_brier": 0.14096450220622436
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.17118698091782902,
+            "season": 2018,
+            "temperature_brier": 0.17619298172886694
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.12616545953627004,
+            "season": 2019,
+            "temperature_brier": 0.12594065539175206
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12343728442860134,
+            "season": 2015,
+            "temperature_brier": 0.12329760405972127
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.14955720114564744,
+            "season": 2016,
+            "temperature_brier": 0.1508580303098752
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.14106272478981552,
+            "season": 2017,
+            "temperature_brier": 0.14061455799421768
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.16800799177914888,
+            "season": 2018,
+            "temperature_brier": 0.17175648475957012
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.1278100357854624,
+            "season": 2019,
+            "temperature_brier": 0.12774082953256485
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11579177061129681,
+            "season": 2015,
+            "temperature_brier": 0.11635565344947636
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1525268421747092,
+            "season": 2016,
+            "temperature_brier": 0.16036244250251058
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.12975938940037735,
+            "season": 2017,
+            "temperature_brier": 0.1296805393882925
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.1571931356375187,
+            "season": 2018,
+            "temperature_brier": 0.1561687378928063
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.13012060463668695,
+            "season": 2019,
+            "temperature_brier": 0.13049889271599738
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15069457713737022,
+            "season": 2015,
+            "temperature_brier": 0.14700526826149166
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1677106632025314,
+            "season": 2016,
+            "temperature_brier": 0.1746422666020067
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.14484212673218866,
+            "season": 2017,
+            "temperature_brier": 0.14115424396229334
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.16461320008169195,
+            "season": 2018,
+            "temperature_brier": 0.16909246267516675
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.13470329052375046,
+            "season": 2019,
+            "temperature_brier": 0.13133595058290573
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12310910917325674,
+            "season": 2015,
+            "temperature_brier": 0.11719795170503439
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15461529540429694,
+            "season": 2016,
+            "temperature_brier": 0.16319475968380034
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.13810808437613706,
+            "season": 2017,
+            "temperature_brier": 0.13757985062180453
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.1695390047180393,
+            "season": 2018,
+            "temperature_brier": 0.17595817109775555
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.13073085233157739,
+            "season": 2019,
+            "temperature_brier": 0.1302975823129063
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "W"
+  },
+  {
+    "Gender": "M",
+    "Season": 2016,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "weights": {
+          "hist": 0.05261056421518931,
+          "lightgbm": 0.07723871673702652,
+          "logistic": 0.5836906710487245,
+          "seed": 0.13442501881232918,
+          "xgboost": 0.15203502918673042
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17681344957493342,
+            "season": 2015,
+            "temperature_brier": 0.1800129427747108
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17647028508083173,
+            "season": 2015,
+            "temperature_brier": 0.17949134110584736
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_strength_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16651392147362323,
+            "season": 2015,
+            "temperature_brier": 0.1690826545226789
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17734550074330077,
+            "season": 2015,
+            "temperature_brier": 0.18336084767414276
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.170686559297118,
+            "season": 2015,
+            "temperature_brier": 0.1767093500827171
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "pooled_common"
+  },
+  {
+    "Gender": "M",
+    "Season": 2017,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "weights": {
+          "hist": 0.004755959789125461,
+          "lightgbm": 0.2651346458530073,
+          "logistic": 0.4885348349054817,
+          "seed": 0.15414767025695408,
+          "xgboost": 0.08742688919543144
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17681344957493342,
+            "season": 2015,
+            "temperature_brier": 0.1800129427747108
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20578617676016545,
+            "season": 2016,
+            "temperature_brier": 0.20703851979835708
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_full_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.159735560638589,
+            "season": 2015,
+            "temperature_brier": 0.18232648782697952
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.18505538537020105,
+            "season": 2016,
+            "temperature_brier": 0.18627312408499547
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_strength_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16651392147362323,
+            "season": 2015,
+            "temperature_brier": 0.1690826545226789
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19475235280900785,
+            "season": 2016,
+            "temperature_brier": 0.1950673969602621
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17734550074330077,
+            "season": 2015,
+            "temperature_brier": 0.18336084767414276
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20565083534308232,
+            "season": 2016,
+            "temperature_brier": 0.2063035243742248
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.170686559297118,
+            "season": 2015,
+            "temperature_brier": 0.1767093500827171
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20417807780066372,
+            "season": 2016,
+            "temperature_brier": 0.2047310815056497
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "pooled_common"
+  },
+  {
+    "Gender": "M",
+    "Season": 2018,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "weights": {
+          "hist": 0.11523288619590456,
+          "lightgbm": 0.10162069228618556,
+          "logistic": 0.5073738276152256,
+          "seed": 0.09472089347402794,
+          "xgboost": 0.18105170042865637
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17681344957493342,
+            "season": 2015,
+            "temperature_brier": 0.1800129427747108
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20578617676016545,
+            "season": 2016,
+            "temperature_brier": 0.20703851979835708
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.16794739441958662,
+            "season": 2017,
+            "temperature_brier": 0.16794819668388794
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17647028508083173,
+            "season": 2015,
+            "temperature_brier": 0.17949134110584736
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.2069861466860027,
+            "season": 2016,
+            "temperature_brier": 0.208058687102528
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.16903087495881736,
+            "season": 2017,
+            "temperature_brier": 0.1690281111489218
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_0",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16808002289570442,
+            "season": 2015,
+            "temperature_brier": 0.17122155086436017
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1889928090107041,
+            "season": 2016,
+            "temperature_brier": 0.18898745013011004
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.16391113157218565,
+            "season": 2017,
+            "temperature_brier": 0.16333465652770635
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17734550074330077,
+            "season": 2015,
+            "temperature_brier": 0.18336084767414276
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20565083534308232,
+            "season": 2016,
+            "temperature_brier": 0.2063035243742248
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18085602064881268,
+            "season": 2017,
+            "temperature_brier": 0.1810471159232564
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.170686559297118,
+            "season": 2015,
+            "temperature_brier": 0.1767093500827171
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20417807780066372,
+            "season": 2016,
+            "temperature_brier": 0.2047310815056497
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.16838576219435022,
+            "season": 2017,
+            "temperature_brier": 0.1684100843161049
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "pooled_common"
+  },
+  {
+    "Gender": "M",
+    "Season": 2019,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "weights": {
+          "hist": 0.09024293837081565,
+          "lightgbm": 0.16567945353064245,
+          "logistic": 0.40908431172489995,
+          "seed": 0.11108499632747727,
+          "xgboost": 0.22390830004616455
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17681344957493342,
+            "season": 2015,
+            "temperature_brier": 0.1800129427747108
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20578617676016545,
+            "season": 2016,
+            "temperature_brier": 0.20703851979835708
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.16794739441958662,
+            "season": 2017,
+            "temperature_brier": 0.16794819668388794
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.20565019495672537,
+            "season": 2018,
+            "temperature_brier": 0.20595365251621342
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_full_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.159735560638589,
+            "season": 2015,
+            "temperature_brier": 0.18232648782697952
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.18505538537020105,
+            "season": 2016,
+            "temperature_brier": 0.18627312408499547
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17615522734035677,
+            "season": 2017,
+            "temperature_brier": 0.17560331152287573
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19637549117916395,
+            "season": 2018,
+            "temperature_brier": 0.1946798927478923
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_strength_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16651392147362323,
+            "season": 2015,
+            "temperature_brier": 0.1690826545226789
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19475235280900785,
+            "season": 2016,
+            "temperature_brier": 0.1950673969602621
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17155780503628273,
+            "season": 2017,
+            "temperature_brier": 0.17154609502410517
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.1983339925859722,
+            "season": 2018,
+            "temperature_brier": 0.19812469959536413
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17734550074330077,
+            "season": 2015,
+            "temperature_brier": 0.18336084767414276
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20565083534308232,
+            "season": 2016,
+            "temperature_brier": 0.2063035243742248
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18085602064881268,
+            "season": 2017,
+            "temperature_brier": 0.1810471159232564
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.21004867535021077,
+            "season": 2018,
+            "temperature_brier": 0.20937837864977085
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "xgboost": {
+        "candidate": "xgboost_full_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16175783533186142,
+            "season": 2015,
+            "temperature_brier": 0.18414252993272134
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.17977034463975708,
+            "season": 2016,
+            "temperature_brier": 0.18211818058588958
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17266511017364322,
+            "season": 2017,
+            "temperature_brier": 0.17262365291626247
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19588352680387125,
+            "season": 2018,
+            "temperature_brier": 0.19465830791762273
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "pooled_common"
+  },
+  {
+    "Gender": "M",
+    "Season": 2021,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "weights": {
+          "hist": 0.1257986229865515,
+          "lightgbm": 0.15690307842433995,
+          "logistic": 0.40595019406732946,
+          "seed": 0.1236669974594665,
+          "xgboost": 0.1876811070623126
+        }
+      },
+      "hist": {
+        "candidate": "hist_full_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1608136623119682,
+            "season": 2015,
+            "temperature_brier": 0.18259049203904934
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.1852126518929534,
+            "season": 2016,
+            "temperature_brier": 0.1868332865100143
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17585477408096567,
+            "season": 2017,
+            "temperature_brier": 0.17528527683828307
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19611809402161814,
+            "season": 2018,
+            "temperature_brier": 0.1942989469775972
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.1638715978504624,
+            "season": 2019,
+            "temperature_brier": 0.16594369446094548
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_full_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.159735560638589,
+            "season": 2015,
+            "temperature_brier": 0.18232648782697952
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.18505538537020105,
+            "season": 2016,
+            "temperature_brier": 0.18627312408499547
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17615522734035677,
+            "season": 2017,
+            "temperature_brier": 0.17560331152287573
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19637549117916395,
+            "season": 2018,
+            "temperature_brier": 0.1946798927478923
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.16368893020050523,
+            "season": 2019,
+            "temperature_brier": 0.16519548573041815
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_strength_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16651392147362323,
+            "season": 2015,
+            "temperature_brier": 0.1690826545226789
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19475235280900785,
+            "season": 2016,
+            "temperature_brier": 0.1950673969602621
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17155780503628273,
+            "season": 2017,
+            "temperature_brier": 0.17154609502410517
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.1983339925859722,
+            "season": 2018,
+            "temperature_brier": 0.19812469959536413
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.16744869422452793,
+            "season": 2019,
+            "temperature_brier": 0.16752187968503682
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17734550074330077,
+            "season": 2015,
+            "temperature_brier": 0.18336084767414276
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20565083534308232,
+            "season": 2016,
+            "temperature_brier": 0.2063035243742248
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.18085602064881268,
+            "season": 2017,
+            "temperature_brier": 0.1810471159232564
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.21004867535021077,
+            "season": 2018,
+            "temperature_brier": 0.20937837864977085
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.1779519893581219,
+            "season": 2019,
+            "temperature_brier": 0.17827288775648562
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "xgboost": {
+        "candidate": "xgboost_full_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.16175783533186142,
+            "season": 2015,
+            "temperature_brier": 0.18414252993272134
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.17977034463975708,
+            "season": 2016,
+            "temperature_brier": 0.18211818058588958
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17266511017364322,
+            "season": 2017,
+            "temperature_brier": 0.17262365291626247
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.19588352680387125,
+            "season": 2018,
+            "temperature_brier": 0.19465830791762273
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.1661665837764584,
+            "season": 2019,
+            "temperature_brier": 0.16739071287373875
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "pooled_common"
+  },
+  {
+    "Gender": "W",
+    "Season": 2016,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "weights": {
+          "hist": 0.20873308534034007,
+          "lightgbm": 0.2624977309924849,
+          "logistic": 0.5030695239524013,
+          "seed": 1.6702239023409544e-17,
+          "xgboost": 0.02569965971477363
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11793622876995034,
+            "season": 2015,
+            "temperature_brier": 0.113583184917882
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.7243621849192522
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11886875542533848,
+            "season": 2015,
+            "temperature_brier": 0.11227967945333546
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.6639338870902357
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11413320252826073,
+            "season": 2015,
+            "temperature_brier": 0.1056113513575668
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.532973651845509
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15544058036771743,
+            "season": 2015,
+            "temperature_brier": 0.146934758783756
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.5942830021480359
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12065573852589927,
+            "season": 2015,
+            "temperature_brier": 0.11329507386612765
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "temperature",
+        "temperature": 0.6432690820146301
+      }
+    },
+    "route": "pooled_common"
+  },
+  {
+    "Gender": "W",
+    "Season": 2017,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "weights": {
+          "hist": 0.20187231555970545,
+          "lightgbm": 0.24022898404304413,
+          "logistic": 0.48431178185673174,
+          "seed": 0.0,
+          "xgboost": 0.07358691854051876
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11793622876995034,
+            "season": 2015,
+            "temperature_brier": 0.113583184917882
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15687584627330659,
+            "season": 2016,
+            "temperature_brier": 0.16342014130963667
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11886875542533848,
+            "season": 2015,
+            "temperature_brier": 0.11227967945333546
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15679484531929683,
+            "season": 2016,
+            "temperature_brier": 0.16606103623707302
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11413320252826073,
+            "season": 2015,
+            "temperature_brier": 0.1056113513575668
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15249156224161506,
+            "season": 2016,
+            "temperature_brier": 0.17011475804333887
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15544058036771743,
+            "season": 2015,
+            "temperature_brier": 0.146934758783756
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.16817438592161424,
+            "season": 2016,
+            "temperature_brier": 0.17382626760468325
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "temperature",
+        "temperature": 0.6943163859133272
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12065573852589927,
+            "season": 2015,
+            "temperature_brier": 0.11329507386612765
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15690330110504297,
+            "season": 2016,
+            "temperature_brier": 0.16754472321662645
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "pooled_common"
+  },
+  {
+    "Gender": "W",
+    "Season": 2018,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "weights": {
+          "hist": 0.20094418308402875,
+          "lightgbm": 0.2197976409895856,
+          "logistic": 0.5050829540881168,
+          "seed": 0.009282609297059704,
+          "xgboost": 0.06489261254120904
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11793622876995034,
+            "season": 2015,
+            "temperature_brier": 0.113583184917882
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15687584627330659,
+            "season": 2016,
+            "temperature_brier": 0.16342014130963667
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.1331928206747646,
+            "season": 2017,
+            "temperature_brier": 0.1320518705197445
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11886875542533848,
+            "season": 2015,
+            "temperature_brier": 0.11227967945333546
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15679484531929683,
+            "season": 2016,
+            "temperature_brier": 0.16606103623707302
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.13396933250959503,
+            "season": 2017,
+            "temperature_brier": 0.132797565875599
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11413320252826073,
+            "season": 2015,
+            "temperature_brier": 0.1056113513575668
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15249156224161506,
+            "season": 2016,
+            "temperature_brier": 0.17011475804333887
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.12474976246626915,
+            "season": 2017,
+            "temperature_brier": 0.12522283936481474
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15544058036771743,
+            "season": 2015,
+            "temperature_brier": 0.146934758783756
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.16817438592161424,
+            "season": 2016,
+            "temperature_brier": 0.17382626760468325
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.1494050573470765,
+            "season": 2017,
+            "temperature_brier": 0.1416811904977797
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "temperature",
+        "temperature": 0.6556615481371908
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12311449546784972,
+            "season": 2015,
+            "temperature_brier": 0.11391254910616852
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15707954453676198,
+            "season": 2016,
+            "temperature_brier": 0.16946530854689099
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.13365954522447032,
+            "season": 2017,
+            "temperature_brier": 0.13227065431052992
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "pooled_common"
+  },
+  {
+    "Gender": "W",
+    "Season": 2019,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "weights": {
+          "hist": 0.13771482527396076,
+          "lightgbm": 0.14276813418632187,
+          "logistic": 0.5288681531242766,
+          "seed": 0.09255818427813886,
+          "xgboost": 0.09809070313730196
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11793622876995034,
+            "season": 2015,
+            "temperature_brier": 0.113583184917882
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15687584627330659,
+            "season": 2016,
+            "temperature_brier": 0.16342014130963667
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.1331928206747646,
+            "season": 2017,
+            "temperature_brier": 0.1320518705197445
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.17012329625553377,
+            "season": 2018,
+            "temperature_brier": 0.17582011494633842
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11886875542533848,
+            "season": 2015,
+            "temperature_brier": 0.11227967945333546
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15679484531929683,
+            "season": 2016,
+            "temperature_brier": 0.16606103623707302
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.13396933250959503,
+            "season": 2017,
+            "temperature_brier": 0.132797565875599
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.17113381256577645,
+            "season": 2018,
+            "temperature_brier": 0.1786190056517794
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11413320252826073,
+            "season": 2015,
+            "temperature_brier": 0.1056113513575668
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15249156224161506,
+            "season": 2016,
+            "temperature_brier": 0.17011475804333887
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.12474976246626915,
+            "season": 2017,
+            "temperature_brier": 0.12522283936481474
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.15387726258248294,
+            "season": 2018,
+            "temperature_brier": 0.15760023769818188
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15544058036771743,
+            "season": 2015,
+            "temperature_brier": 0.146934758783756
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.16817438592161424,
+            "season": 2016,
+            "temperature_brier": 0.17382626760468325
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.1494050573470765,
+            "season": 2017,
+            "temperature_brier": 0.1416811904977797
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.1644692337575593,
+            "season": 2018,
+            "temperature_brier": 0.16828079394724377
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "temperature",
+        "temperature": 0.7078108689203929
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12065573852589927,
+            "season": 2015,
+            "temperature_brier": 0.11329507386612765
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15690330110504297,
+            "season": 2016,
+            "temperature_brier": 0.16754472321662645
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.13676542794325783,
+            "season": 2017,
+            "temperature_brier": 0.13601949215040127
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.1616924013093599,
+            "season": 2018,
+            "temperature_brier": 0.16711440587121187
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "pooled_common"
+  },
+  {
+    "Gender": "W",
+    "Season": 2021,
+    "decisions": {
+      "blend": {
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "weights": {
+          "hist": 0.15749776556641965,
+          "lightgbm": 0.15324237838941404,
+          "logistic": 0.48029925538553564,
+          "seed": 0.11871682513324525,
+          "xgboost": 0.09024377552538541
+        }
+      },
+      "hist": {
+        "candidate": "hist_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11793622876995034,
+            "season": 2015,
+            "temperature_brier": 0.113583184917882
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15687584627330659,
+            "season": 2016,
+            "temperature_brier": 0.16342014130963667
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.1331928206747646,
+            "season": 2017,
+            "temperature_brier": 0.1320518705197445
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.17012329625553377,
+            "season": 2018,
+            "temperature_brier": 0.17582011494633842
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.1317468034546239,
+            "season": 2019,
+            "temperature_brier": 0.13133817951944946
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "lightgbm": {
+        "candidate": "lightgbm_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11886875542533848,
+            "season": 2015,
+            "temperature_brier": 0.11227967945333546
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15679484531929683,
+            "season": 2016,
+            "temperature_brier": 0.16606103623707302
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.13396933250959503,
+            "season": 2017,
+            "temperature_brier": 0.132797565875599
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.17113381256577645,
+            "season": 2018,
+            "temperature_brier": 0.1786190056517794
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.13280067333298276,
+            "season": 2019,
+            "temperature_brier": 0.1324145925081021
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "logistic": {
+        "candidate": "logistic_dynamic_1",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.11413320252826073,
+            "season": 2015,
+            "temperature_brier": 0.1056113513575668
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15249156224161506,
+            "season": 2016,
+            "temperature_brier": 0.17011475804333887
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.12474976246626915,
+            "season": 2017,
+            "temperature_brier": 0.12522283936481474
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.15387726258248294,
+            "season": 2018,
+            "temperature_brier": 0.15760023769818188
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.13612924781240496,
+            "season": 2019,
+            "temperature_brier": 0.13614733954579164
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "seed": {
+        "candidate": "seed",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.15544058036771743,
+            "season": 2015,
+            "temperature_brier": 0.146934758783756
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.16817438592161424,
+            "season": 2016,
+            "temperature_brier": 0.17382626760468325
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.1494050573470765,
+            "season": 2017,
+            "temperature_brier": 0.1416811904977797
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.1644692337575593,
+            "season": 2018,
+            "temperature_brier": 0.16828079394724377
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.14007974402839996,
+            "season": 2019,
+            "temperature_brier": 0.1318741881212475
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "temperature",
+        "temperature": 0.6790743059034926
+      },
+      "xgboost": {
+        "candidate": "xgboost_strength_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.12311449546784972,
+            "season": 2015,
+            "temperature_brier": 0.11391254910616852
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.15707954453676198,
+            "season": 2016,
+            "temperature_brier": 0.16946530854689099
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.13365954522447032,
+            "season": 2017,
+            "temperature_brier": 0.13227065431052992
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.16238886714610826,
+            "season": 2018,
+            "temperature_brier": 0.16901769837241024
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.134200538767599,
+            "season": 2019,
+            "temperature_brier": 0.1332813618093867
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      }
+    },
+    "route": "pooled_common"
+  }
+]
