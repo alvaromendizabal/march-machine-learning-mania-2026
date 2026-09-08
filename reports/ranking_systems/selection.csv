@@ -1,0 +1,11 @@
+model,Season,block,history_last_season
+hist,2016,availability,2015
+hist,2017,consensus,2016
+hist,2018,consensus,2017
+hist,2019,consensus,2018
+hist,2021,consensus,2019
+logistic,2016,momentum,2015
+logistic,2017,momentum,2016
+logistic,2018,availability,2017
+logistic,2019,availability,2018
+logistic,2021,availability,2019

@@ -10,7 +10,7 @@ features, nested temporal model selection, calibration analysis and interpretabl
 **Current project: this repository's `main` branch. The expanded features have
 already been generated and used in completed retraining.** PR #8 replaced the
 stale 124-feature handoff with the executed 3,106-candidate study. The capacity
-follow-up below tests whether more of those candidates should reach each fit.
+and individual-system follow-ups below test representation size and ranking detail.
 
 **Open the notebooks and read their saved outputs. No AWS login, dataset download,
 GPU or notebook execution is needed to review the project.**
@@ -19,7 +19,7 @@ GPU or notebook execution is needed to review the project.**
 |---|---|
 | [00 · Data](notebooks/00_data_audit_and_preparation.ipynb) | Official-file provenance, coverage and basketball data quality |
 | [01 · Validation](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | Prediction cutoff, whole-season splits and pre-tournament snapshots |
-| [02 · Features](notebooks/02_feature_store_and_diagnostics.ipynb) | 3,106-candidate definitions, ablations, uncertainty and feature diagnostics |
+| [02 · Features](notebooks/02_feature_store_and_diagnostics.ipynb) | 3,106 main candidates plus 840 ranking hypotheses; ablations, screening and uncertainty |
 | [03 · Models](notebooks/03_model_comparison_and_diagnostics.ipynb) | Executed nested comparison, calibration, ensembles, errors and interpretation |
 | [04 · Benchmark](notebooks/04_locked_benchmark_and_final_submission.ipynb) | Current retrospective evaluation and tested, optional generation/validation/download |
 
@@ -47,6 +47,11 @@ including forward-only inner selection. More inputs generally hurt; smaller scre
 improve the broad logistic models but do not beat the existing compact leaders.
 The 128-input main-study limit and its original results remain explicitly identified.
 
+The [individual-system study](reports/ranking_systems/README.md) tests **840 further
+ranking candidates** in **112 fits**, bringing the explored definitions to **3,946**.
+The nominal fixed logistic improvement is small and uncertain; forward-only
+representation selection worsens performance. These additions are not promoted.
+
 | Current evidence | Men: mean season Brier | Women: mean season Brier |
 |---|---:|---:|
 | Best observed nested development stream | 0.188396 · no-Massey pooled blend | 0.144823 · separate logistic |
@@ -72,8 +77,9 @@ Notebook 04 links its current retrospective benchmark to those exact upstream ru
 | Retraining on those exact features | 861 candidate fits in notebook 03 |
 | Target encoding and chronological splits | Prior-season histories, nested selection, mutation tests |
 | Retained-feature capacity experiment | 168 evaluated fits; 138 new and 30 inherited |
+| Individual ranking-system experiment | 840 additions; 112 fits; no promotion after temporal selection |
 | Current retrospective benchmark | 16 fits on previously consumed 2022–2025 seasons |
-| Native notebook execution and checkpoint recovery | [Original release](reports/validation/release.json) and [capacity follow-up](reports/validation/capacity.json) |
+| Native notebooks and checkpoint recovery | [Latest verified release](reports/validation/ranking_systems.json): 228 tests, all six notebooks, 42 code cells |
 
 The remaining scientific question is stronger generalization, particularly for women.
 It is not whether the remade notebook 02 has been trained. Repeating identical completed
@@ -106,10 +112,16 @@ artifact download restored **901 model tasks with zero repeated fits and byte-id
 predictions**. [Release evidence](reports/validation/release.json) preserves that source
 and those notebook bytes. The [capacity follow-up](reports/validation/capacity.json)
 separately records actual native execution of all six current notebooks (**40 code
-cells**) and verified reuse of all 168 capacity tasks. The current suite has **212
-tests**; exact publication checks are recorded on [PR #9](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/9).
-The new capacity archive's S3 backup awaits a specific upload approval; the earlier
-feature/model archives remain verified and available.
+cells**) and verified reuse of all 168 capacity tasks. Its publication passed 212 tests
+on [PR #9](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/9).
+The [latest ranking-system validation](reports/validation/ranking_systems.json) passes
+**228 tests** and native execution of **all six notebooks, 42 code cells**, with no
+warning/error outputs and six reused notebook checkpoints. The proposed publication
+revision is checked on [PR #10](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/10).
+The capacity archive is now verified in versioned S3 storage. A fresh download
+reused all 168 tasks without fitting, preserving every model and prediction checksum.
+A fresh ranking-system archive likewise reuses 113 tasks. Notebook 02 restores these
+completed studies automatically in train mode when their source/configuration match.
 
 Runs emit UTC timestamps, task/total elapsed time, progress and 15-second task heartbeats.
 Completed estimators and forecast batches are content-verified and reused. A failed estimator

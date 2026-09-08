@@ -1,0 +1,113 @@
+{
+  "manifest": {
+    "fingerprint": "713aecba70bb2ec639d8d86b82a586dc07c18c620c2d06954de0aba986dee119",
+    "inputs": {
+      "config": {
+        "additional_capacity": 16,
+        "catalog_first_season": 2003,
+        "embedding_components": 8,
+        "feature_cutoff_day": 132,
+        "first_training_season": 2013,
+        "heartbeat_seconds": 15,
+        "logit_clip": 0.01,
+        "minimum_inner_seasons": 2,
+        "models": [
+          "logistic",
+          "hist"
+        ],
+        "momentum_days": [
+          7,
+          30,
+          60
+        ],
+        "protocol": "retrospective-ranking-system-research",
+        "seed": 2026,
+        "threads": 2,
+        "validation_seasons": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2021
+        ]
+      },
+      "data": {
+        "MMasseyOrdinals.csv": "a14234e3fe3b63efe286fbbaf9bbc550ef2e52688c50ceadb2acb593e57634f8",
+        "features.parquet": "8d72cbd10c974b5e51c889baf78aa1d0bbc9d6a35dc2896f145fa693350aa1af"
+      },
+      "environment": {
+        "joblib": "1.5.2",
+        "numpy": "2.2.6",
+        "pandas": "2.3.3",
+        "pyarrow": "21.0.0",
+        "python": "3.12.13",
+        "scikit-learn": "1.7.2",
+        "scipy": "1.16.3"
+      },
+      "feature_fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+      "source": {
+        "pyproject.toml": "c3aea1c2d445a7c1c59377895468306b035c384da6866b94174d398a857aee3b",
+        "src/march_mania/__init__.py": "fb8f7f61008dfb3648a0f2d5046109b11b5f0868a91c898ede383d014f9a8e73",
+        "src/march_mania/advanced_features.py": "e49d02bdc557d3073734eb6365605037b232d375bcdbdd0d9de80fdf1bf6ce73",
+        "src/march_mania/candidate_features.py": "208ca082aa95d24a4a12c34b0f3bab523481b0504cadb66b5c33bc8b03ccc05a",
+        "src/march_mania/coach_features.py": "3901a1e91412f568c654cad7e9103e7b3d47d10f96530ffde2480d4924f8bca2",
+        "src/march_mania/context_features.py": "96f85242c3ebeb9732ba4bd4153b58bbddc4147f8bd183cfeaa6e278c23fb9bf",
+        "src/march_mania/data.py": "7f87a0a2376a020096e7d5ac9e7f9ae650d6e8c5364b1a329d0f22719e5c4a41",
+        "src/march_mania/data_review.py": "761f51f95c6eb63e6037a12a8b5c0f37ba94c1336d626692730f8c842eeacab8",
+        "src/march_mania/encoding.py": "49e61f4820bde51228e6d2e9c00e51a46937f7ef9dfa980db48c4a47a5ca2727",
+        "src/march_mania/feature_selection.py": "63fa9d8d136cdfbab5ed2d6bae311a6c711ccaa6553db709e2a935b4908e6b77",
+        "src/march_mania/feature_store.py": "ca47bfcadb759501e3fba0727018fbebd79c27840aef4ed2ac7bcf2556b69444",
+        "src/march_mania/features.py": "ef5afd3c93368ef82e4e792cfc26c610711fb3341b8546da3085a8207891f154",
+        "src/march_mania/io.py": "46decedac7173a2c806ae5a87bd5caaee31706817ca15ce0aab799b238bd45a0",
+        "src/march_mania/matchup_artifacts.py": "43d7d9d12e331f3aa2c5ccd8cdc128418cab043e96c1b06231842bbc7c3a34d0",
+        "src/march_mania/model_report.py": "7758377e4043f87d88f620e3e2826a5a0f1ea309c41a030e5544201416b4cce0",
+        "src/march_mania/modeling.py": "921772edbdb5676d0fda2c58ca2f05914540ebaed39f8135504177157a290a2f",
+        "src/march_mania/notebook_support.py": "a5cb439aa21b5037a06ba7fe00d1cc3bd8c7fa423d369262cce56ec1c96a3486",
+        "src/march_mania/paths.py": "90c6af595fd0b9df6aab7d2d3161c350f6e0f2a00efd4771798b0da51b939aa5",
+        "src/march_mania/publication/artifacts.py": "4e02b7919665fc9f91e8c15f0af89b1e9e28cefbd363684da98d1948194f220a",
+        "src/march_mania/publication/capacity.py": "e269af13139710379da4e3b01fbfe2d9a6d21685d9976bd9916325d5703e3d99",
+        "src/march_mania/publication/ranking_systems.py": "4e15dff6596c4acd82f5f74619e4a9ece09acfa5c3ad70207289d0fe59b1a5a1",
+        "src/march_mania/publication/workflow.py": "fa09c45c1fcc6a2e1fce061226ec4169caa74ada598fe866f64a83ee089aa4d8",
+        "src/march_mania/rankings.py": "30a9b854ffb8c0a4fae3a819ce13e2066280993b371244f7156c517b967b7764",
+        "src/march_mania/research.py": "31157076af9866b14d1166bdb8d53652c8f3f59c588b80e6dbe70a2c2a634a60",
+        "src/march_mania/research_report.py": "9758126b93f6f0e6d3ad9bccd90ef82b413851b2ac15c8b584650ce272d2c6f7",
+        "src/march_mania/reshape.py": "2820d630c10c554ec861fb0de9fb359c759d27de42bb8711b96dac8d0f008541",
+        "src/march_mania/runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
+        "src/march_mania/validation.py": "6d4fe5a339b11e255f087f27927335160e324fcc7aab5021d354bb711b80e235",
+        "uv.lock": "d0b1b6c2395c14f0a7236ff16acfd009ab906906719d8187e7d8685643d8c20a"
+      }
+    }
+  },
+  "sha256": {
+    "catalog.json": "5a77373569a03768c8d99926b7c0c37b8f2f193b633521686582baecf8ffd43a",
+    "coverage.csv": "19421e199d8d1275080edd18335e17c7fdfc9ace595309e4a604b2bcd3d2837b",
+    "evaluation.csv": "b5fb8f0c30b66a9232203628bf7809029cff7bc13412b425dfbcb872584c026e",
+    "fit_audit.csv": "41655eb8b2b77fd58ff50e5a375526d9df6378c7d52c01cfc0fd645521921145",
+    "intervals.csv": "43b6d2d03a39a3bfbe9ab08a06f659300fe4b8013d4b769065aebd2202f6b198",
+    "leaderboard.csv": "456323cca9c2622d4a97a6d337aa96cc251a4c72262bb7048ae9a3e5a9d108a2",
+    "metrics_by_season.csv": "975cde61273455e2df80271a2776fd2b0efb2db02d4c127857aa2fac13505da6",
+    "predictions.csv": "99fd6e4d788df9b79aec4dcb5e0ebd53aa06e45974827ad4644a472e7e5d96aa",
+    "screening_summary.csv": "d40a1c11899c9ebdaeedaccf5eb84c03635b3519c6cfd0c965a3e27c1a7dfb4e",
+    "selection.csv": "706bef2536cecb7654c6fbddd777a2e43d325b684d12a046350b58efa211488c",
+    "stability.csv": "ec4b6c163ca20e65ab11d920985ab6d37a0c5de9662451decf188ec410d3859f"
+  },
+  "summary": {
+    "additional_candidates": 840,
+    "benchmark_labels_used": false,
+    "candidate_count_with_consensus": 859,
+    "feature_fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+    "final_recipe_changed": false,
+    "fingerprint": "713aecba70bb2ec639d8d86b82a586dc07c18c620c2d06954de0aba986dee119",
+    "fit_tasks": 112,
+    "inherited_reference_fits": 20,
+    "status": "completed",
+    "systems": 105,
+    "validation_seasons": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2021
+    ]
+  }
+}

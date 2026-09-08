@@ -51,9 +51,11 @@ No submission file was generated.
 The second actual execution reused all **168 checkpoints**, repeated **zero fits**
 and preserved every estimator file and prediction checksum. A checksum-verified
 portable archive contains full models, screening audits, exact source, input matrix
-and logs. Upload of this new archive is awaiting a specific storage approval;
-it is not described as a completed cloud backup. The earlier feature/model archives
-remain verified in S3. Public reports and source/configuration/parent hashes are
+and logs. The 48,840,617-byte archive is verified in versioned S3 storage. A fresh
+download of that exact version restored all 168 tasks and reproduced byte-identical
+predictions with fitting explicitly forbidden. The recovery used the existing
+verified feature run for its six estimator templates; all capacity models came from
+the downloaded archive. The receipt records that dependency and the object version. Public reports and source/configuration/parent hashes are
 validated whenever notebook 02 reads this study.
 
 Reproduction is implemented in `march_mania.publication.capacity`; notebook 02 calls

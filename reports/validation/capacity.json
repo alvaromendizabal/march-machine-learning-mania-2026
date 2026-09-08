@@ -1,17 +1,46 @@
 {
+  "archive": {
+    "bytes": 48840617,
+    "sha256": "ac52c7c4b56172ed4775fb2a6ab41f6df6d2bcc86c763515c20ea21ed83584b8",
+    "status": "uploaded",
+    "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/capacity/917affd67b01c3e865f8131bb2e4fd3f09fde6f43eeffdfa67fa8081d67c985f/archive.zip",
+    "version_id": "vLVWiCH59.GqdWUvQJw1QhkVwwh2IOEJ"
+  },
+  "canonical_cloud_recovery": {
+    "archive_sha256": "ac52c7c4b56172ed4775fb2a6ab41f6df6d2bcc86c763515c20ea21ed83584b8",
+    "model_hashes_unchanged": true,
+    "models_verified": 168,
+    "new_tasks": 0,
+    "prediction_sha256": "db437ef2b1755133a0a266d6954c8d2332d185e9af6bc1dcfc4df6e6ca010ed3",
+    "recovery_source": "Fresh exact-version S3 download through connected AWS, consumed by canonical study_stage restore and resume",
+    "reused_tasks": 168,
+    "status": "passed",
+    "upstream_dependency": "Existing checksum-verified feature run and official raw inputs",
+    "version_id": "vLVWiCH59.GqdWUvQJw1QhkVwwh2IOEJ"
+  },
   "capacity_recovery": {
     "archive_bytes": 48840617,
     "archive_members": 1047,
     "archive_sha256": "ac52c7c4b56172ed4775fb2a6ab41f6df6d2bcc86c763515c20ea21ed83584b8",
-    "cloud_restore_claimed": false,
+    "archived_source_verified": true,
+    "cloud_restore_claimed": true,
+    "model_hashes_unchanged": true,
     "new_tasks": 0,
     "prediction_sha256": "db437ef2b1755133a0a266d6954c8d2332d185e9af6bc1dcfc4df6e6ca010ed3",
+    "reference_dependency": "Existing checksum-verified feature run supplies the six original estimator templates; fitting is forbidden during recovery.",
     "reused_tasks": 168,
-    "source": "local checksum-verified portable archive",
-    "status": "passed"
+    "source": "fresh download of exact S3 object version",
+    "status": "passed",
+    "version_id": "vLVWiCH59.GqdWUvQJw1QhkVwwh2IOEJ"
   },
   "feature_capacity_fingerprint": "917affd67b01c3e865f8131bb2e4fd3f09fde6f43eeffdfa67fa8081d67c985f",
   "final_revision_checks": "PR #9 verifies the publication commit and the additional automated end-to-end test; source validation above records its own exact test count.",
+  "merged_main_checks": {
+    "commit": "869d4aba927c5a511a406c28fdfc1385db30406b",
+    "status": "success",
+    "url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34283207168",
+    "workflow_run_id": 34283207168
+  },
   "native_validation": {
     "all_notebook_definitions_match": true,
     "artifact_bytes": 7488586,
@@ -62,16 +91,19 @@
       "sha256": "4cd197bcafb6b0994c64ba6bf6e1b92d722396792d9c18f6b7c56baf1e7eb13c"
     }
   },
-  "status": "native_notebooks_verified_new_archive_upload_pending",
+  "status": "native_notebooks_and_versioned_cloud_recovery_verified",
   "storage": {
     "archive_bytes": 48840617,
     "archive_file": "feature_capacity.zip",
     "archive_sha256": "ac52c7c4b56172ed4775fb2a6ab41f6df6d2bcc86c763515c20ea21ed83584b8",
+    "checksum_sha256_base64": "rFLHxLVhcu1HdfsqarQfbfbSvMhsdjUVwg6iHtg1hLg=",
+    "checksum_type": "FULL_OBJECT",
     "destination": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/capacity/917affd67b01c3e865f8131bb2e4fd3f09fde6f43eeffdfa67fa8081d67c985f/archive.zip",
     "expected_bucket_owner": "560403859723",
-    "new_archive_upload_verified": false,
+    "new_archive_upload_verified": true,
     "ownership_verified": true,
-    "reason": "Automatic approval review requires explicit end-user authorization for this archive and S3 destination.",
-    "status": "awaiting_specific_storage_approval"
+    "status": "uploaded_and_verified",
+    "verified_at": "2026-09-08T22:40:36+00:00",
+    "version_id": "vLVWiCH59.GqdWUvQJw1QhkVwwh2IOEJ"
   }
 }
