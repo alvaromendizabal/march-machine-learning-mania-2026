@@ -40,7 +40,9 @@ def verified_write(path: Path, contents: bytes, expected: str) -> None:
         temporary.unlink(missing_ok=True)
 
 
-def restore_archive(archive: Path, destination: Path, expected: str) -> None:
+def restore_archive(
+    archive: Path, destination: Path, expected: str, *, complete_run: bool = False
+) -> None:
     """Trust the recorded whole-file checksum before reading any archive members."""
     if digest(archive) != expected:
         raise ValueError("Input archive differs from its recorded SHA-256")
@@ -55,7 +57,11 @@ def restore_archive(archive: Path, destination: Path, expected: str) -> None:
         # Only tabular inputs and provenance are needed; do not deserialize old estimators.
         selected = [name for name in hashes if name.startswith(("run/", "raw/"))]
         for name in selected:
-            if Path(name).suffix not in {".parquet", ".csv", ".json"}:
+            if not (complete_run and name.startswith("run/")) and Path(name).suffix not in {
+                ".parquet",
+                ".csv",
+                ".json",
+            }:
                 continue
             path = safe_path(destination, name)
             if path.exists() and digest(path) == hashes[name]:
@@ -64,7 +70,9 @@ def restore_archive(archive: Path, destination: Path, expected: str) -> None:
         atomic_json(destination / "archive.json", {"sha256": expected, "manifest": manifest})
 
 
-def download_input(record: dict[str, Any], target: Path, log: EventLog) -> Path:
+def download_input(
+    record: dict[str, Any], target: Path, log: EventLog, *, complete_run: bool = False
+) -> Path:
     """Download through the AWS role chain; never write credentials to artifacts."""
     uri = record.get("uri", record.get("s3_uri"))
     if not isinstance(uri, str):
@@ -88,7 +96,7 @@ def download_input(record: dict[str, Any], target: Path, log: EventLog) -> Path:
             temporary.replace(archive)
         finally:
             temporary.unlink(missing_ok=True)
-    restore_archive(archive, target, record["sha256"])
+    restore_archive(archive, target, record["sha256"], complete_run=complete_run)
     log.emit("input_verified", sha256=record["sha256"], bytes=archive.stat().st_size)
     return target / "run"
 

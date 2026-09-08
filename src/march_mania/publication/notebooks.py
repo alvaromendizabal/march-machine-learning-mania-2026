@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import os
 import re
 import sys
 import time
@@ -53,7 +54,13 @@ def dependency_hashes(root: Path) -> dict[str, str]:
     ]
     folders.extend(
         root / "outputs" / name
-        for name in ("data_review", "feature_store", "model_comparison", "research")
+        for name in (
+            "data_review",
+            "feature_store",
+            "model_comparison",
+            "research",
+            "final_predictions",
+        )
     )
     paths = [root / name for name in ("pyproject.toml", "uv.lock", ".python-version")]
     suffixes = {".py", ".csv", ".parquet", ".json", ".yaml", ".yml", ".md"}
@@ -194,6 +201,7 @@ def _execute_one(
         "notebook": definition(notebook),
         "dependencies": dependency_hashes(root),
         "environment": environment,
+        "execution_mode": os.environ.get("MARCH_NOTEBOOK_MODE", "review"),
     }
     key = fingerprint(inputs)
     cache = destination / "notebook_runs" / key

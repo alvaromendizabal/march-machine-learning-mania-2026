@@ -58,6 +58,7 @@ def main() -> int:
                 "--cov=march_mania.publication.submission",
                 "--cov=march_mania.publication.inference",
                 "--cov=march_mania.publication.artifacts",
+                "--cov=march_mania.publication.workflow",
                 "--cov-report=term-missing",
                 "--cov-report=xml:outputs/validation/coverage.xml",
                 "--junitxml=outputs/validation/junit.xml",
