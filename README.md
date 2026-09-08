@@ -1,5 +1,7 @@
 # NCAA tournament probability forecasting
 
+[![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
+
 Season-aware forecasting for the men's and women's NCAA tournaments: basketball-informed
 features, nested temporal model selection, calibration analysis and interpretable diagnostics.
 
@@ -72,6 +74,12 @@ Reusable Python lives in `src/march_mania`; notebooks explain the results rather
 hidden training state. Tests cover temporal boundaries, game uniqueness, symmetry, probability
 validity, checkpoint corruption, interruption recovery, published metric integrity and notebook
 publication. Tests treat meaningful warnings as errors; publication rejects warning/error outputs.
+
+The completed release passed **202 tests** and native execution of **all six notebooks**
+(39 code cells). A second notebook pass reused all six checkpoints. An independent fresh
+artifact download restored **901 model tasks with zero repeated fits and byte-identical
+predictions**. [Release evidence](reports/validation/release.json) binds these checks to
+the exact published source and notebook bytes.
 
 Runs emit UTC timestamps, task/total elapsed time, progress and 15-second task heartbeats.
 Completed estimators and forecast batches are content-verified and reused. A failed estimator

@@ -1,7 +1,7 @@
 # Completion audit · expanded NCAA feature research
 
-Evidence date: 2026-09-08. This audit distinguishes completed computation from native
-notebook execution and publication. The original 124-feature release remains in Git
+Evidence date: 2026-09-08. The expanded experiments and all six native notebooks are
+complete and published. Final merge/check status is recorded on PR #8. The original 124-feature release remains in Git
 history and its versioned archives; its final predictions are not relabeled as new work.
 
 ## 1. Where the project started
@@ -99,34 +99,58 @@ separate and pooled fits; men's coach availability still differs from women's.
 
 ## 9. Notebook execution
 
-The underlying official-data audit, expanded feature study, model search and current
-benchmark have completed. Native execution of canonical notebooks **00 → 01 → 02 →
-03 → 04 → 05**, plus a second-pass checkpoint reuse check, is the remaining publication
-gate. Local native-kernel launch is unavailable in the restricted execution environment;
-no simulated notebook output is presented as execution. GitHub Actions runs the real
-Jupyter kernel before publishing the saved notebooks.
+All canonical notebooks **00 → 01 → 02 → 03 → 04 → 05** passed real Jupyter execution,
+with **39 executed code cells** and no error/warning outputs. The final review pass
+reused all six verified notebook checkpoints and started zero new notebook tasks.
+Train mode also passed for 02, 03 and 04 using the completed current artifacts.
+
+The publication workflow independently downloaded the model archive into a fresh
+directory, restored and reused **all 901 task checkpoints**, repeated **zero tasks**,
+and reproduced byte-identical CSV and Parquet predictions. This proves restoration
+and reuse of these stored artifacts, not bitwise equivalence of fresh fits across
+all hardware platforms. The completed source, outputs and logs are preserved in the
+[successful native run](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34202281698)
+and the versioned validation archive referenced by `reports/validation/release.json`.
+
+A local kernel restriction was handled through actual GitHub Actions Jupyter execution;
+Python preflight or simulated outputs were never substituted for that gate.
 
 ## 10. Tests and quality gates
 
-Local portable validation passed all **200 non-kernel tests**; the suite contains
-**201 tests** including a real-kernel execution/reuse integration test. Compile/lint,
-format and mypy checks passed. Focused final modeling, benchmark and workflow checks
-passed after extending the candidate search. The full unmodified quality gate,
-coverage measurement and actual notebook execution remain required on the exact
-published branch head before merge; native results will be recorded here.
+**202 tests passed, with zero failures, errors or skips.** Compilation, Ruff lint,
+formatting and mypy passed in the locked Python 3.12.13 environment. Measured line
+coverage is **84.54%** (2,718 / 3,215 lines across the modules selected by the quality
+script). This is not a whole-repository or branch-coverage claim.
+
+The tests cover temporal encoding, coach histories, ranking publication cutoffs,
+conference realignment, screening, probability symmetry, nested selection/calibration,
+checkpoint corruption/interruption, clean-checkout publication and real-kernel reuse.
+The native gate caught and led to fixes for a transient lock in the public manifest
+and a stale appendix feature-count assertion. The final source passed both the
+[independent review workflow](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34202284245)
+and the full artifact-backed publication workflow. Exact final branch checks remain
+visible on PR #8; merge is conditional on those checks passing.
 
 ## 11. Git and durable experiment evidence
 
-Work is isolated in [PR #8](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/8).
-Local logical commits separate temporal features, benchmark integration and audit/
-notebook controls. A verified public source commit preserves the feature computation.
-Full feature, model and benchmark archives were uploaded and their complete SHA-256
-checksums and version IDs independently verified. Public run records reference them.
-Private raw data, trained binaries and credentials are excluded from Git.
+[PR #8](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/8)
+contains the completed work and records the final merge and branch checks.
 
-Final branch checks, fresh-directory S3 recovery, publication commit and merge are
-pending and must be recorded after success. A draft or an untested commit is not
-reported as a completed release.
+| Public commit | Purpose |
+|---|---|
+| `8dac9f8` | Complete temporal features, source lineage and benchmark integration |
+| `6067b08` | Publish completed expanded experiments and honest measured findings |
+| `cf715fc` | Exclude temporary locks from public benchmark evidence |
+| `5257522` | Bind appendix dimensions to the catalog and clarify feature plots; final validated computational/notebook source |
+| `5ac339e` | Publish all six actually executed notebooks and verified recovery evidence |
+
+`reports/validation/release.json` records workflow links, exact notebook byte hashes,
+quality results, model recovery and independent verification that the public source
+commit matches every recorded computational source hash. Full feature, model,
+benchmark and validation archives have version IDs and verified SHA-256 checksums.
+Private raw files, trained binaries and credentials are excluded from Git. Historical
+artifacts and the local computation history were preserved. No new AWS compute was
+provisioned, and no new submission file or Kaggle upload was produced.
 
 ## 12. Final measured metrics and lineage
 
@@ -164,23 +188,33 @@ models were not retrained. No new leaderboard ranking or medal is established.
 ## 14. Honest completion estimate
 
 At audit start, approximately **70–75% of the intended deliverable** was complete:
-substantial engineering existed, but the central expanded-feature experiment and
-cross-notebook proof were missing. After the completed experiments, approximately
-**90–95%** is complete, with native execution and verified publication outstanding.
-These are judgment-based project-readiness estimates, not measured scientific scores.
-A 9.9/10 forecast-quality claim is not supported by the results.
+substantial engineering existed, but the expanded-feature experiment and notebook
+handoff evidence were missing. The requested implementation, evaluation, reproducibility
+and employer-facing publication work is now complete, subject to the final merge gate.
+
+Against the broader ambition of demonstrating stronger future forecasting, the honest
+estimate is **about 95%**. The remaining evidence requires a genuinely unseen tournament;
+it cannot be manufactured by rerunning consumed years. These are judgment-based
+readiness estimates, not scientific measurements. A guaranteed 9.9/10 rating or
+state-of-the-art accuracy claim is not supported by these results.
 
 ## 15. Employer readiness
 
-The intended finished presentation lets a reviewer trace data → temporal features →
-model choices → calibrated probabilities → uncertainty and negative results without
-an AWS account. It demonstrates disciplined ML engineering and scientific judgment,
-including declining to claim a gain the experiment did not establish. Final readiness
-will be confirmed only after the native execution and exact-head checks succeed.
+**Yes: this is ready to present as an employer-facing ML research and engineering
+project.** The notebooks let a reviewer trace data, temporal features, model choices,
+calibration, uncertainty and negative results without an AWS account. The repository
+now demonstrates completed experiments, readable executed notebooks, tested handoffs,
+versioned artifacts and recovery from a clean environment.
+
+Its strongest claim is disciplined research and reproducible engineering. The expanded
+features did not establish forecasting superiority, and the presentation says so.
+Keeping that distinction explicit is part of the project's scientific quality.
 
 ## 16. Highest-value remaining step
 
-Finish the native execution, recovery and publication gates now. For a future accuracy
-claim, freeze a compact recipe and evaluate the next genuinely unseen tournament,
-with pre-tournament source snapshots and a predeclared scoring population. Repeatedly
-tuning on 2022–2025 or adding more unvalidated columns cannot create that evidence.
+Freeze a compact recipe and evaluate the next genuinely unseen tournament with
+pre-tournament source snapshots and a predeclared scoring population. Retain the
+previous frozen artifact while treating the expanded recipe as retrospective research.
+Further tuning on 2022–2025 or adding unvalidated columns cannot create fresh evidence.
+There is no additional feature or training task required to understand and review this
+completed release; future accuracy work is a separate prospective study.

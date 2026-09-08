@@ -1,0 +1,136 @@
+{
+  "coverage": {
+    "covered_lines": 2718,
+    "line_rate": 0.8454,
+    "measured_lines": 3215,
+    "scope": "Modules explicitly measured by scripts/quality.py; not a whole-repository or branch coverage claim"
+  },
+  "gate_evidence_sha256": {
+    "coverage.xml": "f21611b40d55aebec5fd379e0f28f92c02af5ab3149211f63e713b08f2210848",
+    "junit.xml": "be0391a80a3bcee629d5bc6717080e967c11f26a8069b2ef9d63abdbbf7f8c95",
+    "notebook_execution.json": "e52f988f5e68d84ad3018ffa51cb948a10cc18b808f88e9e43ff4df9c7c3096f",
+    "notebooks.jsonl": "63f3a84e492e5b8a7d211dd39e6c8093cc119ed0368acb340b51548b2be99e8a",
+    "quality.json": "50406bbf9ff4ea38e3e68c173180c8475fbe27ea08e4e32f36179f8cb767516c",
+    "research.jsonl": "9ea59f64c2d1c660930d587feb95cb9170e89ae31eeb8cbcb9cd1057e7982945",
+    "source.sha256": "9661236bdd593bd4820206a659d76fc58b0faec940fb786b985938d1075ba92f",
+    "source_commit.txt": "ced9e3ad6a89439f843e0ea698c828686ddf2bcbf53c0609e7a6f2300e673796"
+  },
+  "independent_review_workflow_url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34202284245",
+  "kaggle_submission_sent": false,
+  "model_recovery": {
+    "archive_sha256": "54031ef705ffa2b5433d8e016ab6fdc87441ceece41a6d90743b68c2f61f3f4b",
+    "archive_version_id": "c.pwIGt6AJc_xuvsaV_jHi4Jy4hIhmVB",
+    "fingerprint": "20e69d30dc746f39f9395f96d1ff13d7a24cb0a7998fd096a0409c31fa7d7193",
+    "identical_predictions": true,
+    "recovery_source": "fresh SHA-256-verified S3 archive download",
+    "repeated_tasks": 0,
+    "restored_tasks": 901,
+    "reused_tasks": 901,
+    "status": "passed"
+  },
+  "notebook_execution": {
+    "elapsed_seconds": 29.614618694,
+    "notebooks": [
+      {
+        "code_cells": 4,
+        "fingerprint": "89c3ff6bb8f909845394920f7f448ddf1ffd0536672b1773b8eaffcb2409afca",
+        "notebook": "00_data_audit_and_preparation.ipynb",
+        "sha256": "2b2ad9fdae02dea640b6f3c60134e38419bcb8cc37fa07c4db144c63f9a09a31",
+        "status": "completed"
+      },
+      {
+        "code_cells": 3,
+        "fingerprint": "19b8dfa6f535cfc58aa8ac3cc5b46f2fa042ce7625620b29980da58ce3d92a44",
+        "notebook": "01_split_protocol_and_pre_tournament_snapshots.ipynb",
+        "sha256": "ec2a7757ff76be10b5e37d7339446d1ba3a0a0b7b77431713c813baad4f6ecc8",
+        "status": "completed"
+      },
+      {
+        "code_cells": 9,
+        "fingerprint": "07597e9212cdf14a6d773c16c788478e22bdfc81896ca75326f7cc19b6fa0a5f",
+        "notebook": "02_feature_store_and_diagnostics.ipynb",
+        "sha256": "40a5f0104437fc3558b0999e7f6bbe23d1e8791768226e7af28d6807912b865e",
+        "status": "completed"
+      },
+      {
+        "code_cells": 13,
+        "fingerprint": "39d5f711ca5dc1595576f030e2f1495a2a658fa0c715a5929dbe48c5e81155b7",
+        "notebook": "03_model_comparison_and_diagnostics.ipynb",
+        "sha256": "456fdb8a5db7a8056c58516b5a72ea1c472c30e56b13307300e04c919ee6f88c",
+        "status": "completed"
+      },
+      {
+        "code_cells": 6,
+        "fingerprint": "b8a7db42d69303a7642971c0d01d78e81380b5b7576388727028f728967827e2",
+        "notebook": "04_locked_benchmark_and_final_submission.ipynb",
+        "sha256": "7a373a3fd1f90bf623ed8cda36da88d9d5806137171cda3207af1d1c9a2c1e49",
+        "status": "completed"
+      },
+      {
+        "code_cells": 4,
+        "fingerprint": "28629fb51d5ee3b757c265b3baf78cdf3793b1d3c530979653a7db00625494bd",
+        "notebook": "05_feature_research.ipynb",
+        "sha256": "8b8d10cc862446daf725343afc4b3f92a7560da4cbbcfd4ee6ad56b35cf2c0be",
+        "status": "completed"
+      }
+    ],
+    "status": "completed"
+  },
+  "notebook_publication_commit": "5ac339ed5210c0624b77ee35a2766e1685915cd6",
+  "quality_checks": [
+    {
+      "check": "compile",
+      "seconds": 0.16468143000000168,
+      "status": "passed"
+    },
+    {
+      "check": "lint",
+      "seconds": 0.06523590900000897,
+      "status": "passed"
+    },
+    {
+      "check": "format",
+      "seconds": 0.06448767099999486,
+      "status": "passed"
+    },
+    {
+      "check": "types",
+      "seconds": 15.656054739999988,
+      "status": "passed"
+    },
+    {
+      "check": "tests",
+      "seconds": 247.28545247799997,
+      "status": "passed"
+    }
+  ],
+  "second_notebook_pass": {
+    "completed": 6,
+    "new_tasks": 0,
+    "reused": 6
+  },
+  "source_hash_verification": {
+    "benchmark": true,
+    "feature_store": true,
+    "model_comparison": true
+  },
+  "status": "passed",
+  "submission_generated": false,
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 202
+  },
+  "validated_source_commit": "5257522031ce4b72a8d6e8134907bd11cd8ec671",
+  "validation_archive": {
+    "bytes": 10077665,
+    "checksum_verification": "S3 FULL_OBJECT SHA-256",
+    "sha256": "56d0eb03769f025a598105ac034e2d6d1245dc8f4433de25a89c1b3cbd3d4d36",
+    "status": "uploaded",
+    "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/validation/5257522031ce4b72a8d6e8134907bd11cd8ec671/archive.zip",
+    "version_id": "2sb3Bt0EyZJJ6QpPn9HXHDOP.W3TMiwP"
+  },
+  "validation_scope": "Computational source and exact published notebook bytes; final documentation changes are checked separately by Research quality before merge.",
+  "workflow_url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34202281698"
+}
