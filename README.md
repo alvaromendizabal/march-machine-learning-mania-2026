@@ -47,6 +47,11 @@ including forward-only inner selection. More inputs generally hurt; smaller scre
 improve the broad logistic models but do not beat the existing compact leaders.
 The 128-input main-study limit and its original results remain explicitly identified.
 
+The [individual-system study](reports/ranking_systems/README.md) tests **840 further
+ranking candidates** in **112 fits**, bringing the explored definitions to **3,946**.
+The nominal fixed logistic improvement is small and uncertain; forward-only
+representation selection worsens performance. These additions are not promoted.
+
 | Current evidence | Men: mean season Brier | Women: mean season Brier |
 |---|---:|---:|
 | Best observed nested development stream | 0.188396 · no-Massey pooled blend | 0.144823 · separate logistic |
@@ -108,8 +113,8 @@ and those notebook bytes. The [capacity follow-up](reports/validation/capacity.j
 separately records actual native execution of all six current notebooks (**40 code
 cells**) and verified reuse of all 168 capacity tasks. The current suite has **212
 tests**; exact publication checks are recorded on [PR #9](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/9).
-The new capacity archive's S3 backup awaits a specific upload approval; the earlier
-feature/model archives remain verified and available.
+The capacity archive is now verified in versioned S3 storage. A fresh download
+reused all 168 tasks without fitting, preserving every model and prediction checksum.
 
 Runs emit UTC timestamps, task/total elapsed time, progress and 15-second task heartbeats.
 Completed estimators and forecast batches are content-verified and reused. A failed estimator

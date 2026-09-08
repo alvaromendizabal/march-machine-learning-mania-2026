@@ -280,10 +280,11 @@ every model file unchanged and reproduced prediction SHA-256
 `db437ef2b1755133a0a266d6954c8d2332d185e9af6bc1dcfc4df6e6ca010ed3`.
 See the [complete capacity results](../reports/feature_capacity/README.md) and
 their [exact fingerprint](../reports/feature_capacity/run.json). The new portable
-archive is complete locally, but its S3 upload was stopped by automatic approval
-review, which requires explicit end-user approval for the payload and destination.
-Bucket ownership was verified against the connected AWS account. This pending upload
-does not affect the earlier completed S3 feature/model archives or public metrics.
+archive is now uploaded after the explicit storage approval. AWS verified its
+48,840,617-byte size and full-object SHA-256 checksum. A fresh download of version
+`vLVWiCH59.GqdWUvQJw1QhkVwwh2IOEJ` restored all 168 tasks, repeated zero fits and
+reproduced byte-identical predictions. The existing verified feature run supplies
+the original estimator templates; the recovery receipt makes this dependency explicit.
 
 The previous 124-feature studies, current 3,106-candidate model comparison, and
 this capacity sensitivity study are three distinct pieces of evidence. A fresh
@@ -298,5 +299,56 @@ notebook checkpoints. The validated source passed 211 tests. The publication
 revision adds the tested end-to-end case, bringing the suite to 212; exact-head
 checks are recorded on PR #9. The [follow-up validation receipt](../reports/validation/capacity.json)
 records the exact source checkout, notebook hashes, original test count, fresh
-local archive restore and the explicitly pending S3 backup. It does not relabel
+archive restore and the subsequent verified versioned S3 recovery. It does not relabel
 an ordinary Python preflight as native notebook execution.
+
+
+## 18. Individual ranking systems and the feature-research stopping decision
+
+The consensus could conceal informative differences between ranking methods. This
+remaining official-data hypothesis is now tested: 105 pre-2013 systems generate
+840 additional definitions, bringing the project-wide explored definitions to
+3,946. The independent study retains the compact base and compares level,
+deviation, momentum, availability, combined and eight-component PCA additions.
+All source panels, screening and embedding boundaries are chronological. Twelve
+new automated tests exercise these boundaries and end-to-end recovery.
+
+The study completed 112 fits, of which 20 verified controls were reused and 92
+were fresh. All 112 saved models reload and reproduce their predictions exactly;
+all 18 metric rows were independently recomputed. A second execution reuses the
+matrix and all fits (113 tasks) without fitting again. The same 334 men's outer
+games are scored by every arm. See the [complete measured results](../reports/ranking_systems/README.md).
+
+A fixed individual-level logistic model nominally improves mean-season Brier from
+0.187608 to 0.186924, but its delta interval crosses zero. The combined screen
+selects only those level logits and produces identical predictions. Across the
+ten combined outer fits, 22 distinct additions survive; 818 never do. Forward-only
+representation selection worsens logistic Brier to 0.195240. Histogram variants
+also fail to beat the consensus on average. No 2022–2026 labels are consulted and
+no final recipe is changed after seeing these results.
+
+The evidence supports closing the **bounded official-data representation search**:
+1,050 primary ablation fits, the 168-fit capacity sensitivity and the 112-fit
+individual-system study cover the main plausible avenues in the available inputs.
+Larger retained representations, extra ranking detail and its latent embedding
+have not shown stable incremental benefit. The search does not establish that
+all imaginable features are exhausted. Player availability/returning production
+and women's coach/rating parity lack verified historical sources in this snapshot;
+claiming to have tested them would be false. Raw historical target encodings also
+remain weak and uncertain, despite explicit temporal tests and drop-one controls.
+
+The final conclusion remains a negative-result research project with defensible
+feature contributions from compact team strength and consensus ratings, not a
+claim that thousands of generated inputs beat every earlier model. Final tuning
+on consumed benchmark years would not resolve that limitation. Additional useful
+accuracy evidence requires independently informative timestamped inputs or a
+prospective tournament evaluated under a frozen protocol.
+
+
+Both follow-ups now have verified versioned S3 archives and canonical fresh-checkout
+restoration. The recovery path reused 168 capacity tasks and 113 ranking-system
+tasks, preserving all 280 model files and both prediction hashes. Four additional
+workflow tests cover version-specific restoration, existing-run reuse, changed
+source and rejected archive lineage. Notebook 02 calls this recovery path directly
+in train mode. Native validation and final publication checks are recorded in the
+ranking-system validation receipt and its pull request.

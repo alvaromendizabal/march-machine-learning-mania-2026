@@ -1,0 +1,39 @@
+{
+  "archive": {
+    "bytes": 49337694,
+    "sha256": "a7fada735e359244fb32d30ba16b3a7860b77e3dcc1393f064fed08fb2b9bfc0",
+    "status": "uploaded",
+    "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/ranking_systems/713aecba70bb2ec639d8d86b82a586dc07c18c620c2d06954de0aba986dee119/archive.zip",
+    "version_id": "rLf775OU4X9NuNCr15N8rmRf2q1Cqla8"
+  },
+  "canonical_cloud_recovery": {
+    "archive_sha256": "a7fada735e359244fb32d30ba16b3a7860b77e3dcc1393f064fed08fb2b9bfc0",
+    "model_hashes_unchanged": true,
+    "models_verified": 112,
+    "new_tasks": 0,
+    "prediction_sha256": "99fd6e4d788df9b79aec4dcb5e0ebd53aa06e45974827ad4644a472e7e5d96aa",
+    "recovery_source": "Fresh exact-version S3 download through connected AWS, consumed by canonical study_stage restore and resume",
+    "reused_tasks": 113,
+    "status": "passed",
+    "upstream_dependency": "Existing checksum-verified feature run and official raw inputs",
+    "version_id": "rLf775OU4X9NuNCr15N8rmRf2q1Cqla8"
+  },
+  "local_verification": {
+    "loaded_models": 112,
+    "maximum_prediction_error": 0.0,
+    "metrics_independently_recomputed": 18,
+    "model_hashes_unchanged": true,
+    "new_tasks": 0,
+    "outer_physical_games": 334,
+    "prediction_sha256": "99fd6e4d788df9b79aec4dcb5e0ebd53aa06e45974827ad4644a472e7e5d96aa",
+    "reused_tasks": 113,
+    "status": "passed"
+  },
+  "status": "experiment_and_storage_verified_native_validation_pending",
+  "storage": {
+    "checksum_sha256_base64": "p/rac141kkT7MtMLoWs6eGC3fj3ME5PwZP7Qj7K5v8A=",
+    "checksum_type": "FULL_OBJECT",
+    "expected_bucket_owner": "560403859723"
+  },
+  "study_fingerprint": "713aecba70bb2ec639d8d86b82a586dc07c18c620c2d06954de0aba986dee119"
+}
