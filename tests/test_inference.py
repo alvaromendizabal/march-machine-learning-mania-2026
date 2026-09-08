@@ -259,3 +259,48 @@ def test_remote_resume_commits_last(tmp_path: Path) -> None:
     with pytest.raises(ValueError, match="mismatch"):
         restore_tasks(mirror, tmp_path, "abc", log)
     assert not (tmp_path / "fit/checkpoint.json").exists()
+
+
+def test_projected_parquet_prediction_is_identical_and_bounded(
+    tmp_path, settings, inputs, monkeypatch
+):
+    history, frame, matrix, sample = inputs
+    recipe = inference.freeze_recipe(history, settings)
+    source = tmp_path / "wide.parquet"
+    matrix.to_parquet(source, index=False)
+    plain = tmp_path / "plain"
+    inference.execute(
+        frame,
+        matrix,
+        sample,
+        recipe,
+        plain,
+        TaskStore(plain, "parity", EventLog(plain / "events.jsonl")),
+        settings,
+    )
+    calls = []
+    original = pd.read_parquet
+
+    def read(path, **kwargs):
+        if Path(path) == source:
+            assert kwargs.get("columns") is not None
+            assert len(kwargs["columns"]) <= 132
+            calls.append(kwargs["columns"])
+        return original(path, **kwargs)
+
+    monkeypatch.setattr(pd, "read_parquet", read)
+    projected = tmp_path / "projected"
+    inference.execute(
+        frame,
+        source,
+        sample,
+        recipe,
+        projected,
+        TaskStore(projected, "parity", EventLog(projected / "events.jsonl")),
+        settings,
+    )
+    pd.testing.assert_frame_equal(
+        pd.read_csv(plain / "publication/submission.csv"),
+        pd.read_csv(projected / "publication/submission.csv"),
+    )
+    assert len(calls) == 5

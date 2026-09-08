@@ -1,14 +1,17 @@
 {
   "archive": {
-    "bytes": 197550390,
-    "s3_uri": "s3://sagemaker-march-mania-560403859723-us-west-2/feature-store/188b49c593302bb8dd11032a0a3d0f74eedaf2fe28bf6ba1ebe5fb6e39699724/archive.zip",
-    "sha256": "a41a329bc58f7e9284da440c6be86614f82654505cb71e17ace36d67b122b894"
+    "bytes": 3183916269,
+    "checksum_verification": "S3 FULL_OBJECT SHA-256",
+    "sha256": "22074190d0499993bf022f31a815825d51887b49b8acb95e901324741f1a9817",
+    "status": "uploaded",
+    "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/features/199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89/archive.zip",
+    "version_id": "SW7FKVRRQYA4vhsk.PTzGr9z.yNLwS1A"
   },
-  "execution_note": "The manifest git_commit identifies the base checkout. Source SHA-256 values identify the exact tested feature implementation included in this change and in the archive.",
+  "execution_note": "Executed experiment; notebooks verify the recorded training provenance.",
   "manifest": {
     "evidence_status": "retrospective-feature-store",
-    "fingerprint": "188b49c593302bb8dd11032a0a3d0f74eedaf2fe28bf6ba1ebe5fb6e39699724",
-    "git_commit": "edb2d3fe5f2cb11f8ba819152cae76eafbc340d3",
+    "fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+    "git_commit": "a3d2c116e3db624c003b37c733a90246339cc225",
     "inputs": {
       "config": {
         "feature_cutoff_day": 132,
@@ -34,11 +37,14 @@
         "MNCAATourneySeeds.csv": "413916a4136af69346826ce433d749c6c6cbc96afd88a43d8645877d20d01691",
         "MRegularSeasonCompactResults.csv": "f50b602151584b598d015a78355e7ffee533b031a66b8d9711ca01ad08b99e69",
         "MRegularSeasonDetailedResults.csv": "5a7afaa262c2c725476ae3ee2a6abbf88ddc4a5973aab83d7140134a18b3d84d",
+        "MTeamCoaches.csv": "e0fe04e53ea35f4a120f0368164c2a7035d5a0b1ab427a078a27304bd16003bc",
+        "MTeamConferences.csv": "a798dcd8ac5ddfbcbe13fe6217054f05ccc8b952b0c662eb3f1973ae6be3f6bc",
         "SampleSubmissionStage2.csv": "53b79f12315ae43353899cf659bc89e027bedbde70929e213b6922a877b33ffc",
         "WNCAATourneyCompactResults.csv": "13c44b67f2d4ea2661ef59ab0be720b3f3feede5f1de8ee419a8a46f7d99a6a5",
         "WNCAATourneySeeds.csv": "fd80613514ac62ed63afcfc1ed0024c525ff02f4b43bd7a97ebccdb74a424ec6",
         "WRegularSeasonCompactResults.csv": "ca8702630335ac5b8d00a5e5f09abc5aa10666b7584ac1db61b48784c77d4090",
-        "WRegularSeasonDetailedResults.csv": "0c416b6e59da818ea7356913caa7be2641b465ae97014551c617e0ccbefe432f"
+        "WRegularSeasonDetailedResults.csv": "0c416b6e59da818ea7356913caa7be2641b465ae97014551c617e0ccbefe432f",
+        "WTeamConferences.csv": "be4d13c60f1c567de7bdb927c8801cc62e4d3ff3297d05ca15276b7c219c1805"
       },
       "environment": {
         "joblib": "1.5.2",
@@ -50,49 +56,77 @@
         "scipy": "1.16.3"
       },
       "source": {
-        "pyproject.toml": "2c1532ede562ab53e76c1b1bec5e2ac78eeb06569160913ae3995a9d11779dba",
-        "src/march_mania/advanced_features.py": "101a633a7e174910a5a9d77a694ead4f6ed2bb789c34f1291d44d6b8218e5ded",
-        "src/march_mania/context_features.py": "9e1b21fad9c6fe1c1b1560bc279a282e4f3871eac29e32fdeee3ce95206526ff",
+        "pyproject.toml": "c3aea1c2d445a7c1c59377895468306b035c384da6866b94174d398a857aee3b",
+        "src/march_mania/advanced_features.py": "e49d02bdc557d3073734eb6365605037b232d375bcdbdd0d9de80fdf1bf6ce73",
+        "src/march_mania/candidate_features.py": "208ca082aa95d24a4a12c34b0f3bab523481b0504cadb66b5c33bc8b03ccc05a",
+        "src/march_mania/coach_features.py": "3901a1e91412f568c654cad7e9103e7b3d47d10f96530ffde2480d4924f8bca2",
+        "src/march_mania/context_features.py": "96f85242c3ebeb9732ba4bd4153b58bbddc4147f8bd183cfeaa6e278c23fb9bf",
         "src/march_mania/encoding.py": "49e61f4820bde51228e6d2e9c00e51a46937f7ef9dfa980db48c4a47a5ca2727",
-        "src/march_mania/feature_store.py": "6bcf5caad09233e31d2b22cd4e42f3602c21b31c6dd642f1f67acfbeadb37d3d",
-        "src/march_mania/features.py": "dddf436532445df0587b4c421d719fc2f367a491479439d8aedd17a8a18863f1",
+        "src/march_mania/feature_selection.py": "63fa9d8d136cdfbab5ed2d6bae311a6c711ccaa6553db709e2a935b4908e6b77",
+        "src/march_mania/feature_store.py": "ca47bfcadb759501e3fba0727018fbebd79c27840aef4ed2ac7bcf2556b69444",
+        "src/march_mania/features.py": "ef5afd3c93368ef82e4e792cfc26c610711fb3341b8546da3085a8207891f154",
+        "src/march_mania/matchup_artifacts.py": "43d7d9d12e331f3aa2c5ccd8cdc128418cab043e96c1b06231842bbc7c3a34d0",
         "src/march_mania/rankings.py": "30a9b854ffb8c0a4fae3a819ce13e2066280993b371244f7156c517b967b7764",
-        "src/march_mania/research.py": "50e4dbc56a85ed1856ae52df74d511017849257954e5aff73afdf7db1e10cff3",
+        "src/march_mania/research.py": "31157076af9866b14d1166bdb8d53652c8f3f59c588b80e6dbe70a2c2a634a60",
         "src/march_mania/research_report.py": "9758126b93f6f0e6d3ad9bccd90ef82b413851b2ac15c8b584650ce272d2c6f7",
         "src/march_mania/runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
-        "uv.lock": "ed2a6f73bcd35ad0593e35a08d54fddc442202cb6cd3e008969debb66225c594"
+        "uv.lock": "d0b1b6c2395c14f0a7236ff16acfd009ab906906719d8187e7d8685643d8c20a"
       }
     },
     "platform": "Linux-6.18.35-x86_64-with-glibc2.39"
   },
-  "published_feature_usage_scope": "Full block, both model families. Every candidate/fold audit is in the private run archive.",
+  "public_report_scope": {
+    "feature_usage.csv": {
+      "complete_audit": "archive:run/feature_usage.csv",
+      "complete_audit_sha256": "456e1482271d8e611763a86f11b9eb1ef3a17c8f0e25c46242356941a81fdcdf",
+      "view": "Retained full-block features only; all rejection counts remain public."
+    }
+  },
+  "published_source_verification": {
+    "all_computational_source_hashes_match": true,
+    "commit": "8dac9f8120c79a05ce7b760cb144df8643c04d93",
+    "note": "The original local checkout commit is retained in the run manifest; this public commit contains identical computational sources.",
+    "tree": "5887598ff99d4a0361b228b8eccef5a65ba7520e"
+  },
   "sha256": {
-    "ablation_intervals.csv": "5b51f497d52d8715bdc1a72e41e6ef77794cb5e8f29d78fcc724068a8992440a",
-    "combined_metrics_by_season.csv": "ee111f52fa496c068531d58e7a964b9695f0b73397fb39a7980f9b19b5d90f4e",
-    "coverage.csv": "5a4dc267194908152444eec56691ad63f07c8c259d7bf0b0224095423174d326",
-    "diagnostics.csv": "825deaa85dd490accf2eaa7858e280d5b999872cfd3751acc7bb40245fa0b94c",
+    "ablation_intervals.csv": "53e3ae0776503ee325bdcdd5223f9d8e06c426b42d9866eafe5b345d25611bee",
+    "combined_metrics_by_season.csv": "a189ad9d7533d03beae5d84d50d4192b4bf1910ddf55805cd7d73d23ab38408e",
+    "coverage.csv": "3f86a49a73a2b79ad1e677533e538b6fd56901f8a675ac3684f03d1d09f7b7d5",
+    "diagnostics.csv": "5cc6520ee29f441169de0a22693554e00c940bf37d8718137b4edd6eee50851f",
     "encoding_audit.csv": "d067bec1c761bcc2b53ee867891bfb31245097952f3599162d245fc44f8d197e",
-    "feature_registry.csv": "79fa47a5e2b7eeeee15fdd10560ed06df67328594af3c311040c289566fe6051",
-    "feature_usage.csv": "a079a4956bd7193a92fd16ee5f76b66b2d9e7c959deccb939b7b62c742614b15",
+    "feature_registry.csv": "7361d18e54ee2f2e875d647a935689586e98254859e370495f128da0a7b963de",
+    "feature_usage.csv": "bdb391a6812174e69b877062d1b8d1c972bcbe12a019300f03be8f101eff3d20",
     "interpretation.json": "755cc2e200fbb109421069a52d3ab055f5671bce1064818fefbc1f08150a92be",
-    "leaderboard.csv": "47886a1ac107afcd528a7d879580ffa83248e5945e0d9c1b709810d3b89623bc",
-    "metrics_by_season.csv": "64e293e546955d07aba75b17146018f583f9f7f8e01e077ad9891d8afa84ba03",
-    "reliability.csv": "9b6156bab7cbd1731c4ea43f614a0b3df15baf2381ab43619bf3dc764093314b",
-    "source_availability.json": "b987c51b21d66adaf371dcea9f405ff544bfa8eb13dcc640fe1df30c3859c37f",
-    "validation.json": "09f2f114fc86f41b074fc88ab1696004635087ac46c267f7a1b6c4e9792d8133"
+    "leaderboard.csv": "613b77334ff336e264d02c3210a986df2eec957abcd3866bd1ccab1ba4f8b399",
+    "metrics_by_season.csv": "d7e6926f17419c9ff5dca960902dbafa4489415e2f6285e127ec73cca7347c8e",
+    "reliability.csv": "f3c7509cd1c456f9bf8d5b05d74829ac02955f4c7ac94e770bb0668d6ba9beef",
+    "screening_summary.csv": "0572df423e632932577563a31e71adc7c946493cf4c6802888f16f0d2eaeb141",
+    "selection_stability.csv": "314bb8dc7fb7ac992a0bac6e2ef776ff30f4545c5d0b4df38babd099488a8f29",
+    "source_availability.json": "77b38805141f696e34176f6ec7373671d7bc9f5c5f35effd3e932e0d1377e8ef",
+    "source_coverage.csv": "eecd4c5e44397d1708e2bef88bd106132f670eb310a76c2c0a07d8fbb527f8f4"
   },
   "summary": {
-    "elapsed_seconds": 217.446,
+    "elapsed_seconds": 1563.702,
     "evidence_status": "retrospective-feature-store",
-    "feature_count": 124,
-    "fingerprint": "188b49c593302bb8dd11032a0a3d0f74eedaf2fe28bf6ba1ebe5fb6e39699724",
-    "fold_tasks": 660,
+    "feature_count": 3106,
+    "fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+    "fold_tasks": 1050,
+    "rejected_decisions": 1585764,
     "remote_run_uri": null,
+    "retained_per_fit_max": 128,
+    "retained_per_fit_min": 1,
+    "screened_candidates": 3106,
+    "screening_decisions": 1674530,
+    "selection_unit": "individual temporal training fold, not a global retained list",
     "sources": {
       "massey": true,
+      "mens_coaches": true,
+      "mens_conferences": true,
       "player_availability": false,
       "roster_minutes": false,
-      "sample_submission": true
+      "sample_submission": true,
+      "womens_coaches": false,
+      "womens_conferences": true
     },
     "status": "completed",
     "team_snapshots": 9200

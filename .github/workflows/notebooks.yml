@@ -1,0 +1,107 @@
+name: Notebook research
+on:
+  workflow_dispatch:
+  push:
+    branches: [feat/notebook-research]
+    paths:
+      - '.github/workflows/notebooks.yml'
+      - 'src/march_mania/**'
+      - 'notebooks/*.ipynb'
+      - 'configs/feature_store.json'
+      - 'configs/model_comparison.json'
+      - 'pyproject.toml'
+      - 'uv.lock'
+permissions:
+  contents: read
+concurrency:
+  group: notebook-research
+  cancel-in-progress: false
+jobs:
+  research:
+    if: github.repository == 'alvaromendizabal/march-machine-learning-mania-2026' && (github.ref == 'refs/heads/feat/notebook-research' || github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+      id-token: write
+    env:
+      AWS_DEFAULT_REGION: us-west-2
+      OMP_NUM_THREADS: 2
+      OPENBLAS_NUM_THREADS: 2
+      MKL_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          version: '0.11.33'
+          python-version: '3.12.13'
+          enable-cache: true
+      - name: Validate the exact source before using private data
+        run: |
+          mkdir -p outputs/validation
+          git rev-parse HEAD > outputs/validation/source_commit.txt
+          git archive --format=zip --output=outputs/validation/source.zip HEAD
+          sha256sum outputs/validation/source.zip > outputs/validation/source.sha256
+          uv sync --locked --group dev
+          uv run --locked python scripts/quality.py
+      - name: Use the existing restricted artifact role
+        uses: aws-actions/configure-aws-credentials@cbe3b392738ccf3f987d68400dafcf4b0624a56c
+        with:
+          role-to-assume: arn:aws:iam::560403859723:role/march-mania-inference
+          role-session-name: march-notebook-research
+          aws-region: us-west-2
+          allowed-account-ids: '560403859723'
+          role-duration-seconds: 3600
+      - name: Execute notebook 02 with real feature generation and ablation fits
+        env:
+          MARCH_NOTEBOOK_MODE: train
+        run: |
+          uv run --locked python -m ipykernel install --user --name march-mania
+          uv run --locked python -c "from pathlib import Path; from march_mania.publication.notebooks import NOTEBOOKS, execute_notebooks; execute_notebooks(Path.cwd(), names=(NOTEBOOKS[2],), publish=True, timeout=5400)"
+      - name: Refresh credentials before the independent model phase
+        uses: aws-actions/configure-aws-credentials@cbe3b392738ccf3f987d68400dafcf4b0624a56c
+        with:
+          role-to-assume: arn:aws:iam::560403859723:role/march-mania-inference
+          role-session-name: march-notebook-models
+          aws-region: us-west-2
+          allowed-account-ids: '560403859723'
+          role-duration-seconds: 3600
+      - name: Execute notebook 03 with actual retraining on notebook 02 artifacts
+        env:
+          MARCH_NOTEBOOK_MODE: train
+        run: uv run --locked python -c "from pathlib import Path; from march_mania.publication.notebooks import NOTEBOOKS, execute_notebooks; execute_notebooks(Path.cwd(), names=(NOTEBOOKS[3],), publish=True, timeout=5400)"
+      - name: Refresh the existing short-lived artifact session
+        uses: aws-actions/configure-aws-credentials@cbe3b392738ccf3f987d68400dafcf4b0624a56c
+        with:
+          role-to-assume: arn:aws:iam::560403859723:role/march-mania-inference
+          role-session-name: march-notebook-verification
+          aws-region: us-west-2
+          allowed-account-ids: '560403859723'
+          role-duration-seconds: 3600
+      - name: Prove fresh-directory model recovery without repeating fits
+        run: uv run --locked python -W error -m march_mania.publication.workflow --verify-recovery
+      - name: Evaluate notebook 04 without generating a submission
+        env:
+          MARCH_NOTEBOOK_MODE: train
+        run: uv run --locked python -c "from pathlib import Path; from march_mania.publication.notebooks import NOTEBOOKS, execute_notebooks; execute_notebooks(Path.cwd(), names=(NOTEBOOKS[4],), publish=True, timeout=1800)"
+      - name: Publish readable review outputs and verify notebook reuse
+        run: |
+          uv run --locked python scripts/notebook.py --execute --publish
+          uv run --locked python scripts/notebook.py --execute --publish
+          test ! -e submissions/submission.csv
+          cp -r reports/model_comparison outputs/validation/model_comparison
+          cp -r reports/feature_store outputs/validation/feature_store
+          cp -r reports/benchmark outputs/validation/benchmark
+          cp outputs/notebook_workflow/events.jsonl outputs/validation/research.jsonl
+      - name: Commit only executed notebooks and public research evidence
+        if: github.ref == 'refs/heads/feat/notebook-research'
+        run: uv run --locked python -m march_mania.publication.git --source "$(cat outputs/validation/source_commit.txt)"
+      - name: Preserve exact validation evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: notebook-research-validation
+          path: outputs/validation/
+          retention-days: 90

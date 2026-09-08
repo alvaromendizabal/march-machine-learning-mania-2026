@@ -75,3 +75,43 @@ def test_context_is_invariant_to_future_games_and_row_order(raw):
         132,
     )
     pd.testing.assert_frame_equal(result, changed)
+
+
+def test_conference_peer_strength_realignment_and_temporal_boundary():
+    from march_mania.context_features import conference_snapshot
+
+    membership = pd.DataFrame(
+        {
+            "Season": [2016] * 4 + [2017],
+            "TeamID": [1, 2, 3, 4, 1],
+            "ConfAbbrev": ["a", "a", "b", "b", "b"],
+        }
+    )
+    ratings = pd.DataFrame({"TeamID": [1, 2, 3, 4], "strength": [10.0, 2.0, -4.0, -8.0]})
+    games = pd.DataFrame(
+        {
+            "Season": [2016, 2016, 2016, 2017],
+            "DayNum": [100, 110, 133, 100],
+            "WTeamID": [1, 1, 3, 3],
+            "LTeamID": [3, 2, 1, 1],
+            "WScore": [80, 70, 120, 99],
+            "LScore": [60, 60, 40, 60],
+            "WLoc": ["N", "H", "N", "N"],
+        }
+    )
+    before = conference_snapshot(membership, games, ratings, 2016, 132).set_index("TeamID")
+    assert before.loc[1, "conference_mean_strength"] == 6
+    assert before.loc[3, "conference_mean_strength"] == -6
+    assert before.loc[1, "conference_team_percentile"] == 1
+    assert before.loc[1, "conference_nonconference_win_posterior"] == pytest.approx(11 / 21)
+    assert before.loc[1, "conference_nonconference_margin"] == pytest.approx(20 / 21)
+    games.loc[games.DayNum > 132, "WScore"] = 1000
+    games.loc[games.Season > 2016, "WScore"] = 2000
+    membership.loc[membership.Season > 2016, "ConfAbbrev"] = "future"
+    after = conference_snapshot(membership, games, ratings, 2016, 132).set_index("TeamID")
+    pd.testing.assert_frame_equal(before, after)
+    absent = conference_snapshot(None, games, ratings, 2016, 132)
+    assert absent.conference_known.eq(0).all()
+    assert absent.drop(columns=["TeamID", "conference_known"]).isna().all().all()
+    with pytest.raises(ValueError, match="duplicate"):
+        conference_snapshot(pd.concat([membership, membership.iloc[:1]]), games, ratings, 2016, 132)

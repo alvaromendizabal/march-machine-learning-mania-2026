@@ -1,5 +1,8 @@
-# Notebook-aware Git filters. Run nbstripout --install and nbdime config-git --enable once.
-*.ipynb filter=nbstripout
-*.ipynb diff=jupyternotebook
-
-*.ipynb	merge=jupyternotebook
+# Source-led repository language statistics; keep executed notebook outputs.
+*.py text eol=lf
+*.ipynb text eol=lf
+*.sh text eol=lf
+reports/** linguist-generated=true
+*.html linguist-generated=true
+*.csv linguist-generated=true
+uv.lock linguist-generated=true

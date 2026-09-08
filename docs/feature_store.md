@@ -1,9 +1,10 @@
 # Notebook 02: feature store and temporal evidence
 
 Notebook 02 reviews a tested, importable feature pipeline. Its current contract
-contains **124 candidate matchup features**: 95 basketball/history features,
-20 Massey features, and 9 target-history features. Without Massey, 101 candidates
-remain eligible. Exact fitted columns depend on training availability and are
+contains **3,106 candidate matchup features**: the original 124-feature bank,
+2,944 distribution/venue/opponent/trajectory/peer candidates, 26 coach-history
+features, and 12 conference-strength features. Without all 23 Massey-derived
+features, 3,083 candidates remain eligible. At most 128 survive each training-fold screen. Exact fitted columns depend on training availability and are
 recorded per model. Feature count is not evidence of forecasting quality.
 
 ## Publication-safe Massey features
@@ -78,7 +79,7 @@ selection belongs inside notebook 03's **inner chronological folds**.
 
 ## Remaining basketball features
 
-The 75 non-Massey basketball features retain seed/strength controls, ridge
+The original basketball features retain seed/strength controls, ridge
 opponent-adjusted offense and defense, opponent-adjusted Four Factors, residual
 form and downside, contextual road/strong-opponent results, Bayesian shooting
 means and uncertainty, overtime-adjusted pace, Elo and margin Elo, earlier
@@ -109,16 +110,19 @@ values. Notebook 02 displays these audits before the performance plots.
 
 All additions and drop-one comparisons use expanding training seasons and the
 same 2016–2019/2021 development games. The fixed recipes are logistic regression
-and histogram gradient boosting. There are 600 folds without Massey, or 660
-when the men's Massey families are available. The official Brier score is
-reported both pooled by game and averaged by season; the latter is a diagnostic
-for year-to-year robustness, not a substitute for the official aggregation.
+and histogram gradient boosting. The exact fit count is recorded in `reports/feature_store/run.json`; the
+prespecified block catalog determines it, including single-family, drop-one,
+original-bank, and non-Massey/encoding/coach controls. The official Brier score is
+reported both pooled by game and averaged by season. Mean-season Brier is the
+declared selection criterion; game-weighted Brier retains the official aggregation.
 
 Log loss, ROC AUC, average precision, calibration error, reliability diagrams,
 and threshold metrics accompany Brier. Paired season bootstrap intervals are
 exploratory: five seasons and repeated feature searches do not establish medal
 performance. Outcomes from 2022 onward do not tune these experiments. Notebook
-03 retains its old feature contract until its explicit model-stage migration.
+03 verifies this matrix's exact fingerprint and refits screening inside every
+inner and outer training context. Two stale reports that match each other cannot
+pass the independent current-source check.
 
 ## Run and resume
 
@@ -167,7 +171,7 @@ model selection. The 2026 event is closed; new work is retrospective research.
 
 ## Additional context candidates
 
-The earlier 104 features remain. The 20 additional hypotheses are tested as
+The 124-feature historical bank includes the following 20 context hypotheses, tested as
 three family additions to the strength baseline and as drop-one ablations:
 
 | Family | Definition | Reason to test |
@@ -189,3 +193,37 @@ adjacent seasons. This is a source-quality finding, not proof of the true count.
 Overtime fraction and overtime-normalized pace therefore carry this limitation;
 the new candidates remain exploratory and are not promoted into a final recipe
 automatically. The audit's ordinary tables make the discrepancy visible.
+
+## Broad search, screening, and source availability
+
+The 2,944 team candidates summarize 32 basketball signals over four fixed windows,
+including home/road/neutral profiles, opponent-strength cohorts, distribution tails,
+trend slopes, acceleration, and peer percentiles. Missing cohorts remain missing.
+Conference features use the correct season's membership and pre-cutoff games;
+independent teams are not pooled into a fabricated conference. Coach histories
+match games to actual coaching intervals, track continuity, and use only prior
+seasons for performance and tournament advancement.
+
+Coach tenure counts consecutive prior seasons with an assignment at the current
+program, including partial seasons; it is not an exact full-year employment duration.
+The separate current-stint feature counts observed days within the current season.
+Coach names are the official source's identifiers: spelling changes can split history,
+and the data cannot disentangle coaching effects from program quality or recruiting.
+The women's release supplies neither a coach table nor Massey rankings. Those sources
+remain unavailable and their zero-coverage indicators must not be mistaken for weak
+coaches or low team quality.
+
+`source_coverage.csv` reports every available raw season, including periods with
+no rankings, alongside actual teams, systems, and coach/conference coverage.
+`screening_summary.csv` records retained and rejected counts by fit; the private
+archive preserves every rejected candidate and its reason. `selection_stability.csv`
+shows fold retention without using evaluation games to select a global feature list.
+
+Screening removes missing/constant/rare signals, orders remaining candidates by
+training-only point-biserial association, then removes nearly duplicate signed
+features at absolute correlation 0.995, up to 128 retained inputs. This screen is
+an explicit modeling assumption, not a statistical significance test or exhaustive
+nonlinear feature search. The 124-feature control, full bank, expanded non-Massey
+bank, and versions without target encodings and coaches are compared on identical
+physical games. Intervals quantify season resampling only; they do not correct for
+all hypotheses explored.

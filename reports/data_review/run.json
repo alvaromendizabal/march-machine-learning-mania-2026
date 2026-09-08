@@ -1,15 +1,299 @@
 {
+  "manifest": {
+    "fingerprint": "68a8dc95d45abd147383a39bd08e42b45fb5a1b309bbb70b838603df58feceb0",
+    "inputs": {
+      "advanced_source": "e49d02bdc557d3073734eb6365605037b232d375bcdbdd0d9de80fdf1bf6ce73",
+      "config": {
+        "feature_cutoff_day": 132,
+        "first_season": 2013,
+        "heartbeat_seconds": 15,
+        "last_season": 2026,
+        "minimum_prior_seasons": 3,
+        "protocol": "retrospective-feature-store",
+        "ridge_alpha": 20.0,
+        "seed": 2026,
+        "threads": 2,
+        "validation_seasons": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2021
+        ]
+      },
+      "data": {
+        "Cities.csv": "a852359df15128c635dbd42ed00f5e8b1ad9bd81edf86c9c3381c322d7f17043",
+        "Conferences.csv": "2e0822230c5f5f178f08c22387ac8ccde652d9e93978bc2f58a76183c693aa98",
+        "MConferenceTourneyGames.csv": "7d09a081abe4a6d404b18afd63af0d6d9ff6c897d6a8f9c5946a2a02ab73da2a",
+        "MGameCities.csv": "28d453732bb7fa55fbb8d23d8d4e9cdbf9728377624b6035366c9a090f3cc537",
+        "MMasseyOrdinals.csv": "a14234e3fe3b63efe286fbbaf9bbc550ef2e52688c50ceadb2acb593e57634f8",
+        "MNCAATourneyCompactResults.csv": "5260a076b4e0937aa0420fd5eb72789b9931c662ed071c5060407458d8de8a05",
+        "MNCAATourneyDetailedResults.csv": "a4a2c782fa68a6ad140dc56d2fac2755eafa9d17076ad1491d6f802c9c51d7ba",
+        "MNCAATourneySeedRoundSlots.csv": "33a429e77b5d3d81695cf557f813f8c35832cc319a348bd4884dccc8e3dd3f88",
+        "MNCAATourneySeeds.csv": "413916a4136af69346826ce433d749c6c6cbc96afd88a43d8645877d20d01691",
+        "MNCAATourneySlots.csv": "935f7cbcb7100d9ed0ddeec6e7f2a1745bd62c78779d804f782b91cd6e7eed14",
+        "MRegularSeasonCompactResults.csv": "f50b602151584b598d015a78355e7ffee533b031a66b8d9711ca01ad08b99e69",
+        "MRegularSeasonDetailedResults.csv": "5a7afaa262c2c725476ae3ee2a6abbf88ddc4a5973aab83d7140134a18b3d84d",
+        "MSeasons.csv": "984af245340df5c304348c2cc1899e770d5511ce0622de022591834b6e23a579",
+        "MSecondaryTourneyCompactResults.csv": "141e274ebe5a17266e302857d7c3a24ad20bd78692feb926465de946b1e53810",
+        "MSecondaryTourneyTeams.csv": "6a0c95b7b540b6de0de72423d8d87c41f6f51d4d8b02275d1fdb9a4951e3baaa",
+        "MTeamCoaches.csv": "e0fe04e53ea35f4a120f0368164c2a7035d5a0b1ab427a078a27304bd16003bc",
+        "MTeamConferences.csv": "a798dcd8ac5ddfbcbe13fe6217054f05ccc8b952b0c662eb3f1973ae6be3f6bc",
+        "MTeamSpellings.csv": "181d08d5c862bde7c50eb8e664135d831f830647869522b6d8ad4e44ebabbefc",
+        "MTeams.csv": "2f5d3b1bc6bf6afbf80a6900f1aa1bfaebfa68b33a8d66dc29034800b1dd7b24",
+        "SampleSubmissionStage1.csv": "dfe58d5ca7e698f67567238b62dea8d8241f3abe9cfd51fba91ef67fa5fbd92d",
+        "SampleSubmissionStage2.csv": "53b79f12315ae43353899cf659bc89e027bedbde70929e213b6922a877b33ffc",
+        "WConferenceTourneyGames.csv": "8acb5601145c278d96acc8975bcab4979b227d64f95bd196e42c6cba9b402409",
+        "WGameCities.csv": "6ecab5867c2551e5b63b9fce8f88a743e142a6874475f04783de41bf9d6ededc",
+        "WNCAATourneyCompactResults.csv": "13c44b67f2d4ea2661ef59ab0be720b3f3feede5f1de8ee419a8a46f7d99a6a5",
+        "WNCAATourneyDetailedResults.csv": "b0f609ad133d14e991cf8d036f5afc610b77ef168b63223404c352d9b9658c5f",
+        "WNCAATourneySeeds.csv": "fd80613514ac62ed63afcfc1ed0024c525ff02f4b43bd7a97ebccdb74a424ec6",
+        "WNCAATourneySlots.csv": "e0cc399a1099465fc74b1c7d0d0475fb5249f307164f1a5a6e36ca536d6fe0d9",
+        "WRegularSeasonCompactResults.csv": "ca8702630335ac5b8d00a5e5f09abc5aa10666b7584ac1db61b48784c77d4090",
+        "WRegularSeasonDetailedResults.csv": "0c416b6e59da818ea7356913caa7be2641b465ae97014551c617e0ccbefe432f",
+        "WSeasons.csv": "35a640047fc1a6b071a3566779361f20267b3f96889333c94f31967a39b02181",
+        "WSecondaryTourneyCompactResults.csv": "7c84377237ca2afcc466664aacb101ce61b3e5426f63f0880c1a215552211792",
+        "WSecondaryTourneyTeams.csv": "0430fcffddf8d69946baeaddc17143aaf0a7c425f1a55625c98b9342b9d300ab",
+        "WTeamConferences.csv": "be4d13c60f1c567de7bdb927c8801cc62e4d3ff3297d05ca15276b7c219c1805",
+        "WTeamSpellings.csv": "670b9035831b5c080927d844c040579b04eafc6c9e249d2ca0b4bc21c158f631",
+        "WTeams.csv": "2567f2c56791d5966f131f5dba8b5adaa2795d8a98c9dde89f545d91a409c88d"
+      },
+      "features_source": "ef5afd3c93368ef82e4e792cfc26c610711fb3341b8546da3085a8207891f154",
+      "provenance": {
+        "client_version": "2.2.4",
+        "competition": "march-machine-learning-mania-2026",
+        "files": [
+          {
+            "bytes": 9788,
+            "created_at": "2026-03-16 12:41:09.959000",
+            "name": "Cities.csv"
+          },
+          {
+            "bytes": 1643,
+            "created_at": "2026-03-16 12:41:10.140000",
+            "name": "Conferences.csv"
+          },
+          {
+            "bytes": 186863,
+            "created_at": "2026-03-16 12:41:10.052000",
+            "name": "MConferenceTourneyGames.csv"
+          },
+          {
+            "bytes": 2980361,
+            "created_at": "2026-03-16 12:41:10.279000",
+            "name": "MGameCities.csv"
+          },
+          {
+            "bytes": 129133178,
+            "created_at": "2026-03-16 12:41:12.869000",
+            "name": "MMasseyOrdinals.csv"
+          },
+          {
+            "bytes": 77711,
+            "created_at": "2026-03-16 12:41:10.931000",
+            "name": "MNCAATourneyCompactResults.csv"
+          },
+          {
+            "bytes": 144875,
+            "created_at": "2026-03-16 12:41:10.925000",
+            "name": "MNCAATourneyDetailedResults.csv"
+          },
+          {
+            "bytes": 15904,
+            "created_at": "2026-03-16 12:41:11.011000",
+            "name": "MNCAATourneySeedRoundSlots.csv"
+          },
+          {
+            "bytes": 40570,
+            "created_at": "2026-03-16 12:41:10.946000",
+            "name": "MNCAATourneySeeds.csv"
+          },
+          {
+            "bytes": 53052,
+            "created_at": "2026-03-16 12:41:11.028000",
+            "name": "MNCAATourneySlots.csv"
+          },
+          {
+            "bytes": 5820350,
+            "created_at": "2026-03-16 12:41:11.224000",
+            "name": "MRegularSeasonCompactResults.csv"
+          },
+          {
+            "bytes": 12388268,
+            "created_at": "2026-03-16 12:41:11.417000",
+            "name": "MRegularSeasonDetailedResults.csv"
+          },
+          {
+            "bytes": 1864,
+            "created_at": "2026-03-16 12:41:11.095000",
+            "name": "MSeasons.csv"
+          },
+          {
+            "bytes": 63543,
+            "created_at": "2026-03-16 12:41:11.184000",
+            "name": "MSecondaryTourneyCompactResults.csv"
+          },
+          {
+            "bytes": 28457,
+            "created_at": "2026-03-16 12:41:11.145000",
+            "name": "MSecondaryTourneyTeams.csv"
+          },
+          {
+            "bytes": 415335,
+            "created_at": "2026-03-16 12:41:11.225000",
+            "name": "MTeamCoaches.csv"
+          },
+          {
+            "bytes": 237063,
+            "created_at": "2026-03-16 12:41:11.130000",
+            "name": "MTeamConferences.csv"
+          },
+          {
+            "bytes": 22792,
+            "created_at": "2026-03-16 12:41:11.172000",
+            "name": "MTeamSpellings.csv"
+          },
+          {
+            "bytes": 10056,
+            "created_at": "2026-03-16 12:41:11.186000",
+            "name": "MTeams.csv"
+          },
+          {
+            "bytes": 10382887,
+            "created_at": "2026-03-16 12:41:11.314000",
+            "name": "SampleSubmissionStage1.csv"
+          },
+          {
+            "bytes": 2642667,
+            "created_at": "2026-03-16 12:41:11.264000",
+            "name": "SampleSubmissionStage2.csv"
+          },
+          {
+            "bytes": 178346,
+            "created_at": "2026-03-16 12:41:11.249000",
+            "name": "WConferenceTourneyGames.csv"
+          },
+          {
+            "bytes": 2870464,
+            "created_at": "2026-03-16 12:41:11.195000",
+            "name": "WGameCities.csv"
+          },
+          {
+            "bytes": 51613,
+            "created_at": "2026-03-16 12:41:11.255000",
+            "name": "WNCAATourneyCompactResults.csv"
+          },
+          {
+            "bytes": 96291,
+            "created_at": "2026-03-16 12:41:11.276000",
+            "name": "WNCAATourneyDetailedResults.csv"
+          },
+          {
+            "bytes": 27240,
+            "created_at": "2026-03-16 12:41:11.326000",
+            "name": "WNCAATourneySeeds.csv"
+          },
+          {
+            "bytes": 36944,
+            "created_at": "2026-03-16 12:41:11.238000",
+            "name": "WNCAATourneySlots.csv"
+          },
+          {
+            "bytes": 4170609,
+            "created_at": "2026-03-16 12:41:11.177000",
+            "name": "WRegularSeasonCompactResults.csv"
+          },
+          {
+            "bytes": 8674344,
+            "created_at": "2026-03-16 12:41:11.298000",
+            "name": "WRegularSeasonDetailedResults.csv"
+          },
+          {
+            "bytes": 1553,
+            "created_at": "2026-03-16 12:41:11.030000",
+            "name": "WSeasons.csv"
+          },
+          {
+            "bytes": 31650,
+            "created_at": "2026-03-16 12:41:11.300000",
+            "name": "WSecondaryTourneyCompactResults.csv"
+          },
+          {
+            "bytes": 14360,
+            "created_at": "2026-03-16 12:41:11.055000",
+            "name": "WSecondaryTourneyTeams.csv"
+          },
+          {
+            "bytes": 170101,
+            "created_at": "2026-03-16 12:41:11.278000",
+            "name": "WTeamConferences.csv"
+          },
+          {
+            "bytes": 22640,
+            "created_at": "2026-03-16 12:41:11.276000",
+            "name": "WTeamSpellings.csv"
+          },
+          {
+            "bytes": 6195,
+            "created_at": "2026-03-16 12:41:11.302000",
+            "name": "WTeams.csv"
+          }
+        ],
+        "fingerprint": "c9df24626b8953cde6386be98ce64e273fb2e96057af5b5234d9adc54c939e78",
+        "retrieved_at": "2026-09-07T00:09:59.084292+00:00",
+        "sha256": {
+          "Cities.csv": "a852359df15128c635dbd42ed00f5e8b1ad9bd81edf86c9c3381c322d7f17043",
+          "Conferences.csv": "2e0822230c5f5f178f08c22387ac8ccde652d9e93978bc2f58a76183c693aa98",
+          "MConferenceTourneyGames.csv": "7d09a081abe4a6d404b18afd63af0d6d9ff6c897d6a8f9c5946a2a02ab73da2a",
+          "MGameCities.csv": "28d453732bb7fa55fbb8d23d8d4e9cdbf9728377624b6035366c9a090f3cc537",
+          "MMasseyOrdinals.csv": "a14234e3fe3b63efe286fbbaf9bbc550ef2e52688c50ceadb2acb593e57634f8",
+          "MNCAATourneyCompactResults.csv": "5260a076b4e0937aa0420fd5eb72789b9931c662ed071c5060407458d8de8a05",
+          "MNCAATourneyDetailedResults.csv": "a4a2c782fa68a6ad140dc56d2fac2755eafa9d17076ad1491d6f802c9c51d7ba",
+          "MNCAATourneySeedRoundSlots.csv": "33a429e77b5d3d81695cf557f813f8c35832cc319a348bd4884dccc8e3dd3f88",
+          "MNCAATourneySeeds.csv": "413916a4136af69346826ce433d749c6c6cbc96afd88a43d8645877d20d01691",
+          "MNCAATourneySlots.csv": "935f7cbcb7100d9ed0ddeec6e7f2a1745bd62c78779d804f782b91cd6e7eed14",
+          "MRegularSeasonCompactResults.csv": "f50b602151584b598d015a78355e7ffee533b031a66b8d9711ca01ad08b99e69",
+          "MRegularSeasonDetailedResults.csv": "5a7afaa262c2c725476ae3ee2a6abbf88ddc4a5973aab83d7140134a18b3d84d",
+          "MSeasons.csv": "984af245340df5c304348c2cc1899e770d5511ce0622de022591834b6e23a579",
+          "MSecondaryTourneyCompactResults.csv": "141e274ebe5a17266e302857d7c3a24ad20bd78692feb926465de946b1e53810",
+          "MSecondaryTourneyTeams.csv": "6a0c95b7b540b6de0de72423d8d87c41f6f51d4d8b02275d1fdb9a4951e3baaa",
+          "MTeamCoaches.csv": "e0fe04e53ea35f4a120f0368164c2a7035d5a0b1ab427a078a27304bd16003bc",
+          "MTeamConferences.csv": "a798dcd8ac5ddfbcbe13fe6217054f05ccc8b952b0c662eb3f1973ae6be3f6bc",
+          "MTeamSpellings.csv": "181d08d5c862bde7c50eb8e664135d831f830647869522b6d8ad4e44ebabbefc",
+          "MTeams.csv": "2f5d3b1bc6bf6afbf80a6900f1aa1bfaebfa68b33a8d66dc29034800b1dd7b24",
+          "SampleSubmissionStage1.csv": "dfe58d5ca7e698f67567238b62dea8d8241f3abe9cfd51fba91ef67fa5fbd92d",
+          "SampleSubmissionStage2.csv": "53b79f12315ae43353899cf659bc89e027bedbde70929e213b6922a877b33ffc",
+          "WConferenceTourneyGames.csv": "8acb5601145c278d96acc8975bcab4979b227d64f95bd196e42c6cba9b402409",
+          "WGameCities.csv": "6ecab5867c2551e5b63b9fce8f88a743e142a6874475f04783de41bf9d6ededc",
+          "WNCAATourneyCompactResults.csv": "13c44b67f2d4ea2661ef59ab0be720b3f3feede5f1de8ee419a8a46f7d99a6a5",
+          "WNCAATourneyDetailedResults.csv": "b0f609ad133d14e991cf8d036f5afc610b77ef168b63223404c352d9b9658c5f",
+          "WNCAATourneySeeds.csv": "fd80613514ac62ed63afcfc1ed0024c525ff02f4b43bd7a97ebccdb74a424ec6",
+          "WNCAATourneySlots.csv": "e0cc399a1099465fc74b1c7d0d0475fb5249f307164f1a5a6e36ca536d6fe0d9",
+          "WRegularSeasonCompactResults.csv": "ca8702630335ac5b8d00a5e5f09abc5aa10666b7584ac1db61b48784c77d4090",
+          "WRegularSeasonDetailedResults.csv": "0c416b6e59da818ea7356913caa7be2641b465ae97014551c617e0ccbefe432f",
+          "WSeasons.csv": "35a640047fc1a6b071a3566779361f20267b3f96889333c94f31967a39b02181",
+          "WSecondaryTourneyCompactResults.csv": "7c84377237ca2afcc466664aacb101ce61b3e5426f63f0880c1a215552211792",
+          "WSecondaryTourneyTeams.csv": "0430fcffddf8d69946baeaddc17143aaf0a7c425f1a55625c98b9342b9d300ab",
+          "WTeamConferences.csv": "be4d13c60f1c567de7bdb927c8801cc62e4d3ff3297d05ca15276b7c219c1805",
+          "WTeamSpellings.csv": "670b9035831b5c080927d844c040579b04eafc6c9e249d2ca0b4bc21c158f631",
+          "WTeams.csv": "2567f2c56791d5966f131f5dba8b5adaa2795d8a98c9dde89f545d91a409c88d"
+        },
+        "source": "Kaggle competition API"
+      },
+      "source": "761f51f95c6eb63e6037a12a8b5c0f37ba94c1336d626692730f8c842eeacab8"
+    }
+  },
   "sha256": {
-    "inventory.csv": "76aa714ad615140fd6c6c6b1793eb2829fe7d88f64906e34695130c93b7aa0f8",
+    "inventory.csv": "3cf2aadf8e3530b920b81a00a4973d612d5a6e81abc200f5a32dfc6b743b2e36",
     "seasons.csv": "f1db14e0ace6e8eb57e0e6e637d6d64fe3c14c39e002c5596d746b647a3b4100",
     "splits.csv": "5b7f456b3d51bdcf1abdc04cbc4afbdd64beb613a571cb9643528002fd866682"
   },
   "summary": {
     "download_hashes_verified": true,
     "download_recorded_at": "2026-09-07T00:09:59.084292+00:00",
-    "elapsed_seconds": 4.374,
+    "elapsed_seconds": 14.569,
     "files": 35,
-    "fingerprint": "9717c5ffda691f1e4d496956d60769cf55e8d84513c301dd9f7218ba5e382ad2",
+    "fingerprint": "68a8dc95d45abd147383a39bd08e42b45fb5a1b309bbb70b838603df58feceb0",
     "official_metric": "Brier score (lower is better)",
     "raw_directory": "data/kaggle/raw",
     "remote_run_uri": null,

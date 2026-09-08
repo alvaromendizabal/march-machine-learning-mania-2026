@@ -28,7 +28,19 @@ def main() -> int:
         "scripts/update.py",
     ]
     typed_files = tomllib.loads((root / "pyproject.toml").read_text())["tool"]["mypy"]["files"]
-    typed_files = [*typed_files, "src/march_mania/publication"]
+    typed_files = [
+        *typed_files,
+        "src/march_mania/publication",
+        *[
+            "src/march_mania/" + name + ".py"
+            for name in (
+                "candidate_features",
+                "coach_features",
+                "feature_selection",
+                "matchup_artifacts",
+            )
+        ],
+    ]
     checks = [
         ("compile", [sys.executable, "-m", "compileall", "-q", *scopes]),
         ("lint", [sys.executable, "-m", "ruff", "check", *scopes]),
@@ -41,6 +53,10 @@ def main() -> int:
                 "-m",
                 "pytest",
                 "--cov=march_mania.features",
+                "--cov=march_mania.candidate_features",
+                "--cov=march_mania.coach_features",
+                "--cov=march_mania.feature_selection",
+                "--cov=march_mania.matchup_artifacts",
                 "--cov=march_mania.runtime",
                 "--cov=march_mania.research",
                 "--cov=march_mania.research_report",
@@ -57,7 +73,9 @@ def main() -> int:
                 "--cov=march_mania.notebook_support",
                 "--cov=march_mania.publication.submission",
                 "--cov=march_mania.publication.inference",
+                "--cov=march_mania.publication.benchmark",
                 "--cov=march_mania.publication.artifacts",
+                "--cov=march_mania.publication.workflow",
                 "--cov-report=term-missing",
                 "--cov-report=xml:outputs/validation/coverage.xml",
                 "--junitxml=outputs/validation/junit.xml",

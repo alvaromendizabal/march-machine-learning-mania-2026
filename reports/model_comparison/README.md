@@ -1,77 +1,85 @@
-# Nested temporal model comparison
+# What the expanded feature bank changes
 
-Executed on 2026-09-07 using the verified 124-feature store. The experiment
-completed 497 candidate fits and 20 outer selection contexts in 63.384 seconds,
-saving 14,946 predictions across 649 physical tournament games.
+The completed 2026-09-08 experiment fits the exact **3,106-candidate** store from
+notebook 02. It ran **861 candidate fits**, 20 outer selection contexts and saved
+16,282 prediction rows across **649 physical tournament games**. Each fitted model
+retains at most 128 inputs, with screening repeated inside its training fold.
 
-| Best observed stream | Mean season Brier | Game-weighted Brier |
+| Best observed development stream | Mean season Brier | Game-weighted Brier |
 |---|---:|---:|
-| Men: ranking logistic | 0.188476 | 0.188409 |
-| Women: separate logistic | 0.143867 | 0.143867 |
-| Men: separate seed baseline | 0.200158 | 0.200083 |
-| Women: separate seed baseline | 0.151179 | 0.151179 |
+| Men, without Massey: pooled common blend | 0.188396 | 0.188324 |
+| Men, with Massey: separate ranking logistic | 0.188468 | 0.188403 |
+| Women, without Massey: separate logistic | 0.144823 | 0.144823 |
+| Men: separate seed-only reference | 0.200158 | 0.200083 |
+| Women: separate seed-only reference | 0.151179 | 0.151179 |
 
-Read the [executed notebook](../../notebooks/03_model_comparison_and_diagnostics.ipynb)
-for scoreboards, reliability, season variability, paired uncertainty, blend weights,
-held-out permutation diagnostics, and direct recalculation from saved predictions.
+Lower is better. These are observed development minima, not independent evidence
+that the selected winner generalizes. The original 124-feature run's minima were
+0.188476 for men and 0.143867 for women. The expanded men's best is effectively tied;
+the women's best is worse. `comparison.csv` pairs the original completed run with
+the revised forecasts on identical games and labels. All unsuccessful streams stay
+in the scoreboard.
 
-## Protocol
+## How selection works
 
-- Validation: 2016, 2017, 2018, 2019 and 2021. Training starts in 2013.
-- Candidates: seed logistic, regularized logistic, histogram boosting, XGBoost and
-  LightGBM; additional men's ranking logistic. The common-model candidate bank is
-  identical across separate and pooled fits and excludes 23 Massey-derived columns.
-- Feature-group and hyperparameter choices use mean season Brier on earlier OOF
-  predictions. Fixed boosting length avoids outer-validation early stopping.
-- Identity and bounded temperature calibration are compared with forward-only
-  inner folds. The earliest outer year has only one calibration validation year.
-- Convex ensemble weights use raw inner OOF probabilities and regularization
-  toward equal weights. Men's ranking logistic is outside this common-feature blend.
-- Every physical game remains inside one season; mirrored pairs are created only
-  inside the training fold. Every fitted candidate passes a team-swap audit.
-- Permutation importance uses the last outer season, five shuffles per feature,
-  and the selected model held fixed. It is descriptive, not causal or a tuning rule.
+- Outer seasons: 2016, 2017, 2018, 2019 and 2021; training begins in 2013.
+- Eight families include seed logistic, regularized logistic, histogram boosting,
+  XGBoost, LightGBM and three men's ranking variants. Separate and pooled common
+  candidate banks have identical columns and exclude all 23 Massey-derived inputs.
+- Logistic search includes all seven new domain groups individually, compact
+  strength/dynamic/efficiency groups and the full screened bank. The added choices
+  are retrospective research on the same years inspected in notebook 02.
+- Block and hyperparameter selection use mean season Brier on earlier OOF forecasts.
+  Fixed boosting length avoids outer-season early stopping.
+- Identity and bounded temperature calibration use forward-only inner calibration
+  folds. Identity wins 94 of 115 family/context decisions; temperature wins 21. The
+  earliest outer season has only one calibration validation year. Both raw and
+  calibrated outer scores remain visible.
+- Blend weights are nonnegative, sum to one and are regularized toward equal weights.
+  They use selected raw inner OOF predictions. Ranking families are outside the blend.
+- Whole physical games stay in one season. Training-only mirroring and a team-swap
+  audit enforce complementary probabilities. Imputation and screening see no outer
+  observations or labels.
 
-## What the results establish
+## What the evidence supports
 
-The ranking/logistic streams outperform the seed baselines in these development
-seasons. Boosting and blending do not outperform the best observed logistic
-streams. Temperature calibration is selected in 21 of 105 family/context folds;
-its outer performance remains visible alongside raw probabilities.
+Pooled common-feature trees and their blend improve on their own 124-feature streams.
+Four of five men's pooled tree decisions select a screened full-bank candidate. This
+does not isolate a causal feature contribution: screening can replace many columns
+when the bank changes. Notebook 02 supplies controlled family ablations. The full-bank Massey and combined
+non-Massey coach/encoding intervals include zero. Other exploratory contrasts show
+clear deterioration for several broad groups and a gain for compact men’s rankings
+under histogram boosting. The intervals are unadjusted for the full search.
 
-The current men's minimum is worse than the earlier reported rich-system value
-of 0.180669. That system used a different feature schema and broader training
-history; its original predictions are needed for a controlled paired comparison.
-The current minimum also does not beat notebook 02's best fixed-feature result;
-that comparison is exploratory because notebook 02's blocks were inspected on
-the same development seasons. No new final recipe has been promoted.
+Women's separate logistic selects dynamic features in four outer folds and conference
+context in one. The enlarged search slightly worsens its overall score. More feature
+choices are not a guarantee of better forecasts.
 
-These are retrospective development results. Five seasons provide limited
-uncertainty, the intervals are not adjusted for multiple comparisons, and the
-2022–2025 benchmark has already been evaluated in prior work. Historical neural
-and margin results remain under `reports/modeling/03_model_comparison`; they
-have not been rerun on the current schema. No Kaggle submission occurred here.
+The 2022–2025 benchmark in `reports/benchmark/` is already consumed and retrospective.
+Its declared logistic anchors are frozen from pre-2022 predictions; it does not promote
+the observed development winner or reselect on benchmark labels. The expanded women's
+anchor is worse than the previous frozen artifact. Historical final-release evidence
+remains under `reports/final_predictions/`.
 
-## Reproducibility and artifacts
+Five development seasons provide limited uncertainty. Bootstrap intervals are not
+adjusted for multiple comparisons. Held-out permutation importance uses five shuffles
+on 2021 with the selected estimator fixed; it is descriptive, not causal or a tuning
+instruction. Historical neural and margin models were not retrained on this schema.
 
-`run.json` contains source/configuration/input hashes, measured runtime, archive
-status and checksums. `predictions.csv` supports direct independent metric checks.
-`selection.csv` and `decisions.json` expose the history boundaries, selected
-settings and calibration crossfits. `validation.json` records the local quality gate.
-Full candidate forecasts, serialized models, feature matrices, fold manifests,
-task logs/checkpoints and a standalone interactive report are in the run archive.
+## Reproducibility
 
-The test suite has 102 passing tests and 90% measured coverage. Added tests run
-every current engine, perturb outer/future outcomes, verify common-feature
-parity and probability symmetry, interrupt a run, and check reuse/recomputation
-after checksum corruption. Python warnings are errors in tests; the data run also
-executed with `PYTHONWARNINGS=error`. LightGBM's routine native split chatter is
-disabled through its verbosity setting; fatal errors still raise.
+`run.json` binds the experiment to exact feature, data, source, configuration and
+environment hashes, measured runtime and a versioned archive checksum. The successful
+run took 291.121 seconds, including 271.392 seconds of candidate training. This is not
+a hardware performance guarantee.
 
-Resource telemetry from restricted process namespaces is not used to claim
-peak RAM or size production instances. Runtime figures are measured in this
-execution environment and are not a performance guarantee for other machines.
+`predictions.csv` permits metric recalculation. `selection.csv`, `decisions.json` and
+`ensemble_weights.csv` expose actual choices and history boundaries. The archive
+preserves all 901 checkpoints, estimators, candidate forecasts, the feature matrix,
+exact sources and logs. Before publication, the native workflow must download this
+archive into a fresh directory and reproduce identical forecasts with zero repeated fits.
 
-References: [official Brier metric](https://www.kaggle.com/competitions/march-machine-learning-mania-2026),
-[XGBoost CPU package](https://pypi.org/project/xgboost-cpu/3.1.3/),
-[LightGBM 4.6 parameters](https://lightgbm.readthedocs.io/en/v4.6.0/Parameters.html).
+The [model notebook](../../notebooks/03_model_comparison_and_diagnostics.ipynb) contains
+scoreboards, reliability, uncertainty, errors and interpretation. The
+[completion audit](../../docs/research_audit.md) records the final execution gates.
+No Kaggle submission is generated by this research workflow.

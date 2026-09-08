@@ -1,6 +1,6 @@
-# Feature research protocol
+# Historical compact feature research protocol
 
-This document records the compact notebook 05 protocol. Its first real-data run is complete; verified scores and hashes are in `reports/research`. The next phase rebuilds canonical notebook 02 using the [feature-store contract](feature_store.md). Historical implementations remain in Git history.
+This document preserves the compact study recorded on 2026-09-06; its scores and hashes remain in `reports/research`. The expanded experiment and current notebook sequence are documented in the [feature-store contract](feature_store.md) and `reports/feature_store`. The proposals and next steps below describe that historical stage, not the current completion state.
 
 ## Evidence audit: 2026-09-06
 

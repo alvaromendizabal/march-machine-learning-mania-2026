@@ -11,7 +11,7 @@ import json
 import sys
 import time
 from dataclasses import asdict, dataclass
-from importlib.metadata import version
+from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 from typing import Any
 
@@ -31,6 +31,8 @@ from threadpoolctl import threadpool_limits
 from xgboost import XGBClassifier
 
 from march_mania.advanced_features import candidate_blocks
+from march_mania.feature_selection import ScreenedPredictor, TrainingScreen, screening_audit
+from march_mania.publication.artifacts import restore_tasks
 from march_mania.research import finalize_run, symmetric_probability
 from march_mania.runtime import (
     EventLog,
@@ -56,7 +58,22 @@ class Candidate:
 def candidates(route: str) -> list[Candidate]:
     """Bounded search, declared before outcomes are read; common features for pooling."""
     result = [Candidate("seed", "seed", "seed", 0.1)]
-    for block in ("strength", "dynamic", "four_factors", "ball_control", "full"):
+    # Compare every new basketball family individually as well as through the
+    # broad screened bank. Admission is by domain family, not its outer score.
+    for block in (
+        "strength",
+        "dynamic",
+        "four_factors",
+        "ball_control",
+        "full",
+        "distribution",
+        "venue_profile",
+        "opponent_profile",
+        "trajectory",
+        "peer_profile",
+        "coach_history",
+        "conference",
+    ):
         for index, penalty in enumerate((0.03, 0.3)):
             result.append(Candidate(f"logistic_{block}_{index}", "logistic", block, penalty))
     for family in ("hist", "xgboost", "lightgbm"):
@@ -66,12 +83,20 @@ def candidates(route: str) -> list[Candidate]:
     if route == "M":
         for index, penalty in enumerate((0.03, 0.3)):
             result.append(Candidate(f"rank_logistic_{index}", "rank_logistic", "rankings", penalty))
+            result.append(
+                Candidate(f"rank_logistic_full_{index}", "rank_logistic", "full", penalty)
+            )
+        # An explicit men-only ranking experiment; pooled/common baselines stay unchanged.
+        for family in ("rank_xgboost", "rank_lightgbm"):
+            for block in ("rankings", "full"):
+                for depth in (2, 3):
+                    result.append(Candidate(f"{family}_{block}_{depth}", family, block, depth))
     return result
 
 
 def columns_for(candidate: Candidate) -> list[str]:
     # The common-feature comparison excludes all 23 Massey-derived variables for both sexes.
-    return candidate_blocks(include_rankings=candidate.family == "rank_logistic")[candidate.block]
+    return candidate_blocks(include_rankings=candidate.family.startswith("rank_"))[candidate.block]
 
 
 def validate_config(config: dict[str, Any]) -> None:
@@ -121,13 +146,16 @@ def fit_candidate(
     x = train[columns].to_numpy(dtype=float)
     y = train.y.to_numpy(dtype=int)
     x, y = np.concatenate([x, -x]), np.concatenate([y, 1 - y])
-    if candidate.family in {"seed", "logistic", "rank_logistic"}:
+    screen = TrainingScreen().fit(x, y)
+    x = screen.transform(x)
+    family = candidate.family.removeprefix("rank_")
+    if family in {"seed", "logistic"}:
         model: Any = make_pipeline(
             SimpleImputer(strategy="median", keep_empty_features=True),
             StandardScaler(),
             LogisticRegression(C=candidate.parameter, max_iter=3000, random_state=seed),
         )
-    elif candidate.family == "hist":
+    elif family == "hist":
         model = HistGradientBoostingClassifier(
             max_iter=120,
             learning_rate=0.04,
@@ -137,7 +165,7 @@ def fit_candidate(
             early_stopping=False,
             random_state=seed,
         )
-    elif candidate.family == "xgboost":
+    elif family == "xgboost":
         model = XGBClassifier(
             n_estimators=120,
             learning_rate=0.04,
@@ -150,7 +178,7 @@ def fit_candidate(
             random_state=seed,
             eval_metric="logloss",
         )
-    elif candidate.family == "lightgbm":
+    elif family == "lightgbm":
         # Native API avoids sklearn feature-name adaptation; fatal errors still raise.
         model = lgb.train(
             {
@@ -165,13 +193,15 @@ def fit_candidate(
                 "verbosity": -1,
                 "seed": seed,
             },
-            lgb.Dataset(x, label=y, feature_name=columns),
+            lgb.Dataset(x, label=y, feature_name=[columns[i] for i in screen.indices_]),
             num_boost_round=120,
         )
+        model = ScreenedPredictor(screen, model)
         return model, predict_candidate(model, valid[columns].to_numpy(dtype=float), threads)
     else:
         raise ValueError(f"Unknown model family: {candidate.family}")
     model.fit(x, y)
+    model = ScreenedPredictor(screen, model)
     return model, predict_candidate(model, valid[columns].to_numpy(dtype=float), threads)
 
 
@@ -329,7 +359,7 @@ def evaluate_context(
             results.append(rows)
     # Fit a regularized convex blend of raw inner OOF streams. Identity/temperature is
     # scored above separately; calibrated in-sample rows never masquerade as blend OOF.
-    blend_families = [name for name in families if name != "rank_logistic"]
+    blend_families = [name for name in families if not name.startswith("rank_")]
     reference = inner_streams[blend_families[0]]
     reference_outer = outer_streams[blend_families[0]]
     for name in blend_families:
@@ -361,6 +391,43 @@ def evaluate_context(
     return pd.concat(results, ignore_index=True), decisions
 
 
+def run_inputs(feature_run: Path, config: dict[str, Any]) -> dict[str, Any]:
+    """Fingerprint actual matrix bytes, declared candidates, configuration and implementation."""
+    validate_config(config)
+    upstream = json.loads((feature_run / "summary.json").read_text())
+    if upstream.get("status") != "completed":
+        raise ValueError("Feature store must be completed")
+    feature_path = feature_run / "features.parquet"
+    root = Path(__file__).resolve().parents[2]
+    source = [
+        *Path(__file__).parent.glob("*.py"),
+        root / "src/march_mania/publication/artifacts.py",
+        root / "pyproject.toml",
+        root / "uv.lock",
+    ]
+    # Record the actual installed distribution; portable audits can use the full
+    # XGBoost package, while the production lock deliberately installs xgboost-cpu.
+    try:
+        backend, backend_version = "xgboost-cpu", version("xgboost-cpu")
+    except PackageNotFoundError:
+        backend, backend_version = "xgboost", version("xgboost")
+    identity = {
+        **runtime_identity(),
+        backend: backend_version,
+        "lightgbm": version("lightgbm"),
+    }
+    return {
+        "config": config,
+        "data": {"features.parquet": digest(feature_path)},
+        "feature_fingerprint": upstream["fingerprint"],
+        "source": {str(p.relative_to(root)): digest(p) for p in source},
+        "environment": {k: v for k, v in identity.items() if k != "platform"},
+        "candidates": {
+            route: [asdict(c) for c in candidates(route)] for route in ["M", "W", "pooled_common"]
+        },
+    }
+
+
 def run(
     feature_run: Path, run_root: Path, config: dict[str, Any], mirror_uri: str | None = None
 ) -> dict[str, Any]:
@@ -377,23 +444,7 @@ def run(
         ],
     )
     validate_matrix(frame)
-    root = Path(__file__).resolve().parents[2]
-    source = [*Path(__file__).parent.glob("*.py"), root / "pyproject.toml", root / "uv.lock"]
-    identity = {
-        **runtime_identity(),
-        "xgboost-cpu": version("xgboost-cpu"),
-        "lightgbm": version("lightgbm"),
-    }
-    inputs = {
-        "config": config,
-        "data": {"features.parquet": digest(feature_path)},
-        "feature_fingerprint": upstream["fingerprint"],
-        "source": {str(p.relative_to(root)): digest(p) for p in source},
-        "environment": {k: v for k, v in identity.items() if k != "platform"},
-        "candidates": {
-            route: [asdict(c) for c in candidates(route)] for route in ["M", "W", "pooled_common"]
-        },
-    }
+    inputs = run_inputs(feature_run, config)
     run_hash = fingerprint(inputs)
     output = run_root / run_hash
     output.mkdir(parents=True, exist_ok=True)
@@ -402,9 +453,13 @@ def run(
         log.emit("run_started", fingerprint=run_hash, physical_games=len(frame))
         atomic_json(output / "manifest.json", {"fingerprint": run_hash, "inputs": inputs})
         mirror = Mirror(mirror_uri.rstrip("/") + "/" + run_hash) if mirror_uri else None
+        if mirror:
+            restore_tasks(mirror, output, run_hash, log)
         store = TaskStore(output, run_hash, log, config["heartbeat_seconds"], mirror)
         try:
             summary = _run(frame, output, store, config)
+            if digest(feature_path) != inputs["data"]["features.parquet"]:
+                raise ValueError("Feature matrix changed during model fitting")
             summary.update(
                 fingerprint=run_hash,
                 feature_fingerprint=upstream["fingerprint"],
@@ -454,13 +509,14 @@ def _run(
                     candidate: Candidate = candidate,
                     route: str = route,
                 ) -> list[Path]:
+                    columns = columns_for(candidate)
                     with threadpool_limits(limits=config["threads"]):
                         model, p = fit_candidate(
                             train, valid, candidate, config["seed"], config["threads"]
                         )
                         reverse = predict_candidate(
                             model,
-                            -valid[columns_for(candidate)].to_numpy(dtype=float),
+                            -valid[columns].to_numpy(dtype=float),
                             config["threads"],
                         )
                     if not np.allclose(p + reverse, 1, atol=1e-7, rtol=0):
@@ -474,9 +530,11 @@ def _run(
                     )
                     rows.to_parquet(target / "predictions.parquet", index=False)
                     joblib.dump(
-                        {"model": model, "features": columns_for(candidate)},
+                        {"model": model, "features": columns},
                         target / "model.joblib",
                     )
+                    audit = screening_audit(model, columns)
+                    audit.to_csv(target / "screening.csv", index=False)
                     atomic_json(
                         target / "fold.json",
                         {
@@ -484,13 +542,22 @@ def _run(
                             "validation_season": int(valid.Season.min()),
                             "train_games": len(train),
                             "validation_games": len(valid),
-                            "features": columns_for(candidate),
+                            "features": columns,
+                            "selected_features": [columns[i] for i in model.screen.indices_],
+                            "candidate_count": len(columns),
+                            "retained_count": len(model.screen.indices_),
                             "candidate": asdict(candidate),
                             "max_complement_error": float(np.max(np.abs(p + reverse - 1))),
                         },
                     )
                     return [
-                        target / n for n in ["predictions.parquet", "model.joblib", "fold.json"]
+                        target / n
+                        for n in [
+                            "predictions.parquet",
+                            "model.joblib",
+                            "fold.json",
+                            "screening.csv",
+                        ]
                     ]
 
                 target = store.task(f"fit_{route.lower()}_{season}_{candidate.name}", fit)
@@ -564,6 +631,8 @@ def _run(
                         ** 2
                     )
                     for index, name in enumerate(saved["features"]):
+                        if index not in saved["model"].screen.indices_:
+                            continue  # Unselected columns cannot affect this fitted model.
                         deltas = []
                         for _ in range(config["permutation_repeats"]):
                             altered = values.copy()

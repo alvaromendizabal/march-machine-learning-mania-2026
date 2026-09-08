@@ -1,0 +1,112 @@
+{
+  "archive": {
+    "bytes": 18070392,
+    "sha256": "4e243437990b48311238286a9585c83997ea84915a090c44a2ca711845965a01",
+    "status": "uploaded",
+    "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/benchmark/2680bf105e369bbeb1b937d504c8b4f4c8c3772895869acc8b7c5decd0fb9b74/archive.zip",
+    "version_id": "Qb.wbPTCFOCmVxk6_C_1_7i32I3T.GeZ"
+  },
+  "manifest": {
+    "fingerprint": "2680bf105e369bbeb1b937d504c8b4f4c8c3772895869acc8b7c5decd0fb9b74",
+    "inputs": {
+      "config": {
+        "benchmark_seasons": [
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "calibration": "identity",
+        "chunk_size": 10000,
+        "families": {
+          "M": "rank_logistic",
+          "W": "logistic"
+        },
+        "first_training_season": 2013,
+        "heartbeat_seconds": 15,
+        "prediction_season": 2026,
+        "protocol": "retrospective-final-prediction",
+        "seed": 2026,
+        "selection_seasons": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2021
+        ],
+        "threads": 2
+      },
+      "data": {
+        "features.parquet": "8d72cbd10c974b5e51c889baf78aa1d0bbc9d6a35dc2896f145fa693350aa1af"
+      },
+      "development_predictions_sha256": "5aa3553c89a3df88582df5e788d8e6254d4e2be4b41bfb8e190b8af9fb2928a3",
+      "environment": {
+        "joblib": "1.5.2",
+        "numpy": "2.2.6",
+        "pandas": "2.3.3",
+        "pyarrow": "21.0.0",
+        "python": "3.12.13",
+        "scikit-learn": "1.7.2",
+        "scipy": "1.16.3"
+      },
+      "feature_fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+      "model_fingerprint": "20e69d30dc746f39f9395f96d1ff13d7a24cb0a7998fd096a0409c31fa7d7193",
+      "source": {
+        "src/march_mania/__init__.py": "fb8f7f61008dfb3648a0f2d5046109b11b5f0868a91c898ede383d014f9a8e73",
+        "src/march_mania/advanced_features.py": "e49d02bdc557d3073734eb6365605037b232d375bcdbdd0d9de80fdf1bf6ce73",
+        "src/march_mania/candidate_features.py": "208ca082aa95d24a4a12c34b0f3bab523481b0504cadb66b5c33bc8b03ccc05a",
+        "src/march_mania/coach_features.py": "3901a1e91412f568c654cad7e9103e7b3d47d10f96530ffde2480d4924f8bca2",
+        "src/march_mania/context_features.py": "96f85242c3ebeb9732ba4bd4153b58bbddc4147f8bd183cfeaa6e278c23fb9bf",
+        "src/march_mania/data.py": "7f87a0a2376a020096e7d5ac9e7f9ae650d6e8c5364b1a329d0f22719e5c4a41",
+        "src/march_mania/data_review.py": "761f51f95c6eb63e6037a12a8b5c0f37ba94c1336d626692730f8c842eeacab8",
+        "src/march_mania/encoding.py": "49e61f4820bde51228e6d2e9c00e51a46937f7ef9dfa980db48c4a47a5ca2727",
+        "src/march_mania/feature_selection.py": "63fa9d8d136cdfbab5ed2d6bae311a6c711ccaa6553db709e2a935b4908e6b77",
+        "src/march_mania/feature_store.py": "ca47bfcadb759501e3fba0727018fbebd79c27840aef4ed2ac7bcf2556b69444",
+        "src/march_mania/features.py": "ef5afd3c93368ef82e4e792cfc26c610711fb3341b8546da3085a8207891f154",
+        "src/march_mania/io.py": "46decedac7173a2c806ae5a87bd5caaee31706817ca15ce0aab799b238bd45a0",
+        "src/march_mania/matchup_artifacts.py": "43d7d9d12e331f3aa2c5ccd8cdc128418cab043e96c1b06231842bbc7c3a34d0",
+        "src/march_mania/model_report.py": "7758377e4043f87d88f620e3e2826a5a0f1ea309c41a030e5544201416b4cce0",
+        "src/march_mania/modeling.py": "921772edbdb5676d0fda2c58ca2f05914540ebaed39f8135504177157a290a2f",
+        "src/march_mania/notebook_support.py": "a5cb439aa21b5037a06ba7fe00d1cc3bd8c7fa423d369262cce56ec1c96a3486",
+        "src/march_mania/paths.py": "90c6af595fd0b9df6aab7d2d3161c350f6e0f2a00efd4771798b0da51b939aa5",
+        "src/march_mania/publication/artifacts.py": "4e02b7919665fc9f91e8c15f0af89b1e9e28cefbd363684da98d1948194f220a",
+        "src/march_mania/publication/benchmark.py": "73d0c812d95abe96dbd361d47e72fe650db688a2dbe8e2e84ceffde1ac4019ad",
+        "src/march_mania/publication/inference.py": "2da7e89b524482d39cea7a8dcd06f070f27e9914425df9f90d30fb84cd42077d",
+        "src/march_mania/rankings.py": "30a9b854ffb8c0a4fae3a819ce13e2066280993b371244f7156c517b967b7764",
+        "src/march_mania/research.py": "31157076af9866b14d1166bdb8d53652c8f3f59c588b80e6dbe70a2c2a634a60",
+        "src/march_mania/research_report.py": "9758126b93f6f0e6d3ad9bccd90ef82b413851b2ac15c8b584650ce272d2c6f7",
+        "src/march_mania/reshape.py": "2820d630c10c554ec861fb0de9fb359c759d27de42bb8711b96dac8d0f008541",
+        "src/march_mania/runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
+        "src/march_mania/validation.py": "6d4fe5a339b11e255f087f27927335160e324fcc7aab5021d354bb711b80e235"
+      }
+    }
+  },
+  "sha256": {
+    "benchmark_predictions.csv": "c94b1f97c5571428f67abe6c36c2d6eeefbfdb7c15ce840dc3cc703d73e124ce",
+    "fit_audits.json": "5dd222c795a596d15aa5d77df1b30068d3b7e294c2629e28052e8d88a3459057",
+    "metrics.csv": "34bd3baa696b60553d8efd8eed4997297083dd09159f46fb7145b411bfc2919c",
+    "metrics_by_season.csv": "bda8654981af73f5c622b48d4cc8c2cf717793b716affa2fdd3a4a6712cd482e",
+    "recipe.json": "691ce97160527da78c1cf4296126349a7b8ac7582f55ac24dbb369678bfa6885",
+    "reliability.csv": "33098d3e6ffcf3e7e2bed48042bd7f766097ef038b40b928c2c906a43f29d8fc"
+  },
+  "summary": {
+    "benchmark_seasons": [
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "benchmark_status": "2022-2025 previously consumed; retrospective only",
+    "elapsed_seconds": 33.835,
+    "fingerprint": "2680bf105e369bbeb1b937d504c8b4f4c8c3772895869acc8b7c5decd0fb9b74",
+    "future_labels_used": false,
+    "kaggle_submission_sent": false,
+    "model_fits": 16,
+    "model_scope": "Predeclared gender-specific logistic anchors",
+    "physical_games": 536,
+    "prediction_rows": 1072,
+    "scored_population": "Includes play-ins; differs from Kaggle scored games",
+    "status": "completed",
+    "submission_generated": false
+  }
+}

@@ -20,6 +20,15 @@ def test_inventory_reads_latin1_and_counts_missing_values(tmp_path):
     assert record["sha256"] == digest(path)
 
 
+@pytest.mark.parametrize(
+    "name", ["MTeamCoaches.csv", "MTeamConferences.csv", "WTeamConferences.csv"]
+)
+def test_inventory_recognizes_official_context_inputs(tmp_path, name):
+    path = tmp_path / name
+    path.write_text("Season,TeamID\n2026,1101\n")
+    assert inventory_file(path)["feature_source"]
+
+
 def test_raw_audit_records_provenance_and_resumes_without_rereading(raw, tmp_path, monkeypatch):
     manifest = {
         "sha256": {p.name: digest(p) for p in raw.glob("*.csv")},
