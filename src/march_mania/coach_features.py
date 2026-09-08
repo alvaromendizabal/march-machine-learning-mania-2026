@@ -62,11 +62,9 @@ def coach_snapshot(
             if not ((previous.Season == year) & (previous.TeamID == team)).any():
                 break
             tenure += 1
-        result.loc[index, ["coach_tenure", "coach_prior_teams", "coach_prior_seasons"]] = [
-            tenure,
-            previous.TeamID.nunique(),
-            previous.Season.nunique(),
-        ]
+        result.at[index, "coach_tenure"] = tenure
+        result.at[index, "coach_prior_teams"] = previous.TeamID.nunique()
+        result.at[index, "coach_prior_seasons"] = previous.Season.nunique()
     for source, games in (("regular", compact), ("tournament", tournament)):
         old = games.loc[games.Season.between(season - 5, season - 1)]
         long = team_games(old)

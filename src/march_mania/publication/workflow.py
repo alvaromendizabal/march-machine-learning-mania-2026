@@ -16,6 +16,7 @@ import pandas as pd
 
 from march_mania import feature_store, modeling
 from march_mania.publication.artifacts import download_input, safe_path, verified_write
+from march_mania.publication.reporting import public_bytes
 from march_mania.runtime import EventLog, Mirror, atomic_json, digest, fingerprint
 
 S3_PREFIX = "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research"
@@ -143,8 +144,11 @@ def publish_report(root: Path, name: str, run: Path, archive: dict[str, Any]) ->
             if filename in {"comparison.csv", "research_recovery.json"}:
                 continue
             raise ValueError(f"Missing completed report output: {filename}")
-        expected = digest(source)
-        verified_write(folder / filename, source.read_bytes(), expected)
+        contents = public_bytes(
+            source, feature_audit=name == "feature_store" and filename == "feature_usage.csv"
+        )
+        expected = hashlib.sha256(contents).hexdigest()
+        verified_write(folder / filename, contents, expected)
         hashes[filename] = expected
     record = {
         "summary": json.loads((run / "summary.json").read_text()),
@@ -153,6 +157,14 @@ def publish_report(root: Path, name: str, run: Path, archive: dict[str, Any]) ->
         "archive": archive,
         "execution_note": "Executed notebook pipeline; manifest records exact training provenance.",
     }
+    if name == "feature_store" and "feature_usage.csv" in hashes:
+        record["public_report_scope"] = {
+            "feature_usage.csv": {
+                "view": "Retained full-block features only; all rejection counts remain public.",
+                "complete_audit": "archive:run/feature_usage.csv",
+                "complete_audit_sha256": digest(run / "feature_usage.csv"),
+            }
+        }
     atomic_json(folder / "run.json", record)
 
 

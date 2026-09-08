@@ -7,6 +7,8 @@ are fixed before tournament validation. No external data is downloaded here.
 
 from __future__ import annotations
 
+from typing import Any
+
 import numpy as np
 import pandas as pd
 
@@ -112,7 +114,7 @@ def aggregate(
 ) -> pd.DataFrame:
     """One vectorized aggregation per cohort; missing cohorts never become fake zero scores."""
     grouped = frame.groupby("TeamID", sort=True)[list(SIGNALS)]
-    simple = [stat for stat in stats if stat not in {"q10", "q25", "q75", "q90", "iqr"}]
+    simple: list[Any] = [stat for stat in stats if stat not in {"q10", "q25", "q75", "q90", "iqr"}]
     result = grouped.agg(simple)
     quantiles = {q: grouped.quantile(q) for q in (0.10, 0.25, 0.75, 0.90)}
     additions = {}
