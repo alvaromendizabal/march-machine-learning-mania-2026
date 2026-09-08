@@ -1,0 +1,102 @@
+{
+  "manifest": {
+    "fingerprint": "917affd67b01c3e865f8131bb2e4fd3f09fde6f43eeffdfa67fa8081d67c985f",
+    "inputs": {
+      "config": {
+        "capacities": [
+          32,
+          64,
+          128,
+          256
+        ],
+        "first_training_season": 2013,
+        "heartbeat_seconds": 15,
+        "minimum_inner_seasons": 2,
+        "models": [
+          "logistic",
+          "hist"
+        ],
+        "protocol": "retrospective-feature-capacity",
+        "reference_capacity": 128,
+        "seed": 2026,
+        "threads": 2,
+        "validation_seasons": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2021
+        ]
+      },
+      "data": {
+        "features.parquet": "8d72cbd10c974b5e51c889baf78aa1d0bbc9d6a35dc2896f145fa693350aa1af"
+      },
+      "environment": {
+        "joblib": "1.5.2",
+        "numpy": "2.2.6",
+        "pandas": "2.3.3",
+        "pyarrow": "21.0.0",
+        "python": "3.12.13",
+        "scikit-learn": "1.7.2",
+        "scipy": "1.16.3"
+      },
+      "feature_fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+      "source": {
+        "pyproject.toml": "c3aea1c2d445a7c1c59377895468306b035c384da6866b94174d398a857aee3b",
+        "src/march_mania/__init__.py": "fb8f7f61008dfb3648a0f2d5046109b11b5f0868a91c898ede383d014f9a8e73",
+        "src/march_mania/advanced_features.py": "e49d02bdc557d3073734eb6365605037b232d375bcdbdd0d9de80fdf1bf6ce73",
+        "src/march_mania/candidate_features.py": "208ca082aa95d24a4a12c34b0f3bab523481b0504cadb66b5c33bc8b03ccc05a",
+        "src/march_mania/coach_features.py": "3901a1e91412f568c654cad7e9103e7b3d47d10f96530ffde2480d4924f8bca2",
+        "src/march_mania/context_features.py": "96f85242c3ebeb9732ba4bd4153b58bbddc4147f8bd183cfeaa6e278c23fb9bf",
+        "src/march_mania/data.py": "7f87a0a2376a020096e7d5ac9e7f9ae650d6e8c5364b1a329d0f22719e5c4a41",
+        "src/march_mania/data_review.py": "761f51f95c6eb63e6037a12a8b5c0f37ba94c1336d626692730f8c842eeacab8",
+        "src/march_mania/encoding.py": "49e61f4820bde51228e6d2e9c00e51a46937f7ef9dfa980db48c4a47a5ca2727",
+        "src/march_mania/feature_selection.py": "63fa9d8d136cdfbab5ed2d6bae311a6c711ccaa6553db709e2a935b4908e6b77",
+        "src/march_mania/feature_store.py": "ca47bfcadb759501e3fba0727018fbebd79c27840aef4ed2ac7bcf2556b69444",
+        "src/march_mania/features.py": "ef5afd3c93368ef82e4e792cfc26c610711fb3341b8546da3085a8207891f154",
+        "src/march_mania/io.py": "46decedac7173a2c806ae5a87bd5caaee31706817ca15ce0aab799b238bd45a0",
+        "src/march_mania/matchup_artifacts.py": "43d7d9d12e331f3aa2c5ccd8cdc128418cab043e96c1b06231842bbc7c3a34d0",
+        "src/march_mania/model_report.py": "7758377e4043f87d88f620e3e2826a5a0f1ea309c41a030e5544201416b4cce0",
+        "src/march_mania/modeling.py": "921772edbdb5676d0fda2c58ca2f05914540ebaed39f8135504177157a290a2f",
+        "src/march_mania/notebook_support.py": "a5cb439aa21b5037a06ba7fe00d1cc3bd8c7fa423d369262cce56ec1c96a3486",
+        "src/march_mania/paths.py": "90c6af595fd0b9df6aab7d2d3161c350f6e0f2a00efd4771798b0da51b939aa5",
+        "src/march_mania/publication/artifacts.py": "4e02b7919665fc9f91e8c15f0af89b1e9e28cefbd363684da98d1948194f220a",
+        "src/march_mania/publication/capacity.py": "e269af13139710379da4e3b01fbfe2d9a6d21685d9976bd9916325d5703e3d99",
+        "src/march_mania/publication/workflow.py": "fa09c45c1fcc6a2e1fce061226ec4169caa74ada598fe866f64a83ee089aa4d8",
+        "src/march_mania/rankings.py": "30a9b854ffb8c0a4fae3a819ce13e2066280993b371244f7156c517b967b7764",
+        "src/march_mania/research.py": "31157076af9866b14d1166bdb8d53652c8f3f59c588b80e6dbe70a2c2a634a60",
+        "src/march_mania/research_report.py": "9758126b93f6f0e6d3ad9bccd90ef82b413851b2ac15c8b584650ce272d2c6f7",
+        "src/march_mania/reshape.py": "2820d630c10c554ec861fb0de9fb359c759d27de42bb8711b96dac8d0f008541",
+        "src/march_mania/runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
+        "src/march_mania/validation.py": "6d4fe5a339b11e255f087f27927335160e324fcc7aab5021d354bb711b80e235",
+        "uv.lock": "d0b1b6c2395c14f0a7236ff16acfd009ab906906719d8187e7d8685643d8c20a"
+      }
+    }
+  },
+  "sha256": {
+    "evaluation.csv": "373cd0636553f56bb53545700e51f68079c19d50ea79382a8fbe1c45dfe5d1d5",
+    "fit_audit.csv": "cf8006e06da47f6774f7015278a07d396cce94ca1f5e2d4544e4ef62b215355e",
+    "intervals.csv": "91f0c66ddfe15c6b79e1a0178ffc739a220606baabd6f131a02333f02f981a55",
+    "leaderboard.csv": "67e04088cfc34d7869faedbedc9e8f2d07e6c77fdf544f0bce4b50135b509ac8",
+    "predictions.csv": "db437ef2b1755133a0a266d6954c8d2332d185e9af6bc1dcfc4df6e6ca010ed3",
+    "selection.csv": "e46bed003075de76cab072439894956aa52d679049b2900ca9eecbe4a3f426cc"
+  },
+  "summary": {
+    "benchmark_labels_used": false,
+    "candidate_count": 3106,
+    "feature_fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+    "final_recipe_changed": false,
+    "fingerprint": "917affd67b01c3e865f8131bb2e4fd3f09fde6f43eeffdfa67fa8081d67c985f",
+    "fit_tasks": 168,
+    "inherited_reference_fits": 30,
+    "new_fits": 138,
+    "status": "completed",
+    "validation_seasons": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2021
+    ]
+  }
+}

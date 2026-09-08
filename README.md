@@ -7,6 +7,11 @@ features, nested temporal model selection, calibration analysis and interpretabl
 
 ## Start here
 
+**Current project: this repository's `main` branch. The expanded features have
+already been generated and used in completed retraining.** PR #8 replaced the
+stale 124-feature handoff with the executed 3,106-candidate study. The capacity
+follow-up below tests whether more of those candidates should reach each fit.
+
 **Open the notebooks and read their saved outputs. No AWS login, dataset download,
 GPU or notebook execution is needed to review the project.**
 
@@ -36,6 +41,12 @@ The completed study ran **1,050 feature ablation fits and 861 model candidate fi
 Its central result is mixed: broader features improved some men's pooled models, but
 did not reliably improve both populations or beat compact models.
 
+The subsequent [capacity study](reports/feature_capacity/README.md) adds **138 fresh fits**
+and reuses **30 verified 128-input fits**. It compares limits of 32, 64, 128 and 256,
+including forward-only inner selection. More inputs generally hurt; smaller screens
+improve the broad logistic models but do not beat the existing compact leaders.
+The 128-input main-study limit and its original results remain explicitly identified.
+
 | Current evidence | Men: mean season Brier | Women: mean season Brier |
 |---|---:|---:|
 | Best observed nested development stream | 0.188396 · no-Massey pooled blend | 0.144823 · separate logistic |
@@ -54,6 +65,19 @@ coverage, measured feature effects and execution gates. Notebook 03 recomputes m
 from recorded predictions; notebook 05 pairs previous and revised predictions game by game.
 Notebook 04 links its current retrospective benchmark to those exact upstream runs. The earlier
 124-feature final release remains separately identified under `reports/final_predictions/`.
+
+| What has actually completed | Evidence |
+|---|---|
+| Expanded feature generation and family ablations | 3,106 candidates; 1,050 fits in notebook 02 |
+| Retraining on those exact features | 861 candidate fits in notebook 03 |
+| Target encoding and chronological splits | Prior-season histories, nested selection, mutation tests |
+| Retained-feature capacity experiment | 168 evaluated fits; 138 new and 30 inherited |
+| Current retrospective benchmark | 16 fits on previously consumed 2022–2025 seasons |
+| Native notebook execution and checkpoint recovery | [Recorded release checks](reports/validation/release.json) |
+
+The remaining scientific question is stronger generalization, particularly for women.
+It is not whether the remade notebook 02 has been trained. Repeating identical completed
+fits cannot answer that question; additional data or genuinely unseen outcomes are needed.
 
 The [official competition metric](https://www.kaggle.com/competitions/march-machine-learning-mania-2026)
 is Brier score. Game-weighted Brier and mean-season Brier are reported separately. Development

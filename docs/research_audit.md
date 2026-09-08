@@ -4,6 +4,12 @@ Evidence date: 2026-09-08. The expanded experiments and all six native notebooks
 complete and published. Final merge/check status is recorded on PR #8. The original 124-feature release remains in Git
 history and its versioned archives; its final predictions are not relabeled as new work.
 
+**Current location:** the repository's `main` branch, under `notebooks/00` through
+`05`. The expanded 02 → 03 → 04 lineage is complete, not waiting for its first
+training run. A follow-up prompted by the question “are enough features actually
+used?” adds the completed capacity study in section 17. The first release's
+execution proof remains in `reports/validation/release.json`.
+
 ## 1. Where the project started
 
 The main branch already contained executed 124-feature research: 660 feature-ablation
@@ -198,11 +204,13 @@ substantial engineering existed, but the expanded-feature experiment and noteboo
 handoff evidence were missing. The requested implementation, evaluation, reproducibility
 and employer-facing publication work is now complete, subject to the final merge gate.
 
-Against the broader ambition of demonstrating stronger future forecasting, the honest
-estimate is **about 95%**. The remaining evidence requires a genuinely unseen tournament;
-it cannot be manufactured by rerunning consumed years. These are judgment-based
-readiness estimates, not scientific measurements. A guaranteed 9.9/10 rating or
-state-of-the-art accuracy claim is not supported by these results.
+Engineering and portfolio readiness are **about 95%**, as a judgment rather than a
+measured percentage. That must not be interpreted as 95% of a guaranteed accuracy
+improvement. The claim that the expanded features materially improve both populations
+remains unproven. The capacity follow-up strengthens the feature-sufficiency audit,
+but still does not beat the compact leaders. A genuinely unseen tournament would
+provide new generalization evidence; rerunning consumed years cannot do so. A
+guaranteed 9.9/10 rating or state-of-the-art accuracy claim is not supported.
 
 ## 15. Employer readiness
 
@@ -222,5 +230,64 @@ Freeze a compact recipe and evaluate the next genuinely unseen tournament with
 pre-tournament source snapshots and a predeclared scoring population. Retain the
 previous frozen artifact while treating the expanded recipe as retrospective research.
 Further tuning on 2022–2025 or adding unvalidated columns cannot create fresh evidence.
-There is no additional feature or training task required to understand and review this
-completed release; future accuracy work is a separate prospective study.
+The release can be reviewed now. The completed capacity experiment below resolves
+an additional reasonable question about the feature screen; it does not justify
+blindly expanding the number of model inputs or rerunning identical completed fits.
+Higher-value future research would require independently useful inputs with verified
+historical availability, or prospective outcomes. The current evidence is a bounded
+search over the official data, not a proof that every conceivable representation has
+been exhausted.
+
+## 17. Completed retained-feature capacity follow-up
+
+The initial 128-input cap was a modeling assumption. The follow-up compares **32,
+64, 128 and 256** on the identical expanded matrix, holding screening logic and
+the two estimator recipes fixed. It covers men with Massey, men without Massey,
+and women. Seven earlier OOF seasons support forward-only capacity selection for
+the five reported outer seasons. There are **168 evaluated fits: 138 fresh fits
+and 30 inherited 128-input fits** whose original checkpoints and populations were
+verified. All 42 fits at each limit retain exactly that many inputs. The new audit
+records 519,232 candidate decisions, 20,160 retentions and 499,072 rejections;
+these are repeated per-fit decisions, not that many distinct features.
+
+| Fixed estimator / route | Original cap 128 | Forward-selected cap | Brier change |
+|---|---:|---:|---:|
+| Logistic / men with Massey | 0.207742 | 0.192095 | −0.015647 |
+| Logistic / men without Massey | 0.204492 | 0.194492 | −0.010000 |
+| Logistic / women | 0.171561 | 0.164711 | −0.006850 |
+| Histogram / men with Massey | 0.192678 | 0.196706 | +0.004027 |
+| Histogram / men without Massey | 0.195157 | 0.194984 | −0.000173 |
+| Histogram / women | 0.167173 | 0.167077 | −0.000096 |
+
+These are mean-season Brier scores. All six forward-selected comparisons have
+paired season-bootstrap intervals including zero. The men's four fixed comparisons
+of 256 versus 128 have positive intervals excluding zero: expanding capacity hurts
+these particular exploratory contrasts. No multiplicity correction is claimed.
+Smaller broad models still trail compact model leaders. This is evidence for
+strong regularization and diminishing returns to more retained candidates, not a
+new best model or proof of global feature-space exhaustion.
+
+Notebook 02 contains the actual tables, interactive capacity curves and a static
+GitHub fallback. The original 03/04 source, feature/model fingerprints and declared
+recipes stay current: their estimates are not relabeled as results from this
+follow-up. Target encoding continues to use strictly earlier seasons, and capacity
+selection never reads outer/future labels. Nine additional automated tests cover
+these boundaries, equivalent original-recipe predictions, fitted-state removal,
+matched-game selection and corrupt reference checkpoints.
+
+A second execution reused **all 168 capacity tasks**, repeated **zero fits**, left
+every model file unchanged and reproduced prediction SHA-256
+`db437ef2b1755133a0a266d6954c8d2332d185e9af6bc1dcfc4df6e6ca010ed3`.
+See the [complete capacity results](../reports/feature_capacity/README.md) and
+their [exact fingerprint](../reports/feature_capacity/run.json). The new portable
+archive is complete locally, but its S3 upload was stopped by automatic approval
+review, which requires explicit end-user approval for the payload and destination.
+Bucket ownership was verified against the connected AWS account. This pending upload
+does not affect the earlier completed S3 feature/model archives or public metrics.
+
+The previous 124-feature studies, current 3,106-candidate model comparison, and
+this capacity sensitivity study are three distinct pieces of evidence. A fresh
+inspection of GitHub and S3 verified that all completed current artifacts exist.
+The SageMaker space `march-mania-dev` still exists with 50 GB of persistent storage;
+its JupyterLab app is stopped. Its filesystem was not claimed to be synchronized
+with the newly published GitHub notebooks.
