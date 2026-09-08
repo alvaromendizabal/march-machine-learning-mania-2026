@@ -1,0 +1,11 @@
+{
+  "archive_sha256": "54031ef705ffa2b5433d8e016ab6fdc87441ceece41a6d90743b68c2f61f3f4b",
+  "archive_version_id": "c.pwIGt6AJc_xuvsaV_jHi4Jy4hIhmVB",
+  "fingerprint": "20e69d30dc746f39f9395f96d1ff13d7a24cb0a7998fd096a0409c31fa7d7193",
+  "identical_predictions": true,
+  "recovery_source": "fresh SHA-256-verified S3 archive download",
+  "repeated_tasks": 0,
+  "restored_tasks": 901,
+  "reused_tasks": 901,
+  "status": "passed"
+}

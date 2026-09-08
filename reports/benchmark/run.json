@@ -1,11 +1,10 @@
 {
   "archive": {
-    "bytes": 18069735,
-    "checksum_verification": "S3 FULL_OBJECT SHA-256",
-    "sha256": "b8fdbffafecc9d2d1e18eb4aec2580b4a30a83a84a1add2f9b69acb97f5b3356",
+    "bytes": 18070392,
+    "sha256": "4e243437990b48311238286a9585c83997ea84915a090c44a2ca711845965a01",
     "status": "uploaded",
     "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/benchmark/2680bf105e369bbeb1b937d504c8b4f4c8c3772895869acc8b7c5decd0fb9b74/archive.zip",
-    "version_id": "S5VFGt0XRurTgz1AIat_es.OtDkkU.Bd"
+    "version_id": "Qb.wbPTCFOCmVxk6_C_1_7i32I3T.GeZ"
   },
   "manifest": {
     "fingerprint": "2680bf105e369bbeb1b937d504c8b4f4c8c3772895869acc8b7c5decd0fb9b74",
@@ -83,12 +82,12 @@
     }
   },
   "sha256": {
-    "benchmark_predictions.csv": "4c07951f996eb83cd98fbba3f95809e6c34c27ae4a1c6f2163d84dd3e5d06e6e",
+    "benchmark_predictions.csv": "c94b1f97c5571428f67abe6c36c2d6eeefbfdb7c15ce840dc3cc703d73e124ce",
     "fit_audits.json": "5dd222c795a596d15aa5d77df1b30068d3b7e294c2629e28052e8d88a3459057",
-    "metrics.csv": "08b57336c54671b65d5bf0a7872d838eed1cd5dcea0c6125d7dfbb58627430e1",
-    "metrics_by_season.csv": "368d1c929b0c05f13d35d9961a504f9109e0fb3bee13ab517518cd6fadf7f041",
+    "metrics.csv": "34bd3baa696b60553d8efd8eed4997297083dd09159f46fb7145b411bfc2919c",
+    "metrics_by_season.csv": "bda8654981af73f5c622b48d4cc8c2cf717793b716affa2fdd3a4a6712cd482e",
     "recipe.json": "691ce97160527da78c1cf4296126349a7b8ac7582f55ac24dbb369678bfa6885",
-    "reliability.csv": "ad06eb306fb4cbbbb4c5d2d90b0c27837400a39995c65fb84d1db4feb1685545"
+    "reliability.csv": "33098d3e6ffcf3e7e2bed48042bd7f766097ef038b40b928c2c906a43f29d8fc"
   },
   "summary": {
     "benchmark_seasons": [
@@ -98,7 +97,7 @@
       2025
     ],
     "benchmark_status": "2022-2025 previously consumed; retrospective only",
-    "elapsed_seconds": 2.312,
+    "elapsed_seconds": 33.835,
     "fingerprint": "2680bf105e369bbeb1b937d504c8b4f4c8c3772895869acc8b7c5decd0fb9b74",
     "future_labels_used": false,
     "kaggle_submission_sent": false,
