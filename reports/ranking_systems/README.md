@@ -80,3 +80,9 @@ Notebook 02 now restores both follow-ups before running them in train mode on a
 fresh checkout; changed source/configuration delegates a new run instead of
 restoring stale results. The verified upstream feature archive and raw inputs
 remain explicit dependencies. See [the validation receipt](../validation/ranking_systems.json).
+
+
+The source passed **228 automated tests** and native execution of **all six notebooks,
+42 code cells**. The second notebook pass reused all six verified checkpoints with
+no warning/error outputs. The exact source checkout, executed notebook hashes,
+coverage scope and cloud recovery evidence are recorded in the validation receipt.

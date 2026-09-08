@@ -18,6 +18,7 @@
     "upstream_dependency": "Existing checksum-verified feature run and official raw inputs",
     "version_id": "rLf775OU4X9NuNCr15N8rmRf2q1Cqla8"
   },
+  "final_revision_checks": "The publication commit is checked separately on PR #10; this receipt preserves the exact source and bytes of workflow 34288566061.",
   "local_verification": {
     "loaded_models": 112,
     "maximum_prediction_error": 0.0,
@@ -29,7 +30,69 @@
     "reused_tasks": 113,
     "status": "passed"
   },
-  "status": "experiment_and_storage_verified_native_validation_pending",
+  "native_validation": {
+    "all_notebook_definitions_match": true,
+    "archive": {
+      "bytes": 8287634,
+      "checksum_type": "FULL_OBJECT",
+      "sha256": "63a1988620bc2dff14f423c296818c013033cf494259007d9fadd1866840f140",
+      "status": "uploaded",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/validation/ed08fd3714fb4c8d15663926251a999115cf6a0a/archive.zip",
+      "version_id": "niCDhanoQz1Au0yZW3cFq9M4LqXS9iZk"
+    },
+    "artifact_bytes": 8287634,
+    "artifact_expires_at": "2026-12-07T22:59:29Z",
+    "artifact_id": 10080579795,
+    "artifact_sha256": "63a1988620bc2dff14f423c296818c013033cf494259007d9fadd1866840f140",
+    "checkout_commit": "a5920532286abbcc92751eed82774d7ad688e13e",
+    "computational_sources_match_run_manifest": true,
+    "coverage_scope": "Selected modules in scripts/quality.py; not whole-repository or branch coverage.",
+    "execution_seconds": 27.82,
+    "head_commit": "ed08fd3714fb4c8d15663926251a999115cf6a0a",
+    "lines_covered": 3141,
+    "lines_measured": 3733,
+    "plot_pngs_match_verified_preflight": true,
+    "test_errors": 0,
+    "test_failures": 0,
+    "tests_passed": 228,
+    "tests_seconds": 258.18,
+    "tests_skipped": 0,
+    "url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34288566061",
+    "workflow_run_id": 34288566061
+  },
+  "notebook_reuse": {
+    "elapsed_seconds": 0.56,
+    "error_or_warning_outputs": 0,
+    "new_tasks": 0,
+    "reused": 6
+  },
+  "notebooks": {
+    "00_data_audit_and_preparation.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "44f02e8880cdc8a48c083e38268db17d134397a82af2264785670bb504b81014"
+    },
+    "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
+      "executed_code_cells": 3,
+      "sha256": "8361205a949936eea736488d73d3b1adfe614226e1f8bcbc51e641c07c7dbece"
+    },
+    "02_feature_store_and_diagnostics.ipynb": {
+      "executed_code_cells": 12,
+      "sha256": "6d51022a9494cea4d57d70b7a994ae06b99e887f3752fc273812ea32fd13c8d5"
+    },
+    "03_model_comparison_and_diagnostics.ipynb": {
+      "executed_code_cells": 13,
+      "sha256": "05f4ab1246fa30233e8936beeacaf7be45763fc96ab5069658dce113fa7f4a51"
+    },
+    "04_locked_benchmark_and_final_submission.ipynb": {
+      "executed_code_cells": 6,
+      "sha256": "4d4022b8ed4b597629be8fb61a1c55572cafa9b17789816e2784711ea479ba2e"
+    },
+    "05_feature_research.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "879f893017e8ae5ab81874c04838b6ba572f48daf241321bb57525e808a091ad"
+    }
+  },
+  "status": "native_notebooks_and_versioned_cloud_recovery_verified",
   "storage": {
     "checksum_sha256_base64": "p/rac141kkT7MtMLoWs6eGC3fj3ME5PwZP7Qj7K5v8A=",
     "checksum_type": "FULL_OBJECT",

@@ -352,3 +352,32 @@ workflow tests cover version-specific restoration, existing-run reuse, changed
 source and rejected archive lineage. Notebook 02 calls this recovery path directly
 in train mode. Native validation and final publication checks are recorded in the
 ranking-system validation receipt and its pull request.
+
+
+## 19. Latest executed publication evidence
+
+The ranking-system revision passed **228 tests**, zero failures/errors/skips,
+compilation, lint, formatting and type checks in the locked environment. Actual
+Jupyter execution completed **all six canonical notebooks and 42 code cells** in
+27.82 seconds. The second pass reused all six notebook checkpoints in 0.56 seconds.
+No warning/error outputs were present. The two new figure PNGs exactly match the
+visually inspected preflight figures; preflight itself is not counted as Jupyter.
+
+Measured coverage is **3,141 / 3,733 lines (84.14%)**, limited to the modules selected
+by the quality script. The native checkout is `a5920532286abbcc92751eed82774d7ad688e13e`,
+GitHub's merge checkout for source head `ed08fd3714fb4c8d15663926251a999115cf6a0a`.
+Every computational source hash and notebook definition was independently matched
+before copying the actually executed notebook bytes into the publication commit.
+[Workflow 34288566061](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34288566061)
+and [the validation receipt](../reports/validation/ranking_systems.json) preserve
+this evidence. Final publication checks and the merge are recorded on
+[PR #10](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/10).
+
+Portfolio and engineering readiness remain approximately **95%**, a judgment rather
+than a measured completion fraction. The current remaining limitation is independent
+predictive evidence, especially for women, not missing executions or unchecked
+feature handoffs. The richer bank still does not establish superiority over the
+prior frozen anchors. A 9.9/10 forecasting or employer rating cannot be guaranteed
+by more tuning on already-consumed seasons. The defensible deliverable is a completed,
+reproducible retrospective feature-research project with explicit positive and
+negative results, and a clear boundary around what has not been demonstrated.
