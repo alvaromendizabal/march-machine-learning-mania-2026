@@ -198,3 +198,24 @@ def test_generation_refuses_stale_model_without_replacing_export(tmp_path, monke
     with pytest.raises(ValueError, match="Model inputs/code changed"):
         workflow.generate_submission(tmp_path)
     assert export.read_bytes() == b"existing user file"
+
+
+def test_equally_stale_feature_and_model_reports_do_not_pass_source_check(tmp_path):
+    source = tmp_path / "src/march_mania/feature_store.py"
+    source.parent.mkdir(parents=True)
+    source.write_text("original implementation")
+    config = {"cutoff": 132}
+    atomic_json(tmp_path / "configs/feature_store.json", config)
+    record = {
+        "manifest": {
+            "inputs": {
+                "source": {"src/march_mania/feature_store.py": digest(source)},
+                "config": config,
+            }
+        },
+        "summary": {"feature_count": len(modeling.candidate_blocks()["full"])},
+    }
+    workflow.require_recorded_source(tmp_path, "feature_store", record)
+    source.write_text("changed implementation with the same feature count")
+    with pytest.raises(ValueError, match="Stale feature_store"):
+        workflow.require_recorded_source(tmp_path, "feature_store", record)

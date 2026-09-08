@@ -22,10 +22,14 @@ from march_mania.features import read_official
 
 def test_registered_candidate_count_and_label_exclusion():
     assert sum(map(len, CANDIDATE_FAMILIES.values())) == 2944
-    assert len(COACH_FEATURES) == 22
+    assert len(COACH_FEATURES) == 26
     columns = candidate_blocks()["full"]
-    assert len(columns) == len(set(columns)) == 3090
-    assert len(candidate_blocks(False)["full"]) == 3067
+    assert len(columns) == len(set(columns)) == 3106
+    assert len(candidate_blocks(False)["full"]) == 3083
+    assert len(candidate_blocks()["baseline_124"]) == 124
+    assert len(candidate_blocks(False)["baseline_124"]) == 101
+    for column in candidate_blocks()["expanded_non_massey_no_target_coach"]:
+        assert not column.startswith(("diff_rank_", "diff_te_", "diff_coach_"))
     assert not {"y", "ID", "Season", "DayNum", "Team1ID", "Team2ID"}.intersection(columns)
 
 
@@ -122,6 +126,9 @@ def test_coach_history_availability_intervals_and_future_embargo(raw):
     before = coach_snapshot(coaches, compact, tournament, teams, 2016, 132)
     assert before.coach_known.eq(1).all()
     assert before.coach_tenure.eq(3).all()
+    assert before.coach_current_stint_days.eq(133).all()
+    assert before.coach_changed_since_prior_season.eq(0).all()
+    assert before.coach_prior_tournament_appearances_5.eq(3).all()
     assert before.coach_tournament_3_support.gt(0).all()
     tournament.loc[tournament.Season >= 2016, ["WTeamID", "WScore"]] = [9999, 200]
     coaches.loc[coaches.Season > 2016, "CoachName"] = "future coach"

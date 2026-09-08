@@ -14,7 +14,12 @@ from sklearn.linear_model import Ridge
 
 from march_mania.candidate_features import CANDIDATE_FAMILIES, candidate_snapshot
 from march_mania.coach_features import COACH_FEATURES, coach_snapshot
-from march_mania.context_features import CONTEXT_FAMILIES, context_snapshot
+from march_mania.context_features import (
+    CONFERENCE_FEATURES,
+    CONTEXT_FAMILIES,
+    conference_snapshot,
+    context_snapshot,
+)
 from march_mania.encoding import ENCODING_FAMILIES, ENCODING_FEATURES
 from march_mania.features import KEYS, feature_blocks, snapshot, team_games
 from march_mania.rankings import LEVEL_FEATURES, TREND_FEATURES, ranking_snapshot
@@ -51,6 +56,7 @@ FAMILIES = {
     **CONTEXT_FAMILIES,
     **CANDIDATE_FAMILIES,
     "coach_history": COACH_FEATURES,
+    "conference": CONFERENCE_FEATURES,
 }
 INTERACTIONS = [
     "pace_strength",
@@ -360,6 +366,12 @@ def advanced_snapshot(
         validate="one_to_one",
     )
     result["snapshot_day"] = cutoff
+    result = result.merge(
+        conference_snapshot(tables.get("TeamConferences"), compact, result, season, cutoff),
+        on="TeamID",
+        how="left",
+        validate="one_to_one",
+    )
     return result
 
 
@@ -444,6 +456,24 @@ def candidate_blocks(include_rankings: bool = True) -> dict[str, list[str]]:
     }
     blocks.update({name: core + cols for name, cols in families.items()})
     blocks["full"] = full
+    new_families = {*CANDIDATE_FAMILIES, "coach_history", "conference"}
+    new_columns = {"diff_" + c for name in new_families for c in FAMILIES[name]}
+    blocks["baseline_124"] = [c for c in full if c not in new_columns]
+    ranked = {
+        "diff_" + c
+        for family in ("rankings", "rank_trends", "target_rank")
+        for c in FAMILIES[family]
+    }
+    non_massey = [c for c in full if c not in ranked]
+    target = {"diff_" + c for family in ENCODING_FAMILIES.values() for c in family}
+    coach = {"diff_" + c for c in COACH_FEATURES}
+    blocks["expanded_non_massey"] = non_massey
+    for name, excluded in (
+        ("no_target", target),
+        ("no_coach", coach),
+        ("no_target_coach", target | coach),
+    ):
+        blocks["expanded_non_massey_" + name] = [c for c in non_massey if c not in excluded]
     blocks.update(
         {
             "without_" + name: [c for c in full if c not in columns]

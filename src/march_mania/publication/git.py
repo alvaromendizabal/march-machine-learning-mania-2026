@@ -12,7 +12,7 @@ from pathlib import Path
 import nbformat
 
 from march_mania.publication.notebooks import NOTEBOOKS, validate_execution
-from march_mania.publication.workflow import evidence, lineage
+from march_mania.publication.workflow import benchmark_evidence, evidence, lineage
 
 
 def git(root: Path, *args: str) -> str:
@@ -26,12 +26,13 @@ def publish(root: Path, branch: str, expected: str) -> str:
     if branch != "feat/notebook-research" or len(expected) != 40:
         raise ValueError("An explicit research branch and source commit are required")
     lineage(root)
+    benchmark_evidence(root)
     files: list[Path] = []
     for name in NOTEBOOKS:
         path = root / "notebooks" / name
         validate_execution(nbformat.read(path, as_version=4))
         files.append(path)
-    for name in ("feature_store", "model_comparison"):
+    for name in ("feature_store", "model_comparison", "benchmark"):
         folder, record = evidence(root, name)
         files.extend(folder / filename for filename in ["run.json", *record["sha256"]])
     git(root, "fetch", "origin", branch)

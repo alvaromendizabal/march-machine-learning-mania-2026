@@ -73,6 +73,7 @@ def main() -> int:
                 "--cov=march_mania.notebook_support",
                 "--cov=march_mania.publication.submission",
                 "--cov=march_mania.publication.inference",
+                "--cov=march_mania.publication.benchmark",
                 "--cov=march_mania.publication.artifacts",
                 "--cov=march_mania.publication.workflow",
                 "--cov-report=term-missing",

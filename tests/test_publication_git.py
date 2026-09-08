@@ -31,7 +31,7 @@ def remote(tmp_path, monkeypatch):
     for name in NOTEBOOKS:
         nb = nbformat.v4.new_notebook(cells=[nbformat.v4.new_code_cell("1 + 1", execution_count=1)])
         nbformat.write(nb, root / "notebooks" / name)
-    for group in ("feature_store", "model_comparison"):
+    for group in ("feature_store", "model_comparison", "benchmark"):
         folder = root / "reports" / group
         folder.mkdir(parents=True)
         (folder / "run.json").write_text("{}")
@@ -41,6 +41,7 @@ def remote(tmp_path, monkeypatch):
     command(root, "push", "origin", "HEAD")
     source = command(root, "rev-parse", "HEAD")
     monkeypatch.setattr(publication, "lineage", lambda root: None)
+    monkeypatch.setattr(publication, "benchmark_evidence", lambda root: None)
     monkeypatch.setattr(
         publication,
         "evidence",

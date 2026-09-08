@@ -88,10 +88,11 @@ def read_official(raw: Path) -> tuple[dict[str, dict[str, pd.DataFrame]], list[P
                     raise ValueError("Invalid seed code")
                 frame["seed"] = parsed.astype(float)
             data[gender][name] = frame
-        coach_path = raw / f"{gender}TeamCoaches.csv"
-        if coach_path.is_file():
-            data[gender]["TeamCoaches"] = pd.read_csv(coach_path)
-            paths.append(coach_path)
+        for optional_name in ("TeamCoaches", "TeamConferences"):
+            path = raw / f"{gender}{optional_name}.csv"
+            if path.is_file():
+                data[gender][optional_name] = pd.read_csv(path)
+                paths.append(path)
     return data, paths
 
 

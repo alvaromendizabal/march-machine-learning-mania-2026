@@ -7,12 +7,21 @@ import pandas as pd
 
 from march_mania.features import team_games
 
-COACH_FEATURES = ["coach_known", "coach_tenure", "coach_prior_teams", "coach_prior_seasons"] + [
-    f"coach_{source}_{window}_{stat}"
-    for source in ("regular", "tournament")
-    for window in (1, 3, 5)
-    for stat in ("support", "win_posterior", "margin")
-]
+COACH_FEATURES = (
+    ["coach_known", "coach_tenure", "coach_prior_teams", "coach_prior_seasons"]
+    + [
+        f"coach_{source}_{window}_{stat}"
+        for source in ("regular", "tournament")
+        for window in (1, 3, 5)
+        for stat in ("support", "win_posterior", "margin")
+    ]
+    + [
+        "coach_current_stint_days",
+        "coach_changed_since_prior_season",
+        "coach_prior_tournament_appearances_5",
+        "coach_best_tournament_wins_5",
+    ]
+)
 
 
 def coach_snapshot(
@@ -50,6 +59,9 @@ def coach_snapshot(
     if active.TeamID.duplicated().any():
         raise ValueError("Overlapping active coach intervals")
     current = active.set_index("TeamID").CoachName
+    result["coach_current_stint_days"] = result.TeamID.map(
+        cutoff - active.set_index("TeamID").FirstDayNum + 1
+    ).astype(float)
     result["coach_known"] = result.TeamID.isin(current.index).astype(float)
     history = legal.loc[legal.Season < season]
     for position, team in enumerate(result.TeamID):
@@ -57,16 +69,23 @@ def coach_snapshot(
             continue
         name = current.loc[team]
         previous = history.loc[history.CoachName == name]
+        prior_team = history.loc[(history.Season == season - 1) & (history.TeamID == team)]
+        if not prior_team.empty:
+            predecessor = prior_team.sort_values("LastDayNum").CoachName.iloc[-1]
+            result.loc[result.index[position], "coach_changed_since_prior_season"] = float(
+                predecessor != name
+            )
         tenure = 0
         for year in range(season - 1, int(legal.Season.min()) - 1, -1):
             if not ((previous.Season == year) & (previous.TeamID == team)).any():
                 break
             tenure += 1
-        result.iloc[position, 2:5] = [
-            tenure,
-            previous.TeamID.nunique(),
-            previous.Season.nunique(),
-        ]
+        for column, value in (
+            ("coach_tenure", tenure),
+            ("coach_prior_teams", previous.TeamID.nunique()),
+            ("coach_prior_seasons", previous.Season.nunique()),
+        ):
+            result.loc[result.index[position], column] = float(value)
     for source, games in (("regular", compact), ("tournament", tournament)):
         old = games.loc[games.Season.between(season - 5, season - 1)]
         long = team_games(old)
@@ -78,6 +97,14 @@ def coach_snapshot(
             raise ValueError("Historical game assigned to overlapping coach intervals")
         assigned["margin"] = assigned.points - assigned.allowed
         names = result.TeamID.map(current)
+        if source == "tournament":
+            annual = assigned.groupby(["CoachName", "Season"]).win.sum()
+            result["coach_prior_tournament_appearances_5"] = (
+                names.map(annual.groupby(level=0).size()).fillna(0).where(names.notna())
+            )
+            result["coach_best_tournament_wins_5"] = (
+                names.map(annual.groupby(level=0).max()).fillna(0).where(names.notna())
+            )
         for window in (1, 3, 5):
             frame = assigned.loc[assigned.Season >= season - window]
             stats = frame.groupby("CoachName").agg(

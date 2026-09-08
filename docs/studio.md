@@ -5,10 +5,10 @@
 Employers can open the saved notebook outputs without AWS, data downloads or a kernel.
 Start with **03** for model evaluation and **05** for current research conclusions;
 **00 → 01 → 02** document data, chronological validation and feature engineering.
-**04** contains the owner-controlled generation cell and an earlier final-fit example.
+**04** evaluates the current lineage on the consumed benchmark and contains the default-off generation cell.
 
 The old 120-fold research and August score log are historical records, not results from
-the rebuilt 124-feature matrix. Notebook 05 verifies the 02 → 03 dependency and compares
+the rebuilt 3,106-candidate matrix. Notebook 05 verifies the 02 → 03 dependency and compares
 matching forecast rows. Report execution and model training are different operations.
 
 ## Update your existing Studio checkout
@@ -36,7 +36,9 @@ MODE = "train"
 
 Run all cells in **02**, then do the same in
 `03_model_comparison_and_diagnostics.ipynb`. Notebook 02 builds or verifies/reuses features.
-Notebook 03 fits or restores estimator checkpoints using the exact current matrix.
+Notebook 03 fits or restores estimator checkpoints using the exact current matrix. Then run
+notebook 04 in train mode to evaluate the current retrospective benchmark without exporting
+a submission.
 Changed raw inputs or feature code require 02 before 03; changed model inputs require 03
 before final generation. Existing local `data/kaggle/raw` is preferred over the recorded
 archive, so genuinely new data is not silently replaced with an old snapshot.
@@ -44,7 +46,7 @@ archive, so genuinely new data is not silently replaced with an old snapshot.
 The equivalent terminal operation executes the canonical notebook code:
 
 ```bash
-MARCH_NOTEBOOK_MODE=train .venv/bin/python scripts/notebook.py --execute --publish --timeout 1800
+MARCH_NOTEBOOK_MODE=train .venv/bin/python scripts/notebook.py --execute --publish --timeout 5400
 ```
 
 This does not enable submission generation. Completed estimators are reused only for matching
@@ -74,8 +76,8 @@ Change it to `True` and run that cell when ready. The code verifies the feature/
 handoff, fits or restores the declared final recipe, produces the official template in its
 original order, audits the probabilities and saves **`submissions/submission.csv`**.
 The cell displays its checksum and a download link. The same file is available through
-JupyterLab's file browser. No Kaggle upload is made. Earlier displayed final-fit metrics
-are a recorded example, not a claim that this cell has already generated your new file.
+JupyterLab's file browser. No Kaggle upload is made. The benchmark tables do not imply that
+this cell has generated a new file; generation remains an independent opt-in action.
 
 The final recipe remains the explicitly configured logistic families in
 `configs/inference.json`; a research challenger is not automatically promoted based on a
@@ -100,7 +102,7 @@ Private checkpoint and archive prefixes are under:
 s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/
 ```
 
-Feature and model archive IDs/checksums are recorded in their `reports/*/run.json` files.
+Feature, model and benchmark archive IDs/checksums are recorded in their `reports/*/run.json` files.
 Raw data, fitted estimators and checkpoints stay outside Git. GitHub validation artifacts
 have 90-day retention; private versioned S3 archives and committed notebooks are separate
 copies. Existing historical experiment prefixes are retained, not overwritten by cleanup.

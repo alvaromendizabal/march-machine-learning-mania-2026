@@ -82,6 +82,10 @@ jobs:
           role-duration-seconds: 3600
       - name: Prove fresh-directory model recovery without repeating fits
         run: uv run --locked python -W error -m march_mania.publication.workflow --verify-recovery
+      - name: Evaluate notebook 04 without generating a submission
+        env:
+          MARCH_NOTEBOOK_MODE: train
+        run: uv run --locked python -c "from pathlib import Path; from march_mania.publication.notebooks import NOTEBOOKS, execute_notebooks; execute_notebooks(Path.cwd(), names=(NOTEBOOKS[4],), publish=True, timeout=1800)"
       - name: Publish readable review outputs and verify notebook reuse
         run: |
           uv run --locked python scripts/notebook.py --execute --publish
@@ -89,6 +93,7 @@ jobs:
           test ! -e submissions/submission.csv
           cp -r reports/model_comparison outputs/validation/model_comparison
           cp -r reports/feature_store outputs/validation/feature_store
+          cp -r reports/benchmark outputs/validation/benchmark
           cp outputs/notebook_workflow/events.jsonl outputs/validation/research.jsonl
       - name: Commit only executed notebooks and public research evidence
         if: github.ref == 'refs/heads/feat/notebook-research'

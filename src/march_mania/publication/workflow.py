@@ -50,6 +50,8 @@ def lineage(root: Path) -> pd.DataFrame:
         raise ValueError("Model results are stale for notebook 02; run 02 and 03 in train mode")
     if models["summary"]["feature_count"] != features["summary"]["feature_count"]:
         raise ValueError("Feature schema mismatch")
+    require_recorded_source(root, "feature_store", features)
+    require_recorded_source(root, "model_comparison", models)
     old = json.loads((root / "reports/research/run.json").read_text())
     return pd.DataFrame(
         [
@@ -73,6 +75,33 @@ def lineage(root: Path) -> pd.DataFrame:
             },
         ]
     )
+
+
+def require_recorded_source(root: Path, name: str, record: dict[str, Any]) -> None:
+    """Detect equally stale feature/model reports without requiring private raw data.
+
+    Report readers verify computational sources and configuration. Training also
+    verifies exact data and runtime through require_current_features/run_inputs.
+    """
+    from march_mania.advanced_features import candidate_blocks
+
+    inputs = record["manifest"]["inputs"]
+    changed = [
+        path
+        for path, expected in inputs["source"].items()
+        if path not in {"pyproject.toml", "uv.lock"}
+        and (not safe_path(root, path).is_file() or digest(safe_path(root, path)) != expected)
+    ]
+    config = json.loads((root / "configs" / (name + ".json")).read_text())
+    if config != inputs["config"]:
+        changed.append("configuration")
+    if record["summary"]["feature_count"] != len(candidate_blocks()["full"]):
+        changed.append("feature catalog")
+    if changed:
+        raise ValueError(
+            f"Stale {name} results for current source: {', '.join(changed)}. "
+            "Run 02 then 03 in train mode."
+        )
 
 
 def current_directory(root: Path, name: str) -> Path:
@@ -130,7 +159,8 @@ def publish_report(root: Path, name: str, run: Path, archive: dict[str, Any]) ->
     old = json.loads((folder / "run.json").read_text())
     filenames = set(old["sha256"]) - {"validation.json"}
     filenames.update(
-        {"screening_summary.csv", "selection_stability.csv"} & {p.name for p in run.iterdir()}
+        {"screening_summary.csv", "selection_stability.csv", "source_coverage.csv"}
+        & {p.name for p in run.iterdir()}
     )
     if name == "model_comparison":
         filenames.update(
@@ -168,35 +198,55 @@ def publish_report(root: Path, name: str, run: Path, archive: dict[str, Any]) ->
     atomic_json(folder / "run.json", record)
 
 
-def restore_coach_context(raw: Path, log: EventLog) -> None:
-    """Restore the recorded official file, never overwrite an existing local source."""
-    target = raw / "MTeamCoaches.csv"
+def restore_context_file(raw: Path, log: EventLog, name: str, expected: str, version: str) -> None:
+    """Restore a recorded official context file without replacing an existing source."""
+    target = safe_path(raw, name)
     if target.exists():
         return
     if not (raw / "MRegularSeasonCompactResults.csv").is_file():
-        raise ValueError("Restore the complete official raw directory before coach context")
-    expected = "e0fe04e53ea35f4a120f0368164c2a7035d5a0b1ab427a078a27304bd16003bc"
+        raise ValueError("Restore the complete official raw directory before context")
     mirror = Mirror(
         "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/official-context"
     )
     key = (
-        mirror.prefix
-        + "/c9df24626b8953cde6386be98ce64e273fb2e96057af5b5234d9adc54c939e78/MTeamCoaches.csv"
+        mirror.prefix + "/c9df24626b8953cde6386be98ce64e273fb2e96057af5b5234d9adc54c939e78/" + name
     )
-    temporary = target.with_name(".MTeamCoaches.csv.tmp")
+    temporary = target.with_name("." + name + ".tmp")
     try:
         mirror.client.download_file(
             mirror.bucket,
             key,
             str(temporary),
-            ExtraArgs={"VersionId": "zEiRmU_hLDhAalrC64w6DBQdxATntgqP"},
+            ExtraArgs={"VersionId": version},
         )
         if digest(temporary) != expected:
-            raise ValueError("Official coach context checksum mismatch")
+            raise ValueError("Official context checksum mismatch")
         temporary.replace(target)
-        log.emit("official_coach_context_verified", sha256=expected, source=key)
+        log.emit("official_context_verified", sha256=expected, source=key)
     finally:
         temporary.unlink(missing_ok=True)
+
+
+def restore_official_context(raw: Path, log: EventLog) -> None:
+    records = [
+        (
+            "MTeamCoaches.csv",
+            "e0fe04e53ea35f4a120f0368164c2a7035d5a0b1ab427a078a27304bd16003bc",
+            "zEiRmU_hLDhAalrC64w6DBQdxATntgqP",
+        ),
+        (
+            "MTeamConferences.csv",
+            "a798dcd8ac5ddfbcbe13fe6217054f05ccc8b952b0c662eb3f1973ae6be3f6bc",
+            "MEPbP8ns7HUwWOIbNcycPcwrFsdBZ.J7",
+        ),
+        (
+            "WTeamConferences.csv",
+            "be4d13c60f1c567de7bdb927c8801cc62e4d3ff3297d05ca15276b7c219c1805",
+            "n.b9bHT7_yhuZOTlyv1DPfljWyPTs1xl",
+        ),
+    ]
+    for name, sha256, version in records:
+        restore_context_file(raw, log, name, sha256, version)
 
 
 def feature_stage(root: Path) -> Path:
@@ -210,7 +260,7 @@ def feature_stage(root: Path) -> Path:
             record["archive"], root / "outputs/inference_inputs/features", log, complete_run=True
         )
         raw = restored.parent / "raw"
-    restore_coach_context(raw, log)
+    restore_official_context(raw, log)
     config = json.loads((root / "configs/feature_store.json").read_text())
     *_, inputs = feature_store.prepare_inputs(raw, config)
     key = fingerprint(inputs)
@@ -317,6 +367,20 @@ def model_stage(root: Path) -> Path:
     folder, previous = evidence(root, "model_comparison")
     previous_predictions = pd.read_csv(folder / "predictions.csv")
     config = json.loads((root / "configs/model_comparison.json").read_text())
+    expected = fingerprint(modeling.run_inputs(feature_run, config))
+    target = root / "outputs/model_comparison" / expected
+    if previous["summary"]["fingerprint"] == expected and not (target / "summary.json").exists():
+        log = EventLog(root / "outputs/notebook_workflow/events.jsonl")
+        restored = download_input(
+            previous["archive"], root / "outputs/inference_inputs/models", log, complete_run=True
+        )
+        if json.loads((restored / "summary.json").read_text())["fingerprint"] != expected:
+            raise ValueError("Archived model run does not match current inputs")
+        for source in restored.rglob("*"):
+            if source.is_file() and not source.name.startswith("."):
+                destination = safe_path(target, str(source.relative_to(restored)))
+                verified_write(destination, source.read_bytes(), digest(source))
+        log.emit("model_archive_restored", fingerprint=expected)
     summary = modeling.run(
         feature_run, root / "outputs/model_comparison", config, S3_PREFIX + "/models"
     )
@@ -409,6 +473,65 @@ def generate_submission(root: Path) -> Path:
     names.append("run.json")
     atomic_json(folder / "evidence.json", {"sha256": {n: digest(folder / n) for n in names}})
     return target
+
+
+def benchmark_evidence(root: Path) -> tuple[Path, dict[str, Any]]:
+    """Reject retrospective scores from a different feature/model research lineage."""
+    folder, record = evidence(root, "benchmark")
+    for name, key in (
+        ("feature_store", "feature_fingerprint"),
+        ("model_comparison", "model_fingerprint"),
+    ):
+        _, upstream = evidence(root, name)
+        require_recorded_source(root, name, upstream)
+        if record["manifest"]["inputs"][key] != upstream["summary"]["fingerprint"]:
+            raise ValueError("Benchmark results are stale; execute notebook 04 in train mode")
+    inputs = record["manifest"]["inputs"]
+    if inputs["config"] != json.loads((root / "configs/inference.json").read_text()):
+        raise ValueError("Benchmark configuration changed")
+    if any(digest(safe_path(root, p)) != h for p, h in inputs["source"].items()):
+        raise ValueError("Benchmark source changed")
+    return folder, record
+
+
+def benchmark_stage(root: Path) -> Path:
+    from march_mania.publication.benchmark import run
+
+    features = require_current_features(root)
+    models = current_directory(root, "model_comparison")
+    config = json.loads((root / "configs/model_comparison.json").read_text())
+    if fingerprint(modeling.run_inputs(features, config)) != models.name:
+        raise ValueError("Run notebook 03 on the current features before evaluating")
+    result = run(
+        root,
+        features,
+        models,
+        json.loads((root / "configs/inference.json").read_text()),
+        S3_PREFIX + "/benchmark",
+    )
+    log = EventLog(root / "outputs/notebook_workflow/events.jsonl")
+    archive = archive_run(root, "benchmark", result, features, log)
+    publish_benchmark(root, result, archive)
+    return result
+
+
+def publish_benchmark(root: Path, run: Path, archive: dict[str, Any]) -> None:
+    folder = root / "reports/benchmark"
+    hashes = {}
+    for source in (run / "publication").iterdir():
+        if source.is_file() and source.name not in {"checkpoint.json", "summary.json"}:
+            expected = digest(source)
+            verified_write(folder / source.name, source.read_bytes(), expected)
+            hashes[source.name] = expected
+    atomic_json(
+        folder / "run.json",
+        {
+            "summary": json.loads((run / "summary.json").read_text()),
+            "manifest": json.loads((run / "manifest.json").read_text()),
+            "sha256": hashes,
+            "archive": archive,
+        },
+    )
 
 
 def main() -> int:

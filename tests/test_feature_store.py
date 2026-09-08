@@ -24,12 +24,32 @@ def settings():
     }
 
 
-def test_feature_store_real_workflow_and_resume(raw, tmp_path):
+@pytest.fixture
+def integration_blocks(monkeypatch):
+    """Exercise the full schema and distinct routes without repeating the research grid.
+
+    Catalog tests cover every declared ablation. This integration test fits the
+    complete wide block plus small, non-Massey and ranking routes; the actual
+    research run measures every candidate group across every development season.
+    """
+
+    def selected(use_rankings=True):
+        blocks = candidate_blocks(use_rankings)
+        names = ["seed", "strength", "full", "expanded_non_massey_no_target_coach"]
+        if use_rankings:
+            names.append("rankings")
+        return {name: blocks[name] for name in names}
+
+    monkeypatch.setattr("march_mania.feature_store.candidate_blocks", selected)
+    return selected
+
+
+def test_feature_store_real_workflow_and_resume(raw, tmp_path, integration_blocks):
     config = settings()
     output = tmp_path / "features"
     result = run(raw, output, config)
     assert result["status"] == "completed"
-    assert result["fold_tasks"] == 8 * len(candidate_blocks(False))
+    assert result["fold_tasks"] == 8 * len(integration_blocks(False))
     assert result["elapsed_seconds"] > 0
     assert result["sources"] == {
         "massey": False,
@@ -38,6 +58,8 @@ def test_feature_store_real_workflow_and_resume(raw, tmp_path):
         "roster_minutes": False,
         "mens_coaches": False,
         "womens_coaches": False,
+        "mens_conferences": False,
+        "womens_conferences": False,
     }
     models = {str(p): p.stat().st_mtime_ns for p in output.glob("fold_*/model.joblib")}
     resumed = run(raw, output, config)
@@ -48,7 +70,7 @@ def test_feature_store_real_workflow_and_resume(raw, tmp_path):
     assert (
         forecasts.groupby(["Gender", "Season", "ID"])
         .size()
-        .eq(2 * len(candidate_blocks(False)))
+        .eq(2 * len(integration_blocks(False)))
         .all()
     )
     events = [json.loads(line) for line in (output / "events.jsonl").read_text().splitlines()]
@@ -74,7 +96,7 @@ def test_feature_store_real_workflow_and_resume(raw, tmp_path):
         run(raw, output, config)
 
 
-def test_optional_rankings_and_sample_submission_are_integrated(raw, tmp_path):
+def test_optional_rankings_and_sample_submission_are_integrated(raw, tmp_path, integration_blocks):
     rows = [
         {
             "Season": season,
@@ -98,7 +120,7 @@ def test_optional_rankings_and_sample_submission_are_integrated(raw, tmp_path):
     result = run(raw, root, config, managed=True, require_massey=True)
     output = root / result["fingerprint"]
     assert json.loads((root / "latest.json").read_text())["directory"] == result["fingerprint"]
-    assert result["fold_tasks"] == 2 * (len(candidate_blocks()) + len(candidate_blocks(False)))
+    assert result["fold_tasks"] == 2 * (len(integration_blocks()) + len(integration_blocks(False)))
     assert result["sources"]["massey"] and result["sources"]["sample_submission"]
     features = pd.read_parquet(output / "submission_features.parquet")
     assert features.ID.tolist() == sample.ID.tolist()

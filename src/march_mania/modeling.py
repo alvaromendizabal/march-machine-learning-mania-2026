@@ -68,6 +68,9 @@ def candidates(route: str) -> list[Candidate]:
     if route == "M":
         for index, penalty in enumerate((0.03, 0.3)):
             result.append(Candidate(f"rank_logistic_{index}", "rank_logistic", "rankings", penalty))
+            result.append(
+                Candidate(f"rank_logistic_full_{index}", "rank_logistic", "full", penalty)
+            )
         # An explicit men-only ranking experiment; pooled/common baselines stay unchanged.
         for family in ("rank_xgboost", "rank_lightgbm"):
             for block in ("rankings", "full"):

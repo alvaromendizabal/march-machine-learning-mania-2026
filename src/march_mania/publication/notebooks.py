@@ -58,6 +58,7 @@ def dependency_hashes(root: Path) -> dict[str, str]:
             "data_review",
             "feature_store",
             "model_comparison",
+            "benchmark",
             "research",
             "final_predictions",
         )

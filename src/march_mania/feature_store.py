@@ -27,6 +27,7 @@ from march_mania.encoding import encode_history
 from march_mania.feature_selection import screening_audit
 from march_mania.features import read_official
 from march_mania.matchup_artifacts import write_submission_features
+from march_mania.rankings import publication_panel
 from march_mania.research import finalize_run, fit_fold
 from march_mania.research_report import write_report
 from march_mania.runtime import (
@@ -115,6 +116,7 @@ def feature_registry() -> pd.DataFrame:
             "opponent_profile": "pre-cutoff opponents grouped by current legal strength",
             "trajectory": "pre-cutoff daily rates, slopes and momentum",
             "peer_profile": "same-season pre-cutoff peer ranks and normalization",
+            "conference": "official annual membership and pre-cutoff interconference games",
         }.get(family, "current regular-season compact/detailed results and tournament seeds")
         rows.append(
             {
@@ -134,6 +136,47 @@ def feature_registry() -> pd.DataFrame:
             }
         )
     return pd.DataFrame(rows)
+
+
+def source_coverage(data: dict, rankings: pd.DataFrame | None, cutoff: int) -> pd.DataFrame:
+    """Actual team coverage across every raw season, including years with no rankings."""
+    rows = []
+    for gender, tables in data.items():
+        regular = tables["RegularSeasonCompactResults"]
+        for season, games in regular.loc[regular.DayNum <= cutoff].groupby("Season"):
+            teams = set(games.WTeamID) | set(games.LTeamID)
+            panel = (
+                publication_panel(rankings, int(season), cutoff)
+                if rankings is not None and gender == "M"
+                else pd.DataFrame()
+            )
+            row = {
+                "Gender": gender,
+                "Season": int(season),
+                "regular_teams": len(teams),
+                "ranking_teams": len(teams & set(panel.TeamID)) if not panel.empty else 0,
+                "ranking_systems": int(panel.SystemName.nunique()) if not panel.empty else 0,
+                "latest_ranking_day": int(panel.RankingDayNum.max()) if not panel.empty else None,
+                "cutoff_day": cutoff,
+            }
+            for name, column in (
+                ("TeamCoaches", "coach_teams"),
+                ("TeamConferences", "conference_teams"),
+            ):
+                table = tables.get(name)
+                selected = (
+                    table.loc[table.Season == season] if table is not None else pd.DataFrame()
+                )
+                if name == "TeamCoaches" and not selected.empty:
+                    selected = selected.loc[
+                        (selected.FirstDayNum <= cutoff) & (selected.LastDayNum >= cutoff)
+                    ]
+                row[column] = len(teams & set(selected.TeamID)) if not selected.empty else 0
+            rows.append(row)
+    result = pd.DataFrame(rows)
+    for name in ("ranking", "coach", "conference"):
+        result[name + "_fraction"] = result[name + "_teams"] / result.regular_teams
+    return result
 
 
 def prepare_inputs(raw: Path, config: dict[str, Any]) -> tuple:
@@ -316,10 +359,15 @@ def _run(
             detailed_coverage=("detailed_coverage", "mean"),
             clean_coverage=("clean_coverage", "mean"),
             ranking_teams=("rank_consensus", "count"),
+            coach_teams=("coach_known", "sum"),
+            conference_teams=("conference_known", "sum"),
         )
         .reset_index()
     )
     coverage.to_csv(output / "coverage.csv", index=False)
+    source_coverage(data, rankings, config["feature_cutoff_day"]).to_csv(
+        output / "source_coverage.csv", index=False
+    )
     if require_massey:
         evaluated = coverage.loc[
             (coverage.Gender == "M") & coverage.Season.isin(config["validation_seasons"])
@@ -354,6 +402,8 @@ def _run(
         "roster_minutes": False,
         "mens_coaches": (raw / "MTeamCoaches.csv").is_file(),
         "womens_coaches": (raw / "WTeamCoaches.csv").is_file(),
+        "mens_conferences": (raw / "MTeamConferences.csv").is_file(),
+        "womens_conferences": (raw / "WTeamConferences.csv").is_file(),
     }
     atomic_json(output / "source_availability.json", availability)
     predictions, usage = [], []
@@ -476,6 +526,16 @@ def _run(
         *[("full", "without_" + name) for name in [*FAMILIES, "interactions"]],
     ]
     comparisons.append(("full", "without_massey"))
+    comparisons.extend(
+        [
+            ("full", "baseline_124"),
+            ("expanded_non_massey", "baseline_124"),
+            ("full", "expanded_non_massey"),
+            ("expanded_non_massey", "expanded_non_massey_no_target"),
+            ("expanded_non_massey", "expanded_non_massey_no_coach"),
+            ("expanded_non_massey", "expanded_non_massey_no_target_coach"),
+        ]
+    )
     write_report(forecasts, output, config["seed"], comparisons)
     summary = {
         "status": "completed",

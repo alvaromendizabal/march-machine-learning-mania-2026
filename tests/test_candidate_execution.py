@@ -68,8 +68,10 @@ def test_context_restore_is_checksum_checked_and_does_not_overwrite(raw, monkeyp
         ),
     )
     with pytest.raises(ValueError, match="checksum"):
-        workflow.restore_coach_context(raw, log)
+        workflow.restore_context_file(
+            raw, log, "MTeamCoaches.csv", "verified-sha", "recorded-version"
+        )
     assert not target.exists() and not (raw / ".MTeamCoaches.csv.tmp").exists()
     target.write_bytes(b"existing user source")
-    workflow.restore_coach_context(raw, log)
+    workflow.restore_context_file(raw, log, "MTeamCoaches.csv", "verified-sha", "recorded-version")
     assert target.read_bytes() == b"existing user source"

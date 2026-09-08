@@ -12,18 +12,17 @@ GPU or notebook execution is needed to review the project.**
 |---|---|
 | [00 · Data](notebooks/00_data_audit_and_preparation.ipynb) | Official-file provenance, coverage and basketball data quality |
 | [01 · Validation](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | Prediction cutoff, whole-season splits and pre-tournament snapshots |
-| [02 · Features](notebooks/02_feature_store_and_diagnostics.ipynb) | 3,090-candidate definitions, ablations, uncertainty and feature diagnostics |
+| [02 · Features](notebooks/02_feature_store_and_diagnostics.ipynb) | 3,106-candidate definitions, ablations, uncertainty and feature diagnostics |
 | [03 · Models](notebooks/03_model_comparison_and_diagnostics.ipynb) | Executed nested comparison, calibration, ensembles, errors and interpretation |
-| [04 · Final predictions](notebooks/04_locked_benchmark_and_final_submission.ipynb) | Actual final fits, retrospective benchmark, complete prediction CSV and verified recovery |
+| [04 · Benchmark](notebooks/04_locked_benchmark_and_final_submission.ipynb) | Current retrospective evaluation and tested, optional generation/validation/download |
 
 [05 · Feature research](notebooks/05_feature_research.ipynb) is an optional appendix,
 not another prerequisite. The original notebook filenames remain canonical.
 
 ## Research scope and evidence
 
-The expanded experiment generates **3,090 candidate features**: 124 existing signals,
-2,944 distribution/recency/venue/opponent/trajectory/peer hypotheses, and 22 official coach-history
-signals. At most **128 features are retained per model fit**, using only the applicable temporal
+The expanded experiment generates **3,106 candidate features**: 124 existing signals,
+2,944 distribution/recency/venue/opponent/trajectory/peer hypotheses, 26 official coach-history signals, and 12 annual conference-strength signals. At most **128 features are retained per model fit**, using only the applicable temporal
 training population. There is no validation-selected global feature list.
 
 Notebook 02 records candidate counts, rejection reasons, per-fold retention, stability and paired
@@ -34,8 +33,8 @@ day 132. Every candidate model is retrained against notebook 02's exact feature 
 **Use the completed run records and saved notebook outputs for measured results.**
 The expanded source must not be credited with old 124-feature scores. Notebook 03 recomputes metrics
 from recorded predictions; notebook 05 pairs previous and revised predictions game by game.
-The earlier final release in notebook 04 is a separately identified historical baseline until a
-new final generation is explicitly requested through its opt-in cell.
+Notebook 04 links its current retrospective benchmark to those exact upstream runs. The earlier
+124-feature final release remains separately identified under `reports/final_predictions/`.
 
 The [official competition metric](https://www.kaggle.com/competitions/march-machine-learning-mania-2026)
 is Brier score. Game-weighted Brier and mean-season Brier are reported separately. Development
@@ -81,7 +80,7 @@ uv run --locked python scripts/quality.py
 uv run --locked python scripts/notebook.py --execute --publish
 ```
 
-[Studio and resume instructions](docs/studio.md) cover the **Final predictions** workflow and
+[Studio and resume instructions](docs/studio.md) cover the **Notebook research** workflow and
 `python -m march_mania.publication.inference`. Current feature and model fingerprints must match before final generation. `scripts/portfolio_release.py --help` describes the independent exact-CSV audit;
 it does not invent predictions or upload to Kaggle.
 
