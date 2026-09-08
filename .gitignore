@@ -98,3 +98,4 @@ Thumbs.db
 .tools/
 *.egg-info/
 *.tmp
+.lock

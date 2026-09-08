@@ -41,7 +41,12 @@ def inventory_file(path: Path) -> dict[str, Any]:
         "missing_cells": missing,
         "sha256": digest(path),
         "column_names": ", ".join(columns),
-        "feature_source": path.name in {f"{g}{name}.csv" for g in ("M", "W") for name in FILES}
+        "feature_source": path.name
+        in {
+            f"{g}{name}.csv"
+            for g in ("M", "W")
+            for name in (*FILES, "TeamCoaches", "TeamConferences")
+        }
         or path.name == "MMasseyOrdinals.csv",
     }
 

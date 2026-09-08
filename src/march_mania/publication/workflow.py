@@ -185,7 +185,7 @@ def publish_report(root: Path, name: str, run: Path, archive: dict[str, Any]) ->
         "manifest": json.loads((run / "manifest.json").read_text()),
         "sha256": hashes,
         "archive": archive,
-        "execution_note": "Executed notebook pipeline; manifest records exact training provenance.",
+        "execution_note": "Executed experiment; notebooks verify the recorded training provenance.",
     }
     if name == "feature_store" and "feature_usage.csv" in hashes:
         record["public_report_scope"] = {
@@ -272,11 +272,16 @@ def feature_stage(root: Path) -> Path:
         # Keep the original run ID; this is verified reuse, not a newly computed result.
         key = json.loads((restored / "summary.json").read_text())["fingerprint"]
         target = base / key
-        # The whole archive and every member were verified before reuse, including estimators.
-        for source in restored.rglob("*"):
-            if source.is_file() and not source.name.startswith("."):
-                destination = safe_path(target, str(source.relative_to(restored)))
-                verified_write(destination, source.read_bytes(), digest(source))
+        # Every archive member was verified, including estimators. On a fresh
+        # checkout an atomic move avoids duplicating a multi-GB feature store.
+        if not target.exists():
+            target.parent.mkdir(parents=True, exist_ok=True)
+            restored.replace(target)
+        else:
+            for source in restored.rglob("*"):
+                if source.is_file() and not source.name.startswith("."):
+                    destination = safe_path(target, str(source.relative_to(restored)))
+                    verified_write(destination, source.read_bytes(), digest(source))
         atomic_json(base / "latest.json", {"directory": key, "fingerprint": key})
         log.emit(
             "feature_stage_reused",
@@ -381,6 +386,9 @@ def model_stage(root: Path) -> Path:
                 destination = safe_path(target, str(source.relative_to(restored)))
                 verified_write(destination, source.read_bytes(), digest(source))
         log.emit("model_archive_restored", fingerprint=expected)
+        atomic_json(target.parent / "latest.json", {"fingerprint": expected, "directory": expected})
+        log.emit("model_stage_reused", fingerprint=expected, reason="verified completed archive")
+        return target
     summary = modeling.run(
         feature_run, root / "outputs/model_comparison", config, S3_PREFIX + "/models"
     )
@@ -409,10 +417,21 @@ def verify_model_recovery(root: Path) -> dict[str, Any]:
     if base.exists():
         raise ValueError("Recovery verification requires a fresh destination")
     config = json.loads((root / "configs/model_comparison.json").read_text())
-    summary = modeling.run(feature_run, base, config, S3_PREFIX + "/models")
+    folder, record = evidence(root, "model_comparison")
+    log = EventLog(root / "outputs/notebook_workflow/events.jsonl")
+    downloaded = download_input(record["archive"], base / "input", log, complete_run=True)
+    restored = base / current.name
+    downloaded.replace(restored)
+    before = len((restored / "events.jsonl").read_text().splitlines())
+    checkpoints = len(list(restored.glob("*/checkpoint.json")))
+    # The fresh S3 download verifies every archived task. Replay locally to
+    # avoid thousands of redundant object transfers of those same bytes.
+    summary = modeling.run(feature_run, base, config)
     restored = base / summary["fingerprint"]
     materialize_predictions(restored)
-    events = [json.loads(row) for row in (restored / "events.jsonl").read_text().splitlines()]
+    events = [
+        json.loads(row) for row in (restored / "events.jsonl").read_text().splitlines()[before:]
+    ]
     repeats = sum(row["event"] == "task_started" for row in events)
     if (
         repeats
@@ -424,12 +443,16 @@ def verify_model_recovery(root: Path) -> dict[str, Any]:
         "status": "passed",
         "fingerprint": current.name,
         "repeated_tasks": repeats,
-        "restored_tasks": sum(row["event"] == "task_restored" for row in events),
+        "restored_tasks": checkpoints,
         "reused_tasks": sum(row["event"] == "task_reused" for row in events),
         "identical_predictions": True,
+        "recovery_source": "fresh SHA-256-verified S3 archive download",
+        "archive_sha256": record["archive"]["sha256"],
+        "archive_version_id": record["archive"]["version_id"],
     }
+    if result["reused_tasks"] != checkpoints:
+        raise ValueError("Recovery did not reuse every restored checkpoint")
     atomic_json(current / "research_recovery.json", result)
-    folder, record = evidence(root, "model_comparison")
     verified_write(
         folder / "research_recovery.json",
         (current / "research_recovery.json").read_bytes(),

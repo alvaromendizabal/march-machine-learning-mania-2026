@@ -9,7 +9,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from march_mania.publication import benchmark, inference
+from march_mania.publication import benchmark, inference, workflow
 from march_mania.runtime import EventLog, TaskStore, atomic_json, digest, fingerprint
 
 pytest_plugins = ["test_inference"]
@@ -93,3 +93,39 @@ def test_run_binds_benchmark_to_upstream_matrix_and_preserves_actual_evidence(
     atomic_json(models / "manifest.json", manifest)
     with pytest.raises(ValueError, match="lineage differ"):
         benchmark.run(tmp_path, features, models, settings)
+
+
+@pytest.mark.parametrize(
+    "changed", ["feature_fingerprint", "model_fingerprint", "source", "config"]
+)
+def test_review_rejects_stale_benchmark_results(tmp_path, monkeypatch, changed):
+    source = tmp_path / "benchmark.py"
+    source.write_text("recorded source")
+    atomic_json(tmp_path / "configs/inference.json", {})
+    record = {
+        "manifest": {
+            "inputs": {
+                "feature_fingerprint": "features",
+                "model_fingerprint": "models",
+                "source": {"benchmark.py": digest(source)},
+                "config": {},
+            }
+        }
+    }
+    records = {
+        "benchmark": record,
+        "feature_store": {"summary": {"fingerprint": "features"}},
+        "model_comparison": {"summary": {"fingerprint": "models"}},
+    }
+    # Independent evidence-byte and upstream-source verification have separate tests.
+    monkeypatch.setattr(workflow, "evidence", lambda root, name: (root / name, records[name]))
+    monkeypatch.setattr(workflow, "require_recorded_source", lambda *args: None)
+    workflow.benchmark_evidence(tmp_path)
+    if changed == "source":
+        source.write_text("changed source")
+    elif changed == "config":
+        atomic_json(tmp_path / "configs/inference.json", {"changed": True})
+    else:
+        record["manifest"]["inputs"][changed] = "other run"
+    with pytest.raises(ValueError, match="stale|changed"):
+        workflow.benchmark_evidence(tmp_path)

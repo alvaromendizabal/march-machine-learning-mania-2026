@@ -1,6 +1,10 @@
 {
   "massey": true,
+  "mens_coaches": true,
+  "mens_conferences": true,
   "player_availability": false,
   "roster_minutes": false,
-  "sample_submission": true
+  "sample_submission": true,
+  "womens_coaches": false,
+  "womens_conferences": true
 }

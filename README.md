@@ -30,8 +30,24 @@ family ablations. The explicit no-Massey ablation removes all 23 ranking-derived
 performance and target encodings use strictly earlier seasons; regular-season snapshots stop at
 day 132. Every candidate model is retrained against notebook 02's exact feature fingerprint.
 
-**Use the completed run records and saved notebook outputs for measured results.**
-The expanded source must not be credited with old 124-feature scores. Notebook 03 recomputes metrics
+The completed study ran **1,050 feature ablation fits and 861 model candidate fits**.
+Its central result is mixed: broader features improved some men's pooled models, but
+did not reliably improve both populations or beat compact models.
+
+| Current evidence | Men: mean season Brier | Women: mean season Brier |
+|---|---:|---:|
+| Best observed nested development stream | 0.188396 · no-Massey pooled blend | 0.144823 · separate logistic |
+| Men's ranking alternative | 0.188468 · ranking logistic | Unavailable |
+| Frozen logistic anchors, retrospective 2022–2025 | 0.198288 | 0.146881 |
+
+Lower is better. The earlier 124-feature development minima were 0.188476 and 0.143867:
+the men's best is essentially tied and the women's result worsens. Controlled coach,
+Massey and target-encoding effects have uncertainty intervals that include zero.
+The benchmark also fails to improve the previous frozen anchors. These negative results
+remain visible; adding thousands of candidates is not itself evidence of a better model.
+
+The [completion audit](docs/research_audit.md) reconciles the old and new runs, source
+coverage, measured feature effects and execution gates. Notebook 03 recomputes metrics
 from recorded predictions; notebook 05 pairs previous and revised predictions game by game.
 Notebook 04 links its current retrospective benchmark to those exact upstream runs. The earlier
 124-feature final release remains separately identified under `reports/final_predictions/`.

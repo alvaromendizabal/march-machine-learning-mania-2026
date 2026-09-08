@@ -1,0 +1,116 @@
+{
+  "calibration": "identity",
+  "genders": {
+    "M": {
+      "candidate": {
+        "block": "rankings",
+        "family": "rank_logistic",
+        "name": "rank_logistic_1",
+        "parameter": 0.3
+      },
+      "features": {
+        "seed_free": [
+          "diff_strength",
+          "diff_schedule_strength",
+          "diff_win_rate",
+          "diff_margin",
+          "diff_margin_sd",
+          "diff_rank_consensus",
+          "diff_rank_mean",
+          "diff_rank_disagreement",
+          "diff_rank_iqr",
+          "diff_rank_lower",
+          "diff_rank_upper",
+          "diff_rank_top25",
+          "diff_rank_top50",
+          "diff_rank_systems",
+          "diff_rank_coverage",
+          "diff_rank_age",
+          "diff_rank_max_age",
+          "diff_rank_logit"
+        ],
+        "seeded": [
+          "diff_seed",
+          "diff_strength",
+          "diff_schedule_strength",
+          "diff_win_rate",
+          "diff_margin",
+          "diff_margin_sd",
+          "diff_rank_consensus",
+          "diff_rank_mean",
+          "diff_rank_disagreement",
+          "diff_rank_iqr",
+          "diff_rank_lower",
+          "diff_rank_upper",
+          "diff_rank_top25",
+          "diff_rank_top50",
+          "diff_rank_systems",
+          "diff_rank_coverage",
+          "diff_rank_age",
+          "diff_rank_max_age",
+          "diff_rank_logit"
+        ]
+      },
+      "seed_free_note": "Same regularization; remove every seed-dependent input"
+    },
+    "W": {
+      "candidate": {
+        "block": "conference",
+        "family": "logistic",
+        "name": "logistic_conference_1",
+        "parameter": 0.3
+      },
+      "features": {
+        "seed_free": [
+          "diff_strength",
+          "diff_schedule_strength",
+          "diff_win_rate",
+          "diff_margin",
+          "diff_margin_sd",
+          "diff_conference_known",
+          "diff_conference_teams",
+          "diff_conference_mean_strength",
+          "diff_conference_median_strength",
+          "diff_conference_upper_strength",
+          "diff_conference_strength_sd",
+          "diff_conference_team_percentile",
+          "diff_conference_nonconference_support",
+          "diff_conference_nonconference_win_posterior",
+          "diff_conference_nonconference_margin",
+          "diff_conference_nonconference_opponent_strength",
+          "diff_conference_nonconference_adjusted_margin"
+        ],
+        "seeded": [
+          "diff_seed",
+          "diff_strength",
+          "diff_schedule_strength",
+          "diff_win_rate",
+          "diff_margin",
+          "diff_margin_sd",
+          "diff_conference_known",
+          "diff_conference_teams",
+          "diff_conference_mean_strength",
+          "diff_conference_median_strength",
+          "diff_conference_upper_strength",
+          "diff_conference_strength_sd",
+          "diff_conference_team_percentile",
+          "diff_conference_nonconference_support",
+          "diff_conference_nonconference_win_posterior",
+          "diff_conference_nonconference_margin",
+          "diff_conference_nonconference_opponent_strength",
+          "diff_conference_nonconference_adjusted_margin"
+        ]
+      },
+      "seed_free_note": "Same regularization; remove every seed-dependent input"
+    }
+  },
+  "selection_metric": "mean season Brier",
+  "selection_seasons": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2021
+  ],
+  "selection_status": "retrospective development; not a new holdout"
+}

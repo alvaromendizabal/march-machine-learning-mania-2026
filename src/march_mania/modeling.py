@@ -58,7 +58,22 @@ class Candidate:
 def candidates(route: str) -> list[Candidate]:
     """Bounded search, declared before outcomes are read; common features for pooling."""
     result = [Candidate("seed", "seed", "seed", 0.1)]
-    for block in ("strength", "dynamic", "four_factors", "ball_control", "full"):
+    # Compare every new basketball family individually as well as through the
+    # broad screened bank. Admission is by domain family, not its outer score.
+    for block in (
+        "strength",
+        "dynamic",
+        "four_factors",
+        "ball_control",
+        "full",
+        "distribution",
+        "venue_profile",
+        "opponent_profile",
+        "trajectory",
+        "peer_profile",
+        "coach_history",
+        "conference",
+    ):
         for index, penalty in enumerate((0.03, 0.3)):
             result.append(Candidate(f"logistic_{block}_{index}", "logistic", block, penalty))
     for family in ("hist", "xgboost", "lightgbm"):
@@ -494,13 +509,14 @@ def _run(
                     candidate: Candidate = candidate,
                     route: str = route,
                 ) -> list[Path]:
+                    columns = columns_for(candidate)
                     with threadpool_limits(limits=config["threads"]):
                         model, p = fit_candidate(
                             train, valid, candidate, config["seed"], config["threads"]
                         )
                         reverse = predict_candidate(
                             model,
-                            -valid[columns_for(candidate)].to_numpy(dtype=float),
+                            -valid[columns].to_numpy(dtype=float),
                             config["threads"],
                         )
                     if not np.allclose(p + reverse, 1, atol=1e-7, rtol=0):
@@ -514,10 +530,10 @@ def _run(
                     )
                     rows.to_parquet(target / "predictions.parquet", index=False)
                     joblib.dump(
-                        {"model": model, "features": columns_for(candidate)},
+                        {"model": model, "features": columns},
                         target / "model.joblib",
                     )
-                    audit = screening_audit(model, columns_for(candidate))
+                    audit = screening_audit(model, columns)
                     audit.to_csv(target / "screening.csv", index=False)
                     atomic_json(
                         target / "fold.json",
@@ -526,11 +542,9 @@ def _run(
                             "validation_season": int(valid.Season.min()),
                             "train_games": len(train),
                             "validation_games": len(valid),
-                            "features": columns_for(candidate),
-                            "selected_features": [
-                                columns_for(candidate)[i] for i in model.screen.indices_
-                            ],
-                            "candidate_count": len(columns_for(candidate)),
+                            "features": columns,
+                            "selected_features": [columns[i] for i in model.screen.indices_],
+                            "candidate_count": len(columns),
                             "retained_count": len(model.screen.indices_),
                             "candidate": asdict(candidate),
                             "max_complement_error": float(np.max(np.abs(p + reverse - 1))),

@@ -35,7 +35,7 @@ def integration_blocks(monkeypatch):
 
     def selected(use_rankings=True):
         blocks = candidate_blocks(use_rankings)
-        names = ["seed", "strength", "full", "expanded_non_massey_no_target_coach"]
+        names = ["seed", "strength", "baseline_124", "full", "expanded_non_massey_no_target_coach"]
         if use_rankings:
             names.append("rankings")
         return {name: blocks[name] for name in names}

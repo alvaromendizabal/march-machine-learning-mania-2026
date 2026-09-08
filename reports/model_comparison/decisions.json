@@ -9,11 +9,11 @@
           2015
         ],
         "weights": {
-          "hist": 0.026559072522857902,
-          "lightgbm": 0.08896335766184013,
-          "logistic": 0.6923441832160676,
-          "seed": 0.04991695425781572,
-          "xgboost": 0.14221643234141862
+          "hist": 0.02655921734049713,
+          "lightgbm": 0.0889636366547832,
+          "logistic": 0.6923440143030425,
+          "seed": 0.04991683253306609,
+          "xgboost": 0.14221629916861117
         }
       },
       "hist": {
@@ -67,14 +67,48 @@
         "method": "temperature",
         "temperature": 0.8346517266666565
       },
+      "rank_lightgbm": {
+        "candidate": "rank_lightgbm_rankings_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17421102090247212,
+            "season": 2015,
+            "temperature_brier": 0.18004121330885609
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
       "rank_logistic": {
         "candidate": "rank_logistic_0",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.17600057454929394,
+            "identity_brier": 0.1750872427346373,
             "season": 2015,
-            "temperature_brier": 0.17793515626719988
+            "temperature_brier": 0.1768588029226651
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "rank_xgboost": {
+        "candidate": "rank_xgboost_rankings_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17090750617854533,
+            "season": 2015,
+            "temperature_brier": 0.18483371079730107
           }
         ],
         "history_seasons": [
@@ -106,9 +140,9 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.18400268340566264,
+            "identity_brier": 0.18400268600147357,
             "season": 2015,
-            "temperature_brier": 0.18076898303268965
+            "temperature_brier": 0.1807689866042478
           }
         ],
         "history_seasons": [
@@ -116,7 +150,7 @@
           2015
         ],
         "method": "temperature",
-        "temperature": 0.7051897790940728
+        "temperature": 0.7051898188360198
       }
     },
     "route": "M"
@@ -132,11 +166,11 @@
           2016
         ],
         "weights": {
-          "hist": 0.022764447782620646,
-          "lightgbm": 0.06901756457550032,
-          "logistic": 0.6123752382136584,
-          "seed": 0.14289861650769228,
-          "xgboost": 0.15294413292052836
+          "hist": 0.02276470558146759,
+          "lightgbm": 0.06901773788048626,
+          "logistic": 0.6123750382949293,
+          "seed": 0.14289843955480178,
+          "xgboost": 0.1529440786883151
         }
       },
       "hist": {
@@ -211,20 +245,68 @@
         "method": "identity",
         "temperature": 1.0
       },
+      "rank_lightgbm": {
+        "candidate": "rank_lightgbm_rankings_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17421102090247212,
+            "season": 2015,
+            "temperature_brier": 0.18004121330885609
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20193993712209118,
+            "season": 2016,
+            "temperature_brier": 0.20306583249033114
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
       "rank_logistic": {
         "candidate": "rank_logistic_0",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.17600057454929394,
+            "identity_brier": 0.1750872427346373,
             "season": 2015,
-            "temperature_brier": 0.17793515626719988
+            "temperature_brier": 0.1768588029226651
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.19222384320671862,
+            "identity_brier": 0.19221266825091773,
             "season": 2016,
-            "temperature_brier": 0.19251406305494487
+            "temperature_brier": 0.19255721908084578
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "rank_xgboost": {
+        "candidate": "rank_xgboost_rankings_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17144299680562924,
+            "season": 2015,
+            "temperature_brier": 0.1854255341454463
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19327573083652272,
+            "season": 2016,
+            "temperature_brier": 0.1934585080790621
           }
         ],
         "history_seasons": [
@@ -264,15 +346,15 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.18547201043573677,
+            "identity_brier": 0.1854720121722822,
             "season": 2015,
-            "temperature_brier": 0.1819261992069541
+            "temperature_brier": 0.18192620195542714
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.20143367880876464,
+            "identity_brier": 0.201433684298075,
             "season": 2016,
-            "temperature_brier": 0.20633564872059088
+            "temperature_brier": 0.2063356547144271
           }
         ],
         "history_seasons": [
@@ -298,11 +380,11 @@
           2017
         ],
         "weights": {
-          "hist": 0.02145724614373046,
-          "lightgbm": 0.05516665057103633,
-          "logistic": 0.6170601394901158,
-          "seed": 0.1844437475075105,
-          "xgboost": 0.12187221628760692
+          "hist": 0.02145705352615482,
+          "lightgbm": 0.055167000851868875,
+          "logistic": 0.6170599746160454,
+          "seed": 0.18444386892101233,
+          "xgboost": 0.1218721020849185
         }
       },
       "hist": {
@@ -398,26 +480,88 @@
         "method": "identity",
         "temperature": 1.0
       },
+      "rank_lightgbm": {
+        "candidate": "rank_lightgbm_rankings_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17421102090247212,
+            "season": 2015,
+            "temperature_brier": 0.18004121330885609
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20193993712209118,
+            "season": 2016,
+            "temperature_brier": 0.20306583249033114
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.1775338937259282,
+            "season": 2017,
+            "temperature_brier": 0.1774100848834334
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
       "rank_logistic": {
         "candidate": "rank_logistic_0",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.17600057454929394,
+            "identity_brier": 0.1750872427346373,
             "season": 2015,
-            "temperature_brier": 0.17793515626719988
+            "temperature_brier": 0.1768588029226651
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.19222384320671862,
+            "identity_brier": 0.19221266825091773,
             "season": 2016,
-            "temperature_brier": 0.19251406305494487
+            "temperature_brier": 0.19255721908084578
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.16858500689898734,
+            "identity_brier": 0.16856402058091882,
             "season": 2017,
-            "temperature_brier": 0.16672719939399896
+            "temperature_brier": 0.16660544252751264
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "rank_xgboost": {
+        "candidate": "rank_xgboost_rankings_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17144299680562924,
+            "season": 2015,
+            "temperature_brier": 0.1854255341454463
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19327573083652272,
+            "season": 2016,
+            "temperature_brier": 0.1934585080790621
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17662361716637917,
+            "season": 2017,
+            "temperature_brier": 0.17644343130977272
           }
         ],
         "history_seasons": [
@@ -465,21 +609,21 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.18547201043573677,
+            "identity_brier": 0.1854720121722822,
             "season": 2015,
-            "temperature_brier": 0.1819261992069541
+            "temperature_brier": 0.18192620195542714
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.20143367880876464,
+            "identity_brier": 0.201433684298075,
             "season": 2016,
-            "temperature_brier": 0.20633564872059088
+            "temperature_brier": 0.2063356547144271
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.18762597834810255,
+            "identity_brier": 0.18762597550713905,
             "season": 2017,
-            "temperature_brier": 0.18870999681704975
+            "temperature_brier": 0.18870999303689795
           }
         ],
         "history_seasons": [
@@ -507,11 +651,11 @@
           2018
         ],
         "weights": {
-          "hist": 0.012368532285676654,
-          "lightgbm": 0.11809892749682158,
-          "logistic": 0.5747623426006454,
-          "seed": 0.1563270393176261,
-          "xgboost": 0.13844315829923032
+          "hist": 0.012368440738078086,
+          "lightgbm": 0.11809897299309613,
+          "logistic": 0.5747623745367445,
+          "seed": 0.15632705489462534,
+          "xgboost": 0.13844315683745603
         }
       },
       "hist": {
@@ -628,32 +772,108 @@
         "method": "identity",
         "temperature": 1.0
       },
+      "rank_lightgbm": {
+        "candidate": "rank_lightgbm_rankings_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1771800095700315,
+            "season": 2015,
+            "temperature_brier": 0.18112105264901332
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20062159872087285,
+            "season": 2016,
+            "temperature_brier": 0.20085231061845898
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17812573932564327,
+            "season": 2017,
+            "temperature_brier": 0.17826092054498607
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.20320208995080558,
+            "season": 2018,
+            "temperature_brier": 0.20344413458279764
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
       "rank_logistic": {
         "candidate": "rank_logistic_0",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.17600057454929394,
+            "identity_brier": 0.1750872427346373,
             "season": 2015,
-            "temperature_brier": 0.17793515626719988
+            "temperature_brier": 0.1768588029226651
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.19222384320671862,
+            "identity_brier": 0.19221266825091773,
             "season": 2016,
-            "temperature_brier": 0.19251406305494487
+            "temperature_brier": 0.19255721908084578
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.16858500689898734,
+            "identity_brier": 0.16856402058091882,
             "season": 2017,
-            "temperature_brier": 0.16672719939399896
+            "temperature_brier": 0.16660544252751264
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.20575186090583122,
+            "identity_brier": 0.20612050174622623,
             "season": 2018,
-            "temperature_brier": 0.20999645432988098
+            "temperature_brier": 0.21065040585418238
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "rank_xgboost": {
+        "candidate": "rank_xgboost_rankings_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17144299680562924,
+            "season": 2015,
+            "temperature_brier": 0.1854255341454463
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19327573083652272,
+            "season": 2016,
+            "temperature_brier": 0.1934585080790621
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17662361716637917,
+            "season": 2017,
+            "temperature_brier": 0.17644343130977272
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.20569825275116937,
+            "season": 2018,
+            "temperature_brier": 0.2070409737292055
           }
         ],
         "history_seasons": [
@@ -709,27 +929,27 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.18400268340566264,
+            "identity_brier": 0.18400268600147357,
             "season": 2015,
-            "temperature_brier": 0.18076898303268965
+            "temperature_brier": 0.1807689866042478
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.20304546685307412,
+            "identity_brier": 0.20304546964539322,
             "season": 2016,
-            "temperature_brier": 0.20903882273318705
+            "temperature_brier": 0.20903882355914555
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.18953978583399106,
+            "identity_brier": 0.18953978055447168,
             "season": 2017,
-            "temperature_brier": 0.19081283313410802
+            "temperature_brier": 0.19081282698732407
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.19637414909297002,
+            "identity_brier": 0.1963741509526843,
             "season": 2018,
-            "temperature_brier": 0.19774976209227088
+            "temperature_brier": 0.19774976390022447
           }
         ],
         "history_seasons": [
@@ -759,11 +979,11 @@
           2019
         ],
         "weights": {
-          "hist": 0.04496410905709067,
-          "lightgbm": 0.13441140069937338,
-          "logistic": 0.5454538621658644,
-          "seed": 0.14168591566353095,
-          "xgboost": 0.13348471241414056
+          "hist": 0.04496401728440123,
+          "lightgbm": 0.1344114941914775,
+          "logistic": 0.5454538909789872,
+          "seed": 0.14168584194159392,
+          "xgboost": 0.13348475560354006
         }
       },
       "hist": {
@@ -901,38 +1121,128 @@
         "method": "identity",
         "temperature": 1.0
       },
+      "rank_lightgbm": {
+        "candidate": "rank_lightgbm_rankings_3",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.1771800095700315,
+            "season": 2015,
+            "temperature_brier": 0.18112105264901332
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.20062159872087285,
+            "season": 2016,
+            "temperature_brier": 0.20085231061845898
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17812573932564327,
+            "season": 2017,
+            "temperature_brier": 0.17826092054498607
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.20320208995080558,
+            "season": 2018,
+            "temperature_brier": 0.20344413458279764
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.1558772067636117,
+            "season": 2019,
+            "temperature_brier": 0.1568796995546825
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
       "rank_logistic": {
         "candidate": "rank_logistic_0",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.17600057454929394,
+            "identity_brier": 0.1750872427346373,
             "season": 2015,
-            "temperature_brier": 0.17793515626719988
+            "temperature_brier": 0.1768588029226651
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.19222384320671862,
+            "identity_brier": 0.19221266825091773,
             "season": 2016,
-            "temperature_brier": 0.19251406305494487
+            "temperature_brier": 0.19255721908084578
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.16858500689898734,
+            "identity_brier": 0.16856402058091882,
             "season": 2017,
-            "temperature_brier": 0.16672719939399896
+            "temperature_brier": 0.16660544252751264
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.20575186090583122,
+            "identity_brier": 0.20612050174622623,
             "season": 2018,
-            "temperature_brier": 0.20999645432988098
+            "temperature_brier": 0.21065040585418238
           },
           {
             "fit_last_season": 2018,
-            "identity_brier": 0.16489357012420033,
+            "identity_brier": 0.1651692286194826,
             "season": 2019,
-            "temperature_brier": 0.1639340775618839
+            "temperature_brier": 0.1642277125392941
+          }
+        ],
+        "history_seasons": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019
+        ],
+        "method": "identity",
+        "temperature": 1.0
+      },
+      "rank_xgboost": {
+        "candidate": "rank_xgboost_rankings_2",
+        "crossfit": [
+          {
+            "fit_last_season": 2014,
+            "identity_brier": 0.17144299680562924,
+            "season": 2015,
+            "temperature_brier": 0.1854255341454463
+          },
+          {
+            "fit_last_season": 2015,
+            "identity_brier": 0.19327573083652272,
+            "season": 2016,
+            "temperature_brier": 0.1934585080790621
+          },
+          {
+            "fit_last_season": 2016,
+            "identity_brier": 0.17662361716637917,
+            "season": 2017,
+            "temperature_brier": 0.17644343130977272
+          },
+          {
+            "fit_last_season": 2017,
+            "identity_brier": 0.20569825275116937,
+            "season": 2018,
+            "temperature_brier": 0.2070409737292055
+          },
+          {
+            "fit_last_season": 2018,
+            "identity_brier": 0.15871126899874843,
+            "season": 2019,
+            "temperature_brier": 0.15913300166178196
           }
         ],
         "history_seasons": [
@@ -996,33 +1306,33 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.18400268340566264,
+            "identity_brier": 0.18400268600147357,
             "season": 2015,
-            "temperature_brier": 0.18076898303268965
+            "temperature_brier": 0.1807689866042478
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.20304546685307412,
+            "identity_brier": 0.20304546964539322,
             "season": 2016,
-            "temperature_brier": 0.20903882273318705
+            "temperature_brier": 0.20903882355914555
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.18953978583399106,
+            "identity_brier": 0.18953978055447168,
             "season": 2017,
-            "temperature_brier": 0.19081283313410802
+            "temperature_brier": 0.19081282698732407
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.19637414909297002,
+            "identity_brier": 0.1963741509526843,
             "season": 2018,
-            "temperature_brier": 0.19774976209227088
+            "temperature_brier": 0.19774976390022447
           },
           {
             "fit_last_season": 2018,
-            "identity_brier": 0.1719578451290727,
+            "identity_brier": 0.17195784241019174,
             "season": 2019,
-            "temperature_brier": 0.17185785153910246
+            "temperature_brier": 0.171857848689993
           }
         ],
         "history_seasons": [
@@ -1049,11 +1359,11 @@
           2015
         ],
         "weights": {
-          "hist": 0.15275107174167746,
-          "lightgbm": 0.11072116674020888,
-          "logistic": 0.3975374965012752,
-          "seed": 0.0,
-          "xgboost": 0.33899026501683854
+          "hist": 0.18720493379517095,
+          "lightgbm": 0.19263800791831975,
+          "logistic": 0.43374747054945545,
+          "seed": 3.206483881305531e-19,
+          "xgboost": 0.18640958773705388
         }
       },
       "hist": {
@@ -1078,9 +1388,9 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.13212050536411427,
+            "identity_brier": 0.12405722982338772,
             "season": 2015,
-            "temperature_brier": 0.13163013750045718
+            "temperature_brier": 0.12385021948001591
           }
         ],
         "history_seasons": [
@@ -1088,7 +1398,7 @@
           2015
         ],
         "method": "temperature",
-        "temperature": 0.7902988059800747
+        "temperature": 0.8664988673827493
       },
       "logistic": {
         "candidate": "logistic_dynamic_1",
@@ -1129,9 +1439,9 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.12330418015592855,
+            "identity_brier": 0.12498379230622395,
             "season": 2015,
-            "temperature_brier": 0.11928220150307897
+            "temperature_brier": 0.12282887460601077
           }
         ],
         "history_seasons": [
@@ -1139,7 +1449,7 @@
           2015
         ],
         "method": "temperature",
-        "temperature": 0.6670986796750501
+        "temperature": 0.7968844075543494
       }
     },
     "route": "W"
@@ -1155,11 +1465,11 @@
           2016
         ],
         "weights": {
-          "hist": 0.23054959049865725,
-          "lightgbm": 0.1922304618309251,
-          "logistic": 0.4201395378333192,
-          "seed": 9.211917803106914e-19,
-          "xgboost": 0.15708040983709837
+          "hist": 0.23054967836625428,
+          "lightgbm": 0.19223035835173105,
+          "logistic": 0.42013927491201525,
+          "seed": 1.602975277292624e-18,
+          "xgboost": 0.15708068836999942
         }
       },
       "hist": {
@@ -1263,15 +1573,15 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.1255422412899646,
+            "identity_brier": 0.12554224190616659,
             "season": 2015,
-            "temperature_brier": 0.12007638358574411
+            "temperature_brier": 0.12007638517718874
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.14872497567380477,
+            "identity_brier": 0.1487249754648159,
             "season": 2016,
-            "temperature_brier": 0.15438328694605172
+            "temperature_brier": 0.15438328437472895
           }
         ],
         "history_seasons": [
@@ -1297,11 +1607,11 @@
           2017
         ],
         "weights": {
-          "hist": 0.23024888651614472,
-          "lightgbm": 0.10112133510859098,
-          "logistic": 0.47123581672386633,
-          "seed": 0.06084665238891304,
-          "xgboost": 0.13654730926248482
+          "hist": 0.2302488570832537,
+          "lightgbm": 0.10112126778015115,
+          "logistic": 0.4712358313431482,
+          "seed": 0.06084665010032294,
+          "xgboost": 0.13654739369312396
         }
       },
       "hist": {
@@ -1433,21 +1743,21 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.12310910917325674,
+            "identity_brier": 0.12310910867200839,
             "season": 2015,
-            "temperature_brier": 0.11719795170503439
+            "temperature_brier": 0.11719795110346752
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.15461529540429694,
+            "identity_brier": 0.1546152920241513,
             "season": 2016,
-            "temperature_brier": 0.16319475968380034
+            "temperature_brier": 0.163194753817166
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.13810808437613706,
+            "identity_brier": 0.13810808712577707,
             "season": 2017,
-            "temperature_brier": 0.13757985062180453
+            "temperature_brier": 0.13757985293396222
           }
         ],
         "history_seasons": [
@@ -1475,11 +1785,11 @@
           2018
         ],
         "weights": {
-          "hist": 0.15680594549350432,
-          "lightgbm": 0.07952737774545869,
-          "logistic": 0.4404074418379607,
-          "seed": 0.12378057396734268,
-          "xgboost": 0.1994786609557334
+          "hist": 0.18162347988940733,
+          "lightgbm": 0.09909858422094896,
+          "logistic": 0.4882143098507987,
+          "seed": 0.12641866698977447,
+          "xgboost": 0.10464495904907042
         }
       },
       "hist": {
@@ -1559,31 +1869,31 @@
         "temperature": 1.0
       },
       "logistic": {
-        "candidate": "logistic_dynamic_1",
+        "candidate": "logistic_conference_1",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.11579177061129681,
+            "identity_brier": 0.11801035077581469,
             "season": 2015,
-            "temperature_brier": 0.11635565344947636
+            "temperature_brier": 0.12891685362046984
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.1525268421747092,
+            "identity_brier": 0.15233681632743967,
             "season": 2016,
-            "temperature_brier": 0.16036244250251058
+            "temperature_brier": 0.15354448128826895
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.12975938940037735,
+            "identity_brier": 0.12573649640721138,
             "season": 2017,
-            "temperature_brier": 0.1296805393882925
+            "temperature_brier": 0.12644057591420846
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.1571931356375187,
+            "identity_brier": 0.1469496558468701,
             "season": 2018,
-            "temperature_brier": 0.1561687378928063
+            "temperature_brier": 0.14563842590237389
           }
         ],
         "history_seasons": [
@@ -1635,31 +1945,31 @@
         "temperature": 1.0
       },
       "xgboost": {
-        "candidate": "xgboost_full_2",
+        "candidate": "xgboost_strength_2",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.12330418015592855,
+            "identity_brier": 0.12310910867200839,
             "season": 2015,
-            "temperature_brier": 0.11928220150307897
+            "temperature_brier": 0.11719795110346752
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.1877688010583678,
+            "identity_brier": 0.1546152920241513,
             "season": 2016,
-            "temperature_brier": 0.20155464897392913
+            "temperature_brier": 0.163194753817166
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.1303357123165959,
+            "identity_brier": 0.13810808712577707,
             "season": 2017,
-            "temperature_brier": 0.13041065728502202
+            "temperature_brier": 0.13757985293396222
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.16264651827451437,
+            "identity_brier": 0.16953900224904853,
             "season": 2018,
-            "temperature_brier": 0.1646821330918193
+            "temperature_brier": 0.1759581700404413
           }
         ],
         "history_seasons": [
@@ -1689,11 +1999,11 @@
           2019
         ],
         "weights": {
-          "hist": 0.19359427411923705,
-          "lightgbm": 0.11655650476443086,
-          "logistic": 0.4459599659689308,
-          "seed": 0.1487373154296519,
-          "xgboost": 0.09515193971774938
+          "hist": 0.1935942515834731,
+          "lightgbm": 0.11655652889645662,
+          "logistic": 0.44595985207366834,
+          "seed": 0.1487374306138121,
+          "xgboost": 0.0951519368325899
         }
       },
       "hist": {
@@ -1881,33 +2191,33 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.12310910917325674,
+            "identity_brier": 0.12310910867200839,
             "season": 2015,
-            "temperature_brier": 0.11719795170503439
+            "temperature_brier": 0.11719795110346752
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.15461529540429694,
+            "identity_brier": 0.1546152920241513,
             "season": 2016,
-            "temperature_brier": 0.16319475968380034
+            "temperature_brier": 0.163194753817166
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.13810808437613706,
+            "identity_brier": 0.13810808712577707,
             "season": 2017,
-            "temperature_brier": 0.13757985062180453
+            "temperature_brier": 0.13757985293396222
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.1695390047180393,
+            "identity_brier": 0.16953900224904853,
             "season": 2018,
-            "temperature_brier": 0.17595817109775555
+            "temperature_brier": 0.1759581700404413
           },
           {
             "fit_last_season": 2018,
-            "identity_brier": 0.13073085233157739,
+            "identity_brier": 0.13073085253271485,
             "season": 2019,
-            "temperature_brier": 0.1302975823129063
+            "temperature_brier": 0.1302975826751462
           }
         ],
         "history_seasons": [
@@ -1934,11 +2244,11 @@
           2015
         ],
         "weights": {
-          "hist": 0.05261056421518931,
-          "lightgbm": 0.07723871673702652,
-          "logistic": 0.5836906710487245,
-          "seed": 0.13442501881232918,
-          "xgboost": 0.15203502918673042
+          "hist": 0.052610555983232866,
+          "lightgbm": 0.07723875029230516,
+          "logistic": 0.5836905697814866,
+          "seed": 0.13442511882757596,
+          "xgboost": 0.15203500511539947
         }
       },
       "hist": {
@@ -2014,9 +2324,9 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.170686559297118,
+            "identity_brier": 0.17068655702544683,
             "season": 2015,
-            "temperature_brier": 0.1767093500827171
+            "temperature_brier": 0.17670934915076375
           }
         ],
         "history_seasons": [
@@ -2040,27 +2350,27 @@
           2016
         ],
         "weights": {
-          "hist": 0.004755959789125461,
-          "lightgbm": 0.2651346458530073,
-          "logistic": 0.4885348349054817,
-          "seed": 0.15414767025695408,
-          "xgboost": 0.08742688919543144
+          "hist": 0.11629676956163292,
+          "lightgbm": 0.19148987882959506,
+          "logistic": 0.4214399512429981,
+          "seed": 0.14518462369391744,
+          "xgboost": 0.12558877667185653
         }
       },
       "hist": {
-        "candidate": "hist_strength_2",
+        "candidate": "hist_full_2",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.17681344957493342,
+            "identity_brier": 0.16543280634868734,
             "season": 2015,
-            "temperature_brier": 0.1800129427747108
+            "temperature_brier": 0.17934141363324088
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.20578617676016545,
+            "identity_brier": 0.18997824031315144,
             "season": 2016,
-            "temperature_brier": 0.20703851979835708
+            "temperature_brier": 0.1894795812179003
           }
         ],
         "history_seasons": [
@@ -2076,15 +2386,15 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.159735560638589,
+            "identity_brier": 0.16465258656336426,
             "season": 2015,
-            "temperature_brier": 0.18232648782697952
+            "temperature_brier": 0.17627592088044164
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.18505538537020105,
+            "identity_brier": 0.18986671707840536,
             "season": 2016,
-            "temperature_brier": 0.18627312408499547
+            "temperature_brier": 0.1890068450384536
           }
         ],
         "history_seasons": [
@@ -2144,19 +2454,19 @@
         "temperature": 1.0
       },
       "xgboost": {
-        "candidate": "xgboost_strength_2",
+        "candidate": "xgboost_full_2",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.170686559297118,
+            "identity_brier": 0.1653921468922811,
             "season": 2015,
-            "temperature_brier": 0.1767093500827171
+            "temperature_brier": 0.17849459507599755
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.20417807780066372,
+            "identity_brier": 0.1881829246375454,
             "season": 2016,
-            "temperature_brier": 0.2047310815056497
+            "temperature_brier": 0.18797018623595946
           }
         ],
         "history_seasons": [
@@ -2182,33 +2492,33 @@
           2017
         ],
         "weights": {
-          "hist": 0.11523288619590456,
-          "lightgbm": 0.10162069228618556,
-          "logistic": 0.5073738276152256,
-          "seed": 0.09472089347402794,
-          "xgboost": 0.18105170042865637
+          "hist": 0.12663657924643637,
+          "lightgbm": 0.1959046566876338,
+          "logistic": 0.41784405405475605,
+          "seed": 0.12418376450581334,
+          "xgboost": 0.13543094550536042
         }
       },
       "hist": {
-        "candidate": "hist_strength_2",
+        "candidate": "hist_full_2",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.17681344957493342,
+            "identity_brier": 0.16543280634868734,
             "season": 2015,
-            "temperature_brier": 0.1800129427747108
+            "temperature_brier": 0.17934141363324088
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.20578617676016545,
+            "identity_brier": 0.18997824031315144,
             "season": 2016,
-            "temperature_brier": 0.20703851979835708
+            "temperature_brier": 0.1894795812179003
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.16794739441958662,
+            "identity_brier": 0.1730544022781388,
             "season": 2017,
-            "temperature_brier": 0.16794819668388794
+            "temperature_brier": 0.17363042806268403
           }
         ],
         "history_seasons": [
@@ -2221,25 +2531,25 @@
         "temperature": 1.0
       },
       "lightgbm": {
-        "candidate": "lightgbm_strength_2",
+        "candidate": "lightgbm_full_2",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.17647028508083173,
+            "identity_brier": 0.16465258656336426,
             "season": 2015,
-            "temperature_brier": 0.17949134110584736
+            "temperature_brier": 0.17627592088044164
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.2069861466860027,
+            "identity_brier": 0.18986671707840536,
             "season": 2016,
-            "temperature_brier": 0.208058687102528
+            "temperature_brier": 0.1890068450384536
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.16903087495881736,
+            "identity_brier": 0.17171841719655492,
             "season": 2017,
-            "temperature_brier": 0.1690281111489218
+            "temperature_brier": 0.1724089688735186
           }
         ],
         "history_seasons": [
@@ -2314,25 +2624,25 @@
         "temperature": 1.0
       },
       "xgboost": {
-        "candidate": "xgboost_strength_2",
+        "candidate": "xgboost_full_2",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.170686559297118,
+            "identity_brier": 0.1653921468922811,
             "season": 2015,
-            "temperature_brier": 0.1767093500827171
+            "temperature_brier": 0.17849459507599755
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.20417807780066372,
+            "identity_brier": 0.1881829246375454,
             "season": 2016,
-            "temperature_brier": 0.2047310815056497
+            "temperature_brier": 0.18797018623595946
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.16838576219435022,
+            "identity_brier": 0.17281913811184352,
             "season": 2017,
-            "temperature_brier": 0.1684100843161049
+            "temperature_brier": 0.17299300695033196
           }
         ],
         "history_seasons": [
@@ -2360,39 +2670,39 @@
           2018
         ],
         "weights": {
-          "hist": 0.09024293837081565,
-          "lightgbm": 0.16567945353064245,
-          "logistic": 0.40908431172489995,
-          "seed": 0.11108499632747727,
-          "xgboost": 0.22390830004616455
+          "hist": 0.13977446555748027,
+          "lightgbm": 0.20981623801047067,
+          "logistic": 0.3792203372882817,
+          "seed": 0.10357865939022859,
+          "xgboost": 0.16761029975353878
         }
       },
       "hist": {
-        "candidate": "hist_strength_2",
+        "candidate": "hist_full_2",
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.17681344957493342,
+            "identity_brier": 0.16543280634868734,
             "season": 2015,
-            "temperature_brier": 0.1800129427747108
+            "temperature_brier": 0.17934141363324088
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.20578617676016545,
+            "identity_brier": 0.18997824031315144,
             "season": 2016,
-            "temperature_brier": 0.20703851979835708
+            "temperature_brier": 0.1894795812179003
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.16794739441958662,
+            "identity_brier": 0.1730544022781388,
             "season": 2017,
-            "temperature_brier": 0.16794819668388794
+            "temperature_brier": 0.17363042806268403
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.20565019495672537,
+            "identity_brier": 0.19165386304274454,
             "season": 2018,
-            "temperature_brier": 0.20595365251621342
+            "temperature_brier": 0.1908152384943794
           }
         ],
         "history_seasons": [
@@ -2410,27 +2720,27 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.159735560638589,
+            "identity_brier": 0.16465258656336426,
             "season": 2015,
-            "temperature_brier": 0.18232648782697952
+            "temperature_brier": 0.17627592088044164
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.18505538537020105,
+            "identity_brier": 0.18986671707840536,
             "season": 2016,
-            "temperature_brier": 0.18627312408499547
+            "temperature_brier": 0.1890068450384536
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.17615522734035677,
+            "identity_brier": 0.17171841719655492,
             "season": 2017,
-            "temperature_brier": 0.17560331152287573
+            "temperature_brier": 0.1724089688735186
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.19637549117916395,
+            "identity_brier": 0.19043274625332554,
             "season": 2018,
-            "temperature_brier": 0.1946798927478923
+            "temperature_brier": 0.18981635529631172
           }
         ],
         "history_seasons": [
@@ -2524,27 +2834,27 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.16175783533186142,
+            "identity_brier": 0.1653921468922811,
             "season": 2015,
-            "temperature_brier": 0.18414252993272134
+            "temperature_brier": 0.17849459507599755
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.17977034463975708,
+            "identity_brier": 0.1881829246375454,
             "season": 2016,
-            "temperature_brier": 0.18211818058588958
+            "temperature_brier": 0.18797018623595946
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.17266511017364322,
+            "identity_brier": 0.17281913811184352,
             "season": 2017,
-            "temperature_brier": 0.17262365291626247
+            "temperature_brier": 0.17299300695033196
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.19588352680387125,
+            "identity_brier": 0.1903617243987811,
             "season": 2018,
-            "temperature_brier": 0.19465830791762273
+            "temperature_brier": 0.18970975479392221
           }
         ],
         "history_seasons": [
@@ -2574,11 +2884,11 @@
           2019
         ],
         "weights": {
-          "hist": 0.1257986229865515,
-          "lightgbm": 0.15690307842433995,
-          "logistic": 0.40595019406732946,
-          "seed": 0.1236669974594665,
-          "xgboost": 0.1876811070623126
+          "hist": 0.1579230646828644,
+          "lightgbm": 0.21464286489986492,
+          "logistic": 0.3672682336520898,
+          "seed": 0.09760921692479003,
+          "xgboost": 0.16255661984039085
         }
       },
       "hist": {
@@ -2586,33 +2896,33 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.1608136623119682,
+            "identity_brier": 0.16543280634868734,
             "season": 2015,
-            "temperature_brier": 0.18259049203904934
+            "temperature_brier": 0.17934141363324088
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.1852126518929534,
+            "identity_brier": 0.18997824031315144,
             "season": 2016,
-            "temperature_brier": 0.1868332865100143
+            "temperature_brier": 0.1894795812179003
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.17585477408096567,
+            "identity_brier": 0.1730544022781388,
             "season": 2017,
-            "temperature_brier": 0.17528527683828307
+            "temperature_brier": 0.17363042806268403
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.19611809402161814,
+            "identity_brier": 0.19165386304274454,
             "season": 2018,
-            "temperature_brier": 0.1942989469775972
+            "temperature_brier": 0.1908152384943794
           },
           {
             "fit_last_season": 2018,
-            "identity_brier": 0.1638715978504624,
+            "identity_brier": 0.1650499510308894,
             "season": 2019,
-            "temperature_brier": 0.16594369446094548
+            "temperature_brier": 0.16584357597818614
           }
         ],
         "history_seasons": [
@@ -2631,33 +2941,33 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.159735560638589,
+            "identity_brier": 0.16465258656336426,
             "season": 2015,
-            "temperature_brier": 0.18232648782697952
+            "temperature_brier": 0.17627592088044164
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.18505538537020105,
+            "identity_brier": 0.18986671707840536,
             "season": 2016,
-            "temperature_brier": 0.18627312408499547
+            "temperature_brier": 0.1890068450384536
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.17615522734035677,
+            "identity_brier": 0.17171841719655492,
             "season": 2017,
-            "temperature_brier": 0.17560331152287573
+            "temperature_brier": 0.1724089688735186
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.19637549117916395,
+            "identity_brier": 0.19043274625332554,
             "season": 2018,
-            "temperature_brier": 0.1946798927478923
+            "temperature_brier": 0.18981635529631172
           },
           {
             "fit_last_season": 2018,
-            "identity_brier": 0.16368893020050523,
+            "identity_brier": 0.16563393450976815,
             "season": 2019,
-            "temperature_brier": 0.16519548573041815
+            "temperature_brier": 0.16614612811906126
           }
         ],
         "history_seasons": [
@@ -2766,33 +3076,33 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.16175783533186142,
+            "identity_brier": 0.1653921468922811,
             "season": 2015,
-            "temperature_brier": 0.18414252993272134
+            "temperature_brier": 0.17849459507599755
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.17977034463975708,
+            "identity_brier": 0.1881829246375454,
             "season": 2016,
-            "temperature_brier": 0.18211818058588958
+            "temperature_brier": 0.18797018623595946
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.17266511017364322,
+            "identity_brier": 0.17281913811184352,
             "season": 2017,
-            "temperature_brier": 0.17262365291626247
+            "temperature_brier": 0.17299300695033196
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.19588352680387125,
+            "identity_brier": 0.1903617243987811,
             "season": 2018,
-            "temperature_brier": 0.19465830791762273
+            "temperature_brier": 0.18970975479392221
           },
           {
             "fit_last_season": 2018,
-            "identity_brier": 0.1661665837764584,
+            "identity_brier": 0.16771473405499618,
             "season": 2019,
-            "temperature_brier": 0.16739071287373875
+            "temperature_brier": 0.1684560487569671
           }
         ],
         "history_seasons": [
@@ -2819,11 +3129,11 @@
           2015
         ],
         "weights": {
-          "hist": 0.20873308534034007,
-          "lightgbm": 0.2624977309924849,
-          "logistic": 0.5030695239524013,
-          "seed": 1.6702239023409544e-17,
-          "xgboost": 0.02569965971477363
+          "hist": 0.2087330738028967,
+          "lightgbm": 0.2624980754202071,
+          "logistic": 0.5030695479004181,
+          "seed": 2.776486179075766e-17,
+          "xgboost": 0.025699302876478054
         }
       },
       "hist": {
@@ -2899,9 +3209,9 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.12065573852589927,
+            "identity_brier": 0.12065573953579377,
             "season": 2015,
-            "temperature_brier": 0.11329507386612765
+            "temperature_brier": 0.11329507672449843
           }
         ],
         "history_seasons": [
@@ -2909,7 +3219,7 @@
           2015
         ],
         "method": "temperature",
-        "temperature": 0.6432690820146301
+        "temperature": 0.6432691206704583
       }
     },
     "route": "pooled_common"
@@ -2925,11 +3235,11 @@
           2016
         ],
         "weights": {
-          "hist": 0.20187231555970545,
-          "lightgbm": 0.24022898404304413,
-          "logistic": 0.48431178185673174,
-          "seed": 0.0,
-          "xgboost": 0.07358691854051876
+          "hist": 0.20187199293961322,
+          "lightgbm": 0.24022887093041528,
+          "logistic": 0.484311933885309,
+          "seed": 1.0386588794554095e-18,
+          "xgboost": 0.07358720224466254
         }
       },
       "hist": {
@@ -3033,15 +3343,15 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.12065573852589927,
+            "identity_brier": 0.12065573953579377,
             "season": 2015,
-            "temperature_brier": 0.11329507386612765
+            "temperature_brier": 0.11329507672449843
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.15690330110504297,
+            "identity_brier": 0.15690330119676688,
             "season": 2016,
-            "temperature_brier": 0.16754472321662645
+            "temperature_brier": 0.1675447203362066
           }
         ],
         "history_seasons": [
@@ -3067,11 +3377,11 @@
           2017
         ],
         "weights": {
-          "hist": 0.20094418308402875,
-          "lightgbm": 0.2197976409895856,
-          "logistic": 0.5050829540881168,
-          "seed": 0.009282609297059704,
-          "xgboost": 0.06489261254120904
+          "hist": 0.20094432123835973,
+          "lightgbm": 0.21979753247264489,
+          "logistic": 0.505082877893112,
+          "seed": 0.00928272221188924,
+          "xgboost": 0.06489254618399419
         }
       },
       "hist": {
@@ -3203,21 +3513,21 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.12311449546784972,
+            "identity_brier": 0.12311449574663073,
             "season": 2015,
-            "temperature_brier": 0.11391254910616852
+            "temperature_brier": 0.11391254971384916
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.15707954453676198,
+            "identity_brier": 0.15707954594483703,
             "season": 2016,
-            "temperature_brier": 0.16946530854689099
+            "temperature_brier": 0.16946530929115705
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.13365954522447032,
+            "identity_brier": 0.1336595508223297,
             "season": 2017,
-            "temperature_brier": 0.13227065431052992
+            "temperature_brier": 0.13227066093959416
           }
         ],
         "history_seasons": [
@@ -3245,11 +3555,11 @@
           2018
         ],
         "weights": {
-          "hist": 0.13771482527396076,
-          "lightgbm": 0.14276813418632187,
-          "logistic": 0.5288681531242766,
-          "seed": 0.09255818427813886,
-          "xgboost": 0.09809070313730196
+          "hist": 0.13771484864888894,
+          "lightgbm": 0.1427681994002106,
+          "logistic": 0.5288682592010904,
+          "seed": 0.09255825860996543,
+          "xgboost": 0.09809043413984461
         }
       },
       "hist": {
@@ -3409,27 +3719,27 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.12065573852589927,
+            "identity_brier": 0.12065573953579377,
             "season": 2015,
-            "temperature_brier": 0.11329507386612765
+            "temperature_brier": 0.11329507672449843
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.15690330110504297,
+            "identity_brier": 0.15690330119676688,
             "season": 2016,
-            "temperature_brier": 0.16754472321662645
+            "temperature_brier": 0.1675447203362066
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.13676542794325783,
+            "identity_brier": 0.1367654260969784,
             "season": 2017,
-            "temperature_brier": 0.13601949215040127
+            "temperature_brier": 0.1360194903151141
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.1616924013093599,
+            "identity_brier": 0.16169239742205613,
             "season": 2018,
-            "temperature_brier": 0.16711440587121187
+            "temperature_brier": 0.1671144012827378
           }
         ],
         "history_seasons": [
@@ -3459,11 +3769,11 @@
           2019
         ],
         "weights": {
-          "hist": 0.15749776556641965,
-          "lightgbm": 0.15324237838941404,
-          "logistic": 0.48029925538553564,
-          "seed": 0.11871682513324525,
-          "xgboost": 0.09024377552538541
+          "hist": 0.157497877536635,
+          "lightgbm": 0.15324225914710193,
+          "logistic": 0.48029916892029706,
+          "seed": 0.11871680055539825,
+          "xgboost": 0.09024389384056775
         }
       },
       "hist": {
@@ -3651,33 +3961,33 @@
         "crossfit": [
           {
             "fit_last_season": 2014,
-            "identity_brier": 0.12311449546784972,
+            "identity_brier": 0.12311449574663073,
             "season": 2015,
-            "temperature_brier": 0.11391254910616852
+            "temperature_brier": 0.11391254971384916
           },
           {
             "fit_last_season": 2015,
-            "identity_brier": 0.15707954453676198,
+            "identity_brier": 0.15707954594483703,
             "season": 2016,
-            "temperature_brier": 0.16946530854689099
+            "temperature_brier": 0.16946530929115705
           },
           {
             "fit_last_season": 2016,
-            "identity_brier": 0.13365954522447032,
+            "identity_brier": 0.1336595508223297,
             "season": 2017,
-            "temperature_brier": 0.13227065431052992
+            "temperature_brier": 0.13227066093959416
           },
           {
             "fit_last_season": 2017,
-            "identity_brier": 0.16238886714610826,
+            "identity_brier": 0.1623888690736853,
             "season": 2018,
-            "temperature_brier": 0.16901769837241024
+            "temperature_brier": 0.16901769910604517
           },
           {
             "fit_last_season": 2018,
-            "identity_brier": 0.134200538767599,
+            "identity_brier": 0.13420054100999335,
             "season": 2019,
-            "temperature_brier": 0.1332813618093867
+            "temperature_brier": 0.13328136364514087
           }
         ],
         "history_seasons": [

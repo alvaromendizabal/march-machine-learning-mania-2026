@@ -27,6 +27,7 @@ def model_config():
 @pytest.fixture
 def matrix():
     rng = np.random.default_rng(77)
+    columns = candidate_blocks()["full"]
     records = []
     for gender, base in [("M", 1100), ("W", 3100)]:
         for season in [2013, 2014, 2015, 2016]:
@@ -42,8 +43,8 @@ def matrix():
                         "y": i % 2,
                         **dict(
                             zip(
-                                candidate_blocks()["full"],
-                                rng.normal(size=len(candidate_blocks()["full"])),
+                                columns,
+                                rng.normal(size=len(columns)),
                                 strict=True,
                             )
                         ),
