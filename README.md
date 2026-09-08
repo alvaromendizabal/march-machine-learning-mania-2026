@@ -43,8 +43,9 @@ did not reliably improve both populations or beat compact models.
 | Frozen logistic anchors, retrospective 2022–2025 | 0.198288 | 0.146881 |
 
 Lower is better. The earlier 124-feature development minima were 0.188476 and 0.143867:
-the men's best is essentially tied and the women's result worsens. Controlled coach,
-Massey and target-encoding effects have uncertainty intervals that include zero.
+the men's best is essentially tied and the women's result worsens. The full-bank Massey and combined
+non-Massey coach/encoding controls have uncertainty intervals that include zero. Several
+other feature groups worsen performance; compact rankings help one histogram model.
 The benchmark also fails to improve the previous frozen anchors. These negative results
 remain visible; adding thousands of candidates is not itself evidence of a better model.
 

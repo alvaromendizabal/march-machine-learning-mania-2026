@@ -46,8 +46,10 @@ in the scoreboard.
 Pooled common-feature trees and their blend improve on their own 124-feature streams.
 Four of five men's pooled tree decisions select a screened full-bank candidate. This
 does not isolate a causal feature contribution: screening can replace many columns
-when the bank changes. Notebook 02 supplies controlled family ablations, whose
-uncertainty intervals include zero.
+when the bank changes. Notebook 02 supplies controlled family ablations. The full-bank Massey and combined
+non-Massey coach/encoding intervals include zero. Other exploratory contrasts show
+clear deterioration for several broad groups and a gain for compact men’s rankings
+under histogram boosting. The intervals are unadjusted for the full search.
 
 Women's separate logistic selects dynamic features in four outer folds and conference
 context in one. The enlarged search slightly worsens its overall score. More feature

@@ -67,7 +67,10 @@ inputs rather than impute a fabricated source. See the complete
 Adding Massey to the screened men's bank changes mean-season Brier by **−0.002479**
 for histogram boosting (95% season-bootstrap interval **[−0.005634, 0.000761]**) and
 **+0.003250** for logistic (**[−0.001947, 0.008863]**). These conditional pipeline effects
-include rescreening. Neither interval establishes a reliable improvement.
+include rescreening. Neither full-bank interval establishes a reliable improvement. In the separate compact
+strength-plus-rankings histogram comparison, rankings improve mean-season Brier by
+**−0.010687 [−0.016580, −0.002978]**. That interval excludes zero for this specific
+retrospective contrast; it is exploratory and unadjusted for the many comparisons.
 
 ## 7. Coach features and measured contribution
 
@@ -178,7 +181,10 @@ submission file was produced by this work.
 
 Five development seasons, limited early calibration history, a large retrospectively
 explored search space and an already-consumed benchmark constrain generalization
-claims. None of the new family effects has an interval excluding zero. Women's
+claims. The primary combined coach/encoding and full-bank Massey controls do not resolve a
+benefit. Several individual groups show deterioration, and compact men’s rankings
+help histogram boosting in a different contrast; these are unadjusted exploratory
+intervals, not independent confirmation after the search. Women's
 ranking/coaching source parity is absent. Player availability and returning production
 would require timestamped historical data not present in this snapshot. The original
 rich-system men's score of 0.180669 used a different schema/history; it is retained
