@@ -129,3 +129,82 @@ def test_capacity_config_rejects_benchmark_selection_and_invalid_search(field, v
     changed[field] = value
     with pytest.raises(ValueError):
         capacity.validate_config(changed)
+
+
+def test_complete_capacity_study_excludes_future_labels_and_resumes_without_refitting(
+    tmp_path, monkeypatch
+):
+    import joblib
+
+    from march_mania.advanced_features import candidate_blocks
+    from march_mania.runtime import EventLog, TaskStore
+
+    root = Path(__file__).resolve().parents[1]
+    config = json.loads((root / "configs/feature_capacity.json").read_text())
+    config.update(validation_seasons=[2016], capacities=[32, 128], threads=1)
+    monkeypatch.setattr(capacity, "ROUTES", {"M_rankings": ("M", "full")})
+    columns = candidate_blocks()["full"]
+    rng = np.random.default_rng(29)
+    frame = pd.DataFrame(0.0, index=range(40), columns=columns)
+    active = ["diff_seed", "diff_strength", "diff_recent_strength"]
+    frame[active] = rng.normal(size=(40, 3))
+    frame["Season"] = np.repeat([2013, 2014, 2015, 2016, 2026], 8)
+    frame["Gender"] = "M"
+    frame["DayNum"] = 134
+    frame["Team1ID"] = np.tile(np.arange(1001, 1017, 2), 5)
+    frame["Team2ID"] = frame.Team1ID + 1
+    frame["ID"] = (
+        frame.Season.astype(str) + "_" + frame.Team1ID.astype(str) + "_" + frame.Team2ID.astype(str)
+    )
+    frame["y"] = np.tile([0, 1], 20)
+    # These invalid targets must be removed before validation, fitting or scoring.
+    frame.loc[frame.Season == 2026, "y"] = 999
+    upstream = tmp_path / "features"
+    upstream.mkdir()
+    frame.to_parquet(upstream / "features.parquet", index=False)
+    feature_key, run_key = "a" * 64, "b" * 64
+    store = TaskStore(upstream, feature_key, EventLog(upstream / "events.jsonl"))
+    train, valid = frame.query("Season < 2016"), frame.query("Season == 2016")
+    for model_name in config["models"]:
+
+        def reference(target, model_name=model_name):
+            with threadpool_limits(limits=1):
+                model, p = fit_fold(train, valid, active, model_name, config["seed"])
+            joblib.dump({"estimator": model, "features": active}, target / "model.joblib")
+            valid[capacity.KEYS].assign(p=p).to_parquet(target / "predictions.parquet", index=False)
+            model.screen.audit_.to_csv(target / "screening.csv", index=False)
+            atomic_json(
+                target / "fold.json",
+                {
+                    "train_seasons": [2013, 2014, 2015],
+                    "requested_features": columns,
+                    "retained_count": len(active),
+                },
+            )
+            return [
+                target / name
+                for name in ["model.joblib", "predictions.parquet", "screening.csv", "fold.json"]
+            ]
+
+        store.task(f"fold_m_2016_full_{model_name}", reference)
+    output = tmp_path / "run"
+    output.mkdir()
+    inputs = {"config": config, "feature_fingerprint": feature_key}
+    capacity._run(upstream, output, run_key, inputs)
+    summary = json.loads((output / "summary.json").read_text())
+    assert summary["fit_tasks"] == 12 and summary["new_fits"] == 10
+    assert summary["inherited_reference_fits"] == 2
+    before = {p: digest(p) for p in output.glob("*/model.joblib")}
+    prediction_hash = digest(output / "predictions.csv")
+    assert pd.read_csv(output / "predictions.csv").Season.max() == 2016
+    choices = pd.read_csv(output / "selection.csv")
+    assert choices.history_last_season.eq(2015).all()
+    assert choices.history_seasons.eq(2).all()
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("Completed fits must be restored, not repeated")
+
+    monkeypatch.setattr(capacity, "fit_capacity", forbidden)
+    capacity._run(upstream, output, run_key, inputs)
+    assert before == {p: digest(p) for p in before}
+    assert prediction_hash == digest(output / "predictions.csv")

@@ -106,7 +106,7 @@ ablation is stronger evidence about the ranking contribution than comparing unli
 winning model families. The common no-Massey column universe is identical between
 separate and pooled fits; men's coach availability still differs from women's.
 
-## 9. Notebook execution
+## 9. Initial expanded-release notebook execution
 
 All canonical notebooks **00 → 01 → 02 → 03 → 04 → 05** passed real Jupyter execution,
 with **39 executed code cells** and no error/warning outputs. The final review pass
@@ -124,7 +124,7 @@ and the versioned validation archive referenced by `reports/validation/release.j
 A local kernel restriction was handled through actual GitHub Actions Jupyter execution;
 Python preflight or simulated outputs were never substituted for that gate.
 
-## 10. Tests and quality gates
+## 10. Initial expanded-release tests and quality gates
 
 **202 tests passed, with zero failures, errors or skips.** Compilation, Ruff lint,
 formatting and mypy passed in the locked Python 3.12.13 environment. Measured line
@@ -271,9 +271,9 @@ Notebook 02 contains the actual tables, interactive capacity curves and a static
 GitHub fallback. The original 03/04 source, feature/model fingerprints and declared
 recipes stay current: their estimates are not relabeled as results from this
 follow-up. Target encoding continues to use strictly earlier seasons, and capacity
-selection never reads outer/future labels. Nine additional automated tests cover
+selection never reads outer/future labels. Ten additional automated tests cover
 these boundaries, equivalent original-recipe predictions, fitted-state removal,
-matched-game selection and corrupt reference checkpoints.
+matched-game selection, corrupt reference checkpoints and an end-to-end study that rejects future labels and resumes without fitting again.
 
 A second execution reused **all 168 capacity tasks**, repeated **zero fits**, left
 every model file unchanged and reproduced prediction SHA-256
@@ -291,3 +291,12 @@ inspection of GitHub and S3 verified that all completed current artifacts exist.
 The SageMaker space `march-mania-dev` still exists with 50 GB of persistent storage;
 its JupyterLab app is stopped. Its filesystem was not claimed to be synchronized
 with the newly published GitHub notebooks.
+
+The follow-up passed actual native execution of **all six current notebooks and
+40 code cells**, with no error/warning outputs; a second pass reused all six
+notebook checkpoints. The validated source passed 211 tests. The publication
+revision adds the tested end-to-end case, bringing the suite to 212; exact-head
+checks are recorded on PR #9. The [follow-up validation receipt](../reports/validation/capacity.json)
+records the exact source checkout, notebook hashes, original test count, fresh
+local archive restore and the explicitly pending S3 backup. It does not relabel
+an ordinary Python preflight as native notebook execution.

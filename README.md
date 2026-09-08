@@ -29,7 +29,7 @@ not another prerequisite. The original notebook filenames remain canonical.
 ## Research scope and evidence
 
 The expanded experiment generates **3,106 candidate features**: 124 existing signals,
-2,944 distribution/recency/venue/opponent/trajectory/peer hypotheses, 26 official coach-history signals, and 12 annual conference-strength signals. At most **128 features are retained per model fit**, using only the applicable temporal
+2,944 distribution/recency/venue/opponent/trajectory/peer hypotheses, 26 official coach-history signals, and 12 annual conference-strength signals. The main 02/03 study retains at most **128 features per model fit**, using only the applicable temporal
 training population. There is no validation-selected global feature list.
 
 Notebook 02 records candidate counts, rejection reasons, per-fold retention, stability and paired
@@ -73,7 +73,7 @@ Notebook 04 links its current retrospective benchmark to those exact upstream ru
 | Target encoding and chronological splits | Prior-season histories, nested selection, mutation tests |
 | Retained-feature capacity experiment | 168 evaluated fits; 138 new and 30 inherited |
 | Current retrospective benchmark | 16 fits on previously consumed 2022–2025 seasons |
-| Native notebook execution and checkpoint recovery | [Recorded release checks](reports/validation/release.json) |
+| Native notebook execution and checkpoint recovery | [Original release](reports/validation/release.json) and [capacity follow-up](reports/validation/capacity.json) |
 
 The remaining scientific question is stronger generalization, particularly for women.
 It is not whether the remade notebook 02 has been trained. Repeating identical completed
@@ -100,11 +100,16 @@ hidden training state. Tests cover temporal boundaries, game uniqueness, symmetr
 validity, checkpoint corruption, interruption recovery, published metric integrity and notebook
 publication. Tests treat meaningful warnings as errors; publication rejects warning/error outputs.
 
-The completed release passed **202 tests** and native execution of **all six notebooks**
+The original expanded release passed **202 tests** and native execution of **all six notebooks**
 (39 code cells). A second notebook pass reused all six checkpoints. An independent fresh
 artifact download restored **901 model tasks with zero repeated fits and byte-identical
-predictions**. [Release evidence](reports/validation/release.json) binds these checks to
-the exact published source and notebook bytes.
+predictions**. [Release evidence](reports/validation/release.json) preserves that source
+and those notebook bytes. The [capacity follow-up](reports/validation/capacity.json)
+separately records actual native execution of all six current notebooks (**40 code
+cells**) and verified reuse of all 168 capacity tasks. The current suite has **212
+tests**; exact publication checks are recorded on [PR #9](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/9).
+The new capacity archive's S3 backup awaits a specific upload approval; the earlier
+feature/model archives remain verified and available.
 
 Runs emit UTC timestamps, task/total elapsed time, progress and 15-second task heartbeats.
 Completed estimators and forecast batches are content-verified and reused. A failed estimator
