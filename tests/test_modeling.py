@@ -40,7 +40,13 @@ def matrix():
                         "Team2ID": base + 100,
                         "ID": f"{season}_{base + i}_{base + 100}",
                         "y": i % 2,
-                        **dict(zip(candidate_blocks()["full"], rng.normal(size=124), strict=True)),
+                        **dict(
+                            zip(
+                                candidate_blocks()["full"],
+                                rng.normal(size=len(candidate_blocks()["full"])),
+                                strict=True,
+                            )
+                        ),
                     }
                 )
     return pd.DataFrame(records)
@@ -70,7 +76,7 @@ def test_pooling_has_identical_common_features_and_rankings_are_explicit():
     pooled = {c.name: modeling.columns_for(c) for c in modeling.candidates("pooled_common")}
     assert women == pooled
     assert {k: men[k] for k in pooled} == pooled
-    assert len(pooled["logistic_full_0"]) == 101
+    assert len(pooled["logistic_full_0"]) == len(candidate_blocks()["full"]) - 23
     assert all("rank" not in f for cols in pooled.values() for f in cols)
 
 

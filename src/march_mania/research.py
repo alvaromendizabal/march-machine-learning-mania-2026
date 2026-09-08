@@ -22,6 +22,7 @@ from sklearn.preprocessing import StandardScaler
 from threadpoolctl import threadpool_limits
 
 from march_mania.advanced_features import candidate_blocks
+from march_mania.feature_selection import ScreenedPredictor, TrainingScreen
 from march_mania.features import feature_blocks, matchups, read_official, snapshot
 from march_mania.research_report import write_report
 from march_mania.runtime import (
@@ -90,7 +91,9 @@ def fit_fold(
         )
     else:
         raise ValueError(f"Unknown model: {model_name}")
-    estimator.fit(x, y)
+    screen = TrainingScreen().fit(x, y)
+    estimator.fit(screen.transform(x), y)
+    estimator = ScreenedPredictor(screen, estimator)
     values = valid[columns].to_numpy(dtype=float)
     p = symmetric_probability(estimator, values)
     return estimator, p

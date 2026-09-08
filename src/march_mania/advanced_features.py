@@ -12,6 +12,8 @@ import pandas as pd
 from scipy import sparse
 from sklearn.linear_model import Ridge
 
+from march_mania.candidate_features import CANDIDATE_FAMILIES, candidate_snapshot
+from march_mania.coach_features import COACH_FEATURES, coach_snapshot
 from march_mania.context_features import CONTEXT_FAMILIES, context_snapshot
 from march_mania.encoding import ENCODING_FAMILIES, ENCODING_FEATURES
 from march_mania.features import KEYS, feature_blocks, snapshot, team_games
@@ -47,6 +49,8 @@ FAMILIES = {
     "rank_trends": TREND_FEATURES,
     **ENCODING_FAMILIES,
     **CONTEXT_FAMILIES,
+    **CANDIDATE_FAMILIES,
+    "coach_history": COACH_FEATURES,
 }
 INTERACTIONS = [
     "pace_strength",
@@ -339,6 +343,22 @@ def advanced_snapshot(
         how="left",
         validate="one_to_one",
     )
+    result = result.merge(
+        candidate_snapshot(long, result, cutoff), on="TeamID", how="left", validate="one_to_one"
+    )
+    result = result.merge(
+        coach_snapshot(
+            tables.get("TeamCoaches"),
+            compact,
+            tables["NCAATourneyCompactResults"],
+            result,
+            season,
+            cutoff,
+        ),
+        on="TeamID",
+        how="left",
+        validate="one_to_one",
+    )
     result["snapshot_day"] = cutoff
     return result
 
@@ -430,4 +450,11 @@ def candidate_blocks(include_rankings: bool = True) -> dict[str, list[str]]:
             for name, columns in families.items()
         }
     )
+    if include_rankings:
+        ranked = {
+            "diff_" + c
+            for family in ("rankings", "rank_trends", "target_rank")
+            for c in FAMILIES[family]
+        }
+        blocks["without_massey"] = [c for c in full if c not in ranked]
     return blocks

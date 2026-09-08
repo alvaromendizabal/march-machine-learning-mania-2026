@@ -11,7 +11,7 @@ import json
 import sys
 import time
 from dataclasses import asdict, dataclass
-from importlib.metadata import version
+from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 from typing import Any
 
@@ -31,6 +31,7 @@ from threadpoolctl import threadpool_limits
 from xgboost import XGBClassifier
 
 from march_mania.advanced_features import candidate_blocks
+from march_mania.feature_selection import ScreenedPredictor, TrainingScreen, screening_audit
 from march_mania.publication.artifacts import restore_tasks
 from march_mania.research import finalize_run, symmetric_probability
 from march_mania.runtime import (
@@ -127,6 +128,8 @@ def fit_candidate(
     x = train[columns].to_numpy(dtype=float)
     y = train.y.to_numpy(dtype=int)
     x, y = np.concatenate([x, -x]), np.concatenate([y, 1 - y])
+    screen = TrainingScreen().fit(x, y)
+    x = screen.transform(x)
     family = candidate.family.removeprefix("rank_")
     if family in {"seed", "logistic"}:
         model: Any = make_pipeline(
@@ -172,13 +175,15 @@ def fit_candidate(
                 "verbosity": -1,
                 "seed": seed,
             },
-            lgb.Dataset(x, label=y, feature_name=columns),
+            lgb.Dataset(x, label=y, feature_name=[columns[i] for i in screen.indices_]),
             num_boost_round=120,
         )
+        model = ScreenedPredictor(screen, model)
         return model, predict_candidate(model, valid[columns].to_numpy(dtype=float), threads)
     else:
         raise ValueError(f"Unknown model family: {candidate.family}")
     model.fit(x, y)
+    model = ScreenedPredictor(screen, model)
     return model, predict_candidate(model, valid[columns].to_numpy(dtype=float), threads)
 
 
@@ -382,9 +387,15 @@ def run_inputs(feature_run: Path, config: dict[str, Any]) -> dict[str, Any]:
         root / "pyproject.toml",
         root / "uv.lock",
     ]
+    # Record the actual installed distribution; portable audits can use the full
+    # XGBoost package, while the production lock deliberately installs xgboost-cpu.
+    try:
+        backend, backend_version = "xgboost-cpu", version("xgboost-cpu")
+    except PackageNotFoundError:
+        backend, backend_version = "xgboost", version("xgboost")
     identity = {
         **runtime_identity(),
-        "xgboost-cpu": version("xgboost-cpu"),
+        backend: backend_version,
         "lightgbm": version("lightgbm"),
     }
     return {
@@ -503,6 +514,8 @@ def _run(
                         {"model": model, "features": columns_for(candidate)},
                         target / "model.joblib",
                     )
+                    audit = screening_audit(model, columns_for(candidate))
+                    audit.to_csv(target / "screening.csv", index=False)
                     atomic_json(
                         target / "fold.json",
                         {
@@ -511,12 +524,23 @@ def _run(
                             "train_games": len(train),
                             "validation_games": len(valid),
                             "features": columns_for(candidate),
+                            "selected_features": [
+                                columns_for(candidate)[i] for i in model.screen.indices_
+                            ],
+                            "candidate_count": len(columns_for(candidate)),
+                            "retained_count": len(model.screen.indices_),
                             "candidate": asdict(candidate),
                             "max_complement_error": float(np.max(np.abs(p + reverse - 1))),
                         },
                     )
                     return [
-                        target / n for n in ["predictions.parquet", "model.joblib", "fold.json"]
+                        target / n
+                        for n in [
+                            "predictions.parquet",
+                            "model.joblib",
+                            "fold.json",
+                            "screening.csv",
+                        ]
                     ]
 
                 target = store.task(f"fit_{route.lower()}_{season}_{candidate.name}", fit)
@@ -590,6 +614,8 @@ def _run(
                         ** 2
                     )
                     for index, name in enumerate(saved["features"]):
+                        if index not in saved["model"].screen.indices_:
+                            continue  # Unselected columns cannot affect this fitted model.
                         deltas = []
                         for _ in range(config["permutation_repeats"]):
                             altered = values.copy()

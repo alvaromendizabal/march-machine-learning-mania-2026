@@ -24,7 +24,9 @@ from march_mania.advanced_features import (
     pair_features,
 )
 from march_mania.encoding import encode_history
+from march_mania.feature_selection import screening_audit
 from march_mania.features import read_official
+from march_mania.matchup_artifacts import write_submission_features
 from march_mania.research import finalize_run, fit_fold
 from march_mania.research_report import write_report
 from march_mania.runtime import (
@@ -107,6 +109,12 @@ def feature_registry() -> pd.DataFrame:
             "target_seed": "NCAA outcomes grouped by historical season seed",
             "target_rank": "NCAA outcomes grouped by historical pre-cutoff Massey decile",
             "dynamic": "regular-season compact history at or before DayNum 132",
+            "coach_history": "official coach intervals; strictly prior-season outcomes",
+            "distribution": "pre-cutoff detailed game distributions across fixed windows",
+            "venue_profile": "pre-cutoff home, away and neutral game cohorts",
+            "opponent_profile": "pre-cutoff opponents grouped by current legal strength",
+            "trajectory": "pre-cutoff daily rates, slopes and momentum",
+            "peer_profile": "same-season pre-cutoff peer ranks and normalization",
         }.get(family, "current regular-season compact/detailed results and tournament seeds")
         rows.append(
             {
@@ -120,7 +128,7 @@ def feature_registry() -> pd.DataFrame:
                 "swap_parity": -1,
                 "missing_policy": "training-fold preprocessing; unavailable/zero columns audited",
                 "label_policy": "strictly prior seasons; fixed prior and smoothing"
-                if family.startswith("target_")
+                if family.startswith("target_") or family == "coach_history"
                 else "no current/future tournament outcomes",
                 "evidence": "candidate; requires ablation",
             }
@@ -139,6 +147,10 @@ def prepare_inputs(raw: Path, config: dict[str, Any]) -> tuple:
         for name in [
             "advanced_features.py",
             "context_features.py",
+            "candidate_features.py",
+            "coach_features.py",
+            "feature_selection.py",
+            "matchup_artifacts.py",
             "rankings.py",
             "encoding.py",
             "feature_store.py",
@@ -211,6 +223,10 @@ def _run(
         },
     )
     mirror = Mirror(mirror_uri.rstrip("/") + "/" + run_hash) if mirror_uri else None
+    if mirror:
+        from march_mania.publication.artifacts import restore_tasks
+
+        restore_tasks(mirror, output, run_hash, log)
     store = TaskStore(output, run_hash, log, config["heartbeat_seconds"], mirror)
     if mirror:
         mirror.upload(manifest, "manifest.json")
@@ -321,19 +337,23 @@ def _run(
     ).to_csv(output / "diagnostics.csv", index=False)
     if raw / "SampleSubmissionStage2.csv" in optional:
         sample = pd.read_csv(raw / "SampleSubmissionStage2.csv")
-        submission = pair_features(teams, sample_pairs(sample, teams))
-        if submission.ID.tolist() != sample.ID.tolist():
-            raise ValueError("Submission row order changed")
-        submission["route"] = np.where(submission.diff_seed.notna(), "seeded", "unseeded")
-        submission.to_parquet(output / "submission_features.parquet", index=False)
+        write_submission_features(
+            teams,
+            sample_pairs(sample, teams),
+            sample,
+            output / "submission_features.parquet",
+            store,
+        )
         log.emit(
-            "submission_features_ready", rows=len(submission), status="features_only_no_submission"
+            "submission_features_ready", rows=len(sample), status="features_only_no_submission"
         )
     availability = {
         "massey": rankings is not None,
         "sample_submission": raw / "SampleSubmissionStage2.csv" in optional,
         "player_availability": False,
         "roster_minutes": False,
+        "mens_coaches": (raw / "MTeamCoaches.csv").is_file(),
+        "womens_coaches": (raw / "WTeamCoaches.csv").is_file(),
     }
     atomic_json(output / "source_availability.json", availability)
     predictions, usage = [], []
@@ -365,11 +385,15 @@ def _run(
                 raise ValueError("No informative training features in the requested block")
             with threadpool_limits(limits=config["threads"]):
                 estimator, probability = fit_fold(train, valid, fitted, model, config["seed"])
+            selection = screening_audit(estimator, fitted)
+            selected = [fitted[i] for i in estimator.screen.indices_]
             coefficients = (
-                dict(zip(fitted, estimator[-1].coef_[0], strict=True))
+                dict(zip(selected, estimator.model[-1].coef_[0], strict=True))
                 if model == "logistic"
                 else {}
             )
+            reasons = selection.set_index("feature").status.to_dict()
+            selection.to_csv(target / "screening.csv", index=False)
             audit = pd.DataFrame(
                 [
                     {
@@ -378,13 +402,13 @@ def _run(
                         "block": block,
                         "model": model,
                         "feature": c,
-                        "fitted": c in fitted,
+                        "fitted": c in selected,
                         "train_nonmissing": int(train[c].notna().sum()),
                         "validation_nonmissing": int(valid[c].notna().sum()),
                         "train_games": len(train),
                         "validation_games": len(valid),
                         "standardized_coefficient": coefficients.get(c),
-                        "status": "fitted" if c in fitted else "no_training_signal",
+                        "status": reasons.get(c, "no_training_signal"),
                     }
                     for c in columns
                 ]
@@ -399,7 +423,11 @@ def _run(
                 {
                     "train_seasons": sorted(train.Season.unique().tolist()),
                     "validation_season": int(valid.Season.iloc[0]),
-                    "features": fitted,
+                    "features": selected,
+                    "model_input_features": fitted,
+                    "candidate_count": len(columns),
+                    "retained_count": len(selected),
+                    "rejected_count": len(columns) - len(selected),
                     "requested_features": columns,
                     "encoding_rule": "each row uses only strictly earlier training seasons",
                     "physical_train_games": len(train),
@@ -413,6 +441,7 @@ def _run(
                     "model.joblib",
                     "fold.json",
                     "feature_usage.csv",
+                    "screening.csv",
                 )
             ]
 
@@ -425,7 +454,20 @@ def _run(
             total=len(tasks),
             percent=round(100 * completed / len(tasks), 1),
         )
-    pd.concat(usage, ignore_index=True).to_csv(output / "feature_usage.csv", index=False)
+    used = pd.concat(usage, ignore_index=True)
+    used.to_csv(output / "feature_usage.csv", index=False)
+    screening = (
+        used.groupby(["Gender", "Season", "block", "model", "status"]).size().unstack(fill_value=0)
+    )
+    screening["candidate_count"] = screening.sum(axis=1)
+    screening["retained_count"] = screening.get("retained", 0)
+    screening["rejected_count"] = screening.candidate_count - screening.retained_count
+    screening.reset_index().to_csv(output / "screening_summary.csv", index=False)
+    used.loc[used.block == "full"].groupby(["Gender", "model", "feature"]).agg(
+        folds=("Season", "size"),
+        retained_folds=("fitted", "sum"),
+        retention_rate=("fitted", "mean"),
+    ).reset_index().to_csv(output / "selection_stability.csv", index=False)
     forecasts = pd.concat(predictions, ignore_index=True)
     forecasts.to_parquet(output / "predictions.parquet", index=False)
     comparisons = [(name, "strength") for name in [*FAMILIES, "interactions"]]
@@ -433,12 +475,19 @@ def _run(
         ("full", "legacy_full"),
         *[("full", "without_" + name) for name in [*FAMILIES, "interactions"]],
     ]
+    comparisons.append(("full", "without_massey"))
     write_report(forecasts, output, config["seed"], comparisons)
     summary = {
         "status": "completed",
         "fingerprint": run_hash,
         "fold_tasks": len(tasks),
         "feature_count": len(registry),
+        "screened_candidates": len(registry),
+        "selection_unit": "individual temporal training fold, not a global retained list",
+        "retained_per_fit_min": int(screening.retained_count.min()),
+        "retained_per_fit_max": int(screening.retained_count.max()),
+        "screening_decisions": int(screening.candidate_count.sum()),
+        "rejected_decisions": int(screening.rejected_count.sum()),
         "team_snapshots": len(teams),
         "sources": availability,
         "evidence_status": config["protocol"],

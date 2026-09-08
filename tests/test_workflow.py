@@ -160,7 +160,10 @@ def test_restoring_complete_trusted_archive_preserves_binary_tasks(tmp_path):
 def test_ranked_tree_hypothesis_is_men_only_and_has_56_extra_fits():
     extra = [c for c in modeling.candidates("M") if c.family in {"rank_xgboost", "rank_lightgbm"}]
     assert len(extra) * 7 == 56
-    assert {len(modeling.columns_for(c)) for c in extra} == {19, 124}
+    assert {len(modeling.columns_for(c)) for c in extra} == {
+        19,
+        len(modeling.candidate_blocks()["full"]),
+    }
     assert all(
         not c.family.startswith("rank_")
         for route in ["W", "pooled_common"]

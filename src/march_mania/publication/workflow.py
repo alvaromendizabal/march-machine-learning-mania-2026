@@ -128,6 +128,9 @@ def publish_report(root: Path, name: str, run: Path, archive: dict[str, Any]) ->
     folder.mkdir(parents=True, exist_ok=True)
     old = json.loads((folder / "run.json").read_text())
     filenames = set(old["sha256"]) - {"validation.json"}
+    filenames.update(
+        {"screening_summary.csv", "selection_stability.csv"} & {p.name for p in run.iterdir()}
+    )
     if name == "model_comparison":
         filenames.update(
             {"comparison.csv", "research_recovery.json"} & {p.name for p in run.iterdir()}
@@ -153,6 +156,37 @@ def publish_report(root: Path, name: str, run: Path, archive: dict[str, Any]) ->
     atomic_json(folder / "run.json", record)
 
 
+def restore_coach_context(raw: Path, log: EventLog) -> None:
+    """Restore the recorded official file, never overwrite an existing local source."""
+    target = raw / "MTeamCoaches.csv"
+    if target.exists():
+        return
+    if not (raw / "MRegularSeasonCompactResults.csv").is_file():
+        raise ValueError("Restore the complete official raw directory before coach context")
+    expected = "e0fe04e53ea35f4a120f0368164c2a7035d5a0b1ab427a078a27304bd16003bc"
+    mirror = Mirror(
+        "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/official-context"
+    )
+    key = (
+        mirror.prefix
+        + "/c9df24626b8953cde6386be98ce64e273fb2e96057af5b5234d9adc54c939e78/MTeamCoaches.csv"
+    )
+    temporary = target.with_name(".MTeamCoaches.csv.tmp")
+    try:
+        mirror.client.download_file(
+            mirror.bucket,
+            key,
+            str(temporary),
+            ExtraArgs={"VersionId": "zEiRmU_hLDhAalrC64w6DBQdxATntgqP"},
+        )
+        if digest(temporary) != expected:
+            raise ValueError("Official coach context checksum mismatch")
+        temporary.replace(target)
+        log.emit("official_coach_context_verified", sha256=expected, source=key)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 def feature_stage(root: Path) -> Path:
     """Use current local data when present; otherwise restore the explicitly recorded snapshot."""
     log = EventLog(root / "outputs/notebook_workflow/events.jsonl")
@@ -164,6 +198,7 @@ def feature_stage(root: Path) -> Path:
             record["archive"], root / "outputs/inference_inputs/features", log, complete_run=True
         )
         raw = restored.parent / "raw"
+    restore_coach_context(raw, log)
     config = json.loads((root / "configs/feature_store.json").read_text())
     *_, inputs = feature_store.prepare_inputs(raw, config)
     key = fingerprint(inputs)

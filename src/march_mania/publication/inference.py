@@ -25,6 +25,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from threadpoolctl import threadpool_limits
 
+from march_mania.feature_selection import ScreenedPredictor, TrainingScreen
 from march_mania.modeling import candidates, columns_for, predict_candidate, select_candidate
 from march_mania.publication.artifacts import download_input, restore_tasks
 from march_mania.publication.submission import validate_submission
@@ -126,7 +127,7 @@ def fit_model(
     if train.y.nunique() != 2 or not columns or len(set(columns)) != len(columns):
         raise ValueError("Both labels and unique explicit features are required")
     values = train[columns].to_numpy(dtype=float)
-    if np.isinf(values).any() or np.isnan(values).all(axis=0).any():
+    if np.isinf(values).any():
         raise ValueError("Features must have finite training support")
     model = make_pipeline(
         SimpleImputer(strategy="median", keep_empty_features=True),
@@ -134,8 +135,10 @@ def fit_model(
         LogisticRegression(C=c, max_iter=3000, random_state=config["seed"]),
     )
     with threadpool_limits(limits=config["threads"]):
-        model.fit(np.concatenate([values, -values]), np.concatenate([train.y, 1 - train.y]))
-    return model
+        x, y = np.concatenate([values, -values]), np.concatenate([train.y, 1 - train.y])
+        screen = TrainingScreen().fit(x, y)
+        model.fit(screen.transform(x), y)
+    return ScreenedPredictor(screen, model)
 
 
 def forecast(model: Any, frame: pd.DataFrame, columns: list[str], threads: int) -> np.ndarray:
@@ -175,6 +178,9 @@ def training_task(
                 "training_seasons": sorted(int(s) for s in train.Season.unique()),
                 "training_games": len(train),
                 "features": columns,
+                "retained_features": [columns[i] for i in model.screen.indices_],
+                "candidate_count": len(columns),
+                "retained_count": len(model.screen.indices_),
                 "candidate": specification["candidate"],
                 "calibration": "identity",
                 "training_max_season": int(train.Season.max()),
@@ -236,7 +242,7 @@ def make_report(benchmark: pd.DataFrame, destination: Path) -> list[Path]:
 
 def execute(
     frame: pd.DataFrame,
-    matchups: pd.DataFrame,
+    matchups: pd.DataFrame | Path,
     sample: pd.DataFrame,
     recipe: dict[str, Any],
     output: Path,
@@ -248,6 +254,11 @@ def execute(
     # Drop future outcomes before any training or benchmark operation.
     frame = frame.loc[frame.Season.between(2013, 2025) & frame.Season.ne(2020)].copy()
     validate_games(frame, 2025)
+    source = matchups
+    if isinstance(source, Path):
+        matchups = pd.read_parquet(source, columns=["Gender", "Season", "ID", "diff_seed"])
+    else:
+        matchups = source
     validate_matchups(matchups, sample)
     benchmark = []
     chunk_files = []
@@ -286,6 +297,20 @@ def execute(
                     benchmark.append(pd.read_csv(target / "predictions.csv"))
                     continue
                 final_fit_audits.append(json.loads((fitted / "audit.json").read_text()))
+                # Persisted screening is a training-only decision. Column projection
+                # changes memory usage, not the estimator or its probabilities.
+                if isinstance(saved["model"], ScreenedPredictor):
+                    selected_columns = [
+                        saved["features"][i] for i in saved["model"].screen.indices_
+                    ]
+                    saved = {"model": saved["model"].model, "features": selected_columns}
+                if isinstance(source, Path):
+                    projection = list(
+                        dict.fromkeys(["Gender", "Season", "ID", "diff_seed", *saved["features"]])
+                    )
+                    valid = pd.read_parquet(
+                        source, columns=projection, filters=[("Gender", "==", gender)]
+                    )
                 eligible = valid.diff_seed.notna() if route == "seeded" else valid.diff_seed.isna()
                 inference = valid.loc[eligible]
                 for start in range(0, len(inference), config["chunk_size"]):
@@ -427,7 +452,7 @@ def run(
         try:
             execute(
                 pd.read_parquet(inputs_paths["features"]),
-                pd.read_parquet(inputs_paths["matchups"]),
+                inputs_paths["matchups"],
                 pd.read_csv(sample_path),
                 recipe,
                 output,
