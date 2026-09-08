@@ -7,6 +7,11 @@ features, nested temporal model selection, calibration analysis and interpretabl
 
 ## Start here
 
+**Current project: this repository's `main` branch. The expanded features have
+already been generated and used in completed retraining.** PR #8 replaced the
+stale 124-feature handoff with the executed 3,106-candidate study. The capacity
+follow-up below tests whether more of those candidates should reach each fit.
+
 **Open the notebooks and read their saved outputs. No AWS login, dataset download,
 GPU or notebook execution is needed to review the project.**
 
@@ -24,7 +29,7 @@ not another prerequisite. The original notebook filenames remain canonical.
 ## Research scope and evidence
 
 The expanded experiment generates **3,106 candidate features**: 124 existing signals,
-2,944 distribution/recency/venue/opponent/trajectory/peer hypotheses, 26 official coach-history signals, and 12 annual conference-strength signals. At most **128 features are retained per model fit**, using only the applicable temporal
+2,944 distribution/recency/venue/opponent/trajectory/peer hypotheses, 26 official coach-history signals, and 12 annual conference-strength signals. The main 02/03 study retains at most **128 features per model fit**, using only the applicable temporal
 training population. There is no validation-selected global feature list.
 
 Notebook 02 records candidate counts, rejection reasons, per-fold retention, stability and paired
@@ -35,6 +40,12 @@ day 132. Every candidate model is retrained against notebook 02's exact feature 
 The completed study ran **1,050 feature ablation fits and 861 model candidate fits**.
 Its central result is mixed: broader features improved some men's pooled models, but
 did not reliably improve both populations or beat compact models.
+
+The subsequent [capacity study](reports/feature_capacity/README.md) adds **138 fresh fits**
+and reuses **30 verified 128-input fits**. It compares limits of 32, 64, 128 and 256,
+including forward-only inner selection. More inputs generally hurt; smaller screens
+improve the broad logistic models but do not beat the existing compact leaders.
+The 128-input main-study limit and its original results remain explicitly identified.
 
 | Current evidence | Men: mean season Brier | Women: mean season Brier |
 |---|---:|---:|
@@ -54,6 +65,19 @@ coverage, measured feature effects and execution gates. Notebook 03 recomputes m
 from recorded predictions; notebook 05 pairs previous and revised predictions game by game.
 Notebook 04 links its current retrospective benchmark to those exact upstream runs. The earlier
 124-feature final release remains separately identified under `reports/final_predictions/`.
+
+| What has actually completed | Evidence |
+|---|---|
+| Expanded feature generation and family ablations | 3,106 candidates; 1,050 fits in notebook 02 |
+| Retraining on those exact features | 861 candidate fits in notebook 03 |
+| Target encoding and chronological splits | Prior-season histories, nested selection, mutation tests |
+| Retained-feature capacity experiment | 168 evaluated fits; 138 new and 30 inherited |
+| Current retrospective benchmark | 16 fits on previously consumed 2022–2025 seasons |
+| Native notebook execution and checkpoint recovery | [Original release](reports/validation/release.json) and [capacity follow-up](reports/validation/capacity.json) |
+
+The remaining scientific question is stronger generalization, particularly for women.
+It is not whether the remade notebook 02 has been trained. Repeating identical completed
+fits cannot answer that question; additional data or genuinely unseen outcomes are needed.
 
 The [official competition metric](https://www.kaggle.com/competitions/march-machine-learning-mania-2026)
 is Brier score. Game-weighted Brier and mean-season Brier are reported separately. Development
@@ -76,11 +100,16 @@ hidden training state. Tests cover temporal boundaries, game uniqueness, symmetr
 validity, checkpoint corruption, interruption recovery, published metric integrity and notebook
 publication. Tests treat meaningful warnings as errors; publication rejects warning/error outputs.
 
-The completed release passed **202 tests** and native execution of **all six notebooks**
+The original expanded release passed **202 tests** and native execution of **all six notebooks**
 (39 code cells). A second notebook pass reused all six checkpoints. An independent fresh
 artifact download restored **901 model tasks with zero repeated fits and byte-identical
-predictions**. [Release evidence](reports/validation/release.json) binds these checks to
-the exact published source and notebook bytes.
+predictions**. [Release evidence](reports/validation/release.json) preserves that source
+and those notebook bytes. The [capacity follow-up](reports/validation/capacity.json)
+separately records actual native execution of all six current notebooks (**40 code
+cells**) and verified reuse of all 168 capacity tasks. The current suite has **212
+tests**; exact publication checks are recorded on [PR #9](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/9).
+The new capacity archive's S3 backup awaits a specific upload approval; the earlier
+feature/model archives remain verified and available.
 
 Runs emit UTC timestamps, task/total elapsed time, progress and 15-second task heartbeats.
 Completed estimators and forecast batches are content-verified and reused. A failed estimator

@@ -7,6 +7,14 @@ features, and 12 conference-strength features. Without all 23 Massey-derived
 features, 3,083 candidates remain eligible. At most 128 survive each training-fold screen. Exact fitted columns depend on training availability and are
 recorded per model. Feature count is not evidence of forecasting quality.
 
+The completed [capacity sensitivity study](../reports/feature_capacity/README.md)
+then compared limits of 32, 64, 128 and 256 on the same matrix and fixed estimators.
+It adds 138 new fits and reuses 30 original fits. Smaller limits help the broad
+logistic models, but do not surpass compact model leaders; 256 generally hurts.
+Forward-only selection and all fixed-limit outcomes appear directly in notebook 02.
+The main 02/03 experiment still has its declared 128-feature cap, so these two
+lineages are not confused.
+
 ## Publication-safe Massey features
 
 `MMasseyOrdinals.csv` contains rankings from multiple systems. It does not contain

@@ -2,6 +2,12 @@
 
 ## Read the project
 
+The authoritative published copy is GitHub `main`. On 2026-09-08, the
+`march-mania-dev` space still existed with its 50 GB persistent volume, while the
+JupyterLab app was stopped. This does not mean the project or its artifacts are
+missing. The GitHub notebooks and S3 archives were verified; the stopped Studio
+filesystem was not inspected or represented as updated.
+
 Employers can open the saved notebook outputs without AWS, data downloads or a kernel.
 Start with **03** for model evaluation and **05** for current research conclusions;
 **00 → 01 → 02** document data, chronological validation and feature engineering.
@@ -42,6 +48,11 @@ a submission.
 Changed raw inputs or feature code require 02 before 03; changed model inputs require 03
 before final generation. Existing local `data/kaggle/raw` is preferred over the recorded
 archive, so genuinely new data is not silently replaced with an old snapshot.
+
+Notebook 02 also executes the capacity study in train mode. Its results have their
+own fingerprint under `outputs/feature_capacity`; they reuse the unchanged matrix
+and verify the original 128-input checkpoints. They do not silently change the
+main model recipe. Review mode reads its already completed public evidence.
 
 The equivalent terminal operation executes the canonical notebook code:
 

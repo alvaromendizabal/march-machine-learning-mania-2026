@@ -1,0 +1,77 @@
+{
+  "capacity_recovery": {
+    "archive_bytes": 48840617,
+    "archive_members": 1047,
+    "archive_sha256": "ac52c7c4b56172ed4775fb2a6ab41f6df6d2bcc86c763515c20ea21ed83584b8",
+    "cloud_restore_claimed": false,
+    "new_tasks": 0,
+    "prediction_sha256": "db437ef2b1755133a0a266d6954c8d2332d185e9af6bc1dcfc4df6e6ca010ed3",
+    "reused_tasks": 168,
+    "source": "local checksum-verified portable archive",
+    "status": "passed"
+  },
+  "feature_capacity_fingerprint": "917affd67b01c3e865f8131bb2e4fd3f09fde6f43eeffdfa67fa8081d67c985f",
+  "final_revision_checks": "PR #9 verifies the publication commit and the additional automated end-to-end test; source validation above records its own exact test count.",
+  "native_validation": {
+    "all_notebook_definitions_match": true,
+    "artifact_bytes": 7488586,
+    "artifact_expires_at": "2026-12-07T21:42:03Z",
+    "artifact_id": 10078143825,
+    "artifact_sha256": "2225a381f8113e25328b6c52bc2378082108dd4e488f947b4baf3e776702223b",
+    "checkout_commit": "627538863b316ab25e624d22ec2f1d567fe755d5",
+    "computational_sources_match_run_manifest": true,
+    "coverage_scope": "Modules explicitly selected by scripts/quality.py; not whole-repository or branch coverage.",
+    "head_commit": "c0ccb574f13e24675ad72fc717dac87679eb111d",
+    "lines_covered": 2786,
+    "lines_measured": 3403,
+    "test_errors": 0,
+    "test_failures": 0,
+    "tests_passed": 211,
+    "tests_skipped": 0,
+    "url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34282036708",
+    "workflow_run_id": 34282036708
+  },
+  "notebook_reuse": {
+    "error_or_warning_outputs": 0,
+    "new_tasks": 0,
+    "reused": 6
+  },
+  "notebooks": {
+    "00_data_audit_and_preparation.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "f2ab464a853a1a8a66f5f10410afb25ea7c66e996bbdaff1b290a76759776394"
+    },
+    "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
+      "executed_code_cells": 3,
+      "sha256": "eb5f01f71e5cabd776e0c3bbdcba438ad83199dd7cc86e87b64da5b22e43e1d7"
+    },
+    "02_feature_store_and_diagnostics.ipynb": {
+      "executed_code_cells": 10,
+      "sha256": "be0a61de1eb785b7e7021474b9400b1f36863ed9a0a7a155b6cbc67ccced5f13"
+    },
+    "03_model_comparison_and_diagnostics.ipynb": {
+      "executed_code_cells": 13,
+      "sha256": "d1cf048940c50b0625cc649fd03e9022d485076a24638157ced54836b7b419ad"
+    },
+    "04_locked_benchmark_and_final_submission.ipynb": {
+      "executed_code_cells": 6,
+      "sha256": "85b0998bdde665ae142873ba508c55ee8dc22205818d93e392b4854da2e95e7f"
+    },
+    "05_feature_research.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "4cd197bcafb6b0994c64ba6bf6e1b92d722396792d9c18f6b7c56baf1e7eb13c"
+    }
+  },
+  "status": "native_notebooks_verified_new_archive_upload_pending",
+  "storage": {
+    "archive_bytes": 48840617,
+    "archive_file": "feature_capacity.zip",
+    "archive_sha256": "ac52c7c4b56172ed4775fb2a6ab41f6df6d2bcc86c763515c20ea21ed83584b8",
+    "destination": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/capacity/917affd67b01c3e865f8131bb2e4fd3f09fde6f43eeffdfa67fa8081d67c985f/archive.zip",
+    "expected_bucket_owner": "560403859723",
+    "new_archive_upload_verified": false,
+    "ownership_verified": true,
+    "reason": "Automatic approval review requires explicit end-user authorization for this archive and S3 destination.",
+    "status": "awaiting_specific_storage_approval"
+  }
+}
