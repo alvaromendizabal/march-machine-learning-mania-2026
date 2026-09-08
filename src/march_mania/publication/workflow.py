@@ -542,7 +542,11 @@ def publish_benchmark(root: Path, run: Path, archive: dict[str, Any]) -> None:
     folder = root / "reports/benchmark"
     hashes = {}
     for source in (run / "publication").iterdir():
-        if source.is_file() and source.name not in {"checkpoint.json", "summary.json"}:
+        if (
+            source.is_file()
+            and source.suffix in {".csv", ".json"}
+            and source.name not in {"checkpoint.json", "summary.json"}
+        ):
             expected = digest(source)
             verified_write(folder / source.name, source.read_bytes(), expected)
             hashes[source.name] = expected

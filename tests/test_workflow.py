@@ -88,6 +88,22 @@ def test_evidence_checks_real_bytes(tmp_path):
         workflow.evidence(tmp_path, "test")
 
 
+def test_benchmark_publication_excludes_runtime_locks_and_verifies_clean_checkout(tmp_path):
+    run = tmp_path / "run"
+    public = run / "publication"
+    public.mkdir(parents=True)
+    (public / "metrics.csv").write_text("brier\n0.2\n")
+    (public / ".lock").touch()
+    (public / "metrics.csv.tmp").write_text("unfinished")
+    atomic_json(run / "summary.json", {"status": "completed"})
+    atomic_json(run / "manifest.json", {"fingerprint": "example"})
+    workflow.publish_benchmark(tmp_path, run, {})
+    folder, record = workflow.evidence(tmp_path, "benchmark")
+    assert set(record["sha256"]) == {"metrics.csv"}
+    assert not (folder / ".lock").exists()
+    assert not (folder / "metrics.csv.tmp").exists()
+
+
 def test_lineage_rejects_an_unrelated_model_matrix(tmp_path):
     for name, record in {
         "feature_store": {"summary": {"status": "completed", "fingerprint": "new"}},

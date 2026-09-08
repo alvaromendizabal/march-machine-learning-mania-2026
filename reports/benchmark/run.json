@@ -83,7 +83,6 @@
     }
   },
   "sha256": {
-    ".lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "benchmark_predictions.csv": "4c07951f996eb83cd98fbba3f95809e6c34c27ae4a1c6f2163d84dd3e5d06e6e",
     "fit_audits.json": "5dd222c795a596d15aa5d77df1b30068d3b7e294c2629e28052e8d88a3459057",
     "metrics.csv": "08b57336c54671b65d5bf0a7872d838eed1cd5dcea0c6125d7dfbb58627430e1",
