@@ -31,6 +31,7 @@ jobs:
         if: github.head_ref == 'feat/notebook-research'
         run: |
           uvx --from pip==25.2 pip download --only-binary=:all: --python-version 313 --implementation cp --abi cp313 --platform manylinux_2_28_x86_64 --platform manylinux2014_x86_64 --dest outputs/validation/wheels ruff==0.13.3 mypy==1.18.2 pyarrow==21.0.0
+          uvx --from pip==25.2 pip download --no-deps --dest outputs/validation/wheels pandas-stubs==2.3.2.250926 types-pytz==2026.3.1.20260727
           sha256sum outputs/validation/wheels/* > outputs/validation/wheels.sha256
       - name: Compile, lint, format, type check, and test
         run: uv run --locked python scripts/quality.py

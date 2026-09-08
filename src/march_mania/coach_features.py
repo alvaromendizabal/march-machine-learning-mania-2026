@@ -52,7 +52,7 @@ def coach_snapshot(
     current = active.set_index("TeamID").CoachName
     result["coach_known"] = result.TeamID.isin(current.index).astype(float)
     history = legal.loc[legal.Season < season]
-    for index, team in result.TeamID.items():
+    for position, team in enumerate(result.TeamID):
         if team not in current:
             continue
         name = current.loc[team]
@@ -62,9 +62,11 @@ def coach_snapshot(
             if not ((previous.Season == year) & (previous.TeamID == team)).any():
                 break
             tenure += 1
-        result.at[index, "coach_tenure"] = tenure
-        result.at[index, "coach_prior_teams"] = previous.TeamID.nunique()
-        result.at[index, "coach_prior_seasons"] = previous.Season.nunique()
+        result.iloc[position, 2:5] = [
+            tenure,
+            previous.TeamID.nunique(),
+            previous.Season.nunique(),
+        ]
     for source, games in (("regular", compact), ("tournament", tournament)):
         old = games.loc[games.Season.between(season - 5, season - 1)]
         long = team_games(old)

@@ -5,10 +5,12 @@ on:
     branches: [feat/notebook-research]
     paths:
       - '.github/workflows/notebooks.yml'
-      - 'src/march_mania/modeling.py'
-      - 'src/march_mania/publication/workflow.py'
-      - 'src/march_mania/publication/artifacts.py'
+      - 'src/march_mania/**'
+      - 'notebooks/*.ipynb'
+      - 'configs/feature_store.json'
       - 'configs/model_comparison.json'
+      - 'pyproject.toml'
+      - 'uv.lock'
 permissions:
   contents: read
 concurrency:
