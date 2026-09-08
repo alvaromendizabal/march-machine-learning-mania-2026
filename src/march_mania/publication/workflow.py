@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -255,6 +256,15 @@ def matched_comparison(previous: pd.DataFrame, current: pd.DataFrame) -> pd.Data
     )
 
 
+def materialize_predictions(run: Path) -> Path:
+    """Derive the public CSV from canonical Parquet; never substitute an old report."""
+    source = run / "predictions.parquet"
+    payload = pd.read_parquet(source).to_csv(index=False).encode("utf-8")
+    target = run / "predictions.csv"
+    verified_write(target, payload, hashlib.sha256(payload).hexdigest())
+    return target
+
+
 def model_stage(root: Path) -> Path:
     feature_run = require_current_features(root)
     folder, previous = evidence(root, "model_comparison")
@@ -264,6 +274,7 @@ def model_stage(root: Path) -> Path:
         feature_run, root / "outputs/model_comparison", config, S3_PREFIX + "/models"
     )
     run = root / "outputs/model_comparison" / summary["fingerprint"]
+    materialize_predictions(run)
     if previous["summary"]["fingerprint"] != summary["fingerprint"]:
         matched_comparison(previous_predictions, pd.read_csv(run / "predictions.csv")).to_csv(
             run / "comparison.csv", index=False
@@ -289,9 +300,14 @@ def verify_model_recovery(root: Path) -> dict[str, Any]:
     config = json.loads((root / "configs/model_comparison.json").read_text())
     summary = modeling.run(feature_run, base, config, S3_PREFIX + "/models")
     restored = base / summary["fingerprint"]
+    materialize_predictions(restored)
     events = [json.loads(row) for row in (restored / "events.jsonl").read_text().splitlines()]
     repeats = sum(row["event"] == "task_started" for row in events)
-    if repeats or digest(current / "predictions.csv") != digest(restored / "predictions.csv"):
+    if (
+        repeats
+        or digest(current / "predictions.parquet") != digest(restored / "predictions.parquet")
+        or digest(current / "predictions.csv") != digest(restored / "predictions.csv")
+    ):
         raise ValueError("Recovery repeated work or changed forecasts")
     result = {
         "status": "passed",

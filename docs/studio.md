@@ -1,201 +1,115 @@
-# March Mania: reviewing executed notebooks
+# March Mania: run, review, and generate your own file
 
-Open the existing [March Mania Studio](https://8i0hrdxm55pbptj.studio.us-west-2.sagemaker.aws/jupyterlab/default)
-when you want to browse the existing checkout. Published notebooks already contain
-outputs; opening them does not require a kernel or a new run.
+## Read the project
 
-## What already completed
+Employers can open the saved notebook outputs without AWS, data downloads or a kernel.
+Start with **03** for model evaluation and **05** for current research conclusions;
+**00 → 01 → 02** document data, chronological validation and feature engineering.
+**04** contains the owner-controlled generation cell and an earlier final-fit example.
 
-The official Kaggle snapshot was downloaded at **2026-09-07 00:09:59 UTC**:
-35 CSV files, 181,009,577 bytes. Every file has a SHA-256 entry in the data
-manifest. The subsequent 104-feature run completed 540 fold tasks and 9,200
-team snapshots. Its private S3 fingerprint begins `554cee2384b92`.
+The old 120-fold research and August score log are historical records, not results from
+the rebuilt 124-feature matrix. Notebook 05 verifies the 02 → 03 dependency and compares
+matching forecast rows. Report execution and model training are different operations.
 
-The current reading sequence is **00 → 01 → 02 → 03 → 04**. These are executable views over
-persisted Python-pipeline outputs; their cell state is not a dependency.
+## Update your existing Studio checkout
 
-| Notebook | What to inspect |
-|---|---|
-| 00 | Download provenance, all-file inventory, data coverage, pace and shot selection |
-| 01 | Exact training/validation seasons, prediction cutoff and snapshot coverage |
-| 02 | Feature definitions, actual fitted inputs, Brier ablations and uncertainty |
-| 03 | Model comparison, calibration, ensembles, uncertainty and feature diagnostics |
-| 04 | Actual final fits, retrospective benchmark, prediction coverage and recovery |
-
-Notebook 03 now uses the current feature schema and has executed outputs. The
-497-fit comparison completed successfully. The final-prediction stage then generated 132,133
-actual 2026 probabilities, preserving four final estimators and 16 retrospective benchmark
-estimators. Notebook 04 presents those results and verified S3 recovery. No 2026 tournament
-outcomes enter fitting, and no Kaggle upload is claimed. Notebook 05 remains an optional appendix.
-
-## Update the checkout
-
-This is an optional maintainer operation when a Studio checkout needs the latest
-GitHub changes. Reviewing the published notebooks requires no terminal commands.
-Save and close open notebooks before updating:
+Save and close notebooks, then run:
 
 ```bash
-cd "$HOME/march-machine-learning-mania-2026"
+cd "$HOME/march-machine-learning-mania-2026" &&
 python3 scripts/update.py
 ```
 
-The update command preserves edited tracked notebooks in a named Git stash,
-fast-forwards `main`, installs the locked environment, registers the kernel and
-runs quality checks. Failed steps stop the sequence. Local stashes are preserved
-on Studio's persistent volume; experiment artifacts are separately backed by S3.
+The updater preserves edited tracked notebooks in a named Git stash, fast-forwards main,
+installs the locked environment and runs checks. It stops for unrelated edits or divergence.
+Do not delete raw data, output directories or stashes to bypass a stopped update. Do not pop
+old rendered notebooks over newly published ones without reviewing their differences.
 
-## Review completed evidence
+## Train from notebooks
 
-Open notebooks **00, 01, 02, 03 and 04** and inspect their saved outputs. You do not
-need to use Run All. The maintainer executes and publishes notebook outputs.
-Fresh clones can also execute the recorded evidence without downloading private
-raw data. Every notebook labels local completed runs or recorded Git evidence.
+Open `02_feature_store_and_diagnostics.ipynb`. In its first code cell replace the mode
+assignment with:
 
-If notebook 02 finds an older local 104-feature run, it selects the recorded
-124-feature evidence. The older run stays intact. A completed current-schema
-local run takes precedence over recorded Git evidence.
-
-## Get the completed prediction file
-
-No retraining is needed. The [successful run's validation artifact](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34083821689/artifacts/10004608823)
-contains `final/submission.csv`. Its exact SHA-256 is
-`1be5445fadc1c47531bbede2a5892327524a2aaa667663f0628d13b8057facb4`.
-The independent versioned private S3 copy is:
-
-```text
-s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/794abeba97c0589751b3848117ce8588386a154b97b9ee3310127e9ef55b4c46/publication/submission.csv
+```python
+MODE = "train"
 ```
 
-The same run prefix preserves 53 task checkpoints, fitted estimators, prediction chunks,
-manifest, source archive and UTC logs. Do not delete these to clean the Git repository.
+Run all cells in **02**, then do the same in
+`03_model_comparison_and_diagnostics.ipynb`. Notebook 02 builds or verifies/reuses features.
+Notebook 03 fits or restores estimator checkpoints using the exact current matrix.
+Changed raw inputs or feature code require 02 before 03; changed model inputs require 03
+before final generation. Existing local `data/kaggle/raw` is preferred over the recorded
+archive, so genuinely new data is not silently replaced with an old snapshot.
 
-## Reproduce or restore the final run
-
-GitHub **Actions → Final predictions → Run workflow** uses short-lived AWS OIDC credentials.
-Only this repository's `main` and `feat/final-predictions` branches are trusted. The role can read
-the two exact verified input archives and read/write the final-predictions prefix. It cannot
-launch AWS compute, delete S3 objects or access unrelated buckets. No long-lived keys are stored.
-
-From an already configured Studio checkout, the equivalent command is:
+The equivalent terminal operation executes the canonical notebook code:
 
 ```bash
-.venv/bin/python -W error -m march_mania.publication.inference \
-  --download-inputs \
-  --s3 s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions
+MARCH_NOTEBOOK_MODE=train .venv/bin/python scripts/notebook.py --execute --publish --timeout 1800
 ```
 
-This verifies/reuses the two input archives and restores completed final-run tasks. It does not
-rerun the 497-fit comparison. A changed code/config/data/environment fingerprint creates a new
-run rather than reusing incompatible results. A failed estimator restarts only that fit;
-completed estimators and forecast chunks are verified and reused. The tested fresh-directory
-recovery restored all 53 tasks and reproduced the CSV exactly with zero repeated fits.
-The workflow executes all six review notebooks and, on its feature branch only, commits the
-selected public reports and executed notebook outputs. It never auto-pushes generated evidence
-to `main`; the maintainer reviews and merges through a pull request.
+This does not enable submission generation. Completed estimators are reused only for matching
+fingerprints and verified bytes. An interrupted estimator restarts that fit; an interrupted
+notebook starts from its first cell and calls the resumable stages again.
 
-The original ranked Kaggle deadline has passed. Check late-submission availability on Kaggle
-before attempting an upload; generating this CSV does not establish a score or an accepted receipt.
-
-## Maintainer reproduction and resume
-
-Your existing `data/kaggle/raw` directory already contains the official data.
-The first command below verifies/reuses completed downloads; it does not repeat
-successful file transfers from Kaggle. Supply S3 to preserve each stage remotely.
-
-```bash
-(
-  set -e
-  .venv/bin/march-data --output data/kaggle \
-    --s3 s3://sagemaker-march-mania-560403859723-us-west-2/data
-  .venv/bin/march-audit --raw data/kaggle/raw \
-    --run-root outputs/data_review \
-    --s3 s3://sagemaker-march-mania-560403859723-us-west-2/data-review
-  .venv/bin/march-features --raw data/kaggle/raw \
-    --run-root outputs/feature_store --require-massey \
-    --s3 s3://sagemaker-march-mania-560403859723-us-west-2/feature-store
-)
-```
-
-After the feature store completes, run or resume the model comparison:
-
-```bash
-.venv/bin/march-models \
-  --s3 s3://sagemaker-march-mania-560403859723-us-west-2/model-comparison
-```
-
-Only a new runtime without existing data needs Kaggle authentication. Use
-`.venv/bin/kaggle auth login` there if requested. The account must have accepted
-competition terms. Never place credentials in code or notebooks.
-
-Every run emits UTC timestamps, elapsed time, progress and 15-second heartbeats.
-`outputs/feature_store/latest.json` points to the completed run. Open its
-`report.html` for interactive charts. Repeating the same command verifies and
-reuses completed season/model tasks; an interrupted estimator restarts that fit.
-Data, code, configuration or dependency changes create a new fingerprinted run.
-Prior completed experiments remain available.
-
-Maintainers execute all six canonical notebooks and publish their outputs:
+To render review outputs without initiating training:
 
 ```bash
 .venv/bin/python scripts/notebook.py --execute --publish
 ```
 
-Outputs are written to `outputs/validation` and the canonical `notebooks` files;
-GitHub keeps the executed notebooks
-and aggregate evidence. The notebook runner also logs UTC progress and heartbeat.
+Keep `MODE = execution_mode()` as the committed notebook default. It selects review mode
+unless the explicit training environment variable is present. The mode is part of the
+notebook cache identity, so a previous review cannot count as a training execution.
 
-## Durability
+## Generate and download your own submission
 
-The existing Studio space uses persistent EBS. Stopping its app retains that data;
-deleting the space removes the volume. S3 provides the independent copy of the
-raw snapshot and experiments. No new compute instance is needed for these steps.
+After 02 and 03 have completed in your workspace, open
+`04_locked_benchmark_and_final_submission.ipynb`. Its final cell defaults to:
 
-A portable archive can preserve a completed run, its exact raw inputs and source:
-
-```bash
-.venv/bin/python scripts/archive.py create \
-  --run outputs/feature_store/FINGERPRINT --raw data/kaggle/raw \
-  --destination outputs/feature_store.zip
-.venv/bin/python scripts/archive.py restore outputs/feature_store.zip \
-  --destination outputs/restored_feature_store
+```python
+GENERATE_SUBMISSION = False
 ```
 
-Restoration checks ZIP CRC and SHA-256 and reuses matching files. Different
-contents are never overwritten. The restored archive contains `run/`, `raw/`,
-and `source/`. Published run archives and checksums are recorded in
-`reports/feature_store/run.json` and `reports/model_comparison/run.json`.
-For model archives, `raw/features.parquet` is the exact upstream model matrix.
-The private archive also contains the standalone interactive report in `run/report.html`.
+Change it to `True` and run that cell when ready. The code verifies the feature/model
+handoff, fits or restores the declared final recipe, produces the official template in its
+original order, audits the probabilities and saves **`submissions/submission.csv`**.
+The cell displays its checksum and a download link. The same file is available through
+JupyterLab's file browser. No Kaggle upload is made. Earlier displayed final-fit metrics
+are a recorded example, not a claim that this cell has already generated your new file.
 
-## Notebook publication and submission release
+The final recipe remains the explicitly configured logistic families in
+`configs/inference.json`; a research challenger is not automatically promoted based on a
+consumed benchmark. A new model-family export requires a reviewed recipe implementation.
+The 2022–2025 benchmark has already been consumed. Retrospective results and historical
+score logs must not be described as new untouched validation or authenticated Kaggle receipts.
 
-The notebook runner records cell start/end, UTC timestamps, cell/task/total elapsed
-time and a task heartbeat. Completed notebooks are reused only when their inputs,
-source, environment and saved output checksums still match. An interrupted notebook
-restarts from its first cell; earlier completed notebooks and all model checkpoints
-remain intact. Publication is atomic, and concurrent publishers cannot race.
-Warning or error outputs block publication instead of being hidden.
+## Logs, preservation, and tests
 
-To independently replicate notebook checkpoints, add this option to the execution command:
+UTC events record progress, task/total elapsed time and 15-second heartbeats. Publication
+rejects error and warning outputs and atomically replaces notebooks only after success.
+Notebook reports are not a substitute for estimator training logs.
 
-```bash
-.venv/bin/python scripts/notebook.py --execute --publish \
-  --s3 s3://sagemaker-march-mania-560403859723-us-west-2/notebooks
+The **Notebook research** GitHub workflow uses temporary, restricted AWS credentials and
+CPU runners. It executes training notebooks, checks fresh-directory S3 recovery, renders
+review notebooks and commits only public reports/notebooks to its feature branch.
+A separate quality workflow tests pull requests. No new AWS compute is provisioned.
+
+Private checkpoint and archive prefixes are under:
+
+```text
+s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/
 ```
 
-The release utility now has one responsibility: audit and durably package an existing
-prediction CSV. The old installer and score-driven refinement generator have been
-removed from the active utility; Git history retains their implementation and the
-historical score records remain unchanged. Inspect its required arguments with:
+Feature and model archive IDs/checksums are recorded in their `reports/*/run.json` files.
+Raw data, fitted estimators and checkpoints stay outside Git. GitHub validation artifacts
+have 90-day retention; private versioned S3 archives and committed notebooks are separate
+copies. Existing historical experiment prefixes are retained, not overwritten by cleanup.
+
+Run the locked quality gate with:
 
 ```bash
-.venv/bin/python scripts/portfolio_release.py --help
+.venv/bin/python scripts/quality.py
 ```
 
-Provide the actual prediction file, official `SampleSubmissionStage2.csv`, and the
-recorded SHA-256 when available. An optional `--s3` prefix mirrors the exact CSV and
-audit. A manifest without the corresponding CSV is not a validated release. This
-command does not train a new final model or upload to Kaggle. Late-submission
-availability must be checked on Kaggle; the original deadline has passed.
-
-GitHub changes pass through a feature branch, documented pull request and CI.
+All changes use canonical filenames, documented commits, pull requests and exact-head
+checks before merge. Do not rename corrected files to fix/fixed/repair variants.
