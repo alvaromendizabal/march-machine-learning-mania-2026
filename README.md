@@ -129,12 +129,13 @@ timestamped inputs or a future tournament evaluated under a frozen protocol.
 - **Recovery:** versioned S3 archives preserve data, estimators, forecasts and
   source. Verified recovery reused 901 model tasks; the two feature follow-ups
   separately reused 281 tasks and preserved 280 models without new fits.
-- **Publication:** six canonical notebooks and 42 executed code cells. PR #11 is
-  merged; its [main quality run](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34302470761)
-  passed 242 tests, executed all six notebooks, then reused all six checkpoints.
-  The badge above links current checks, including the automated release audit.
+- **Publication:** six canonical notebooks and 44 executed code cells. The
+  [native handoff receipt](reports/validation/production_handoff.json) verifies
+  their source, checkpoint hashes and saved outputs. The required quality workflow
+  checks 290 tests, release audits, native execution and six-notebook reuse.
+  The badge above links the checks for the current revision.
 
-On September 9, 2026 UTC, all six recorded archive versions were rechecked against
+On September 9, 2026 UTC, all six research archive versions were rechecked against
 AWS. Five full-object SHA-256 checksums matched directly; the remaining archive
 was freshly downloaded and hashed. The
 [cloud receipt](reports/repository_release/cloud_verification.json) records exactly
