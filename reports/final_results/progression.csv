@@ -1,0 +1,5 @@
+batch,label,files_in_batch,total_files,batch_best_brier,best_so_far_brier,best_filename
+original_50,Original models,50,50,0.1229419,0.1229419,m_pooled_xgboost__w_logistic.csv
+refinement_8,Probability adjustments,8,58,0.1225463,0.1225463,m_pooled_xgboost_t090__w_logistic.csv
+men_challengers_6,Men’s retraining,6,64,0.1223389,0.1223389,m_pooled_xgboost_lighter_t090__w_logistic.csv
+women_challengers_6,Women’s retraining,6,70,0.1222672,0.1222672,m_pooled_xgboost_t090__w_conference_c100_t110.csv

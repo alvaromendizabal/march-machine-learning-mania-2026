@@ -1,0 +1,48 @@
+{
+  "status": "private_download_saved",
+  "checked_at_utc": "2026-09-09T22:23:51.866090+00:00",
+  "collection": {
+    "filename": "final_submissions.zip",
+    "sha256": "545cfb9ad2451230b9b664e69c5e9d0373fae75333015e9ebe20d5e2676e0804",
+    "bytes": 103412423,
+    "files": 70,
+    "fingerprint": "1051737d032e61f4a4da998b92576aa821c8962b25fa1ee20bb883cb6efcae52",
+    "delivery": "Private project-owner download",
+    "saved_version": 1,
+    "save_confirmed": true
+  },
+  "winning_csv": {
+    "filename": "m_pooled_xgboost_t090__w_conference_c100_t110.csv",
+    "sha256": "b7704da76ea2b48839e1fdfaa32d593cf0cc23171d3b67e13987f152342bc92e",
+    "delivery": "Separate private project-owner download",
+    "save_confirmed": true
+  },
+  "existing_versioned_archives": [
+    {
+      "receipt": "reports/submission_scores/storage.json",
+      "sha256": "e6cfe4588ac00c38f48940aaff9d1768b35fd85d557d567bac111bc8113f3292"
+    },
+    {
+      "receipt": "reports/prediction_production/storage.json",
+      "sha256": "a465f235991557f4bb307d2bf9727eebfd6660c1decc248ae050d589766b060a"
+    },
+    {
+      "receipt": "reports/prediction_refinement/storage.json",
+      "sha256": "ceaac6e53af2e625ec9cd1061e07ff30520d491f8f846023ae16090733dca5ff"
+    },
+    {
+      "receipt": "reports/prediction_challengers/storage.json",
+      "sha256": "55ef7149343a07a212c5e0fbbe3f952e69b6a472b9f8bb84d506429bef5a0c68"
+    },
+    {
+      "receipt": "reports/women_challengers/storage.json",
+      "sha256": "0818e646aa9d05b2f8a8e957727717ebd5a9e475ca2339ad6e833cf979919ad5"
+    }
+  ],
+  "additional_s3_copy": {
+    "status": "blocked_by_automatic_approval_review",
+    "upload_confirmed": false,
+    "reason": "Review rejected the additional final ZIP upload, citing disclosure to an unverified external destination. The combined collection was saved through the private artifact delivery service instead."
+  },
+  "recovery": "Recover the unchanged three component archives from their existing S3 receipts and run the documented packaging command; no refitting is needed."
+}

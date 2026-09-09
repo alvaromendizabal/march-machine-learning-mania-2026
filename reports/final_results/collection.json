@@ -1,0 +1,18 @@
+{
+  "bytes": 103412423,
+  "files": 70,
+  "fingerprint": "1051737d032e61f4a4da998b92576aa821c8962b25fa1ee20bb883cb6efcae52",
+  "inputs": {
+    "archives": [
+      "40b95be2ab018d851576b0d95189f6ca65f2926c176e8a1ea6d312e1400a874f",
+      "0160964a06411eb9cb1e0e16da8cd873689a253a85e9aa12844322011c0ddc73",
+      "6b609dd69ecdfeadb99b898c35779705e3c3b9d863fb934489d40e10b2bd8363"
+    ],
+    "readme": "324aa4bfee2476c438994dfc5fdad4a75871bd3fea6cb206bdca09d7660c7f15",
+    "scores": "81d7883cbdf8e43daa6e2493f4ec7a585bb5319ed533446fb71ea99609f8cda2"
+  },
+  "new_model_fits": 0,
+  "prediction_bytes_unchanged": true,
+  "sha256": "545cfb9ad2451230b9b664e69c5e9d0373fae75333015e9ebe20d5e2676e0804",
+  "status": "verified"
+}

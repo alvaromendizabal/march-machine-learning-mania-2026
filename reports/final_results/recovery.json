@@ -1,0 +1,9 @@
+{
+  "fingerprint": "1051737d032e61f4a4da998b92576aa821c8962b25fa1ee20bb883cb6efcae52",
+  "new_model_fits": 0,
+  "new_tasks": 0,
+  "reused_packaging_tasks": 1,
+  "scope": "Local packaging restart from exact preserved archives",
+  "sha256_unchanged": "545cfb9ad2451230b9b664e69c5e9d0373fae75333015e9ebe20d5e2676e0804",
+  "status": "verified"
+}

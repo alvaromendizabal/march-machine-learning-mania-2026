@@ -2,7 +2,7 @@
 
 Women’s separate logistic regression won every model pairing in the observed 50-file batch. We now test whether nearby regularization and confidence choices improve that stream. All six new files keep men’s exact prediction rows from `m_pooled_xgboost_t090__w_logistic.csv`, the observed **0.1225463** combined Brier leader.
 
-These files are **unscored**. Extract `submissions/women_challengers.zip` and submit individual model CSVs. Start with priority 1. The ZIP’s manifest and recipe provide provenance; neither is a Kaggle submission.
+All six files have now been scored. The C=1.0 conference model at temperature 1.10 won at **0.1222672** combined Brier; [the final report](../final_results/README.md) records every outcome. Extract `submissions/women_challengers.zip` and submit individual model CSVs. The original priority column records the historical ordering; its first choice did not win on Kaggle. The ZIP’s manifest and recipe provide provenance; neither is a Kaggle submission.
 
 | Priority | Submission CSV | Women’s historical Brier |
 | --- | --- | ---: |
@@ -31,7 +31,7 @@ Massey and coach histories are unavailable for women in this snapshot. The women
 
 Each CSV has 132,133 rows in official template order. Export verifies unique IDs, finite bounded probabilities, numeric serialization, distinct file hashes, archive contents and byte-identical men’s rows. Saved models reproduce predictions exactly after reload. Tests exercise temporal mutation, game uniqueness, forward selection, team-swap symmetry, corrupted checkpoints, resume and malformed exports.
 
-The [generation receipt](generation.json), [final fit audits](final_fit_audits.json), [routes](routes.csv), [submission manifest](submission_manifest.csv), [recovery record](recovery.json) and [private storage receipt](storage.json) preserve this batch. The prior 58 scored files remain in their original collection; the earlier six men’s challengers remain in their original ZIP. The inventory is **70 current CSVs: 58 scored and 12 unscored**. Prior score ledgers and original prediction bytes are preserved.
+The [generation receipt](generation.json), [final fit audits](final_fit_audits.json), [routes](routes.csv), [submission manifest](submission_manifest.csv), [recovery record](recovery.json) and [private storage receipt](storage.json) preserve this batch. The prior 58 scored files remain in their original collection; the earlier six men’s challengers remain in their original ZIP. The final inventory is **70 current CSVs, all scored**. Generation manifests retain their original `unscored` status; the final observed ledger records subsequent outcomes. Prior score ledgers and original prediction bytes are preserved.
 
 ## Reproduce
 

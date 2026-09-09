@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NCAA forecasting · Final results</title>
+<style>
+    *{box-sizing:border-box}body{margin:0;
+background:#f3f6f8;
+color:#19324A;
+font-family:Arial,sans-serif;
+line-height:1.6}main{max-width:1180px;
+margin:40px auto;
+padding:0 26px}header{border-top:5px solid #008577;
+padding:30px;
+background:white;
+border-radius:12px}h1{font-size:38px;
+line-height:1.15;
+margin:12px 0}h2{font-size:25px}small,.muted{color:#637b90}.cards{display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin:24px 0}.card{background:white;
+border:1px solid #e5ebf0;
+border-radius:12px;
+padding:22px}.number{font-size:32px;
+color:#008577;
+font-weight:700}.plots>div{background:white;
+border-radius:12px;
+margin:22px 0;
+overflow:auto}section{background:white;
+padding:28px;
+border-radius:12px;
+margin:24px 0}.table{overflow:auto}table{border-collapse:collapse;
+width:100%;
+font-size:12px}th,td{text-align:left;
+padding:9px;
+border-bottom:1px solid #e5ebf0}th{background:#f3f6f8}code{overflow-wrap:anywhere}footer{font-size:13px;
+color:#637b90;
+margin:28px 0}@media(max-width:700px){.cards{grid-template-columns:1fr}h1{font-size:29px}main{padding:0 12px}}</style>
+<main>
+    <header>
+<small>ALVARO MENDIZABAL / APPLIED MACHINE LEARNING</small>
+<h1>NCAA tournament probability forecasting</h1>
+<p>Broad feature research, temporal validation and reproducible final predictions.</p>
+</header>
+    <div class="cards">
+<div class="card">
+<div class="number">0.1222672</div>Best observed Brier</div>
+<div class="card">
+<div class="number">70 / 70</div>Submission scores preserved</div>
+<div class="card">
+<div class="number">3,946</div>Feature hypotheses investigated</div>
+</div>
+    <section>
+<h2>The final observed winner</h2>
+<p>
+<b>Men:</b> pooled XGBoost, 128 retained features, temperature 0.90.<br>
+<b>Women:</b> conference logistic regression, C=1.0, temperature 1.10.</p>
+<p>
+<code>WINNER_FILE</code>
+</p>
+<p class="muted">Both displayed Kaggle score columns are 0.1222672. These are late submissions selected after observing results. Historical validation and this leaderboard result answer different questions;
+ neither is a fresh untouched holdout.</p>
+</section>
+    <div class="plots">PLOTS</div>
+<section>
+<h2>What the project established</h2>
+<p>Compact team-strength and ranking features remain competitive. More features and more trees do not consistently improve temporal validation. The final score improved by 0.0006747 from the best original model pair, while preserving the earlier frozen reference and all negative findings.</p>
+<p>Final fitting ends in 2025. Massey coverage is verified for the modeled men’s seasons;
+ the winning pooled stream excludes Massey, and women’s coach/rating parity is unavailable. Seed-free predictions lack matched tournament validation.</p>
+</section>
+<section>
+<h2>Complete score ledger</h2>
+<div class="table">TABLE</div>
+</section>
+<footer>Source: owner-supplied Kaggle screenshots, joined to checksum-verified generated files. Open this self-contained file in a browser for Plotly hover, zoom and image export.</footer>
+</main>
+</html>

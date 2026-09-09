@@ -2,8 +2,9 @@
 
 This is the owner's requested, bounded follow-up: three pooled XGBoost recipes,
 each with temperature 1.00 (raw probabilities) and 0.90 (more confident). The
-64-feature pair is the priority. These are **six new, unscored CSVs**; no Kaggle
-upload is performed. The prior 58 scored files and their exact bytes remain in
+64-feature pair was the historical submission priority. All six CSVs have now been scored. The best is the lighter-regularization model
+at temperature 0.90: **0.1223389**. [Final observed results](../final_results/README.md)
+record all scores; generation itself performs no Kaggle upload. The prior 58 scored files and their exact bytes remain in
 the [preserved collection](../submission_scores/README.md).
 
 | Priority | Submission CSV | Change from the original pooled XGBoost |
@@ -49,7 +50,7 @@ comparison motivated by the previously observed best Kaggle score, 0.1225463.
 [generation receipt](summary.json) record the executed batch. The private versioned
 AWS archive and checksum verification are recorded in [storage.json](storage.json);
 [recovery.json](recovery.json) records checkpoint reuse with no new fitting.
-All earlier scores remain in the separate score ledger; these six await results.
+All earlier scores remain in their original ledger; the final score ledger records these six outcomes. The manifest’s `unscored` field describes its immutable generation-time state.
 
 ## Reproduce
 
