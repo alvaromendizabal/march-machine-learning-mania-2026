@@ -28,11 +28,13 @@ def main() -> int:
         "scripts/update.py",
         "scripts/verify_prediction_production.py",
         "scripts/deliver_predictions.py",
+        "scripts/women_challengers.py",
     ]
     typed_files = tomllib.loads((root / "pyproject.toml").read_text())["tool"]["mypy"]["files"]
     typed_files = [
         *typed_files,
         "scripts/deliver_predictions.py",
+        "scripts/women_challengers.py",
         "src/march_mania/publication",
         *[
             "src/march_mania/" + name + ".py"

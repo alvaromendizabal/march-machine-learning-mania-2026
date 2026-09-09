@@ -1,0 +1,293 @@
+[
+  {
+    "candidate": {
+      "block": "conference",
+      "family": "logistic",
+      "name": "conference_c010",
+      "parameter": 0.1
+    },
+    "eligible_features": 18,
+    "fitted": true,
+    "population": "W",
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength",
+      "diff_conference_nonconference_adjusted_margin"
+    ],
+    "route": "seeded",
+    "training_games": 772,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "variant": "conference_c010"
+  },
+  {
+    "candidate": {
+      "block": "conference",
+      "family": "logistic",
+      "name": "conference_c010",
+      "parameter": 0.1
+    },
+    "eligible_features": 17,
+    "fitted": true,
+    "population": "W",
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength",
+      "diff_conference_nonconference_adjusted_margin"
+    ],
+    "route": "seed_free",
+    "training_games": 772,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "variant": "conference_c010"
+  },
+  {
+    "candidate": {
+      "block": "conference",
+      "family": "logistic",
+      "name": "conference_c100",
+      "parameter": 1.0
+    },
+    "eligible_features": 18,
+    "fitted": true,
+    "population": "W",
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength",
+      "diff_conference_nonconference_adjusted_margin"
+    ],
+    "route": "seeded",
+    "training_games": 772,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "variant": "conference_c100"
+  },
+  {
+    "candidate": {
+      "block": "conference",
+      "family": "logistic",
+      "name": "conference_c100",
+      "parameter": 1.0
+    },
+    "eligible_features": 17,
+    "fitted": true,
+    "population": "W",
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength",
+      "diff_conference_nonconference_adjusted_margin"
+    ],
+    "route": "seed_free",
+    "training_games": 772,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "variant": "conference_c100"
+  },
+  {
+    "candidate": {
+      "block": "dynamic",
+      "family": "logistic",
+      "name": "dynamic_c030",
+      "parameter": 0.3
+    },
+    "eligible_features": 10,
+    "fitted": true,
+    "population": "W",
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_elo",
+      "diff_elo_mov",
+      "diff_elo_change",
+      "diff_elo_mov_change"
+    ],
+    "route": "seeded",
+    "training_games": 772,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "variant": "dynamic_c030"
+  },
+  {
+    "candidate": {
+      "block": "dynamic",
+      "family": "logistic",
+      "name": "dynamic_c030",
+      "parameter": 0.3
+    },
+    "eligible_features": 9,
+    "fitted": true,
+    "population": "W",
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_elo",
+      "diff_elo_mov",
+      "diff_elo_change",
+      "diff_elo_mov_change"
+    ],
+    "route": "seed_free",
+    "training_games": 772,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2025,
+    "training_seasons": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "variant": "dynamic_c030"
+  }
+]

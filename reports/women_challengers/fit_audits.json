@@ -1,0 +1,575 @@
+[
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_margin",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 63,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2013,
+    "validation_season": 2014,
+    "variant": "conference_c010"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_margin",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 126,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2014,
+    "validation_season": 2015,
+    "variant": "conference_c010"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 189,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2015,
+    "validation_season": 2016,
+    "variant": "conference_c010"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 252,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2016,
+    "validation_season": 2017,
+    "variant": "conference_c010"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 315,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2017,
+    "validation_season": 2018,
+    "variant": "conference_c010"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 378,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2018,
+    "validation_season": 2019,
+    "variant": "conference_c010"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 441,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2019,
+    "validation_season": 2021,
+    "variant": "conference_c010"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_margin",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 63,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2013,
+    "validation_season": 2014,
+    "variant": "conference_c100"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_margin",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 126,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2014,
+    "validation_season": 2015,
+    "variant": "conference_c100"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 189,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2015,
+    "validation_season": 2016,
+    "variant": "conference_c100"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 252,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2016,
+    "validation_season": 2017,
+    "variant": "conference_c100"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 315,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2017,
+    "validation_season": 2018,
+    "variant": "conference_c100"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 378,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2018,
+    "validation_season": 2019,
+    "variant": "conference_c100"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 441,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2019,
+    "validation_season": 2021,
+    "variant": "conference_c100"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_margin",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 63,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2013,
+    "validation_season": 2014,
+    "variant": "conference_c300"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_margin",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 126,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2014,
+    "validation_season": 2015,
+    "variant": "conference_c300"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 189,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2015,
+    "validation_season": 2016,
+    "variant": "conference_c300"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 252,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2016,
+    "validation_season": 2017,
+    "variant": "conference_c300"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 315,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2017,
+    "validation_season": 2018,
+    "variant": "conference_c300"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 378,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2018,
+    "validation_season": 2019,
+    "variant": "conference_c300"
+  },
+  {
+    "reload_max_absolute_error": 0.0,
+    "retained_features": [
+      "diff_seed",
+      "diff_strength",
+      "diff_schedule_strength",
+      "diff_win_rate",
+      "diff_margin",
+      "diff_margin_sd",
+      "diff_conference_teams",
+      "diff_conference_mean_strength",
+      "diff_conference_median_strength",
+      "diff_conference_upper_strength",
+      "diff_conference_strength_sd",
+      "diff_conference_team_percentile",
+      "diff_conference_nonconference_support",
+      "diff_conference_nonconference_win_posterior",
+      "diff_conference_nonconference_opponent_strength"
+    ],
+    "training_games": 441,
+    "training_genders": [
+      "W"
+    ],
+    "training_max_season": 2019,
+    "validation_season": 2021,
+    "variant": "conference_c300"
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "archive": "submissions/women_challengers.zip",
+  "bytes": 9700208,
+  "fingerprint": "8e0feaa693c31f814a5836fabcf3e80279d284493c9348d0785c3842d6dc7775",
+  "fitted_models": 6,
+  "future_labels_used": false,
+  "inputs": {
+    "finalists_sha256": "48489d4766886618dd10f483845077ea6de5395aacaca91e7fed8f6fd8a1df26",
+    "runtime": {
+      "joblib": "1.5.2",
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+      "pyarrow": "21.0.0",
+      "python": "3.12.13",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.16.3"
+    },
+    "source_csv_sha256": "14b5b1bc24fe3b3429a23ccc0345508c9ded8215fb3a86d8722269b9ba64134c",
+    "study_fingerprint": "ddb7883fa756507dd4d0594867c27f3f84f27c31f0c5d4f493a09b07d523540d"
+  },
+  "kaggle_submission_sent": false,
+  "men_predictions_unchanged": true,
+  "prediction_chunks": 129,
+  "reports_sha256": {
+    "final_fit_audits.json": "cdf08921060b65626eeade7dcf848e810687fbc9d0a30229e230c0c177d6b521",
+    "routes.csv": "f23149e18f9c4294b6337add7efa88b193dda08cefe6ed103d8af4aef9bca034",
+    "submission_manifest.csv": "d30e1a72c0fc0994db205624b51c9fc7ba60879f6364c7b4a24a386673240c78"
+  },
+  "rows_per_file": 132133,
+  "sha256": "6b609dd69ecdfeadb99b898c35779705e3c3b9d863fb934489d40e10b2bd8363",
+  "status": "generated_and_validated",
+  "study_fingerprint": "ddb7883fa756507dd4d0594867c27f3f84f27c31f0c5d4f493a09b07d523540d",
+  "submission_files": 6,
+  "training_max_season": 2025
+}
