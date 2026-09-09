@@ -12,6 +12,11 @@ A much wider feature bank does not deliver a consistent improvement. The project
 shows how to find useful signal, reject unstable gains and preserve the evidence
 behind a modeling decision.
 
+**Current delivery:** the research release is complete. A reproducible
+[50-candidate development catalog](reports/prediction_portfolio/README.md) now defines
+the path to 50 validated prediction files. Final portfolio fitting and CSV generation
+are the next release; the [completion plan](docs/completion_plan.md) lists the gates.
+
 ## Review the work in five notebooks
 
 All notebooks contain executed outputs. Open them directly on GitHub; reviewing
@@ -119,9 +124,9 @@ timestamped inputs or a future tournament evaluated under a frozen protocol.
 - **Recovery:** versioned S3 archives preserve data, estimators, forecasts and
   source. Verified recovery reused 901 model tasks; the two feature follow-ups
   separately reused 281 tasks and preserved 280 models without new fits.
-- **Publication:** six canonical notebooks and 42 executed code cells. PR #10 is
-  merged; its [main quality run](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34289790258)
-  passed 228 tests, executed all six notebooks, then reused all six checkpoints.
+- **Publication:** six canonical notebooks and 42 executed code cells. PR #11 is
+  merged; its [main quality run](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34302470761)
+  passed 242 tests, executed all six notebooks, then reused all six checkpoints.
   The badge above links current checks, including the automated release audit.
 
 On September 9, 2026 UTC, all six recorded archive versions were rechecked against
@@ -138,6 +143,7 @@ uv sync --locked --group dev
 uv run --locked python -m ipykernel install --user --name march-mania
 uv run --locked python scripts/quality.py
 uv run --locked python -m march_mania.publication.release --check
+uv run --locked python -m march_mania.publication.portfolio --check
 uv run --locked python scripts/notebook.py --execute --publish
 ```
 

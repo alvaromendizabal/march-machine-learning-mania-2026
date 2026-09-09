@@ -431,3 +431,35 @@ stated scope. Predictive superiority, player-level availability and women's
 historical source parity remain unproven. They require a new research question
 with timestamped evidence or prospective outcomes, not rerunning successful fits
 or selecting against already-consumed seasons.
+
+
+## 21. Development portfolio and remaining production gates — September 9, 2026 UTC
+
+The current-model evidence now supports a reproducible catalog of 50 candidate
+plans: ten men's procedures crossed with five women's procedures. It reuses 15
+published nested development streams, including the men's pooled blend and women's
+separate logistic. Every pairing covers the same 649 physical games from the five
+development seasons. The catalog verifies 95 earlier-season component-selection
+records and reconstructs the pooled blend from its saved raw components and weights.
+
+`python -m march_mania.publication.portfolio --check` recomputes the catalog,
+250 annual metric rows, selection history and all 1,225 pairwise prediction
+differences from checksum-verified committed evidence. All 50 development vectors
+are distinct; the smallest pairwise mean absolute probability difference is
+0.008814. Both Brier averages and supporting probability diagnostics remain visible.
+Tests reject contaminated or unmatched games, invalid probabilities, missing or
+future selection history, invalid blends, duplicate vectors and changed artifacts.
+
+This release performs zero new fits and produces zero submission CSVs. Its scores
+describe nested procedures on explored years; final model specifications are not yet
+frozen. Pairings were assembled retrospectively and are correlated sensitivity
+candidates, not 50 independent experiments. No consumed-benchmark or 2026 labels
+enter the catalog. The older submission portfolio retains its post-result label.
+
+The [completion plan](completion_plan.md) makes the remaining work explicit:
+restore current artifacts, freeze concrete pre-2022 component choices, fit each
+unique component/seed route once through 2025, generate 50 complete template-aligned
+files, validate final-vector uniqueness, archive them, and prove byte-identical
+recovery with zero new fits. Canonical notebook 04 receives the production evidence
+when that work has actually run. New external-source research is an optional
+extension, not a reason to leave the current official-data product unfinished.
