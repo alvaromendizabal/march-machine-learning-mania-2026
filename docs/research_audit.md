@@ -463,3 +463,32 @@ files, validate final-vector uniqueness, archive them, and prove byte-identical
 recovery with zero new fits. Canonical notebook 04 receives the production evidence
 when that work has actually run. New external-source research is an optional
 extension, not a reason to leave the current official-data product unfinished.
+
+
+## 22. Verified batch download
+
+PR #16 adds a single fifty-file download to the completed notebook handoff.
+The selected-candidate and generation controls remain intact. The delivery
+script verifies every model-run checkpoint and public CSV hash, creates a ZIP
+containing fifty CSVs plus their manifest and frozen recipe, and publishes the
+reference CSV without changing its bytes. A package checkpoint avoids repeated
+compression. Input verification precedes any restoration, so cached generation
+works without unnecessary cloud reads and corrupt inputs fail before fitting.
+
+Eleven focused tests cover offline review, exact member bytes, package reuse,
+corrupt files, inconsistent manifests, unsafe paths, restore without training,
+generation order, cached inputs and invalid actions. Actual generation reused
+344 tasks with fitting and input restoration guarded to raise if called. The
+notebook restore control produced both download links, and repeat delivery
+preserved identical ZIP and CSV bytes. The versioned 71,006,055-byte S3 download
+has a matching full-object SHA-256. See
+[delivery.json](../reports/prediction_production/delivery.json).
+
+All six native notebooks executed from proposed commit `8dad36c` in 28.09 seconds;
+the second pass reused all six in 0.59 seconds. The 44 code cells contain no
+error or warning outputs. The initial source gate correctly rejected the
+changed, unexecuted control cell; its 298 other tests passed. Actual native
+outputs and refreshed receipts resolve that gate before the final merge.
+[The current publication receipt](../reports/validation/prediction_delivery.json)
+identifies the exact artifact, source checkout and notebook byte hashes. This
+release changes delivery, not models, feature counts or predictive claims.
