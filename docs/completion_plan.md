@@ -10,7 +10,7 @@ quality score or completion percentage.
 | Research release | Controlled feature studies, current model comparison, executed notebooks, audited metrics and durable archives | Current source lineage, release audit, cloud/recovery receipts and merged CI | Complete through PR #11 |
 | Development portfolio | 50 candidate plans from 15 recorded procedures | Matched games, earlier-season decisions, blend reconstruction, distinct vectors, reproducible metrics and CI | Complete through PR #12 |
 | Prediction production | 50 complete 2026 submission CSVs plus frozen specifications and manifests | Exact template/order, valid probabilities, swap symmetry, explicit seeded/seed-free routes, final-vector uniqueness and training through 2025 only | Complete: 50 distinct files, 33 fitted models, 344 checkpoints |
-| Recovery and presentation | Versioned prediction/model archive; notebook 04 generation/review controls; concise employer walkthrough | Fresh restore, zero new fits, identical prediction bytes, all six executed notebooks published and merged-main checks | Local archive and model replay verified; exact S3 upload approval and notebook handoff pending |
+| Recovery and presentation | Versioned prediction/model archive; notebook 04 generation/review controls; concise employer walkthrough | Fresh restore, zero new fits, identical prediction bytes, all six executed notebooks published and merged-main checks | Versioned S3 archive and fresh remote recovery verified; notebook handoff pending |
 
 ## The next bounded implementation
 
@@ -19,11 +19,13 @@ completed the generation gates below. Local archive recovery reused all 344
 checkpoints without fitting, and all 33 models reproduced all 259 probability
 chunks exactly. The completed archive is available with the project handoff.
 
-The next actions are specific: obtain the exact upload authorization recorded in
-[storage.json](../reports/prediction_production/storage.json), verify recovery from
-that remote version, and integrate this release into canonical notebook 04. Then
-execute and publish all six notebooks and finish the concise employer walkthrough.
-Automatic approval review blocked only the S3 upload; no remote recovery is claimed.
+The owner approved the exact archive and destination. The upload and fresh,
+version-pinned S3 recovery are complete: all 344 checkpoints were reused, zero
+new fits ran and all fifty CSVs remained byte-identical. See
+[s3_recovery.json](../reports/prediction_production/s3_recovery.json).
+
+Next, integrate this release into canonical notebook 04, execute and publish all
+six notebooks, and finish the concise employer walkthrough.
 
 1. Restore the verified **current expanded** feature and model archives. Reject a
    historical 124-feature matrix, stale source/configuration, or incomplete raw data.

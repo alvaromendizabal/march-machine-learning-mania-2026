@@ -15,8 +15,9 @@ behind a modeling decision.
 **Current delivery:** the research release and
 [50-file prediction batch](reports/prediction_production/README.md) are complete.
 Each distinct file contains 132,133 matchups. All 33 saved models reproduced their
-predictions exactly, and local archive recovery reused 344 checkpoints with zero
-fits. Remote archive approval and the final notebook handoff remain in the
+predictions exactly. The versioned S3 archive is verified; fresh remote recovery
+reused 344 checkpoints with zero fits and 50 byte-identical files. The final
+notebook handoff remains in the
 [completion plan](docs/completion_plan.md).
 
 ## Review the work in five notebooks
@@ -163,7 +164,7 @@ uv run --locked python -m march_mania.publication.production --generate
 
 These commands require authorized access to the existing private input archives.
 The [production report](reports/prediction_production/README.md) gives exact
-recipes, file checksums, recovery evidence and the remaining remote-upload gate.
+recipes, file checksums and verified remote recovery evidence.
 
 Notebook 04's existing default-off `GENERATE_SUBMISSION` control remains the
 single-recipe reference path. Integrating the new 50-file release there is the
