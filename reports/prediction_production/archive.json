@@ -1,0 +1,10 @@
+{
+  "fingerprint": "6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150",
+  "bytes": 80110551,
+  "sha256": "eb3edc69c0f8370f5241a5d5368200ff2d6e96922180e187c78cc7d7b456daf2",
+  "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/portfolio/6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150/archive.zip",
+  "version_id": "Z6RWqK82y_D4CaPTTKtI_b62lp1dXRDa",
+  "status": "uploaded",
+  "checksum_verification": "S3 FULL_OBJECT SHA-256",
+  "verified_at": "2026-09-09T04:05:18.695720+00:00"
+}

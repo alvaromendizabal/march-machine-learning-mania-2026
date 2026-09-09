@@ -13,10 +13,11 @@ A fresh local archive restore reused all 344 checkpoints with zero new fits and
 unchanged CSV bytes, recorded in [recovery.json](recovery.json).
 
 The 80,110,551-byte archive contains all fifty CSVs, fitted models, checkpoints and
-source provenance. Its SHA-256 and exact intended private S3 destination are in
-[storage.json](storage.json). Automatic approval review requires specific approval
-for that upload. **The upload and recovery from S3 have not completed.** The verified
-archive is available with the project handoff while that authorization is pending.
+source provenance. The owner approved its upload to the existing private bucket.
+S3 verified the exact size and full-object SHA-256; [archive.json](archive.json)
+pins the immutable version. A fresh download of that version restored all 344
+checkpoints with zero new fits and fifty byte-identical CSVs, recorded in
+[s3_recovery.json](s3_recovery.json). The fit function was guarded to fail if called.
 
 The [development catalog](../prediction_portfolio/README.md) defines ten men's
 procedures crossed with five women's procedures. [recipe.json](recipe.json)
@@ -50,8 +51,7 @@ uv run --locked python -m march_mania.publication.production --generate
 Generation requires the committed recipe and input-member receipts to match. Each
 component/feature route, prediction chunk and final CSV is checkpointed. Completed
 models are reused; changed sources, inputs or environments create a distinct run.
-Once the completed archive is published, a fresh matching run restores it
-automatically before generation. `production_release --recover` also supports
+A fresh matching run restores the completed archive automatically before generation. `production_release --recover` also supports
 an explicitly downloaded archive via `--archive`.
 
 CSV files live under `outputs/prediction_production/<fingerprint>/csv_<candidate>/`.

@@ -3,11 +3,13 @@
   "fingerprint": "6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150",
   "members": 732,
   "sha256": "eb3edc69c0f8370f5241a5d5368200ff2d6e96922180e187c78cc7d7b456daf2",
-  "status": "awaiting_specific_s3_upload_approval",
+  "status": "uploaded",
   "s3_uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/portfolio/6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150/archive.zip",
-  "reason": "Automatic approval review requires end-user authorization for this exact private models-and-predictions payload and destination. No S3 upload completed.",
+  "reason": "The owner explicitly approved this exact archive and destination. Upload succeeded; version-specific S3 HeadObject verified size and full-object SHA-256.",
   "bucket_owner_verified": true,
   "public_access_blocked": true,
   "bucket_owner_enforced": true,
-  "bucket_versioning": "Enabled"
+  "bucket_versioning": "Enabled",
+  "version_id": "Z6RWqK82y_D4CaPTTKtI_b62lp1dXRDa",
+  "verified_at": "2026-09-09T04:05:18.695720+00:00"
 }
