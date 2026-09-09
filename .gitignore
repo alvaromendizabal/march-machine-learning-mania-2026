@@ -36,6 +36,8 @@ models/*
 submissions/*.csv
 reports/figures/*
 !reports/figures/.gitkeep
+!reports/figures/feature_capacity.png
+!reports/figures/ranking_systems.png
 *.pkl
 *.pickle
 *.joblib

@@ -2,152 +2,158 @@
 
 [![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
 
-Season-aware forecasting for the men's and women's NCAA tournaments: basketball-informed
-features, nested temporal model selection, calibration analysis and interpretable diagnostics.
+**How much can basketball feature engineering improve tournament forecasts?**
+This project tests that question across men's and women's NCAA tournaments using
+season-aware validation, 3,946 candidate definitions, controlled ablations and
+reproducible model comparisons.
 
-## Start here
+**The result:** compact team-strength and consensus-ranking features are competitive.
+A much wider feature bank does not deliver a consistent improvement. The project
+shows how to find useful signal, reject unstable gains and preserve the evidence
+behind a modeling decision.
 
-**Current project: this repository's `main` branch. The expanded features have
-already been generated and used in completed retraining.** PR #8 replaced the
-stale 124-feature handoff with the executed 3,106-candidate study. The capacity
-and individual-system follow-ups below test representation size and ranking detail.
+## Review the work in five notebooks
 
-**Open the notebooks and read their saved outputs. No AWS login, dataset download,
-GPU or notebook execution is needed to review the project.**
+All notebooks contain executed outputs. Open them directly on GitHub; reviewing
+the project requires no setup, AWS account or GPU. Plotly figures are interactive
+in Jupyter and include static images for GitHub.
 
-| Notebook | What an employer can inspect |
+| Notebook | The question it answers |
 |---|---|
-| [00 · Data](notebooks/00_data_audit_and_preparation.ipynb) | Official-file provenance, coverage and basketball data quality |
-| [01 · Validation](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | Prediction cutoff, whole-season splits and pre-tournament snapshots |
-| [02 · Features](notebooks/02_feature_store_and_diagnostics.ipynb) | 3,106 main candidates plus 840 ranking hypotheses; ablations, screening and uncertainty |
-| [03 · Models](notebooks/03_model_comparison_and_diagnostics.ipynb) | Executed nested comparison, calibration, ensembles, errors and interpretation |
-| [04 · Benchmark](notebooks/04_locked_benchmark_and_final_submission.ipynb) | Current retrospective evaluation and tested, optional generation/validation/download |
+| [00 · Data](notebooks/00_data_audit_and_preparation.ipynb) | Which official files exist, and what are their coverage and quality limits? |
+| [01 · Validation](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | What information is available before each prediction, and how are seasons separated? |
+| [02 · Feature research](notebooks/02_feature_store_and_diagnostics.ipynb) | Which basketball mechanisms help, which fail, and when should the search stop? |
+| [03 · Models](notebooks/03_model_comparison_and_diagnostics.ipynb) | How do logistic regression, boosting, calibration and blends compare on the same features? |
+| [04 · Evaluation](notebooks/04_locked_benchmark_and_final_submission.ipynb) | How do the frozen recipes perform, and how are predictions generated and validated? |
 
-[05 · Feature research](notebooks/05_feature_research.ipynb) is an optional appendix,
-not another prerequisite. The original notebook filenames remain canonical.
+[05 · Research appendix](notebooks/05_feature_research.ipynb) compares the earlier
+and expanded runs. It is optional reading.
 
-## Research scope and evidence
+## What the experiments established
 
-The expanded experiment generates **3,106 candidate features**: 124 existing signals,
-2,944 distribution/recency/venue/opponent/trajectory/peer hypotheses, 26 official coach-history signals, and 12 annual conference-strength signals. The main 02/03 study retains at most **128 features per model fit**, using only the applicable temporal
-training population. There is no validation-selected global feature list.
+The main study contains **3,106 candidates**: 124 existing inputs, 2,944
+recency/distribution/venue/opponent/trajectory/peer hypotheses, 26 coach-history
+signals and 12 conference-strength signals. An additional study tests **840
+individual-ranking definitions** from 105 systems cataloged before 2013.
 
-Notebook 02 records candidate counts, rejection reasons, per-fold retention, stability and paired
-family ablations. The explicit no-Massey ablation removes all 23 ranking-derived inputs. Coach
-performance and target encodings use strictly earlier seasons; regular-season snapshots stop at
-day 132. Every candidate model is retrained against notebook 02's exact feature fingerprint.
+The main full-bank fits retain **128 inputs each**, screened only on the applicable
+training population. Across their 20 outer fits, 251 distinct inputs survive;
+2,855 never enter those full-bank models. This is a collection of fold-specific
+selections, not a global feature list. The complete
+[release audit](reports/repository_release/repository_release_audit.json) reconciles
+candidate counts, rejection reasons, fitted selections and current run fingerprints.
 
-The completed study ran **1,050 feature ablation fits and 861 model candidate fits**.
-Its central result is mixed: broader features improved some men's pooled models, but
-did not reliably improve both populations or beat compact models.
+| Experiment | Completed evidence | Decision |
+|---|---|---|
+| Basketball feature families | 1,050 ablation fits, including no-Massey and temporal encoding/coach controls | Keep useful compact strength and consensus signals; report uncertain or harmful additions |
+| Model comparison on the exact expanded matrix | 861 candidate fits with nested temporal selection | Broader features do not consistently beat compact models |
+| Retained feature limits: 32, 64, 128, 256 | 168 evaluated fits; 138 new and 30 reused controls | Increasing capacity generally fails to help |
+| Individual rankings, disagreement, momentum, availability and PCA | 112 evaluated fits; 92 new and 20 reused controls | No promotion after forward-only selection |
+| Frozen logistic anchors on 2022–2025 | 16 annual fits on an already-consumed benchmark | Retrospective diagnostic evidence; no holdout tuning |
 
-The subsequent [capacity study](reports/feature_capacity/README.md) adds **138 fresh fits**
-and reuses **30 verified 128-input fits**. It compares limits of 32, 64, 128 and 256,
-including forward-only inner selection. More inputs generally hurt; smaller screens
-improve the broad logistic models but do not beat the existing compact leaders.
-The 128-input main-study limit and its original results remain explicitly identified.
+Holding the histogram estimator fixed, adding compact ranking consensus improves
+men's mean-season Brier by **0.010687** versus strength alone (exploratory 95%
+season interval: −0.016580 to −0.002978). The corresponding logistic gain is smaller
+and uncertain. This is a measured feature effect; it does not establish that the
+entire expanded bank is better. [Paired ablations](reports/feature_store/ablation_intervals.csv)
+include both add-family and remove-family controls.
 
-The [individual-system study](reports/ranking_systems/README.md) tests **840 further
-ranking candidates** in **112 fits**, bringing the explored definitions to **3,946**.
-The nominal fixed logistic improvement is small and uncertain; forward-only
-representation selection worsens performance. These additions are not promoted.
+### More retained inputs did not reliably improve forecasting
 
-| Current evidence | Men: mean season Brier | Women: mean season Brier |
+![Feature capacity sensitivity on identical development seasons](reports/figures/feature_capacity.png)
+
+Each panel uses the same five development seasons. Lower Brier is better.
+Keeping 256 features hurts the men's models; reducing the screen can improve a
+broad model without beating the compact leaders. The
+[capacity study](reports/feature_capacity/README.md) includes forward-only selection,
+matched-game intervals and reproducible controls.
+
+### A small apparent gain failed the temporal selection check
+
+![Individual ranking additions compared with compact consensus controls](reports/figures/ranking_systems.png)
+
+Points left of zero favor the added representation. The intervals resample seasons
+and are exploratory, not adjusted for the many comparisons. Individual ranking
+levels reduce fixed logistic mean-season Brier from **0.187608 to 0.186924**, but
+the interval crosses zero. Selecting a representation using earlier seasons gives
+**0.195240**, worse than the consensus control. The
+[individual-system study](reports/ranking_systems/README.md) keeps that negative
+result visible; its nominal winner is not promoted.
+
+## Performance and its limits
+
+The [competition](https://www.kaggle.com/competitions/march-machine-learning-mania-2026)
+uses **Brier score**: the mean squared error of predicted win probabilities.
+Lower is better; an uninformative 50% forecast scores 0.25. Mean-season Brier gives
+each season equal weight; game-weighted Brier gives each game equal weight.
+
+| Evidence | Men: mean-season Brier | Women: mean-season Brier |
 |---|---:|---:|
 | Best observed nested development stream | 0.188396 · no-Massey pooled blend | 0.144823 · separate logistic |
-| Men's ranking alternative | 0.188468 · ranking logistic | Unavailable |
-| Frozen logistic anchors, retrospective 2022–2025 | 0.198288 | 0.146881 |
+| Frozen seeded logistic anchors, retrospective 2022–2025 | 0.198288 | 0.146881 |
 
-Lower is better. The earlier 124-feature development minima were 0.188476 and 0.143867:
-the men's best is essentially tied and the women's result worsens. The full-bank Massey and combined
-non-Massey coach/encoding controls have uncertainty intervals that include zero. Several
-other feature groups worsen performance; compact rankings help one histogram model.
-The benchmark also fails to improve the previous frozen anchors. These negative results
-remain visible; adding thousands of candidates is not itself evidence of a better model.
+Development uses 2016–2019 and 2021. These years were explored during research,
+and **2022–2025 was already consumed in earlier work**. Neither is a new untouched
+holdout. The observed development leaders are not an unbiased estimate of a
+subsequently selected winner. Local evaluation includes play-ins and differs from
+Kaggle's scored population. This is a retrospective portfolio project.
 
-The [completion audit](docs/research_audit.md) reconciles the old and new runs, source
-coverage, measured feature effects and execution gates. Notebook 03 recomputes metrics
-from recorded predictions; notebook 05 pairs previous and revised predictions game by game.
-Notebook 04 links its current retrospective benchmark to those exact upstream runs. The earlier
-124-feature final release remains separately identified under `reports/final_predictions/`.
+On the retrospective seeded anchors, men's/women's ROC AUC is **0.7512 / 0.8715**,
+log loss **0.5791 / 0.4385**, and 10-bin calibration error **0.0481 / 0.0665**.
+[Audited metrics](reports/repository_release/repository_release_audit.csv) are
+recomputed from saved predictions, including both Brier definitions.
 
-| What has actually completed | Evidence |
-|---|---|
-| Expanded feature generation and family ablations | 3,106 candidates; 1,050 fits in notebook 02 |
-| Retraining on those exact features | 861 candidate fits in notebook 03 |
-| Target encoding and chronological splits | Prior-season histories, nested selection, mutation tests |
-| Retained-feature capacity experiment | 168 evaluated fits; 138 new and 30 inherited |
-| Individual ranking-system experiment | 840 additions; 112 fits; no promotion after temporal selection |
-| Current retrospective benchmark | 16 fits on previously consumed 2022–2025 seasons |
-| Native notebooks and checkpoint recovery | [Latest verified release](reports/validation/ranking_systems.json): 228 tests, all six notebooks, 42 code cells |
+The available official-data feature search is complete. The evidence does **not**
+establish that the expanded bank improves on all earlier models. Player
+availability, returning production and women's coach/rating parity lack verified
+historical sources in this snapshot. A meaningful extension needs independent,
+timestamped inputs or a future tournament evaluated under a frozen protocol.
 
-The remaining scientific question is stronger generalization, particularly for women.
-It is not whether the remade notebook 02 has been trained. Repeating identical completed
-fits cannot answer that question; additional data or genuinely unseen outcomes are needed.
+## Engineering and release evidence
 
-The [official competition metric](https://www.kaggle.com/competitions/march-machine-learning-mania-2026)
-is Brier score. Game-weighted Brier and mean-season Brier are reported separately. Development
-seasons are 2016–2019 and 2021. The 2022–2025 benchmark was previously consumed and is **not an untouched
-holdout**. Local evaluation includes play-ins and is not identical to Kaggle's scored population.
-The original competition deadline was March 19, 2026; this is a retrospective portfolio project.
+- **Temporal integrity:** day-132 snapshots, strictly earlier-season target and
+  coach histories, training-only screening/PCA, whole-season validation, and
+  mutation tests that reject leakage and stale downstream results.
+- **Reproducibility:** locked Python environment, typed modular code, explicit
+  failure tests, source/data/model fingerprints, UTC progress logs and heartbeats.
+- **Recovery:** versioned S3 archives preserve data, estimators, forecasts and
+  source. Verified recovery reused 901 model tasks; the two feature follow-ups
+  separately reused 281 tasks and preserved 280 models without new fits.
+- **Publication:** six canonical notebooks and 42 executed code cells. PR #10 is
+  merged; its [main quality run](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34289790258)
+  passed 228 tests, executed all six notebooks, then reused all six checkpoints.
+  The badge above links current checks, including the automated release audit.
 
-## User-controlled prediction generation
+On September 9, 2026 UTC, all six recorded archive versions were rechecked against
+AWS. Five full-object SHA-256 checksums matched directly; the remaining archive
+was freshly downloaded and hashed. The
+[cloud receipt](reports/repository_release/cloud_verification.json) records exactly
+what was verified. The [research audit](docs/research_audit.md) preserves the full
+experimental reasoning, release history and limitations.
 
-Notebook 04 exposes a default-off `GENERATE_SUBMISSION` control that checks current feature/model
-lineage, fits the frozen recipe, generates and validates `submission.csv`, and displays a download
-control. It never submits or uploads to Kaggle. No premade submission is required to review the
-project. Historic final-fit artifacts retain their original fingerprint and are not relabeled
-as results from the expanded feature experiment.
-
-## Engineering that can be inspected
-
-Reusable Python lives in `src/march_mania`; notebooks explain the results rather than holding
-hidden training state. Tests cover temporal boundaries, game uniqueness, symmetry, probability
-validity, checkpoint corruption, interruption recovery, published metric integrity and notebook
-publication. Tests treat meaningful warnings as errors; publication rejects warning/error outputs.
-
-The original expanded release passed **202 tests** and native execution of **all six notebooks**
-(39 code cells). A second notebook pass reused all six checkpoints. An independent fresh
-artifact download restored **901 model tasks with zero repeated fits and byte-identical
-predictions**. [Release evidence](reports/validation/release.json) preserves that source
-and those notebook bytes. The [capacity follow-up](reports/validation/capacity.json)
-separately records actual native execution of all six current notebooks (**40 code
-cells**) and verified reuse of all 168 capacity tasks. Its publication passed 212 tests
-on [PR #9](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/9).
-The [latest ranking-system validation](reports/validation/ranking_systems.json) passes
-**228 tests** and native execution of **all six notebooks, 42 code cells**, with no
-warning/error outputs and six reused notebook checkpoints. The proposed publication
-revision is checked on [PR #10](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/10).
-The capacity archive is now verified in versioned S3 storage. A fresh download
-reused all 168 tasks without fitting, preserving every model and prediction checksum.
-A fresh ranking-system archive likewise reuses 113 tasks. Notebook 02 restores these
-completed studies automatically in train mode when their source/configuration match.
-
-Runs emit UTC timestamps, task/total elapsed time, progress and 15-second task heartbeats.
-Completed estimators and forecast batches are content-verified and reused. A failed estimator
-restarts that fit, not earlier successful fits. Notebook execution reuses **whole completed
-notebooks**; an interrupted notebook restarts from its first cell. Canonical notebooks are replaced
-atomically after successful execution. Changed inputs invalidate the relevant checkpoints.
-
-Private S3 preserves inputs, fitted estimators, forecasts and exact source independently of Studio
-or GitHub runners. Git stores code, executed notebooks and compact public evidence, not raw data,
-trained binaries or credentials. The final workflow uses narrowly scoped, short-lived AWS credentials.
-
-## Maintainer commands
-
-The existing Studio checkout can be updated with `python3 scripts/update.py` from its project
-folder. It preserves edited notebooks, fast-forwards `main`, installs the lock and runs checks.
-For a fresh reproduction environment:
+## Reproduce or generate predictions
 
 ```bash
 uv sync --locked --group dev
 uv run --locked python -m ipykernel install --user --name march-mania
 uv run --locked python scripts/quality.py
+uv run --locked python -m march_mania.publication.release --check
 uv run --locked python scripts/notebook.py --execute --publish
 ```
 
-[Studio and resume instructions](docs/studio.md) cover the **Notebook research** workflow and
-`python -m march_mania.publication.inference`. Current feature and model fingerprints must match before final generation. `scripts/portfolio_release.py --help` describes the independent exact-CSV audit;
-it does not invent predictions or upload to Kaggle.
+The release audit checks the committed publication before notebook execution.
+Rerunning notebooks can change timestamps and environment outputs; intentionally
+publishing new bytes requires refreshing their native validation receipt and audit.
+
+Notebook 04's default-off `GENERATE_SUBMISSION` control fits the frozen recipe,
+generates and validates `submission.csv`, and displays a download control. It does
+not submit to Kaggle. Historical 124-feature final artifacts keep their original
+identity; they are not presented as results of the expanded experiment.
+
+[Studio and resume instructions](docs/studio.md) cover training with private data
+and automatic archive recovery. Existing Studio checkouts use
+`python3 scripts/update.py`; the script preserves local notebook edits before updating.
+Git contains code, executed notebooks and compact evidence; raw data and trained
+binaries remain in private storage.
 
 MIT-licensed code. Competition data remains subject to Kaggle's terms.

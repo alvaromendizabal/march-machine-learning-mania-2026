@@ -381,3 +381,53 @@ prior frozen anchors. A 9.9/10 forecasting or employer rating cannot be guarante
 by more tuning on already-consumed seasons. The defensible deliverable is a completed,
 reproducible retrospective feature-research project with explicit positive and
 negative results, and a clear boundary around what has not been demonstrated.
+
+
+## 20. Current release reconciliation
+
+PR #10 merged as `d044a0e2814f36749c8fe4a2be6b8cb2772e949b`.
+The publication head and the merged-main quality run both passed. The latter,
+[workflow 34289790258](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34289790258),
+passed 228 tests in 229.52 seconds and executed all six notebooks in 24.143
+seconds; its second pass reused all six notebook checkpoints.
+
+The previous `reports/repository_release/repository_release_audit.json` was a
+historical Windows checklist. Its PASS status established file existence rather
+than current publication integrity. It has been replaced in place by a reproducible
+audit of the current source, feature/model/benchmark lineage, feature counts,
+saved predictions, notebook bytes, exported figures and cloud receipts.
+
+`python -m march_mania.publication.release --check` independently recomputes all
+102 published model, capacity, ranking and benchmark leaderboard rows. It checks
+game-weighted Brier separately from mean-season Brier, plus log loss, ROC AUC,
+average precision, threshold diagnostics and calibration error. It rejects
+changed game populations, duplicate predictions, conflicting targets, incorrect
+seasons, stale source/configuration, corrupted reports and changed notebook bytes.
+The two README figures are exact PNG fallbacks from notebook 02's Plotly outputs;
+the audit requires those bytes to match.
+
+The 3,106-candidate main study made 1,674,530 screening decisions across ablations:
+88,766 retained and 1,585,764 rejected. Those are repeated decisions, not counts of
+unique definitions. Rejections reconcile to 1,469,578 capacity limits, 86,816
+redundancy decisions, 28,814 absent training signals and 556 near-constant inputs.
+Within the 20 main full-bank outer fits, all retain 128 features; 251 distinct
+features occur across fits and 2,855 never occur in those fits. Feature-family
+ablations can still use candidates absent from the full-bank selections. The
+840 individual-ranking additions remain a separate study, so the project-wide
+explored-definition count is 3,946 rather than a single 3,946-column fitted matrix.
+
+On September 9, 2026 UTC, six successful live AWS HeadObject calls reverified the
+recorded object versions and sizes. Five returned full-object SHA-256 checksums
+matching the archive records. The 18,070,392-byte benchmark archive instead
+reported a composite checksum; a fresh exact-version download independently
+matched SHA-256 `4e243437990b48311238286a9585c83997ea84915a090c44a2ca711845965a01`.
+The [cloud verification receipt](../reports/repository_release/cloud_verification.json)
+preserves those observations. Replaying the offline audit checks that receipt;
+it does not claim to have made new AWS calls or repeated earlier recovery fits.
+
+This release adds no predictive experiment and does not alter any frozen recipe.
+The retrospective official-data research deliverable is complete within its
+stated scope. Predictive superiority, player-level availability and women's
+historical source parity remain unproven. They require a new research question
+with timestamped evidence or prospective outcomes, not rerunning successful fits
+or selecting against already-consumed seasons.
