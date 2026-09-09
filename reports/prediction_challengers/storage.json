@@ -1,0 +1,31 @@
+{
+  "status": "verified",
+  "checked_at_utc": "2026-09-09T20:41:16.204523+00:00",
+  "bucket": "sagemaker-march-mania-560403859723-us-west-2",
+  "region": "us-west-2",
+  "expected_owner": "560403859723",
+  "fingerprint": "772d9a72d053b299481db3938c4c2e571253596ebbb0ffd484abb75767b87b85",
+  "objects": [
+    {
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/challengers/772d9a72d053b299481db3938c4c2e571253596ebbb0ffd484abb75767b87b85/archive.zip",
+      "version_id": "sFSM62yg7.XJ6eELZv94I3Po86MKOIxt",
+      "bytes": 21672168,
+      "sha256": "ec2cf62a5b99cdc73559ae4513354a62e28106ae47dee1bc538d6c4f5cb21cfd",
+      "checksum_sha256_base64": "7Cz2KluZzcc1Wa5FEzVKYuKBBq5H3uG8U41sT1yyHP0=",
+      "checksum_type": "FULL_OBJECT",
+      "server_side_encryption": "AES256",
+      "content_type": "application/zip"
+    },
+    {
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/challengers/772d9a72d053b299481db3938c4c2e571253596ebbb0ffd484abb75767b87b85/prediction_challengers.zip",
+      "version_id": "c5lnl08ca8sPohfL1GrPhJQPXuJQ7NIt",
+      "bytes": 9687582,
+      "sha256": "0160964a06411eb9cb1e0e16da8cd873689a253a85e9aa12844322011c0ddc73",
+      "checksum_sha256_base64": "AWCWSgZBHrnLHg4W2ozYc2iaJTqF6aoShEMiARwN3HM=",
+      "checksum_type": "FULL_OBJECT",
+      "server_side_encryption": "AES256",
+      "content_type": "application/zip"
+    }
+  ],
+  "input_storage": "Original feature-store and model inputs remain in their checksum-pinned versioned archives; exact receipts are included in the new checkpoint archive."
+}

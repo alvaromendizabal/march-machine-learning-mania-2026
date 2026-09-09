@@ -73,6 +73,7 @@ jobs:
         run: |
           uv run --locked python -m march_mania.publication.scoreboard --check
           uv run --locked python -m march_mania.publication.retraining --check
+          uv run --locked python -m march_mania.publication.challengers --check
       - name: Execute and preserve current notebooks
         # Collect native outputs for proposed publications even if their old receipt is stale.
         # Earlier failed gates still fail the job; no failed check is waived.

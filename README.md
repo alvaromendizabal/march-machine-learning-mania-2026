@@ -1,6 +1,8 @@
 # NCAA tournament probability forecasting
 
-**Observed Kaggle result:** all 58 current files were scored after the deadline. Best: **0.1225463 Brier**, from men's pooled XGBoost at temperature 0.90 + women's logistic regression, versus **0.1229419** before adjustment. [The complete submission collection](reports/submission_scores/README.md) preserves every current CSV, score and checksum, plus the separate legacy score ledger. These are observed retrospective results; the frozen production reference is retained.
+**Observed Kaggle result:** 58 files were scored after the deadline. Best: **0.1225463 Brier**, from men's pooled XGBoost at temperature 0.90 + women's logistic regression, versus **0.1229419** before adjustment. [The preserved submission collection](reports/submission_scores/README.md) retains those CSVs, scores and checksums, plus the separate legacy score ledger. These are observed retrospective results; the frozen production reference is retained.
+
+**New challenger batch:** [six retrained submissions](reports/prediction_challengers/README.md) compare 64 features, lighter regularization and 240 trees, each at temperatures 1.00 and 0.90. Women's logistic predictions are unchanged. There are now **64 current CSVs: 58 scored and six awaiting manual submission**. Start with the 64-feature pair; historical gains are small and do not establish a new winner.
 
 [![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
 
@@ -139,10 +141,10 @@ timestamped inputs or a future tournament evaluated under a frozen protocol.
 - **Recovery:** versioned S3 archives preserve data, estimators, forecasts and
   source. Verified recovery reused 901 model tasks; the two feature follow-ups
   separately reused 281 tasks and preserved 280 models without new fits.
-- **Publication:** six canonical notebooks and 50 executed code cells. The
-  [native publication receipt](reports/validation/xgboost_retraining.json) verifies
+- **Publication:** six canonical notebooks and 52 executed code cells. The
+  [native publication receipt](reports/validation/prediction_challengers.json) verifies
   their source, checkpoint hashes and saved outputs. The required quality workflow
-  checks 327 tests, release audits, score/retraining evidence, native execution and six-notebook reuse.
+  checks 336 tests, release audits, score/retraining/challenger evidence, native execution and six-notebook reuse.
   The badge above links the checks for the current revision.
 
 On September 9, 2026 UTC, all six research archive versions were rechecked against
@@ -163,6 +165,7 @@ uv run --locked python -m march_mania.publication.portfolio --check
 uv run --locked python -m march_mania.publication.production_release --check
 uv run --locked python -m march_mania.publication.scoreboard --check
 uv run --locked python -m march_mania.publication.retraining --check
+uv run --locked python -m march_mania.publication.challengers --check
 uv run --locked python scripts/notebook.py --execute --publish
 ```
 
