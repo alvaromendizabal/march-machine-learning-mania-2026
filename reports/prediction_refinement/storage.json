@@ -1,0 +1,50 @@
+{
+  "status": "verified",
+  "account": "560403859723",
+  "public_access_block": {
+    "BlockPublicAcls": true,
+    "BlockPublicPolicy": true,
+    "IgnorePublicAcls": true,
+    "RestrictPublicBuckets": true
+  },
+  "objects": [
+    {
+      "name": "prediction_refinement.zip",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/refinement/3b5a2ee996516be7fc2ed2158a4a69312b241ec3848227d53eae6b43dd7c41b2/prediction_refinement.zip",
+      "bytes": 13020044,
+      "sha256": "02996446601e8427741445b04950dfe50d453b4d0d60a44e35f6aa9454f6951c",
+      "version_id": "FjppBds_SMsJZobiiQ89ylZA6f.0sCcL",
+      "head": {
+        "AcceptRanges": "bytes",
+        "ChecksumSHA256": "AplkRmAehCd0FEWwSVDf5Q1FO00NYKRONfaqlFT2lRw=",
+        "ChecksumType": "FULL_OBJECT",
+        "ContentLength": 13020044,
+        "ContentType": "application/zip",
+        "ETag": "\"267a408d4d6ac76bcba5b468280f83c8\"",
+        "LastModified": "2026-09-09T18:26:00+00:00",
+        "Metadata": {},
+        "ServerSideEncryption": "AES256",
+        "VersionId": "FjppBds_SMsJZobiiQ89ylZA6f.0sCcL"
+      }
+    },
+    {
+      "name": "observed_scores.csv",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/refinement/3b5a2ee996516be7fc2ed2158a4a69312b241ec3848227d53eae6b43dd7c41b2/observed_scores.csv",
+      "bytes": 16342,
+      "sha256": "d330d1bc48f7637cdef0dc07a0a1619f2713d988c3a7915f6fa7ff0290fb84e3",
+      "version_id": "3Dvmh.RCvrez0y4GScstYf1_tmTtn5Ca",
+      "head": {
+        "AcceptRanges": "bytes",
+        "ChecksumSHA256": "0zDRvEj3Y3ze8NwHoKFhnycT2YjDp5Ffb6f/ApD7hOM=",
+        "ChecksumType": "FULL_OBJECT",
+        "ContentLength": 16342,
+        "ContentType": "text/csv",
+        "ETag": "\"2ed27c6ffa0c13703f5b906ced520bfd\"",
+        "LastModified": "2026-09-09T18:26:11+00:00",
+        "Metadata": {},
+        "ServerSideEncryption": "AES256",
+        "VersionId": "3Dvmh.RCvrez0y4GScstYf1_tmTtn5Ca"
+      }
+    }
+  ]
+}

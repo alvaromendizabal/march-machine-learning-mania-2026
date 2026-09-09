@@ -1,0 +1,99 @@
+{
+  "archive": "submissions/prediction_refinement.zip",
+  "bytes": 13020044,
+  "fingerprint": "3b5a2ee996516be7fc2ed2158a4a69312b241ec3848227d53eae6b43dd7c41b2",
+  "inputs": {
+    "config": {
+      "2026_results_informed_hypotheses": true,
+      "anchor": "m_pooled_xgboost",
+      "development_seasons": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2021
+      ],
+      "fresh_holdout": false,
+      "new_model_fits": 0,
+      "protocol": "post-result-exploratory-refinement",
+      "round": 1,
+      "source_archive_sha256": "86fc55ca16bf51673e2b5d6b147ec822ccf88c9b841e76a7e29f4eddad5075be",
+      "variants": [
+        {
+          "anchor_weight": 0.25,
+          "candidate_id": "m_pooled_xgboost25_rank_logistic75__w_logistic",
+          "kind": "blend",
+          "partner": "m_rank_logistic",
+          "temperature": 1.0
+        },
+        {
+          "anchor_weight": 0.5,
+          "candidate_id": "m_pooled_xgboost50_rank_logistic50__w_logistic",
+          "kind": "blend",
+          "partner": "m_rank_logistic",
+          "temperature": 1.0
+        },
+        {
+          "anchor_weight": 0.75,
+          "candidate_id": "m_pooled_xgboost75_rank_logistic25__w_logistic",
+          "kind": "blend",
+          "partner": "m_rank_logistic",
+          "temperature": 1.0
+        },
+        {
+          "anchor_weight": 0.25,
+          "candidate_id": "m_pooled_xgboost25_pooled_hist75__w_logistic",
+          "kind": "blend",
+          "partner": "m_pooled_hist",
+          "temperature": 1.0
+        },
+        {
+          "anchor_weight": 0.5,
+          "candidate_id": "m_pooled_xgboost50_pooled_hist50__w_logistic",
+          "kind": "blend",
+          "partner": "m_pooled_hist",
+          "temperature": 1.0
+        },
+        {
+          "anchor_weight": 0.75,
+          "candidate_id": "m_pooled_xgboost75_pooled_hist25__w_logistic",
+          "kind": "blend",
+          "partner": "m_pooled_hist",
+          "temperature": 1.0
+        },
+        {
+          "anchor_weight": 1.0,
+          "candidate_id": "m_pooled_xgboost_t090__w_logistic",
+          "kind": "temperature",
+          "partner": null,
+          "temperature": 0.9
+        },
+        {
+          "anchor_weight": 1.0,
+          "candidate_id": "m_pooled_xgboost_t110__w_logistic",
+          "kind": "temperature",
+          "partner": null,
+          "temperature": 1.1
+        }
+      ],
+      "women_stream": "w_logistic"
+    },
+    "research": {
+      "configs/prediction_refinement.json": "4ff51c25e983009fd85937f1877783eab8c6780ad98484150504341d032850f1",
+      "reports/prediction_portfolio/manifest.json": "d0974e13d58bcb59ff67feac79a15a5976f77dc083c3b7b81a444dba46f168c2",
+      "reports/prediction_production/kaggle_scores.csv": "242149ce5e29b75522da9a04a2e8fdca75f2e2f045098a66a60cace92c49d6c4",
+      "reports/prediction_production/kaggle_scores.json": "9d17cd09d1ce96f8fee7bcb173661988442a37119e92c0d6483c0243851a736b",
+      "reports/prediction_production/submission_manifest.csv": "4634608ebc0527eeedcbe3355bb1dd42c46b15badeedcf3033c2754738ad7e9d",
+      "src/march_mania/publication/refinement.py": "9a87c0a2fcb7112c6609810ba0b425b877db24b58adfae2f101613d5d5def04d"
+    },
+    "source_sha256": "86fc55ca16bf51673e2b5d6b147ec822ccf88c9b841e76a7e29f4eddad5075be"
+  },
+  "kaggle_submission_sent": false,
+  "new_model_fits": 0,
+  "rows_per_file": 132133,
+  "scope": "Post-result exploratory adjustments motivated by observed 2026 Kaggle scores. Historical selection procedures cover already-explored 2016-2019 and 2021; they are not validation of the final fitted estimators or an untouched holdout.",
+  "sha256": "02996446601e8427741445b04950dfe50d453b4d0d60a44e35f6aa9454f6951c",
+  "status": "generated_and_validated",
+  "submission_files": 8,
+  "women_predictions_unchanged": true
+}

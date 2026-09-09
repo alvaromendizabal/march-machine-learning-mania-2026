@@ -9,6 +9,32 @@ concurrency:
   group: research-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  notebook-publication:
+    # Produce reviewable native outputs promptly; the independent quality gate remains required.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: '0.11.33'
+          python-version: '3.12.13'
+          enable-cache: true
+      - name: Execute canonical notebooks with the locked environment
+        run: |
+          uv sync --locked --group dev
+          mkdir -p outputs/validation
+          git rev-parse HEAD > outputs/validation/source_commit.txt
+          uv run --locked python -m ipykernel install --user --name march-mania
+          uv run --locked python scripts/notebook.py --execute --publish
+          uv run --locked python scripts/notebook.py --execute --publish
+      - name: Preserve native publication evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: notebook-publication
+          path: outputs/validation/
+          retention-days: 90
   quality:
     runs-on: ubuntu-latest
     timeout-minutes: 35
@@ -41,6 +67,8 @@ jobs:
         run: uv run --locked python -m march_mania.publication.portfolio --check
       - name: Verify frozen production recipes and published prediction evidence
         run: uv run --locked python -m march_mania.publication.production_release --check
+      - name: Verify observed scores and historical refinement evidence
+        run: uv run --locked python -m march_mania.publication.refinement --check
       - name: Execute and preserve current notebooks
         # Collect native outputs for proposed publications even if their old receipt is stale.
         # Earlier failed gates still fail the job; no failed check is waived.
