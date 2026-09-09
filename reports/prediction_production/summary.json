@@ -1,0 +1,16 @@
+{
+  "component_routes": 34,
+  "distinct_submission_vectors": 50,
+  "fingerprint": "6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150",
+  "fitted_models": 33,
+  "future_labels_used": false,
+  "kaggle_submission_sent": false,
+  "neutral_routes": 1,
+  "prediction_chunks": 259,
+  "rows_per_file": 132133,
+  "scope": "Retrospective sensitivity portfolio; final 2026 forecasts are unscored",
+  "seed_free_scope": "Unseeded-team route lacks matched tournament OOF validation",
+  "status": "completed",
+  "submission_files": 50,
+  "training_max_season": 2025
+}

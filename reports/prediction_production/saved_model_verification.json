@@ -1,0 +1,12 @@
+{
+  "fingerprint": "6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150",
+  "fitted_models_verified": 33,
+  "neutral_routes_verified": 1,
+  "new_fits": 0,
+  "prediction_chunks_recomputed": 259,
+  "probability_comparison": "Exact equality, including all route and stream columns",
+  "rows_verified": 132133,
+  "status": "verified",
+  "submission_files_unchanged": 50,
+  "verification_source_sha256": "d85db5b409f5e81999570854fa3f4d6e96e23ce56dc5848deffc76a379c29be5"
+}

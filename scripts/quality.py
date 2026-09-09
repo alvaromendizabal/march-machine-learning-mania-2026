@@ -26,6 +26,7 @@ def main() -> int:
         "scripts/portfolio_release.py",
         "scripts/archive.py",
         "scripts/update.py",
+        "scripts/verify_prediction_production.py",
     ]
     typed_files = tomllib.loads((root / "pyproject.toml").read_text())["tool"]["mypy"]["files"]
     typed_files = [
@@ -81,6 +82,9 @@ def main() -> int:
                 "--cov=march_mania.publication.workflow",
                 "--cov=march_mania.publication.release",
                 "--cov=march_mania.publication.portfolio",
+                "--cov=march_mania.publication.production",
+                "--cov=march_mania.publication.production_inputs",
+                "--cov=march_mania.publication.production_release",
                 "--cov-report=term-missing",
                 "--cov-report=xml:outputs/validation/coverage.xml",
                 "--junitxml=outputs/validation/junit.xml",

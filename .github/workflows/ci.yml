@@ -39,6 +39,8 @@ jobs:
         run: uv run --locked python -m march_mania.publication.release --check
       - name: Recompute the development prediction portfolio
         run: uv run --locked python -m march_mania.publication.portfolio --check
+      - name: Verify frozen production recipes and published prediction evidence
+        run: uv run --locked python -m march_mania.publication.production_release --check
       - name: Execute and preserve current notebooks
         run: |
           uv run --locked python -m ipykernel install --user --name march-mania

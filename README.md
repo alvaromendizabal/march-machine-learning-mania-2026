@@ -12,10 +12,12 @@ A much wider feature bank does not deliver a consistent improvement. The project
 shows how to find useful signal, reject unstable gains and preserve the evidence
 behind a modeling decision.
 
-**Current delivery:** the research release is complete. A reproducible
-[50-candidate development catalog](reports/prediction_portfolio/README.md) now defines
-the path to 50 validated prediction files. Final portfolio fitting and CSV generation
-are the next release; the [completion plan](docs/completion_plan.md) lists the gates.
+**Current delivery:** the research release and
+[50-file prediction batch](reports/prediction_production/README.md) are complete.
+Each distinct file contains 132,133 matchups. All 33 saved models reproduced their
+predictions exactly, and local archive recovery reused 344 checkpoints with zero
+fits. Remote archive approval and the final notebook handoff remain in the
+[completion plan](docs/completion_plan.md).
 
 ## Review the work in five notebooks
 
@@ -144,6 +146,7 @@ uv run --locked python -m ipykernel install --user --name march-mania
 uv run --locked python scripts/quality.py
 uv run --locked python -m march_mania.publication.release --check
 uv run --locked python -m march_mania.publication.portfolio --check
+uv run --locked python -m march_mania.publication.production_release --check
 uv run --locked python scripts/notebook.py --execute --publish
 ```
 
@@ -151,10 +154,21 @@ The release audit checks the committed publication before notebook execution.
 Rerunning notebooks can change timestamps and environment outputs; intentionally
 publishing new bytes requires refreshing their native validation receipt and audit.
 
-Notebook 04's default-off `GENERATE_SUBMISSION` control fits the frozen recipe,
-generates and validates `submission.csv`, and displays a download control. It does
-not submit to Kaggle. Historical 124-feature final artifacts keep their original
-identity; they are not presented as results of the expanded experiment.
+The current 50-file generator uses the expanded research lineage:
+
+```bash
+uv run --locked python -m march_mania.publication.production --restore-inputs
+uv run --locked python -m march_mania.publication.production --generate
+```
+
+These commands require authorized access to the existing private input archives.
+The [production report](reports/prediction_production/README.md) gives exact
+recipes, file checksums, recovery evidence and the remaining remote-upload gate.
+
+Notebook 04's existing default-off `GENERATE_SUBMISSION` control remains the
+single-recipe reference path. Integrating the new 50-file release there is the
+next presentation increment. Historical 124-feature final artifacts retain their
+original identity. Neither path uploads a submission to Kaggle.
 
 [Studio and resume instructions](docs/studio.md) cover training with private data
 and automatic archive recovery. Existing Studio checkouts use

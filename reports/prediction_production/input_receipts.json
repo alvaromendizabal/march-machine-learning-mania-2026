@@ -1,0 +1,36 @@
+{
+  "feature_store": {
+    "archive": {
+      "bytes": 3183916269,
+      "checksum_verification": "S3 FULL_OBJECT SHA-256",
+      "sha256": "22074190d0499993bf022f31a815825d51887b49b8acb95e901324741f1a9817",
+      "status": "uploaded",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/features/199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89/archive.zip",
+      "version_id": "SW7FKVRRQYA4vhsk.PTzGr9z.yNLwS1A"
+    },
+    "sha256": {
+      "raw/SampleSubmissionStage2.csv": "53b79f12315ae43353899cf659bc89e027bedbde70929e213b6922a877b33ffc",
+      "run/features.parquet": "8d72cbd10c974b5e51c889baf78aa1d0bbc9d6a35dc2896f145fa693350aa1af",
+      "run/manifest.json": "4d9fab177a6cfd4cad27db4f0f1c34bc794d85165a0e0b23080ba28ee16f61fc",
+      "run/summary.json": "6a4852551bce0c698a7b18abe4100cc2df21a344ec83805a0b480014f0d1bd18",
+      "run/teams.parquet": "f302dddad7835c86e5d9f47f369b28106208af25db33e848a4ff3ff6dc073155"
+    },
+    "verification": "S3 FULL_OBJECT SHA-256 and every selected member SHA-256"
+  },
+  "model_comparison": {
+    "archive": {
+      "bytes": 67730083,
+      "checksum_verification": "S3 FULL_OBJECT SHA-256",
+      "sha256": "54031ef705ffa2b5433d8e016ab6fdc87441ceece41a6d90743b68c2f61f3f4b",
+      "status": "uploaded",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/models/20e69d30dc746f39f9395f96d1ff13d7a24cb0a7998fd096a0409c31fa7d7193/archive.zip",
+      "version_id": "c.pwIGt6AJc_xuvsaV_jHi4Jy4hIhmVB"
+    },
+    "sha256": {
+      "run/candidate_predictions.parquet": "5aa3553c89a3df88582df5e788d8e6254d4e2be4b41bfb8e190b8af9fb2928a3",
+      "run/manifest.json": "53fcd63786e0e93dd2a329a4ca41e666fb3f4d12cfdeb3b91cb0530db6d397c8",
+      "run/summary.json": "3f42cf68bb86e3e75a14f6acd604b9cc94f26954b78e3bee891b1dd2e47e76d4"
+    },
+    "verification": "S3 FULL_OBJECT SHA-256 and every selected member SHA-256"
+  }
+}
