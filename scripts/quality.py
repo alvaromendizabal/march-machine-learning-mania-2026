@@ -80,6 +80,7 @@ def main() -> int:
                 "--cov=march_mania.publication.artifacts",
                 "--cov=march_mania.publication.workflow",
                 "--cov=march_mania.publication.release",
+                "--cov=march_mania.publication.portfolio",
                 "--cov-report=term-missing",
                 "--cov-report=xml:outputs/validation/coverage.xml",
                 "--junitxml=outputs/validation/junit.xml",
