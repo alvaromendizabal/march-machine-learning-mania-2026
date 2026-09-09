@@ -18,7 +18,7 @@
     "upstream_dependency": "Existing checksum-verified feature run and official raw inputs",
     "version_id": "rLf775OU4X9NuNCr15N8rmRf2q1Cqla8"
   },
-  "final_revision_checks": "The publication commit is checked separately on PR #10; this receipt preserves the exact source and bytes of workflow 34288566061.",
+  "final_revision_checks": "Publication commit 0cc86f030e79e7cd17c3ef8adacb11de093c743a passed run 34289263210; PR #10 merged as d044a0e2814f36749c8fe4a2be6b8cb2772e949b and its main quality run also passed.",
   "local_verification": {
     "loaded_models": 112,
     "maximum_prediction_error": 0.0,
@@ -29,6 +29,17 @@
     "prediction_sha256": "99fd6e4d788df9b79aec4dcb5e0ebd53aa06e45974827ad4644a472e7e5d96aa",
     "reused_tasks": 113,
     "status": "passed"
+  },
+  "merged_main_checks": {
+    "commit": "d044a0e2814f36749c8fe4a2be6b8cb2772e949b",
+    "execution_seconds": 24.143,
+    "notebook_checkpoints_reused": 6,
+    "notebooks_executed": 6,
+    "status": "success",
+    "tests_passed": 228,
+    "tests_seconds": 229.52,
+    "url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34289790258",
+    "workflow_run_id": 34289790258
   },
   "native_validation": {
     "all_notebook_definitions_match": true,

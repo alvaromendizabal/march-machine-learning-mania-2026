@@ -1,238 +1,100 @@
 {
-  "status": "PASS",
-  "blocking_failures": [],
-  "warnings": [
-    "Recommended file exists: .github/workflows/ci.yml",
-    "Recommended file exists: docs/DATA_CARD.md",
-    "Recommended file exists: docs/VALIDATION_PROTOCOL.md",
-    "Recommended file exists: docs/RESULTS.md",
-    "Recommended file exists: docs/REPRODUCIBILITY.md",
-    "Recommended file exists: CITATION.cff"
+  "cloud": {
+    "archives_verified": 6,
+    "checked_at": "2026-09-09T01:47:19.668304+00:00",
+    "scope": "Recorded live AWS observation; no cloud API call by this offline audit"
+  },
+  "feature_search": {
+    "explored_definitions": 3946,
+    "full_bank_never_retained": 2855,
+    "full_bank_retained_per_fit_max": 128,
+    "full_bank_retained_per_fit_min": 128,
+    "full_bank_unique_retained_across_fits": 251,
+    "main_ablation_fits": 1050,
+    "main_candidates": 3106,
+    "ranking_additions": 840,
+    "rejected_decisions": 1585764,
+    "rejection_reasons": {
+      "capacity": 1469578,
+      "near_constant": 556,
+      "no_training_signal": 28814,
+      "redundant": 86816
+    },
+    "retained_decisions": 88766,
+    "screening_decisions": 1674530,
+    "selection_unit": "Temporal training fit; counts across fits are not a global set",
+    "status": "bounded_official_data_search_complete"
+  },
+  "figures": {
+    "feature_capacity.png": "09d6aad47985d8ed4e7aad0f6c862c349f64bbb5936d1dd04e72f81f57c85ee0",
+    "ranking_systems.png": "b1309041d2c8070d00872f4556a4974fd04d17db3087e96d8aec75d661dc31c5"
+  },
+  "highest_value_next_action": "Freeze the protocol before adding timestamped independent inputs or evaluating a future tournament.",
+  "limitations": [
+    "Development seasons and the 2022-2025 benchmark were previously consumed.",
+    "The broader bank has not demonstrated consistent improvement over compact anchors.",
+    "Local scoring includes play-ins and differs from the Kaggle scored population.",
+    "Historical 124-feature final predictions retain their separate release identity.",
+    "Player availability, returning production and women's coach/rating parity lack verified source histories."
   ],
-  "records": [
-    {
-      "category": "repository",
-      "check": "Git repository detected",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026",
-      "blocking": true
+  "metrics": {
+    "absolute_tolerance": 1e-12,
+    "metrics": "Brier (both averages), log loss, AUC, AP, F1, precision, recall, ECE",
+    "streams_recomputed": 102
+  },
+  "notebooks": {
+    "00_data_audit_and_preparation.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "44f02e8880cdc8a48c083e38268db17d134397a82af2264785670bb504b81014"
     },
-    {
-      "category": "notebooks",
-      "check": "Canonical notebook exists: 00_data_audit_and_preparation.ipynb",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\notebooks\\00_data_audit_and_preparation.ipynb",
-      "blocking": true
+    "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
+      "executed_code_cells": 3,
+      "sha256": "8361205a949936eea736488d73d3b1adfe614226e1f8bcbc51e641c07c7dbece"
     },
-    {
-      "category": "notebooks",
-      "check": "Canonical notebook exists: 01_split_protocol_and_pre_tournament_snapshots.ipynb",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\notebooks\\01_split_protocol_and_pre_tournament_snapshots.ipynb",
-      "blocking": true
+    "02_feature_store_and_diagnostics.ipynb": {
+      "executed_code_cells": 12,
+      "sha256": "6d51022a9494cea4d57d70b7a994ae06b99e887f3752fc273812ea32fd13c8d5"
     },
-    {
-      "category": "notebooks",
-      "check": "Canonical notebook exists: 02_feature_store_and_diagnostics.ipynb",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\notebooks\\02_feature_store_and_diagnostics.ipynb",
-      "blocking": true
+    "03_model_comparison_and_diagnostics.ipynb": {
+      "executed_code_cells": 13,
+      "sha256": "05f4ab1246fa30233e8936beeacaf7be45763fc96ab5069658dce113fa7f4a51"
     },
-    {
-      "category": "notebooks",
-      "check": "Canonical notebook exists: 03_model_comparison_and_diagnostics.ipynb",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\notebooks\\03_model_comparison_and_diagnostics.ipynb",
-      "blocking": true
+    "04_locked_benchmark_and_final_submission.ipynb": {
+      "executed_code_cells": 6,
+      "sha256": "4d4022b8ed4b597629be8fb61a1c55572cafa9b17789816e2784711ea479ba2e"
     },
-    {
-      "category": "notebooks",
-      "check": "Canonical notebook exists: 04_locked_benchmark_and_final_submission.ipynb",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\notebooks\\04_locked_benchmark_and_final_submission.ipynb",
-      "blocking": true
-    },
-    {
-      "category": "notebooks",
-      "check": "No duplicate or backup notebook versions",
-      "status": "PASS",
-      "details": "[]",
-      "blocking": true
-    },
-    {
-      "category": "wording",
-      "check": "Promotional wording absent from documentation and notebooks",
-      "status": "PASS",
-      "details": "[]",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: README.md",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\README.md",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: LICENSE",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\LICENSE",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: pyproject.toml",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\pyproject.toml",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: .gitignore",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\.gitignore",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: environment.yml",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\environment.yml",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: requirements-pip.txt",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\requirements-pip.txt",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: configs/splits.yaml",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\configs\\splits.yaml",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: configs/features.yaml",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\configs\\features.yaml",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: configs/modeling.yaml",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\configs\\modeling.yaml",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: configs/model_recipe.yaml",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\configs\\model_recipe.yaml",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: configs/benchmark_production.yaml",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\configs\\benchmark_production.yaml",
-      "blocking": true
-    },
-    {
-      "category": "core_artifact",
-      "check": "Required file exists: reports/final_2026/MODEL_CARD.md",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\reports\\final_2026\\MODEL_CARD.md",
-      "blocking": true
-    },
-    {
-      "category": "portfolio_artifact",
-      "check": "Recommended file exists: .github/workflows/ci.yml",
-      "status": "WARN",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\.github\\workflows\\ci.yml",
-      "blocking": false
-    },
-    {
-      "category": "portfolio_artifact",
-      "check": "Recommended file exists: .pre-commit-config.yaml",
-      "status": "PASS",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\.pre-commit-config.yaml",
-      "blocking": false
-    },
-    {
-      "category": "portfolio_artifact",
-      "check": "Recommended file exists: docs/DATA_CARD.md",
-      "status": "WARN",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\docs\\DATA_CARD.md",
-      "blocking": false
-    },
-    {
-      "category": "portfolio_artifact",
-      "check": "Recommended file exists: docs/VALIDATION_PROTOCOL.md",
-      "status": "WARN",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\docs\\VALIDATION_PROTOCOL.md",
-      "blocking": false
-    },
-    {
-      "category": "portfolio_artifact",
-      "check": "Recommended file exists: docs/RESULTS.md",
-      "status": "WARN",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\docs\\RESULTS.md",
-      "blocking": false
-    },
-    {
-      "category": "portfolio_artifact",
-      "check": "Recommended file exists: docs/REPRODUCIBILITY.md",
-      "status": "WARN",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\docs\\REPRODUCIBILITY.md",
-      "blocking": false
-    },
-    {
-      "category": "portfolio_artifact",
-      "check": "Recommended file exists: CITATION.cff",
-      "status": "WARN",
-      "details": "C:\\Users\\alvaro\\ML\\march-mania-2026\\CITATION.cff",
-      "blocking": false
-    },
-    {
-      "category": "git_hygiene",
-      "check": "Raw/interim/processed data, caches, models, and secrets are not tracked",
-      "status": "PASS",
-      "details": "[]",
-      "blocking": true
-    },
-    {
-      "category": "git_hygiene",
-      "check": "No notebook checkpoint directories in working tree",
-      "status": "PASS",
-      "details": "[]",
-      "blocking": false
-    },
-    {
-      "category": "git_hygiene",
-      "check": "No tracked file exceeds 20 MB",
-      "status": "PASS",
-      "details": "[]",
-      "blocking": false
-    },
-    {
-      "category": "testing",
-      "check": "Automated tests are present",
-      "status": "PASS",
-      "details": "[\"tests\\\\test_reshape.py\"]",
-      "blocking": true
-    },
-    {
-      "category": "final_pipeline",
-      "check": "Notebook 04 readiness report is complete",
-      "status": "PASS",
-      "details": "{\"status\": \"complete\", \"blocking_final_check_failures\": 0, \"stage2_rows\": 132133, \"bracket_reporting_completed\": true}",
-      "blocking": true
+    "05_feature_research.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "879f893017e8ae5ab81874c04838b6ba572f48daf241321bb57525e808a091ad"
     }
-  ]
+  },
+  "runs": {
+    "benchmark": {
+      "fingerprint": "2680bf105e369bbeb1b937d504c8b4f4c8c3772895869acc8b7c5decd0fb9b74",
+      "public_files_verified": 6,
+      "run_record_sha256": "8d1d95bafad9165060e4fa3ceb38999442f5aa8afd37978814c9abadb95201cb"
+    },
+    "feature_capacity": {
+      "fingerprint": "917affd67b01c3e865f8131bb2e4fd3f09fde6f43eeffdfa67fa8081d67c985f",
+      "public_files_verified": 6,
+      "run_record_sha256": "47a7419bca0e40a123868734016d664653ab89a2121ecc36034edc12330b544e"
+    },
+    "feature_store": {
+      "fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+      "public_files_verified": 15,
+      "run_record_sha256": "7edc1d6a506aec587a8dbcc9155f58b62587f1badbc16de1860c608cb00c7b6d"
+    },
+    "model_comparison": {
+      "fingerprint": "20e69d30dc746f39f9395f96d1ff13d7a24cb0a7998fd096a0409c31fa7d7193",
+      "public_files_verified": 12,
+      "run_record_sha256": "37c1a013ee97a8257eb56e27b12c0aa229230c6453f902bf55f27f6ce6364abe"
+    },
+    "ranking_systems": {
+      "fingerprint": "713aecba70bb2ec639d8d86b82a586dc07c18c620c2d06954de0aba986dee119",
+      "public_files_verified": 11,
+      "run_record_sha256": "9076169c5cdc76395b3b454b028f3755cbb8d4aecf419115d4593510a35c21ac"
+    }
+  },
+  "scope": "Current public retrospective research; no new fits or Kaggle upload",
+  "status": "passed"
 }

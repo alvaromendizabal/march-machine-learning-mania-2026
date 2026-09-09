@@ -35,6 +35,8 @@ jobs:
           sha256sum outputs/validation/wheels/* > outputs/validation/wheels.sha256
       - name: Compile, lint, format, type check, and test
         run: uv run --locked python scripts/quality.py
+      - name: Verify current published research release
+        run: uv run --locked python -m march_mania.publication.release --check
       - name: Execute and preserve current notebooks
         run: |
           uv run --locked python -m ipykernel install --user --name march-mania

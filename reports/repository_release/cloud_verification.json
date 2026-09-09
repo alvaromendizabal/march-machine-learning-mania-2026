@@ -1,0 +1,89 @@
+{
+  "checked_at": "2026-09-09T01:47:19.668304+00:00",
+  "objects": [
+    {
+      "ChecksumSHA256": "IgdBkNBJmZO/Ai8xqBWCXVGIe0m4rLlekBMkdB8amBc=",
+      "ChecksumType": "FULL_OBJECT",
+      "ContentLength": 3183916269,
+      "LastModified": "2026-09-08T07:34:01+00:00",
+      "ServerSideEncryption": "AES256",
+      "VersionId": "SW7FKVRRQYA4vhsk.PTzGr9z.yNLwS1A",
+      "expected_bytes": 3183916269,
+      "expected_sha256": "22074190d0499993bf022f31a815825d51887b49b8acb95e901324741f1a9817",
+      "expected_version_id": "SW7FKVRRQYA4vhsk.PTzGr9z.yNLwS1A",
+      "name": "feature_store",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/features/199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89/archive.zip"
+    },
+    {
+      "ChecksumSHA256": "VAMe9wX/orVDPY4Barb9yHRBzuzkGm2QdDtowvYfP0s=",
+      "ChecksumType": "FULL_OBJECT",
+      "ContentLength": 67730083,
+      "LastModified": "2026-09-08T07:44:11+00:00",
+      "ServerSideEncryption": "AES256",
+      "VersionId": "c.pwIGt6AJc_xuvsaV_jHi4Jy4hIhmVB",
+      "expected_bytes": 67730083,
+      "expected_sha256": "54031ef705ffa2b5433d8e016ab6fdc87441ceece41a6d90743b68c2f61f3f4b",
+      "expected_version_id": "c.pwIGt6AJc_xuvsaV_jHi4Jy4hIhmVB",
+      "name": "model_comparison",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/models/20e69d30dc746f39f9395f96d1ff13d7a24cb0a7998fd096a0409c31fa7d7193/archive.zip"
+    },
+    {
+      "ChecksumType": "COMPOSITE",
+      "ContentLength": 18070392,
+      "LastModified": "2026-09-08T08:13:01+00:00",
+      "ServerSideEncryption": "AES256",
+      "VersionId": "Qb.wbPTCFOCmVxk6_C_1_7i32I3T.GeZ",
+      "download_verification": {
+        "bytes": 18070392,
+        "method": "Fresh exact-version S3 download; locally computed full-file SHA-256",
+        "sha256": "4e243437990b48311238286a9585c83997ea84915a090c44a2ca711845965a01",
+        "version_id": "Qb.wbPTCFOCmVxk6_C_1_7i32I3T.GeZ"
+      },
+      "expected_bytes": 18070392,
+      "expected_sha256": "4e243437990b48311238286a9585c83997ea84915a090c44a2ca711845965a01",
+      "expected_version_id": "Qb.wbPTCFOCmVxk6_C_1_7i32I3T.GeZ",
+      "name": "benchmark",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/benchmark/2680bf105e369bbeb1b937d504c8b4f4c8c3772895869acc8b7c5decd0fb9b74/archive.zip"
+    },
+    {
+      "ChecksumSHA256": "rFLHxLVhcu1HdfsqarQfbfbSvMhsdjUVwg6iHtg1hLg=",
+      "ChecksumType": "FULL_OBJECT",
+      "ContentLength": 48840617,
+      "LastModified": "2026-09-08T22:39:09+00:00",
+      "ServerSideEncryption": "AES256",
+      "VersionId": "vLVWiCH59.GqdWUvQJw1QhkVwwh2IOEJ",
+      "expected_bytes": 48840617,
+      "expected_sha256": "ac52c7c4b56172ed4775fb2a6ab41f6df6d2bcc86c763515c20ea21ed83584b8",
+      "expected_version_id": "vLVWiCH59.GqdWUvQJw1QhkVwwh2IOEJ",
+      "name": "feature_capacity",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/capacity/917affd67b01c3e865f8131bb2e4fd3f09fde6f43eeffdfa67fa8081d67c985f/archive.zip"
+    },
+    {
+      "ChecksumSHA256": "p/rac141kkT7MtMLoWs6eGC3fj3ME5PwZP7Qj7K5v8A=",
+      "ChecksumType": "FULL_OBJECT",
+      "ContentLength": 49337694,
+      "LastModified": "2026-09-08T22:52:28+00:00",
+      "ServerSideEncryption": "AES256",
+      "VersionId": "rLf775OU4X9NuNCr15N8rmRf2q1Cqla8",
+      "expected_bytes": 49337694,
+      "expected_sha256": "a7fada735e359244fb32d30ba16b3a7860b77e3dcc1393f064fed08fb2b9bfc0",
+      "expected_version_id": "rLf775OU4X9NuNCr15N8rmRf2q1Cqla8",
+      "name": "ranking_systems",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/ranking_systems/713aecba70bb2ec639d8d86b82a586dc07c18c620c2d06954de0aba986dee119/archive.zip"
+    },
+    {
+      "ChecksumSHA256": "Y6GYhiC8Lf8U9CPCloGMATAzz0lCWQB9n63RhmhA8UA=",
+      "ChecksumType": "FULL_OBJECT",
+      "ContentLength": 8287634,
+      "LastModified": "2026-09-08T23:06:33+00:00",
+      "ServerSideEncryption": "AES256",
+      "VersionId": "niCDhanoQz1Au0yZW3cFq9M4LqXS9iZk",
+      "expected_bytes": 8287634,
+      "expected_sha256": "63a1988620bc2dff14f423c296818c013033cf494259007d9fadd1866840f140",
+      "expected_version_id": "niCDhanoQz1Au0yZW3cFq9M4LqXS9iZk",
+      "name": "ranking_validation",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/validation/ed08fd3714fb4c8d15663926251a999115cf6a0a/archive.zip"
+    }
+  ],
+  "verification": "Six successful connected AWS HeadObject calls, with an exact-version download where full-object SHA-256 was unavailable."
+}
