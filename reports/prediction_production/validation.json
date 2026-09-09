@@ -1,0 +1,15 @@
+{
+  "head": "b61a620540386b862cf1291738bc50497bc86165",
+  "job_id": 102324575838,
+  "notebooks": 6,
+  "reused": 6,
+  "run_id": 34306629977,
+  "seconds": 353.66,
+  "synthetic": "a4b366a64f8d26acc5ebb3aaf90c77f1af3a8249",
+  "tests": 290,
+  "tree": "fa9dd60f0556078b1ed0e4c5963e66a9469a8393",
+  "scope": "Pre-production validation of the exact source tree",
+  "url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34306629977",
+  "local_production_tests": 22,
+  "local_full_suite": "Incomplete: shared filesystem exhausted disk space; use the successful native GitHub gate"
+}

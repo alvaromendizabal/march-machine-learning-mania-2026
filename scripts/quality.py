@@ -26,6 +26,7 @@ def main() -> int:
         "scripts/portfolio_release.py",
         "scripts/archive.py",
         "scripts/update.py",
+        "scripts/verify_prediction_production.py",
     ]
     typed_files = tomllib.loads((root / "pyproject.toml").read_text())["tool"]["mypy"]["files"]
     typed_files = [

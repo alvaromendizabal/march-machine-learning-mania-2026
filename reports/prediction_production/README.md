@@ -1,8 +1,14 @@
 # Current prediction production
 
-The 50 concrete recipes are frozen. Final CSV generation and archive recovery are
-the remaining execution gates for this release. No CSV count is claimed until
-`summary.json` and its manifest have been produced and checked.
+**50 distinct 2026 prediction files have been generated and validated**, each with
+132,133 template rows. The run completed 33 model fits, one explicit neutral route,
+259 prediction chunks and 344 checkpoints in 518.491 seconds. It generated
+6,606,650 probabilities without using 2026 outcomes or uploading to Kaggle.
+
+[summary.json](summary.json) records the completion result;
+[submission_manifest.csv](submission_manifest.csv) identifies every complete CSV.
+Versioned archive upload and independent recovery verification are the remaining
+execution gates for this release.
 
 The [development catalog](../prediction_portfolio/README.md) defines ten men's
 procedures crossed with five women's procedures. [recipe.json](recipe.json)
@@ -44,6 +50,17 @@ CSV files live under `outputs/prediction_production/<fingerprint>/csv_<candidate
 The public submission manifest records the exact path, row count, byte size and
 SHA-256 of each complete file. Restricted data and fitted models remain in the
 versioned private archive.
+
+For independent model verification, pass the restored run directory to:
+
+```bash
+uv run --locked python scripts/verify_prediction_production.py \
+  --run PATH_TO_RESTORED_RUN --receipt outputs/saved_model_verification.json
+```
+
+This recomputes every chunk from saved models and requires exact equality with
+all archived stream probabilities. It also rechecks the fifty complete CSV
+checksums. No fitting occurs in this verification path.
 
 ## Interpretation
 
