@@ -7,8 +7,16 @@
 
 [summary.json](summary.json) records the completion result;
 [submission_manifest.csv](submission_manifest.csv) identifies every complete CSV.
-Versioned archive upload and independent recovery verification are the remaining
-execution gates for this release.
+All 33 saved models reproduced every probability exactly across 259 chunks;
+[saved_model_verification.json](saved_model_verification.json) records the check.
+A fresh local archive restore reused all 344 checkpoints with zero new fits and
+unchanged CSV bytes, recorded in [recovery.json](recovery.json).
+
+The 80,110,551-byte archive contains all fifty CSVs, fitted models, checkpoints and
+source provenance. Its SHA-256 and exact intended private S3 destination are in
+[storage.json](storage.json). Automatic approval review requires specific approval
+for that upload. **The upload and recovery from S3 have not completed.** The verified
+archive is available with the project handoff while that authorization is pending.
 
 The [development catalog](../prediction_portfolio/README.md) defines ten men's
 procedures crossed with five women's procedures. [recipe.json](recipe.json)
@@ -47,9 +55,12 @@ automatically before generation. `production_release --recover` also supports
 an explicitly downloaded archive via `--archive`.
 
 CSV files live under `outputs/prediction_production/<fingerprint>/csv_<candidate>/`.
+The declared reference is `m_rank_logistic__w_logistic`; generating the sensitivity
+variants does not promote a new default.
 The public submission manifest records the exact path, row count, byte size and
-SHA-256 of each complete file. Restricted data and fitted models remain in the
-versioned private archive.
+SHA-256 of each complete file. Fitted models are in the handoff archive; the existing
+private input archives remain version-pinned. Predictions for 4,556 seeded-team
+pairs use the seeded route; the other 127,577 template pairs use seed-free fits.
 
 For independent model verification, pass the restored run directory to:
 

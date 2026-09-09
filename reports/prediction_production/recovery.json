@@ -1,0 +1,10 @@
+{
+  "archive_sha256": "eb3edc69c0f8370f5241a5d5368200ff2d6e96922180e187c78cc7d7b456daf2",
+  "checkpoints_reused": 344,
+  "fingerprint": "6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150",
+  "new_fits": 0,
+  "new_tasks": 0,
+  "source": "Fresh directory restored from the checksum-verified local archive; no S3 restore is claimed",
+  "status": "verified",
+  "submission_files_byte_identical": 50
+}
