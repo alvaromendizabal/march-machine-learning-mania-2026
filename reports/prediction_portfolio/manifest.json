@@ -1,0 +1,136 @@
+{
+  "benchmark_or_2026_labels_used": false,
+  "candidate_plans": 50,
+  "component_streams": 15,
+  "distinct_development_vectors": 50,
+  "final_hyperparameters_frozen": false,
+  "fingerprint": "97bf15d84525bd329bab8f0edf21b71f29b22bd943dc61fbb70d4954e5108a7f",
+  "generation_status": "not_started",
+  "inputs": {
+    "config": {
+      "calibration": "identity",
+      "development_seasons": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2021
+      ],
+      "prediction_season": 2026,
+      "protocol": "retrospective-development-portfolio",
+      "reference": {
+        "M": "m_rank_logistic",
+        "W": "w_logistic"
+      },
+      "streams": {
+        "M": [
+          {
+            "family": "rank_logistic",
+            "id": "m_rank_logistic",
+            "route": "M"
+          },
+          {
+            "family": "logistic",
+            "id": "m_logistic",
+            "route": "M"
+          },
+          {
+            "family": "hist",
+            "id": "m_hist",
+            "route": "M"
+          },
+          {
+            "family": "xgboost",
+            "id": "m_xgboost",
+            "route": "M"
+          },
+          {
+            "family": "lightgbm",
+            "id": "m_lightgbm",
+            "route": "M"
+          },
+          {
+            "family": "rank_xgboost",
+            "id": "m_rank_xgboost",
+            "route": "M"
+          },
+          {
+            "family": "rank_lightgbm",
+            "id": "m_rank_lightgbm",
+            "route": "M"
+          },
+          {
+            "family": "blend",
+            "id": "m_pooled_blend",
+            "route": "pooled_common"
+          },
+          {
+            "family": "hist",
+            "id": "m_pooled_hist",
+            "route": "pooled_common"
+          },
+          {
+            "family": "xgboost",
+            "id": "m_pooled_xgboost",
+            "route": "pooled_common"
+          }
+        ],
+        "W": [
+          {
+            "family": "logistic",
+            "id": "w_logistic",
+            "route": "W"
+          },
+          {
+            "family": "hist",
+            "id": "w_hist",
+            "route": "W"
+          },
+          {
+            "family": "xgboost",
+            "id": "w_xgboost",
+            "route": "W"
+          },
+          {
+            "family": "lightgbm",
+            "id": "w_lightgbm",
+            "route": "W"
+          },
+          {
+            "family": "logistic",
+            "id": "w_pooled_logistic",
+            "route": "pooled_common"
+          }
+        ]
+      },
+      "target_candidates": 50
+    },
+    "evidence": {
+      "ensemble_weights.csv": "60c308771780a5262dc9e20b6ba14abf780464fe3e344bb0ddea758f1390527b",
+      "predictions.csv": "65daa72c1e27e09d5e9b697322cc7d28c71a432ae086663c3c5e8632123f7587",
+      "run.json": "37c1a013ee97a8257eb56e27b12c0aa229230c6453f902bf55f27f6ce6364abe",
+      "selection.csv": "3e7ecf107e15db1038965f94bfc99e1887565e999cb94be736f6673cd1087ad3"
+    },
+    "feature_fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+    "model_fingerprint": "20e69d30dc746f39f9395f96d1ff13d7a24cb0a7998fd096a0409c31fa7d7193",
+    "source": {
+      "src/march_mania/publication/portfolio.py": "3f276db73525ed1186bd6cba88eb797ef4fb8076eae5fa18875ddb6190fa9536"
+    }
+  },
+  "kaggle_submission_sent": false,
+  "minimum_pairwise_mean_absolute_difference": 0.008814024485136188,
+  "new_model_fits": 0,
+  "physical_development_games_per_candidate": 649,
+  "portfolio_scope": "Retrospective family/population pairings; correlated sensitivity candidates, not 50 independent experiments or a promoted winner",
+  "reference_candidate": "m_rank_logistic__w_logistic",
+  "score_scope": "Nested earlier-season selection procedures on already-explored development years; not final-estimator validation or an untouched holdout",
+  "selection_records": 95,
+  "sha256": {
+    "candidate_catalog.csv": "daa6a5084c0661ce379553d4e7dcda02e1d17a86fed762c92ba979c9ca4ec6a2",
+    "metrics_by_season.csv": "52655788b77aca6d3aacf72beb5e67282a6fbf1c05ee35cadd4bf14f3f2ddb9b",
+    "prediction_diversity.csv": "61d0df4dd58e53c33ca2f80340a92d6255e79c3ab067223b2e5aa75fb8f0dbdb",
+    "selection_history.csv": "d242be65e39881a4c584b3ee911bd37595ad33ba1846d8dbbba90838c9c1fac5"
+  },
+  "status": "development_catalog_complete",
+  "submission_files_generated": 0
+}

@@ -1,0 +1,29 @@
+{
+  "protocol": "retrospective-development-portfolio",
+  "development_seasons": [2016, 2017, 2018, 2019, 2021],
+  "prediction_season": 2026,
+  "target_candidates": 50,
+  "calibration": "identity",
+  "reference": {"M": "m_rank_logistic", "W": "w_logistic"},
+  "streams": {
+    "M": [
+      {"id": "m_rank_logistic", "route": "M", "family": "rank_logistic"},
+      {"id": "m_logistic", "route": "M", "family": "logistic"},
+      {"id": "m_hist", "route": "M", "family": "hist"},
+      {"id": "m_xgboost", "route": "M", "family": "xgboost"},
+      {"id": "m_lightgbm", "route": "M", "family": "lightgbm"},
+      {"id": "m_rank_xgboost", "route": "M", "family": "rank_xgboost"},
+      {"id": "m_rank_lightgbm", "route": "M", "family": "rank_lightgbm"},
+      {"id": "m_pooled_blend", "route": "pooled_common", "family": "blend"},
+      {"id": "m_pooled_hist", "route": "pooled_common", "family": "hist"},
+      {"id": "m_pooled_xgboost", "route": "pooled_common", "family": "xgboost"}
+    ],
+    "W": [
+      {"id": "w_logistic", "route": "W", "family": "logistic"},
+      {"id": "w_hist", "route": "W", "family": "hist"},
+      {"id": "w_xgboost", "route": "W", "family": "xgboost"},
+      {"id": "w_lightgbm", "route": "W", "family": "lightgbm"},
+      {"id": "w_pooled_logistic", "route": "pooled_common", "family": "logistic"}
+    ]
+  }
+}

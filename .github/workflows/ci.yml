@@ -37,6 +37,8 @@ jobs:
         run: uv run --locked python scripts/quality.py
       - name: Verify current published research release
         run: uv run --locked python -m march_mania.publication.release --check
+      - name: Recompute the development prediction portfolio
+        run: uv run --locked python -m march_mania.publication.portfolio --check
       - name: Execute and preserve current notebooks
         run: |
           uv run --locked python -m ipykernel install --user --name march-mania
