@@ -2,7 +2,9 @@
 
 **Observed Kaggle result:** 58 files were scored after the deadline. Best: **0.1225463 Brier**, from men's pooled XGBoost at temperature 0.90 + women's logistic regression, versus **0.1229419** before adjustment. [The preserved submission collection](reports/submission_scores/README.md) retains those CSVs, scores and checksums, plus the separate legacy score ledger. These are observed retrospective results; the frozen production reference is retained.
 
-**New challenger batch:** [six retrained submissions](reports/prediction_challengers/README.md) compare 64 features, lighter regularization and 240 trees, each at temperatures 1.00 and 0.90. Women's logistic predictions are unchanged. There are now **64 current CSVs: 58 scored and six awaiting manual submission**. Start with the 64-feature pair; historical gains are small and do not establish a new winner.
+**Men’s challenger batch:** [six retrained submissions](reports/prediction_challengers/README.md) compare 64 features, lighter regularization and 240 trees, each at temperatures 1.00 and 0.90. Women's logistic predictions are unchanged. Start with the 64-feature pair; historical gains are small and do not establish a new winner.
+
+**Women’s challenger batch:** [six logistic alternatives](reports/women_challengers/README.md) compare regularization, feature blocks and probability confidence while holding the best scored men’s stream fixed. The existing women’s model at temperature 1.10 leads the bounded historical comparison (**0.142167 versus 0.142891 Brier**), but forward-only selection is weaker. There are now **70 current CSVs: 58 scored and 12 awaiting manual submission**. Start with women’s priority 1; no new Kaggle result is claimed.
 
 [![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
 
@@ -64,6 +66,7 @@ candidate counts, rejection reasons, fitted selections and current run fingerpri
 | Retained feature limits: 32, 64, 128, 256 | 168 evaluated fits; 138 new and 30 reused controls | Increasing capacity generally fails to help |
 | Individual rankings, disagreement, momentum, availability and PCA | 112 evaluated fits; 92 new and 20 reused controls | No promotion after forward-only selection |
 | Bounded XGBoost retraining, matched Massey/coach controls | 28 new candidate/fold tasks and 21 reused controls | 64-feature challenger looks promising; forward-selected Brier gain is only 0.000064 |
+| Women’s bounded logistic challengers | 21 historical fits, 14 reused controls, 15 fixed hypotheses and six final fits | Temperature 1.10 leads fixed historical results; forward selection does not establish improvement |
 | Frozen logistic anchors on 2022–2025 | 16 annual fits on an already-consumed benchmark | Retrospective diagnostic evidence; no holdout tuning |
 
 Holding the histogram estimator fixed, adding compact ranking consensus improves
@@ -141,10 +144,10 @@ timestamped inputs or a future tournament evaluated under a frozen protocol.
 - **Recovery:** versioned S3 archives preserve data, estimators, forecasts and
   source. Verified recovery reused 901 model tasks; the two feature follow-ups
   separately reused 281 tasks and preserved 280 models without new fits.
-- **Publication:** six canonical notebooks and 52 executed code cells. The
-  [native publication receipt](reports/validation/prediction_challengers.json) verifies
+- **Publication:** six canonical notebooks and 54 executed code cells. The
+  [native publication receipt](reports/validation/women_challengers.json) verifies
   their source, checkpoint hashes and saved outputs. The required quality workflow
-  checks 336 tests, release audits, score/retraining/challenger evidence, native execution and six-notebook reuse.
+  checks 347 tests, release audits, score/retraining/challenger evidence, native execution and six-notebook reuse.
   The badge above links the checks for the current revision.
 
 On September 9, 2026 UTC, all six research archive versions were rechecked against
@@ -166,6 +169,7 @@ uv run --locked python -m march_mania.publication.production_release --check
 uv run --locked python -m march_mania.publication.scoreboard --check
 uv run --locked python -m march_mania.publication.retraining --check
 uv run --locked python -m march_mania.publication.challengers --check
+uv run --locked python scripts/women_challengers.py --check
 uv run --locked python scripts/notebook.py --execute --publish
 ```
 

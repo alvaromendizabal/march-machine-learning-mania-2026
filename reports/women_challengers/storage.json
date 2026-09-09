@@ -1,0 +1,33 @@
+{
+  "status": "verified",
+  "checked_at_utc": "2026-09-09T21:29:39.189Z",
+  "bucket": "sagemaker-march-mania-560403859723-us-west-2",
+  "region": "us-west-2",
+  "expected_owner": "560403859723",
+  "fingerprint": "ddb7883fa756507dd4d0594867c27f3f84f27c31f0c5d4f493a09b07d523540d",
+  "public_access_blocked": true,
+  "ownership": "BucketOwnerEnforced",
+  "objects": [
+    {
+      "bytes": 22255978,
+      "checksum_sha256_base64": "3iGWURclzO74+kjO6hS29m8EhKbQ+Gr8wkvjyw7ZyIM=",
+      "checksum_type": "FULL_OBJECT",
+      "content_type": "application/zip",
+      "server_side_encryption": "AES256",
+      "sha256": "de2196511725cceef8fa48ceea14b6f66f0484a6d0f86afcc24be3cb0ed9c883",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/women_challengers/ddb7883fa756507dd4d0594867c27f3f84f27c31f0c5d4f493a09b07d523540d/archive.zip",
+      "version_id": "T8_OTsCqUNqUYXtOFYbfymeWD4e0PvoS"
+    },
+    {
+      "bytes": 9700208,
+      "checksum_sha256_base64": "a2Cd1p7N/q25m4mMNXeXBePDudhj+5NEidQOELK9g2M=",
+      "checksum_type": "FULL_OBJECT",
+      "content_type": "application/zip",
+      "server_side_encryption": "AES256",
+      "sha256": "6b609dd69ecdfeadb99b898c35779705e3c3b9d863fb934489d40e10b2bd8363",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/women_challengers/ddb7883fa756507dd4d0594867c27f3f84f27c31f0c5d4f493a09b07d523540d/women_challengers.zip",
+      "version_id": "eP3.lQ3RwVnMzu7Lsmriu0DCitwgi11w"
+    }
+  ],
+  "input_storage": "Checksum-pinned original feature-store, model and refinement archives remain unchanged; exact receipts and source hashes accompany the new run."
+}

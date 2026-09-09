@@ -1,0 +1,13 @@
+{
+  "archive_sha256_unchanged": "6b609dd69ecdfeadb99b898c35779705e3c3b9d863fb934489d40e10b2bd8363",
+  "export_checkpoints_reused": 1,
+  "final_fit_checkpoints_reused": 6,
+  "generation_fingerprint": "8e0feaa693c31f814a5836fabcf3e80279d284493c9348d0785c3842d6dc7775",
+  "historical_fit_checkpoints_reused": 21,
+  "new_fits_during_resume": 0,
+  "new_tasks_during_resume": 0,
+  "prediction_chunks_reused": 129,
+  "scope": "Local restart using content-verified checkpoints; not a fresh remote restore",
+  "status": "verified",
+  "study_fingerprint": "ddb7883fa756507dd4d0594867c27f3f84f27c31f0c5d4f493a09b07d523540d"
+}
