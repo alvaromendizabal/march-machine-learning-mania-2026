@@ -1,0 +1,26 @@
+{
+  "bytes": 84028069,
+  "files": 58,
+  "fingerprint": "c51856abcf388d3971eb2c5a335768b6ab8d5ce2f8e15a432eb04a1493109b01",
+  "inputs": {
+    "archives": {
+      "original_50": "86fc55ca16bf51673e2b5d6b147ec822ccf88c9b841e76a7e29f4eddad5075be",
+      "refinement_8": "02996446601e8427741445b04950dfe50d453b4d0d60a44e35f6aa9454f6951c"
+    },
+    "readme": "82232d568f7a59c0849991f2c5da366b7a1a74944571d917cdc528a02f0084ec",
+    "score_inputs": {
+      "reports/prediction_production/kaggle_scores.csv": "242149ce5e29b75522da9a04a2e8fdca75f2e2f045098a66a60cace92c49d6c4",
+      "reports/prediction_production/submission_manifest.csv": "4634608ebc0527eeedcbe3355bb1dd42c46b15badeedcf3033c2754738ad7e9d",
+      "reports/prediction_refinement/submission_manifest.csv": "5e15f4d0b81baf04591d45d6c257495b0f8c912ff561690441fd5cc6456f9aa4",
+      "reports/submission_portfolio/kaggle_scores.csv": "919ba5dae14ddf6311dbc0e1b842159833afcc564f3b096ec7d539d2102a822c",
+      "reports/submission_scores/provenance.json": "3eff96515eee83ba179ca8398a897a8b74814d4b4df76c612a115582a54bd79d",
+      "reports/submission_scores/refinement_scores.csv": "dee15b598b1b54f6654980b4728270b150b5b68456451c771e127125d8ceea81",
+      "src/march_mania/publication/scoreboard.py": "29149b64ad97521bd578dd8cd5ad44d9e7edad71b54de358adfcdde02e2fdfa7"
+    }
+  },
+  "new_model_fits": 0,
+  "prediction_bytes_unchanged": true,
+  "rows_per_file": 132133,
+  "sha256": "40b95be2ab018d851576b0d95189f6ca65f2926c176e8a1ea6d312e1400a874f",
+  "status": "verified"
+}

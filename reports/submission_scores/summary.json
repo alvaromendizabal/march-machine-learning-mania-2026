@@ -1,0 +1,21 @@
+{
+  "absolute_improvement": 0.00039560000000000983,
+  "best_brier": 0.1225463,
+  "best_candidate": "m_pooled_xgboost_t090__w_logistic",
+  "current_submission_files": 58,
+  "inputs": {
+    "reports/prediction_production/kaggle_scores.csv": "242149ce5e29b75522da9a04a2e8fdca75f2e2f045098a66a60cace92c49d6c4",
+    "reports/prediction_production/submission_manifest.csv": "4634608ebc0527eeedcbe3355bb1dd42c46b15badeedcf3033c2754738ad7e9d",
+    "reports/prediction_refinement/submission_manifest.csv": "5e15f4d0b81baf04591d45d6c257495b0f8c912ff561690441fd5cc6456f9aa4",
+    "reports/submission_portfolio/kaggle_scores.csv": "919ba5dae14ddf6311dbc0e1b842159833afcc564f3b096ec7d539d2102a822c",
+    "reports/submission_scores/provenance.json": "3eff96515eee83ba179ca8398a897a8b74814d4b4df76c612a115582a54bd79d",
+    "reports/submission_scores/refinement_scores.csv": "dee15b598b1b54f6654980b4728270b150b5b68456451c771e127125d8ceea81",
+    "src/march_mania/publication/scoreboard.py": "29149b64ad97521bd578dd8cd5ad44d9e7edad71b54de358adfcdde02e2fdfa7"
+  },
+  "legacy_predictions_in_current_collection": false,
+  "legacy_score_rows_preserved": 18,
+  "previous_best_brier": 0.1229419,
+  "scope": "Observed late 2026 scores; subsequent research is retrospective.",
+  "scores_sha256": "4f6f0c2a476c8be8e2a2e593433ef58ccd0f3c5f9e3ec8b6c69e7784f28d12bb",
+  "status": "verified"
+}

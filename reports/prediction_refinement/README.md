@@ -41,10 +41,11 @@ procedure scores do not directly validate the final fitted estimators.
 | Pooled XGBoost, temperature 1.10 | 0.167057 | 4 / 5 |
 
 Pooled-histogram mixtures and temperature 0.90 do not improve aggregate historical
-Brier. They remain sensitivity controls. The first two mixtures are the most useful
-next submissions to compare, followed by temperature 1.10. The eight files have no
-recorded Kaggle scores yet. Seeing their eventual scores will not make this a new
-holdout experiment or automatically promote a new production reference.
+Brier. All eight now have [recorded Kaggle scores](../submission_scores/README.md).
+Temperature 0.90 is the best observed late score, **0.1225463**, despite worsening
+historical Brier. This disagreement limits claims about future generalization.
+The original reference is preserved. The complete 58-file collection includes
+all original and adjusted predictions with their exact bytes and score history.
 
 ## Reproduce and download
 

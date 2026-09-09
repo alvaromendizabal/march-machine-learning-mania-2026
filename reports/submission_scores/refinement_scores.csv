@@ -1,0 +1,9 @@
+candidate_id,private_brier,public_brier,source_image
+m_pooled_xgboost75_rank_logistic25__w_logistic,0.1231137,0.1231137,d3d2763e-3755-47f8-b0b4-6cc13265ca37.png
+m_pooled_xgboost75_pooled_hist25__w_logistic,0.1232226,0.1232226,d3d2763e-3755-47f8-b0b4-6cc13265ca37.png
+m_pooled_xgboost50_rank_logistic50__w_logistic,0.1236319,0.1236319,d3d2763e-3755-47f8-b0b4-6cc13265ca37.png
+m_pooled_xgboost50_pooled_hist50__w_logistic,0.1235209,0.1235209,d3d2763e-3755-47f8-b0b4-6cc13265ca37.png
+m_pooled_xgboost25_rank_logistic75__w_logistic,0.1244963,0.1244963,d3d2763e-3755-47f8-b0b4-6cc13265ca37.png
+m_pooled_xgboost25_pooled_hist75__w_logistic,0.1238368,0.1238368,d3d2763e-3755-47f8-b0b4-6cc13265ca37.png
+m_pooled_xgboost_t110__w_logistic,0.1235803,0.1235803,d3d2763e-3755-47f8-b0b4-6cc13265ca37.png
+m_pooled_xgboost_t090__w_logistic,0.1225463,0.1225463,d3d2763e-3755-47f8-b0b4-6cc13265ca37.png

@@ -1,6 +1,6 @@
 # NCAA tournament probability forecasting
 
-**Observed Kaggle result:** all 50 original files were scored after the deadline. Best: **0.1229419 Brier**, from men's pooled XGBoost + women's logistic regression. [Saved scores and eight bounded adjustments](reports/prediction_refinement/README.md) include the screenshot provenance, historical checks, and notebook download controls. The original frozen model recipe is retained.
+**Observed Kaggle result:** all 58 current files were scored after the deadline. Best: **0.1225463 Brier**, from men's pooled XGBoost at temperature 0.90 + women's logistic regression, versus **0.1229419** before adjustment. [The complete submission collection](reports/submission_scores/README.md) preserves every current CSV, score and checksum, plus the separate legacy score ledger. These are observed retrospective results; the frozen production reference is retained.
 
 [![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
 
@@ -61,6 +61,7 @@ candidate counts, rejection reasons, fitted selections and current run fingerpri
 | Model comparison on the exact expanded matrix | 861 candidate fits with nested temporal selection | Broader features do not consistently beat compact models |
 | Retained feature limits: 32, 64, 128, 256 | 168 evaluated fits; 138 new and 30 reused controls | Increasing capacity generally fails to help |
 | Individual rankings, disagreement, momentum, availability and PCA | 112 evaluated fits; 92 new and 20 reused controls | No promotion after forward-only selection |
+| Bounded XGBoost retraining, matched Massey/coach controls | 28 new candidate/fold tasks and 21 reused controls | 64-feature challenger looks promising; forward-selected Brier gain is only 0.000064 |
 | Frozen logistic anchors on 2022–2025 | 16 annual fits on an already-consumed benchmark | Retrospective diagnostic evidence; no holdout tuning |
 
 Holding the histogram estimator fixed, adding compact ranking consensus improves
@@ -115,7 +116,14 @@ log loss **0.5791 / 0.4385**, and 10-bin calibration error **0.0481 / 0.0665**.
 [Audited metrics](reports/repository_release/repository_release_audit.csv) are
 recomputed from saved predictions, including both Brier definitions.
 
-The available official-data feature search is complete. The evidence does **not**
+The [retraining study](reports/xgboost_retraining/README.md) confirms full legal
+men's Massey and coach coverage throughout modeled seasons 2013–2026. A matched
+Massey addition helps men's XGBoost modestly; coach effects remain uncertain.
+The submitted pooled winner excludes Massey and retained no coach inputs.
+Reducing its feature limit to 64 gives the best fixed historical result, but
+season intervals include zero and forward-only selection barely improves Brier.
+
+The available official-data feature search has reached diminishing returns. The evidence does **not**
 establish that the expanded bank improves on all earlier models. Player
 availability, returning production and women's coach/rating parity lack verified
 historical sources in this snapshot. A meaningful extension needs independent,
@@ -131,10 +139,10 @@ timestamped inputs or a future tournament evaluated under a frozen protocol.
 - **Recovery:** versioned S3 archives preserve data, estimators, forecasts and
   source. Verified recovery reused 901 model tasks; the two feature follow-ups
   separately reused 281 tasks and preserved 280 models without new fits.
-- **Publication:** six canonical notebooks and 47 executed code cells. The
-  [native handoff receipt](reports/validation/production_handoff.json) verifies
+- **Publication:** six canonical notebooks and 50 executed code cells. The
+  [native publication receipt](reports/validation/xgboost_retraining.json) verifies
   their source, checkpoint hashes and saved outputs. The required quality workflow
-  checks 314 tests, release audits, native execution and six-notebook reuse.
+  checks 327 tests, release audits, score/retraining evidence, native execution and six-notebook reuse.
   The badge above links the checks for the current revision.
 
 On September 9, 2026 UTC, all six research archive versions were rechecked against
@@ -153,6 +161,8 @@ uv run --locked python scripts/quality.py
 uv run --locked python -m march_mania.publication.release --check
 uv run --locked python -m march_mania.publication.portfolio --check
 uv run --locked python -m march_mania.publication.production_release --check
+uv run --locked python -m march_mania.publication.scoreboard --check
+uv run --locked python -m march_mania.publication.retraining --check
 uv run --locked python scripts/notebook.py --execute --publish
 ```
 

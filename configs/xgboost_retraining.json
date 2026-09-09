@@ -1,0 +1,20 @@
+{
+  "protocol": "retrospective-bounded-xgboost-retraining",
+  "first_training_season": 2013,
+  "validation_seasons": [2016, 2017, 2018, 2019, 2021],
+  "seed": 2026,
+  "threads": 2,
+  "heartbeat_seconds": 15,
+  "max_new_fits": 28,
+  "reference": "pooled_reference",
+  "variants": [
+    {"name": "pooled_reference", "population": "pooled_common", "massey": false, "coach": true, "capacity": 128, "trees": 120, "child_weight": 10, "reg_lambda": 10, "reuse": "xgboost_full_2"},
+    {"name": "pooled_240_trees", "population": "pooled_common", "massey": false, "coach": true, "capacity": 128, "trees": 240, "child_weight": 10, "reg_lambda": 10, "reuse": null},
+    {"name": "pooled_less_regularized", "population": "pooled_common", "massey": false, "coach": true, "capacity": 128, "trees": 120, "child_weight": 5, "reg_lambda": 5, "reuse": null},
+    {"name": "pooled_64_features", "population": "pooled_common", "massey": false, "coach": true, "capacity": 64, "trees": 120, "child_weight": 10, "reg_lambda": 10, "reuse": null},
+    {"name": "men_reference", "population": "M", "massey": false, "coach": true, "capacity": 128, "trees": 120, "child_weight": 10, "reg_lambda": 10, "reuse": "xgboost_full_2"},
+    {"name": "men_massey", "population": "M", "massey": true, "coach": true, "capacity": 128, "trees": 120, "child_weight": 10, "reg_lambda": 10, "reuse": "rank_xgboost_full_2"},
+    {"name": "men_massey_no_coach", "population": "M", "massey": true, "coach": false, "capacity": 128, "trees": 120, "child_weight": 10, "reg_lambda": 10, "reuse": null}
+  ],
+  "scope": "The observed 2026 results motivated these hypotheses. Use only already-explored pre-2022 development outcomes for comparisons and strictly earlier seasons for each fitted model and selection. No untouched holdout claim; no production recipe change."
+}

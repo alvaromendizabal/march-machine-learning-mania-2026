@@ -1,0 +1,13 @@
+{
+  "exact_submission_times_available": false,
+  "recorded_at_utc": "2026-09-09T18:58:27.232850+00:00",
+  "scope": "Post-result exploratory 2026 observations; not an untouched holdout.",
+  "score_precision_decimals": 7,
+  "scores_sha256": "dee15b598b1b54f6654980b4728270b150b5b68456451c771e127125d8ceea81",
+  "source": "User-provided Kaggle screenshot",
+  "source_image": "d3d2763e-3755-47f8-b0b4-6cc13265ca37.png",
+  "source_image_bytes": 220119,
+  "source_image_sha256": "fb18bce92254edf554fd71f508a908dbd1028f203f4bdd38a8573a47c2b7422a",
+  "status": "Complete (after deadline)",
+  "submission_ids_available": false
+}
