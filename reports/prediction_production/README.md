@@ -45,7 +45,12 @@ records executed notebooks and checks of the actual controls. The
 ## Reproduce
 
 Notebook 04 provides a single ZIP download containing all fifty recorded CSVs,
-their manifest and the frozen recipe. Its restore action performs no training.
+their manifest and the frozen recipe. The ZIP has a flat layout: each prediction
+file is named `<candidate_id>.csv`, such as `m_rank_logistic__w_logistic.csv`.
+The included manifest maps that filename to the candidate, original checkpoint
+path, row count and checksum; the recipe identifies its model parameters and blends.
+Extract the ZIP and upload each chosen CSV separately to Kaggle. The bundle is
+for downloading and does not submit fifty candidates as one Kaggle upload. Its restore action performs no training.
 The equivalent terminal entry point is:
 
 ```bash

@@ -176,8 +176,10 @@ to retrieve its fifty files without fitting, or use the separate default-off
 original identity. Neither path uploads a submission to Kaggle.
 
 After restoration or portfolio generation, notebook 04 also prepares one download
-containing all fifty CSVs, their manifest and frozen recipe. Every CSV retains its
-recorded checksum. The equivalent entry point is
+containing all fifty CSVs, their manifest and frozen recipe. Each CSV has its
+model-pair name, such as `m_rank_logistic__w_logistic.csv`, at the ZIP root.
+The manifest connects that filename to its saved run and unchanged checksum.
+Extract the bundle and submit chosen CSVs individually to Kaggle. The equivalent entry point is
 `uv run --locked python scripts/deliver_predictions.py --action restore`.
 Repeat requests reuse a verified packaging checkpoint.
 
