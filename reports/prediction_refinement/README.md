@@ -64,7 +64,9 @@ The new download is `submissions/prediction_refinement.zip`.
 [generation.json](generation.json) records actual generation;
 [submission_manifest.csv](submission_manifest.csv) records all eight hashes and
 their original production lineage. The archive includes the exact adjustment
-recipe. Generation checks ID order, finite probabilities, unchanged women's rows,
+recipe. [storage.json](storage.json) pins the private AWS versions of the ZIP and
+score ledger, with verified full-object SHA-256, byte lengths and expected owner.
+Generation checks ID order, finite probabilities, unchanged women's rows,
 distinct output files, and ZIP member checksums. Repeating it reuses verified
 completed outputs. Extract the ZIP and submit chosen model CSVs individually.
 The manifest and recipe are not predictions to upload. No code here sends a Kaggle

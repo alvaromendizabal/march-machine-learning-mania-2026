@@ -1,0 +1,90 @@
+{
+  "artifact_id": 10118874231,
+  "artifact_sha256": "846272ff5ed45d3dfab0a99d7eddfed34be5f4cc92314ee9ea8b890abb063115",
+  "checkout_commit": "a2e125e811bed27055a1826af52b800d8ae61a26",
+  "checkout_tree_matches_proposed_head": true,
+  "execution": {
+    "elapsed_seconds": 0.5866546190000008,
+    "notebooks": [
+      {
+        "code_cells": 4,
+        "fingerprint": "c4cd49952e2baf6ec6e682392bb31de52632e0a6961a2b8804d446eced2eaba4",
+        "notebook": "00_data_audit_and_preparation.ipynb",
+        "sha256": "b58c9dc51c41bb87f30ecfb630be2fef502dedc12900d5904363d2c861502633",
+        "status": "completed"
+      },
+      {
+        "code_cells": 3,
+        "fingerprint": "a575024e5e5a2e91a4708dce06d2e40512f4a51b6ebe1be9ca73953eaf89984b",
+        "notebook": "01_split_protocol_and_pre_tournament_snapshots.ipynb",
+        "sha256": "2701567013be172ac152ed388cd009b71030bba8e8cfced46bc4750a48ded3ff",
+        "status": "completed"
+      },
+      {
+        "code_cells": 12,
+        "fingerprint": "9d7953c0fda926b5c1140ec52f8fb817270a72d1589ec86c9f88bb9ba492f8fd",
+        "notebook": "02_feature_store_and_diagnostics.ipynb",
+        "sha256": "e2d541a0471d627476312f79f676d1604a89c97a5b2c1fdd545c570cafa09039",
+        "status": "completed"
+      },
+      {
+        "code_cells": 13,
+        "fingerprint": "c5dd10b4e21733d0aa2e9e29a2044085ba688521b75febcbc3db0288908fe032",
+        "notebook": "03_model_comparison_and_diagnostics.ipynb",
+        "sha256": "328d79b644d20b5c5c9bfad34f5636577a0569439115f2d1d2e6bf322cbef66e",
+        "status": "completed"
+      },
+      {
+        "code_cells": 11,
+        "fingerprint": "d171dc687f8d7911ce7a2691129f7139247ea4686a8a2b99762b4b800f51752c",
+        "notebook": "04_locked_benchmark_and_final_submission.ipynb",
+        "sha256": "678e7d9191f12c35d28261c1fe66d4ceaffda2b3b057b73d4754a0c4df1b60a4",
+        "status": "completed"
+      },
+      {
+        "code_cells": 4,
+        "fingerprint": "ddd7cefbc7fef1ccd9d9670ea0c5fdb82a2f34f8a9e539fb5cc71609e676f05c",
+        "notebook": "05_feature_research.ipynb",
+        "sha256": "2b4130e48803b0d0040a84cf0a20389b4468db52b90e4bf0767b0530ec5c9ecb",
+        "status": "completed"
+      }
+    ],
+    "status": "completed"
+  },
+  "job_id": 102592365167,
+  "local_kernel_failure": "Network-interface discovery and kernel socket startup are restricted; native execution was completed in GitHub Actions.",
+  "native_execution_and_whole_notebook_reuse_verified": true,
+  "new_model_fits": 0,
+  "notebooks": {
+    "00_data_audit_and_preparation.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "b58c9dc51c41bb87f30ecfb630be2fef502dedc12900d5904363d2c861502633"
+    },
+    "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
+      "executed_code_cells": 3,
+      "sha256": "2701567013be172ac152ed388cd009b71030bba8e8cfced46bc4750a48ded3ff"
+    },
+    "02_feature_store_and_diagnostics.ipynb": {
+      "executed_code_cells": 12,
+      "sha256": "e2d541a0471d627476312f79f676d1604a89c97a5b2c1fdd545c570cafa09039"
+    },
+    "03_model_comparison_and_diagnostics.ipynb": {
+      "executed_code_cells": 13,
+      "sha256": "328d79b644d20b5c5c9bfad34f5636577a0569439115f2d1d2e6bf322cbef66e"
+    },
+    "04_locked_benchmark_and_final_submission.ipynb": {
+      "executed_code_cells": 11,
+      "sha256": "678e7d9191f12c35d28261c1fe66d4ceaffda2b3b057b73d4754a0c4df1b60a4"
+    },
+    "05_feature_research.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "2b4130e48803b0d0040a84cf0a20389b4468db52b90e4bf0767b0530ec5c9ecb"
+    }
+  },
+  "source_head": "0aee854d7d51b98b451d73f681fdf8c925d3096c",
+  "source_tree": "badf5aa29946d0f238dfa2a5a6b2615f08d1cf49",
+  "status": "native_notebooks_executed",
+  "url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34388897955",
+  "warnings_or_error_outputs": 0,
+  "workflow_run_id": 34388897955
+}

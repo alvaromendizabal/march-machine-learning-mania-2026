@@ -18,10 +18,7 @@
     "upstream_dependency": "Existing checksum-verified feature run and official raw inputs",
     "version_id": "rLf775OU4X9NuNCr15N8rmRf2q1Cqla8"
   },
-  "current_notebook_publication": {
-    "note": "Notebook hashes identify the traceable prediction-filename publication; original study and validation fields remain historical.",
-    "receipt": "reports/validation/prediction_delivery.json"
-  },
+  "current_notebook_publication": "reports/validation/prediction_refinement.json",
   "final_revision_checks": "Publication commit 0cc86f030e79e7cd17c3ef8adacb11de093c743a passed run 34289263210; PR #10 merged as d044a0e2814f36749c8fe4a2be6b8cb2772e949b and its main quality run also passed.",
   "local_verification": {
     "loaded_models": 112,
@@ -84,27 +81,27 @@
   "notebooks": {
     "00_data_audit_and_preparation.ipynb": {
       "executed_code_cells": 4,
-      "sha256": "c293401724dcadf8b70c45f809cb8a729c4630b31440e01e0da037a643959bd5"
+      "sha256": "b58c9dc51c41bb87f30ecfb630be2fef502dedc12900d5904363d2c861502633"
     },
     "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
       "executed_code_cells": 3,
-      "sha256": "66111a2fc8acaaf397ba74ce29f38afe091cb33a5bab6a6e9b3864d8d572d779"
+      "sha256": "2701567013be172ac152ed388cd009b71030bba8e8cfced46bc4750a48ded3ff"
     },
     "02_feature_store_and_diagnostics.ipynb": {
       "executed_code_cells": 12,
-      "sha256": "efd9f8bef7fef1b26e91ca649230c4c4eb47a6b13ae3960fb2ac1868a3c154fe"
+      "sha256": "e2d541a0471d627476312f79f676d1604a89c97a5b2c1fdd545c570cafa09039"
     },
     "03_model_comparison_and_diagnostics.ipynb": {
       "executed_code_cells": 13,
-      "sha256": "fb079b14858f2c6e27596edb9c51fc0a414fcc45540a1dd746cb55f1d9a6d7aa"
+      "sha256": "328d79b644d20b5c5c9bfad34f5636577a0569439115f2d1d2e6bf322cbef66e"
     },
     "04_locked_benchmark_and_final_submission.ipynb": {
-      "executed_code_cells": 8,
-      "sha256": "546361b72628ca5732d39d85990243d4f428512bf55264c14aa77964495bfeaa"
+      "executed_code_cells": 11,
+      "sha256": "678e7d9191f12c35d28261c1fe66d4ceaffda2b3b057b73d4754a0c4df1b60a4"
     },
     "05_feature_research.ipynb": {
       "executed_code_cells": 4,
-      "sha256": "feda6b17989b9ddb75604a22339a07cd8760a22ad0183590e8c48910e0a94123"
+      "sha256": "2b4130e48803b0d0040a84cf0a20389b4468db52b90e4bf0767b0530ec5c9ecb"
     }
   },
   "status": "native_notebooks_and_versioned_cloud_recovery_verified",
