@@ -1,0 +1,17 @@
+{
+  "source": "User-provided Kaggle screenshot",
+  "source_original_filename": "ddb3f93a-bca4-42a6-8ba0-7f7ea41fa060.png",
+  "source_image": "reports/final_results/score_evidence.png",
+  "source_image_sha256": "68da7ae9c8cf97d033c673175ed4bdebf7e6111a140fdbe2c94e860fa1db5bed",
+  "source_image_bytes": 265929,
+  "scores_sha256": "5e0d56d5dc6866db95564df5a1467926c6a898e6bff8933c9d5d75f321194348",
+  "recorded_at_utc": "2026-09-09T22:08:36.552644+00:00",
+  "status": "Complete (after deadline)",
+  "exact_submission_times_available": false,
+  "submission_ids_available": false,
+  "score_precision_decimals": 7,
+  "visible_rows": 20,
+  "new_observations": 12,
+  "previous_observations_cross_checked": 8,
+  "scope": "Observed retrospective 2026 submission scores; both displayed columns are equal. No leaderboard rank or prospective performance claim."
+}

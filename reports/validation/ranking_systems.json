@@ -18,7 +18,7 @@
     "upstream_dependency": "Existing checksum-verified feature run and official raw inputs",
     "version_id": "rLf775OU4X9NuNCr15N8rmRf2q1Cqla8"
   },
-  "current_notebook_publication": "reports/validation/women_challengers.json",
+  "current_notebook_publication": "reports/validation/final_results.json",
   "final_revision_checks": "Publication commit 0cc86f030e79e7cd17c3ef8adacb11de093c743a passed run 34289263210; PR #10 merged as d044a0e2814f36749c8fe4a2be6b8cb2772e949b and its main quality run also passed.",
   "local_verification": {
     "loaded_models": 112,
@@ -81,27 +81,27 @@
   "notebooks": {
     "00_data_audit_and_preparation.ipynb": {
       "executed_code_cells": 4,
-      "sha256": "33f9179dd3613ca9101035ea942d16530a4f5322a088733ce56584c1fafb0d59"
+      "sha256": "fce71e07ff3d3936f8b07c1341d13259ae5d7ae2ebe3ea82e282136d879748fd"
     },
     "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
       "executed_code_cells": 3,
-      "sha256": "e254f183fb1418695058e75008c2745180e711dd5dc900f30d580b21f5f8437f"
+      "sha256": "ce978bce9a60f56ac9eb61349ff122d6443a0d8135fa6dfd5c2b5e0521008798"
     },
     "02_feature_store_and_diagnostics.ipynb": {
       "executed_code_cells": 12,
-      "sha256": "e720a9877a2a652dcba9acde48df62211343fa797a7527f98444563002f02a7d"
+      "sha256": "d8e0e4bb0556e6ccacee9a9c12c3b57b9fbb94b53d1b79aac7d4e8f3aef5d655"
     },
     "03_model_comparison_and_diagnostics.ipynb": {
       "executed_code_cells": 16,
-      "sha256": "16fc80ca7308d7248e5f1763ca742696c55f38ce71587584107b4853b3f19b25"
+      "sha256": "ec094d139abb369276c5daee79b06226c70e19632994166becd9afddb962f291"
     },
     "04_locked_benchmark_and_final_submission.ipynb": {
-      "executed_code_cells": 15,
-      "sha256": "8430792a63aed205949ccb7b48176b756358395f901bd4ac7b7dfb0043d8e29a"
+      "executed_code_cells": 18,
+      "sha256": "cc18b42641dda3982f05fd6b7f4ad010298eef9796a709584831d11ace3b721c"
     },
     "05_feature_research.ipynb": {
       "executed_code_cells": 4,
-      "sha256": "47ec2342c6718cf1e6933f8d549d008c31654faa302fa870204aba8804a22edb"
+      "sha256": "b2c16bc120c9b3ba615b267448b95537707c87b30d539b40667eccba66623309"
     }
   },
   "status": "native_notebooks_and_versioned_cloud_recovery_verified",

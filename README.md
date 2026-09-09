@@ -1,211 +1,130 @@
 # NCAA tournament probability forecasting
 
-**Observed Kaggle result:** 58 files were scored after the deadline. Best: **0.1225463 Brier**, from men's pooled XGBoost at temperature 0.90 + women's logistic regression, versus **0.1229419** before adjustment. [The preserved submission collection](reports/submission_scores/README.md) retains those CSVs, scores and checksums, plus the separate legacy score ledger. These are observed retrospective results; the frozen production reference is retained.
+**Final observed Brier: 0.1222672 · 70 scored submissions · Project complete**
 
-**Men’s challenger batch:** [six retrained submissions](reports/prediction_challengers/README.md) compare 64 features, lighter regularization and 240 trees, each at temperatures 1.00 and 0.90. Women's logistic predictions are unchanged. Start with the 64-feature pair; historical gains are small and do not establish a new winner.
-
-**Women’s challenger batch:** [six logistic alternatives](reports/women_challengers/README.md) compare regularization, feature blocks and probability confidence while holding the best scored men’s stream fixed. The existing women’s model at temperature 1.10 leads the bounded historical comparison (**0.142167 versus 0.142891 Brier**), but forward-only selection is weaker. There are now **70 current CSVs: 58 scored and 12 awaiting manual submission**. Start with women’s priority 1; no new Kaggle result is claimed.
+Predicting NCAA tournament outcomes with temporal feature engineering, separate
+men’s and women’s models, calibrated probability comparisons, and reproducible ML engineering.
 
 [![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
 
-**How much can basketball feature engineering improve tournament forecasts?**
-This project tests that question across men's and women's NCAA tournaments using
-season-aware validation, 3,946 candidate definitions, controlled ablations and
-reproducible model comparisons.
+The best submitted model combines **men’s pooled XGBoost at temperature 0.90** with
+**women’s conference logistic regression, C=1.0, at temperature 1.10**. Both Kaggle
+score columns display **0.1222672**, improving on the original model pair’s
+**0.1229419**. All 70 current CSVs and their scores are preserved.
+These were **late, retrospective submissions**. The score is an observed result,
+not a prospective competition rank or an untouched-holdout estimate.
 
-**The result:** compact team-strength and consensus-ranking features are competitive.
-A much wider feature bank does not deliver a consistent improvement. The project
-shows how to find useful signal, reject unstable gains and preserve the evidence
-behind a modeling decision.
+![Final observed score leaders](reports/final_results/leaders.png)
 
-**Current delivery:** the research release and
-[50-file prediction batch](reports/prediction_production/README.md) are complete.
-Each distinct file contains 132,133 matchups. All 33 saved models reproduced their
-predictions exactly. The versioned S3 archive is verified; fresh remote recovery
-reused 344 checkpoints with zero fits and 50 byte-identical files. The completed
-delivery gates are recorded in the [completion plan](docs/completion_plan.md).
-Start with the
-[short employer walkthrough](docs/employer_walkthrough.md) for the key findings
-and a trace from input receipts to the reference CSV.
+**Start here:** [two-minute employer walkthrough](docs/employer_walkthrough.md) ·
+[final results and exact model lineage](reports/final_results/README.md) ·
+[complete score ledger](reports/final_results/kaggle_scores.csv)
 
-## Review the work in five notebooks
+## What this project demonstrates
 
-All notebooks contain executed outputs. Open them directly on GitHub; reviewing
-the project requires no setup, AWS account or GPU. Plotly figures are interactive
-in Jupyter and include static images for GitHub.
+The central question is whether broader basketball feature engineering improves
+win probabilities enough to justify the additional complexity. Across **3,946
+candidate definitions**, compact team-strength and ranking representations remained
+competitive. Larger feature banks and more trees did not consistently improve
+results under earlier-season selection. Positive and negative findings are preserved.
 
-| Notebook | The question it answers |
+| Capability | Evidence |
 |---|---|
-| [00 · Data](notebooks/00_data_audit_and_preparation.ipynb) | Which official files exist, and what are their coverage and quality limits? |
-| [01 · Validation](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | What information is available before each prediction, and how are seasons separated? |
-| [02 · Feature research](notebooks/02_feature_store_and_diagnostics.ipynb) | Which basketball mechanisms help, which fail, and when should the search stop? |
-| [03 · Models](notebooks/03_model_comparison_and_diagnostics.ipynb) | How do logistic regression, boosting, calibration and blends compare on the same features? |
-| [04 · Evaluation](notebooks/04_locked_benchmark_and_final_submission.ipynb) | How do the frozen recipes perform, and how are predictions generated and validated? |
+| Domain feature research | 3,106 basketball/coach/conference candidates and 840 individual-ranking definitions; controlled add/remove-family ablations |
+| Temporal validation | Pre-tournament day-132 snapshots, earlier-season target and coach histories, training-only screening, whole-season folds |
+| Probability modeling | Logistic regression, histogram boosting, XGBoost and LightGBM; calibration, blending, Brier, log loss and ranking diagnostics |
+| Reproducible production | Locked dependencies, explicit seeded/seed-free routes, unique official IDs, team-swap symmetry and exact model reload checks |
+| Recovery and delivery | Versioned private artifacts, content-verified checkpoints, UTC logs and heartbeats, 70 original-byte submission files |
+| Engineering review | Typed Python, 355 tests in the required workflow, six executed canonical notebooks and documented PRs |
 
-[05 · Research appendix](notebooks/05_feature_research.ipynb) compares the earlier
-and expanded runs. It is optional reading.
+## Final model and score
 
-## What the experiments established
+| Stream | Fitted model | Final training | Probability adjustment |
+|---|---|---|---|
+| Men | Pooled XGBoost; 120 trees, depth 2, 128 retained inputs | 1,575 men’s and women’s tournament games, 2013–2025 | Temperature 0.90 |
+| Women | Logistic regression; conference feature block, C=1.0 | 772 women’s tournament games, 2013–2025 | Temperature 1.10 |
 
-The main study contains **3,106 candidates**: 124 existing inputs, 2,944
-recency/distribution/venue/opponent/trajectory/peer hypotheses, 26 coach-history
-signals and 12 conference-strength signals. An additional study tests **840
-individual-ranking definitions** from 105 systems cataloged before 2013.
+Canceled 2020 is excluded. Both streams have seeded and seed-free estimators;
+seed-derived inputs are removed before seed-free screening. The men’s pooled
+stream excludes Massey and retained no coach inputs. Women’s separate final model
+retains 16 seeded inputs and 15 seed-free inputs. No 2026 tournament outcome enters
+fitting or prediction. Temperature choices and the final winner were selected
+retrospectively from observed results; the original development reference remains frozen.
 
-The main full-bank fits retain **128 inputs each**, screened only on the applicable
-training population. Across their 20 outer fits, 251 distinct inputs survive;
-2,855 never enter those full-bank models. This is a collection of fold-specific
-selections, not a global feature list. The complete
-[release audit](reports/repository_release/repository_release_audit.json) reconciles
-candidate counts, rejection reasons, fitted selections and current run fingerprints.
+The winning file is
+`m_pooled_xgboost_t090__w_conference_c100_t110.csv`.
+Its [record](reports/final_results/summary.json) connects the observed score to the
+exact CSV hash, fitted components and training audits. Each CSV has **132,133 rows**.
+The original 18 legacy score observations remain separately labeled by their earlier lineage.
 
-| Experiment | Completed evidence | Decision |
-|---|---|---|
-| Basketball feature families | 1,050 ablation fits, including no-Massey and temporal encoding/coach controls | Keep useful compact strength and consensus signals; report uncertain or harmful additions |
-| Model comparison on the exact expanded matrix | 861 candidate fits with nested temporal selection | Broader features do not consistently beat compact models |
-| Retained feature limits: 32, 64, 128, 256 | 168 evaluated fits; 138 new and 30 reused controls | Increasing capacity generally fails to help |
-| Individual rankings, disagreement, momentum, availability and PCA | 112 evaluated fits; 92 new and 20 reused controls | No promotion after forward-only selection |
-| Bounded XGBoost retraining, matched Massey/coach controls | 28 new candidate/fold tasks and 21 reused controls | 64-feature challenger looks promising; forward-selected Brier gain is only 0.000064 |
-| Women’s bounded logistic challengers | 21 historical fits, 14 reused controls, 15 fixed hypotheses and six final fits | Temperature 1.10 leads fixed historical results; forward selection does not establish improvement |
-| Frozen logistic anchors on 2022–2025 | 16 annual fits on an already-consumed benchmark | Retrospective diagnostic evidence; no holdout tuning |
+![Observed improvement across completed batches](reports/final_results/progression.png)
 
-Holding the histogram estimator fixed, adding compact ranking consensus improves
-men's mean-season Brier by **0.010687** versus strength alone (exploratory 95%
-season interval: −0.016580 to −0.002978). The corresponding logistic gain is smaller
-and uncertain. This is a measured feature effect; it does not establish that the
-entire expanded bank is better. [Paired ablations](reports/feature_store/ablation_intervals.csv)
-include both add-family and remove-family controls.
+Interactive versions of these charts, every scored submission and the complete
+ledger are in the [Plotly report](reports/final_results/results.html). Download and
+open the HTML in a browser; it includes its plotting dependencies. Notebook 04
+also contains interactive Plotly outputs with static previews for GitHub.
 
-### More retained inputs did not reliably improve forecasting
+## Review the notebooks
 
-![Feature capacity sensitivity on identical development seasons](reports/figures/feature_capacity.png)
+All notebooks contain executed outputs. Review requires no private data, cloud
+account or GPU. Follow the five-notebook path; notebook 05 is an optional appendix.
 
-Each panel uses the same five development seasons. Lower Brier is better.
-Keeping 256 features hurts the men's models; reducing the screen can improve a
-broad model without beating the compact leaders. The
-[capacity study](reports/feature_capacity/README.md) includes forward-only selection,
-matched-game intervals and reproducible controls.
+| Notebook | Review question |
+|---|---|
+| [00 · Data](notebooks/00_data_audit_and_preparation.ipynb) | What official data exists, and what are its coverage and quality limits? |
+| [01 · Validation](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | What information is available before each prediction? |
+| [02 · Features](notebooks/02_feature_store_and_diagnostics.ipynb) | Which basketball hypotheses help, and which fail controlled tests? |
+| [03 · Models](notebooks/03_model_comparison_and_diagnostics.ipynb) | How do models, calibration and bounded challengers compare on matched games? |
+| [04 · Results](notebooks/04_locked_benchmark_and_final_submission.ipynb) | What was submitted, what scored best, and how are exact predictions recovered? |
+| [05 · Appendix](notebooks/05_feature_research.ipynb) | How does the current study compare with the earlier feature schema? |
 
-### A small apparent gain failed the temporal selection check
+## Findings and limitations
 
-![Individual ranking additions compared with compact consensus controls](reports/figures/ranking_systems.png)
+- **Massey coverage was checked.** Legal men’s ranking and coach coverage is complete
+  throughout modeled 2013–2026 snapshots. In matched XGBoost controls, adding Massey
+  improves historical Brier from 0.193306 to 0.192201; removing coach features then
+  gives 0.191808. These conditional effects are uncertain and trail the pooled leader.
+  Women’s comparable ranking/coach histories are unavailable in this snapshot.
+- **Broader is not automatically better.** The feature-capacity study evaluates
+  32, 64, 128 and 256 retained inputs. Individual ranking additions and larger banks
+  do not establish a stable gain. [Feature evidence](reports/feature_store/README.md)
+  and [bounded retraining](reports/xgboost_retraining/README.md) retain the comparisons.
+- **Historical metrics are distinct from Kaggle scores.** On explored development
+  seasons, the best nested men’s/women’s mean-season Brier is 0.188396 / 0.144823.
+  The frozen logistic anchors on the consumed 2022–2025 benchmark score
+  0.198288 / 0.146881. Those populations and protocols differ from the final Kaggle evaluation.
+- **Selection uncertainty remains.** Women’s historical temperature winner did not
+  win on Kaggle. The final submitted winner was third in the bounded historical
+  shortlist. Small retrospective gains are not evidence of reliable future improvement.
+- **Coverage is not validation.** Seed-free predictions cover the official template
+  but lack matched tournament out-of-fold validation. No new untouched holdout or
+  leaderboard rank is claimed.
 
-Points left of zero favor the added representation. The intervals resample seasons
-and are exploratory, not adjusted for the many comparisons. Individual ranking
-levels reduce fixed logistic mean-season Brier from **0.187608 to 0.186924**, but
-the interval crosses zero. Selecting a representation using earlier seasons gives
-**0.195240**, worse than the consensus control. The
-[individual-system study](reports/ranking_systems/README.md) keeps that negative
-result visible; its nominal winner is not promoted.
-
-## Performance and its limits
-
-The [competition](https://www.kaggle.com/competitions/march-machine-learning-mania-2026)
-uses **Brier score**: the mean squared error of predicted win probabilities.
-Lower is better; an uninformative 50% forecast scores 0.25. Mean-season Brier gives
-each season equal weight; game-weighted Brier gives each game equal weight.
-
-| Evidence | Men: mean-season Brier | Women: mean-season Brier |
-|---|---:|---:|
-| Best observed nested development stream | 0.188396 · no-Massey pooled blend | 0.144823 · separate logistic |
-| Frozen seeded logistic anchors, retrospective 2022–2025 | 0.198288 | 0.146881 |
-
-Development uses 2016–2019 and 2021. These years were explored during research,
-and **2022–2025 was already consumed in earlier work**. Neither is a new untouched
-holdout. The observed development leaders are not an unbiased estimate of a
-subsequently selected winner. Local evaluation includes play-ins and differs from
-Kaggle's scored population. This is a retrospective portfolio project.
-
-On the retrospective seeded anchors, men's/women's ROC AUC is **0.7512 / 0.8715**,
-log loss **0.5791 / 0.4385**, and 10-bin calibration error **0.0481 / 0.0665**.
-[Audited metrics](reports/repository_release/repository_release_audit.csv) are
-recomputed from saved predictions, including both Brier definitions.
-
-The [retraining study](reports/xgboost_retraining/README.md) confirms full legal
-men's Massey and coach coverage throughout modeled seasons 2013–2026. A matched
-Massey addition helps men's XGBoost modestly; coach effects remain uncertain.
-The submitted pooled winner excludes Massey and retained no coach inputs.
-Reducing its feature limit to 64 gives the best fixed historical result, but
-season intervals include zero and forward-only selection barely improves Brier.
-
-The available official-data feature search has reached diminishing returns. The evidence does **not**
-establish that the expanded bank improves on all earlier models. Player
-availability, returning production and women's coach/rating parity lack verified
-historical sources in this snapshot. A meaningful extension needs independent,
-timestamped inputs or a future tournament evaluated under a frozen protocol.
-
-## Engineering and release evidence
-
-- **Temporal integrity:** day-132 snapshots, strictly earlier-season target and
-  coach histories, training-only screening/PCA, whole-season validation, and
-  mutation tests that reject leakage and stale downstream results.
-- **Reproducibility:** locked Python environment, typed modular code, explicit
-  failure tests, source/data/model fingerprints, UTC progress logs and heartbeats.
-- **Recovery:** versioned S3 archives preserve data, estimators, forecasts and
-  source. Verified recovery reused 901 model tasks; the two feature follow-ups
-  separately reused 281 tasks and preserved 280 models without new fits.
-- **Publication:** six canonical notebooks and 54 executed code cells. The
-  [native publication receipt](reports/validation/women_challengers.json) verifies
-  their source, checkpoint hashes and saved outputs. The required quality workflow
-  checks 347 tests, release audits, score/retraining/challenger evidence, native execution and six-notebook reuse.
-  The badge above links the checks for the current revision.
-
-On September 9, 2026 UTC, all six research archive versions were rechecked against
-AWS. Five full-object SHA-256 checksums matched directly; the remaining archive
-was freshly downloaded and hashed. The
-[cloud receipt](reports/repository_release/cloud_verification.json) records exactly
-what was verified. The [research audit](docs/research_audit.md) preserves the full
-experimental reasoning, release history and limitations.
-
-## Reproduce or generate predictions
+## Reproduce or recover
 
 ```bash
 uv sync --locked --group dev
 uv run --locked python -m ipykernel install --user --name march-mania
 uv run --locked python scripts/quality.py
 uv run --locked python -m march_mania.publication.release --check
-uv run --locked python -m march_mania.publication.portfolio --check
-uv run --locked python -m march_mania.publication.production_release --check
-uv run --locked python -m march_mania.publication.scoreboard --check
-uv run --locked python -m march_mania.publication.retraining --check
-uv run --locked python -m march_mania.publication.challengers --check
-uv run --locked python scripts/women_challengers.py --check
+uv run --locked python scripts/final_report.py --check
 uv run --locked python scripts/notebook.py --execute --publish
 ```
 
-The release audit checks the committed publication before notebook execution.
-Rerunning notebooks can change timestamps and environment outputs; intentionally
-publishing new bytes requires refreshing their native validation receipt and audit.
+Notebook 04 reviews the final results by default. Explicit, default-off controls
+restore or generate predictions; ordinary review does not fit models or create
+submission CSVs. [The final handoff](reports/final_results/README.md) documents the
+70-file collection, its recovery location and the winning file. Existing generation
+recipes, prediction bytes and their original receipts remain preserved.
 
-The current 50-file generator uses the expanded research lineage:
+The [native publication receipt](reports/validation/final_results.json),
+[research audit](docs/research_audit.md), [completed release gates](docs/completion_plan.md)
+and [Studio instructions](docs/studio.md) provide deeper verification and recovery details.
+Git contains source, compact evidence and executed notebooks; raw inputs, trained
+estimators and full prediction archives remain in private versioned storage.
 
-```bash
-uv run --locked python -m march_mania.publication.production --restore-inputs
-uv run --locked python -m march_mania.publication.production --generate
-```
+**Release complete:** the final winner, score history, models, submissions and
+review materials are preserved. A future tournament under a frozen protocol is a
+separate research extension, not unfinished work in this release.
 
-These commands require authorized access to the existing private input archives.
-The [production report](reports/prediction_production/README.md) gives exact
-recipes, file checksums and verified remote recovery evidence.
-
-Notebook 04 audits the completed batch in review mode. Set `RESTORE_PRODUCTION`
-to retrieve its fifty files without fitting, or use the separate default-off
-`GENERATE_PORTFOLIO` control to run the frozen pipeline. The existing
-`GENERATE_SUBMISSION` control generates the single reference from local 02/03 runs. Historical 124-feature final artifacts retain their
-original identity. Neither path uploads a submission to Kaggle.
-
-After restoration or portfolio generation, notebook 04 also prepares one download
-containing all fifty CSVs, their manifest and frozen recipe. Each CSV has its
-model-pair name, such as `m_rank_logistic__w_logistic.csv`, at the ZIP root.
-The manifest connects that filename to its saved run and unchanged checksum.
-Extract the bundle and submit chosen CSVs individually to Kaggle. The equivalent entry point is
-`uv run --locked python scripts/deliver_predictions.py --action restore`.
-Repeat requests reuse a verified packaging checkpoint.
-
-[Studio and resume instructions](docs/studio.md) cover training with private data
-and automatic archive recovery. Existing Studio checkouts use
-`python3 scripts/update.py`; the script preserves local notebook edits before updating.
-Git contains code, executed notebooks and compact evidence; raw data and trained
-binaries remain in private storage.
-
-MIT-licensed code. Competition data remains subject to Kaggle's terms.
+MIT-licensed code. Competition data remains subject to Kaggle’s terms.
