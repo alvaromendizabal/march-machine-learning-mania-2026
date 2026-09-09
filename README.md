@@ -1,5 +1,7 @@
 # NCAA tournament probability forecasting
 
+**Observed Kaggle result:** all 50 original files were scored after the deadline. Best: **0.1229419 Brier**, from men's pooled XGBoost + women's logistic regression. [Saved scores and eight bounded adjustments](reports/prediction_refinement/README.md) include the screenshot provenance, historical checks, and notebook download controls. The original frozen model recipe is retained.
+
 [![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
 
 **How much can basketball feature engineering improve tournament forecasts?**
@@ -129,10 +131,10 @@ timestamped inputs or a future tournament evaluated under a frozen protocol.
 - **Recovery:** versioned S3 archives preserve data, estimators, forecasts and
   source. Verified recovery reused 901 model tasks; the two feature follow-ups
   separately reused 281 tasks and preserved 280 models without new fits.
-- **Publication:** six canonical notebooks and 44 executed code cells. The
+- **Publication:** six canonical notebooks and 47 executed code cells. The
   [native handoff receipt](reports/validation/production_handoff.json) verifies
   their source, checkpoint hashes and saved outputs. The required quality workflow
-  checks 304 tests, release audits, native execution and six-notebook reuse.
+  checks 314 tests, release audits, native execution and six-notebook reuse.
   The badge above links the checks for the current revision.
 
 On September 9, 2026 UTC, all six research archive versions were rechecked against

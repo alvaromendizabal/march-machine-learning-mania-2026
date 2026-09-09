@@ -41,6 +41,8 @@ jobs:
         run: uv run --locked python -m march_mania.publication.portfolio --check
       - name: Verify frozen production recipes and published prediction evidence
         run: uv run --locked python -m march_mania.publication.production_release --check
+      - name: Verify observed scores and historical refinement evidence
+        run: uv run --locked python -m march_mania.publication.refinement --check
       - name: Execute and preserve current notebooks
         # Collect native outputs for proposed publications even if their old receipt is stale.
         # Earlier failed gates still fail the job; no failed check is waived.

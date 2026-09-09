@@ -1,0 +1,75 @@
+{
+  "protocol": "post-result-exploratory-refinement",
+  "round": 1,
+  "anchor": "m_pooled_xgboost",
+  "women_stream": "w_logistic",
+  "source_archive_sha256": "86fc55ca16bf51673e2b5d6b147ec822ccf88c9b841e76a7e29f4eddad5075be",
+  "development_seasons": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2021
+  ],
+  "2026_results_informed_hypotheses": true,
+  "fresh_holdout": false,
+  "new_model_fits": 0,
+  "variants": [
+    {
+      "candidate_id": "m_pooled_xgboost25_rank_logistic75__w_logistic",
+      "kind": "blend",
+      "anchor_weight": 0.25,
+      "partner": "m_rank_logistic",
+      "temperature": 1.0
+    },
+    {
+      "candidate_id": "m_pooled_xgboost50_rank_logistic50__w_logistic",
+      "kind": "blend",
+      "anchor_weight": 0.5,
+      "partner": "m_rank_logistic",
+      "temperature": 1.0
+    },
+    {
+      "candidate_id": "m_pooled_xgboost75_rank_logistic25__w_logistic",
+      "kind": "blend",
+      "anchor_weight": 0.75,
+      "partner": "m_rank_logistic",
+      "temperature": 1.0
+    },
+    {
+      "candidate_id": "m_pooled_xgboost25_pooled_hist75__w_logistic",
+      "kind": "blend",
+      "anchor_weight": 0.25,
+      "partner": "m_pooled_hist",
+      "temperature": 1.0
+    },
+    {
+      "candidate_id": "m_pooled_xgboost50_pooled_hist50__w_logistic",
+      "kind": "blend",
+      "anchor_weight": 0.5,
+      "partner": "m_pooled_hist",
+      "temperature": 1.0
+    },
+    {
+      "candidate_id": "m_pooled_xgboost75_pooled_hist25__w_logistic",
+      "kind": "blend",
+      "anchor_weight": 0.75,
+      "partner": "m_pooled_hist",
+      "temperature": 1.0
+    },
+    {
+      "candidate_id": "m_pooled_xgboost_t090__w_logistic",
+      "kind": "temperature",
+      "anchor_weight": 1.0,
+      "partner": null,
+      "temperature": 0.9
+    },
+    {
+      "candidate_id": "m_pooled_xgboost_t110__w_logistic",
+      "kind": "temperature",
+      "anchor_weight": 1.0,
+      "partner": null,
+      "temperature": 1.1
+    }
+  ]
+}

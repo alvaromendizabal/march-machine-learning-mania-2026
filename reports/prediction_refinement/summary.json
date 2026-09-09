@@ -1,0 +1,28 @@
+{
+  "best_observed_brier": 0.1229419,
+  "best_observed_candidate": "m_pooled_xgboost__w_logistic",
+  "historical_games_per_candidate": 649,
+  "historically_best_new_adjustment": "m_pooled_xgboost50_rank_logistic50__w_logistic",
+  "inputs": {
+    "configs/prediction_refinement.json": "4ff51c25e983009fd85937f1877783eab8c6780ad98484150504341d032850f1",
+    "reports/prediction_portfolio/manifest.json": "d0974e13d58bcb59ff67feac79a15a5976f77dc083c3b7b81a444dba46f168c2",
+    "reports/prediction_production/kaggle_scores.csv": "242149ce5e29b75522da9a04a2e8fdca75f2e2f045098a66a60cace92c49d6c4",
+    "reports/prediction_production/kaggle_scores.json": "9d17cd09d1ce96f8fee7bcb173661988442a37119e92c0d6483c0243851a736b",
+    "reports/prediction_production/submission_manifest.csv": "4634608ebc0527eeedcbe3355bb1dd42c46b15badeedcf3033c2754738ad7e9d",
+    "src/march_mania/publication/refinement.py": "9a87c0a2fcb7112c6609810ba0b425b877db24b58adfae2f101613d5d5def04d"
+  },
+  "new_adjustments": 8,
+  "new_model_fits": 0,
+  "observed_anchor_improvement": 0.0027651000000000064,
+  "observed_submissions": 50,
+  "original_production_recipe_changed": false,
+  "reference_observed_brier": 0.125707,
+  "scope": "Post-result exploratory adjustments motivated by observed 2026 Kaggle scores. Historical selection procedures cover already-explored 2016-2019 and 2021; they are not validation of the final fitted estimators or an untouched holdout.",
+  "sha256": {
+    "historical_catalog.csv": "c2301bdc0298b116758042db13596d11c969b457b889ca68179018730e6c2fb2",
+    "metrics_by_season.csv": "5b1a6f77f9ee04609049aec4d7e273f43f767c48fc90f4c2fea08049ab348fcc",
+    "observed_scores.csv": "d330d1bc48f7637cdef0dc07a0a1619f2713d988c3a7915f6fa7ff0290fb84e3"
+  },
+  "status": "historical_checks_complete",
+  "women_logistic_best_for_all_men_streams": true
+}

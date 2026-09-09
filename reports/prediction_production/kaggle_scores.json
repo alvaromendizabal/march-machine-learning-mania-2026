@@ -1,0 +1,27 @@
+{
+  "competition": "march-machine-learning-mania-2026",
+  "exact_submission_times_available": false,
+  "production_fingerprint": "6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150",
+  "public_private_scores_identical": true,
+  "recorded_at_utc": "2026-09-09T18:14:25.950168+00:00",
+  "scope": "Observed retrospective 2026 leaderboard scores. Subsequent adjustments are post-result exploratory candidates, not an untouched holdout experiment.",
+  "score_precision_decimals": 7,
+  "scores_sha256": "242149ce5e29b75522da9a04a2e8fdca75f2e2f045098a66a60cace92c49d6c4",
+  "source": "User-provided Kaggle submissions screenshots",
+  "sources": {
+    "b6f9accd-3d9d-4b73-9740-db8fecfeb6b2.png": {
+      "bytes": 109799,
+      "sha256": "e91d4e7aabded93ae5078d900cac5f6fc935da4b1ab61d37443377b591078435"
+    },
+    "fa73f66a-caa6-4ab0-8a57-9575eaf24202.png": {
+      "bytes": 305861,
+      "sha256": "ca4e6608bab69a6fb449244ab6b1780e226d172d88a477190c1f9a347ff4cf21"
+    },
+    "fe683446-7ad8-4a46-95ef-9cea260a49e9.png": {
+      "bytes": 278089,
+      "sha256": "d408d3906a02a61cdc5774d65e2a4e80467979fb71dd700e6ae3746be9e2e866"
+    }
+  },
+  "submission_ids_available": false,
+  "submission_status": "Complete (after deadline)"
+}
