@@ -63,9 +63,10 @@ CSV against the published SHA-256 and reuses a completed packaging checkpoint.
 `--action review` audits public evidence without cloud access or creating files;
 `--action generate` restores inputs and resumes the frozen generator first.
 
-[delivery.json](delivery.json) records the actual notebook-control check, guarded
-generation with 344 reused tasks and zero new fits, repeated package reuse, and
-the separate versioned S3 copy of this 71,006,055-byte download.
+[delivery.json](delivery.json) records the actual notebook-control check, all
+fifty unchanged CSV checksums, repeated package reuse, and the separate versioned
+S3 copy of this 71,005,174-byte download. Its historical receipt preserves the
+earlier guarded generation replay with 344 reused tasks and zero new fits.
 
 Use the locked environment described in the repository README. Public checks need
 no private data or AWS account:

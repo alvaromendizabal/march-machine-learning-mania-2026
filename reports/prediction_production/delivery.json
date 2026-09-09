@@ -1,25 +1,51 @@
 {
   "status": "verified",
   "production_fingerprint": "6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150",
-  "delivery_script_sha256": "ad50b2e43b133ed025f76e6ec9b7e37e08af2064798c6f3bb484ce42b0396d52",
+  "download_layout": "flat-candidate-csv-v1",
   "submission_files": 50,
   "rows_per_file": 132133,
+  "delivery_script_sha256": "9e5a3acf1b66f6750b7c04816edc37ff683e328fbf0f0d4176d6e3cc98657a7e",
+  "notebook_restore_control": "Actual notebook 04 cell executed with restoration enabled and the exact local archive; both download links verified; training guarded to fail",
+  "prediction_sha256_matches": 50,
+  "new_fits": 0,
+  "package_reused": true,
+  "resume_bytes_identical": true,
   "archive": {
-    "bytes": 71006055,
-    "sha256": "1a5c2e6e8f51544a0a28f4ce37f147ae77256371bac93cb8bc322480c657fe8b",
+    "bytes": 71005174,
+    "sha256": "86fc55ca16bf51673e2b5d6b147ec822ccf88c9b841e76a7e29f4eddad5075be",
     "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/portfolio/6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150/prediction_portfolio.zip",
-    "version_id": "Q8.XVE9DZyNGjmkGHZ.d1eqMLRPev6qn",
+    "version_id": "QIufYUOGXHP4e_Wvv31oaLFZOquApHDb",
     "status": "uploaded",
     "checksum_verification": "S3 FULL_OBJECT SHA-256 and expected bucket owner",
-    "uploaded_at": "2026-09-09T04:48:29+00:00"
+    "uploaded_at": "2026-09-09T17:06:42+00:00"
   },
   "reference_candidate": "m_rank_logistic__w_logistic",
   "reference_sha256": "a4b4e17f1e6f3f2c938e83949872fd463eb3af1fea3ebeea524bc6d745bd51ed",
-  "new_fits": 0,
-  "generation_checkpoints_reused": 344,
-  "generation_guard": "fit_component and input restoration replaced with functions that raise if called",
-  "package_reused": true,
-  "resume_bytes_identical": true,
-  "checks": "All fifty ZIP member SHA-256 values equal the published production manifest; reference CSV unchanged",
-  "notebook_restore_control": "Actual cell executed with restoration enabled; both download links and reference hash verified; fitting forbidden"
+  "source_archive_receipt": "reports/prediction_production/archive.json",
+  "checks": "All fifty flat CSV names map to candidate IDs, exact source paths, row counts and SHA-256 values; prediction bytes and recipe unchanged",
+  "previous_layout_delivery": {
+    "status": "verified",
+    "production_fingerprint": "6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150",
+    "delivery_script_sha256": "ad50b2e43b133ed025f76e6ec9b7e37e08af2064798c6f3bb484ce42b0396d52",
+    "submission_files": 50,
+    "rows_per_file": 132133,
+    "archive": {
+      "bytes": 71006055,
+      "sha256": "1a5c2e6e8f51544a0a28f4ce37f147ae77256371bac93cb8bc322480c657fe8b",
+      "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/portfolio/6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150/prediction_portfolio.zip",
+      "version_id": "Q8.XVE9DZyNGjmkGHZ.d1eqMLRPev6qn",
+      "status": "uploaded",
+      "checksum_verification": "S3 FULL_OBJECT SHA-256 and expected bucket owner",
+      "uploaded_at": "2026-09-09T04:48:29+00:00"
+    },
+    "reference_candidate": "m_rank_logistic__w_logistic",
+    "reference_sha256": "a4b4e17f1e6f3f2c938e83949872fd463eb3af1fea3ebeea524bc6d745bd51ed",
+    "new_fits": 0,
+    "generation_checkpoints_reused": 344,
+    "generation_guard": "fit_component and input restoration replaced with functions that raise if called",
+    "package_reused": true,
+    "resume_bytes_identical": true,
+    "checks": "All fifty ZIP member SHA-256 values equal the published production manifest; reference CSV unchanged",
+    "notebook_restore_control": "Actual cell executed with restoration enabled; both download links and reference hash verified; fitting forbidden"
+  }
 }

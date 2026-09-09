@@ -132,7 +132,7 @@ timestamped inputs or a future tournament evaluated under a frozen protocol.
 - **Publication:** six canonical notebooks and 44 executed code cells. The
   [native handoff receipt](reports/validation/production_handoff.json) verifies
   their source, checkpoint hashes and saved outputs. The required quality workflow
-  checks 301 tests, release audits, native execution and six-notebook reuse.
+  checks 304 tests, release audits, native execution and six-notebook reuse.
   The badge above links the checks for the current revision.
 
 On September 9, 2026 UTC, all six research archive versions were rechecked against
