@@ -8,11 +8,15 @@ quality score or completion percentage.
 | Release | Deliverable | Completion gate | Status |
 |---|---|---|---|
 | Research release | Controlled feature studies, current model comparison, executed notebooks, audited metrics and durable archives | Current source lineage, release audit, cloud/recovery receipts and merged CI | Complete through PR #11 |
-| Development portfolio | 50 candidate plans from 15 recorded procedures | Matched games, earlier-season decisions, blend reconstruction, distinct vectors, reproducible metrics and CI | Implemented in this change |
-| Prediction production | 50 complete 2026 submission CSVs plus frozen specifications and manifests | Exact template/order, valid probabilities, swap symmetry, explicit seeded/seed-free routes, final-vector uniqueness and training through 2025 only | Next |
+| Development portfolio | 50 candidate plans from 15 recorded procedures | Matched games, earlier-season decisions, blend reconstruction, distinct vectors, reproducible metrics and CI | Complete through PR #12 |
+| Prediction production | 50 complete 2026 submission CSVs plus frozen specifications and manifests | Exact template/order, valid probabilities, swap symmetry, explicit seeded/seed-free routes, final-vector uniqueness and training through 2025 only | 17 components frozen; generator implemented; production run next |
 | Recovery and presentation | Versioned prediction/model archive; notebook 04 generation/review controls; concise employer walkthrough | Fresh restore, zero new fits, identical prediction bytes, all six executed notebooks published and merged-main checks | Pending |
 
 ## The next bounded implementation
+
+The [production implementation](../reports/prediction_production/README.md) now
+recovers selected members from immutable current archives and freezes concrete
+recipes. Its generation and publication checks enforce the gates below.
 
 1. Restore the verified **current expanded** feature and model archives. Reject a
    historical 124-feature matrix, stale source/configuration, or incomplete raw data.

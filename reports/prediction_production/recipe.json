@@ -1,0 +1,928 @@
+{
+  "calibration": "identity",
+  "components": {
+    "c_1bff673ecdc9d4503cf9": {
+      "candidate": {
+        "block": "full",
+        "family": "lightgbm",
+        "name": "lightgbm_full_2",
+        "parameter": 2
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 3078,
+          "sha256": "a00d09f61313545536e51eda1526fbcd6c9bfc344c951d72080c3ae796842215"
+        },
+        "seeded": {
+          "count": 3083,
+          "sha256": "ce7d8a0bc6711330f96ccb91654f4c3ffe7ab97c83cc6009763a9f0b7274e751"
+        }
+      },
+      "population": "pooled_common"
+    },
+    "c_4920e1c3edc20d6e2f17": {
+      "candidate": {
+        "block": "rankings",
+        "family": "rank_lightgbm",
+        "name": "rank_lightgbm_rankings_3",
+        "parameter": 3
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 18,
+          "sha256": "00ba3af473828ddfc0a3cbe31e58e1331c149bc318da2d60b131dd93de73bdb8"
+        },
+        "seeded": {
+          "count": 19,
+          "sha256": "04d3fb0992cf24236d928d2da70349ad121e6eda98bf8db5b39eea6d0af5c892"
+        }
+      },
+      "population": "M"
+    },
+    "c_4b27fc746181fdfb3dbd": {
+      "candidate": {
+        "block": "full",
+        "family": "xgboost",
+        "name": "xgboost_full_3",
+        "parameter": 3
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 3078,
+          "sha256": "a00d09f61313545536e51eda1526fbcd6c9bfc344c951d72080c3ae796842215"
+        },
+        "seeded": {
+          "count": 3083,
+          "sha256": "ce7d8a0bc6711330f96ccb91654f4c3ffe7ab97c83cc6009763a9f0b7274e751"
+        }
+      },
+      "population": "M"
+    },
+    "c_56583b713c5306ccbd59": {
+      "candidate": {
+        "block": "dynamic",
+        "family": "logistic",
+        "name": "logistic_dynamic_0",
+        "parameter": 0.03
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 9,
+          "sha256": "e1efc9665a43dd1d205cf87d153e71f0df3d4242409a9de5cef16f275d5e5b3d"
+        },
+        "seeded": {
+          "count": 10,
+          "sha256": "2d4669d70d1e96c9c31c0bb2f5c81456c236a0404a2daafc937d0f54dbd2c3c1"
+        }
+      },
+      "population": "pooled_common"
+    },
+    "c_659ea80cd52ad0ff5d5b": {
+      "candidate": {
+        "block": "seed",
+        "family": "seed",
+        "name": "seed",
+        "parameter": 0.1
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "seeded": {
+          "count": 1,
+          "sha256": "c95558dc7ef8582af3b1fb16056d5082146e37599003c582d31d785ec291e5ab"
+        }
+      },
+      "population": "pooled_common"
+    },
+    "c_7808f53a9ebd1b6bf13a": {
+      "candidate": {
+        "block": "full",
+        "family": "xgboost",
+        "name": "xgboost_full_2",
+        "parameter": 2
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 3078,
+          "sha256": "a00d09f61313545536e51eda1526fbcd6c9bfc344c951d72080c3ae796842215"
+        },
+        "seeded": {
+          "count": 3083,
+          "sha256": "ce7d8a0bc6711330f96ccb91654f4c3ffe7ab97c83cc6009763a9f0b7274e751"
+        }
+      },
+      "population": "pooled_common"
+    },
+    "c_78913cc6acdcbafdedf1": {
+      "candidate": {
+        "block": "full",
+        "family": "logistic",
+        "name": "logistic_full_0",
+        "parameter": 0.03
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 3078,
+          "sha256": "a00d09f61313545536e51eda1526fbcd6c9bfc344c951d72080c3ae796842215"
+        },
+        "seeded": {
+          "count": 3083,
+          "sha256": "ce7d8a0bc6711330f96ccb91654f4c3ffe7ab97c83cc6009763a9f0b7274e751"
+        }
+      },
+      "population": "pooled_common"
+    },
+    "c_82544fe220af08ee8b25": {
+      "candidate": {
+        "block": "full",
+        "family": "hist",
+        "name": "hist_full_2",
+        "parameter": 2
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 3078,
+          "sha256": "a00d09f61313545536e51eda1526fbcd6c9bfc344c951d72080c3ae796842215"
+        },
+        "seeded": {
+          "count": 3083,
+          "sha256": "ce7d8a0bc6711330f96ccb91654f4c3ffe7ab97c83cc6009763a9f0b7274e751"
+        }
+      },
+      "population": "pooled_common"
+    },
+    "c_8d66aed5374cdd3a925c": {
+      "candidate": {
+        "block": "full",
+        "family": "rank_xgboost",
+        "name": "rank_xgboost_full_3",
+        "parameter": 3
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 3101,
+          "sha256": "a76fea23b70e3875720b605640fbffb4bba04ca64b034545f712b4de4dbfae34"
+        },
+        "seeded": {
+          "count": 3106,
+          "sha256": "d983d8957773870f4ba48331230e84fdb79f229e633087c8f889340bd533677f"
+        }
+      },
+      "population": "M"
+    },
+    "c_95d38160216e6cb379eb": {
+      "candidate": {
+        "block": "full",
+        "family": "lightgbm",
+        "name": "lightgbm_full_2",
+        "parameter": 2
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 3078,
+          "sha256": "a00d09f61313545536e51eda1526fbcd6c9bfc344c951d72080c3ae796842215"
+        },
+        "seeded": {
+          "count": 3083,
+          "sha256": "ce7d8a0bc6711330f96ccb91654f4c3ffe7ab97c83cc6009763a9f0b7274e751"
+        }
+      },
+      "population": "M"
+    },
+    "c_9e528c3366c9f64de494": {
+      "candidate": {
+        "block": "strength",
+        "family": "xgboost",
+        "name": "xgboost_strength_2",
+        "parameter": 2
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 5,
+          "sha256": "601fd3b2274596d16995a715a52922b27c2a4310f81e638f8abfc56772dc34ab"
+        },
+        "seeded": {
+          "count": 6,
+          "sha256": "c5d53f14394499a7a051bf887162b333859ccbb004132c491ce1527277838056"
+        }
+      },
+      "population": "W"
+    },
+    "c_a0c64efb4c4582a35fd9": {
+      "candidate": {
+        "block": "full",
+        "family": "hist",
+        "name": "hist_full_2",
+        "parameter": 2
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 3078,
+          "sha256": "a00d09f61313545536e51eda1526fbcd6c9bfc344c951d72080c3ae796842215"
+        },
+        "seeded": {
+          "count": 3083,
+          "sha256": "ce7d8a0bc6711330f96ccb91654f4c3ffe7ab97c83cc6009763a9f0b7274e751"
+        }
+      },
+      "population": "M"
+    },
+    "c_a6748f16757a948ce51c": {
+      "candidate": {
+        "block": "rankings",
+        "family": "rank_logistic",
+        "name": "rank_logistic_1",
+        "parameter": 0.3
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 18,
+          "sha256": "00ba3af473828ddfc0a3cbe31e58e1331c149bc318da2d60b131dd93de73bdb8"
+        },
+        "seeded": {
+          "count": 19,
+          "sha256": "04d3fb0992cf24236d928d2da70349ad121e6eda98bf8db5b39eea6d0af5c892"
+        }
+      },
+      "population": "M"
+    },
+    "c_ccdcac168fa69bb0f217": {
+      "candidate": {
+        "block": "strength",
+        "family": "lightgbm",
+        "name": "lightgbm_strength_2",
+        "parameter": 2
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 5,
+          "sha256": "601fd3b2274596d16995a715a52922b27c2a4310f81e638f8abfc56772dc34ab"
+        },
+        "seeded": {
+          "count": 6,
+          "sha256": "c5d53f14394499a7a051bf887162b333859ccbb004132c491ce1527277838056"
+        }
+      },
+      "population": "W"
+    },
+    "c_d57e8dfa538d3373f0a0": {
+      "candidate": {
+        "block": "conference",
+        "family": "logistic",
+        "name": "logistic_conference_1",
+        "parameter": 0.3
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 17,
+          "sha256": "b261fa7a057f01700f2889614357bcc3dc7ddc488381670c2b04bab5fc733636"
+        },
+        "seeded": {
+          "count": 18,
+          "sha256": "bd6c8c97468d403dadaef04231ce979583b57b1c7d82772ea4f71ea34d4558ac"
+        }
+      },
+      "population": "W"
+    },
+    "c_db94d37e7bcaa2e570fd": {
+      "candidate": {
+        "block": "four_factors",
+        "family": "logistic",
+        "name": "logistic_four_factors_1",
+        "parameter": 0.3
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 13,
+          "sha256": "03c62f83b5af521b62a0a1906f5f4aa2e7dcbdcbbfd1a96b4cde2fe6e3688b8a"
+        },
+        "seeded": {
+          "count": 14,
+          "sha256": "f2eabaf00af0a827cffac41cc63e79753792d0fb55cebd5033c473753fcd855d"
+        }
+      },
+      "population": "M"
+    },
+    "c_f63813601d140cf1ec1a": {
+      "candidate": {
+        "block": "strength",
+        "family": "hist",
+        "name": "hist_strength_2",
+        "parameter": 2
+      },
+      "feature_routes": {
+        "seed_free": {
+          "count": 5,
+          "sha256": "601fd3b2274596d16995a715a52922b27c2a4310f81e638f8abfc56772dc34ab"
+        },
+        "seeded": {
+          "count": 6,
+          "sha256": "c5d53f14394499a7a051bf887162b333859ccbb004132c491ce1527277838056"
+        }
+      },
+      "population": "W"
+    }
+  },
+  "first_training_season": 2013,
+  "last_training_season": 2025,
+  "pairs": [
+    {
+      "M": "m_rank_logistic",
+      "W": "w_logistic",
+      "id": "m_rank_logistic__w_logistic"
+    },
+    {
+      "M": "m_rank_logistic",
+      "W": "w_hist",
+      "id": "m_rank_logistic__w_hist"
+    },
+    {
+      "M": "m_rank_logistic",
+      "W": "w_xgboost",
+      "id": "m_rank_logistic__w_xgboost"
+    },
+    {
+      "M": "m_rank_logistic",
+      "W": "w_lightgbm",
+      "id": "m_rank_logistic__w_lightgbm"
+    },
+    {
+      "M": "m_rank_logistic",
+      "W": "w_pooled_logistic",
+      "id": "m_rank_logistic__w_pooled_logistic"
+    },
+    {
+      "M": "m_logistic",
+      "W": "w_logistic",
+      "id": "m_logistic__w_logistic"
+    },
+    {
+      "M": "m_logistic",
+      "W": "w_hist",
+      "id": "m_logistic__w_hist"
+    },
+    {
+      "M": "m_logistic",
+      "W": "w_xgboost",
+      "id": "m_logistic__w_xgboost"
+    },
+    {
+      "M": "m_logistic",
+      "W": "w_lightgbm",
+      "id": "m_logistic__w_lightgbm"
+    },
+    {
+      "M": "m_logistic",
+      "W": "w_pooled_logistic",
+      "id": "m_logistic__w_pooled_logistic"
+    },
+    {
+      "M": "m_hist",
+      "W": "w_logistic",
+      "id": "m_hist__w_logistic"
+    },
+    {
+      "M": "m_hist",
+      "W": "w_hist",
+      "id": "m_hist__w_hist"
+    },
+    {
+      "M": "m_hist",
+      "W": "w_xgboost",
+      "id": "m_hist__w_xgboost"
+    },
+    {
+      "M": "m_hist",
+      "W": "w_lightgbm",
+      "id": "m_hist__w_lightgbm"
+    },
+    {
+      "M": "m_hist",
+      "W": "w_pooled_logistic",
+      "id": "m_hist__w_pooled_logistic"
+    },
+    {
+      "M": "m_xgboost",
+      "W": "w_logistic",
+      "id": "m_xgboost__w_logistic"
+    },
+    {
+      "M": "m_xgboost",
+      "W": "w_hist",
+      "id": "m_xgboost__w_hist"
+    },
+    {
+      "M": "m_xgboost",
+      "W": "w_xgboost",
+      "id": "m_xgboost__w_xgboost"
+    },
+    {
+      "M": "m_xgboost",
+      "W": "w_lightgbm",
+      "id": "m_xgboost__w_lightgbm"
+    },
+    {
+      "M": "m_xgboost",
+      "W": "w_pooled_logistic",
+      "id": "m_xgboost__w_pooled_logistic"
+    },
+    {
+      "M": "m_lightgbm",
+      "W": "w_logistic",
+      "id": "m_lightgbm__w_logistic"
+    },
+    {
+      "M": "m_lightgbm",
+      "W": "w_hist",
+      "id": "m_lightgbm__w_hist"
+    },
+    {
+      "M": "m_lightgbm",
+      "W": "w_xgboost",
+      "id": "m_lightgbm__w_xgboost"
+    },
+    {
+      "M": "m_lightgbm",
+      "W": "w_lightgbm",
+      "id": "m_lightgbm__w_lightgbm"
+    },
+    {
+      "M": "m_lightgbm",
+      "W": "w_pooled_logistic",
+      "id": "m_lightgbm__w_pooled_logistic"
+    },
+    {
+      "M": "m_rank_xgboost",
+      "W": "w_logistic",
+      "id": "m_rank_xgboost__w_logistic"
+    },
+    {
+      "M": "m_rank_xgboost",
+      "W": "w_hist",
+      "id": "m_rank_xgboost__w_hist"
+    },
+    {
+      "M": "m_rank_xgboost",
+      "W": "w_xgboost",
+      "id": "m_rank_xgboost__w_xgboost"
+    },
+    {
+      "M": "m_rank_xgboost",
+      "W": "w_lightgbm",
+      "id": "m_rank_xgboost__w_lightgbm"
+    },
+    {
+      "M": "m_rank_xgboost",
+      "W": "w_pooled_logistic",
+      "id": "m_rank_xgboost__w_pooled_logistic"
+    },
+    {
+      "M": "m_rank_lightgbm",
+      "W": "w_logistic",
+      "id": "m_rank_lightgbm__w_logistic"
+    },
+    {
+      "M": "m_rank_lightgbm",
+      "W": "w_hist",
+      "id": "m_rank_lightgbm__w_hist"
+    },
+    {
+      "M": "m_rank_lightgbm",
+      "W": "w_xgboost",
+      "id": "m_rank_lightgbm__w_xgboost"
+    },
+    {
+      "M": "m_rank_lightgbm",
+      "W": "w_lightgbm",
+      "id": "m_rank_lightgbm__w_lightgbm"
+    },
+    {
+      "M": "m_rank_lightgbm",
+      "W": "w_pooled_logistic",
+      "id": "m_rank_lightgbm__w_pooled_logistic"
+    },
+    {
+      "M": "m_pooled_blend",
+      "W": "w_logistic",
+      "id": "m_pooled_blend__w_logistic"
+    },
+    {
+      "M": "m_pooled_blend",
+      "W": "w_hist",
+      "id": "m_pooled_blend__w_hist"
+    },
+    {
+      "M": "m_pooled_blend",
+      "W": "w_xgboost",
+      "id": "m_pooled_blend__w_xgboost"
+    },
+    {
+      "M": "m_pooled_blend",
+      "W": "w_lightgbm",
+      "id": "m_pooled_blend__w_lightgbm"
+    },
+    {
+      "M": "m_pooled_blend",
+      "W": "w_pooled_logistic",
+      "id": "m_pooled_blend__w_pooled_logistic"
+    },
+    {
+      "M": "m_pooled_hist",
+      "W": "w_logistic",
+      "id": "m_pooled_hist__w_logistic"
+    },
+    {
+      "M": "m_pooled_hist",
+      "W": "w_hist",
+      "id": "m_pooled_hist__w_hist"
+    },
+    {
+      "M": "m_pooled_hist",
+      "W": "w_xgboost",
+      "id": "m_pooled_hist__w_xgboost"
+    },
+    {
+      "M": "m_pooled_hist",
+      "W": "w_lightgbm",
+      "id": "m_pooled_hist__w_lightgbm"
+    },
+    {
+      "M": "m_pooled_hist",
+      "W": "w_pooled_logistic",
+      "id": "m_pooled_hist__w_pooled_logistic"
+    },
+    {
+      "M": "m_pooled_xgboost",
+      "W": "w_logistic",
+      "id": "m_pooled_xgboost__w_logistic"
+    },
+    {
+      "M": "m_pooled_xgboost",
+      "W": "w_hist",
+      "id": "m_pooled_xgboost__w_hist"
+    },
+    {
+      "M": "m_pooled_xgboost",
+      "W": "w_xgboost",
+      "id": "m_pooled_xgboost__w_xgboost"
+    },
+    {
+      "M": "m_pooled_xgboost",
+      "W": "w_lightgbm",
+      "id": "m_pooled_xgboost__w_lightgbm"
+    },
+    {
+      "M": "m_pooled_xgboost",
+      "W": "w_pooled_logistic",
+      "id": "m_pooled_xgboost__w_pooled_logistic"
+    }
+  ],
+  "prediction_season": 2026,
+  "protocol": "retrospective-frozen-portfolio",
+  "seed_free_blend": "Keep frozen weights; seed-only component contributes 0.5",
+  "seed_free_seed_component": "neutral probability 0.5",
+  "selection_metric": "mean season Brier",
+  "selection_scope": "Explored pre-2022 development outcomes; no fresh holdout claim",
+  "selection_seasons": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2021
+  ],
+  "selections": [
+    {
+      "candidate": "rank_logistic_1",
+      "component": "c_a6748f16757a948ce51c",
+      "development_mean_season_brier": 0.1879662222614475,
+      "family": "rank_logistic",
+      "stream": "m_rank_logistic"
+    },
+    {
+      "candidate": "logistic_four_factors_1",
+      "component": "c_db94d37e7bcaa2e570fd",
+      "development_mean_season_brier": 0.18837735325557003,
+      "family": "logistic",
+      "stream": "m_logistic"
+    },
+    {
+      "candidate": "hist_full_2",
+      "component": "c_a0c64efb4c4582a35fd9",
+      "development_mean_season_brier": 0.1929764423831342,
+      "family": "hist",
+      "stream": "m_hist"
+    },
+    {
+      "candidate": "xgboost_full_3",
+      "component": "c_4b27fc746181fdfb3dbd",
+      "development_mean_season_brier": 0.19273145496163915,
+      "family": "xgboost",
+      "stream": "m_xgboost"
+    },
+    {
+      "candidate": "lightgbm_full_2",
+      "component": "c_95d38160216e6cb379eb",
+      "development_mean_season_brier": 0.19275225595202022,
+      "family": "lightgbm",
+      "stream": "m_lightgbm"
+    },
+    {
+      "candidate": "rank_xgboost_full_3",
+      "component": "c_8d66aed5374cdd3a925c",
+      "development_mean_season_brier": 0.18998894541885064,
+      "family": "rank_xgboost",
+      "stream": "m_rank_xgboost"
+    },
+    {
+      "candidate": "rank_lightgbm_rankings_3",
+      "component": "c_4920e1c3edc20d6e2f17",
+      "development_mean_season_brier": 0.1916134935120438,
+      "family": "rank_lightgbm",
+      "stream": "m_rank_lightgbm"
+    },
+    {
+      "candidate": "hist_full_2",
+      "component": "c_82544fe220af08ee8b25",
+      "development_mean_season_brier": 0.18584871791663177,
+      "family": "hist",
+      "stream": "m_pooled_blend"
+    },
+    {
+      "candidate": "lightgbm_full_2",
+      "component": "c_1bff673ecdc9d4503cf9",
+      "development_mean_season_brier": 0.18518732864930715,
+      "family": "lightgbm",
+      "stream": "m_pooled_blend"
+    },
+    {
+      "candidate": "logistic_full_0",
+      "component": "c_78913cc6acdcbafdedf1",
+      "development_mean_season_brier": 0.18640549183867727,
+      "family": "logistic",
+      "stream": "m_pooled_blend"
+    },
+    {
+      "candidate": "seed",
+      "component": "c_659ea80cd52ad0ff5d5b",
+      "development_mean_season_brier": 0.20177875209633114,
+      "family": "seed",
+      "stream": "m_pooled_blend"
+    },
+    {
+      "candidate": "xgboost_full_2",
+      "component": "c_7808f53a9ebd1b6bf13a",
+      "development_mean_season_brier": 0.18519924380252598,
+      "family": "xgboost",
+      "stream": "m_pooled_blend"
+    },
+    {
+      "candidate": "hist_full_2",
+      "component": "c_82544fe220af08ee8b25",
+      "development_mean_season_brier": 0.18584871791663177,
+      "family": "hist",
+      "stream": "m_pooled_hist"
+    },
+    {
+      "candidate": "xgboost_full_2",
+      "component": "c_7808f53a9ebd1b6bf13a",
+      "development_mean_season_brier": 0.18519924380252598,
+      "family": "xgboost",
+      "stream": "m_pooled_xgboost"
+    },
+    {
+      "candidate": "logistic_conference_1",
+      "component": "c_d57e8dfa538d3373f0a0",
+      "development_mean_season_brier": 0.14289054601399992,
+      "family": "logistic",
+      "stream": "w_logistic"
+    },
+    {
+      "candidate": "hist_strength_2",
+      "component": "c_f63813601d140cf1ec1a",
+      "development_mean_season_brier": 0.14882517143447738,
+      "family": "hist",
+      "stream": "w_hist"
+    },
+    {
+      "candidate": "xgboost_strength_2",
+      "component": "c_9e528c3366c9f64de494",
+      "development_mean_season_brier": 0.15023869981347168,
+      "family": "xgboost",
+      "stream": "w_xgboost"
+    },
+    {
+      "candidate": "lightgbm_strength_2",
+      "component": "c_ccdcac168fa69bb0f217",
+      "development_mean_season_brier": 0.14883562368309744,
+      "family": "lightgbm",
+      "stream": "w_lightgbm"
+    },
+    {
+      "candidate": "logistic_dynamic_0",
+      "component": "c_56583b713c5306ccbd59",
+      "development_mean_season_brier": 0.14470936042769714,
+      "family": "logistic",
+      "stream": "w_pooled_logistic"
+    }
+  ],
+  "streams": [
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_a6748f16757a948ce51c",
+          "weight": 1.0
+        }
+      ],
+      "family": "rank_logistic",
+      "id": "m_rank_logistic",
+      "route": "M"
+    },
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_db94d37e7bcaa2e570fd",
+          "weight": 1.0
+        }
+      ],
+      "family": "logistic",
+      "id": "m_logistic",
+      "route": "M"
+    },
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_a0c64efb4c4582a35fd9",
+          "weight": 1.0
+        }
+      ],
+      "family": "hist",
+      "id": "m_hist",
+      "route": "M"
+    },
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_4b27fc746181fdfb3dbd",
+          "weight": 1.0
+        }
+      ],
+      "family": "xgboost",
+      "id": "m_xgboost",
+      "route": "M"
+    },
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_95d38160216e6cb379eb",
+          "weight": 1.0
+        }
+      ],
+      "family": "lightgbm",
+      "id": "m_lightgbm",
+      "route": "M"
+    },
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_8d66aed5374cdd3a925c",
+          "weight": 1.0
+        }
+      ],
+      "family": "rank_xgboost",
+      "id": "m_rank_xgboost",
+      "route": "M"
+    },
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_4920e1c3edc20d6e2f17",
+          "weight": 1.0
+        }
+      ],
+      "family": "rank_lightgbm",
+      "id": "m_rank_lightgbm",
+      "route": "M"
+    },
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_82544fe220af08ee8b25",
+          "weight": 0.19749487347828243
+        },
+        {
+          "id": "c_1bff673ecdc9d4503cf9",
+          "weight": 0.2269997847501697
+        },
+        {
+          "id": "c_78913cc6acdcbafdedf1",
+          "weight": 0.31220672716731107
+        },
+        {
+          "id": "c_659ea80cd52ad0ff5d5b",
+          "weight": 0.028029045777644784
+        },
+        {
+          "id": "c_7808f53a9ebd1b6bf13a",
+          "weight": 0.23526956882659214
+        }
+      ],
+      "family": "blend",
+      "id": "m_pooled_blend",
+      "route": "pooled_common"
+    },
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_82544fe220af08ee8b25",
+          "weight": 1.0
+        }
+      ],
+      "family": "hist",
+      "id": "m_pooled_hist",
+      "route": "pooled_common"
+    },
+    {
+      "Gender": "M",
+      "components": [
+        {
+          "id": "c_7808f53a9ebd1b6bf13a",
+          "weight": 1.0
+        }
+      ],
+      "family": "xgboost",
+      "id": "m_pooled_xgboost",
+      "route": "pooled_common"
+    },
+    {
+      "Gender": "W",
+      "components": [
+        {
+          "id": "c_d57e8dfa538d3373f0a0",
+          "weight": 1.0
+        }
+      ],
+      "family": "logistic",
+      "id": "w_logistic",
+      "route": "W"
+    },
+    {
+      "Gender": "W",
+      "components": [
+        {
+          "id": "c_f63813601d140cf1ec1a",
+          "weight": 1.0
+        }
+      ],
+      "family": "hist",
+      "id": "w_hist",
+      "route": "W"
+    },
+    {
+      "Gender": "W",
+      "components": [
+        {
+          "id": "c_9e528c3366c9f64de494",
+          "weight": 1.0
+        }
+      ],
+      "family": "xgboost",
+      "id": "w_xgboost",
+      "route": "W"
+    },
+    {
+      "Gender": "W",
+      "components": [
+        {
+          "id": "c_ccdcac168fa69bb0f217",
+          "weight": 1.0
+        }
+      ],
+      "family": "lightgbm",
+      "id": "w_lightgbm",
+      "route": "W"
+    },
+    {
+      "Gender": "W",
+      "components": [
+        {
+          "id": "c_56583b713c5306ccbd59",
+          "weight": 1.0
+        }
+      ],
+      "family": "logistic",
+      "id": "w_pooled_logistic",
+      "route": "pooled_common"
+    }
+  ]
+}
