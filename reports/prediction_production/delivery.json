@@ -1,0 +1,25 @@
+{
+  "status": "verified",
+  "production_fingerprint": "6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150",
+  "delivery_script_sha256": "ad50b2e43b133ed025f76e6ec9b7e37e08af2064798c6f3bb484ce42b0396d52",
+  "submission_files": 50,
+  "rows_per_file": 132133,
+  "archive": {
+    "bytes": 71006055,
+    "sha256": "1a5c2e6e8f51544a0a28f4ce37f147ae77256371bac93cb8bc322480c657fe8b",
+    "uri": "s3://sagemaker-march-mania-560403859723-us-west-2/final-predictions/notebook-research/portfolio/6053e46c8484dc883d8343c78b09cd6d8c2e53640c964758851675ab1ca7b150/prediction_portfolio.zip",
+    "version_id": "Q8.XVE9DZyNGjmkGHZ.d1eqMLRPev6qn",
+    "status": "uploaded",
+    "checksum_verification": "S3 FULL_OBJECT SHA-256 and expected bucket owner",
+    "uploaded_at": "2026-09-09T04:48:29+00:00"
+  },
+  "reference_candidate": "m_rank_logistic__w_logistic",
+  "reference_sha256": "a4b4e17f1e6f3f2c938e83949872fd463eb3af1fea3ebeea524bc6d745bd51ed",
+  "new_fits": 0,
+  "generation_checkpoints_reused": 344,
+  "generation_guard": "fit_component and input restoration replaced with functions that raise if called",
+  "package_reused": true,
+  "resume_bytes_identical": true,
+  "checks": "All fifty ZIP member SHA-256 values equal the published production manifest; reference CSV unchanged",
+  "notebook_restore_control": "Actual cell executed with restoration enabled; both download links and reference hash verified; fitting forbidden"
+}

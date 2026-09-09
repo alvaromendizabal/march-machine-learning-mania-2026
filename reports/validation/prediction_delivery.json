@@ -1,0 +1,54 @@
+{
+  "status": "native_notebook_execution_verified",
+  "head_commit": "8dad36c254a01c605f8f9e52aff503ac16d166f8",
+  "checkout_commit": "12bbc2761b4494611184f7f23e4742065871b046",
+  "workflow_run_id": 34312217430,
+  "job_id": 102341030355,
+  "url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34312217430",
+  "artifact_id": 10088954972,
+  "artifact_bytes": 8813824,
+  "artifact_sha256": "3d988d08e794eab98e6b753f817d326abafbb31fddddee43b1d8826e735bf3d3",
+  "artifact_expires_at": "2026-12-08T04:45:36Z",
+  "source_archive_sha256": "4753744c4b4288eaad56274166f8d93b72245c0e6dcc17325234ba5e8072c37d",
+  "native_notebooks_executed": 6,
+  "notebook_checkpoints_reused": 6,
+  "error_or_warning_outputs": 0,
+  "notebooks": {
+    "00_data_audit_and_preparation.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "c1517411bae709d53bf8ccbd1b2dc20fd4157adbb805290c698970599e180fdb"
+    },
+    "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
+      "executed_code_cells": 3,
+      "sha256": "88e87c2013bb630fdbefefb98a139c78cfb29fe9de788f2925661eb206331048"
+    },
+    "02_feature_store_and_diagnostics.ipynb": {
+      "executed_code_cells": 12,
+      "sha256": "d059c248e41b8f10ca49586ea62dfce0e7de5d960c5b1f9189f35db41fee4afd"
+    },
+    "03_model_comparison_and_diagnostics.ipynb": {
+      "executed_code_cells": 13,
+      "sha256": "4a33dfd94caa2cb5f2d642c5d0f4830db7da17d4589e3660b9fd9b37fa505e2b"
+    },
+    "04_locked_benchmark_and_final_submission.ipynb": {
+      "executed_code_cells": 8,
+      "sha256": "99f69a5911a005e5b377389bff705b008b7301b6b0543621ed818990f3ba93d2"
+    },
+    "05_feature_research.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "a2cfb92b46b673851dc0738bba28dd51e9f23e7d183b51b0446b38b6d64361ef"
+    }
+  },
+  "reuse_seconds": 0.5902715419999822,
+  "prepublication_tests_passed": 298,
+  "prepublication_tests_failed": 1,
+  "prepublication_gate": {
+    "failed_tests": [
+      "test_release_recomputes_actual_published_evidence"
+    ],
+    "reason": "The old notebook-output receipt correctly rejects a changed cell before native publication. The final publication requires a successful full CI run; no failed gate is waived."
+  },
+  "local_delivery_receipt": "reports/prediction_production/delivery.json",
+  "publication_pr": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/16",
+  "execution_task_seconds": 27.502
+}

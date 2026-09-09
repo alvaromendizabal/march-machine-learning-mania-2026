@@ -141,6 +141,28 @@ def test_generate_prepares_verified_inputs_before_resumable_execution(completed,
     assert calls == ["inputs", "generate"]
 
 
+def test_generate_reuses_verified_local_inputs_without_cloud(completed, monkeypatch):
+    root, run, _ = completed
+    monkeypatch.setattr(delivery.production_inputs, "verify", lambda *a: {})
+    monkeypatch.setattr(
+        delivery.production_inputs, "restore", lambda *a: pytest.fail("unnecessary cloud read")
+    )
+    monkeypatch.setattr(delivery.production, "run", lambda *a: run)
+    assert delivery.deliver(root, "generate")["submission_files"] == 50
+
+
+def test_generate_rejects_corrupt_local_inputs_before_fitting(completed, monkeypatch):
+    root, _, _ = completed
+
+    def corrupt(*args):
+        raise ValueError("Changed input checksum")
+
+    monkeypatch.setattr(delivery.production_inputs, "verify", corrupt)
+    monkeypatch.setattr(delivery.production, "run", lambda *a: pytest.fail("training called"))
+    with pytest.raises(ValueError, match="Changed input checksum"):
+        delivery.deliver(root, "generate")
+
+
 @pytest.mark.parametrize("action,archive", [("submit", None), ("review", Path("x.zip"))])
 def test_invalid_actions_fail_before_side_effects(action, archive):
     with pytest.raises(ValueError):

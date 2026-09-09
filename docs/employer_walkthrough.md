@@ -93,3 +93,5 @@ The [production report](../reports/prediction_production/README.md) documents ex
 recipes, input restoration, model verification and the archive. The
 [completion plan](completion_plan.md) distinguishes completed delivery gates from
 future research extensions.
+
+The completed batch can also be downloaded as one checksum-verified ZIP from notebook 04. [Delivery evidence](../reports/prediction_production/delivery.json) records all fifty exact CSVs, the guarded zero-fit generation replay and the immutable S3 download version.

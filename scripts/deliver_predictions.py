@@ -96,7 +96,10 @@ def deliver(root: Path, action: str = "review", archive: Path | None = None) -> 
         run = production_release.recover(root, destination, archive)
     else:
         inputs = root / "outputs/production_inputs"
-        production_inputs.restore(root, inputs)
+        try:
+            production_inputs.verify(root, inputs)
+        except FileNotFoundError:
+            production_inputs.restore(root, inputs)
         run = production.run(root, inputs, destination)
     return package(root, run)
 
