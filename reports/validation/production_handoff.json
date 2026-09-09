@@ -1,0 +1,82 @@
+{
+  "artifact_bytes": 8804583,
+  "artifact_expires_at": "2026-12-08T04:12:18Z",
+  "artifact_id": 10088218044,
+  "artifact_sha256": "9890cd32d7b058c10719db80a11515d3c334a00aa19a332cb09d78f0a7ff05be",
+  "checkout_commit": "ee44a20bac5540c9b2982866b29b5d0c3cdf1874",
+  "definition_matches_proposed_source": true,
+  "durable_evidence": "Executed notebooks, input/source hashes and this receipt are committed to Git; production models and predictions are preserved in the separately verified immutable S3 archive.",
+  "error_or_warning_outputs": 0,
+  "execution_seconds": 33.421,
+  "head_commit": "b34ee3241d9dd0fe423079490b74b08cdd54a9a2",
+  "job_id": 102334708647,
+  "local_controls": {
+    "cached_archive_restoration": "passed",
+    "checked_at": "2026-09-09T04:12:52.168043+00:00",
+    "default_off": "passed",
+    "files_verified": 50,
+    "fit_guard": "fit_component raised if called",
+    "generation_checkpoints_reused": 344,
+    "generation_new_fits": 0,
+    "initial_environment_failure": "Unconditional input restoration required unavailable local AWS credentials; notebook now verifies existing local inputs first and restores only when files are missing.",
+    "invalid_candidate_rejected": true,
+    "public_review": "passed",
+    "reference_sha256": "a4b4e17f1e6f3f2c938e83949872fd463eb3af1fea3ebeea524bc6d745bd51ed",
+    "scope": "Actual notebook cells executed as Python preflight; native kernel execution verified separately",
+    "simultaneous_restore_and_generate_rejected": true,
+    "source_sha256": {
+      "production_controls": "2a62ab11a49498089a13a5ca1a54d77a90d85f881018bc230d21ccf8faa86901",
+      "public_review": "0aca51906a558b2b6671cc2626a80fa96ef9aa2baaf361b0025ad115b600b197"
+    },
+    "status": "passed"
+  },
+  "local_publication_checks": {
+    "production_audit": "passed",
+    "published_research_figures_byte_unchanged": true,
+    "release_tests_passed": 14,
+    "research_metric_streams_recomputed": 102
+  },
+  "native_notebooks_executed": 6,
+  "notebook_checkpoints_reused": 6,
+  "notebooks": {
+    "00_data_audit_and_preparation.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "bf3c4f27f9f2bd2753c457740a2df41fa27cb338a62a21f5c3bf0b098a460be0"
+    },
+    "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
+      "executed_code_cells": 3,
+      "sha256": "720f8e0a21667354bc7296b7e0caa87585061922e33efca4dbf922333ba09c3f"
+    },
+    "02_feature_store_and_diagnostics.ipynb": {
+      "executed_code_cells": 12,
+      "sha256": "1b7f57c11572830a9dfee477592f31889c16a0ee51229a50ac72b49a762d5034"
+    },
+    "03_model_comparison_and_diagnostics.ipynb": {
+      "executed_code_cells": 13,
+      "sha256": "14d29269771cf4da2980ddb74a50099fe56e6081e3dafeda0a3832a0e747d27e"
+    },
+    "04_locked_benchmark_and_final_submission.ipynb": {
+      "executed_code_cells": 8,
+      "sha256": "23a6fcd1703639283f7f6f842e986b5785e0ae16f1bc4b0b507468e799fe2832"
+    },
+    "05_feature_research.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "acec277f454790a2013d6be9e6db1a32807738d604fff1724f87232e14375755"
+    }
+  },
+  "prepublication_gate": {
+    "failed_tests": [
+      "test_release_recomputes_actual_published_evidence"
+    ],
+    "reason": "The old receipt correctly rejected changed notebook source before native publication. No failed gate was waived; final publication requires a new successful full CI run."
+  },
+  "prepublication_tests_failed": 1,
+  "prepublication_tests_passed": 289,
+  "prepublication_tests_seconds": 450.0,
+  "publication_pr": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/15",
+  "reuse_seconds": 0.586,
+  "source_tree": "ccbdf424fa12cec3c32c7a088acb0db44975e082",
+  "status": "native_notebook_execution_verified",
+  "url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34310043678",
+  "workflow_run_id": 34310043678
+}

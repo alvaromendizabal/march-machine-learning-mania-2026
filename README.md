@@ -16,9 +16,9 @@ behind a modeling decision.
 [50-file prediction batch](reports/prediction_production/README.md) are complete.
 Each distinct file contains 132,133 matchups. All 33 saved models reproduced their
 predictions exactly. The versioned S3 archive is verified; fresh remote recovery
-reused 344 checkpoints with zero fits and 50 byte-identical files. The final
-notebook handoff is tracked in the
-[completion plan](docs/completion_plan.md). Start with the
+reused 344 checkpoints with zero fits and 50 byte-identical files. The completed
+delivery gates are recorded in the [completion plan](docs/completion_plan.md).
+Start with the
 [short employer walkthrough](docs/employer_walkthrough.md) for the key findings
 and a trace from input receipts to the reference CSV.
 
