@@ -1,0 +1,18 @@
+{
+  "protocol": "post-result-bounded-challenger-submissions",
+  "variants": ["pooled_64_features", "pooled_less_regularized", "pooled_240_trees"],
+  "temperatures": [0.9, 1.0],
+  "prediction_season": 2026,
+  "first_training_season": 2013,
+  "last_training_season": 2025,
+  "excluded_seasons": [2020],
+  "max_new_fits": 6,
+  "seed": 2026,
+  "threads": 2,
+  "chunk_size": 512,
+  "heartbeat_seconds": 15,
+  "women_source": "m_pooled_xgboost__w_logistic.csv",
+  "source_archive_sha256": "86fc55ca16bf51673e2b5d6b147ec822ccf88c9b841e76a7e29f4eddad5075be",
+  "2026_results_informed_hypotheses": true,
+  "fresh_holdout": false
+}

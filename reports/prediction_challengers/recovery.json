@@ -1,0 +1,11 @@
+{
+  "status": "verified",
+  "fingerprint": "772d9a72d053b299481db3938c4c2e571253596ebbb0ffd484abb75767b87b85",
+  "reused_checkpoints": 137,
+  "reused_fit_checkpoints": 6,
+  "reused_prediction_chunks": 130,
+  "reused_export_checkpoints": 1,
+  "new_fits_during_resume": 0,
+  "new_tasks_during_resume": 0,
+  "archive_sha256_unchanged": "0160964a06411eb9cb1e0e16da8cd873689a253a85e9aa12844322011c0ddc73"
+}
