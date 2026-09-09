@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "checked_at_utc": "2026-09-09T19:14:53.719957+00:00",
+  "bucket": "sagemaker-march-mania-560403859723-us-west-2",
+  "region": "us-west-2",
+  "expected_owner": "560403859723",
+  "key": "final-predictions/notebook-research/submissions/c51856abcf388d3971eb2c5a335768b6ab8d5ce2f8e15a432eb04a1493109b01/submission_collection.zip",
+  "version_id": "V9AcLNOGUPRg55BMTnKK3DyS5NYpsH_R",
+  "bytes": 84028069,
+  "checksum_sha256_base64": "QLlb4qsBjYUVdrDZUYn2ymXykmwXbooeptMS4UAKh08=",
+  "checksum_type": "FULL_OBJECT",
+  "server_side_encryption": "AES256",
+  "source_head": "57f4d4b39ff957acd9183147aa88ee5945b6a9b1"
+}

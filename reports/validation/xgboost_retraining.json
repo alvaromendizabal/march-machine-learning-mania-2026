@@ -1,0 +1,88 @@
+{
+  "artifact_id": 10120717681,
+  "artifact_sha256": "30e512f520f5fb4f694dad47d97af610640bd27216fa540a2e8eaf9abd9552bb",
+  "checkout_commit": "86434286d472c78e9efbd1bff9ecb4678d7cd4bb",
+  "checkout_tree_matches_proposed_head": true,
+  "execution": {
+    "elapsed_seconds": 0.9003458970000082,
+    "notebooks": [
+      {
+        "code_cells": 4,
+        "fingerprint": "50e27ce8c995cb05ec2559ce26d9171572581d7c76b6ba553b57214fedbc4dea",
+        "notebook": "00_data_audit_and_preparation.ipynb",
+        "sha256": "42e19064af558c7b50186e867fed1ed2d47ffb796174058629a28d448ccef35d",
+        "status": "completed"
+      },
+      {
+        "code_cells": 3,
+        "fingerprint": "a54a19f312b66433b681c9b1cbe5abf1234def10a0f6d7d5dae072d65dffaedf",
+        "notebook": "01_split_protocol_and_pre_tournament_snapshots.ipynb",
+        "sha256": "7b698dc9cd0e8e02f1883d65ac4ddb50b0783b0f675cb07b82366851d059054a",
+        "status": "completed"
+      },
+      {
+        "code_cells": 12,
+        "fingerprint": "734884d424851badaf3b8b5fe784b0b0aea150e0b7040acdbedf0c9887177e82",
+        "notebook": "02_feature_store_and_diagnostics.ipynb",
+        "sha256": "5067989ac5b80b5065892e75eee9c8a84c65b6f06578bcb5e614e561dc1803c7",
+        "status": "completed"
+      },
+      {
+        "code_cells": 15,
+        "fingerprint": "820ba72f4680bc949cd8e9a62aca61bfafafc8dfec9fffaf8960c2fe4a9ed6ee",
+        "notebook": "03_model_comparison_and_diagnostics.ipynb",
+        "sha256": "85929ff1a1357a3b3381d2321a7a3cdb87d4f28ba11e34590c5beb5fa185ec87",
+        "status": "completed"
+      },
+      {
+        "code_cells": 12,
+        "fingerprint": "b3419fa74d764610b2a67652c68fc5c849bbc8fdbb8397b6a68ec53c2f203a6c",
+        "notebook": "04_locked_benchmark_and_final_submission.ipynb",
+        "sha256": "671a2e97e6db1e98dc9ac07d9ce989bd4ca4c1c90c665ae4d8fdd605cf084f89",
+        "status": "completed"
+      },
+      {
+        "code_cells": 4,
+        "fingerprint": "db3a90a9f5e7d5f4af0ed8865125cbb671d4c7474602d2a6ac6b0da91c2e7108",
+        "notebook": "05_feature_research.ipynb",
+        "sha256": "195169b4622d0d4f6f87c60401149d95ef6529f570cde4b3726bde6975cf389d",
+        "status": "completed"
+      }
+    ],
+    "status": "completed"
+  },
+  "job_id": 102608502355,
+  "native_execution_and_whole_notebook_reuse_verified": true,
+  "notebooks": {
+    "00_data_audit_and_preparation.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "42e19064af558c7b50186e867fed1ed2d47ffb796174058629a28d448ccef35d"
+    },
+    "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
+      "executed_code_cells": 3,
+      "sha256": "7b698dc9cd0e8e02f1883d65ac4ddb50b0783b0f675cb07b82366851d059054a"
+    },
+    "02_feature_store_and_diagnostics.ipynb": {
+      "executed_code_cells": 12,
+      "sha256": "5067989ac5b80b5065892e75eee9c8a84c65b6f06578bcb5e614e561dc1803c7"
+    },
+    "03_model_comparison_and_diagnostics.ipynb": {
+      "executed_code_cells": 15,
+      "sha256": "85929ff1a1357a3b3381d2321a7a3cdb87d4f28ba11e34590c5beb5fa185ec87"
+    },
+    "04_locked_benchmark_and_final_submission.ipynb": {
+      "executed_code_cells": 12,
+      "sha256": "671a2e97e6db1e98dc9ac07d9ce989bd4ca4c1c90c665ae4d8fdd605cf084f89"
+    },
+    "05_feature_research.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "195169b4622d0d4f6f87c60401149d95ef6529f570cde4b3726bde6975cf389d"
+    }
+  },
+  "source_head": "57f4d4b39ff957acd9183147aa88ee5945b6a9b1",
+  "source_tree": "19132bcf55c331f6a28380999ba64d2699e1ed19",
+  "status": "native_notebooks_executed",
+  "url": "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34393835539",
+  "warnings_or_error_outputs": 0,
+  "workflow_run_id": 34393835539
+}

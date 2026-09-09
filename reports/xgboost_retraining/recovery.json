@@ -1,0 +1,8 @@
+{
+  "fingerprint": "f13bc05568905b43835d9636fe09a8afedf39f957dbfb09a14eebee69d7d9808",
+  "maximum_absolute_prediction_difference": 1.1102230246251565e-16,
+  "models_loaded": 28,
+  "new_fits_during_resume": 0,
+  "reused_fit_checkpoints": 28,
+  "status": "verified"
+}

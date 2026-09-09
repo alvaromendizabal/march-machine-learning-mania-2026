@@ -1,0 +1,6 @@
+Season,variant,history_last_season,history_seasons
+2016,pooled_less_regularized,2015,2
+2017,pooled_64_features,2016,3
+2018,pooled_64_features,2017,4
+2019,pooled_64_features,2018,5
+2021,pooled_64_features,2019,6

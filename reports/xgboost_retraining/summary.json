@@ -1,0 +1,140 @@
+{
+  "best_fixed_variant": "pooled_64_features",
+  "fingerprint": "f13bc05568905b43835d9636fe09a8afedf39f957dbfb09a14eebee69d7d9808",
+  "forward_selection_metrics": {
+    "average_precision": 0.765666601484688,
+    "brier": 0.18507024307663775,
+    "ece_10_bins": 0.07305539747376642,
+    "f1_at_05": 0.7223880597014926,
+    "games": 334,
+    "log_loss": 0.5459496557031533,
+    "mean_season_brier": 0.18513765753135258,
+    "precision_at_05": 0.6685082872928176,
+    "recall_at_05": 0.7857142857142857,
+    "roc_auc": 0.798953823953824
+  },
+  "inputs": {
+    "config": {
+      "first_training_season": 2013,
+      "heartbeat_seconds": 15,
+      "max_new_fits": 28,
+      "protocol": "retrospective-bounded-xgboost-retraining",
+      "reference": "pooled_reference",
+      "scope": "The observed 2026 results motivated these hypotheses. Use only already-explored pre-2022 development outcomes for comparisons and strictly earlier seasons for each fitted model and selection. No untouched holdout claim; no production recipe change.",
+      "seed": 2026,
+      "threads": 2,
+      "validation_seasons": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2021
+      ],
+      "variants": [
+        {
+          "capacity": 128,
+          "child_weight": 10,
+          "coach": true,
+          "massey": false,
+          "name": "pooled_reference",
+          "population": "pooled_common",
+          "reg_lambda": 10,
+          "reuse": "xgboost_full_2",
+          "trees": 120
+        },
+        {
+          "capacity": 128,
+          "child_weight": 10,
+          "coach": true,
+          "massey": false,
+          "name": "pooled_240_trees",
+          "population": "pooled_common",
+          "reg_lambda": 10,
+          "reuse": null,
+          "trees": 240
+        },
+        {
+          "capacity": 128,
+          "child_weight": 5,
+          "coach": true,
+          "massey": false,
+          "name": "pooled_less_regularized",
+          "population": "pooled_common",
+          "reg_lambda": 5,
+          "reuse": null,
+          "trees": 120
+        },
+        {
+          "capacity": 64,
+          "child_weight": 10,
+          "coach": true,
+          "massey": false,
+          "name": "pooled_64_features",
+          "population": "pooled_common",
+          "reg_lambda": 10,
+          "reuse": null,
+          "trees": 120
+        },
+        {
+          "capacity": 128,
+          "child_weight": 10,
+          "coach": true,
+          "massey": false,
+          "name": "men_reference",
+          "population": "M",
+          "reg_lambda": 10,
+          "reuse": "xgboost_full_2",
+          "trees": 120
+        },
+        {
+          "capacity": 128,
+          "child_weight": 10,
+          "coach": true,
+          "massey": true,
+          "name": "men_massey",
+          "population": "M",
+          "reg_lambda": 10,
+          "reuse": "rank_xgboost_full_2",
+          "trees": 120
+        },
+        {
+          "capacity": 128,
+          "child_weight": 10,
+          "coach": false,
+          "massey": true,
+          "name": "men_massey_no_coach",
+          "population": "M",
+          "reg_lambda": 10,
+          "reuse": null,
+          "trees": 120
+        }
+      ]
+    },
+    "data": {
+      "controls": "5aa3553c89a3df88582df5e788d8e6254d4e2be4b41bfb8e190b8af9fb2928a3",
+      "features": "8d72cbd10c974b5e51c889baf78aa1d0bbc9d6a35dc2896f145fa693350aa1af"
+    },
+    "feature_fingerprint": "199b4c00a8b59393a1290727ca6e0e5b9f9bbc5a17db18e1b02354229e5eed89",
+    "source": "ae5c15d24800d0b35f360a6214b6e97f13f4a1c4cd06d5bf007a35c8a38a9755"
+  },
+  "new_fit_tasks": 28,
+  "new_submission_files": 0,
+  "recipes": 7,
+  "reused_control_fits": 21,
+  "scope": "The observed 2026 results motivated these hypotheses. Use only already-explored pre-2022 development outcomes for comparisons and strictly earlier seasons for each fitted model and selection. No untouched holdout claim; no production recipe change.",
+  "sha256": {
+    "fit_audits.json": "7eaa64682a717ee25e6ecf318c562d56df018831b563182f4d48a52db2932734",
+    "leaderboard.csv": "2e9bae9d59d7b2f91f1bc42ea94b54ba1b10b1d542eb360656f37217d51bc050",
+    "metrics_by_season.csv": "6ab6bc528ca6a427012dbd00753c9ffef04f5dd79c13aa9309e383be36f0f1e6",
+    "predictions.csv": "96fb8e1690e3cea9e075185df79afe955d66374599f204609892597d8a939a8e",
+    "selection.csv": "d662cd8ea5790b2f9624b5a215a9b5dbddb7a516f765ce7ebc9631b4b2e84851"
+  },
+  "status": "completed",
+  "validation_seasons": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2021
+  ]
+}

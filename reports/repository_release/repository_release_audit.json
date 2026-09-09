@@ -45,27 +45,27 @@
   "notebooks": {
     "00_data_audit_and_preparation.ipynb": {
       "executed_code_cells": 4,
-      "sha256": "b58c9dc51c41bb87f30ecfb630be2fef502dedc12900d5904363d2c861502633"
+      "sha256": "42e19064af558c7b50186e867fed1ed2d47ffb796174058629a28d448ccef35d"
     },
     "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
       "executed_code_cells": 3,
-      "sha256": "2701567013be172ac152ed388cd009b71030bba8e8cfced46bc4750a48ded3ff"
+      "sha256": "7b698dc9cd0e8e02f1883d65ac4ddb50b0783b0f675cb07b82366851d059054a"
     },
     "02_feature_store_and_diagnostics.ipynb": {
       "executed_code_cells": 12,
-      "sha256": "e2d541a0471d627476312f79f676d1604a89c97a5b2c1fdd545c570cafa09039"
+      "sha256": "5067989ac5b80b5065892e75eee9c8a84c65b6f06578bcb5e614e561dc1803c7"
     },
     "03_model_comparison_and_diagnostics.ipynb": {
-      "executed_code_cells": 13,
-      "sha256": "328d79b644d20b5c5c9bfad34f5636577a0569439115f2d1d2e6bf322cbef66e"
+      "executed_code_cells": 15,
+      "sha256": "85929ff1a1357a3b3381d2321a7a3cdb87d4f28ba11e34590c5beb5fa185ec87"
     },
     "04_locked_benchmark_and_final_submission.ipynb": {
-      "executed_code_cells": 11,
-      "sha256": "678e7d9191f12c35d28261c1fe66d4ceaffda2b3b057b73d4754a0c4df1b60a4"
+      "executed_code_cells": 12,
+      "sha256": "671a2e97e6db1e98dc9ac07d9ce989bd4ca4c1c90c665ae4d8fdd605cf084f89"
     },
     "05_feature_research.ipynb": {
       "executed_code_cells": 4,
-      "sha256": "2b4130e48803b0d0040a84cf0a20389b4468db52b90e4bf0767b0530ec5c9ecb"
+      "sha256": "195169b4622d0d4f6f87c60401149d95ef6529f570cde4b3726bde6975cf389d"
     }
   },
   "runs": {
