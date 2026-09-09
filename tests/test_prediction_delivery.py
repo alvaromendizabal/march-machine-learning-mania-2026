@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import io
 import json
 import zipfile
 from pathlib import Path
@@ -72,11 +73,21 @@ def test_all_fifty_bytes_and_reference_are_preserved_and_resumed(completed, monk
     result = delivery.package(root, run)
     with zipfile.ZipFile(root / result["download_archive"]) as archive:
         assert len(archive.namelist()) == 52
+        assert set(archive.namelist()) == {
+            *(f"{row['candidate_id']}.csv" for row in rows),
+            "submission_manifest.csv",
+            "recipe.json",
+        }
+        manifest = pd.read_csv(io.BytesIO(archive.read("submission_manifest.csv")))
         for row in rows:
-            assert (
-                archive.read(f"{row['candidate_id']}/submission.csv")
-                == (run / row["path"]).read_bytes()
-            )
+            name = f"{row['candidate_id']}.csv"
+            assert archive.read(name) == (run / row["path"]).read_bytes()
+            record = manifest.loc[manifest.candidate_id.eq(row["candidate_id"])].iloc[0]
+            assert record.path == name
+            assert record.source_path == row["path"]
+            assert record.sha256 == row["sha256"]
+            assert record.rows == row["rows"]
+            assert record.bytes == row["bytes"]
     assert digest(root / result["reference_file"]) == rows[0]["sha256"]
     before = digest(root / result["download_archive"])
     # A reusable task must not open a new ZIP, even if the convenience copy is absent.
@@ -90,6 +101,20 @@ def test_all_fifty_bytes_and_reference_are_preserved_and_resumed(completed, monk
         for line in p.read_text().splitlines()
     ]
     assert any(e["event"] == "task_reused" for e in events)
+
+
+@pytest.mark.parametrize("candidate", ["../outside", "Mixed_Case", "duplicate"])
+def test_ambiguous_or_unsafe_download_names_are_rejected(completed, candidate):
+    root, run, _ = completed
+    path = root / "reports/prediction_production/submission_manifest.csv"
+    frame = pd.read_csv(path)
+    frame.loc[1, "candidate_id"] = (
+        frame.loc[0, "candidate_id"] if candidate == "duplicate" else candidate
+    )
+    frame.to_csv(path, index=False)
+    with pytest.raises(ValueError, match="unique, safe lowercase filenames"):
+        delivery.package(root, run)
+    assert not (root / "submissions").exists()
 
 
 @pytest.mark.parametrize("change", ["file", "manifest", "unsafe_path"])
