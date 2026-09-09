@@ -17,8 +17,10 @@ behind a modeling decision.
 Each distinct file contains 132,133 matchups. All 33 saved models reproduced their
 predictions exactly. The versioned S3 archive is verified; fresh remote recovery
 reused 344 checkpoints with zero fits and 50 byte-identical files. The final
-notebook handoff remains in the
-[completion plan](docs/completion_plan.md).
+notebook handoff is tracked in the
+[completion plan](docs/completion_plan.md). Start with the
+[short employer walkthrough](docs/employer_walkthrough.md) for the key findings
+and a trace from input receipts to the reference CSV.
 
 ## Review the work in five notebooks
 
@@ -166,9 +168,10 @@ These commands require authorized access to the existing private input archives.
 The [production report](reports/prediction_production/README.md) gives exact
 recipes, file checksums and verified remote recovery evidence.
 
-Notebook 04's existing default-off `GENERATE_SUBMISSION` control remains the
-single-recipe reference path. Integrating the new 50-file release there is the
-next presentation increment. Historical 124-feature final artifacts retain their
+Notebook 04 audits the completed batch in review mode. Set `RESTORE_PRODUCTION`
+to retrieve its fifty files without fitting, or use the separate default-off
+`GENERATE_PORTFOLIO` control to run the frozen pipeline. The existing
+`GENERATE_SUBMISSION` control generates the single reference from local 02/03 runs. Historical 124-feature final artifacts retain their
 original identity. Neither path uploads a submission to Kaggle.
 
 [Studio and resume instructions](docs/studio.md) cover training with private data
