@@ -16,9 +16,11 @@ behind a modeling decision.
 [50-file prediction batch](reports/prediction_production/README.md) are complete.
 Each distinct file contains 132,133 matchups. All 33 saved models reproduced their
 predictions exactly. The versioned S3 archive is verified; fresh remote recovery
-reused 344 checkpoints with zero fits and 50 byte-identical files. The final
-notebook handoff remains in the
-[completion plan](docs/completion_plan.md).
+reused 344 checkpoints with zero fits and 50 byte-identical files. The completed
+delivery gates are recorded in the [completion plan](docs/completion_plan.md).
+Start with the
+[short employer walkthrough](docs/employer_walkthrough.md) for the key findings
+and a trace from input receipts to the reference CSV.
 
 ## Review the work in five notebooks
 
@@ -127,12 +129,13 @@ timestamped inputs or a future tournament evaluated under a frozen protocol.
 - **Recovery:** versioned S3 archives preserve data, estimators, forecasts and
   source. Verified recovery reused 901 model tasks; the two feature follow-ups
   separately reused 281 tasks and preserved 280 models without new fits.
-- **Publication:** six canonical notebooks and 42 executed code cells. PR #11 is
-  merged; its [main quality run](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/runs/34302470761)
-  passed 242 tests, executed all six notebooks, then reused all six checkpoints.
-  The badge above links current checks, including the automated release audit.
+- **Publication:** six canonical notebooks and 44 executed code cells. The
+  [native handoff receipt](reports/validation/production_handoff.json) verifies
+  their source, checkpoint hashes and saved outputs. The required quality workflow
+  checks 290 tests, release audits, native execution and six-notebook reuse.
+  The badge above links the checks for the current revision.
 
-On September 9, 2026 UTC, all six recorded archive versions were rechecked against
+On September 9, 2026 UTC, all six research archive versions were rechecked against
 AWS. Five full-object SHA-256 checksums matched directly; the remaining archive
 was freshly downloaded and hashed. The
 [cloud receipt](reports/repository_release/cloud_verification.json) records exactly
@@ -166,9 +169,10 @@ These commands require authorized access to the existing private input archives.
 The [production report](reports/prediction_production/README.md) gives exact
 recipes, file checksums and verified remote recovery evidence.
 
-Notebook 04's existing default-off `GENERATE_SUBMISSION` control remains the
-single-recipe reference path. Integrating the new 50-file release there is the
-next presentation increment. Historical 124-feature final artifacts retain their
+Notebook 04 audits the completed batch in review mode. Set `RESTORE_PRODUCTION`
+to retrieve its fifty files without fitting, or use the separate default-off
+`GENERATE_PORTFOLIO` control to run the frozen pipeline. The existing
+`GENERATE_SUBMISSION` control generates the single reference from local 02/03 runs. Historical 124-feature final artifacts retain their
 original identity. Neither path uploads a submission to Kaggle.
 
 [Studio and resume instructions](docs/studio.md) cover training with private data

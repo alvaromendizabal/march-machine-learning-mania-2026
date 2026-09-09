@@ -9,9 +9,11 @@ missing. The GitHub notebooks and S3 archives were verified; the stopped Studio
 filesystem was not inspected or represented as updated.
 
 Employers can open the saved notebook outputs without AWS, data downloads or a kernel.
-Start with **03** for model evaluation and **05** for current research conclusions;
+Start with the [employer walkthrough](employer_walkthrough.md), then **02** for research
+conclusions and **03** for model evaluation;
 **00 → 01 → 02** document data, chronological validation and feature engineering.
-**04** evaluates the current lineage on the consumed benchmark and contains the default-off generation cell.
+**04** evaluates the current lineage on the consumed benchmark, audits the fifty-file
+release and contains separate default-off restoration and generation controls.
 
 The old 120-fold research and August score log are historical records, not results from
 the rebuilt 3,106-candidate matrix. Notebook 05 verifies the 02 → 03 dependency and compares
@@ -73,6 +75,20 @@ To render review outputs without initiating training:
 Keep `MODE = execution_mode()` as the committed notebook default. It selects review mode
 unless the explicit training environment variable is present. The mode is part of the
 notebook cache identity, so a previous review cannot count as a training execution.
+
+## Retrieve the completed fifty-file release
+
+Open notebook 04 and review the production tables. Set `RESTORE_PRODUCTION = True`
+to restore the version-pinned archive and verify all saved checkpoints. This requires
+access to the existing private bucket, but no raw inputs or fitting. Pick a
+`SELECTED_CANDIDATE` from the manifest; the cell displays its checksum and download link.
+The default is `m_rank_logistic__w_logistic`. All fifty files remain in
+`outputs/prediction_production/<fingerprint>/csv_<candidate>/submission.csv`.
+
+For the frozen production pipeline, use `GENERATE_PORTFOLIO = True` instead. It
+restores/verifies the required input members and reuses the completed run when its
+source, environment and inputs match. Changed lineage can require new fits. These
+two controls are mutually exclusive and default to off. Neither sends files to Kaggle.
 
 ## Generate and download your own submission
 

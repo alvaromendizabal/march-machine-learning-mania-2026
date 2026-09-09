@@ -32,6 +32,16 @@ comparison, with immutable S3 versions and full-object/member SHA-256 checksums 
 members. Matchup features are reconstructed from the verified team snapshots in
 512-row chunks; the full multi-gigabyte matchup matrix is not required on disk.
 
+## Review and retrieve
+
+[Notebook 04](../../notebooks/04_locked_benchmark_and_final_submission.ipynb) displays
+the production audit in ordinary review mode. Its separate `RESTORE_PRODUCTION`
+control retrieves all fifty files without fitting and provides a selected-file
+download link. `GENERATE_PORTFOLIO` runs the frozen pipeline; both controls are off
+by default. The [native handoff receipt](../validation/production_handoff.json)
+records executed notebooks and checks of the actual controls. The
+[employer walkthrough](../../docs/employer_walkthrough.md) traces the reference file.
+
 ## Reproduce
 
 Use the locked environment described in the repository README. Public checks need

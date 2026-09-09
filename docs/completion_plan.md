@@ -1,7 +1,7 @@
 # Finish the research product
 
-The official-data feature search and current research release are complete. The
-remaining product work is prediction production and the final reviewer handoff.
+This release completes the bounded official-data research product, prediction
+production and reviewer handoff.
 This plan defines observable completion gates instead of assigning an unsupported
 quality score or completion percentage.
 
@@ -10,9 +10,9 @@ quality score or completion percentage.
 | Research release | Controlled feature studies, current model comparison, executed notebooks, audited metrics and durable archives | Current source lineage, release audit, cloud/recovery receipts and merged CI | Complete through PR #11 |
 | Development portfolio | 50 candidate plans from 15 recorded procedures | Matched games, earlier-season decisions, blend reconstruction, distinct vectors, reproducible metrics and CI | Complete through PR #12 |
 | Prediction production | 50 complete 2026 submission CSVs plus frozen specifications and manifests | Exact template/order, valid probabilities, swap symmetry, explicit seeded/seed-free routes, final-vector uniqueness and training through 2025 only | Complete: 50 distinct files, 33 fitted models, 344 checkpoints |
-| Recovery and presentation | Versioned prediction/model archive; notebook 04 generation/review controls; concise employer walkthrough | Fresh restore, zero new fits, identical prediction bytes, all six executed notebooks published and merged-main checks | Versioned S3 archive and fresh remote recovery verified; notebook handoff pending |
+| Recovery and presentation | Versioned prediction/model archive; notebook 04 generation/review controls; concise employer walkthrough | Fresh restore, zero new fits, identical prediction bytes, all six executed notebooks published and merged-main checks | Complete in PR #15: native outputs, reviewer guide and recovery receipts; merge requires the full quality gate |
 
-## The next bounded implementation
+## Delivery evidence
 
 The [production implementation](../reports/prediction_production/README.md) has
 completed the generation gates below. Local archive recovery reused all 344
@@ -24,8 +24,14 @@ version-pinned S3 recovery are complete: all 344 checkpoints were reused, zero
 new fits ran and all fifty CSVs remained byte-identical. See
 [s3_recovery.json](../reports/prediction_production/s3_recovery.json).
 
-Next, integrate this release into canonical notebook 04, execute and publish all
-six notebooks, and finish the concise employer walkthrough.
+Notebook 04 contains the production audit, archive restoration and frozen
+generation controls. The [employer walkthrough](employer_walkthrough.md) connects
+the research findings to the reference file and its lineage. All six notebooks
+were executed natively and their exact outputs published with the
+[handoff validation receipt](../reports/validation/production_handoff.json).
+[PR #15](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/pull/15)
+records final-commit validation; the required quality workflow also runs on merged
+`main`. The following production requirements are satisfied:
 
 1. Restore the verified **current expanded** feature and model archives. Reject a
    historical 124-feature matrix, stale source/configuration, or incomplete raw data.
@@ -51,13 +57,13 @@ fresh holdout or justify promoting an apparent winner.
 
 ## Employer review and acceptance
 
-The README should support a two-minute overview: research question, measured
+The README and walkthrough provide a two-minute overview: research question, measured
 feature contribution, negative findings, validation limits and engineering evidence.
-The existing five-notebook path supports a deeper review; notebook 05 remains an
-optional appendix. Add the production evidence to canonical notebook 04, execute
-all six notebooks, inspect their figures and publish the validated outputs.
+The five-notebook path supports a deeper review; notebook 05 remains an optional
+appendix. Notebook 04 includes the production evidence and default-off controls.
+All six canonical notebooks have native executed outputs and verified figures.
 
-At final release, an employer should be able to:
+An employer can:
 
 - Follow one prediction from official pre-tournament inputs through its fitted
   model to a validated CSV and checksum.
