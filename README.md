@@ -175,6 +175,12 @@ to retrieve its fifty files without fitting, or use the separate default-off
 `GENERATE_SUBMISSION` control generates the single reference from local 02/03 runs. Historical 124-feature final artifacts retain their
 original identity. Neither path uploads a submission to Kaggle.
 
+After restoration or portfolio generation, notebook 04 also prepares one download
+containing all fifty CSVs, their manifest and frozen recipe. Every CSV retains its
+recorded checksum. The equivalent entry point is
+`uv run --locked python scripts/deliver_predictions.py --action restore`.
+Repeat requests reuse a verified packaging checkpoint.
+
 [Studio and resume instructions](docs/studio.md) cover training with private data
 and automatic archive recovery. Existing Studio checkouts use
 `python3 scripts/update.py`; the script preserves local notebook edits before updating.

@@ -44,6 +44,20 @@ records executed notebooks and checks of the actual controls. The
 
 ## Reproduce
 
+Notebook 04 provides a single ZIP download containing all fifty recorded CSVs,
+their manifest and the frozen recipe. Its restore action performs no training.
+The equivalent terminal entry point is:
+
+```bash
+uv run --locked python scripts/deliver_predictions.py --action restore
+```
+
+The download is `submissions/prediction_portfolio.zip`; the declared reference is
+also copied to `submissions/submission.csv`. Packaging verifies every archived
+CSV against the published SHA-256 and reuses a completed packaging checkpoint.
+`--action review` audits public evidence without cloud access or creating files;
+`--action generate` restores inputs and resumes the frozen generator first.
+
 Use the locked environment described in the repository README. Public checks need
 no private data or AWS account:
 
