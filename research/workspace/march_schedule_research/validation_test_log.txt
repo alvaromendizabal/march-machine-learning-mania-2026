@@ -1,0 +1,41 @@
+test_bad_matchup_rejected (test_schedule.FeatureTests.test_bad_matchup_rejected) ... ok
+test_cached_game_count_rejected (test_schedule.FeatureTests.test_cached_game_count_rejected) ... ok
+test_current_2026_forbidden (test_schedule.FeatureTests.test_current_2026_forbidden) ... ok
+test_duplicate_game_rejected (test_schedule.FeatureTests.test_duplicate_game_rejected) ... ok
+test_feature_label_guard (test_schedule.FeatureTests.test_feature_label_guard) ... ok
+test_feature_swap (test_schedule.FeatureTests.test_feature_swap) ... ok
+test_fixed_input_sets (test_schedule.FeatureTests.test_fixed_input_sets) ... ok
+test_future_rows_ignored (test_schedule.FeatureTests.test_future_rows_ignored) ... ok
+test_future_seeds_ignored (test_schedule.FeatureTests.test_future_seeds_ignored) ... ok
+test_missing_entire_field_rejected (test_schedule.FeatureTests.test_missing_entire_field_rejected) ... ok
+test_missing_opponent_rejected (test_schedule.FeatureTests.test_missing_opponent_rejected) ... ok
+test_missing_strength_rejected (test_schedule.FeatureTests.test_missing_strength_rejected) ... ok
+test_no_secondary_tournament_inputs (test_schedule.FeatureTests.test_no_secondary_tournament_inputs) ... ok
+test_nonhome_subset (test_schedule.FeatureTests.test_nonhome_subset) ... ok
+test_old_flag_false_not_success (test_schedule.FeatureTests.test_old_flag_false_not_success) ... ok
+test_postcutoff_rows_ignored (test_schedule.FeatureTests.test_postcutoff_rows_ignored) ... ok
+test_prediction_complements (test_schedule.FeatureTests.test_prediction_complements) ... ok
+test_probability_range (test_schedule.FeatureTests.test_probability_range) ... ok
+test_reference_surplus_formula (test_schedule.FeatureTests.test_reference_surplus_formula) ... ok
+test_row_order_invariance (test_schedule.FeatureTests.test_row_order_invariance) ... ok
+test_scale_is_training_only (test_schedule.FeatureTests.test_scale_is_training_only) ... ok
+test_seed_weights (test_schedule.FeatureTests.test_seed_weights) ... ok
+test_seven_registered_features (test_schedule.FeatureTests.test_seven_registered_features) ... ok
+test_sum_quality_wins (test_schedule.FeatureTests.test_sum_quality_wins) ... ok
+test_tournament_labels_rejected (test_schedule.FeatureTests.test_tournament_labels_rejected) ... ok
+test_venue_direction (test_schedule.FeatureTests.test_venue_direction) ... ok
+test_wrong_cutoff_rejected (test_schedule.FeatureTests.test_wrong_cutoff_rejected) ... ok
+test_zero_losses_bad_loss_zero (test_schedule.FeatureTests.test_zero_losses_bad_loss_zero) ... ok
+test_checkpoint_missing_output_rejected (test_schedule.IntegrityTests.test_checkpoint_missing_output_rejected) ... ok
+test_checkpoint_reuse (test_schedule.IntegrityTests.test_checkpoint_reuse) ... ok
+test_corrupt_checkpoint_rejected (test_schedule.IntegrityTests.test_corrupt_checkpoint_rejected) ... ok
+test_no_panel_cli (test_schedule.IntegrityTests.test_no_panel_cli) ... ok
+test_no_pickle_loading (test_schedule.IntegrityTests.test_no_pickle_loading) ... ok
+test_no_rating_fits_in_new_features (test_schedule.IntegrityTests.test_no_rating_fits_in_new_features) ... ok
+test_unsafe_checkpoint_path_rejected (test_schedule.IntegrityTests.test_unsafe_checkpoint_path_rejected) ... ok
+test_full_pipeline_reuses_snapshots_models_and_preserves_bytes (test_schedule.PipelineTests.test_full_pipeline_reuses_snapshots_models_and_preserves_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 3.081s
+
+OK

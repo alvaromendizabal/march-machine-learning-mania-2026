@@ -1,0 +1,17 @@
+Gender,Season,games,brier,log_loss,recipe,train_games,train_last_season,feature_count,active_features,source,evidence,anchor_brier,delta_vs_anchor
+M,2016,63,0.2128403884710906,0.61887447645057503,anchor,189,2015,16,16,upstream_replay,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.2128403884710906,0
+M,2016,63,0.21090326776577276,0.61545561083447642,anchor_huber,189,2015,17,17,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.2128403884710906,-0.0019371207053178463
+M,2016,63,0.211706379534112,0.61682301983070764,anchor_compressed,189,2015,17,17,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.2128403884710906,-0.0011340089369785977
+M,2016,63,0.21026021841635359,0.61432622080360144,anchor_both,189,2015,18,18,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.2128403884710906,-0.0025801700547370132
+M,2017,63,0.17332337005126941,0.51186246963129811,anchor,252,2016,16,16,upstream_replay,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.17332337005126941,0
+M,2017,63,0.17367332459393597,0.51241241859979136,anchor_huber,252,2016,17,17,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.17332337005126941,0.00034995454266656401
+M,2017,63,0.17296917863120045,0.51147509553587889,anchor_compressed,252,2016,17,17,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.17332337005126941,-0.00035419142006895554
+M,2017,63,0.17335316932033551,0.51206116317128247,anchor_both,252,2016,18,18,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.17332337005126941,2.9799269066099754e-05
+M,2018,63,0.19906608300963743,0.58447380190439646,anchor,315,2017,16,16,upstream_replay,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.19906608300963743,0
+M,2018,63,0.19934042958631012,0.58508085380235109,anchor_huber,315,2017,17,17,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.19906608300963743,0.00027434657667269047
+M,2018,63,0.19804379890327997,0.58233646555570873,anchor_compressed,315,2017,17,17,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.19906608300963743,-0.0010222841063574628
+M,2018,63,0.19851668627756949,0.58337056710433266,anchor_both,315,2017,18,18,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.19906608300963743,-0.0005493967320679416
+M,2019,63,0.17320192076291752,0.50951375442624425,anchor,378,2018,16,16,upstream_replay,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.17320192076291752,0
+M,2019,63,0.17371982092435345,0.51048584854781887,anchor_huber,378,2018,17,17,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.17320192076291752,0.00051790016143593576
+M,2019,63,0.17396053726273486,0.51053583763856147,anchor_compressed,378,2018,17,17,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.17320192076291752,0.00075861649981734391
+M,2019,63,0.17429426875146034,0.51122815673056321,anchor_both,378,2018,18,18,new_fit,Repeatedly used 2016–2019 historical main draw; NOT untouched test or leaderboard,0.17320192076291752,0.0010923479885428244

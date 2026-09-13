@@ -1,0 +1,48 @@
+test_bad_season_rejected (test_margin.FeatureTests.test_bad_season_rejected) ... ok
+test_certificate (test_margin.FeatureTests.test_certificate) ... ok
+test_disconnected_seeded_teams_rejected (test_margin.FeatureTests.test_disconnected_seeded_teams_rejected) ... ok
+test_duplicate_games_rejected (test_margin.FeatureTests.test_duplicate_games_rejected) ... ok
+test_duplicate_snapshot_rejected (test_margin.FeatureTests.test_duplicate_snapshot_rejected) ... ok
+test_fractional_id_rejected (test_margin.FeatureTests.test_fractional_id_rejected) ... ok
+test_future_rows_do_not_enter (test_margin.FeatureTests.test_future_rows_do_not_enter) ... ok
+test_huber_gradient (test_margin.FeatureTests.test_huber_gradient) ... ok
+test_invalid_locations_rejected (test_margin.FeatureTests.test_invalid_locations_rejected) ... ok
+test_invalid_solver_parameters (test_margin.FeatureTests.test_invalid_solver_parameters) ... ok
+test_large_delta_equals_ridge (test_margin.FeatureTests.test_large_delta_equals_ridge) ... ok
+test_missing_model_team_rejected (test_margin.FeatureTests.test_missing_model_team_rejected) ... ok
+test_neutral_home_zero (test_margin.FeatureTests.test_neutral_home_zero) ... ok
+test_nonfinite_score_rejected (test_margin.FeatureTests.test_nonfinite_score_rejected) ... ok
+test_objective_monotone (test_margin.FeatureTests.test_objective_monotone) ... ok
+test_order_independence (test_margin.FeatureTests.test_order_independence) ... ok
+test_outlier_influence_reduced_not_win_removed (test_margin.FeatureTests.test_outlier_influence_reduced_not_win_removed) ... ok
+test_pair_count_and_control_parity (test_margin.FeatureTests.test_pair_count_and_control_parity) ... ok
+test_prior_centers_abilities (test_margin.FeatureTests.test_prior_centers_abilities) ... ok
+test_registry_declares_exactly_two_candidates (test_margin.FeatureTests.test_registry_declares_exactly_two_candidates) ... ok
+test_seed_dtype_does_not_change_values (test_margin.FeatureTests.test_seed_dtype_does_not_change_values) ... ok
+test_self_game_rejected (test_margin.FeatureTests.test_self_game_rejected) ... ok
+test_solver_budget_stops (test_margin.FeatureTests.test_solver_budget_stops) ... ok
+test_swap_antisymmetry_by_team_relabeling (test_margin.FeatureTests.test_swap_antisymmetry_by_team_relabeling) ... ok
+test_target_columns_do_not_enter (test_margin.FeatureTests.test_target_columns_do_not_enter) ... ok
+test_unknown_kind_rejected (test_margin.FeatureTests.test_unknown_kind_rejected) ... ok
+test_concurrent_lock_reject (test_margin.RunnerTests.test_concurrent_lock_reject) ... ok
+test_limits_reject_before_execution (test_margin.RunnerTests.test_limits_reject_before_execution) ... ok
+test_stage_name_reject (test_margin.RunnerTests.test_stage_name_reject) ... ok
+test_timeout_kills_child (test_margin.RunnerTests.test_timeout_kills_child) ... ok
+test_both_gate_outcomes (test_margin.WorkflowTests.test_both_gate_outcomes) ... ok
+test_budget_checked_before_classifier (test_margin.WorkflowTests.test_budget_checked_before_classifier) ... ok
+test_changed_previous_report_during_run_stops (test_margin.WorkflowTests.test_changed_previous_report_during_run_stops) ... ok
+test_corrupt_completed_rating_stops (test_margin.WorkflowTests.test_corrupt_completed_rating_stops) ... ok
+test_environment_change_stops (test_margin.WorkflowTests.test_environment_change_stops) ... ok
+test_missing_reference_stops (test_margin.WorkflowTests.test_missing_reference_stops) ... ok
+test_no_hidden_retraining_of_reference (test_margin.WorkflowTests.test_no_hidden_retraining_of_reference) ... ok
+test_output_symlink_stops (test_margin.WorkflowTests.test_output_symlink_stops) ... ok
+test_pipeline_repeat_reuses_all_and_preserves (test_margin.WorkflowTests.test_pipeline_repeat_reuses_all_and_preserves) ... ok
+test_prior_report_checksum_stops (test_margin.WorkflowTests.test_prior_report_checksum_stops) ... ok
+test_raw_edit_stops (test_margin.WorkflowTests.test_raw_edit_stops) ... ok
+test_season_split_strict (test_margin.WorkflowTests.test_season_split_strict) ... ok
+test_source_edit_stops (test_margin.WorkflowTests.test_source_edit_stops) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 9.290s
+
+OK

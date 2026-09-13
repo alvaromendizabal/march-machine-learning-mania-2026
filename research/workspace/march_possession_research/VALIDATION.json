@@ -1,0 +1,89 @@
+{
+  "aws_resources_modified": false,
+  "environment": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "plotly": "6.5.2",
+    "python": "3.13.5",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0"
+  },
+  "expected_AWS_environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "plotly": "6.3.1",
+    "python": "3.12.13",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3"
+  },
+  "failed_attempts_resolved": [
+    {
+      "issue": "Missing itertools import in synthetic fixture generator",
+      "resolution": "Added explicit import before completed test runs"
+    }
+  ],
+  "github_updated": false,
+  "new_leaderboard_score": null,
+  "notebook": {
+    "delivered_code_cells": 9,
+    "errors": 0,
+    "first_evaluate": {
+      "local_checkpoint_reuses": 0,
+      "new_classifier_fits": 25,
+      "new_rating_fits": 0,
+      "total_comparisons": 32,
+      "upstream_classifier_replays": 7
+    },
+    "first_prepare": {
+      "base_snapshots_reused": 14,
+      "baseline_replays": 7,
+      "basic_rate_controls": 6,
+      "local_snapshot_reuses": 0,
+      "new_classifier_fits": 0,
+      "new_mechanistic_definitions": 4,
+      "new_rate_snapshots": 14,
+      "new_rating_fits": 0,
+      "snapshot_functions_read_tournament_labels": false,
+      "status": "COMPLETE",
+      "tournament_labels_used_for_replay_only": true
+    },
+    "inline_plotly_charts": 10,
+    "jinja_blocked": true,
+    "real_AWS_execution": false,
+    "repeat_evaluate": {
+      "local_checkpoint_reuses": 25,
+      "new_classifier_fits": 0,
+      "new_rating_fits": 0,
+      "total_comparisons": 32,
+      "upstream_classifier_replays": 7
+    },
+    "repeat_prepare": {
+      "base_snapshots_reused": 14,
+      "baseline_replays": 7,
+      "basic_rate_controls": 6,
+      "local_snapshot_reuses": 14,
+      "new_classifier_fits": 0,
+      "new_mechanistic_definitions": 4,
+      "new_rate_snapshots": 0,
+      "new_rating_fits": 0,
+      "snapshot_functions_read_tournament_labels": false,
+      "status": "COMPLETE",
+      "tournament_labels_used_for_replay_only": true
+    },
+    "scope": "Synthetic fixture; reference SHA, input pins, state, environment and expected scores adapted only in test copy",
+    "test_only_extra_cells": 1
+  },
+  "real_dataset_experiment_run": false,
+  "scope": [
+    "All real-data performance values in the review originate in the uploaded milestone 07 archive.",
+    "No real AWS data was available in this runtime for the new feature experiment.",
+    "Synthetic fixture adapts the pinned Git SHA, raw-data hashes, environment and historical baseline scores in a copied kit only.",
+    "The production kit pins and scientific configuration are not relaxed.",
+    "The notebook test adds one test-only Jinja2-import blocker; all nine delivered code cells execute.",
+    "No cloud compute or GitHub writes were performed."
+  ],
+  "status": "PASS_LOCAL_SOFTWARE_VALIDATION",
+  "test_command": "python -m unittest discover -s tests -v",
+  "tests_failed": 0,
+  "tests_passed": 48
+}

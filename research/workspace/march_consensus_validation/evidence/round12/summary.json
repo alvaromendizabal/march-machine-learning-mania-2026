@@ -1,0 +1,66 @@
+{
+  "aws_resources_modified": false,
+  "current_submitted_brier": 0.1222672,
+  "decision": {
+    "decisions": [
+      {
+        "Gender": "M",
+        "automatic_promotion": false,
+        "comparison": "pairwise_given_consensus",
+        "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+        "improved_seasons": 2,
+        "mean_delta": 0.0011137347240833678,
+        "primary": true,
+        "significance_claim": false,
+        "thresholds": {
+          "improved_seasons": 3,
+          "mean_delta": -0.0005,
+          "worst_delta": 0.003
+        },
+        "worst_delta": 0.00815008864095787
+      },
+      {
+        "Gender": "M",
+        "automatic_promotion": false,
+        "comparison": "consensus_given_anchor",
+        "decision": "CONSIDER_UNCHANGED_LATER_ERA_TEST",
+        "improved_seasons": 3,
+        "mean_delta": -0.0009205404070523199,
+        "primary": false,
+        "significance_claim": false,
+        "thresholds": {
+          "improved_seasons": 3,
+          "mean_delta": -0.0005,
+          "worst_delta": 0.003
+        },
+        "worst_delta": 0.00037479418774444273
+      }
+    ],
+    "primary_cannot_be_replaced_by_best_secondary": true
+  },
+  "fingerprint": "374348cf553aca8e932ef6d6f56244a6ebcac7cbb2ab36cf66bc17a2d0acef12",
+  "github_updated": false,
+  "limitations": [
+    "Repeatedly-used 2016\u20132019 seasons; no untouched-test claim",
+    "Compact fixed logistic is not the submitted production recipe",
+    "Consensus is an established control, not a novel feature claim",
+    "Ordinal systems are correlated; vote fraction is not a win probability or independent evidence count",
+    "All legal contemporary systems are used; differs from the older pre-2013 vocabulary",
+    "Historical source revisions cannot be ruled out by the provided snapshot",
+    "No post-cutoff rankings, future tournament targets, external downloads or new rating fits",
+    "Two matchup-level hypotheses, no per-system selection or algorithm search"
+  ],
+  "local_reuses": 0,
+  "new_candidates": 2,
+  "new_classifier_fits": 16,
+  "new_leaderboard_score": null,
+  "new_rating_fits_in_evaluation": 0,
+  "phase": "men_shared_ranking_matchups",
+  "raw_modified": false,
+  "repository_modified": false,
+  "research_target_brier": 0.1097454,
+  "status": "COMPLETE",
+  "total_comparisons": 20,
+  "upstream_modified": false,
+  "upstream_replays": 4
+}

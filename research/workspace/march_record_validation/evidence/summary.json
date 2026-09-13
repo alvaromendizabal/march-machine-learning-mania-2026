@@ -1,0 +1,46 @@
+{
+  "automatic_feature_promotion": false,
+  "automatic_panel_expansion": false,
+  "aws_resources_changed_by_code": false,
+  "current_submitted_brier": 0.1222672,
+  "fingerprint": "99a387e89c4ffe5a370644454467423544603dffd2348e442aa76a781f96c651",
+  "fixed_anchor_features": 16,
+  "github_updated": false,
+  "limitations": [
+    "One already-consumed historical season, not an untouched test",
+    "Seven hypotheses use fixed heuristic constants; no guarantee of gain",
+    "Reference expectation is not calibrated, not official WAB or NET",
+    "Venue factor and reference percentile are not optimized",
+    "Known two tracked notebook edits remain unresolved but unexecuted and preserved"
+  ],
+  "new_classifier_fits": 8,
+  "new_leaderboard_score": null,
+  "new_matchup_candidates": 7,
+  "new_rating_fits": 0,
+  "next_step": "Review losses and add/drop effects; replicate unchanged representation across earlier-year folds only if justified",
+  "not_production_model_reproduction": true,
+  "phase": "2018_schedule_smoke",
+  "potential_replication_candidates_not_promotions": [
+    {
+      "Gender": "W",
+      "delta_vs_anchor": -0.0014113864473564441,
+      "recipe": "anchor_record"
+    },
+    {
+      "Gender": "W",
+      "delta_vs_anchor": -0.001051653544655723,
+      "recipe": "anchor_both"
+    }
+  ],
+  "raw_modified": false,
+  "repo_modified": false,
+  "research_target_brier": 0.1097454,
+  "reused_classifier_fits": 0,
+  "status": "COMPLETE",
+  "total_classifier_fits": 8,
+  "upstream_modified": false,
+  "uses_2022_2026_targets": false,
+  "validation_seasons": [
+    2018
+  ]
+}

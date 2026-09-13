@@ -1,0 +1,12 @@
+{
+  "local_reuses": 0,
+  "new_classifier_fits": 8,
+  "new_rating_fits_in_evaluation": 0,
+  "total_comparisons": 8,
+  "validation_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ]
+}

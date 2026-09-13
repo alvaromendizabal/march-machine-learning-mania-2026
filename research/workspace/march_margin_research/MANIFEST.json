@@ -1,0 +1,28 @@
+{
+  "sha256": {
+    "11_margin_robustness.ipynb": "097f5d7a4cfc32b2966fdec43eaf3047bc0d2d864a502e7b5adc9b46821b1d80",
+    "MILESTONE_10_REVIEW.md": "b712aefee9ae5f4f50ddb223c331388c99d9fc311288f0795224099df32f81c5",
+    "RESEARCH_PLAN.md": "93b30956666b6b96dbf34c20f986c08c3d0e5b058368aef275317468545772e1",
+    "SOURCE_NOTICE.md": "5fbcbc6f073f171fb05846a52553727982718ba82f329cf0ac17216cefe6fe5c",
+    "START_HERE.md": "38fbe1da266a67b2cf97d906cc9c9b9ebe623fb44aa1c474b6214431dbeabb03",
+    "VALIDATION.json": "4ba609bb34904e5ef36b6416f39a803ca319ce38dd0d648ba0269c18600e395d",
+    "constraints.json": "3a5bdf6a96990a19816c133959e6d56de0612e8e11596e4d83dd986aae4271b6",
+    "evidence/round10/evaluate.log": "400134905518073d11ecb126167229929a7c7e7b69f4152a26ba2d692cd2da0a",
+    "evidence/round10/log_metrics.csv": "eacbd8505782291275bf6f0ea9cba56ecdb75786b7cb46e5435be1c9f82238b8",
+    "evidence/round10/milestone_10_recovery_return.zip": "d1ffbb025ebc99c02901736716f443a92c3daa2d87d0e08aacbbae6a0aa2df74",
+    "evidence/round10/recovery_status.json": "9b46041336958d2c6abcb3ceb3c2de5431f0ca396abd481d762920f00eaf084a",
+    "evidence/round10/runtime_installation.json": "3b43c31973e2dc2f8fa27a467f17dde65886b82cdc62a73ce2cfcf183a95777c",
+    "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+    "margin_features.py": "3eace86eb19aa108104b5a8803819720c0584314e6ad57b9b0b553a3b521222c",
+    "margin_plots.py": "9a4695edc2c2b3e1674f6638739ba149aa10c3eb8c49cb1ce6f21aecd76f5beb",
+    "margin_workflow.py": "55e909fb050af1e4bed8ad5add0585345d40e82b60a333da69adb07adb233e42",
+    "research_io.py": "5d6ce0c5b00654ca993c3b5aca668ce41306f24c21adc4e0dd1bf50eb4781be0",
+    "run_round11.py": "f9b51e1dd5b9e4158ffd4f739f9c129259f08211c641346ade07ec252a190b27",
+    "tests/fixtures.py": "87e16395bd2226f4adea85b78387cd3b393df6c64c37d0b1ede56bd7261d9a95",
+    "tests/local_validation.txt": "9e7fd6a8fac6e3d001814a133367947177b89382fcef6f1b0e90c551b0161c1d",
+    "tests/test_margin.py": "c9c2f0c99e917e39e5144eaf91126bbe8df3576495ecd2432978797f9521bc09"
+  },
+  "package": "march_margin_research",
+  "schema": 1
+}

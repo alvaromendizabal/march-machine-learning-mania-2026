@@ -1,0 +1,38 @@
+{
+  "sha256": {
+    "data_quality.csv": "ae36a24e47f194c024f9aa1e4e3537fff34842a8f2bf8590c9ec10fec9d57d1d",
+    "quality_audit.json": "c94d47ebbd2060883e369cdbdecabf1c73ea471a26a02ab2a39759ec7e7ed6b5",
+    "metrics.csv": "df140c678375a512bbdfdfb6e4a9e5f37d3682d8f6f86fdde4abfbdf30623b47",
+    "ablations.csv": "3d8e0c9a7039f100994fb6aea0e45220755cdc85e79cd9d9cb1d0d5363ba308f",
+    "decisions.json": "f0e871fe3273076d5bd9e8e34832a3d04d4491ac8e7d848619f095287dfc38c5",
+    "coefficients.csv": "1ebd548cbfcfe2afae96d36f0e6fa682ca85a95edf21c12a381fff3fafc90643",
+    "calibration.csv": "b3908d465faae33ec94fb6049b63bbf07d9f12832e38717a7e08f5cb2fa0f5aa",
+    "training_overlap.csv": "1a522cef08b121f09883d19b929fe4d3e8756a7386eee86565fb1a1a522e1a8d",
+    "aggregate.csv": "51f1ec96213009a94215d40e64244bb201f42cbb01b26fa4f5e9fb7bab9b5f1a",
+    "paired_loss_bins.csv": "586c8af439395bd577ac29ff9a9b24f6654836755e1c160bed2f06bc4248d7d2",
+    "season_sensitivity.csv": "ea187dbabb8867cc29c3f0ce1293dfdf74c79d343ae2dabee4b2f57a25668b5e",
+    "support_diagnostics.csv": "3530767b607bd8670a88a8ac968fb4bc9d6917ddc9fe13fba1d1e78402eafd5c",
+    "evaluation_receipt.json": "944763fe8a1c34070bc83b20bd0d4f71d1edee31a7d3b6d879c662628d93e467",
+    "summary.json": "e5004dbaffa4a3380472b0eb49fbdcebd0874f03452f11ec38ab8ecda49c3e10",
+    "season_bootstrap.json": "f66db2337cb4e5539883c8302f4921390c92863c2338c40cd0c4e4b3fc0ff78a",
+    "prepare.json": "d270dce4a32aff7ad730480dc937d1b05fb54570ca87ab081a6a2b45e484d3fb",
+    "coverage.csv": "ff97322737b1dbbc28a625b653876dd2fbf28ede00b57bc17904a36b867132a1",
+    "feature_registry.csv": "2f8b72b994897f4963344f6fb824180ec406f7c56a72795a18f57e06464c5954",
+    "prior_replay.csv": "10df05577df4a0b4be0de62ae5d3ab9a71ba8074a077e9cfab5398af3ad916c0",
+    "label_audit.csv": "b254c824e855d8b13be595d4b07fe485f4252e42b78d2f75e84a714820519f02",
+    "rating_diagnostics.csv": "9dc3f5b86a92ea84cb66d525d5a8e46442b83879592558d3da65689ae608101c",
+    "preflight.json": "05423b9db9b39c3d5b340a1932211eeffaa4634329980d81ce20f0ef427db115",
+    "manifest.json": "741b452042087ac06e99587aaab06fc1099f1c2c2867f47cc0387912ae889f16",
+    "prepare_hashes.json": "a0187ecbf20addeab86bc777f6b787b286da8b4835399b0e2a9b70a3d2a64816",
+    "evaluation_hashes.json": "173dc6f40de068a3a9ee605e493868d5e3869a1ae65766171e56bed99319f7cd",
+    "executed_tests.json": "4770646e512e908b00d365dd6f33431f3e0a249581da2935fd4d5f3e49a7aad1",
+    "execution_telemetry.json": "5371ab0c957447fe16a1b83e0c9a0b66d697fee75452819aa0f7db2feb499013"
+  },
+  "excluded": [
+    "raw rows",
+    "fitted models",
+    "per-game predictions",
+    "team profiles",
+    "private edited notebooks"
+  ]
+}

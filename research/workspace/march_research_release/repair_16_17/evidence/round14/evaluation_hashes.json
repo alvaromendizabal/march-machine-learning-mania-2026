@@ -1,0 +1,15 @@
+{
+  "ablations.csv": "af724b01155eb7d7837293f32ed116f5b61de19c9713cc0380d231e84de833cd",
+  "aggregate.csv": "a87e3f47d87d8d7cc96fd280f455ba0a16608dc52181e3e8450f56ee3fccd1ae",
+  "calibration.csv": "759a3dd530d8d24dd2494ef8c176981ce6accfb757a23ac57576acb2e8028ccb",
+  "coefficients.csv": "f58e3bb4e060df5e24ace50ae45ce2314f128596473947fc27cf8d21240bfd78",
+  "decisions.json": "f86323169d4aed921993cc889cc9542a8445f0df3568fbbdaf972d2c69b02d83",
+  "evaluation_receipt.json": "b3397a2065399ef1176fee2b76b25103b099b1205d39f0668b3a6282e528e9eb",
+  "metrics.csv": "5e200d33685e2f131a1e1a1c1972542378bc2204d2c6a83b563d90541807fb13",
+  "paired_loss_bins.csv": "86d2fc0c72c7f203a25ef2f5a721d962745c91b97e9f974382dc2baf36618d0d",
+  "predictions.csv": "8a377504278b34b566a044b7ca993b0c5f8a1dd80c5f3fb416ffa7c0fd991ce5",
+  "season_sensitivity.csv": "135b1e55ffcc408d1f72d996f3743e74b1ac7fa70b8fb15f5b5fa5f83ff25837",
+  "summary.json": "7ea12216835c1e4b071742c5d5aba6986aa791ca2e7be431721104e673a0e10c",
+  "support_diagnostics.csv": "81bc0cc38916170b5fb440bc5f4ce1c6f13dce89e58e49e4af5d71d0040d7556",
+  "training_overlap.csv": "9b67d753db536b6424465a337a6fe6922ff102d68631959e16fe4162f3bd6f4b"
+}

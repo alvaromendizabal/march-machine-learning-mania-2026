@@ -1,0 +1,13 @@
+{
+  "base_snapshots_reused": 12,
+  "feature_snapshot_reuses": 0,
+  "new_candidate_definitions": 4,
+  "new_classifier_fits": 0,
+  "new_context_tables": 0,
+  "new_feature_snapshots": 12,
+  "new_rating_fits": 0,
+  "panels_reused": 12,
+  "reference_models_replayed": 4,
+  "round": "14",
+  "status": "COMPLETE"
+}

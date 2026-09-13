@@ -1,0 +1,106 @@
+{
+  "code_cells": 8,
+  "executed_cells": 8,
+  "errors": 0,
+  "plotly_charts": 10,
+  "elapsed_seconds": 13.266,
+  "prepare": {
+    "base_snapshots_reused": 7,
+    "matchup_table_reuses": 0,
+    "new_candidate_features": 2,
+    "new_matchup_tables": 7,
+    "new_rating_fits": 14,
+    "new_tournament_classifier_fits": 0,
+    "rating_reuses": 0,
+    "reference_replays": 4,
+    "status": "COMPLETE",
+    "tournament_outcomes_used_for_feature_building": false
+  },
+  "evaluate": {
+    "local_reuses": 0,
+    "new_classifier_fits": 12,
+    "new_rating_fits_in_evaluation": 0,
+    "total_comparisons": 16,
+    "upstream_replays": 4
+  },
+  "environment": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "plotly": "6.5.2",
+    "python": "3.13.5"
+  },
+  "jinja_blocked": true,
+  "synthetic": true,
+  "repeat_prepare": {
+    "base_snapshots_reused": 7,
+    "matchup_table_reuses": 7,
+    "new_candidate_features": 2,
+    "new_matchup_tables": 0,
+    "new_rating_fits": 0,
+    "new_tournament_classifier_fits": 0,
+    "rating_reuses": 14,
+    "reference_replays": 4,
+    "status": "COMPLETE",
+    "tournament_outcomes_used_for_feature_building": false
+  },
+  "repeat_evaluate": {
+    "local_reuses": 12,
+    "new_classifier_fits": 0,
+    "new_rating_fits_in_evaluation": 0,
+    "total_comparisons": 16,
+    "upstream_replays": 4
+  },
+  "unit_tests_passed": 43,
+  "notebook_code_cells": 8,
+  "large_synthetic_numerical_case": {
+    "huber": {
+      "Season": 2013,
+      "kind": "huber",
+      "teams": 365,
+      "regular_games": 5500,
+      "graph_components": 1,
+      "iterations": 19,
+      "gradient_max_abs": 4.74263219985005e-06,
+      "home_effect": 2.9947634039732165,
+      "fraction_residuals_downweighted": 0.31072727272727274,
+      "max_absolute_input_margin": 104.0,
+      "max_source_day": 132
+    },
+    "compressed": {
+      "Season": 2013,
+      "kind": "compressed",
+      "teams": 365,
+      "regular_games": 5500,
+      "graph_components": 1,
+      "iterations": 1,
+      "gradient_max_abs": 1.4850343177386094e-12,
+      "home_effect": 1.4688547220820278,
+      "fraction_residuals_downweighted": 0.0,
+      "max_absolute_input_margin": 104.0,
+      "max_source_day": 132
+    },
+    "elapsed_seconds": 0.19330749599998853,
+    "synthetic": true
+  },
+  "real_data_run_by_assistant": false,
+  "cloud_jobs_started": false,
+  "github_updated": false,
+  "source_data_note": "Only the supplied recovery archive and prior source kits were available, not the private Kaggle tables or live AWS checkpoints.",
+  "fixture_adaptations": [
+    "12-team synthetic schedules for end-to-end tests; no claims about predictive scores from fixtures",
+    "Temporary local Git repository, synthetic raw-file hashes, synthetic previous-science ZIP and base/reference checkpoints",
+    "Fixture environment and commit constraints intentionally match the test environment; delivered constraints remain the recorded AWS environment and real commit",
+    "Fresh notebook kernel uses python3 locally; user selects Python (March Mania)",
+    "Jinja2 import blocked through a test-only sitecustomize hook; no installed environment changed"
+  ],
+  "recorded_aws_environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "plotly": "6.3.1",
+    "python": "3.12.13",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3"
+  }
+}

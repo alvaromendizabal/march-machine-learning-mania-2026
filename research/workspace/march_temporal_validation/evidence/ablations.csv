@@ -1,0 +1,17 @@
+Gender,Season,comparison,brier_delta,meaning
+M,2017,level,-0.0019655027966608563,Adding named family; negative is better; fixed other columns
+M,2017,change,0.0015080559514695224,Adding named family; negative is better; fixed other columns
+M,2017,level_given_change,-0.0029730724772950023,Adding named family; negative is better; fixed other columns
+M,2017,change_given_level,0.00050048627083537633,Adding named family; negative is better; fixed other columns
+M,2019,level,0.0012609371684726423,Adding named family; negative is better; fixed other columns
+M,2019,change,-0.00037680927287200849,Adding named family; negative is better; fixed other columns
+M,2019,level_given_change,0.00073282098791535577,Adding named family; negative is better; fixed other columns
+M,2019,change_given_level,-0.00090492545342929498,Adding named family; negative is better; fixed other columns
+W,2017,level,-0.0032453244681125704,Adding named family; negative is better; fixed other columns
+W,2017,change,-0.004215353832063562,Adding named family; negative is better; fixed other columns
+W,2017,level_given_change,-0.0023217454679461125,Adding named family; negative is better; fixed other columns
+W,2017,change_given_level,-0.0032917748318971041,Adding named family; negative is better; fixed other columns
+W,2019,level,0.0078044481151960388,Adding named family; negative is better; fixed other columns
+W,2019,change,-0.00022039329839190769,Adding named family; negative is better; fixed other columns
+W,2019,level_given_change,0.0061969011892328563,Adding named family; negative is better; fixed other columns
+W,2019,change_given_level,-0.0018279402243550902,Adding named family; negative is better; fixed other columns

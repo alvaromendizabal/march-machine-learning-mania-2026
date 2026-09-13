@@ -1,0 +1,12 @@
+{
+  "ablations.csv": "ca23e5e0062e4367524bcc42c9d286ada9ae325234ea22b7f16d839d49041ee1",
+  "aggregate.csv": "abe6cd67f8c2bc8666e3b153d55d7ec74ac528d2752faf390e3fae71a7052fd9",
+  "coefficients.csv": "7969695d480a7a96a0093f5f5ef37ce7a9cbd453b27adb7deeea11fa767c94ce",
+  "decisions.json": "eb078892b4fbd83dd610230c7e1c990af61ba27509f87c13f0ff73058e29bd68",
+  "evaluation_receipt.json": "6b8b1b6b694f3bf94b06b636b3cd5a99df9bb49d0bff329e8745f958663195bc",
+  "matchup_diagnostics.csv": "6984ea49e874345eddc9fffc61a84ff880200e8d0399b38915dbb28c366d2f42",
+  "metrics.csv": "ce4d72d7bc1cb05d06f6eed88737da127b448433fae2d35b38b5104d458fa340",
+  "predictions.csv": "11de4f6e332a6cde663df27009e6027971e77a391de319419d4e41cb33c95590",
+  "summary.json": "e6986d2e55bd8066f4e253532e9f5f42016c918b6171a94eed520c5def6dd15a",
+  "training_redundancy.csv": "e6ac77855b3a14e6b555c975d45272a246d3f13e5c41f3821fe7c66e6d7b3f14"
+}

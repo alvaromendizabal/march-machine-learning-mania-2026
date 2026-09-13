@@ -1,0 +1,27 @@
+{
+  "sha256": {
+    "12_shared_ranking_matchups.ipynb": "25c53a2b0e42cf9d012faca639842f8c1e8fd6517784be0a44adec90fc2f959e",
+    "MILESTONE_11_REVIEW.md": "0be882efa8cd343b158b80a94a664e921e00938e6056f44732ecd19eb7622bc5",
+    "RESEARCH_PLAN.md": "a9880b966d537b56295e0aa02e21ff3012bf8e45b31b08b283a407cbc04d65ad",
+    "SOURCE_NOTICE.md": "e0f6f3d27d48d305bedd4500c25bc7f7f5e5f1f56beab801212e73670af0208e",
+    "START_HERE.md": "ab257f94e4cc306d8d18efd5022eced85d198d61fcbf17ea4b58a200ef22417f",
+    "VALIDATION.json": "db5f19eeeade0c2ac2f09196e9660644b81ee32abb7d11e9b72653e216a48571",
+    "constraints.json": "1bdef8e5d15452e07521d77a9063eba1d5171a647c9bc5d6b30c69b2691201ca",
+    "evidence/round11/ablations.csv": "dcca21e623e8d5ee23c1a211af2be3ebce427c181462c4af753306b22cacf708",
+    "evidence/round11/decisions.json": "4bff93ac65297a9d96bafa538585099bf81ecfcb6013350f47e8ee4700363caf",
+    "evidence/round11/evaluation_receipt.json": "584305ea33e7efd41f2fadcb3dba83745028c49428b6829bd94f0569487e9854",
+    "evidence/round11/metrics.csv": "e3f1433dc81c4dfb80cd2f770579e6bbdd5fa8329cd18b14ed96fdff8ff96a57",
+    "evidence/round11/prepare.json": "2648168c40f248ecac59884bc2df084d3bd442fd20909593b1fd725da7e60087",
+    "evidence/round11/return_integrity.json": "02f8e5e4e697368221fb3aa73b6cd3f451b350825be8e0450495f32304677c21",
+    "evidence/round11/summary.json": "d143846579bc7253916f645207e6a5d44f5396d5e6c61e2eefced7643cf890f2",
+    "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+    "ranking_features.py": "71d7800a7c295eb1d28166273cdb87dbe19a0bdddc1d65be8f2a67963d7bb923",
+    "ranking_plots.py": "ca68dcaf7c6613ae09bc6df54bc5c9ca6f1841ab32ec487dbe2de3d6f2f40105",
+    "ranking_workflow.py": "954cbba1660ec14d2c499c5a5a64e5fc17d7c39ba516b4d6977d30cfee87050d",
+    "research_io.py": "5d6ce0c5b00654ca993c3b5aca668ce41306f24c21adc4e0dd1bf50eb4781be0",
+    "run_round12.py": "13494f3483941de181da322b121e637c8c9adfe55c9afa099697d1bc0c0c53ee",
+    "tests/fixtures.py": "87c3ebb8deb21a3b793ff3fa40c4beb9a84c2fdc55cf1dc26a8d74e3f3502c9f",
+    "tests/test_rankings.py": "4ef4cf3ad03116d350b7840d57cb394734b11032d255841decac5bc0b35679a2"
+  }
+}

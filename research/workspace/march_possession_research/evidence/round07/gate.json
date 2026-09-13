@@ -1,0 +1,23 @@
+{
+  "automatic_promotion": false,
+  "decision": "STOP_EXPANSION",
+  "discovery_seasons_excluded": [
+    2017,
+    2019
+  ],
+  "improved_replication_seasons": 1,
+  "mean_delta_replication_only": 0.0017966004454300771,
+  "meaning": "Compute-allocation rule on already-used historical seasons; not significance or production selection",
+  "proceed_to_components": false,
+  "replication_seasons": [
+    2016,
+    2018
+  ],
+  "statistical_significance_claim": false,
+  "thresholds": {
+    "both_additional_seasons_improve": true,
+    "discovery_seasons_excluded": true,
+    "mean_delta_at_most": -0.0005
+  },
+  "worst_replication_delta": 0.004053922994690068
+}

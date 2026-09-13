@@ -1,0 +1,58 @@
+{
+  "changes": [
+    {
+      "classification": "notebook_source_or_metadata_change",
+      "head_mode": "100644",
+      "head_sha256": "fce71e07ff3d3936f8b07c1341d13259ae5d7ae2ebe3ea82e282136d879748fd",
+      "index_mode": "100644",
+      "index_sha256": "fce71e07ff3d3936f8b07c1341d13259ae5d7ae2ebe3ea82e282136d879748fd",
+      "path": "notebooks/00_data_audit_and_preparation.ipynb",
+      "staged": false,
+      "symlink": false,
+      "unstaged": true,
+      "worktree_mode": "100644",
+      "worktree_sha256": "18562c09db9f5e94ee828b35c8aefd1130ef797bf59714f4c4769fb5ce29c4c7"
+    },
+    {
+      "classification": "notebook_source_or_metadata_change",
+      "head_mode": "100644",
+      "head_sha256": "ce978bce9a60f56ac9eb61349ff122d6443a0d8135fa6dfd5c2b5e0521008798",
+      "index_mode": "100644",
+      "index_sha256": "ce978bce9a60f56ac9eb61349ff122d6443a0d8135fa6dfd5c2b5e0521008798",
+      "path": "notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb",
+      "staged": false,
+      "symlink": false,
+      "unstaged": true,
+      "worktree_mode": "100644",
+      "worktree_sha256": "5b1c1d42b167c83fca5a6fbdcceb0d350df896f7dd0e139822043e0873138a88"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 242306,
+      "path": "notebooks/00_data_audit_and_preparation.ipynb",
+      "sha256": "18562c09db9f5e94ee828b35c8aefd1130ef797bf59714f4c4769fb5ce29c4c7",
+      "version": "worktree"
+    },
+    {
+      "bytes": 211226,
+      "path": "notebooks/00_data_audit_and_preparation.ipynb",
+      "sha256": "fce71e07ff3d3936f8b07c1341d13259ae5d7ae2ebe3ea82e282136d879748fd",
+      "version": "index"
+    },
+    {
+      "bytes": 65043,
+      "path": "notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb",
+      "sha256": "5b1c1d42b167c83fca5a6fbdcceb0d350df896f7dd0e139822043e0873138a88",
+      "version": "worktree"
+    },
+    {
+      "bytes": 63155,
+      "path": "notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb",
+      "sha256": "ce978bce9a60f56ac9eb61349ff122d6443a0d8135fa6dfd5c2b5e0521008798",
+      "version": "index"
+    }
+  ],
+  "head": "84b8fb36644a6558beded6dad84f5645ea4405d3",
+  "note": "Private local backups only. No repository file, index, branch or stash was altered."
+}

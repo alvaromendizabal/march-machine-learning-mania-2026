@@ -1,0 +1,15 @@
+Gender,feature,most_correlated_anchor,absolute_correlation,training_last_season,selection_changed
+M,diff_quality_points_won,diff_seed,0.88992440449793186,2017,False
+M,diff_quality_points_won_nonhome,diff_seed,0.80379262444333344,2017,False
+M,diff_quality_bad_losses,diff_seed,0.8236214410505952,2017,False
+M,diff_reference_surplus,diff_win_rate,0.94794424823394408,2017,False
+M,diff_reference_surplus_nonhome,diff_win_rate,0.90533870575511133,2017,False
+M,diff_reference_upset_credit,diff_seed,0.89933932202497513,2017,False
+M,diff_reference_bad_loss_cost,diff_win_rate,0.91053550197959143,2017,False
+W,diff_quality_points_won,diff_seed,0.8732888555827506,2017,False
+W,diff_quality_points_won_nonhome,diff_seed,0.77703119684321831,2017,False
+W,diff_quality_bad_losses,diff_seed,0.84032617589107594,2017,False
+W,diff_reference_surplus,diff_win_rate,0.92688516940846488,2017,False
+W,diff_reference_surplus_nonhome,diff_win_rate,0.90604653129425017,2017,False
+W,diff_reference_upset_credit,diff_seed,0.89085106493176369,2017,False
+W,diff_reference_bad_loss_cost,diff_win_rate,0.85863664616544766,2017,False

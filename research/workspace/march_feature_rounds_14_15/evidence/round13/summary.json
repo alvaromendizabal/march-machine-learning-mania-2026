@@ -1,0 +1,54 @@
+{
+  "aws_resources_modified": false,
+  "current_submitted_brier": 0.1222672,
+  "decision": {
+    "automatic_promotion": false,
+    "comparison": "consensus_given_anchor",
+    "decision": "CONSIDER_FIXED_PRODUCTION_RECIPE_TEST",
+    "discovery_years_excluded_from_gate": true,
+    "improved_seasons": 3,
+    "mean_delta": -0.0006879082713373494,
+    "significance_claim": false,
+    "thresholds": {
+      "improved_seasons": 3,
+      "mean_delta": -0.0005,
+      "worst_delta": 0.003
+    },
+    "validation_seasons": [
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "worst_delta": 6.24354579593922e-05
+  },
+  "fingerprint": "ae8e1fa5aa3ac6e5d639ac34426bdf253612bd9ef1609e0001eecf23f8093556",
+  "github_updated": false,
+  "limitations": [
+    "2022-2025 were already used elsewhere in the project; not untouched tests",
+    "Consensus already existed; this is replication, not novel feature discovery",
+    "Fixed compact logistic is not the final pooled XGBoost production recipe",
+    "Main draw excludes First Four and administrative no-contest; not the full competition evaluation",
+    "2020 and 2026 excluded; 2021 main-draw targets selected by seeds, not day>=136",
+    "Different years can publish different sets of ordinal systems; no claim they are independent",
+    "No transfer into the submitted model until a separate fixed-recipe test"
+  ],
+  "local_reuses": 0,
+  "new_classifier_fits": 8,
+  "new_feature_definitions": 0,
+  "new_leaderboard_score": null,
+  "new_rating_fits_in_evaluation": 0,
+  "phase": "later-era consensus feature validation",
+  "raw_modified": false,
+  "repository_modified": false,
+  "research_target_brier": 0.1097454,
+  "status": "COMPLETE",
+  "total_comparisons": 8,
+  "upstream_modified": false,
+  "validation_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ]
+}

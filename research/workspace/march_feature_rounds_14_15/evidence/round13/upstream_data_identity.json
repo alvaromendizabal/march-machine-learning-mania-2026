@@ -1,0 +1,9 @@
+{
+  "current_tournament_targets_excluded": [
+    2020,
+    2026
+  ],
+  "new_label_loader_old_years_compatible": true,
+  "prior_consensus_replays": 4,
+  "prior_report_sha256": "90ff4b6c4992dd138e43b5cae854281bb9818c16733aaf5997840518e4e33aef"
+}

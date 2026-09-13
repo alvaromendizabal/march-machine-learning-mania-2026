@@ -1,0 +1,30 @@
+{
+  "status": "PREPARED_STATIC_REVIEW_ONLY",
+  "python_sources_ast_parsed": 22,
+  "notebooks_json_reviewed": 3,
+  "notebook_code_cells_syntax_parsed": 21,
+  "prepared_test_methods": {
+    "tests/test_publication.py": 15,
+    "tests/test_publication_recovery.py": 22,
+    "rounds_20_21/tests/test_workflow.py": 15,
+    "rounds_20_21/tests/test_features.py": 36
+  },
+  "publication_test_methods": 37,
+  "research_test_methods": 51,
+  "research_files_byte_identical_to_previous_delivery": 28,
+  "scientific_files_changed": [],
+  "project_modules_imported": false,
+  "tests_executed": false,
+  "notebooks_executed": false,
+  "model_fits": 0,
+  "account_writes": false,
+  "aws_filesystem_inspected": false,
+  "known_issue": "The old scanner raised SystemExit before the planner wrote latest_plan.json. Generated tooling caches were not excluded.",
+  "unknowns": [
+    "Exact five blocked source paths remain unknown until local inspect/plan runs.",
+    "New code has not been executed in the local or AWS environment.",
+    "GitHub permissions/network and review gates may stop publication."
+  ],
+  "rules": "The updated user instructions permit file preparation, not executing project tests or experiments.",
+  "publication_repair_runtime_validation": "See PUBLICATION_TOOLS_VALIDATION.json: executed isolated publication tests; no scientific code execution."
+}

@@ -1,0 +1,111 @@
+{
+  "actual_user_report_verified": {
+    "archive": "milestone_13_return.zip",
+    "integrity_members": 23,
+    "new_real_data_experiments": 0,
+    "sha256": "612e67889be9740ddcea79ffa31339007f5b14ef01e572ef590f52081d8c5d9f"
+  },
+  "cloud_compute_launched": false,
+  "github_modified": false,
+  "integration_reuse": {
+    "repository_raw_and_upstream_bytes_preserved": true,
+    "round14": {
+      "classifiers_reused": 16,
+      "feature_snapshots_reused": 12,
+      "new_fits_on_repeat": 0
+    },
+    "round15": {
+      "classifiers_reused": 16,
+      "context_tables_reused": 12,
+      "feature_snapshots_reused": 12,
+      "new_fits_on_repeat": 0
+    }
+  },
+  "limitations": [
+    "No private Kaggle raw data or AWS cache bytes were available for local execution.",
+    "The actual workspace and its pinned versions still need to pass the shipped preflight.",
+    "No synthetic metric is evidence of competition gain; notebooks are delivered without invented executed results.",
+    "Scientific power is limited by reused historical seasons and multiple comparisons.",
+    "Neither experiment tests the full pooled production XGBoost recipe."
+  ],
+  "local_development_issues_resolved": [
+    "An independence test initially matched the year 2014 instead of a round identifier; corrected the test.",
+    "A reporting melt used a value column name already present in the input; changed it and reran all tests.",
+    "Initial HTML table was too wide; narrowed displayed columns and rerendered the final reports."
+  ],
+  "local_environment": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "plotly": "6.5.2",
+    "python": "3.13.5",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0"
+  },
+  "notebooks": [
+    {
+      "delivered_code_cells": 8,
+      "errors": 0,
+      "jinja2_blocked": true,
+      "plotly_outputs": 10,
+      "round": "14",
+      "seconds": 11.195
+    },
+    {
+      "delivered_code_cells": 8,
+      "errors": 0,
+      "jinja2_blocked": true,
+      "plotly_outputs": 10,
+      "round": "15",
+      "seconds": 11.606
+    }
+  ],
+  "recorded_user_environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "plotly": "6.3.1",
+    "python": "3.12.13",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3"
+  },
+  "render_review": {
+    "method": "Chromium rendering of self-contained Plotly HTML",
+    "native_image_export": "Kaleido not installed locally; browser rendering used instead. User workflow does not need image export.",
+    "tables_and_training_overlap_charts_inspected": true
+  },
+  "status": "PASS_LOCAL_SYNTHETIC_VALIDATION",
+  "submission_created": false,
+  "synthetic_fixture_scope": [
+    "68 artificial seeded teams and valid play-in seed format across 12 seasons",
+    "artificial regular/detailed results and ordinal ranking editions",
+    "real frozen fitting and label-selection functions on those synthetic records",
+    "fixture-specific source SHA, input hashes, environment and upstream fingerprints; no alterations to delivered user constraints",
+    "Jinja2 imports blocked during execution of both delivered notebooks",
+    "one extra test-only guard cell, excluded from delivered code-cell counts and artifacts"
+  ],
+  "tests": {
+    "covers": [
+      "ranking clipping and open-interval tails",
+      "cardinal support and finite fields",
+      "common-opponent venue matching and equal weighting",
+      "no common support and absent detailed support",
+      "vectorized-versus-explicit implementation parity",
+      "team-swap and input-order invariance",
+      "future date and target exclusion",
+      "train-only constant-column and RMS handling",
+      "duplicate-input control and gate conditions",
+      "reference model replay and optional old metric compatibility",
+      "CSV dtype round trips and corruption refusal",
+      "source/raw/upstream protection",
+      "independent completion and checkpoint reuse of both full rounds",
+      "actual child-process timeout",
+      "shared exclusive execution lock",
+      "combined archive verification"
+    ],
+    "execution": "python -m unittest discover -s tests -v",
+    "failed_final": 0,
+    "fresh_extract_passed": 69,
+    "fresh_extract_seconds": 11.983,
+    "passed": 69
+  },
+  "utc": "2026-09-12T22:57:11.637405+00:00"
+}

@@ -1,0 +1,70 @@
+{
+  "automatic_promotion": false,
+  "aws_resources_modified": false,
+  "base_snapshots_reused": 7,
+  "component_status": "SKIPPED_BY_GATE",
+  "current_submitted_brier": 0.1222672,
+  "discovery_seasons": [
+    2017,
+    2019
+  ],
+  "fingerprint": "7c59dd8048bdb591651b89273c40b7ae206c344963d9bc9b5411bf3dcb344610",
+  "gate": {
+    "automatic_promotion": false,
+    "decision": "STOP_EXPANSION",
+    "discovery_seasons_excluded": [
+      2017,
+      2019
+    ],
+    "improved_replication_seasons": 1,
+    "mean_delta_replication_only": 0.0017966004454300771,
+    "meaning": "Compute-allocation rule on already-used historical seasons; not significance or production selection",
+    "proceed_to_components": false,
+    "replication_seasons": [
+      2016,
+      2018
+    ],
+    "statistical_significance_claim": false,
+    "thresholds": {
+      "both_additional_seasons_improve": true,
+      "discovery_seasons_excluded": true,
+      "mean_delta_at_most": -0.0005
+    },
+    "worst_replication_delta": 0.004053922994690068
+  },
+  "gender": "W",
+  "github_updated": false,
+  "limitations": [
+    "Discovery years excluded from gate; all seasons previously used in project research",
+    "Overlapping training sets, few seasons and prior feature searches preclude independent-test or significance claims",
+    "Fixed reference classifier is not the final submitted production recipe",
+    "Late-game surprise changes do not identify injuries, causal improvement, or momentum",
+    "No leaderboard gain is established; further temporal-era checks and production transfer needed"
+  ],
+  "local_checkpoint_reuses": 0,
+  "new_classifier_fits_this_execution": 2,
+  "new_component_fits_this_execution": 0,
+  "new_feature_definitions": 0,
+  "new_leaderboard_score": null,
+  "new_rating_fits": 0,
+  "new_replication_fits_this_execution": 2,
+  "phase": "womens_temporal_change_replication",
+  "raw_modified": false,
+  "replication_seasons": [
+    2016,
+    2018
+  ],
+  "repository_modified": false,
+  "research_target_brier": 0.1097454,
+  "status": "COMPLETE",
+  "temporal_snapshots_reused": 7,
+  "unchanged_candidate_features_tested": 2,
+  "upstream_classifier_replays": 6,
+  "upstream_modified": false,
+  "validation_seasons": [
+    2016,
+    2017,
+    2018,
+    2019
+  ]
+}

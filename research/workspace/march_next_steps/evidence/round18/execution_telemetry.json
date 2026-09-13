@@ -1,0 +1,53 @@
+{
+  "scope": "Supervisor telemetry available at report start; no invented measurements for direct test calls",
+  "stages_before_report_finished": {
+    "audit": {
+      "elapsed_seconds": 1.962,
+      "last_progress": {
+        "elapsed_seconds": 1.126,
+        "event": "stage_complete",
+        "round": "18",
+        "stage": "audit",
+        "utc": "2026-09-13T00:54:39Z"
+      },
+      "peak_worker_rss_mib": 272.35,
+      "returncode": 0
+    },
+    "evaluate": {
+      "elapsed_seconds": 2.104,
+      "last_progress": {
+        "elapsed_seconds": 1.316,
+        "event": "stage_complete",
+        "round": "18",
+        "stage": "evaluate",
+        "utc": "2026-09-13T00:54:49Z"
+      },
+      "peak_worker_rss_mib": 195.24,
+      "returncode": 0
+    },
+    "prepare": {
+      "elapsed_seconds": 4.344,
+      "last_progress": {
+        "elapsed_seconds": 3.556,
+        "event": "stage_complete",
+        "round": "18",
+        "stage": "prepare",
+        "utc": "2026-09-13T00:54:47Z"
+      },
+      "peak_worker_rss_mib": 302.13,
+      "returncode": 0
+    },
+    "smoke": {
+      "elapsed_seconds": 1.625,
+      "last_progress": {
+        "elapsed_seconds": 0.829,
+        "event": "stage_complete",
+        "round": "18",
+        "stage": "smoke",
+        "utc": "2026-09-13T00:54:43Z"
+      },
+      "peak_worker_rss_mib": 280.45,
+      "returncode": 0
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "interpretation": "Exploratory four-season bootstrap; reused data, small cluster count, no multiple-testing correction",
+  "mean_delta": -0.00047146586103651716,
+  "percentile_interval_95": [
+    -0.0017698137481504672,
+    0.001009557603906773
+  ],
+  "replicates": 2000,
+  "resampling_unit": "season",
+  "seasons": 4
+}

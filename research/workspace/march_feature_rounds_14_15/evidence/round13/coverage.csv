@@ -1,0 +1,13 @@
+Season,feature_swap_error,median_common_systems,min_common_fraction,minimum_common_systems,potential_pairs,seeded_teams,tournament_labels_used,source,minimum_clean_games,minimum_detailed_coverage,minimum_detailed_games,minimum_systems,new_feature_definitions
+2013,4.4408920985006262e-16,57,0.93442622950819676,57,2278,68,False,upstream_reuse,,,,,
+2014,4.4408920985006262e-16,62,0.93939393939393945,62,2278,68,False,upstream_reuse,,,,,
+2015,4.4408920985006262e-16,57,0.93442622950819676,57,2278,68,False,upstream_reuse,,,,,
+2016,4.4408920985006262e-16,61,0.93846153846153846,61,2278,68,False,upstream_reuse,,,,,
+2017,4.4408920985006262e-16,68,0.94366197183098588,67,2278,68,False,upstream_reuse,,,,,
+2018,4.4408920985006262e-16,63,0.93939393939393945,62,2278,68,False,upstream_reuse,,,,,
+2019,4.4408920985006262e-16,66,0.95652173913043481,66,2278,68,False,upstream_reuse,,,,,
+2021,,,,52,2278,68,False,later_era,15,1,15,52,0
+2022,,,,57,2278,68,False,later_era,25,1,25,57,0
+2023,,,,62,2278,68,False,later_era,27,1,27,62,0
+2024,,,,56,2278,68,False,later_era,29,1,29,56,0
+2025,,,,54,2278,68,False,later_era,27,1,28,54,0

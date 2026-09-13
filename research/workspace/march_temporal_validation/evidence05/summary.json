@@ -1,0 +1,69 @@
+{
+  "ablation_status": "SKIPPED_BY_GATE",
+  "additional_three_seasons_mean_delta": 0.00023875434741482682,
+  "all_four_seasons_mean_delta": -0.00017378085127799092,
+  "automatic_feature_promotion": false,
+  "aws_resources_modified": false,
+  "current_submitted_brier": 0.1222672,
+  "discovery_season": 2018,
+  "fingerprint": "194df0524223e22b87fe4731a4d42bf8a9e02080af9109d26f60396f89eca3f4",
+  "gate": {
+    "automatic_feature_promotion": false,
+    "decision": "STOP_EXPANSION",
+    "discovery_2018_excluded": true,
+    "improved_replication_seasons": 1,
+    "mean_delta_replication_only": 0.00023875434741482682,
+    "meaning": "Heuristic compute-allocation gate; NOT proof, final selection or significance",
+    "proceed_to_ablation": false,
+    "replication_seasons": [
+      2016,
+      2017,
+      2019
+    ],
+    "statistical_significance_claim": false,
+    "thresholds": {
+      "discovery_season_excluded": true,
+      "mean_delta_at_most": -0.0005,
+      "minimum_improved_seasons": 2,
+      "worst_delta_at_most": 0.003
+    },
+    "worst_replication_delta": 0.0013377036159965827
+  },
+  "gender": "W",
+  "github_updated": false,
+  "limitations": [
+    "Already-consumed historical seasons; selected after seeing 2018 result",
+    "Record formulas are heuristic, not official NET/WAB or calibrated probabilities",
+    "Four seasons and overlapping training sets do not support a reliable population confidence interval",
+    "Drop-one effects are conditional predictive effects, not causal importance",
+    "Women-only signal cannot explain or close the entire combined leaderboard gap",
+    "An algorithm-control experiment, not reproduction of the final submitted model"
+  ],
+  "local_classifier_checkpoint_reuses": 0,
+  "new_classifier_fits_this_execution": 5,
+  "new_feature_definitions": 0,
+  "new_leaderboard_score": null,
+  "new_rating_fits": 0,
+  "next_step": "Do not expand this representation; inspect evidence and research a different signal",
+  "notebook_edits_remain_preserved_unresolved": true,
+  "phase": "womens_record_replication_and_gated_attribution",
+  "raw_modified": false,
+  "replication_seasons": [
+    2016,
+    2017,
+    2019
+  ],
+  "repository_source_imported": false,
+  "research_target_brier": 0.1097454,
+  "status": "COMPLETE",
+  "unchanged_record_features_tested": 4,
+  "upstream_classifier_replays": 3,
+  "upstream_modified": false,
+  "uses_2020_2026_targets": false,
+  "validation_seasons": [
+    2016,
+    2017,
+    2018,
+    2019
+  ]
+}

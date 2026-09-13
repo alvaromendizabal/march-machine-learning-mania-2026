@@ -1,0 +1,17 @@
+Season,feature,max_abs_anchor_correlation,most_correlated_anchor,train_last_season,selection_changed
+2016,diff_reference_surplus,0.93641455489106051,diff_win_rate,2015,False
+2016,diff_reference_surplus_nonhome,0.91237838039069996,diff_win_rate,2015,False
+2016,diff_reference_upset_credit,0.87991993323744366,diff_seed,2015,False
+2016,diff_reference_bad_loss_cost,0.87390785723101672,diff_win_rate,2015,False
+2017,diff_reference_surplus,0.93325737272726406,diff_win_rate,2016,False
+2017,diff_reference_surplus_nonhome,0.9140067196089674,diff_win_rate,2016,False
+2017,diff_reference_upset_credit,0.88575546448842901,diff_seed,2016,False
+2017,diff_reference_bad_loss_cost,0.86833667936853554,diff_win_rate,2016,False
+2018,diff_reference_surplus,0.92688516940846488,diff_win_rate,2017,False
+2018,diff_reference_surplus_nonhome,0.90604653129425017,diff_win_rate,2017,False
+2018,diff_reference_upset_credit,0.89085106493176369,diff_seed,2017,False
+2018,diff_reference_bad_loss_cost,0.85863664616544766,diff_win_rate,2017,False
+2019,diff_reference_surplus,0.9276902758751967,diff_win_rate,2018,False
+2019,diff_reference_surplus_nonhome,0.9082967202865363,diff_win_rate,2018,False
+2019,diff_reference_upset_credit,0.88751090004775368,diff_seed,2018,False
+2019,diff_reference_bad_loss_cost,0.85672766322009453,diff_strength,2018,False

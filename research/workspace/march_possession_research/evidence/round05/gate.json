@@ -1,0 +1,22 @@
+{
+  "automatic_feature_promotion": false,
+  "decision": "STOP_EXPANSION",
+  "discovery_2018_excluded": true,
+  "improved_replication_seasons": 1,
+  "mean_delta_replication_only": 0.00023875434741482682,
+  "meaning": "Heuristic compute-allocation gate; NOT proof, final selection or significance",
+  "proceed_to_ablation": false,
+  "replication_seasons": [
+    2016,
+    2017,
+    2019
+  ],
+  "statistical_significance_claim": false,
+  "thresholds": {
+    "discovery_season_excluded": true,
+    "mean_delta_at_most": -0.0005,
+    "minimum_improved_seasons": 2,
+    "worst_delta_at_most": 0.003
+  },
+  "worst_replication_delta": 0.0013377036159965827
+}

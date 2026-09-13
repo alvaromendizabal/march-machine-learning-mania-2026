@@ -1,0 +1,157 @@
+{
+  "status": "PASS_LOCAL_VALIDATION",
+  "utc": "2026-09-12T02:27:15.657639+00:00",
+  "scope": "Local software and numerical validation on synthetic fixtures; not execution against the user's AWS data.",
+  "unit_and_integration_tests": {
+    "tests": 56,
+    "failures": 0,
+    "errors": 0,
+    "first_run_seconds": 8.008,
+    "fresh_extraction_test": {
+      "status": "PASS",
+      "tests": 56,
+      "failures": 0,
+      "errors": 0,
+      "elapsed_seconds": 7.818
+    }
+  },
+  "notebook": {
+    "code_cells_executed": 9,
+    "error_outputs": 0,
+    "inline_plotly_charts": 10,
+    "jinja2_blocked_in_kernel_and_children": true,
+    "first_execution": {
+      "preparation": {
+        "base_snapshots_reused": 7,
+        "matchup_table_reuses": 0,
+        "new_candidates": 2,
+        "new_classifier_fits": 0,
+        "new_matchup_tables": 7,
+        "new_rating_fits": 7,
+        "rating_reuses": 0,
+        "raw_score_margins_used_for_new_ratings": false,
+        "reference_classifiers_replayed": 4,
+        "status": "COMPLETE",
+        "tournament_labels_used_for_new_ratings": false,
+        "tournament_labels_used_to_build_pairs": false
+      },
+      "evaluation": {
+        "local_reuses": 0,
+        "new_classifier_fits": 8,
+        "new_rating_fits_in_evaluation": 0,
+        "total_comparisons": 12,
+        "upstream_replays": 4
+      }
+    },
+    "repeat_execution": {
+      "preparation": {
+        "base_snapshots_reused": 7,
+        "matchup_table_reuses": 7,
+        "new_candidates": 2,
+        "new_classifier_fits": 0,
+        "new_matchup_tables": 0,
+        "new_rating_fits": 0,
+        "rating_reuses": 7,
+        "raw_score_margins_used_for_new_ratings": false,
+        "reference_classifiers_replayed": 4,
+        "status": "COMPLETE",
+        "tournament_labels_used_for_new_ratings": false,
+        "tournament_labels_used_to_build_pairs": false
+      },
+      "evaluation": {
+        "local_reuses": 8,
+        "new_classifier_fits": 0,
+        "new_rating_fits_in_evaluation": 0,
+        "total_comparisons": 12,
+        "upstream_replays": 4
+      }
+    },
+    "scope": "Synthetic fixture with local reference/environment adaptations, not the AWS dataset"
+  },
+  "basketball_sized_numerical_smoke": {
+    "scope": "One synthetic basketball-sized regular season; not real performance data",
+    "teams": 365,
+    "games": 5500,
+    "matchup_pairs": 2278,
+    "elapsed_seconds": 0.084,
+    "diagnostics": {
+      "Season": 2019,
+      "Gender": "M",
+      "regular_games": 5500,
+      "teams": 365,
+      "graph_components": 1,
+      "max_day": 132,
+      "home_logodds": 0.43131575255016813,
+      "iterations": 36,
+      "gradient_max_abs": 1.3910065906896918e-05,
+      "covariance_inverse_error": 1.2212453270876722e-15,
+      "negative_log_posterior": 2480.782389727866,
+      "input_columns": [
+        "Season",
+        "DayNum",
+        "WTeamID",
+        "LTeamID",
+        "WLoc"
+      ],
+      "scores_used": false,
+      "tournament_labels_used": false,
+      "uncertainty_scope": "Laplace approximation conditional on fixed priors and model assumptions"
+    },
+    "pair_support": {
+      "Season": 2019,
+      "Gender": "M",
+      "seeded_teams": 68,
+      "candidate_pairs": 2278,
+      "pair_variance_min": 0.2857400587590684,
+      "pair_variance_max": 0.954171053249722,
+      "quadrature_max_error": 2.220446049250313e-16,
+      "labels_used_to_build_pairs": false
+    }
+  },
+  "local_environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "sklearn": "1.8.0",
+    "plotly": "6.5.2"
+  },
+  "recorded_user_environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "plotly": "6.3.1",
+    "python": "3.12.13",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3"
+  },
+  "fixture_adaptations": [
+    "Temporary synthetic repositories and raw inputs replace private user data.",
+    "Reference commit, input and artifact hashes, reference metrics, and environment constraints are adapted to those temporary fixtures.",
+    "Notebook kernel name is adapted for the local executor; all nine delivered experiment code cells are executed.",
+    "Jinja2 imports are blocked in the notebook kernel and its subprocesses."
+  ],
+  "regression_checks": [
+    "Analytic objective gradient and Hessian finite-difference checks.",
+    "Future/cutoff, duplicate game, population and seed support checks.",
+    "Score columns do not enter the win-loss rating objective.",
+    "Pair covariance and feature antisymmetry.",
+    "Rating and classifier partial interruption / verified resumption.",
+    "Legacy reference log-loss fields recomputed from verified predictions.",
+    "Unexpected source, data, environment and checkpoint changes rejected.",
+    "Hard process deadlines and simultaneous-run exclusion."
+  ],
+  "delivery_notebook_outputs": "Unexecuted template; the executed synthetic notebook is not presented as real research evidence.",
+  "new_real_data_brier": null,
+  "aws_compute_started": false,
+  "aws_resources_changed": false,
+  "github_updated": false,
+  "kaggle_submission_created": false,
+  "limitations": [
+    "No actual AWS run of milestone 10 has occurred in this chat.",
+    "Local library versions differ from the recorded user environment; the production preflight requires the recorded versions.",
+    "Synthetic predictive scores are not evidence of feature quality.",
+    "Laplace rating uncertainty and fixed priors are assumptions, not proof of calibrated forecasts.",
+    "Exploratory 2016\u20132019 tournament seasons have been used repeatedly; this is not untouched validation.",
+    "The fixed compact classifier is not the best submitted production recipe."
+  ]
+}

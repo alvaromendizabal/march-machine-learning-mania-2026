@@ -1,0 +1,115 @@
+{
+  "status": "PASS_LOCAL_VALIDATION",
+  "utc": "2026-09-12T21:51:48Z",
+  "tests": {
+    "count": 52,
+    "status": "PASS",
+    "fresh_extraction_rerun": "PASS: 52 tests"
+  },
+  "input_archive_verification": {
+    "file": "milestone_11_return.zip",
+    "listed_members_checked": 21,
+    "all_sha256_match": true
+  },
+  "notebook": {
+    "delivered_code_cells": 8,
+    "synthetic_validation": true,
+    "jinja2_imports_blocked": true,
+    "passes": [
+      {
+        "pass": 1,
+        "delivered_code_cells": 8,
+        "test_injection_cells": 1,
+        "error_outputs": 0,
+        "plotly_outputs": 10,
+        "prepare": {
+          "base_snapshots_reused": 7,
+          "established_consensus_controls": 1,
+          "matchup_table_reuses": 0,
+          "new_candidate_features": 2,
+          "new_matchup_tables": 7,
+          "new_rank_panels": 7,
+          "new_rating_fits": 0,
+          "new_tournament_classifier_fits": 0,
+          "panel_reuses": 0,
+          "reference_replays": 4,
+          "status": "COMPLETE",
+          "tournament_outcomes_used_for_feature_building": false
+        },
+        "evaluate": {
+          "local_reuses": 0,
+          "new_classifier_fits": 16,
+          "new_rating_fits_in_evaluation": 0,
+          "total_comparisons": 20,
+          "upstream_replays": 4
+        }
+      },
+      {
+        "pass": 2,
+        "delivered_code_cells": 8,
+        "test_injection_cells": 1,
+        "error_outputs": 0,
+        "plotly_outputs": 10,
+        "prepare": {
+          "base_snapshots_reused": 7,
+          "established_consensus_controls": 1,
+          "matchup_table_reuses": 7,
+          "new_candidate_features": 2,
+          "new_matchup_tables": 0,
+          "new_rank_panels": 0,
+          "new_rating_fits": 0,
+          "new_tournament_classifier_fits": 0,
+          "panel_reuses": 7,
+          "reference_replays": 4,
+          "status": "COMPLETE",
+          "tournament_outcomes_used_for_feature_building": false
+        },
+        "evaluate": {
+          "local_reuses": 16,
+          "new_classifier_fits": 0,
+          "new_rating_fits_in_evaluation": 0,
+          "total_comparisons": 20,
+          "upstream_replays": 4
+        }
+      }
+    ]
+  },
+  "scale_test": {
+    "teams": 365,
+    "systems": 100,
+    "field_teams": 68,
+    "potential_pairs": 2278,
+    "rating_fits": 0,
+    "swap_error": 1.1102230246251565e-16,
+    "status": "PASS",
+    "elapsed_seconds": 0.538
+  },
+  "local_environment": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "plotly": "6.5.2",
+    "python": "3.13.5"
+  },
+  "recorded_aws_environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "plotly": "6.3.1",
+    "python": "3.12.13",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3"
+  },
+  "limitations": [
+    "No live AWS filesystem or real competition ranking dataset was executed.",
+    "Synthetic fixture replaces raw hashes, Git state, upstream checkpoints and recorded prior metrics with deterministic test equivalents.",
+    "One test-only import hook cell blocks Jinja2; all eight delivered cells otherwise execute unchanged.",
+    "An initial fixture omitted delta_vs_anchor from its synthetic prior score table; the fixture was corrected before the completed notebook passes.",
+    "The source uses the pinned AWS environment and stops on mismatch instead of installing dependencies.",
+    "These tests do not establish feature value or a leaderboard improvement."
+  ],
+  "github_modified": false,
+  "aws_compute_started": false,
+  "submission_generated": false,
+  "packaged_member_hashes_match": true
+}

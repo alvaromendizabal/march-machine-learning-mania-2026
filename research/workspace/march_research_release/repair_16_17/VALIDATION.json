@@ -1,0 +1,7 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "test_methods_prepared": 59,
+  "tests_executed": false,
+  "notebooks_executed": false,
+  "gate": "User run_tests.py must produce TEST_GATE: PASS before any scientific stages"
+}

@@ -1,0 +1,5 @@
+Season,train_games,validation_games,policy_training_seasons,eligible_train_games,eligible_validation_games
+2016,189,63,1,32,32
+2017,252,63,2,64,32
+2018,315,63,3,96,32
+2019,378,63,4,128,32

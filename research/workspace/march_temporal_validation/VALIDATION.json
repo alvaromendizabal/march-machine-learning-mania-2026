@@ -1,0 +1,73 @@
+{
+  "status": "LOCAL_VALIDATION_PASS",
+  "utc": "2026-09-11T23:58:35.415948+00:00",
+  "unique_tests": 39,
+  "tests_passed": 39,
+  "tests_failed": 0,
+  "test_scope": [
+    "gate exclusion, pass/fail and edge cases",
+    "byte-preserving source/raw/cache checks",
+    "cached model replay and train-only RMS validation",
+    "exact two-fit replication budget",
+    "eight component fits and no-refit resume",
+    "probability and feature-swap invariants",
+    "future-label exclusion from the assembled feature table",
+    "stage hash integrity",
+    "missing/corrupt inputs",
+    "hard timeout and exclusive lock",
+    "no pandas Styler dependency",
+    "privacy filtering of return archives"
+  ],
+  "notebook": {
+    "delivered_code_cells": 8,
+    "executed_code_cells": 8,
+    "error_outputs": 0,
+    "inline_plotly_figures": 10,
+    "html_exported": true,
+    "return_archive_exported": true,
+    "jinja2_imports_blocked_in_kernel_and_child_processes": true,
+    "first_run_new_replication_fits": 2,
+    "second_run_new_replication_fits": 0,
+    "second_run_local_fit_reuses": 2,
+    "upstream_classifier_replays": 6,
+    "new_rating_fits_in_workflow": 0,
+    "natural_synthetic_gate": "STOP_EXPANSION"
+  },
+  "component_branch_test": {
+    "gate_pass_injected_for_software_coverage": true,
+    "new_component_fits": 8,
+    "second_run_new_fits": 0,
+    "second_run_reuses": 8,
+    "plotly_figures": 12
+  },
+  "frozen_sources_match_real_round06_manifest": {
+    "reference_form_workflow.py": true,
+    "form_features.py": true,
+    "frozen/research_workflow.py": true,
+    "frozen/shot_features.py": true
+  },
+  "environment_tested": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "plotly": "6.5.2"
+  },
+  "user_environment_from_report": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "plotly": "6.3.1",
+    "python": "3.12.13",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3"
+  },
+  "limitations": [
+    "Tests used small synthetic data, temporary Git repositories and synthetic numeric-JSON model caches.",
+    "The notebook used its eight original code-cell sources. Test-only repository SHA, manifests and input hashes were adapted to the synthetic fixture; kernel name was python3.",
+    "Local dependency versions differ from the user\u2019s locked environment; the delivered preflight requires the actual returned user versions.",
+    "The forced passed-gate branch validates software behavior, not evidence of feature effectiveness.",
+    "No real AWS execution, new real-data replication score, GitHub update or Kaggle submission was performed."
+  ],
+  "raw_uploaded_report_sha256": "055d9a8c2cfc8160b4d9538c02a30a5b83866e03fc8441a953537cbcabb61a13"
+}

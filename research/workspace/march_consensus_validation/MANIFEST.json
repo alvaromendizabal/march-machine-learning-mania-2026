@@ -1,0 +1,32 @@
+{
+  "scope": "Delivered source, notebook, protocol, tests, constraints, and preserved evidence; no private run artifacts",
+  "sha256": {
+    "13_consensus_later_era.ipynb": "0c125a2223176327ac82c373b138e7ec0ee154d27a057cc131625dccbd2724a8",
+    "MILESTONE_12_REVIEW.md": "d643eea3c40bfec0b186b7e6a7582455bdddf155a654bee5c266aed63d9433de",
+    "RESEARCH_PLAN.md": "d53e865646f9c779d6692bc346777a6e2524f37192384fd323f1d9da48afa8f3",
+    "SOURCE_NOTICE.md": "b125148e1ab9c29f70905d41032256d6b68badafc743528c6433d0542070df86",
+    "START_HERE.md": "7aedd4d6e5939e58c70f77350f16bf19eb89fb803eaa5a4c44d4f381e90e6b31",
+    "VALIDATION.json": "0d9072c0953cf3f6f844403040cf215b7b5b095da078d0d010a7a7bf8be62382",
+    "consensus_features.py": "2b945d7bef821c924287e303f35158bafe8a39ab55ee49364e18829456e56a65",
+    "consensus_plots.py": "b902a28dcb774e11bea5cf81d78383b6fa5f95d1510990dc996ee795e4b43df4",
+    "consensus_workflow.py": "e12debe32d5ed2eda20e0e264e4a7e4dde607dd8c9352bca98efa6ff785968f8",
+    "constraints.json": "91939b135a24f59624cab8ca0c7919da74c19693c15455e44f415c05bc51dcc4",
+    "evidence/round12/ablations.csv": "436353de56b8e459d5d37f094515b4e281f8106de97439c78ba6bc91d976deee",
+    "evidence/round12/decisions.json": "7b4b3cb08c44371a920cbb6086e400e856d46fcf180ba52c292dd9b5b073b570",
+    "evidence/round12/evaluation_hashes.json": "9a5c2833aaf1206d77d122e686431a6306654c9aaf9b10dfe382d639cfaaeb31",
+    "evidence/round12/evaluation_receipt.json": "d41b1e655155c3579c129aa112ad267e1bad2f1e3770ab572381c295a7535e80",
+    "evidence/round12/manifest.json": "2aa4c0b7a02e3bbf9c4a73aee411141c27ebe5fa5bb06902f7a99645540061b4",
+    "evidence/round12/metrics.csv": "7e952b7643d68d39599951f2c88777fc48a726bbb5e8eec19ef1227c7300b1dc",
+    "evidence/round12/prepare.json": "d6519eddda8bc6d6e4ff6ef0c0b0ff6a88633e7833a632019b460743c6ecd4d3",
+    "evidence/round12/prepare_hashes.json": "6af5aa5425ca6539104c53c1fa7d6e7b43ae24d38f1ffe457db295836a6b3913",
+    "evidence/round12/return_integrity.json": "3c1c54fabf7a7eb85b3856213a6cc816ccc890b35983290428a6c465d012d459",
+    "evidence/round12/summary.json": "7e2a3ca81666c93cafad0f07ce9542b2ec34652663929d9682400e943bc8e002",
+    "frozen/ranking_features_round12.py": "71d7800a7c295eb1d28166273cdb87dbe19a0bdddc1d65be8f2a67963d7bb923",
+    "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+    "research_io.py": "5d6ce0c5b00654ca993c3b5aca668ce41306f24c21adc4e0dd1bf50eb4781be0",
+    "run_round13.py": "174c70732b392b2055cde084ec2221871a531b6591fe29e0ef83091ddb4f2f36",
+    "tests/fixtures.py": "99b74d6e1f4669a32d7d6f8d43cce16f417bcdf95721524f2395d6d5e259203b",
+    "tests/test_consensus.py": "01abb29047be926d5859b791a55caeb5edea07c0bf6e794c04b5b5e35bce6ae0"
+  }
+}

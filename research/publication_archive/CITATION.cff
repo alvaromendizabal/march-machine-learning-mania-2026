@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "Please attribute this case study to Alvaro Mendizabal."
+title: "NCAA Tournament Forecasting: A Feature-First Research Case Study"
+authors:
+  - family-names: "Mendizabal"
+    given-names: "Alvaro"
+type: software

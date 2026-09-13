@@ -1,0 +1,13 @@
+Gender,Season,recipe,brier,source
+M,2016,anchor,0.2128403884710906,upstream_replay
+M,2016,anchor_bt,0.21324142118770359,new_fit
+M,2016,anchor_bt_uncertainty,0.21403286039273572,new_fit
+M,2017,anchor,0.17332337005126941,upstream_replay
+M,2017,anchor_bt,0.17358613986496596,new_fit
+M,2017,anchor_bt_uncertainty,0.17340452817861191,new_fit
+M,2018,anchor,0.19906608300963743,upstream_replay
+M,2018,anchor_bt,0.19855599749690422,new_fit
+M,2018,anchor_bt_uncertainty,0.19857495370420236,new_fit
+M,2019,anchor,0.17320192076291752,upstream_replay
+M,2019,anchor_bt,0.17184940280585886,new_fit
+M,2019,anchor_bt_uncertainty,0.17115730179881761,new_fit

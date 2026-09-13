@@ -1,0 +1,32 @@
+{
+  "sha256": {
+    "metrics.csv": "e3f1433dc81c4dfb80cd2f770579e6bbdd5fa8329cd18b14ed96fdff8ff96a57",
+    "ablations.csv": "dcca21e623e8d5ee23c1a211af2be3ebce427c181462c4af753306b22cacf708",
+    "aggregate.csv": "8b3fb52426cc298ff6b243e4dfa6cf011d611841253b290def375915ee4fc309",
+    "decisions.json": "4bff93ac65297a9d96bafa538585099bf81ecfcb6013350f47e8ee4700363caf",
+    "coefficients.csv": "4e9a2328fa4ad76b6113b53e07f05a09df550ca3282b177de8f314b63b6c18c6",
+    "training_overlap.csv": "03655db3841728d9f90e378585bc73bcf936e54accc0c4149cb42e7459216b45",
+    "calibration.csv": "e5197494c3d61d4f936f1247d972436e59ce5cd797d971db5bb5de0ac0f59483",
+    "evaluation_receipt.json": "584305ea33e7efd41f2fadcb3dba83745028c49428b6829bd94f0569487e9854",
+    "summary.json": "d143846579bc7253916f645207e6a5d44f5396d5e6c61e2eefced7643cf890f2",
+    "prepare.json": "2648168c40f248ecac59884bc2df084d3bd442fd20909593b1fd725da7e60087",
+    "coverage.csv": "1082ee5e105273c8c6c5c8b30c073390d847fa8bd78b6b5ecf35586c74a310ce",
+    "feature_registry.csv": "70385fe2a4eb37c667fba90ddd39928b1626a471333ca146f42561751e3866e7",
+    "prior_replay.csv": "0ee1bad91a142a061c4e75d1e1ba8013088181b39850ab0adbced5a5dd252028",
+    "rating_diagnostics.csv": "2db67ca462b35946e3e33ab6445d3ea504d993253a152881b35be46fafe2a967",
+    "optimization_trace.csv": "c3211184c1bf3191ddd7fb1b007383431094973d5315d25508db0a7bb39fc115",
+    "prior_results_check.json": "d7bb88d72ba3c3de04725aefd30f4678270abe02ef1de4e4bf3ed3006d24c34d",
+    "preflight.json": "1ca3d1c41fe9c62c66bb7719fed5197435e5d8063b64d7a6cdc7e4c796df3af1",
+    "manifest.json": "62cfcceb47bd07046876952ae02d16a919922764a5ec4c077642f2aeb83ddaa3",
+    "prepare_hashes.json": "57c435c92d444fff3419fa1fb1b3cc68d6bb63887cf1698fa60bf3b9422e7571",
+    "evaluation_hashes.json": "81a7d5a378fd3b2fde54db734f623af951a042944812b45316bffaa2a7606115",
+    "prior_milestone_10_return.zip": "9dcfaf073b72de7105011d45e4cd7f3a42a74ac8c961c449ba053da51bebb86c"
+  },
+  "excluded": [
+    "raw rows",
+    "rating models/covariance",
+    "classifier models",
+    "individual predictions",
+    "private notebooks"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "status": "STATIC_REVIEW_ONLY",
+  "date": "2026-09-12 America/Los_Angeles",
+  "project_modules_imported": false,
+  "project_tests_run": false,
+  "project_notebooks_executed": false,
+  "cloud_actions": false,
+  "github_writes": false,
+  "new_experimental_metrics": null,
+  "prepared_test_methods": {
+    "tests": 8,
+    "repair_16_17/tests": 59,
+    "rounds_18_19/tests": 56
+  },
+  "notebooks": [
+    {
+      "notebook": "rounds_18_19/18_rebounding_and_assists.ipynb",
+      "prepared_code_cells": 7,
+      "executed": false
+    },
+    {
+      "notebook": "rounds_18_19/19_scoring_source_dependence.ipynb",
+      "prepared_code_cells": 7,
+      "executed": false
+    },
+    {
+      "notebook": "repair_16_17/16_turnover_mechanisms.ipynb",
+      "prepared_code_cells": 6,
+      "executed": false
+    },
+    {
+      "notebook": "public_portfolio/notebooks/portfolio_results.ipynb",
+      "prepared_code_cells": 3,
+      "executed": false
+    }
+  ],
+  "static_checks": [
+    "Python source parsed with ast.parse",
+    "Notebook code cells parsed, output arrays empty",
+    "JSON syntax parsed",
+    "Package file hashes recorded"
+  ],
+  "limitations": [
+    "Static review cannot certify numerical behavior or execution compatibility",
+    "No raw affected turnover game rows were supplied; exclusion fractions remain unknown",
+    "User must run tests and all-season audit before fitting",
+    "Public code is inherently copyable; prior MIT permissions/copies cannot be recalled",
+    "Private staging is a reviewed source snapshot, not a full data/model backup or automatic account synchronization"
+  ]
+}

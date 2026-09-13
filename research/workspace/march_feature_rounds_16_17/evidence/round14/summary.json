@@ -1,0 +1,53 @@
+{
+  "aws_resources_modified": false,
+  "current_submitted_brier": 0.1222672,
+  "decision": {
+    "automatic_promotion": false,
+    "comparison": "both_given_reference",
+    "decision": "DO_NOT_PROMOTE",
+    "duplication_sensitivity_pass": false,
+    "improved_seasons": 2,
+    "mean_delta": 9.795463368914015e-05,
+    "mean_delta_vs_duplicate": 0.0004926951838295085,
+    "significance_claim": false,
+    "thresholds": {
+      "improved_seasons": 3,
+      "mean_delta": -0.0005,
+      "worst_delta": 0.003
+    },
+    "validation_seasons": [
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "worst_delta": 0.005474925387208146
+  },
+  "fingerprint": "132ac33a2b5ef29fcbe906e37df9726f2d0d559bec6b59f26acc084d985f0842",
+  "github_updated": false,
+  "limitations": [
+    "Previously used later-era history, not untouched holdout",
+    "Men-only main draw, not full competition evaluation",
+    "Fixed compact logistic, not the final pooled 128-input XGBoost recipe",
+    "Four copied-input columns are diagnostic controls, not candidate features",
+    "Round 15 is not conditioned on round 14 results; no cross-round selection or ensemble",
+    "Correlations and duplicated-input control do not establish causal or independent predictive information"
+  ],
+  "local_reuses": 0,
+  "new_candidate_definitions": 4,
+  "new_classifier_fits": 16,
+  "new_leaderboard_score": null,
+  "new_rating_fits": 0,
+  "reference_replays": 4,
+  "repository_modified": false,
+  "research_target_brier": 0.1097454,
+  "round": "14",
+  "status": "COMPLETE",
+  "total_comparisons": 20,
+  "validation_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ]
+}

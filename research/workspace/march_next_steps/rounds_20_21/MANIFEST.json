@@ -1,0 +1,32 @@
+{
+  "sha256": {
+    "20_pace_and_variance.ipynb": "79e553dd79aa0f2719201737f380c675ec99272b39577cf335fac88313d2f76c",
+    "21_opponent_style_responses.ipynb": "d42530a9b0489a224f8026a620f541679516a9c014960452501534bdc2c27e14",
+    "ROUND_20_PROTOCOL.md": "8a2efbe3d86bcedbcbec695e660daccdef8e028b06654a902b1bdf85dc2c3cfe",
+    "ROUND_21_PROTOCOL.md": "e60a1379e2c9cc0fae20c9b2cfec7d2e874b34907ccf315171c86b97016179c0",
+    "constraints.json": "6c7eea4214810b9c0ac9445539a11394f02b67b441cf39939d2554ea2fe55040",
+    "evidence/round17/decisions.json": "31e2d562012d69d153c56a26345e95a0ce50f2dda221c2ed691aaac2be1f8829",
+    "evidence/round17/evaluation_receipt.json": "bea1fb83f861544410ed329201e7fa567a2bfe7dfee6865f2378b4aa80829e31",
+    "evidence/round17/metrics.csv": "fb301041c91759cf878418073aa0cafec59cf8608105b9e69e9e29cc74769b7e",
+    "evidence/round18/decisions.json": "75cad518d8c73c760c0180ae910922cb02b2f83de830bd4cb1c2ec513597b62e",
+    "evidence/round18/evaluation_receipt.json": "5dacf3bd32f309643fff0f2cdc17e1f9b387e66a31d971d05601dc1c3c1465a0",
+    "evidence/round18/metrics.csv": "97febe9e86d3f86ef53d14fa2f20c485579fac693c459a1ab613e41c3e260789",
+    "evidence/round19/decisions.json": "f0e871fe3273076d5bd9e8e34832a3d04d4491ac8e7d848619f095287dfc38c5",
+    "evidence/round19/evaluation_receipt.json": "944763fe8a1c34070bc83b20bd0d4f71d1edee31a7d3b6d879c662628d93e467",
+    "evidence/round19/metrics.csv": "df140c678375a512bbdfdfb6e4a9e5f37d3682d8f6f86fdde4abfbdf30623b47",
+    "feature_rounds.py": "6acd8c8a8405c81358fa6887437dec3bfe40de4f678ba6cd7129e7950dd8c552",
+    "frozen/consensus_reference.py": "2b945d7bef821c924287e303f35158bafe8a39ab55ee49364e18829456e56a65",
+    "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+    "package_returns.py": "0b5603753e9189d66bf7da8206657652705aa048d56ed0617b515a58ecdcf918",
+    "research_io.py": "5d6ce0c5b00654ca993c3b5aca668ce41306f24c21adc4e0dd1bf50eb4781be0",
+    "round_plots.py": "35e6cc58cf86820b8519d474c69d6683977f82119ba2cdcd36252b9ad79c4544",
+    "round_workflow.py": "176ae250f73687f40f2cda1529ae32eaf8f8251957ba9f3716374aacb9168c8c",
+    "run_round.py": "75a9b790bee6c58418351e234973df8398c1cea87f0af6478eef484115172531",
+    "run_tests.py": "590d4608c206ae214fd6aff08d9d36c325ecd558c52e0f1c9e37d5edc1efb067",
+    "tests/fixtures.py": "6b9c01503bc885fccbcfce3064b7fbb4954e4ad1f9e5cc2bc4f12977c6d13d69",
+    "tests/test_features.py": "bb984e012f888786721618d2284f69233c70909797d76171e91d6cf22270787a",
+    "tests/test_workflow.py": "61512474a627e4e26f09b1635ec1d3f92b91b07711aef34d1a9aa9dfbb179f0a"
+  },
+  "validation": "Prepared/static only; execute run_tests.py before science."
+}

@@ -1,0 +1,32 @@
+{
+  "sha256": {
+    "metrics.csv": "5e200d33685e2f131a1e1a1c1972542378bc2204d2c6a83b563d90541807fb13",
+    "ablations.csv": "af724b01155eb7d7837293f32ed116f5b61de19c9713cc0380d231e84de833cd",
+    "decisions.json": "f86323169d4aed921993cc889cc9542a8445f0df3568fbbdaf972d2c69b02d83",
+    "coefficients.csv": "f58e3bb4e060df5e24ace50ae45ce2314f128596473947fc27cf8d21240bfd78",
+    "calibration.csv": "759a3dd530d8d24dd2494ef8c176981ce6accfb757a23ac57576acb2e8028ccb",
+    "training_overlap.csv": "9b67d753db536b6424465a337a6fe6922ff102d68631959e16fe4162f3bd6f4b",
+    "aggregate.csv": "a87e3f47d87d8d7cc96fd280f455ba0a16608dc52181e3e8450f56ee3fccd1ae",
+    "paired_loss_bins.csv": "86d2fc0c72c7f203a25ef2f5a721d962745c91b97e9f974382dc2baf36618d0d",
+    "season_sensitivity.csv": "135b1e55ffcc408d1f72d996f3743e74b1ac7fa70b8fb15f5b5fa5f83ff25837",
+    "support_diagnostics.csv": "81bc0cc38916170b5fb440bc5f4ce1c6f13dce89e58e49e4af5d71d0040d7556",
+    "evaluation_receipt.json": "b3397a2065399ef1176fee2b76b25103b099b1205d39f0668b3a6282e528e9eb",
+    "summary.json": "7ea12216835c1e4b071742c5d5aba6986aa791ca2e7be431721104e673a0e10c",
+    "prepare.json": "e2dd0e79bf1be2743180516904a73a37476fa666a411d2badad19593a243adeb",
+    "coverage.csv": "97a81543eb82901cbb100e6d3825b30e79c1c49cdda54dd9b2853bcd166af5c7",
+    "feature_registry.csv": "1fe6d667bcbb169335be0d3b7139d080f413ad8fc7c9a95256b04f99035a2130",
+    "prior_replay.csv": "10df05577df4a0b4be0de62ae5d3ab9a71ba8074a077e9cfab5398af3ad916c0",
+    "label_audit.csv": "b254c824e855d8b13be595d4b07fe485f4252e42b78d2f75e84a714820519f02",
+    "preflight.json": "609db552255f250a796551230d20e488a4c0f6c36c37b31f141b2a5a432edfb9",
+    "manifest.json": "0067afd9677a14fe30c79e788e6472ccced234980cd87676412235f436868ddb",
+    "prepare_hashes.json": "1f8e199325cc0241941fcb412c8f0aef253d465a98e61a9396f914845ac542f0",
+    "evaluation_hashes.json": "46911b24c690603844453de6384ca9616a48a95e6deac1a5d6503448c0570ec8"
+  },
+  "excluded": [
+    "raw rows",
+    "fitted models",
+    "per-game predictions",
+    "team profiles",
+    "private edited notebooks"
+  ]
+}

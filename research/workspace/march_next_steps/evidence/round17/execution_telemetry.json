@@ -1,0 +1,41 @@
+{
+  "scope": "Supervisor telemetry available at report start; no invented measurements for direct test calls",
+  "stages_before_report_finished": {
+    "evaluate": {
+      "elapsed_seconds": 2.089,
+      "last_progress": {
+        "elapsed_seconds": 1.298,
+        "event": "stage_complete",
+        "round": "17",
+        "stage": "evaluate",
+        "utc": "2026-09-13T00:03:04Z"
+      },
+      "peak_worker_rss_mib": 196.27,
+      "returncode": 0
+    },
+    "prepare": {
+      "elapsed_seconds": 4.396,
+      "last_progress": {
+        "elapsed_seconds": 3.598,
+        "event": "stage_complete",
+        "round": "17",
+        "stage": "prepare",
+        "utc": "2026-09-13T00:03:02Z"
+      },
+      "peak_worker_rss_mib": 316.5,
+      "returncode": 0
+    },
+    "smoke": {
+      "elapsed_seconds": 1.605,
+      "last_progress": {
+        "elapsed_seconds": 0.813,
+        "event": "stage_complete",
+        "round": "17",
+        "stage": "smoke",
+        "utc": "2026-09-13T00:02:57Z"
+      },
+      "peak_worker_rss_mib": 318.04,
+      "returncode": 0
+    }
+  }
+}

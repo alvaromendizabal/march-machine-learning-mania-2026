@@ -1,0 +1,71 @@
+{
+  "status": "PASSED_LOCAL_SYNTHETIC_VALIDATION",
+  "unit_integration_tests": 38,
+  "test_log": "validation_tests.txt",
+  "delivered_notebook_code_cells_executed": 9,
+  "inline_plotly_charts": 10,
+  "notebook_error_outputs": 0,
+  "jinja2_imports_blocked": true,
+  "supervisor_used_for_notebook_stages": true,
+  "first_execution": {
+    "new_early_rating_fits": 14,
+    "new_classifier_fits": 13,
+    "upstream_anchor_replays": 3,
+    "comparisons": 16
+  },
+  "repeat_integration_execution": {
+    "new_early_rating_fits": 0,
+    "new_classifier_fits": 0,
+    "early_rating_checkpoint_reuses": 14,
+    "classifier_checkpoint_reuses": 13,
+    "upstream_anchor_replays": 3
+  },
+  "protection_tests": [
+    "future game/target exclusion",
+    "post-cutoff exclusion",
+    "late data cannot change early ratings",
+    "train-only scaling replay",
+    "team swap",
+    "checkpoint corruption",
+    "missing upstream",
+    "raw/source/environment mismatch",
+    "hard timeout",
+    "concurrent-run refusal"
+  ],
+  "local_environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "plotly": "6.5.2",
+    "nbformat": "5.10.4",
+    "nbclient": "0.10.4"
+  },
+  "real_data_environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "plotly": "6.3.1",
+    "python": "3.12.13",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3"
+  },
+  "source_sha256": {
+    "form_features.py": "56ae02d1821f388c401d6a1d9cc418a003232ceeed928c24bcb07bb7d89c8b2d",
+    "form_workflow.py": "34ff76c7aa33f122d409e6a676fdcd1ee247f5bfd5b767f2f58fef55b9c2a85f",
+    "form_plots.py": "059cb75f10f13ce1c58c83adecef1ee93c30f7341bc8ef16139d5280c1e42a25",
+    "run_round06.py": "dcc24d48d23410d6904e8692d8b07dceb0c30ef8a51fe1be1126759177648d57",
+    "06_temporal_form_features.ipynb": "71d77e6d686321c248bc33e245e73bed7ff1a6da7510a30e00fa39ceb9456f82"
+  },
+  "scope": "Software tests and notebook execution on tiny synthetic fixtures. No actual competition input data or user cloud execution.",
+  "fixture_adaptations": "Test-only copied frozen helper used a synthetic Git SHA and missing-Jinja2 import hook; one scaffolding notebook cell installed the import blocker. The nine delivered cells and real stage supervisor then executed. These fixture adaptations are not shipped.",
+  "validation_harness_note": "Initial bootstrap attempt did not activate the blocker because this container has its own startup hook. The fixture-only bootstrap was corrected and validation rerun; delivered feature code was not changed for that harness issue.",
+  "limitations": [
+    "Local dependency versions differ from the archived AWS environment; runtime checks enforce the archived versions there.",
+    "Real-data preparation and metrics remain unexecuted in this response.",
+    "Passing these tests does not demonstrate predictive gains or research completion."
+  ],
+  "github_updated": false,
+  "aws_compute_started": false,
+  "new_leaderboard_score": null
+}

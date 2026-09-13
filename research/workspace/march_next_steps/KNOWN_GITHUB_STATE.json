@@ -1,0 +1,16 @@
+{
+  "scope": "Read-only connector observations during this response; not AWS synchronization",
+  "repository": "alvaromendizabal/march-machine-learning-mania-2026",
+  "main": "003866894315df393abb481f7e0bf41f9162c51f",
+  "pr23_merged": true,
+  "pr23_changed_files": 6,
+  "pr23_scope": "README and evidence-only portfolio, not a private source transfer",
+  "pr23_workflow_run": 34731487540,
+  "pr23_checks": {
+    "notebook-publication": "success",
+    "quality": "success"
+  },
+  "aws_inspection": "BLOCKED_BEFORE_FILESYSTEM_ACCESS",
+  "private_repository_lookup": "NOT_ACCESSIBLE_404_NOT_PROOF_OF_ABSENCE",
+  "new_account_writes_in_this_turn": false
+}

@@ -1,0 +1,26 @@
+feature,family,description,new_candidate,cutoff_day,swap_parity,uses_tournament_labels
+rank_midpoint_logit_correction,tail_resolution,Midpoint-logit team gap minus the clipped-consensus gap,True,132,-1,False
+rank_normal_quantile_correction,tail_resolution,Logistic-variance-scaled normal-quantile gap minus clipped-consensus gap,True,132,-1,False
+rank_mapped_margin_gap,cardinal_mapping,Consensus plotting-position mapped to contemporaneous league margin-strength quantiles,True,132,-1,False
+rank_mapped_efficiency_gap,cardinal_mapping,Consensus plotting-position mapped to contemporaneous league adjusted-net-efficiency quantiles,True,132,-1,False
+diff_seed,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_strength,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_schedule_strength,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_win_rate,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_margin,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_margin_sd,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_adj_offense,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_adj_defense,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_two_posterior,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_three_posterior,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_free_posterior,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_opp_two_posterior,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_opp_three_posterior,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_opp_free_posterior,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_three_share,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_opp_three_share,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diff_rank_consensus_logit,reference,Unchanged round-13 consensus reference,False,132,-1,False
+diagnostic_duplicate_0,diagnostic_duplicate,"Exact copied input; tests representation/regularization sensitivity, not new information",False,132,-1,False
+diagnostic_duplicate_1,diagnostic_duplicate,"Exact copied input; tests representation/regularization sensitivity, not new information",False,132,-1,False
+diagnostic_duplicate_2,diagnostic_duplicate,"Exact copied input; tests representation/regularization sensitivity, not new information",False,132,-1,False
+diagnostic_duplicate_3,diagnostic_duplicate,"Exact copied input; tests representation/regularization sensitivity, not new information",False,132,-1,False

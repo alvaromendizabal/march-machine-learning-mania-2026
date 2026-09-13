@@ -1,0 +1,37 @@
+{
+  "decisions": [
+    {
+      "Gender": "M",
+      "automatic_promotion": false,
+      "comparison": "huber_given_anchor",
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": -0.00019872985613566402,
+      "primary": true,
+      "significance_claim": false,
+      "thresholds": {
+        "improved_seasons": 3,
+        "mean_delta": -0.0005,
+        "worst_delta": 0.003
+      },
+      "worst_delta": 0.0005179001614359358
+    },
+    {
+      "Gender": "M",
+      "automatic_promotion": false,
+      "comparison": "compression_given_huber",
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 3,
+      "mean_delta": -0.00030312502616334364,
+      "primary": false,
+      "significance_claim": false,
+      "thresholds": {
+        "improved_seasons": 3,
+        "mean_delta": -0.0005,
+        "worst_delta": 0.003
+      },
+      "worst_delta": 0.0005744478271068887
+    }
+  ],
+  "primary_cannot_be_replaced_by_best_secondary": true
+}

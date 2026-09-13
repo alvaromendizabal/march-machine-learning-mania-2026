@@ -1,0 +1,31 @@
+test_assume_unchanged_edits_are_not_lost (test_workspace_sync.Tests.test_assume_unchanged_edits_are_not_lost) ... ok
+test_audit_checkpoint_reuse (test_workspace_sync.Tests.test_audit_checkpoint_reuse) ... ok
+test_bad_schema_recorded (test_workspace_sync.Tests.test_bad_schema_recorded) ... ok
+test_child_process_timeout (test_workspace_sync.Tests.test_child_process_timeout) ... ok
+test_clean_fast_forward (test_workspace_sync.Tests.test_clean_fast_forward) ... ok
+test_copy_never_overwrites (test_workspace_sync.Tests.test_copy_never_overwrites) ... ok
+test_copy_resumable_verified (test_workspace_sync.Tests.test_copy_resumable_verified) ... ok
+test_current_tourney_outcomes_flagged (test_workspace_sync.Tests.test_current_tourney_outcomes_flagged) ... ok
+test_full_audit_outputs_no_training (test_workspace_sync.Tests.test_full_audit_outputs_no_training) ... ok
+test_ignored_upstream_collision_rejected (test_workspace_sync.Tests.test_ignored_upstream_collision_rejected) ... ok
+test_massey_post132_not_counted_as_legal (test_workspace_sync.Tests.test_massey_post132_not_counted_as_legal) ... ok
+test_merged_feature_branch_switches_safely (test_workspace_sync.Tests.test_merged_feature_branch_switches_safely) ... ok
+test_missing_data_stops (test_workspace_sync.Tests.test_missing_data_stops) ... ok
+test_missing_repo_rejected (test_workspace_sync.Tests.test_missing_repo_rejected) ... ok
+test_raw_and_checkpoints_unchanged (test_workspace_sync.Tests.test_raw_and_checkpoints_unchanged) ... ok
+test_remote_changed_stops_without_checkout (test_workspace_sync.Tests.test_remote_changed_stops_without_checkout) ... ok
+test_repeat_sync_preserves_old_stash (test_workspace_sync.Tests.test_repeat_sync_preserves_old_stash) ... ok
+test_skip_worktree_entries_stop (test_workspace_sync.Tests.test_skip_worktree_entries_stop) ... ok
+test_staged_and_unstaged_notebooks_preserved (test_workspace_sync.Tests.test_staged_and_unstaged_notebooks_preserved) ... ok
+test_unmerged_local_commit_stops_before_stash (test_workspace_sync.Tests.test_unmerged_local_commit_stops_before_stash) ... ok
+test_untracked_file_preserved (test_workspace_sync.Tests.test_untracked_file_preserved) ... ok
+test_untracked_upstream_collision_rejected (test_workspace_sync.Tests.test_untracked_upstream_collision_rejected) ... ok
+test_wrong_origin_rejected (test_workspace_sync.Tests.test_wrong_origin_rejected) ... ok
+test_zip_duplicate_basename_rejected (test_workspace_sync.Tests.test_zip_duplicate_basename_rejected) ... ok
+test_zip_symlink_rejected (test_workspace_sync.Tests.test_zip_symlink_rejected) ... ok
+test_zip_traversal_rejected (test_workspace_sync.Tests.test_zip_traversal_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 1.945s
+
+OK

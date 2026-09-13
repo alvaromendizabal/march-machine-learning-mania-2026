@@ -1,0 +1,12 @@
+{
+  "protocol": "retrospective-feature-capacity",
+  "capacities": [32, 64, 128, 256],
+  "reference_capacity": 128,
+  "first_training_season": 2013,
+  "validation_seasons": [2016, 2017, 2018, 2019, 2021],
+  "minimum_inner_seasons": 2,
+  "models": ["logistic", "hist"],
+  "seed": 2026,
+  "threads": 2,
+  "heartbeat_seconds": 15
+}

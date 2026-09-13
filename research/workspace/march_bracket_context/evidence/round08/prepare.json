@@ -1,0 +1,13 @@
+{
+  "base_snapshots_reused": 14,
+  "baseline_replays": 7,
+  "basic_rate_controls": 6,
+  "local_snapshot_reuses": 14,
+  "new_classifier_fits": 0,
+  "new_mechanistic_definitions": 4,
+  "new_rate_snapshots": 0,
+  "new_rating_fits": 0,
+  "snapshot_functions_read_tournament_labels": false,
+  "status": "COMPLETE",
+  "tournament_labels_used_for_replay_only": true
+}

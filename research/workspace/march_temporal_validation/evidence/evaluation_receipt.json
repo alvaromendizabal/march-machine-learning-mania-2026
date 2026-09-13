@@ -1,0 +1,7 @@
+{
+  "local_checkpoint_reuses": 0,
+  "new_classifier_fits": 13,
+  "status": "COMPLETE",
+  "total_comparisons": 16,
+  "upstream_anchor_replays": 3
+}

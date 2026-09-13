@@ -1,0 +1,57 @@
+{
+  "aws_preflight_requires_exact_milestone02_environment": true,
+  "aws_resources_modified": false,
+  "github_modified": false,
+  "limitations": [
+    "Local tests used synthetic competition-shaped data, not the real AWS raw tables.",
+    "Local package versions differ from the AWS versions; execute the same tests in the existing March Mania kernel.",
+    "The notebook replay gate must verify all eight real 2019 streams before any new fit.",
+    "The pinned upstream private cache is not contained in this ZIP; it must remain in the existing AWS space.",
+    "No claim of improved Brier or feature generalization follows from software tests."
+  ],
+  "local_test_versions": {
+    "nbclient": "0.10.4",
+    "nbformat": "5.10.4",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "plotly": "6.5.2",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0"
+  },
+  "new_kaggle_score": null,
+  "notebook_execution": {
+    "code_cells_executed": 9,
+    "error_outputs": 0,
+    "fixture_scope": "Synthetic data and fixture-only commit/raw hashes, same executable formulas, production data not present",
+    "html_created": true,
+    "inline_plotly_figures": 10,
+    "new_classifier_fits": 8,
+    "return_zip_created": true
+  },
+  "real_user_data_experiment_executed_by_assistant": false,
+  "repeat_run_verified": {
+    "classifier_fits_reused": 8,
+    "new_classifier_fits_second_pass": 0,
+    "new_feature_snapshots_reused": 12,
+    "upstream_snapshot_rebuilds": 0
+  },
+  "repository_bytes_preserved_in_integration_test": true,
+  "unit_and_integration_tests": {
+    "failed": 0,
+    "log": "validation_test_log.txt",
+    "passed": 36,
+    "tests": 36
+  },
+  "validated_at_utc": "2026-09-11T22:37:00.693183+00:00",
+  "validated_python_source_sha256": {
+    "reference/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "reference/run_round02.py": "e28d267f3cfc72a2a67561135265bc1d4b33370d56016707c6e73d9b98c65fda",
+    "reference/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+    "run_round04.py": "58149071dbd0cfbd157abd66b4088630723c46f9274816612527d5fa9422d151",
+    "schedule_features.py": "c414f6af2a809600afa4fe55d8a4f455a726e6aaecf8333b7dff21378a0d9fc1",
+    "schedule_plots.py": "280fe471d2fd8c4f0fe32dd0c95bbe9e7812a0a888d4cf86dbed1803af7b8b28",
+    "schedule_workflow.py": "6a89c8950df018e2217e966792dd806c68d2dc896f6e926d0dc35fce44249b1e",
+    "tests/fixtures.py": "32a954ac3ab00bb474e1be578e5215b0ba014cba2e5c3909ba9533493d1c7294",
+    "tests/test_schedule.py": "52796445945fa41af4b12cf98a26d6804fc4ccb11e4a96e66d1f7f8674a4d2d8"
+  }
+}

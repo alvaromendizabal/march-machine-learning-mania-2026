@@ -1,0 +1,17 @@
+Season,feature,closest_reference,abs_correlation,training_games,training_nonzero
+2022,rank_midpoint_logit_correction,diff_margin,0.47867958969853441,503,500
+2022,rank_normal_quantile_correction,diff_seed,0.36005703722938398,503,500
+2022,rank_mapped_margin_gap,diff_rank_consensus_logit,0.98494328382836394,503,500
+2022,rank_mapped_efficiency_gap,diff_rank_consensus_logit,0.98268340565684598,503,500
+2023,rank_midpoint_logit_correction,diff_margin,0.48707084415636848,566,563
+2023,rank_normal_quantile_correction,diff_seed,0.35861824978153395,566,563
+2023,rank_mapped_margin_gap,diff_rank_consensus_logit,0.98570263738765185,566,563
+2023,rank_mapped_efficiency_gap,diff_rank_consensus_logit,0.98340282433798498,566,563
+2024,rank_midpoint_logit_correction,diff_margin,0.49144822272597266,629,625
+2024,rank_normal_quantile_correction,diff_seed,0.35274798494529286,629,625
+2024,rank_mapped_margin_gap,diff_rank_consensus_logit,0.98529655251986836,629,625
+2024,rank_mapped_efficiency_gap,diff_rank_consensus_logit,0.98282916585792135,629,625
+2025,rank_midpoint_logit_correction,diff_margin,0.48385381924225235,692,687
+2025,rank_normal_quantile_correction,diff_seed,0.36165033871370084,692,687
+2025,rank_mapped_margin_gap,diff_rank_consensus_logit,0.98650021839551749,692,687
+2025,rank_mapped_efficiency_gap,diff_rank_consensus_logit,0.98418016155021049,692,687

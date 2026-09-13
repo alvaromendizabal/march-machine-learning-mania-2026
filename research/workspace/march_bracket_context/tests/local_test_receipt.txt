@@ -1,0 +1,170 @@
+test_concurrent_run_rejected (test_bracket.Contracts.test_concurrent_run_rejected) ... ok
+test_gate_incomplete_stops (test_bracket.Contracts.test_gate_incomplete_stops) ... ok
+test_gate_pass (test_bracket.Contracts.test_gate_pass) ... ok
+test_gate_worst_season_limit (test_bracket.Contracts.test_gate_worst_season_limit) ... ok
+test_gate_wrong_comparison_not_substituted (test_bracket.Contracts.test_gate_wrong_comparison_not_substituted) ... ok
+test_hard_caps (test_bracket.Contracts.test_hard_caps) ... ok
+test_inconsistent_stored_logloss_stops (test_bracket.Contracts.test_inconsistent_stored_logloss_stops) ... ok
+test_invalid_stage (test_bracket.Contracts.test_invalid_stage) ... ok
+test_missing_old_logloss_recomputed (test_bracket.Contracts.test_missing_old_logloss_recomputed) ... ok
+test_notebook_has_no_styler (test_bracket.Contracts.test_notebook_has_no_styler) ... ok
+test_probability_endpoints_stopped (test_bracket.Contracts.test_probability_endpoints_stopped) ... ok
+test_process_timeout (test_bracket.Contracts.test_process_timeout) ... ok
+test_base_unchanged (test_bracket.Features.test_base_unchanged) ... ok
+test_complete_pairs_and_counts (test_bracket.Features.test_complete_pairs_and_counts) ... ok
+test_different_pod_zero_not_status (test_bracket.Features.test_different_pod_zero_not_status) ... ok
+test_different_region_zero (test_bracket.Features.test_different_region_zero) ... ok
+test_duplicate_seed_rejected (test_bracket.Features.test_duplicate_seed_rejected) ... ok
+test_feature_definitions_fixed (test_bracket.Features.test_feature_definitions_fixed) ... ok
+test_future_rows_ignored (test_bracket.Features.test_future_rows_ignored) ... ok
+test_invalid_variability_stops (test_bracket.Features.test_invalid_variability_stops) ... ok
+test_men_not_supported (test_bracket.Features.test_men_not_supported) ... ok
+test_missing_seed_rejected (test_bracket.Features.test_missing_seed_rejected) ... ok
+test_nonhost_pod_pair_zero (test_bracket.Features.test_nonhost_pod_pair_zero) ... ok
+test_outcomes_and_locations_forbidden (test_bracket.Features.test_outcomes_and_locations_forbidden) ... ok
+test_playin_rejected (test_bracket.Features.test_playin_rejected) ... ok
+test_policy_starts_2015 (test_bracket.Features.test_policy_starts_2015) ... ok
+test_pre2015_inapplicable (test_bracket.Features.test_pre2015_inapplicable) ... ok
+test_reverse_sign (test_bracket.Features.test_reverse_sign) ... ok
+test_row_order_invariance (test_bracket.Features.test_row_order_invariance) ... ok
+test_scaled_eligibility_decreases_with_variability (test_bracket.Features.test_scaled_eligibility_decreases_with_variability) ... ok
+test_seed_disagrees_with_cache (test_bracket.Features.test_seed_disagrees_with_cache) ... ok
+test_swap_all_columns (test_bracket.Features.test_swap_all_columns) ... ok
+test_top4_in_same_pod (test_bracket.Features.test_top4_in_same_pod) ... ok
+test_unknown_year_stops (test_bracket.Features.test_unknown_year_stops) ... ok
+test_changed_stage_artifact_rejected (test_bracket.Workflow.test_changed_stage_artifact_rejected) ... {"utc": "2026-09-12T01:03:01Z", "elapsed_seconds": 3.065, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+{"utc": "2026-09-12T01:03:01Z", "elapsed_seconds": 3.176, "event": "bracket_table_complete", "season": 2013, "source": "new_aggregation", "completed": 1, "total": 7}
+{"utc": "2026-09-12T01:03:01Z", "elapsed_seconds": 3.285, "event": "bracket_table_complete", "season": 2014, "source": "new_aggregation", "completed": 2, "total": 7}
+{"utc": "2026-09-12T01:03:01Z", "elapsed_seconds": 3.393, "event": "bracket_table_complete", "season": 2015, "source": "new_aggregation", "completed": 3, "total": 7}
+{"utc": "2026-09-12T01:03:01Z", "elapsed_seconds": 3.507, "event": "bracket_table_complete", "season": 2016, "source": "new_aggregation", "completed": 4, "total": 7}
+{"utc": "2026-09-12T01:03:01Z", "elapsed_seconds": 3.616, "event": "bracket_table_complete", "season": 2017, "source": "new_aggregation", "completed": 5, "total": 7}
+{"utc": "2026-09-12T01:03:01Z", "elapsed_seconds": 3.723, "event": "bracket_table_complete", "season": 2018, "source": "new_aggregation", "completed": 6, "total": 7}
+{"utc": "2026-09-12T01:03:01Z", "elapsed_seconds": 3.832, "event": "bracket_table_complete", "season": 2019, "source": "new_aggregation", "completed": 7, "total": 7}
+{"utc": "2026-09-12T01:03:01Z", "elapsed_seconds": 3.998, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_chronological_training (test_bracket.Workflow.test_chronological_training) ... {"utc": "2026-09-12T01:03:02Z", "elapsed_seconds": 4.049, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+{"utc": "2026-09-12T01:03:02Z", "elapsed_seconds": 4.157, "event": "bracket_table_complete", "season": 2013, "source": "new_aggregation", "completed": 1, "total": 7}
+{"utc": "2026-09-12T01:03:02Z", "elapsed_seconds": 4.264, "event": "bracket_table_complete", "season": 2014, "source": "new_aggregation", "completed": 2, "total": 7}
+{"utc": "2026-09-12T01:03:02Z", "elapsed_seconds": 4.372, "event": "bracket_table_complete", "season": 2015, "source": "new_aggregation", "completed": 3, "total": 7}
+{"utc": "2026-09-12T01:03:02Z", "elapsed_seconds": 4.479, "event": "bracket_table_complete", "season": 2016, "source": "new_aggregation", "completed": 4, "total": 7}
+{"utc": "2026-09-12T01:03:02Z", "elapsed_seconds": 4.592, "event": "bracket_table_complete", "season": 2017, "source": "new_aggregation", "completed": 5, "total": 7}
+{"utc": "2026-09-12T01:03:02Z", "elapsed_seconds": 4.699, "event": "bracket_table_complete", "season": 2018, "source": "new_aggregation", "completed": 6, "total": 7}
+{"utc": "2026-09-12T01:03:02Z", "elapsed_seconds": 4.806, "event": "bracket_table_complete", "season": 2019, "source": "new_aggregation", "completed": 7, "total": 7}
+{"utc": "2026-09-12T01:03:02Z", "elapsed_seconds": 4.969, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_environment_change_rejected (test_bracket.Workflow.test_environment_change_rejected) ... {"utc": "2026-09-12T01:03:03Z", "elapsed_seconds": 5.137, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+ok
+test_fit_budget_stops_before_fit (test_bracket.Workflow.test_fit_budget_stops_before_fit) ... {"utc": "2026-09-12T01:03:03Z", "elapsed_seconds": 5.182, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+{"utc": "2026-09-12T01:03:03Z", "elapsed_seconds": 5.291, "event": "bracket_table_complete", "season": 2013, "source": "new_aggregation", "completed": 1, "total": 7}
+{"utc": "2026-09-12T01:03:03Z", "elapsed_seconds": 5.398, "event": "bracket_table_complete", "season": 2014, "source": "new_aggregation", "completed": 2, "total": 7}
+{"utc": "2026-09-12T01:03:03Z", "elapsed_seconds": 5.509, "event": "bracket_table_complete", "season": 2015, "source": "new_aggregation", "completed": 3, "total": 7}
+{"utc": "2026-09-12T01:03:03Z", "elapsed_seconds": 5.622, "event": "bracket_table_complete", "season": 2016, "source": "new_aggregation", "completed": 4, "total": 7}
+{"utc": "2026-09-12T01:03:03Z", "elapsed_seconds": 5.734, "event": "bracket_table_complete", "season": 2017, "source": "new_aggregation", "completed": 5, "total": 7}
+{"utc": "2026-09-12T01:03:03Z", "elapsed_seconds": 5.856, "event": "bracket_table_complete", "season": 2018, "source": "new_aggregation", "completed": 6, "total": 7}
+{"utc": "2026-09-12T01:03:03Z", "elapsed_seconds": 5.964, "event": "bracket_table_complete", "season": 2019, "source": "new_aggregation", "completed": 7, "total": 7}
+{"utc": "2026-09-12T01:03:04Z", "elapsed_seconds": 6.129, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_full_run_checkpoint_reuse_and_report (test_bracket.Workflow.test_full_run_checkpoint_reuse_and_report) ... {"utc": "2026-09-12T01:03:04Z", "elapsed_seconds": 6.298, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+{"utc": "2026-09-12T01:03:04Z", "elapsed_seconds": 6.422, "event": "bracket_table_complete", "season": 2013, "source": "new_aggregation", "completed": 1, "total": 7}
+{"utc": "2026-09-12T01:03:04Z", "elapsed_seconds": 6.536, "event": "bracket_table_complete", "season": 2014, "source": "new_aggregation", "completed": 2, "total": 7}
+{"utc": "2026-09-12T01:03:04Z", "elapsed_seconds": 6.648, "event": "bracket_table_complete", "season": 2015, "source": "new_aggregation", "completed": 3, "total": 7}
+{"utc": "2026-09-12T01:03:04Z", "elapsed_seconds": 6.764, "event": "bracket_table_complete", "season": 2016, "source": "new_aggregation", "completed": 4, "total": 7}
+{"utc": "2026-09-12T01:03:04Z", "elapsed_seconds": 6.876, "event": "bracket_table_complete", "season": 2017, "source": "new_aggregation", "completed": 5, "total": 7}
+{"utc": "2026-09-12T01:03:04Z", "elapsed_seconds": 6.995, "event": "bracket_table_complete", "season": 2018, "source": "new_aggregation", "completed": 6, "total": 7}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.11, "event": "bracket_table_complete", "season": 2019, "source": "new_aggregation", "completed": 7, "total": 7}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.285, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.417, "event": "comparison_complete", "season": 2016, "recipe": "anchor", "brier": 0.18574487926158, "source": "upstream_replay", "completed": 1, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.424, "event": "comparison_complete", "season": 2016, "recipe": "seed_status", "brier": 0.18511143363664867, "source": "new_fit", "completed": 2, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.431, "event": "comparison_complete", "season": 2016, "recipe": "host_context", "brier": 0.18420390691843408, "source": "new_fit", "completed": 3, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.437, "event": "comparison_complete", "season": 2016, "recipe": "host_context_scaled", "brier": 0.18433573587527582, "source": "new_fit", "completed": 4, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.444, "event": "comparison_complete", "season": 2017, "recipe": "anchor", "brier": 0.1671295702007274, "source": "upstream_replay", "completed": 5, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.45, "event": "comparison_complete", "season": 2017, "recipe": "seed_status", "brier": 0.1674663395058655, "source": "new_fit", "completed": 6, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.456, "event": "comparison_complete", "season": 2017, "recipe": "host_context", "brier": 0.16763233115538526, "source": "new_fit", "completed": 7, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.463, "event": "comparison_complete", "season": 2017, "recipe": "host_context_scaled", "brier": 0.16779427570336175, "source": "new_fit", "completed": 8, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.471, "event": "comparison_complete", "season": 2018, "recipe": "anchor", "brier": 0.1556365112372503, "source": "upstream_replay", "completed": 9, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.478, "event": "comparison_complete", "season": 2018, "recipe": "seed_status", "brier": 0.15590183708569227, "source": "new_fit", "completed": 10, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.485, "event": "comparison_complete", "season": 2018, "recipe": "host_context", "brier": 0.15744139182027694, "source": "new_fit", "completed": 11, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.492, "event": "comparison_complete", "season": 2018, "recipe": "host_context_scaled", "brier": 0.15749576567745782, "source": "new_fit", "completed": 12, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.498, "event": "comparison_complete", "season": 2019, "recipe": "anchor", "brier": 0.15021860534073578, "source": "upstream_replay", "completed": 13, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.505, "event": "comparison_complete", "season": 2019, "recipe": "seed_status", "brier": 0.14863197926328248, "source": "new_fit", "completed": 14, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.513, "event": "comparison_complete", "season": 2019, "recipe": "host_context", "brier": 0.14607329619754536, "source": "new_fit", "completed": 15, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.519, "event": "comparison_complete", "season": 2019, "recipe": "host_context_scaled", "brier": 0.145766538247827, "source": "new_fit", "completed": 16, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.571, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.575, "event": "bracket_table_complete", "season": 2013, "source": "checkpoint", "completed": 1, "total": 7}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.576, "event": "bracket_table_complete", "season": 2014, "source": "checkpoint", "completed": 2, "total": 7}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.577, "event": "bracket_table_complete", "season": 2015, "source": "checkpoint", "completed": 3, "total": 7}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.578, "event": "bracket_table_complete", "season": 2016, "source": "checkpoint", "completed": 4, "total": 7}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.579, "event": "bracket_table_complete", "season": 2017, "source": "checkpoint", "completed": 5, "total": 7}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.58, "event": "bracket_table_complete", "season": 2018, "source": "checkpoint", "completed": 6, "total": 7}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.581, "event": "bracket_table_complete", "season": 2019, "source": "checkpoint", "completed": 7, "total": 7}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.76, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.887, "event": "comparison_complete", "season": 2016, "recipe": "anchor", "brier": 0.18574487926158, "source": "upstream_replay", "completed": 1, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.893, "event": "comparison_complete", "season": 2016, "recipe": "seed_status", "brier": 0.18511143363664867, "source": "local_checkpoint", "completed": 2, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.898, "event": "comparison_complete", "season": 2016, "recipe": "host_context", "brier": 0.18420390691843408, "source": "local_checkpoint", "completed": 3, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.903, "event": "comparison_complete", "season": 2016, "recipe": "host_context_scaled", "brier": 0.18433573587527582, "source": "local_checkpoint", "completed": 4, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.91, "event": "comparison_complete", "season": 2017, "recipe": "anchor", "brier": 0.1671295702007274, "source": "upstream_replay", "completed": 5, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.915, "event": "comparison_complete", "season": 2017, "recipe": "seed_status", "brier": 0.1674663395058655, "source": "local_checkpoint", "completed": 6, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.92, "event": "comparison_complete", "season": 2017, "recipe": "host_context", "brier": 0.16763233115538526, "source": "local_checkpoint", "completed": 7, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.925, "event": "comparison_complete", "season": 2017, "recipe": "host_context_scaled", "brier": 0.16779427570336175, "source": "local_checkpoint", "completed": 8, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.932, "event": "comparison_complete", "season": 2018, "recipe": "anchor", "brier": 0.1556365112372503, "source": "upstream_replay", "completed": 9, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.938, "event": "comparison_complete", "season": 2018, "recipe": "seed_status", "brier": 0.15590183708569227, "source": "local_checkpoint", "completed": 10, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.943, "event": "comparison_complete", "season": 2018, "recipe": "host_context", "brier": 0.15744139182027694, "source": "local_checkpoint", "completed": 11, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.948, "event": "comparison_complete", "season": 2018, "recipe": "host_context_scaled", "brier": 0.15749576567745782, "source": "local_checkpoint", "completed": 12, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.955, "event": "comparison_complete", "season": 2019, "recipe": "anchor", "brier": 0.15021860534073578, "source": "upstream_replay", "completed": 13, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.961, "event": "comparison_complete", "season": 2019, "recipe": "seed_status", "brier": 0.14863197926328248, "source": "local_checkpoint", "completed": 14, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.966, "event": "comparison_complete", "season": 2019, "recipe": "host_context", "brier": 0.14607329619754536, "source": "local_checkpoint", "completed": 15, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 7.971, "event": "comparison_complete", "season": 2019, "recipe": "host_context_scaled", "brier": 0.145766538247827, "source": "local_checkpoint", "completed": 16, "total": 16}
+{"utc": "2026-09-12T01:03:05Z", "elapsed_seconds": 8.019, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T01:03:06Z", "elapsed_seconds": 8.431, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T01:03:06Z", "elapsed_seconds": 8.434, "event": "report_complete", "return_zip": "/tmp/tmppruwpd8g/fixture/march_bracket_context/reports/milestone_09_return.zip", "plotly_figures": 10}
+ok
+test_future_tournament_rows_not_used (test_bracket.Workflow.test_future_tournament_rows_not_used) ... {"utc": "2026-09-12T01:03:06Z", "elapsed_seconds": 8.79, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+{"utc": "2026-09-12T01:03:06Z", "elapsed_seconds": 8.906, "event": "bracket_table_complete", "season": 2013, "source": "new_aggregation", "completed": 1, "total": 7}
+{"utc": "2026-09-12T01:03:06Z", "elapsed_seconds": 9.021, "event": "bracket_table_complete", "season": 2014, "source": "new_aggregation", "completed": 2, "total": 7}
+{"utc": "2026-09-12T01:03:07Z", "elapsed_seconds": 9.133, "event": "bracket_table_complete", "season": 2015, "source": "new_aggregation", "completed": 3, "total": 7}
+{"utc": "2026-09-12T01:03:07Z", "elapsed_seconds": 9.245, "event": "bracket_table_complete", "season": 2016, "source": "new_aggregation", "completed": 4, "total": 7}
+{"utc": "2026-09-12T01:03:07Z", "elapsed_seconds": 9.36, "event": "bracket_table_complete", "season": 2017, "source": "new_aggregation", "completed": 5, "total": 7}
+{"utc": "2026-09-12T01:03:07Z", "elapsed_seconds": 9.476, "event": "bracket_table_complete", "season": 2018, "source": "new_aggregation", "completed": 6, "total": 7}
+{"utc": "2026-09-12T01:03:07Z", "elapsed_seconds": 9.589, "event": "bracket_table_complete", "season": 2019, "source": "new_aggregation", "completed": 7, "total": 7}
+{"utc": "2026-09-12T01:03:07Z", "elapsed_seconds": 9.753, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_known_notebook_edits_preserved (test_bracket.Workflow.test_known_notebook_edits_preserved) ... {"utc": "2026-09-12T01:03:08Z", "elapsed_seconds": 10.037, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+{"utc": "2026-09-12T01:03:08Z", "elapsed_seconds": 10.154, "event": "bracket_table_complete", "season": 2013, "source": "new_aggregation", "completed": 1, "total": 7}
+{"utc": "2026-09-12T01:03:08Z", "elapsed_seconds": 10.269, "event": "bracket_table_complete", "season": 2014, "source": "new_aggregation", "completed": 2, "total": 7}
+{"utc": "2026-09-12T01:03:08Z", "elapsed_seconds": 10.385, "event": "bracket_table_complete", "season": 2015, "source": "new_aggregation", "completed": 3, "total": 7}
+{"utc": "2026-09-12T01:03:08Z", "elapsed_seconds": 10.503, "event": "bracket_table_complete", "season": 2016, "source": "new_aggregation", "completed": 4, "total": 7}
+{"utc": "2026-09-12T01:03:08Z", "elapsed_seconds": 10.615, "event": "bracket_table_complete", "season": 2017, "source": "new_aggregation", "completed": 5, "total": 7}
+{"utc": "2026-09-12T01:03:08Z", "elapsed_seconds": 10.728, "event": "bracket_table_complete", "season": 2018, "source": "new_aggregation", "completed": 6, "total": 7}
+{"utc": "2026-09-12T01:03:08Z", "elapsed_seconds": 10.876, "event": "bracket_table_complete", "season": 2019, "source": "new_aggregation", "completed": 7, "total": 7}
+{"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.037, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.062, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_missing_reference_rejected (test_bracket.Workflow.test_missing_reference_rejected) ... {"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.109, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+ok
+test_new_notebook_edit_rejected (test_bracket.Workflow.test_new_notebook_edit_rejected) ... {"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.178, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+ok
+test_no_direct_repository_import (test_bracket.Workflow.test_no_direct_repository_import) ... {"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.242, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+ok
+test_prepare_no_fits (test_bracket.Workflow.test_prepare_no_fits) ... {"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.286, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+{"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.398, "event": "bracket_table_complete", "season": 2013, "source": "new_aggregation", "completed": 1, "total": 7}
+{"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.512, "event": "bracket_table_complete", "season": 2014, "source": "new_aggregation", "completed": 2, "total": 7}
+{"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.639, "event": "bracket_table_complete", "season": 2015, "source": "new_aggregation", "completed": 3, "total": 7}
+{"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.764, "event": "bracket_table_complete", "season": 2016, "source": "new_aggregation", "completed": 4, "total": 7}
+{"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 11.886, "event": "bracket_table_complete", "season": 2017, "source": "new_aggregation", "completed": 5, "total": 7}
+{"utc": "2026-09-12T01:03:09Z", "elapsed_seconds": 12.019, "event": "bracket_table_complete", "season": 2018, "source": "new_aggregation", "completed": 6, "total": 7}
+{"utc": "2026-09-12T01:03:10Z", "elapsed_seconds": 12.162, "event": "bracket_table_complete", "season": 2019, "source": "new_aggregation", "completed": 7, "total": 7}
+{"utc": "2026-09-12T01:03:10Z", "elapsed_seconds": 12.316, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_raw_change_rejected (test_bracket.Workflow.test_raw_change_rejected) ... {"utc": "2026-09-12T01:03:10Z", "elapsed_seconds": 12.362, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+ok
+test_source_change_rejected (test_bracket.Workflow.test_source_change_rejected) ... {"utc": "2026-09-12T01:03:10Z", "elapsed_seconds": 12.428, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+ok
+test_unsafe_paths_rejected (test_bracket.Workflow.test_unsafe_paths_rejected) ... {"utc": "2026-09-12T01:03:10Z", "elapsed_seconds": 12.472, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+ok
+test_upstream_corruption_rejected (test_bracket.Workflow.test_upstream_corruption_rejected) ... {"utc": "2026-09-12T01:03:10Z", "elapsed_seconds": 12.515, "event": "preflight_pass", "base_snapshots": 7, "reference_classifiers": 4, "new_rating_fits": 0}
+ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 12.419s
+
+OK

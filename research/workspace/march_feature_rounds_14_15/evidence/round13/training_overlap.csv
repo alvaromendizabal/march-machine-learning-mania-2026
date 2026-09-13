@@ -1,0 +1,5 @@
+Season,feature,closest_reference,training_correlation
+2022,diff_rank_consensus_logit,diff_seed,-0.95834572946356034
+2023,diff_rank_consensus_logit,diff_seed,-0.95913714231082559
+2024,diff_rank_consensus_logit,diff_seed,-0.95711329993966443
+2025,diff_rank_consensus_logit,diff_seed,-0.95727062725120982

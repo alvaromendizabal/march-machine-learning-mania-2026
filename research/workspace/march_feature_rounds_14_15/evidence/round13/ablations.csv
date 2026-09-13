@@ -1,0 +1,5 @@
+Season,comparison,delta_brier
+2022,consensus_given_anchor,-0.00061887727310280805
+2023,consensus_given_anchor,6.2435457959392204e-05
+2024,consensus_given_anchor,-0.0021382853985252026
+2025,consensus_given_anchor,-5.6905871680779097e-05

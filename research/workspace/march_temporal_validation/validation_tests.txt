@@ -1,0 +1,41 @@
+test_budget_limits (test_validation.Contracts.test_budget_limits) ... ok
+test_controlled_drop_one (test_validation.Contracts.test_controlled_drop_one) ... ok
+test_exclusive_lock (test_validation.Contracts.test_exclusive_lock) ... ok
+test_frozen_parameters (test_validation.Contracts.test_frozen_parameters) ... ok
+test_gate_duplicate_rejected (test_validation.Contracts.test_gate_duplicate_rejected) ... ok
+test_gate_excludes_discovery (test_validation.Contracts.test_gate_excludes_discovery) ... ok
+test_gate_missing_season_rejected (test_validation.Contracts.test_gate_missing_season_rejected) ... ok
+test_gate_nan_rejected (test_validation.Contracts.test_gate_nan_rejected) ... ok
+test_gate_one_season_worse (test_validation.Contracts.test_gate_one_season_worse) ... ok
+test_gate_pass (test_validation.Contracts.test_gate_pass) ... ok
+test_gate_tiny_gains_insufficient (test_validation.Contracts.test_gate_tiny_gains_insufficient) ... ok
+test_gate_zero_not_improvement (test_validation.Contracts.test_gate_zero_not_improvement) ... ok
+test_invalid_stage (test_validation.Contracts.test_invalid_stage) ... ok
+test_no_rating_calls_in_workflow (test_validation.Contracts.test_no_rating_calls_in_workflow) ... ok
+test_no_validation_features_target_columns (test_validation.Contracts.test_no_validation_features_target_columns) ... ok
+test_notebook_no_styler (test_validation.Contracts.test_notebook_no_styler) ... ok
+test_supervisor_timeout (test_validation.Contracts.test_supervisor_timeout) ... ok
+test_bad_environment_stops (test_validation.Workflow.test_bad_environment_stops) ... {"utc": "2026-09-11T23:54:25Z", "event": "preflight_pass", "elapsed_seconds": 3.783, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_changed_data_stops (test_validation.Workflow.test_changed_data_stops) ... {"utc": "2026-09-11T23:54:25Z", "event": "preflight_pass", "elapsed_seconds": 3.864, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_changed_source_stops (test_validation.Workflow.test_changed_source_stops) ... {"utc": "2026-09-11T23:54:26Z", "event": "preflight_pass", "elapsed_seconds": 3.973, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_corrupt_snapshot_stops (test_validation.Workflow.test_corrupt_snapshot_stops) ... {"utc": "2026-09-11T23:54:26Z", "event": "preflight_pass", "elapsed_seconds": 4.045, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_corrupted_new_classifier_stops (test_validation.Workflow.test_corrupted_new_classifier_stops) ... {"utc": "2026-09-11T23:54:26Z", "event": "preflight_pass", "elapsed_seconds": 4.163, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_extra_notebook_change_stops (test_validation.Workflow.test_extra_notebook_change_stops) ... {"utc": "2026-09-11T23:54:26Z", "event": "preflight_pass", "elapsed_seconds": 4.668, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_fit_budget_before_training (test_validation.Workflow.test_fit_budget_before_training) ... {"utc": "2026-09-11T23:54:26Z", "event": "preflight_pass", "elapsed_seconds": 4.763, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_future_tournament_outcome_not_feature (test_validation.Workflow.test_future_tournament_outcome_not_feature) ... {"utc": "2026-09-11T23:54:26Z", "event": "preflight_pass", "elapsed_seconds": 4.919, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_known_notebook_changes_preserved (test_validation.Workflow.test_known_notebook_changes_preserved) ... {"utc": "2026-09-11T23:54:27Z", "event": "preflight_pass", "elapsed_seconds": 5.166, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_mirrored_feature_symmetry (test_validation.Workflow.test_mirrored_feature_symmetry) ... {"utc": "2026-09-11T23:54:27Z", "event": "preflight_pass", "elapsed_seconds": 5.585, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_missing_cache_stops (test_validation.Workflow.test_missing_cache_stops) ... {"utc": "2026-09-11T23:54:27Z", "event": "preflight_pass", "elapsed_seconds": 5.747, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_passed_gate_eight_components_and_resume (test_validation.Workflow.test_passed_gate_eight_components_and_resume) ... {"utc": "2026-09-11T23:54:27Z", "event": "preflight_pass", "elapsed_seconds": 5.862, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_paths_traversal_and_symlink (test_validation.Workflow.test_paths_traversal_and_symlink) ... {"utc": "2026-09-11T23:54:29Z", "event": "preflight_pass", "elapsed_seconds": 7.579, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_plots_without_jinja (test_validation.Workflow.test_plots_without_jinja) ... {"utc": "2026-09-11T23:54:29Z", "event": "preflight_pass", "elapsed_seconds": 7.651, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_preflight_no_mutation (test_validation.Workflow.test_preflight_no_mutation) ... {"utc": "2026-09-11T23:54:30Z", "event": "preflight_pass", "elapsed_seconds": 8.744, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_prepare_replays_six_no_training (test_validation.Workflow.test_prepare_replays_six_no_training) ... {"utc": "2026-09-11T23:54:30Z", "event": "preflight_pass", "elapsed_seconds": 8.85, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_replication_output_tampering_stops (test_validation.Workflow.test_replication_output_tampering_stops) ... {"utc": "2026-09-11T23:54:31Z", "event": "preflight_pass", "elapsed_seconds": 9.06, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_return_archive_excludes_private_files (test_validation.Workflow.test_return_archive_excludes_private_files) ... {"utc": "2026-09-11T23:54:31Z", "event": "preflight_pass", "elapsed_seconds": 9.448, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_skipped_components_no_training (test_validation.Workflow.test_skipped_components_no_training) ... {"utc": "2026-09-11T23:54:32Z", "event": "preflight_pass", "elapsed_seconds": 10.172, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_split_earlier_seasons_only (test_validation.Workflow.test_split_earlier_seasons_only) ... {"utc": "2026-09-11T23:54:33Z", "event": "preflight_pass", "elapsed_seconds": 11.166, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_stage_order_enforced (test_validation.Workflow.test_stage_order_enforced) ... {"utc": "2026-09-11T23:54:33Z", "event": "preflight_pass", "elapsed_seconds": 11.33, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+test_two_new_fits_then_resume (test_validation.Workflow.test_two_new_fits_then_resume) ... {"utc": "2026-09-11T23:54:33Z", "event": "preflight_pass", "elapsed_seconds": 11.406, "cached_temporal_snapshots": 7, "cached_reference_snapshots": 7, "existing_classifiers": 6}
+Ran 39 tests in 11.699s
+OK

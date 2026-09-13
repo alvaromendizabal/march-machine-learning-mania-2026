@@ -1,0 +1,34 @@
+{
+  "sha256": {
+    "metrics.csv": "ec72f33b892ed3f06266d6bc1257e0cf7c8476222ae6c66fabb18696b54e40ee",
+    "ablations.csv": "9b49a30e2f9b322aa2a8ab77b16002938cde5d0ede9edf910c26020e2d40c717",
+    "decisions.json": "334d654c6bea1e17418b3e70fe9edb1ee94db8df1578175803ead5bdd4b2a351",
+    "coefficients.csv": "42beecd1300a2153f26586e4d3c5eca48a0b3af2165a9854196c896d8a0a1a5d",
+    "calibration.csv": "2838a925a596096f1607e822178bb2b5b6aeb694807b032e8952f41738f11be4",
+    "training_overlap.csv": "a1b1d617c13657755d20a1a619e4732c975cf94f7c5dfa19a96ffe1701864f8e",
+    "aggregate.csv": "a5abbfa2a191a9c59e5e34aa09d556c5249e468e607f952bfcd61f763b26002d",
+    "season_sensitivity.csv": "1f8ea0ecc4b65721bc846323b437a6b468078ffc77b58b2d08dcfdc9e859fadc",
+    "paired_loss_bins.csv": "1cbf94cd8dfe5c5e95d8a6ac73a684ab4fa27c1630edf170779088ea0ad00344",
+    "evaluation_receipt.json": "6653f00b3ef67888f3a1b8351571ec38bba3757130a23dd60f5d4254aebe3dac",
+    "summary.json": "d95a4bd389588e2153eaa7d8334af7847aa9901c40177ed5e239a8625e814d2b",
+    "prepare.json": "61c827a5303521d8406d2cd1fd001261698eb8cc0d7104fe332005ec1958b8f3",
+    "coverage.csv": "dd60d88113011e2ea01fbc77c723dd7ba94b67f117082976b1ed084f1eb18627",
+    "panel_coverage.csv": "dde8e717435a0d57597190226772a1902062ab9ad65fabdc4215870c28dcbc7f",
+    "label_audit.csv": "b254c824e855d8b13be595d4b07fe485f4252e42b78d2f75e84a714820519f02",
+    "feature_registry.csv": "a59a3e40fb99311579aae107c3f7536c8d3fbc27954eacc22bab774412869960",
+    "prior_replay.csv": "9dfcc5fb9a1c28981d5bba97a8fb927fb0e017459b432b7419aa3117b2f9c7da",
+    "upstream_data_identity.json": "8b0d8ca01b41431884d1ad6e2c54e08665f379e25148821294da270be4116f2f",
+    "preflight.json": "58decb5ac1c81d1cb466ddd841f2b9f7ab79369527c70d912b26d1f8f3f2c62d",
+    "manifest.json": "fb55e044f36175e155c15c9ade492171af9e1196a3fd7a2a8768afe6b48fd0e3",
+    "prepare_hashes.json": "8f3c0d60cb330e19a6c2d8c569622eb35a60a16847550448dedf0fd6762a41b4",
+    "evaluation_hashes.json": "6a182ed6bebdd4dd399877e103f9fc4a53ad6cc234b3f1648a90b2e2ef2fa2c9",
+    "prior_milestone_12_return.zip": "90ff4b6c4992dd138e43b5cae854281bb9818c16733aaf5997840518e4e33aef"
+  },
+  "excluded": [
+    "raw rows",
+    "fitted models",
+    "per-game predictions",
+    "team-level feature rows",
+    "private notebooks"
+  ]
+}

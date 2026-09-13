@@ -1,0 +1,23 @@
+{
+  "basis": "uploaded executed notebooks, not live AWS inspection",
+  "round16": {
+    "state": "PREPARATION_STOP",
+    "error": "Steals exceed opposing turnovers; do not silently clip",
+    "last_completed_season": 2013,
+    "first_later_season_not_finished": 2014,
+    "new_classifier_result": null,
+    "proposed_change": "bounded whole-physical-game exclusion from turnover estimators only; all-season audit first"
+  },
+  "round17": {
+    "state": "SCIENTIFIC_REPORT_COMPLETED_PACKAGING_FAILED",
+    "report_path": "march_feature_rounds_16_17/reports/round17/milestone_17_return.zip",
+    "plotly_figures_recorded": 10,
+    "mean_primary_brier_delta": -0.00047146586103651716,
+    "improved_seasons": 3,
+    "gate": "DO_NOT_PROMOTE",
+    "failure": "combined archive required missing completed round16"
+  },
+  "github_license_observed": "MIT; read-only connected fetch",
+  "github_modified": false,
+  "new_source_runtime_tests_executed": false
+}

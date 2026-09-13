@@ -1,0 +1,99 @@
+{
+  "automatic_feature_promotion": false,
+  "aws_resources_modified": false,
+  "base_snapshots_reused": 14,
+  "classifier_checkpoint_reuses": 0,
+  "current_submitted_brier": 0.1222672,
+  "decisions": [
+    {
+      "Gender": "M",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": -0.000352282814094107,
+      "recipe": "anchor_level",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.0012609371684726423
+    },
+    {
+      "Gender": "M",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": 0.000565623339298757,
+      "recipe": "anchor_change",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.0015080559514695224
+    },
+    {
+      "Gender": "M",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": -0.0005545024053910663,
+      "recipe": "anchor_both",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.0003560117150433473
+    },
+    {
+      "Gender": "W",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": 0.002279561823541734,
+      "recipe": "anchor_level",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.007804448115196039
+    },
+    {
+      "Gender": "W",
+      "automatic_promotion": false,
+      "decision": "CONSIDER_UNCHANGED_REPLICATION",
+      "improved_seasons": 2,
+      "mean_delta": -0.002217873565227735,
+      "recipe": "anchor_change",
+      "statistical_significance_claim": false,
+      "worst_delta": -0.0002203932983919077
+    },
+    {
+      "Gender": "W",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": -0.0002802957045843629,
+      "recipe": "anchor_both",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.005976507890840949
+    }
+  ],
+  "early_rating_checkpoint_reuses": 0,
+  "fingerprint": "e0ebc8647d47d4d0d9b7b852dfb68366eba76cf4ca796e82e78a77ec86a61e89",
+  "genders": [
+    "M",
+    "W"
+  ],
+  "github_updated": false,
+  "limitations": [
+    "Previously-used seasons and multiple comparisons, not untouched tests",
+    "Frozen early ratings can be stale; residuals are not identified true improvement or momentum",
+    "Conditional family comparisons do not show causal importance",
+    "Fixed logistic reference is not the final submitted production model",
+    "No guarantee of leaderboard improvement; further stable replication and production transfer required"
+  ],
+  "new_classifier_fits_this_execution": 13,
+  "new_feature_definitions": 4,
+  "new_leaderboard_score": null,
+  "new_rating_fits_this_execution": 14,
+  "phase": "fixed_early_rating_temporal_form",
+  "prior_record_family": "Not promoted; additional-season mean delta +0.00023875434741482682; expansion stopped",
+  "raw_modified": false,
+  "repository_modified": false,
+  "research_target_brier": 0.1097454,
+  "status": "COMPLETE",
+  "upstream_anchor_replays": 3,
+  "upstream_modified": false,
+  "validation_seasons": [
+    2017,
+    2019
+  ]
+}

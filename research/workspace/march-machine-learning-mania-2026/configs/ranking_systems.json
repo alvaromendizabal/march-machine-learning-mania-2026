@@ -1,0 +1,16 @@
+{
+  "protocol": "retrospective-ranking-system-research",
+  "first_training_season": 2013,
+  "validation_seasons": [2016, 2017, 2018, 2019, 2021],
+  "catalog_first_season": 2003,
+  "feature_cutoff_day": 132,
+  "momentum_days": [7, 30, 60],
+  "logit_clip": 0.01,
+  "additional_capacity": 16,
+  "embedding_components": 8,
+  "minimum_inner_seasons": 2,
+  "models": ["logistic", "hist"],
+  "seed": 2026,
+  "threads": 2,
+  "heartbeat_seconds": 15
+}
