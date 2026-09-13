@@ -1,0 +1,14 @@
+{
+  "sha256": {
+    "README.md": "9a78c3573c245d8dbc027edad1b4134421664c00a2a59c604d70a1642b57724a",
+    "RIGHTS.md": "9f8f8ed46fa21056d863d523146c89bb5c2d61ad24eace54b18b4f8bd4b849db",
+    "CITATION.cff": "1dd85e55b0bd2c8a20138055bc46b610d72127c8c81f5817762391c70b7cbe40",
+    ".gitignore": "dd044e8c8d95ab39cc2eef5f67d930512ef49c83c7698f02447835d0cd3a28a8",
+    "data/validation_metrics.csv": "d9a413170be0e1db8d7c872735fde5a75189e0a371353ee3d39b5c707ba95d1d",
+    "data/evidence_sources.json": "5a694955a69cbceaceb6856b3858420147df7cc4baf2821af216902965c5bf50",
+    "docs/DISCLOSURE.md": "a8070e0699dbe2833a71b9ab83d9b5495d6bcfb7ad79a4b1e6cace340092ab44",
+    "docs/EXPERIMENT_LEDGER.md": "bea5dd7258af06f8606ab2dfbe9c5e0fbc9d6ff50e99d416e1ff72a81a687390",
+    "docs/CASE_STUDY.md": "751d1d923119f615d5a772baeb97fe69a2e452f959071768b28544b34586879b",
+    "notebooks/portfolio_results.ipynb": "3277a0ef9ed6f804377a4acfa98dfc66450d87af263bd7c6a133aa34351b1f89"
+  }
+}

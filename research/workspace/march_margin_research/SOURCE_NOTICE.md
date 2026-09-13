@@ -1,0 +1,1 @@
+The frozen/ files and checked I/O helpers originate from the user-owned March Mania research kits already delivered in this conversation. Their hashes are pinned. The new feature, workflow, tests and notebook are in this companion package. No external source text, Kaggle rows, model files, credentials or font files are bundled. Research sources are cited in RESEARCH_PLAN.md.

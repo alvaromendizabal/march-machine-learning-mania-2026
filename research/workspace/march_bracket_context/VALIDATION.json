@@ -1,0 +1,74 @@
+{
+  "scope": "Software correctness/safety and notebook execution on synthetic fixtures only; does not validate predictive value or actual AWS execution",
+  "original_code_cells_executed": 9,
+  "error_outputs": 0,
+  "inline_plotly_figures": 10,
+  "jinja2_blocked": true,
+  "first_evaluation": {
+    "local_reuses": 0,
+    "new_classifier_fits": 12,
+    "new_rating_fits": 0,
+    "total_comparisons": 16,
+    "upstream_replays": 4
+  },
+  "report_created": true,
+  "html_created": true,
+  "repeat_evaluation": {
+    "local_reuses": 12,
+    "new_classifier_fits": 0,
+    "new_rating_fits": 0,
+    "total_comparisons": 16,
+    "upstream_replays": 4
+  },
+  "repeat_preparation": {
+    "actual_venue_measured": false,
+    "all_pairs_per_season": 2016,
+    "base_snapshots_reused": 7,
+    "baseline_replays": 4,
+    "bracket_table_reuses": 7,
+    "new_bracket_tables": 0,
+    "new_candidate_features": 2,
+    "new_classifier_fits": 0,
+    "new_rating_fits": 0,
+    "seed_status_controls": 1,
+    "status": "COMPLETE",
+    "tournament_labels_read_by_feature_builder": false
+  },
+  "local_tests": {
+    "count": 49,
+    "result": "PASS"
+  },
+  "test_environment": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "plotly": "6.5.2",
+    "python": "3.13.5"
+  },
+  "expected_aws_environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "plotly": "6.3.1",
+    "python": "3.12.13",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3"
+  },
+  "fixture_adaptations": [
+    "Artificial cached reference ratings and shooting profiles (no actual basketball data)",
+    "Complete synthetic 64-team seeded brackets and randomly generated tournament outcomes",
+    "Temporary Git commit and raw/cache hashes replace production pins inside fixtures only",
+    "Historical log_loss and squared_error intentionally absent in fixture checkpoints to exercise compatibility"
+  ],
+  "input_archive_integrity_verified": true,
+  "pixel_level_browser_review": "Unavailable: Playwright browser executable absent. Notebook MIME figures and self-contained HTML generation executed successfully; no visual-pixel inspection claimed.",
+  "real_aws_experiment_run": false,
+  "github_modified": false,
+  "aws_resources_modified": false,
+  "new_real_data_metric": null,
+  "fresh_extraction_test_run": {
+    "count": 49,
+    "result": "PASS",
+    "elapsed_seconds": 12.324
+  }
+}

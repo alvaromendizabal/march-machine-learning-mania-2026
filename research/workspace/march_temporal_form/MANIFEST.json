@@ -1,0 +1,42 @@
+{
+  "kit": "march_temporal_form",
+  "notebook": "06_temporal_form_features.ipynb",
+  "files": {
+    ".gitignore": "ffee0868a3ba3a1749553d3d14de1d6e51391038f9f78e2aa012688ff9f7bc8d",
+    "06_temporal_form_features.ipynb": "71d77e6d686321c248bc33e245e73bed7ff1a6da7510a30e00fa39ceb9456f82",
+    "MILESTONE_05_REVIEW.md": "8501466ace540c6cbd1ba3913273025971367bcf68c73c9073c096415e52fe1b",
+    "README.md": "98ba81ff8475346f5734a5823683623576c900f59daa7995ca3a6421978a0cda",
+    "RESEARCH_PLAN.md": "c27d69dc70f64fc3b4677d2b32903de5f4b1eb3ca5c780a4f479ae334f5830fa",
+    "START_HERE.md": "32774077029069b70d81fa259ea3c81df8c70de867f403b64a3086b024673802",
+    "VALIDATION.json": "e3248f05fa795431397e50f2fcd598f547d6af00c9a0a8c018c5b053e9471db4",
+    "evidence/ablation_metrics.csv": "a12af9b84134e4ab121505d3d507a0d5f79cbe4c79e32066620079447a37fc3e",
+    "evidence/ablation_receipt.json": "81ad54b4ad56ffd44ed4b1b1fed156d841d2be82359f86c61a8a16a19b884a36",
+    "evidence/feature_registry.csv": "f731d25e6b63ad61309c3136638588a67fae2eb22ed4a084581f2f3541108867",
+    "evidence/gate.json": "de9598869bc3a164f1cf4b04388b59d767ac217877bfd9247f998855cdb5210c",
+    "evidence/manifest.json": "1f971ef5dc30aedc6075552a5fa09b4415ef360c343bfa0a8c7479e6f93fb829",
+    "evidence/preflight.json": "fed78a47af5bba9570b0204b01ec994dbfa82c5b11ba094757462fce391ca9cf",
+    "evidence/prepare.json": "f28cbc4a4cd22959726cd857f63d7ae066cf6fbf3ebd32e1d508d2ae99339ca8",
+    "evidence/record_coefficients.csv": "c813573d4beb5b1305d699a5ee6ce0c16041428215de46672ea040c4469df7db",
+    "evidence/replication_metrics.csv": "5e4f563d7e3870d8a0f4fafbb0ab0a36432fd0390c21d0d3886294fa00b60b82",
+    "evidence/replication_receipt.json": "299e2ad37dcf0c57fde28ea7d21032cef9c66e4208bd665a35f8f0efe007990e",
+    "evidence/season_sensitivity.csv": "bc85da36931036ad797baec82861165e65a74e08a6c86bd37613fd4e05be2043",
+    "evidence/summary.json": "a38c3ee1f6b46f7c663e20bacd590a7a01eb891ce06d31512c4137db3be38cf6",
+    "evidence/training_redundancy.csv": "bc7640cc14031a0337966b0e858361b806af5a6aa9589bb1010914214628ba80",
+    "evidence/upstream04_manifest.json": "b547dce703046c063e94effee6ef0976919655c6597e59283ba5c0ec5c6d2c51",
+    "form_features.py": "56ae02d1821f388c401d6a1d9cc418a003232ceeed928c24bcb07bb7d89c8b2d",
+    "form_plots.py": "059cb75f10f13ce1c58c83adecef1ee93c30f7341bc8ef16139d5280c1e42a25",
+    "form_workflow.py": "34ff76c7aa33f122d409e6a676fdcd1ee247f5bfd5b767f2f58fef55b9c2a85f",
+    "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+    "run_round06.py": "dcc24d48d23410d6904e8692d8b07dceb0c30ef8a51fe1be1126759177648d57",
+    "tests/fixtures.py": "0728f100c4e4c8d98241f8a0c03ae31e66dfcd73c5098ea831af69b987a52b34",
+    "tests/test_temporal_form.py": "c753a32bb47600bfc91e59e63280dfbdb08dc69fb6af4f242d1f649e72d04b37",
+    "validation_tests.txt": "009a913ef12694929cda0b9fa9e5914ec86b0f0dcf6c991c70a6ecb3545a8632"
+  },
+  "archive_excludes": [
+    "raw game data",
+    "models",
+    "predictions",
+    "executed synthetic notebook"
+  ]
+}

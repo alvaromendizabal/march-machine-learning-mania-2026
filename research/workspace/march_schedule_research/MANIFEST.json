@@ -1,0 +1,29 @@
+{
+  "files": {
+    ".gitignore": "0465f5bf871b561858d8661dd179da2cea1c0e77893b4aa25fac2031631b5887",
+    "04_quality_wins_and_schedule.ipynb": "97213b4382841ffbe9c4d597a49ee5ae4c63cbd072c7868719f787ae87180e2a",
+    "RESEARCH_PLAN.md": "e4dd69355d75718177612949c70e635250b3f943c97b32b9f4cc2e69525aa787",
+    "START_HERE.md": "bfd243e2c4bf63c94d804e5ae27c842dae382c10859e3198d2de6fdfb1bb7c41",
+    "VALIDATION.json": "0e0744b8bccf118cabfe0e4b94dd0e4bb642ddeaf3fd2118337a2f33749dc143",
+    "evidence/feature_registry.csv": "e7b13c1d7ba2738e7b7eb723adef21330b7ebc084324d6a2b05e9b63eaa697af",
+    "evidence/manifest.json": "82148ade2bf9e1adf54ac05223565bc1a33fbc968301a862693bb7066bc10f6c",
+    "evidence/preflight.json": "75d6b4c3a8d2314724cfc9bade2af65e4c8270b8c6b41aa78f1557fc26a3032b",
+    "evidence/prepare_smoke.json": "d75eb7533b4a5a92fbe933f0fd683b01c58a997aea0f4ae580083c3ae5d8ffa1",
+    "evidence/smoke_ablations.csv": "fdc56708369960e43c482b5f885921870bf69ac93f1dd53624513be674884ef9",
+    "evidence/smoke_aggregate.csv": "c5e05bfb8e52c72daacd3909892c3c05d237acdfac41dac3472c55172442114c",
+    "evidence/smoke_metrics.csv": "d12680bc93a3a97a81f12534c7efd39ba233f5ca267d0a71327107fa4d713d84",
+    "evidence/smoke_summary.json": "1de752e7ddc74d1c6561142cebacaf7bd2983292b6433cabf63e7ec1422fb444",
+    "reference/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "reference/run_round02.py": "e28d267f3cfc72a2a67561135265bc1d4b33370d56016707c6e73d9b98c65fda",
+    "reference/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+    "run_round04.py": "58149071dbd0cfbd157abd66b4088630723c46f9274816612527d5fa9422d151",
+    "schedule_features.py": "c414f6af2a809600afa4fe55d8a4f455a726e6aaecf8333b7dff21378a0d9fc1",
+    "schedule_plots.py": "280fe471d2fd8c4f0fe32dd0c95bbe9e7812a0a888d4cf86dbed1803af7b8b28",
+    "schedule_workflow.py": "6a89c8950df018e2217e966792dd806c68d2dc896f6e926d0dc35fce44249b1e",
+    "tests/fixtures.py": "32a954ac3ab00bb474e1be578e5215b0ba014cba2e5c3909ba9533493d1c7294",
+    "tests/test_schedule.py": "52796445945fa41af4b12cf98a26d6804fc4ccb11e4a96e66d1f7f8674a4d2d8",
+    "validation_test_log.txt": "d66352aaf5a1fd7747435e05b75ed0ae66e90cdfefb3f2eb54c4b03e1a4831b8"
+  },
+  "package": "march_schedule_research",
+  "purpose": "One bounded 2018 feature experiment after negative 2019 shooting results"
+}

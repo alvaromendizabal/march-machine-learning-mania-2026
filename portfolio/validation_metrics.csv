@@ -1,0 +1,253 @@
+round,population,season,arm,brier,setting
+02,M,2019,Reference,0.17320192076291752,Exploratory historical validation; not leaderboard
+02,M,2019,Arm 4,0.1825129832610752,Exploratory historical validation; not leaderboard
+02,M,2019,Arm 3,0.1742003541592337,Exploratory historical validation; not leaderboard
+02,M,2019,Arm 2,0.18362403845391015,Exploratory historical validation; not leaderboard
+02,W,2019,Reference,0.14625441329056185,Exploratory historical validation; not leaderboard
+02,W,2019,Arm 4,0.15025298241943377,Exploratory historical validation; not leaderboard
+02,W,2019,Arm 3,0.14645284168926334,Exploratory historical validation; not leaderboard
+02,W,2019,Arm 2,0.15215370393909788,Exploratory historical validation; not leaderboard
+04,M,2018,Reference,0.19906608300963743,Exploratory historical validation; not leaderboard
+04,M,2018,Arm 3,0.1997259296749144,Exploratory historical validation; not leaderboard
+04,M,2018,Arm 4,0.19901358404737465,Exploratory historical validation; not leaderboard
+04,M,2018,Arm 2,0.20047880464473022,Exploratory historical validation; not leaderboard
+04,W,2018,Reference,0.15365012520859095,Exploratory historical validation; not leaderboard
+04,W,2018,Arm 3,0.15331089516001037,Exploratory historical validation; not leaderboard
+04,W,2018,Arm 4,0.1522387387612345,Exploratory historical validation; not leaderboard
+04,W,2018,Arm 2,0.15259847166393523,Exploratory historical validation; not leaderboard
+05,W,2016,Reference,0.164486254396552,Exploratory historical validation; not leaderboard
+05,W,2016,Arm 2,0.16466148349674953,Exploratory historical validation; not leaderboard
+05,W,2017,Reference,0.13094629939840619,Exploratory historical validation; not leaderboard
+05,W,2017,Arm 2,0.13014962972445657,Exploratory historical validation; not leaderboard
+05,W,2018,Reference,0.15365012520859095,Exploratory historical validation; not leaderboard
+05,W,2018,Arm 2,0.1522387387612345,Exploratory historical validation; not leaderboard
+05,W,2019,Reference,0.14625441329056185,Exploratory historical validation; not leaderboard
+05,W,2019,Arm 2,0.14759211690655843,Exploratory historical validation; not leaderboard
+06,M,2017,Reference,0.1733233700512694,Exploratory historical validation; not leaderboard
+06,M,2017,Arm 4,0.17135786725460855,Exploratory historical validation; not leaderboard
+06,M,2017,Arm 3,0.17483142600273893,Exploratory historical validation; not leaderboard
+06,M,2017,Arm 2,0.17185835352544393,Exploratory historical validation; not leaderboard
+06,M,2019,Reference,0.17320192076291752,Exploratory historical validation; not leaderboard
+06,M,2019,Arm 4,0.17446285793139016,Exploratory historical validation; not leaderboard
+06,M,2019,Arm 3,0.1728251114900455,Exploratory historical validation; not leaderboard
+06,M,2019,Arm 2,0.17355793247796086,Exploratory historical validation; not leaderboard
+06,W,2017,Reference,0.13094629939840619,Exploratory historical validation; not leaderboard
+06,W,2017,Arm 4,0.12770097493029361,Exploratory historical validation; not leaderboard
+06,W,2017,Arm 3,0.12673094556634262,Exploratory historical validation; not leaderboard
+06,W,2017,Arm 2,0.12440920009839651,Exploratory historical validation; not leaderboard
+06,W,2019,Reference,0.14625441329056185,Exploratory historical validation; not leaderboard
+06,W,2019,Arm 4,0.1540588614057579,Exploratory historical validation; not leaderboard
+06,W,2019,Arm 3,0.14603401999216994,Exploratory historical validation; not leaderboard
+06,W,2019,Arm 2,0.1522309211814028,Exploratory historical validation; not leaderboard
+07,W,2016,Reference,0.164486254396552,Exploratory historical validation; not leaderboard
+07,W,2016,Arm 2,0.16854017739124208,Exploratory historical validation; not leaderboard
+07,W,2017,Reference,0.13094629939840619,Exploratory historical validation; not leaderboard
+07,W,2017,Arm 2,0.12673094556634262,Exploratory historical validation; not leaderboard
+07,W,2018,Reference,0.15365012520859095,Exploratory historical validation; not leaderboard
+07,W,2018,Arm 2,0.15318940310476103,Exploratory historical validation; not leaderboard
+07,W,2019,Reference,0.14625441329056185,Exploratory historical validation; not leaderboard
+07,W,2019,Arm 2,0.14603401999216994,Exploratory historical validation; not leaderboard
+08,M,2016,Reference,0.2128403884710906,Exploratory historical validation; not leaderboard
+08,M,2016,Arm 4,0.2088635974411876,Exploratory historical validation; not leaderboard
+08,M,2016,Arm 3,0.22131107324514698,Exploratory historical validation; not leaderboard
+08,M,2016,Arm 2,0.21085666151940907,Exploratory historical validation; not leaderboard
+08,M,2017,Reference,0.1733233700512694,Exploratory historical validation; not leaderboard
+08,M,2017,Arm 4,0.1795304805508026,Exploratory historical validation; not leaderboard
+08,M,2017,Arm 3,0.17154773577013643,Exploratory historical validation; not leaderboard
+08,M,2017,Arm 2,0.17980924849689753,Exploratory historical validation; not leaderboard
+08,M,2018,Reference,0.19906608300963743,Exploratory historical validation; not leaderboard
+08,M,2018,Arm 4,0.19519938477796406,Exploratory historical validation; not leaderboard
+08,M,2018,Arm 3,0.20025109339976993,Exploratory historical validation; not leaderboard
+08,M,2018,Arm 2,0.19633817713438204,Exploratory historical validation; not leaderboard
+08,M,2019,Reference,0.17320192076291752,Exploratory historical validation; not leaderboard
+08,M,2019,Arm 4,0.1698787250619678,Exploratory historical validation; not leaderboard
+08,M,2019,Arm 3,0.1683585215431924,Exploratory historical validation; not leaderboard
+08,M,2019,Arm 2,0.1681489825745813,Exploratory historical validation; not leaderboard
+08,W,2016,Reference,0.164486254396552,Exploratory historical validation; not leaderboard
+08,W,2016,Arm 4,0.16992206433566043,Exploratory historical validation; not leaderboard
+08,W,2016,Arm 3,0.16726522650954298,Exploratory historical validation; not leaderboard
+08,W,2016,Arm 2,0.17094666261498195,Exploratory historical validation; not leaderboard
+08,W,2017,Reference,0.13094629939840619,Exploratory historical validation; not leaderboard
+08,W,2017,Arm 4,0.1334195273316461,Exploratory historical validation; not leaderboard
+08,W,2017,Arm 3,0.13181648314049857,Exploratory historical validation; not leaderboard
+08,W,2017,Arm 2,0.13425616198698062,Exploratory historical validation; not leaderboard
+08,W,2018,Reference,0.15365012520859095,Exploratory historical validation; not leaderboard
+08,W,2018,Arm 4,0.15348847047077085,Exploratory historical validation; not leaderboard
+08,W,2018,Arm 3,0.1545982581130113,Exploratory historical validation; not leaderboard
+08,W,2018,Arm 2,0.15388467791934085,Exploratory historical validation; not leaderboard
+08,W,2019,Reference,0.14625441329056185,Exploratory historical validation; not leaderboard
+08,W,2019,Arm 4,0.15629089828460305,Exploratory historical validation; not leaderboard
+08,W,2019,Arm 3,0.14713446614457168,Exploratory historical validation; not leaderboard
+08,W,2019,Arm 2,0.15640633276519292,Exploratory historical validation; not leaderboard
+09,W,2016,Reference,0.164486254396552,Exploratory historical validation; not leaderboard
+09,W,2016,Arm 4,0.16339630206342812,Exploratory historical validation; not leaderboard
+09,W,2016,Arm 2,0.16577713036183708,Exploratory historical validation; not leaderboard
+09,W,2016,Arm 3,0.16618268969665276,Exploratory historical validation; not leaderboard
+09,W,2017,Reference,0.13094629939840619,Exploratory historical validation; not leaderboard
+09,W,2017,Arm 4,0.13152939367080646,Exploratory historical validation; not leaderboard
+09,W,2017,Arm 2,0.13048980962406792,Exploratory historical validation; not leaderboard
+09,W,2017,Arm 3,0.13042905897561027,Exploratory historical validation; not leaderboard
+09,W,2018,Reference,0.15365012520859095,Exploratory historical validation; not leaderboard
+09,W,2018,Arm 4,0.15290604240422298,Exploratory historical validation; not leaderboard
+09,W,2018,Arm 2,0.1521468288912922,Exploratory historical validation; not leaderboard
+09,W,2018,Arm 3,0.15206911276999005,Exploratory historical validation; not leaderboard
+09,W,2019,Reference,0.14625441329056185,Exploratory historical validation; not leaderboard
+09,W,2019,Arm 4,0.14717663724408775,Exploratory historical validation; not leaderboard
+09,W,2019,Arm 2,0.14777238178396282,Exploratory historical validation; not leaderboard
+09,W,2019,Arm 3,0.14793587718192197,Exploratory historical validation; not leaderboard
+11,M,2016,Reference,0.2128403884710906,Exploratory historical validation; not leaderboard
+11,M,2016,Arm 4,0.21090326776577276,Exploratory historical validation; not leaderboard
+11,M,2016,Arm 3,0.211706379534112,Exploratory historical validation; not leaderboard
+11,M,2016,Arm 2,0.2102602184163536,Exploratory historical validation; not leaderboard
+11,M,2017,Reference,0.1733233700512694,Exploratory historical validation; not leaderboard
+11,M,2017,Arm 4,0.17367332459393597,Exploratory historical validation; not leaderboard
+11,M,2017,Arm 3,0.17296917863120045,Exploratory historical validation; not leaderboard
+11,M,2017,Arm 2,0.1733531693203355,Exploratory historical validation; not leaderboard
+11,M,2018,Reference,0.19906608300963743,Exploratory historical validation; not leaderboard
+11,M,2018,Arm 4,0.19934042958631012,Exploratory historical validation; not leaderboard
+11,M,2018,Arm 3,0.19804379890327997,Exploratory historical validation; not leaderboard
+11,M,2018,Arm 2,0.1985166862775695,Exploratory historical validation; not leaderboard
+11,M,2019,Reference,0.17320192076291752,Exploratory historical validation; not leaderboard
+11,M,2019,Arm 4,0.17371982092435345,Exploratory historical validation; not leaderboard
+11,M,2019,Arm 3,0.17396053726273486,Exploratory historical validation; not leaderboard
+11,M,2019,Arm 2,0.17429426875146034,Exploratory historical validation; not leaderboard
+12,M,2016,Reference,0.2128403884710906,Exploratory historical validation; not leaderboard
+12,M,2016,Arm 2,0.2119065389402754,Exploratory historical validation; not leaderboard
+12,M,2016,Arm 4,0.20998551302253773,Exploratory historical validation; not leaderboard
+12,M,2016,Arm 5,0.21063449959759076,Exploratory historical validation; not leaderboard
+12,M,2016,Arm 3,0.20876961618739265,Exploratory historical validation; not leaderboard
+12,M,2017,Reference,0.1733233700512694,Exploratory historical validation; not leaderboard
+12,M,2017,Arm 2,0.17199348982375776,Exploratory historical validation; not leaderboard
+12,M,2017,Arm 4,0.1794959341380189,Exploratory historical validation; not leaderboard
+12,M,2017,Arm 5,0.173098892238597,Exploratory historical validation; not leaderboard
+12,M,2017,Arm 3,0.18014357846471563,Exploratory historical validation; not leaderboard
+12,M,2018,Reference,0.19906608300963743,Exploratory historical validation; not leaderboard
+12,M,2018,Arm 2,0.19944087719738188,Exploratory historical validation; not leaderboard
+12,M,2018,Arm 4,0.19891229075666922,Exploratory historical validation; not leaderboard
+12,M,2018,Arm 5,0.20047368091862505,Exploratory historical validation; not leaderboard
+12,M,2018,Arm 3,0.1999569179209551,Exploratory historical validation; not leaderboard
+12,M,2019,Reference,0.17320192076291752,Exploratory historical validation; not leaderboard
+12,M,2019,Arm 2,0.17140869470529066,Exploratory historical validation; not leaderboard
+12,M,2019,Arm 4,0.16955070194802482,Exploratory historical validation; not leaderboard
+12,M,2019,Arm 5,0.17219442508504673,Exploratory historical validation; not leaderboard
+12,M,2019,Arm 3,0.17033442698997578,Exploratory historical validation; not leaderboard
+13,M,2022,Reference,0.22292055941342118,Exploratory historical validation; not leaderboard
+13,M,2022,Arm 2,0.22230168214031837,Exploratory historical validation; not leaderboard
+13,M,2023,Reference,0.20839053938166044,Exploratory historical validation; not leaderboard
+13,M,2023,Arm 2,0.20845297483961983,Exploratory historical validation; not leaderboard
+13,M,2024,Reference,0.1937255072768156,Exploratory historical validation; not leaderboard
+13,M,2024,Arm 2,0.1915872218782904,Exploratory historical validation; not leaderboard
+13,M,2025,Reference,0.1474573191491695,Exploratory historical validation; not leaderboard
+13,M,2025,Arm 2,0.14740041327748873,Exploratory historical validation; not leaderboard
+14,M,2022,Reference,0.22230168214031837,Exploratory historical validation; not leaderboard
+14,M,2022,Arm 5,0.222986937183122,Exploratory historical validation; not leaderboard
+14,M,2022,Arm 2,0.2225490944423473,Exploratory historical validation; not leaderboard
+14,M,2022,Arm 1,0.2230378934864185,Exploratory historical validation; not leaderboard
+14,M,2022,Arm 3,0.2218834247611436,Exploratory historical validation; not leaderboard
+14,M,2023,Reference,0.20845297483961983,Exploratory historical validation; not leaderboard
+14,M,2023,Arm 5,0.21181993445566366,Exploratory historical validation; not leaderboard
+14,M,2023,Arm 2,0.2123468252735469,Exploratory historical validation; not leaderboard
+14,M,2023,Arm 1,0.21392790022682798,Exploratory historical validation; not leaderboard
+14,M,2023,Arm 3,0.2089662014402898,Exploratory historical validation; not leaderboard
+14,M,2024,Reference,0.1915872218782904,Exploratory historical validation; not leaderboard
+14,M,2024,Arm 5,0.18976237702391985,Exploratory historical validation; not leaderboard
+14,M,2024,Arm 2,0.18917094487572866,Exploratory historical validation; not leaderboard
+14,M,2024,Arm 1,0.1879323915958239,Exploratory historical validation; not leaderboard
+14,M,2024,Arm 3,0.18969156921877017,Exploratory historical validation; not leaderboard
+14,M,2025,Reference,0.14740041327748873,Exploratory historical validation; not leaderboard
+14,M,2025,Arm 5,0.14543449147404539,Exploratory historical validation; not leaderboard
+14,M,2025,Arm 2,0.14746654237799112,Exploratory historical validation; not leaderboard
+14,M,2025,Arm 1,0.1452359253614035,Exploratory historical validation; not leaderboard
+14,M,2025,Arm 3,0.1476221345149523,Exploratory historical validation; not leaderboard
+15,M,2022,Reference,0.22230168214031837,Exploratory historical validation; not leaderboard
+15,M,2022,Arm 5,0.22417853589904563,Exploratory historical validation; not leaderboard
+15,M,2022,Arm 3,0.2253210403537961,Exploratory historical validation; not leaderboard
+15,M,2022,Arm 1,0.2253564808872844,Exploratory historical validation; not leaderboard
+15,M,2022,Arm 2,0.22539962043084144,Exploratory historical validation; not leaderboard
+15,M,2023,Reference,0.20845297483961983,Exploratory historical validation; not leaderboard
+15,M,2023,Arm 5,0.20784099942670145,Exploratory historical validation; not leaderboard
+15,M,2023,Arm 3,0.207069017126766,Exploratory historical validation; not leaderboard
+15,M,2023,Arm 1,0.20720393903646023,Exploratory historical validation; not leaderboard
+15,M,2023,Arm 2,0.20893299491638553,Exploratory historical validation; not leaderboard
+15,M,2024,Reference,0.1915872218782904,Exploratory historical validation; not leaderboard
+15,M,2024,Arm 5,0.19001588580221113,Exploratory historical validation; not leaderboard
+15,M,2024,Arm 3,0.19271147417343137,Exploratory historical validation; not leaderboard
+15,M,2024,Arm 1,0.19145178650394074,Exploratory historical validation; not leaderboard
+15,M,2024,Arm 2,0.1916672535567194,Exploratory historical validation; not leaderboard
+15,M,2025,Reference,0.14740041327748873,Exploratory historical validation; not leaderboard
+15,M,2025,Arm 5,0.14982185607898926,Exploratory historical validation; not leaderboard
+15,M,2025,Arm 3,0.14702156044671388,Exploratory historical validation; not leaderboard
+15,M,2025,Arm 1,0.14951010106361715,Exploratory historical validation; not leaderboard
+15,M,2025,Arm 2,0.14750961660851725,Exploratory historical validation; not leaderboard
+17,M,2022,Reference,0.22230168214031837,Exploratory historical validation; notebook execution log
+17,M,2022,Rate control,0.23061649393001923,Exploratory historical validation; notebook execution log
+17,M,2022,Arm A,0.2320535426366222,Exploratory historical validation; notebook execution log
+17,M,2022,Arm B,0.2308303966712553,Exploratory historical validation; notebook execution log
+17,M,2022,Combined,0.23225675561866171,Exploratory historical validation; notebook execution log
+17,M,2022,Duplicate control,0.2313918203458196,Exploratory historical validation; notebook execution log
+17,M,2023,Reference,0.20845297483961983,Exploratory historical validation; notebook execution log
+17,M,2023,Rate control,0.20422427992171074,Exploratory historical validation; notebook execution log
+17,M,2023,Arm A,0.2041549221564498,Exploratory historical validation; notebook execution log
+17,M,2023,Arm B,0.20390198013753644,Exploratory historical validation; notebook execution log
+17,M,2023,Combined,0.20379855169427938,Exploratory historical validation; notebook execution log
+17,M,2023,Duplicate control,0.20404561555503858,Exploratory historical validation; notebook execution log
+17,M,2024,Reference,0.1915872218782904,Exploratory historical validation; notebook execution log
+17,M,2024,Rate control,0.18617413116703402,Exploratory historical validation; notebook execution log
+17,M,2024,Arm A,0.1850047273563441,Exploratory historical validation; notebook execution log
+17,M,2024,Arm B,0.18521072716623416,Exploratory historical validation; notebook execution log
+17,M,2024,Combined,0.18395628891197718,Exploratory historical validation; notebook execution log
+17,M,2024,Duplicate control,0.18597661073079652,Exploratory historical validation; notebook execution log
+17,M,2025,Reference,0.14740041327748873,Exploratory historical validation; notebook execution log
+17,M,2025,Rate control,0.14166245268160757,Exploratory historical validation; notebook execution log
+17,M,2025,Arm A,0.14031365528716208,Exploratory historical validation; notebook execution log
+17,M,2025,Arm B,0.1421920113073933,Exploratory historical validation; notebook execution log
+17,M,2025,Combined,0.14077989803130722,Exploratory historical validation; notebook execution log
+17,M,2025,Duplicate control,0.14156231855481569,Exploratory historical validation; notebook execution log
+18,M,2022,Reference,0.22230168214031837,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2022,Arm 5,0.23355777651800005,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2022,Arm 4,0.23734598580161229,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2022,Arm 1,0.23332406102883554,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2022,Arm 2,0.23707926269295429,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2022,Arm 3,0.23430453933140549,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2023,Reference,0.20845297483961983,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2023,Arm 5,0.21731078772868787,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2023,Arm 4,0.21751336988370329,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2023,Arm 1,0.21735174011847527,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2023,Arm 2,0.21754016221436465,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2023,Arm 3,0.21786422836196326,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2024,Reference,0.19158722187829039,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2024,Arm 5,0.19126614858769053,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2024,Arm 4,0.19124676896040502,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2024,Arm 1,0.19123420847857103,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2024,Arm 2,0.19122977093083979,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2024,Arm 3,0.19128943699411521,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2025,Reference,0.14740041327748873,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2025,Arm 5,0.15062283543823651,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2025,Arm 4,0.1510237777705758,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2025,Arm 1,0.15061600910461909,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2025,Arm 2,0.1510217372613927,Exploratory reused 2022–2025 validation; not leaderboard
+18,M,2025,Arm 3,0.15078552006279608,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2022,Reference,0.22230168214031837,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2022,Arm 4,0.22447207465642766,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2022,Arm 6,0.22437032322167813,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2022,Arm 3,0.2249952347035564,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2022,Arm 1,0.22488359730202526,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2022,Arm 2,0.22468920035118875,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2023,Reference,0.20845297483961983,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2023,Arm 4,0.20473113756964298,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2023,Arm 6,0.20585667399586322,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2023,Arm 3,0.20471374214948931,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2023,Arm 1,0.2058256428625834,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2023,Arm 2,0.20447404967458777,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2024,Reference,0.19158722187829039,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2024,Arm 4,0.1909157059138431,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2024,Arm 6,0.19083121787743174,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2024,Arm 3,0.19050074735619682,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2024,Arm 1,0.19031418663572724,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2024,Arm 2,0.19096055273998497,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2025,Reference,0.14740041327748873,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2025,Arm 4,0.14430283234113725,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2025,Arm 6,0.14457860142972512,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2025,Arm 3,0.14442815061266806,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2025,Arm 1,0.14474670374218743,Exploratory reused 2022–2025 validation; not leaderboard
+19,M,2025,Arm 2,0.1441739826897486,Exploratory reused 2022–2025 validation; not leaderboard

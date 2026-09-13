@@ -1,0 +1,98 @@
+{
+  "prior_manifest": [
+    {
+      "round": "02",
+      "source": "milestone_02_return.zip",
+      "metrics_sha256": "d12680bc93a3a97a81f12534c7efd39ba233f5ca267d0a71327107fa4d713d84",
+      "rows": 8
+    },
+    {
+      "round": "04",
+      "source": "milestone_04_return.zip",
+      "metrics_sha256": "9a55946916e6df7705790bbaeb0ff34591a0c5a06ce169a609e72119233feb5b",
+      "rows": 8
+    },
+    {
+      "round": "05",
+      "source": "milestone_05_return.zip",
+      "metrics_sha256": "5e4f563d7e3870d8a0f4fafbb0ab0a36432fd0390c21d0d3886294fa00b60b82",
+      "rows": 8
+    },
+    {
+      "round": "06",
+      "source": "milestone_06_return.zip",
+      "metrics_sha256": "b434d19863318d12265cf8eb79952d63b41a468b062d0e65f5613b516262d912",
+      "rows": 16
+    },
+    {
+      "round": "07",
+      "source": "milestone_07_return.zip",
+      "metrics_sha256": "11049da3161216267c76ae89e16a675d383d0d0ccc12796962316452b4b60777",
+      "rows": 8
+    },
+    {
+      "round": "08",
+      "source": "milestone_08_return.zip",
+      "metrics_sha256": "ce4d72d7bc1cb05d06f6eed88737da127b448433fae2d35b38b5104d458fa340",
+      "rows": 32
+    },
+    {
+      "round": "09",
+      "source": "milestone_09_return.zip",
+      "metrics_sha256": "572b60d600e3bac519eca7588d055ec88e7a87d5db428742534e00ef60d8bc40",
+      "rows": 16
+    },
+    {
+      "round": "11",
+      "source": "milestone_11_return.zip",
+      "metrics_sha256": "e3f1433dc81c4dfb80cd2f770579e6bbdd5fa8329cd18b14ed96fdff8ff96a57",
+      "rows": 16
+    },
+    {
+      "round": "12",
+      "source": "milestone_12_return.zip",
+      "metrics_sha256": "7e952b7643d68d39599951f2c88777fc48a726bbb5e8eec19ef1227c7300b1dc",
+      "rows": 20
+    },
+    {
+      "round": "13",
+      "source": "milestone_13_return.zip",
+      "metrics_sha256": "ec72f33b892ed3f06266d6bc1257e0cf7c8476222ae6c66fabb18696b54e40ee",
+      "rows": 8
+    },
+    {
+      "round": "14",
+      "source": "rounds_14_15_return(1).zip",
+      "metrics_sha256": "5e200d33685e2f131a1e1a1c1972542378bc2204d2c6a83b563d90541807fb13",
+      "rows": 20
+    },
+    {
+      "round": "15",
+      "source": "rounds_14_15_return(1).zip",
+      "metrics_sha256": "3e682670d64a63b3eea8aeaea81581b18ce9c3e104c23ff0911973f466cbc534",
+      "rows": 20
+    },
+    {
+      "round": "17",
+      "source": "17_blocks_and_foul_pressure.ipynb",
+      "sha256": "d96e352c4330fe1b68d988c86168abe249a7772ff8cdb71be58fc11ece7746a7",
+      "rows": 24,
+      "archive_verified": false
+    }
+  ],
+  "new_sources": {
+    "17": {
+      "source": "research_return.zip / milestone_17_return.zip",
+      "metrics_sha256": "fb301041c91759cf878418073aa0cafec59cf8608105b9e69e9e29cc74769b7e"
+    },
+    "18": {
+      "source": "research_return.zip / milestone_18_return.zip",
+      "metrics_sha256": "97febe9e86d3f86ef53d14fa2f20c485579fac693c459a1ab613e41c3e260789"
+    },
+    "19": {
+      "source": "research_return.zip / milestone_19_return.zip",
+      "metrics_sha256": "df140c678375a512bbdfdfb6e4a9e5f37d3682d8f6f86fdde4abfbdf30623b47"
+    }
+  },
+  "status": "Uploaded aggregate reports verified by archive checksums; not signed competition receipts"
+}

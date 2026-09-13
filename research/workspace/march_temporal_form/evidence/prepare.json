@@ -1,0 +1,13 @@
+{
+  "base_snapshots_reused": 7,
+  "current_snapshot_checkpoint_reused": 0,
+  "feature_swap_error": 0.0,
+  "historical_matchup_rows": 441,
+  "new_classifier_fits": 0,
+  "new_feature_definitions": 0,
+  "new_rating_fits": 0,
+  "new_schedule_snapshots": 1,
+  "record_features_under_test": 4,
+  "schedule_snapshots_reused": 6,
+  "status": "COMPLETE"
+}

@@ -1,0 +1,116 @@
+{
+  "status": "LOCAL_SOFTWARE_VALIDATION_COMPLETE",
+  "validated_at_utc": "2026-09-12",
+  "tests": {
+    "count": 54,
+    "result": "PASS",
+    "last_run_seconds": 11.086
+  },
+  "input_archive": {
+    "name": "milestone_12_return.zip",
+    "sha256": "90ff4b6c4992dd138e43b5cae854281bb9818c16733aaf5997840518e4e33aef",
+    "verified_members": 20,
+    "integrity": "PASS"
+  },
+  "notebook": {
+    "delivered_code_cells": 8,
+    "error_outputs": 0,
+    "inline_plotly_charts": 10,
+    "first_evaluation": {
+      "local_reuses": 0,
+      "new_classifier_fits": 8,
+      "new_rating_fits_in_evaluation": 0,
+      "total_comparisons": 8,
+      "validation_seasons": [
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    "first_preparation": {
+      "compact_snapshot_reuses": 0,
+      "early_years_not_refitted": true,
+      "matchup_table_reuses": 0,
+      "new_compact_snapshots": 5,
+      "new_feature_definitions": 0,
+      "new_matchup_tables": 5,
+      "new_ranking_panels": 5,
+      "new_rating_fits": 10,
+      "new_tournament_classifier_fits": 0,
+      "old_base_and_matchup_snapshots_reused": 7,
+      "old_consensus_models_replayed": 4,
+      "ranking_panel_reuses": 0,
+      "rating_component_reuses": 0,
+      "status": "COMPLETE"
+    },
+    "second_evaluation": {
+      "local_reuses": 8,
+      "new_classifier_fits": 0,
+      "new_rating_fits_in_evaluation": 0,
+      "total_comparisons": 8,
+      "validation_seasons": [
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    "second_preparation": {
+      "compact_snapshot_reuses": 5,
+      "early_years_not_refitted": true,
+      "matchup_table_reuses": 5,
+      "new_compact_snapshots": 0,
+      "new_feature_definitions": 0,
+      "new_matchup_tables": 0,
+      "new_ranking_panels": 0,
+      "new_rating_fits": 0,
+      "new_tournament_classifier_fits": 0,
+      "old_base_and_matchup_snapshots_reused": 7,
+      "old_consensus_models_replayed": 4,
+      "ranking_panel_reuses": 5,
+      "rating_component_reuses": 10,
+      "status": "COMPLETE"
+    },
+    "synthetic_fixture": true,
+    "jinja2_blocked": true,
+    "kernel": "local python3; not user AWS environment",
+    "fixture_changes": "Synthetic 68-team fields, generated raw tables, matching synthetic Git/source/data pins; first cell sets fixture paths and blocks Jinja only."
+  },
+  "browser_check": {
+    "charts": 10,
+    "javascript_errors": 0,
+    "status": "RENDERED_USING_SYSTEM_CHROMIUM",
+    "note": "Ten charts rendered with zero JavaScript errors using installed Chromium and in-memory HTML; bundled browser missing and file-URL navigation blocked. Final plots use integer year ticks and a compact label-audit table. No network or installation used."
+  },
+  "current_local_environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "plotly": "6.5.2"
+  },
+  "expected_aws_environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "plotly": "6.3.1",
+    "python": "3.12.13",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.16.3"
+  },
+  "limitations": [
+    "Local synthetic inputs, not the user's private raw data or live AWS filesystem.",
+    "Package was not pushed/committed/merged or submitted.",
+    "54 tests include feature parity, label boundaries, model replay, corruption, source/data protection, resume, real child timeout, and concurrent-run refusal.",
+    "No new real Brier result generated; no guarantee of performance gains.",
+    "Source pins and environment pins were adapted only inside temporary synthetic copies."
+  ],
+  "fresh_archive_validation": {
+    "status": "PASS",
+    "tests": 54,
+    "seconds": 11.043,
+    "fresh_extraction": true,
+    "tested_code_bytes_unchanged_after_extraction": true
+  }
+}

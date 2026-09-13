@@ -1,0 +1,31 @@
+{
+  "clearly_unproductive_smoke": false,
+  "current_submitted_brier": 0.1222672,
+  "fingerprint": "9c2e0448c505628a86aefc04229d905f759c1317e490407e6fb3bcb8bdb964e6",
+  "fixed_anchor_features": 16,
+  "github_updated": false,
+  "limitations": [
+    "Previously-consumed historical seasons: exploratory, not an untouched test.",
+    "Residuals mix luck, defense, opponent personnel and model misspecification.",
+    "Men and women fitted separately; published domain findings need empirical validation in both.",
+    "Attribution is conditional on this fixed reference, not the final pooled XGBoost recipe."
+  ],
+  "minimum_train_season": 2013,
+  "model": "same logistic C=0.1 for all four recipes; no hyperparameter search",
+  "new_leaderboard_score": null,
+  "new_matchup_candidates": 14,
+  "new_tournament_classifier_fits": 8,
+  "next_step": "Review smoke; notebook 03 expands the unchanged recipe to the five-season panel.",
+  "not_final_submitted_model_reproduction": true,
+  "phase": "smoke",
+  "raw_modified": false,
+  "repo_modified": false,
+  "research_target_brier": 0.1097454,
+  "reused_tournament_classifier_fits": 0,
+  "status": "COMPLETE",
+  "total_tournament_classifier_fits": 8,
+  "uses_2022_2026_targets": false,
+  "validation_seasons": [
+    2019
+  ]
+}

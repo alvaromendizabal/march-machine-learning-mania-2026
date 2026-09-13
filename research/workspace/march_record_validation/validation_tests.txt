@@ -1,0 +1,39 @@
+test_future_seasons_do_not_enter (test_record_validation.FeatureTests.test_future_seasons_do_not_enter) ... ok
+test_input_row_order_does_not_matter (test_record_validation.FeatureTests.test_input_row_order_does_not_matter) ... ok
+test_no_same_season_tournament_targets (test_record_validation.FeatureTests.test_no_same_season_tournament_targets) ... ok
+test_postcutoff_games_do_not_enter (test_record_validation.FeatureTests.test_postcutoff_games_do_not_enter) ... ok
+test_swap_antisymmetry (test_record_validation.FeatureTests.test_swap_antisymmetry) ... ok
+test_unchanged_record_formula (test_record_validation.FeatureTests.test_unchanged_record_formula) ... ok
+test_complementary_probability (test_record_validation.GateTests.test_complementary_probability) ... ok
+test_discovery_cannot_fail_replication (test_record_validation.GateTests.test_discovery_cannot_fail_replication) ... ok
+test_discovery_cannot_rescue_failure (test_record_validation.GateTests.test_discovery_cannot_rescue_failure) ... ok
+test_drop_one_keeps_every_anchor (test_record_validation.GateTests.test_drop_one_keeps_every_anchor) ... ok
+test_duplicate_year_rejected (test_record_validation.GateTests.test_duplicate_year_rejected) ... ok
+test_frozen_model_training_scale (test_record_validation.GateTests.test_frozen_model_training_scale) ... ok
+test_future_validation_forbidden (test_record_validation.GateTests.test_future_validation_forbidden) ... ok
+test_mean_gain_guard (test_record_validation.GateTests.test_mean_gain_guard) ... ok
+test_missing_replication_year_rejected (test_record_validation.GateTests.test_missing_replication_year_rejected) ... ok
+test_no_cloud_or_pickle_clients (test_record_validation.GateTests.test_no_cloud_or_pickle_clients) ... ok
+test_no_quality_columns_in_any_recipe (test_record_validation.GateTests.test_no_quality_columns_in_any_recipe) ... ok
+test_no_style_access_in_delivered_notebook (test_record_validation.GateTests.test_no_style_access_in_delivered_notebook) ... ok
+test_nonfinite_gate_rejected (test_record_validation.GateTests.test_nonfinite_gate_rejected) ... ok
+test_replication_pass (test_record_validation.GateTests.test_replication_pass) ... ok
+test_two_of_three_required (test_record_validation.GateTests.test_two_of_three_required) ... ok
+test_unchanged_four_record_columns (test_record_validation.GateTests.test_unchanged_four_record_columns) ... ok
+test_worst_year_guard (test_record_validation.GateTests.test_worst_year_guard) ... ok
+test_pipeline_replay_resume_gate_and_both_ablation_branches (test_record_validation.IntegrationTests.test_pipeline_replay_resume_gate_and_both_ablation_branches) ... ok
+test_checkpoint_reuse (test_record_validation.SafetyTests.test_checkpoint_reuse) ... ok
+test_corrupt_checkpoint_stops (test_record_validation.SafetyTests.test_corrupt_checkpoint_stops) ... ok
+test_invalid_stage_stops (test_record_validation.SafetyTests.test_invalid_stage_stops) ... ok
+test_limit_cannot_increase (test_record_validation.SafetyTests.test_limit_cannot_increase) ... ok
+test_output_missing_stops (test_record_validation.SafetyTests.test_output_missing_stops) ... ok
+test_path_traversal_stops (test_record_validation.SafetyTests.test_path_traversal_stops) ... ok
+test_supervisor_refuses_concurrent_stage (test_record_validation.SafetyTests.test_supervisor_refuses_concurrent_stage) ... ok
+test_supervisor_stops_child_at_time_limit (test_record_validation.SafetyTests.test_supervisor_stops_child_at_time_limit) ... ok
+test_symlink_stops (test_record_validation.SafetyTests.test_symlink_stops) ... ok
+test_unsafe_receipt_stops (test_record_validation.SafetyTests.test_unsafe_receipt_stops) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 3.383s
+
+OK

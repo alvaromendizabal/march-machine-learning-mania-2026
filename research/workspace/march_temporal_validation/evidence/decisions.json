@@ -1,0 +1,64 @@
+{
+  "decisions": [
+    {
+      "Gender": "M",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": -0.000352282814094107,
+      "recipe": "anchor_level",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.0012609371684726423
+    },
+    {
+      "Gender": "M",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": 0.000565623339298757,
+      "recipe": "anchor_change",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.0015080559514695224
+    },
+    {
+      "Gender": "M",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": -0.0005545024053910663,
+      "recipe": "anchor_both",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.0003560117150433473
+    },
+    {
+      "Gender": "W",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": 0.002279561823541734,
+      "recipe": "anchor_level",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.007804448115196039
+    },
+    {
+      "Gender": "W",
+      "automatic_promotion": false,
+      "decision": "CONSIDER_UNCHANGED_REPLICATION",
+      "improved_seasons": 2,
+      "mean_delta": -0.002217873565227735,
+      "recipe": "anchor_change",
+      "statistical_significance_claim": false,
+      "worst_delta": -0.0002203932983919077
+    },
+    {
+      "Gender": "W",
+      "automatic_promotion": false,
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": -0.0002802957045843629,
+      "recipe": "anchor_both",
+      "statistical_significance_claim": false,
+      "worst_delta": 0.005976507890840949
+    }
+  ]
+}

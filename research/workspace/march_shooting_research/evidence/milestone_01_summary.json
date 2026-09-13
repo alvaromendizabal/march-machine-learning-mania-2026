@@ -1,0 +1,62 @@
+{
+  "aggregate_scope": "Mean season and game-weighted Brier saved separately. Omission effects are conditional pipeline effects, not controlled single-family effects.",
+  "archive_downloaded": false,
+  "branch": "main",
+  "catalog_features": 3106,
+  "cloud_resources_modified": false,
+  "computational_source_files_changed": 0,
+  "computational_source_files_compared": 15,
+  "current_submitted_brier": 0.1222672,
+  "data_preflight_revalidated": true,
+  "distinct_retained_full_block": 251,
+  "expected_commit": "84b8fb36644a6558beded6dad84f5645ea4405d3",
+  "full_block_fits": 20,
+  "github_updated": false,
+  "head": "84b8fb36644a6558beded6dad84f5645ea4405d3",
+  "hidden_index_flag_count": 0,
+  "historical_data_hashes_compared": 13,
+  "historical_data_hashes_matched": 13,
+  "historical_input_mismatches": [],
+  "historical_recorded_fit_rows": 1050,
+  "historical_seasons": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2021
+  ],
+  "in_progress_git_operations": [],
+  "milestone": "01-workspace-diagnosis-and-published-feature-evidence",
+  "new_leaderboard_score": null,
+  "new_models_fitted": 0,
+  "next_step": "Review exact tracked changes; then trace final-model inputs and specify one frozen-anchor feature test. No automatic full-bank rebuild.",
+  "plotly_figures": 18,
+  "private_backup_file_versions": 4,
+  "public_study_scope": "retained full-block feature-store fits, not final submitted-model inputs",
+  "raw_data_unchanged": true,
+  "raw_tables_rechecked": 35,
+  "repository_state_unchanged": true,
+  "research_target_brier": 0.1097454,
+  "retained_per_full_fit_max": 128,
+  "retained_per_full_fit_min": 128,
+  "source_ready_for_next_design": false,
+  "status": "REVIEW_REQUIRED",
+  "tracked_change_count": 2,
+  "tracked_changes": [
+    {
+      "classification": "notebook_source_or_metadata_change",
+      "path": "notebooks/00_data_audit_and_preparation.ipynb",
+      "staged": false,
+      "unstaged": true
+    },
+    {
+      "classification": "notebook_source_or_metadata_change",
+      "path": "notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb",
+      "staged": false,
+      "unstaged": true
+    }
+  ],
+  "tracked_clean": false,
+  "training_authorized": false,
+  "utc": "2026-09-11T21:47:29+00:00"
+}

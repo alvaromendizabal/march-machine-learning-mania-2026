@@ -1,0 +1,134 @@
+test_future_tournament_targets_excluded (test_temporal_form.AdditionalSafetyTests.test_future_tournament_targets_excluded) ... ok
+test_supervisor_rejects_concurrent_run (test_temporal_form.AdditionalSafetyTests.test_supervisor_rejects_concurrent_run) ... ok
+test_supervisor_stops_process_at_limit (test_temporal_form.AdditionalSafetyTests.test_supervisor_stops_process_at_limit) ... ok
+test_wrong_early_model_season_rejected (test_temporal_form.AdditionalSafetyTests.test_wrong_early_model_season_rejected) ... ok
+test_bad_legal_counts_rejected (test_temporal_form.FeatureTests.test_bad_legal_counts_rejected) ... ok
+test_change_formula (test_temporal_form.FeatureTests.test_change_formula) ... ok
+test_defense_sign (test_temporal_form.FeatureTests.test_defense_sign) ... ok
+test_duplicate_games_rejected (test_temporal_form.FeatureTests.test_duplicate_games_rejected) ... ok
+test_early_max_day (test_temporal_form.FeatureTests.test_early_max_day) ... ok
+test_feature_count (test_temporal_form.FeatureTests.test_feature_count) ... ok
+test_future_rows_ignored (test_temporal_form.FeatureTests.test_future_rows_ignored) ... ok
+test_illegal_season_rejected (test_temporal_form.FeatureTests.test_illegal_season_rejected) ... ok
+test_input_order_invariance (test_temporal_form.FeatureTests.test_input_order_invariance) ... ok
+test_late_boundaries (test_temporal_form.FeatureTests.test_late_boundaries) ... ok
+test_late_scores_cannot_change_early_model (test_temporal_form.FeatureTests.test_late_scores_cannot_change_early_model) ... ok
+test_missing_team_rejected (test_temporal_form.FeatureTests.test_missing_team_rejected) ... ok
+test_no_jinja_notebook_cells (test_temporal_form.FeatureTests.test_no_jinja_notebook_cells) ... ok
+test_no_targets_in_registry (test_temporal_form.FeatureTests.test_no_targets_in_registry) ... ok
+test_post_cutoff_rows_ignored (test_temporal_form.FeatureTests.test_post_cutoff_rows_ignored) ... ok
+test_shrinkage_formula (test_temporal_form.FeatureTests.test_shrinkage_formula) ... ok
+test_swap (test_temporal_form.FeatureTests.test_swap) ... ok
+test_wrong_base_identity (test_temporal_form.FeatureTests.test_wrong_base_identity) ... ok
+test_zero_support_prior (test_temporal_form.FeatureTests.test_zero_support_prior) ... ok
+test_corrupt_checkpoint_rejected (test_temporal_form.InfrastructureTests.test_corrupt_checkpoint_rejected) ... ok
+test_csv_roundtrip (test_temporal_form.InfrastructureTests.test_csv_roundtrip) ... ok
+test_decision_requires_both_seasons (test_temporal_form.InfrastructureTests.test_decision_requires_both_seasons) ... ok
+test_invalid_limit (test_temporal_form.InfrastructureTests.test_invalid_limit) ... ok
+test_invalid_stage (test_temporal_form.InfrastructureTests.test_invalid_stage) ... ok
+test_partial_checkpoint_not_reused (test_temporal_form.InfrastructureTests.test_partial_checkpoint_not_reused) ... ok
+test_path_traversal_rejected (test_temporal_form.InfrastructureTests.test_path_traversal_rejected) ... ok
+test_positive_rule_not_promotion (test_temporal_form.InfrastructureTests.test_positive_rule_not_promotion) ... ok
+test_symlink_rejected (test_temporal_form.InfrastructureTests.test_symlink_rejected) ... ok
+test_temporal_split (test_temporal_form.InfrastructureTests.test_temporal_split) ... ok
+test_changed_raw_stops (test_temporal_form.IntegrationTests.test_changed_raw_stops) ... ok
+test_changed_source_stops (test_temporal_form.IntegrationTests.test_changed_source_stops) ... ok
+test_environment_change_stops (test_temporal_form.IntegrationTests.test_environment_change_stops) ... ok
+test_full_run_then_reuse (test_temporal_form.IntegrationTests.test_full_run_then_reuse) ... {"utc": "2026-09-11T23:36:08Z", "event": "preflight_pass", "elapsed_seconds": 2.902, "snapshots": 14, "reusable_anchor_classifiers": 3}
+{"utc": "2026-09-11T23:36:08Z", "event": "early_rating_started", "elapsed_seconds": 2.906, "gender": "M", "season": 2013}
+{"utc": "2026-09-11T23:36:08Z", "event": "form_snapshot_ready", "elapsed_seconds": 2.954, "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-11T23:36:08Z", "event": "early_rating_started", "elapsed_seconds": 2.956, "gender": "M", "season": 2014}
+{"utc": "2026-09-11T23:36:08Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.005, "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-11T23:36:08Z", "event": "early_rating_started", "elapsed_seconds": 3.007, "gender": "M", "season": 2015}
+{"utc": "2026-09-11T23:36:08Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.052, "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-11T23:36:08Z", "event": "early_rating_started", "elapsed_seconds": 3.053, "gender": "M", "season": 2016}
+{"utc": "2026-09-11T23:36:08Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.102, "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-11T23:36:08Z", "event": "early_rating_started", "elapsed_seconds": 3.104, "gender": "M", "season": 2017}
+{"utc": "2026-09-11T23:36:08Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.145, "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-11T23:36:08Z", "event": "early_rating_started", "elapsed_seconds": 3.147, "gender": "M", "season": 2018}
+{"utc": "2026-09-11T23:36:09Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.196, "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-11T23:36:09Z", "event": "early_rating_started", "elapsed_seconds": 3.197, "gender": "M", "season": 2019}
+{"utc": "2026-09-11T23:36:09Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.247, "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-11T23:36:09Z", "event": "early_rating_started", "elapsed_seconds": 3.251, "gender": "W", "season": 2013}
+{"utc": "2026-09-11T23:36:09Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.294, "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-11T23:36:09Z", "event": "early_rating_started", "elapsed_seconds": 3.295, "gender": "W", "season": 2014}
+{"utc": "2026-09-11T23:36:09Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.343, "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-11T23:36:09Z", "event": "early_rating_started", "elapsed_seconds": 3.344, "gender": "W", "season": 2015}
+{"utc": "2026-09-11T23:36:09Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.389, "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-11T23:36:09Z", "event": "early_rating_started", "elapsed_seconds": 3.39, "gender": "W", "season": 2016}
+{"utc": "2026-09-11T23:36:09Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.434, "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-11T23:36:09Z", "event": "early_rating_started", "elapsed_seconds": 3.435, "gender": "W", "season": 2017}
+{"utc": "2026-09-11T23:36:09Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.481, "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-11T23:36:09Z", "event": "early_rating_started", "elapsed_seconds": 3.483, "gender": "W", "season": 2018}
+{"utc": "2026-09-11T23:36:09Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.526, "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-11T23:36:09Z", "event": "early_rating_started", "elapsed_seconds": 3.527, "gender": "W", "season": 2019}
+{"utc": "2026-09-11T23:36:09Z", "event": "form_snapshot_ready", "elapsed_seconds": 3.589, "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_started", "elapsed_seconds": 3.919, "gender": "M", "season": 2017, "recipe": "anchor"}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 3.932, "completed": 1, "total": 16, "new": 1, "reused": 0}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_started", "elapsed_seconds": 3.934, "gender": "M", "season": 2017, "recipe": "anchor_level"}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 3.945, "completed": 2, "total": 16, "new": 2, "reused": 0}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_started", "elapsed_seconds": 3.946, "gender": "M", "season": 2017, "recipe": "anchor_change"}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 3.96, "completed": 3, "total": 16, "new": 3, "reused": 0}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_started", "elapsed_seconds": 3.961, "gender": "M", "season": 2017, "recipe": "anchor_both"}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 3.973, "completed": 4, "total": 16, "new": 4, "reused": 0}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 3.992, "completed": 5, "total": 16, "new": 4, "reused": 1}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_started", "elapsed_seconds": 3.993, "gender": "M", "season": 2019, "recipe": "anchor_level"}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 4.006, "completed": 6, "total": 16, "new": 5, "reused": 1}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_started", "elapsed_seconds": 4.007, "gender": "M", "season": 2019, "recipe": "anchor_change"}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 4.018, "completed": 7, "total": 16, "new": 6, "reused": 1}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_started", "elapsed_seconds": 4.019, "gender": "M", "season": 2019, "recipe": "anchor_both"}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 4.031, "completed": 8, "total": 16, "new": 7, "reused": 1}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 4.134, "completed": 9, "total": 16, "new": 7, "reused": 2}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_started", "elapsed_seconds": 4.135, "gender": "W", "season": 2017, "recipe": "anchor_level"}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_progress", "elapsed_seconds": 4.147, "completed": 10, "total": 16, "new": 8, "reused": 2}
+{"utc": "2026-09-11T23:36:09Z", "event": "classifier_started", "elapsed_seconds": 4.148, "gender": "W", "season": 2017, "recipe": "anchor_change"}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_progress", "elapsed_seconds": 4.16, "completed": 11, "total": 16, "new": 9, "reused": 2}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_started", "elapsed_seconds": 4.162, "gender": "W", "season": 2017, "recipe": "anchor_both"}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_progress", "elapsed_seconds": 4.173, "completed": 12, "total": 16, "new": 10, "reused": 2}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_progress", "elapsed_seconds": 4.191, "completed": 13, "total": 16, "new": 10, "reused": 3}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_started", "elapsed_seconds": 4.192, "gender": "W", "season": 2019, "recipe": "anchor_level"}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_progress", "elapsed_seconds": 4.212, "completed": 14, "total": 16, "new": 11, "reused": 3}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_started", "elapsed_seconds": 4.213, "gender": "W", "season": 2019, "recipe": "anchor_change"}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_progress", "elapsed_seconds": 4.227, "completed": 15, "total": 16, "new": 12, "reused": 3}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_started", "elapsed_seconds": 4.228, "gender": "W", "season": 2019, "recipe": "anchor_both"}
+{"utc": "2026-09-11T23:36:10Z", "event": "classifier_progress", "elapsed_seconds": 4.241, "completed": 16, "total": 16, "new": 13, "reused": 3}
+{"utc": "2026-09-11T23:36:10Z", "event": "preservation_pass", "elapsed_seconds": 4.452, "raw": true, "upstream": true, "repository": true}
+{"utc": "2026-09-11T23:36:10Z", "event": "report_complete", "elapsed_seconds": 4.97, "return_zip": "/tmp/tmprjxlo_1a/march_temporal_form/reports/milestone_06_return.zip"}
+{"utc": "2026-09-11T23:36:10Z", "event": "preservation_pass", "elapsed_seconds": 5.004, "raw": true, "upstream": true, "repository": true}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.009, "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.012, "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.014, "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.016, "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.018, "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.021, "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.023, "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.027, "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.029, "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.032, "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.034, "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.037, "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.039, "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-11T23:36:10Z", "event": "form_snapshot_ready", "elapsed_seconds": 5.041, "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.318, "completed": 1, "total": 16, "new": 0, "reused": 1}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.324, "completed": 2, "total": 16, "new": 0, "reused": 2}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.332, "completed": 3, "total": 16, "new": 0, "reused": 3}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.339, "completed": 4, "total": 16, "new": 0, "reused": 4}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.376, "completed": 5, "total": 16, "new": 0, "reused": 5}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.385, "completed": 6, "total": 16, "new": 0, "reused": 6}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.395, "completed": 7, "total": 16, "new": 0, "reused": 7}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.402, "completed": 8, "total": 16, "new": 0, "reused": 8}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.513, "completed": 9, "total": 16, "new": 0, "reused": 9}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.519, "completed": 10, "total": 16, "new": 0, "reused": 10}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.525, "completed": 11, "total": 16, "new": 0, "reused": 11}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.531, "completed": 12, "total": 16, "new": 0, "reused": 12}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.549, "completed": 13, "total": 16, "new": 0, "reused": 13}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.555, "completed": 14, "total": 16, "new": 0, "reused": 14}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.563, "completed": 15, "total": 16, "new": 0, "reused": 15}
+{"utc": "2026-09-11T23:36:11Z", "event": "classifier_progress", "elapsed_seconds": 5.571, "completed": 16, "total": 16, "new": 0, "reused": 16}
+ok
+test_missing_cache_stops (test_temporal_form.IntegrationTests.test_missing_cache_stops) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 5.643s
+
+OK

@@ -1,0 +1,39 @@
+test_all_swap_parities (test_research.FeatureTests.test_all_swap_parities) ... ok
+test_bad_seed_rejected (test_research.FeatureTests.test_bad_seed_rejected) ... ok
+test_candidate_count_and_control (test_research.FeatureTests.test_candidate_count_and_control) ... ok
+test_current_and_future_target_labels_not_feature_inputs (test_research.FeatureTests.test_current_and_future_target_labels_not_feature_inputs) ... ok
+test_detailed_compact_disagreement (test_research.FeatureTests.test_detailed_compact_disagreement) ... ok
+test_duplicate_physical_game_rejected (test_research.FeatureTests.test_duplicate_physical_game_rejected) ... ok
+test_duplicate_seeds_rejected (test_research.FeatureTests.test_duplicate_seeds_rejected) ... ok
+test_features_are_finite (test_research.FeatureTests.test_features_are_finite) ... ok
+test_future_regular_season_poison_ignored (test_research.FeatureTests.test_future_regular_season_poison_ignored) ... ok
+test_impossible_two_point_shooting_rejected (test_research.FeatureTests.test_impossible_two_point_shooting_rejected) ... ok
+test_inadequate_coverage_rejected (test_research.FeatureTests.test_inadequate_coverage_rejected) ... ok
+test_main_draw_filter (test_research.FeatureTests.test_main_draw_filter) ... ok
+test_missing_seed_rejected (test_research.FeatureTests.test_missing_seed_rejected) ... ok
+test_opponent_exclusion_includes_repeat_meetings_and_prior (test_research.FeatureTests.test_opponent_exclusion_includes_repeat_meetings_and_prior) ... ok
+test_pair_function_rejects_labels (test_research.FeatureTests.test_pair_function_rejects_labels) ... ok
+test_post_cutoff_poison_ignored (test_research.FeatureTests.test_post_cutoff_poison_ignored) ... ok
+test_registry_has_temporal_contract (test_research.FeatureTests.test_registry_has_temporal_contract) ... ok
+test_shuffle_invariance (test_research.FeatureTests.test_shuffle_invariance) ... ok
+test_target_year_firewall (test_research.FeatureTests.test_target_year_firewall) ... ok
+test_zero_opportunity_rate_fit_stops (test_research.FeatureTests.test_zero_opportunity_rate_fit_stops) ... ok
+test_zero_three_attempts_finite (test_research.FeatureTests.test_zero_three_attempts_finite) ... ok
+test_conditional_ablation_sign (test_research.ModelTests.test_conditional_ablation_sign) ... ok
+test_game_weighted_combined_brier (test_research.ModelTests.test_game_weighted_combined_brier) ... ok
+test_invalid_class_values_stop (test_research.ModelTests.test_invalid_class_values_stop) ... ok
+test_model_deterministic (test_research.ModelTests.test_model_deterministic) ... ok
+test_probability_complement (test_research.ModelTests.test_probability_complement) ... ok
+test_short_history_stops (test_research.ModelTests.test_short_history_stops) ... ok
+test_temporal_splits (test_research.ModelTests.test_temporal_splits) ... ok
+test_training_only_constant_screen (test_research.ModelTests.test_training_only_constant_screen) ... ok
+test_checkpoint_corruption_detected (test_research.WorkflowTests.test_checkpoint_corruption_detected) ... ok
+test_new_unreviewed_source_change_stops (test_research.WorkflowTests.test_new_unreviewed_source_change_stops) ... ok
+test_raw_hash_mismatch_stops (test_research.WorkflowTests.test_raw_hash_mismatch_stops) ... ok
+test_resume_preservation_and_eight_smoke_fits (test_research.WorkflowTests.test_resume_preservation_and_eight_smoke_fits) ... ok
+test_supervisor_hard_timeout (test_research.WorkflowTests.test_supervisor_hard_timeout) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 7.210s
+
+OK

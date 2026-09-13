@@ -1,0 +1,94 @@
+{
+  "accepted_rating_seasons_verified": [
+    2013,
+    2014
+  ],
+  "backup": "/home/sagemaker-user/march_win_strength/reports/runtime_update_backups/20260912T042634Z-f634f6a0",
+  "checkpoint_schema_id": "bt-csv-semantic-20260912",
+  "current_run": "/home/sagemaker-user/march_win_strength/private_runs/37b002a8fcedbd48bec948b3f78fce9910869edbe8cd53a4dc9dd29427c4dfc9",
+  "environment_modified": false,
+  "feature_definitions_changed_by_this_revision": false,
+  "gradient_acceptance": 0.0001,
+  "installed_after": {
+    "kit": "/home/sagemaker-user/march_win_strength",
+    "notebook_state": "RUNTIME_GUARDED_NOTEBOOK",
+    "solver_state": "CONTINUATION_SOLVER",
+    "source_sha256": {
+      "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+      "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+      "run_round10.py": "15bf193f00c2e403f4107bfb34ce12e718a0b6b4055f37387443a3a576bb0933",
+      "strength_io.py": "5d6ce0c5b00654ca993c3b5aca668ce41306f24c21adc4e0dd1bf50eb4781be0",
+      "strength_plots.py": "ada3a1836c8ddd603f100dd617f643aa034ae89b0272a32cb665936310fa5ab4",
+      "strength_workflow.py": "dbba866d57a4c5f5cda85bda91588ea7f27588d37ca2c32e34686d7024d6a984",
+      "win_strength_features.py": "ab7d6d370ff8c3cd4498de1a53260ee43f339895cbe372d2e2501d93a2195320"
+    }
+  },
+  "installed_before": {
+    "kit": "/home/sagemaker-user/march_win_strength",
+    "notebook_state": "ORIGINAL_NOTEBOOK",
+    "solver_state": "ORIGINAL_REJECTION_SOLVER",
+    "source_sha256": {
+      "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+      "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+      "run_round10.py": "15bf193f00c2e403f4107bfb34ce12e718a0b6b4055f37387443a3a576bb0933",
+      "strength_io.py": "5d6ce0c5b00654ca993c3b5aca668ce41306f24c21adc4e0dd1bf50eb4781be0",
+      "strength_plots.py": "ada3a1836c8ddd603f100dd617f643aa034ae89b0272a32cb665936310fa5ab4",
+      "strength_workflow.py": "f468c439604efeeb747d92eb72249b591cea9ec4c9dea51c8721fb48b1bbbd1d",
+      "win_strength_features.py": "4026201a9589e5d3702d795aff5c1c9d76cb7c9c3bb9a09a94827600571fb134"
+    }
+  },
+  "interpreter_bytecode_backed_up": [
+    "__pycache__/win_strength_features.cpython-312.pyc",
+    "__pycache__/strength_workflow.cpython-312.pyc"
+  ],
+  "new_real_data_brier": null,
+  "numerical_payload_changed_from_previous_correction": false,
+  "numerical_update_result": {
+    "backup": "/home/sagemaker-user/march_win_strength/reports/numerical_update_backups/20260912T042634Z-387e93e2",
+    "environment_modified": false,
+    "gradient_acceptance_unchanged": true,
+    "matchup_tables_reused": 2,
+    "models_fitted": 0,
+    "new_run": "/home/sagemaker-user/march_win_strength/private_runs/37b002a8fcedbd48bec948b3f78fce9910869edbe8cd53a4dc9dd29427c4dfc9",
+    "old_run": "/home/sagemaker-user/march_win_strength/private_runs/01a95f8a454632c484c60ff43ab6e2aef8a805af2a3d5f78086a24906d1f4f21",
+    "old_run_unchanged": true,
+    "ratings_reused": 2,
+    "remaining_rating_seasons": [
+      2015,
+      2016,
+      2017,
+      2018,
+      2019
+    ],
+    "repository_modified": false,
+    "status": "PASS_NUMERICAL_CONTINUATION_UPDATE"
+  },
+  "old_run_preserved_by_migration": true,
+  "project_models_fitted_by_updater": 0,
+  "remaining_rating_seasons": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019
+  ],
+  "repository_modified": false,
+  "runtime_probe": {
+    "fit_season_calls_certify_solution": true,
+    "gradient_acceptance": 0.0001,
+    "imported_module": "/home/sagemaker-user/march_win_strength/win_strength_features.py",
+    "loaded_function_matches_installed_source": true,
+    "project_models_fitted": 0,
+    "raw_data_read_by_probe": false,
+    "solver_sha256": "ab7d6d370ff8c3cd4498de1a53260ee43f339895cbe372d2e2501d93a2195320",
+    "status": "PASS_INSTALLED_SOLVER",
+    "synthetic_final_gradient": 2.651077396346492e-13,
+    "synthetic_initial_gradient": 0.00011029472598920545,
+    "synthetic_refinement_steps": 1
+  },
+  "safe_to_resume_same_experiment": true,
+  "status": "PASS_RUNTIME_VERIFIED_UPDATE",
+  "update_id": "bt-runtime-verified-20260911",
+  "updater_sha256": "3db95d86a996870a40eaf6679f9d83d45eefd53b06337e81e49c5538187bdf98",
+  "utc": "2026-09-12T04:26:35.465235+00:00"
+}

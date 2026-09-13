@@ -1,0 +1,14 @@
+{
+  "actual_venue_measured": false,
+  "all_pairs_per_season": 2016,
+  "base_snapshots_reused": 7,
+  "baseline_replays": 4,
+  "bracket_table_reuses": 0,
+  "new_bracket_tables": 7,
+  "new_candidate_features": 2,
+  "new_classifier_fits": 0,
+  "new_rating_fits": 0,
+  "seed_status_controls": 1,
+  "status": "COMPLETE",
+  "tournament_labels_read_by_feature_builder": false
+}

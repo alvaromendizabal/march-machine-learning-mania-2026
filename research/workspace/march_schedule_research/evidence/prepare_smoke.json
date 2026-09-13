@@ -1,0 +1,9 @@
+{
+  "anchor_features": 16,
+  "new_matchup_candidates": 14,
+  "new_snapshots": 14,
+  "reused_snapshots": 0,
+  "snapshot_rating_fits_per_new_snapshot": 5,
+  "status": "PASS",
+  "tournament_classifiers_fitted": 0
+}

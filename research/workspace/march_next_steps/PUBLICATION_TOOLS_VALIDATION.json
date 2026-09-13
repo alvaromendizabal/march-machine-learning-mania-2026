@@ -1,0 +1,76 @@
+{
+  "update_id": "publication-tools-environment-20260912",
+  "scope": "Publication-only recovery; no scientific tests/notebooks/models or live account writes",
+  "local_tests": {
+    "count": 53,
+    "status": "PASS",
+    "test_command": "python3 -m unittest discover -s tests -v -b",
+    "environment": {
+      "python": "3.13.5",
+      "platform": "Linux"
+    },
+    "real_local_git": true,
+    "github_api_simulated": true,
+    "network_transport_allowed_in_git_fixture": "file only"
+  },
+  "exact_failure_reproduction": {
+    "status": "PASS_LOCAL_REPRODUCTION",
+    "old_blocked_files": [
+      {
+        "path": "march-machine-learning-mania-2026/.tools/lib64",
+        "reason": "symlink directory omitted"
+      },
+      {
+        "path": "march-machine-learning-mania-2026/.tools/bin/python",
+        "reason": "symlink source omitted"
+      },
+      {
+        "path": "march-machine-learning-mania-2026/.tools/bin/python3",
+        "reason": "symlink source omitted"
+      },
+      {
+        "path": "march-machine-learning-mania-2026/.tools/bin/python3.12",
+        "reason": "symlink source omitted"
+      }
+    ],
+    "corrected_blocked_files": [],
+    "source_and_environment_unchanged": true,
+    "excluded_path": "march-machine-learning-mania-2026/.tools",
+    "aws_calls": 0,
+    "github_calls": 0,
+    "scientific_tests_or_model_fits": 0,
+    "fixture": "Temporary local directories and symlinks matching supplied log; NOT live AWS data"
+  },
+  "public_csv_newline_only": {
+    "old_sha256": "0ddafda15bcea80b3045382af9985af37179ae24cad63574ec9c74ac2ea14fdd",
+    "new_sha256": "d9a413170be0e1db8d7c872735fde5a75189e0a371353ee3d39b5c707ba95d1d",
+    "data_rows": 252,
+    "parsed_csv_identical": true,
+    "change": "CRLF to LF only"
+  },
+  "checks": [
+    "Exact four .tools links excluded without traversal",
+    "Environment bytes and links unchanged",
+    "Other source symlinks remain blocked",
+    "Credential-like source outside environment remains blocked",
+    "Prior blocked plans preserved and classified",
+    "Source/configuration files preserved",
+    "Separate local bare repos exercise private/public commit, push, PR simulation, merge and published hashes",
+    "Repeated local publication reuses reviewed branches",
+    "No auth-login invocation",
+    "No force push or administrative merge bypass"
+  ],
+  "development_findings": [
+    "Initial local transport fixture rewrote get-url metadata; fixture corrected to redirect transport commands only",
+    "Full local Git test found CRLF in public aggregate CSV rejected by the public whitespace check; normalized line endings with parsed-value equality"
+  ],
+  "aws_runtime_verified": false,
+  "live_github_pushes": 0,
+  "live_github_merges": 0,
+  "scientific_execution": false,
+  "limitations": [
+    "Live filesystem and GitHub permissions not available in local fixtures",
+    "Original workspace histories and artifact binaries are not included in the source snapshot",
+    "Existing public code and its original licenses are not recalled by creating new destinations"
+  ]
+}

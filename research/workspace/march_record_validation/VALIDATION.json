@@ -1,0 +1,84 @@
+{
+  "status": "PASS_LOCAL_SOFTWARE_VALIDATION",
+  "tests_passed": 34,
+  "tests_failed": 0,
+  "test_log": "validation_tests.txt",
+  "scope": "Synthetic competition-shaped fixtures only; no AWS raw dataset evaluation",
+  "native_notebook_executions": [
+    {
+      "attempt": 1,
+      "delivered_code_cells_executed": 9,
+      "test_bootstrap_cells": 1,
+      "error_outputs": 0,
+      "plotly_figures": 8,
+      "new_classifier_fits": 5,
+      "upstream_classifier_replays": 3,
+      "local_checkpoint_reuses": 0,
+      "gate": "STOP_EXPANSION",
+      "jinja2_imports_blocked": true,
+      "raw_repo_upstream_preserved": true,
+      "return_archive_exists": true
+    },
+    {
+      "attempt": 2,
+      "delivered_code_cells_executed": 9,
+      "test_bootstrap_cells": 1,
+      "error_outputs": 0,
+      "plotly_figures": 8,
+      "new_classifier_fits": 0,
+      "upstream_classifier_replays": 3,
+      "local_checkpoint_reuses": 5,
+      "gate": "STOP_EXPANSION",
+      "jinja2_imports_blocked": true,
+      "raw_repo_upstream_preserved": true,
+      "return_archive_exists": true
+    },
+    {
+      "attempt": 3,
+      "delivered_code_cells_executed": 9,
+      "test_bootstrap_cells": 1,
+      "error_outputs": 0,
+      "plotly_figures": 8,
+      "new_classifier_fits": 0,
+      "upstream_classifier_replays": 3,
+      "local_checkpoint_reuses": 5,
+      "gate": "STOP_EXPANSION",
+      "jinja2_imports_blocked": true,
+      "raw_repo_upstream_preserved": true,
+      "return_archive_exists": true
+    }
+  ],
+  "gated_pass_branch": "Integration test deliberately forces pass only to exercise all 16 drop-one fits, ten report figures, preservation, and zero-refit resumption; not predictive evidence",
+  "native_skip_branch": "Natural synthetic gate result was STOP_EXPANSION; eight figures and successful report; five first-run fits, zero on resumption",
+  "local_environment": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "plotly": "6.5.2",
+    "nbformat": "5.10.4",
+    "nbclient": "0.10.4"
+  },
+  "python": "3.13.5",
+  "frozen_sources_identical_to_round04": true,
+  "frozen_source_sha256": {
+    "frozen/schedule_features.py": "c414f6af2a809600afa4fe55d8a4f455a726e6aaecf8333b7dff21378a0d9fc1",
+    "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c"
+  },
+  "uploaded_report_sha256": "bb4dc58d4e49d8a5c9fb6100e3015ac583d9ec0d1e7d697ae75d0c79aeec628e",
+  "native_test_harness_notes": [
+    "One earlier attempt stopped at the repository identity guard because the container own sitecustomize shadowed the test-only synthetic-SHA hook. Explicit test bootstrap corrected the harness; delivered source guards were not relaxed.",
+    "An import-guard cleanup warning occurred during shutdown after the first two completed runs; the test hook was corrected and a third complete notebook execution passed without that warning.",
+    "Each native execution uses one test-only bootstrap cell to set the synthetic repository SHA and block Jinja2 in kernel/stage subprocesses. All nine delivered notebook cells execute unchanged."
+  ],
+  "limitations": [
+    "Actual AWS package versions differ from the local test environment. User-run checks still verify the original recorded AWS environment.",
+    "No new Kaggle score or real-data replication result was generated here.",
+    "Synthetic gate outcomes and deliberately forced integration branches do not estimate feature value.",
+    "Known two user notebook edits remain unresolved; no GitHub or AWS edits were performed."
+  ],
+  "github_modified": false,
+  "aws_resources_modified": false,
+  "new_real_data_experiments": 0
+}

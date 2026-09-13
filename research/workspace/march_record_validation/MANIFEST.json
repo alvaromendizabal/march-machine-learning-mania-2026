@@ -1,0 +1,33 @@
+{
+  "artifact": "march_record_validation",
+  "milestone": 5,
+  "source_report": "milestone_04_return.zip",
+  "files": {
+    "05_womens_record_replication.ipynb": "b57196e04d8ade2dc7b1d5748b0e93710ee2f901b348905d439a7d3f86dec2a3",
+    "RESEARCH_PLAN.md": "6d754f34d9c070374cd44de24b9abcff95079ec65c096c85325b07ce4b4cc744",
+    "START_HERE.md": "82e4509d9eb61a2a1fd085cb702e0f81ee777be904b98170d728c0a8c75b3803",
+    "VALIDATION.json": "9a0199b76f0ec0c445663c55b21779f311e761d0748f1db97ecf7939d386949f",
+    "evidence/ablations.csv": "a9f0b26f83a6589702e422187a218161f0e0237d6fa9c5fe8214cfe8c153ac1b",
+    "evidence/aggregate.csv": "4b4df4d2b47aeb7466dcd60b0d8b25401296958bca284e5dbc4ffb677a46010d",
+    "evidence/feature_registry.csv": "50dfb7f68bdec288c40abf627a631d118881dcfb3cecf72cdc8b4b1ed7b5068c",
+    "evidence/manifest.json": "b547dce703046c063e94effee6ef0976919655c6597e59283ba5c0ec5c6d2c51",
+    "evidence/metrics.csv": "9a55946916e6df7705790bbaeb0ff34591a0c5a06ce169a609e72119233feb5b",
+    "evidence/preflight.json": "0ee2170ed0ec608259ab67b8f7a756a7c797a7d63d78defa96d4b78adf199f84",
+    "evidence/prepare.json": "82ba3f7cce1cf99162e83894d459e1de9b409b1a0874447f15b3b6134e6fac2f",
+    "evidence/prior_decision.json": "db86af6e0779457368a1c83bcf8470f65df6c7bad973144ad1d16524fa5bd253",
+    "evidence/prior_loss_groups.csv": "6b6c71b2a2c3ce832da07df2a1df6c88e3aee2b7133af0c6c7740e3ff26f3a4d",
+    "evidence/prior_replay.csv": "261011298284c99ec6f13088778abc2206b461d8c748983d97836df3f59ef3b6",
+    "evidence/summary.json": "9fa48e6773f9bfcab1b992a2e6bd2b9bdf94bac30ca57e6e671dee8f8f59c7bc",
+    "evidence/training_redundancy.csv": "7e08f9ccbad98a5f6f2077e49059fd22cb6c8e85d98509870050ef973c3d7f5e",
+    "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "frozen/schedule_features.py": "c414f6af2a809600afa4fe55d8a4f455a726e6aaecf8333b7dff21378a0d9fc1",
+    "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+    "record_plots.py": "d2d9ab2207a67316734f49f1e955db31f1d2d3967473ffa194679e2810c95485",
+    "record_workflow.py": "c1cb311d097bd28bab16fa4a7cc5357138a8e765ed2f14b53a7b260be92c5a1a",
+    "run_round05.py": "0f08ca2dcc228f88e2107ae1b25b97343a7132e5f3c37bf967dfc2ac311b37f0",
+    "tests/fixtures.py": "32a954ac3ab00bb474e1be578e5215b0ba014cba2e5c3909ba9533493d1c7294",
+    "tests/pipeline_fixture.py": "05120dcde2daaa42a67ce84330f3135070679b97a21e4f657ccfcf19111a172e",
+    "tests/test_record_validation.py": "f0122d5ab3964be1d2b84f641ccb576203377ad68bdfc4a11c99eb76e0b7ad26",
+    "validation_tests.txt": "4469bd11f0615dd8dc9dbe4ed8c8212b37e5eec563cc6d7420907d871b63e1e2"
+  }
+}

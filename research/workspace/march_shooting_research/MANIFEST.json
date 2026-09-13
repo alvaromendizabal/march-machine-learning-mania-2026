@@ -1,0 +1,71 @@
+{
+  "artifact": "march_shooting_research",
+  "repo_reference": "84b8fb36644a6558beded6dad84f5645ea4405d3",
+  "first_user_action": "Run tests, then notebook 02 only",
+  "files": {
+    ".gitignore": {
+      "sha256": "610d2d889bfddde7da175a1a8195962ac399826d3e34f6de31a2c3723e667007",
+      "bytes": 62
+    },
+    "02_shooting_matchup_features.ipynb": {
+      "sha256": "97aa7cba7e99034f82704e0edb533f55dc874d9c1c10d99aed46d09e194f121d",
+      "bytes": 9468
+    },
+    "03_shooting_season_panel.ipynb": {
+      "sha256": "b41441b6f9165e899494051180082d89abff9dbd380cfb64c6ea4f4cfad5dba8",
+      "bytes": 5462
+    },
+    "RESEARCH_PLAN.md": {
+      "sha256": "fafe9c2d09907eeb82d59fbd0672480f3d5377df13a68749c94c8a72f6f00f82",
+      "bytes": 14455
+    },
+    "START_HERE.md": {
+      "sha256": "675d55a013b603dc938ec480b3239206da9a47e51987941d2d784e7c610017ad",
+      "bytes": 6441
+    },
+    "VALIDATION.json": {
+      "sha256": "57536f42fbf08809d018cf2907d6305f31c91722ef5d208446a486034a3d4fbb",
+      "bytes": 2881
+    },
+    "evidence/milestone_01_summary.json": {
+      "sha256": "732d2593db36bc83d8c425d9caea94387842fdbafb2d4dbad4e2c796cc7b6a0b",
+      "bytes": 2231
+    },
+    "evidence/tracked_changes.csv": {
+      "sha256": "feeb26dcd7e15064767261a3f7ea3d34294337afe309f08c28145152221fea3b",
+      "bytes": 765
+    },
+    "expected_inputs.json": {
+      "sha256": "5753fcfa929023dac0f1c5abc98038379ab5bfb0fec63098d20ac15fbd851553",
+      "bytes": 826
+    },
+    "research_plots.py": {
+      "sha256": "d9509f32ee299b9f7106ea44ffddb0d80887fa4ccccd8ccd7dc74a25a386d6a3",
+      "bytes": 7022
+    },
+    "research_workflow.py": {
+      "sha256": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+      "bytes": 24353
+    },
+    "run_round02.py": {
+      "sha256": "e28d267f3cfc72a2a67561135265bc1d4b33370d56016707c6e73d9b98c65fda",
+      "bytes": 3971
+    },
+    "shot_features.py": {
+      "sha256": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+      "bytes": 18364
+    },
+    "tests/fixtures.py": {
+      "sha256": "32a954ac3ab00bb474e1be578e5215b0ba014cba2e5c3909ba9533493d1c7294",
+      "bytes": 3570
+    },
+    "tests/test_research.py": {
+      "sha256": "2a8cd7afb7dd087285b5b2bc42f3060ee16ca77b23abc18b75fdfa62e1b5c66d",
+      "bytes": 13027
+    },
+    "validation_test_log.txt": {
+      "sha256": "f4aba49e88d07ad66c08ab74ffc70742bd249dfbfabd3ad95964a841cefd184b",
+      "bytes": 3558
+    }
+  }
+}

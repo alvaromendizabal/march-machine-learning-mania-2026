@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "Gender": "M",
+      "automatic_promotion": false,
+      "comparison": "mechanism_given_rates",
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 1,
+      "mean_delta": 0.0004202204733369727,
+      "reason": "Compute-allocation gate on repeatedly-used historical seasons, not production selection",
+      "significance_claim": false,
+      "worst_delta": 0.0019930640782214737
+    },
+    {
+      "Gender": "W",
+      "automatic_promotion": false,
+      "comparison": "mechanism_given_rates",
+      "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+      "improved_seasons": 0,
+      "mean_delta": 0.0005932187159539762,
+      "reason": "Compute-allocation gate on repeatedly-used historical seasons, not production selection",
+      "significance_claim": false,
+      "worst_delta": 0.0010245982793215258
+    }
+  ],
+  "thresholds": {
+    "mean_delta_at_most": -0.0005,
+    "minimum_improved_seasons": 3,
+    "worst_delta_at_most": 0.003
+  }
+}

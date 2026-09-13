@@ -1,0 +1,20 @@
+{
+  "verified_date": "2026-09-11",
+  "repo": "alvaromendizabal/march-machine-learning-mania-2026",
+  "expected_main": "84b8fb36644a6558beded6dad84f5645ea4405d3",
+  "merged_pr": 22,
+  "merged_at_utc": "2026-09-09T22:55:33Z",
+  "post_merge_ci": 34414562516,
+  "ci_conclusion": "success",
+  "open_prs_observed": 0,
+  "aws_space_from_repo_docs": "march-mania-dev",
+  "aws_region_from_handoff": "us-west-2",
+  "live_aws_inventory_verified": false,
+  "aws_inventory_limitation": "Connected read-only call blocked; no current filesystem inspection.",
+  "current_submitted_brier": 0.1222672,
+  "target_brier": 0.1097454,
+  "absolute_gap": 0.0125218,
+  "new_cloud_jobs": 0,
+  "new_experiments": 0,
+  "github_mutations": 0
+}

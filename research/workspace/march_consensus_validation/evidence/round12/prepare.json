@@ -1,0 +1,14 @@
+{
+  "base_snapshots_reused": 7,
+  "established_consensus_controls": 1,
+  "matchup_table_reuses": 0,
+  "new_candidate_features": 2,
+  "new_matchup_tables": 7,
+  "new_rank_panels": 7,
+  "new_rating_fits": 0,
+  "new_tournament_classifier_fits": 0,
+  "panel_reuses": 0,
+  "reference_replays": 4,
+  "status": "COMPLETE",
+  "tournament_outcomes_used_for_feature_building": false
+}

@@ -1,0 +1,27 @@
+{
+  "sha256": {
+    "summary.json": "e6986d2e55bd8066f4e253532e9f5f42016c918b6171a94eed520c5def6dd15a",
+    "metrics.csv": "ce4d72d7bc1cb05d06f6eed88737da127b448433fae2d35b38b5104d458fa340",
+    "ablations.csv": "ca23e5e0062e4367524bcc42c9d286ada9ae325234ea22b7f16d839d49041ee1",
+    "aggregate.csv": "abe6cd67f8c2bc8666e3b153d55d7ec74ac528d2752faf390e3fae71a7052fd9",
+    "decisions.json": "eb078892b4fbd83dd610230c7e1c990af61ba27509f87c13f0ff73058e29bd68",
+    "evaluation_receipt.json": "6b8b1b6b694f3bf94b06b636b3cd5a99df9bb49d0bff329e8745f958663195bc",
+    "coefficients.csv": "7969695d480a7a96a0093f5f5ef37ce7a9cbd453b27adb7deeea11fa767c94ce",
+    "training_redundancy.csv": "e6ac77855b3a14e6b555c975d45272a246d3f13e5c41f3821fe7c66e6d7b3f14",
+    "feature_registry.csv": "43e4f5e9d851095001b5578284dad2421e9f82ee382bd18bbdfd483637194656",
+    "coverage.csv": "6ea72c919ca1147128bbc1ddc3823b6202d538aba1f5485bb85ae8f07dc43379",
+    "prior_replay.csv": "7bc9f581cd6b4fd88ba4dd2009e1e6789c4c304e892fb43605dada40ae75bdf1",
+    "prepare.json": "83fd8b3dc970f76f82e90cc60b94d62389c55bed3b0faeed36acea87864ad954",
+    "preflight.json": "2a0cfb02722ccc3c2fb279683a2e416796e5b03baa943e4831799655a3e37b5c",
+    "manifest.json": "cdb66011d1ade1243afc16a5a5752981c4be7d458aac0849c853e2f4b395d5f0",
+    "prepare_hashes.json": "eab82abe14bfcfbdfcb007501bdc80e76a2c6bfe13442569e00bf6b4c5c0922d",
+    "evaluation_hashes.json": "ab56a4da5e3db51cb95ea53829c8403a6fffd127e6b3653427cf666200300a76",
+    "cache_migration.json": "c8af772e71f212a5c154f9fe88df81a067ee4fe7ebc56870d89c65f56253844e"
+  },
+  "excluded": [
+    "raw rows",
+    "models",
+    "per-game predictions",
+    "private notebooks"
+  ]
+}

@@ -1,0 +1,9 @@
+Gender,recipe,brier_replayed,maximum_prediction_difference,new_fits
+M,anchor,0.17320192076291752,0,0
+M,anchor_residual,0.18251298326107521,0,0
+M,anchor_profile,0.17420035415923371,0,0
+M,anchor_both,0.18362403845391015,0,0
+W,anchor,0.14625441329056185,0,0
+W,anchor_residual,0.15025298241943377,0,0
+W,anchor_profile,0.14645284168926334,0,0
+W,anchor_both,0.15215370393909788,0,0

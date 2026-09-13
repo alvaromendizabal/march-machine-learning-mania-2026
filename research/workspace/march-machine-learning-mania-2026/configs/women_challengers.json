@@ -1,0 +1,28 @@
+{
+  "protocol": "bounded-women-logistic-challengers",
+  "development_seasons": [2016, 2017, 2018, 2019, 2021],
+  "fold_seasons": [2014, 2015, 2016, 2017, 2018, 2019, 2021],
+  "first_training_season": 2013,
+  "prediction_season": 2026,
+  "max_historical_fits": 21,
+  "max_final_fits": 8,
+  "export_count": 6,
+  "temperatures": [0.9, 1.0, 1.1],
+  "reference": "conference_c030_t100",
+  "selection_metric": "mean_season_brier",
+  "seed": 2026,
+  "threads": 2,
+  "chunk_size": 512,
+  "heartbeat_seconds": 15,
+  "men_source": "m_pooled_xgboost_t090__w_logistic.csv",
+  "source_archive_sha256": "02996446601e8427741445b04950dfe50d453b4d0d60a44e35f6aa9454f6951c",
+  "source_csv_sha256": "14b5b1bc24fe3b3429a23ccc0345508c9ded8215fb3a86d8722269b9ba64134c",
+  "variants": [
+    {"name": "conference_c010", "block": "conference", "C": 0.1, "reuse": null},
+    {"name": "conference_c030", "block": "conference", "C": 0.3, "reuse": "logistic_conference_1"},
+    {"name": "conference_c100", "block": "conference", "C": 1.0, "reuse": null},
+    {"name": "conference_c300", "block": "conference", "C": 3.0, "reuse": null},
+    {"name": "dynamic_c030", "block": "dynamic", "C": 0.3, "reuse": "logistic_dynamic_1"}
+  ],
+  "scope": "Post-result exploratory comparisons on already-explored historical women's games. No 2026 tournament labels enter fitting, selection or prediction. Keep the best observed men's stream fixed and export six historical leaders excluding the existing reference. No untouched-holdout claim or automatic Kaggle upload."
+}

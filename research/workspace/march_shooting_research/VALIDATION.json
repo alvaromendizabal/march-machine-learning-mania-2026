@@ -1,0 +1,75 @@
+{
+  "status": "PASS_LOCAL_SOFTWARE_VALIDATION",
+  "validated_at_utc": "2026-09-11T22:07:28.443001+00:00",
+  "test_suite": {
+    "tests_run": 34,
+    "failures": 0,
+    "errors": 0,
+    "log": "validation_test_log.txt"
+  },
+  "notebook_execution": {
+    "fixture": "Synthetic basketball; no real predictive quality inferred",
+    "identity_override_only": "Synthetic Git SHA/raw hashes; real algorithms/configuration unmodified",
+    "notebooks": [
+      {
+        "notebook": "02_shooting_matchup_features.ipynb",
+        "code_cells": 8,
+        "error_outputs": 0,
+        "inline_plotly_charts": 9,
+        "html_plotly_charts": 9,
+        "html_bytes": 4929831,
+        "elapsed_seconds": 22.663,
+        "new_classifier_fits": 8,
+        "reused_classifier_fits": 0,
+        "total_classifier_fits": 8
+      },
+      {
+        "notebook": "03_shooting_season_panel.ipynb",
+        "code_cells": 7,
+        "error_outputs": 0,
+        "inline_plotly_charts": 9,
+        "html_plotly_charts": 9,
+        "html_bytes": 4935060,
+        "elapsed_seconds": 23.061,
+        "new_classifier_fits": 32,
+        "reused_classifier_fits": 8,
+        "total_classifier_fits": 40
+      }
+    ],
+    "panel_qa_note": "Outer tool interruption terminated initial panel attempt; restart reused content-verified completed work. No feature/model recipe changed."
+  },
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "plotly": "6.5.2",
+    "nbformat": "5.10.4",
+    "nbclient": "0.10.4"
+  },
+  "scope": {
+    "synthetic_fixture_only": true,
+    "real_competition_dataset_execution": false,
+    "aws_compute_started": false,
+    "github_updated": false,
+    "new_leaderboard_score": null
+  },
+  "checks": [
+    "Temporal cutoff and future-row poisoning invariance",
+    "Strictly earlier tournament training seasons",
+    "No tournament file read during feature preparation",
+    "All repeated opponent meetings excluded from expected shooting and its league prior",
+    "Symmetric feature negation and complementary prediction probabilities",
+    "Raw and tracked files preserved",
+    "Per-season and per-fit SHA-256 checkpoint verification",
+    "Resumed smoke: zero new fits and eight reused fits",
+    "Hard-timeout subprocess termination",
+    "Nine inline and nine self-contained HTML Plotly figures per notebook"
+  ],
+  "scope_limitations": [
+    "Identity checks used synthetic Git SHA and raw hashes only in the QA copy; the delivered kit pins the actual verified repository and user-reported raw hashes.",
+    "Synthetic scores are not evidence of real feature benefit. The delivered notebooks are unexecuted so fixture outputs cannot be mistaken for competition evidence.",
+    "The actual SageMaker environment uses its existing locked environment; these tests did not run there."
+  ]
+}

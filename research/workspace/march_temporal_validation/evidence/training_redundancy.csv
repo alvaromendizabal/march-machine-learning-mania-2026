@@ -1,0 +1,17 @@
+Gender,Season,feature,max_abs_anchor_correlation,most_correlated_anchor,training_last_season
+M,2017,diff_late_offense_surprise,0.35456940132828735,diff_adj_offense,2016
+M,2017,diff_late_defense_surprise,0.40496679798067625,diff_adj_defense,2016
+M,2017,diff_late_offense_change,0.16593846878543891,diff_schedule_strength,2016
+M,2017,diff_late_defense_change,0.15537697735495382,diff_three_posterior,2016
+M,2019,diff_late_offense_surprise,0.34060830597022668,diff_adj_offense,2018
+M,2019,diff_late_defense_surprise,0.31800930827787705,diff_adj_defense,2018
+M,2019,diff_late_offense_change,0.14752881673393387,diff_opp_two_posterior,2018
+M,2019,diff_late_defense_change,0.13988281536168859,diff_margin,2018
+W,2017,diff_late_offense_surprise,0.34359941867261551,diff_two_posterior,2016
+W,2017,diff_late_defense_surprise,0.31814258676645468,diff_adj_defense,2016
+W,2017,diff_late_offense_change,0.26030940349111986,diff_margin_sd,2016
+W,2017,diff_late_defense_change,0.13754241199675576,diff_seed,2016
+W,2019,diff_late_offense_surprise,0.37463219140767717,diff_two_posterior,2018
+W,2019,diff_late_defense_surprise,0.29995548933698424,diff_opp_three_posterior,2018
+W,2019,diff_late_offense_change,0.16987962901365442,diff_margin_sd,2018
+W,2019,diff_late_defense_change,0.16292705292062348,diff_strength,2018

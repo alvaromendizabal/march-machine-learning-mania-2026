@@ -1,0 +1,18 @@
+feature,role,new_candidate,cutoff_day,swap_parity
+diff_seed,unchanged reference,False,132,-1
+diff_strength,unchanged reference,False,132,-1
+diff_schedule_strength,unchanged reference,False,132,-1
+diff_win_rate,unchanged reference,False,132,-1
+diff_margin,unchanged reference,False,132,-1
+diff_margin_sd,unchanged reference,False,132,-1
+diff_adj_offense,unchanged reference,False,132,-1
+diff_adj_defense,unchanged reference,False,132,-1
+diff_two_posterior,unchanged reference,False,132,-1
+diff_three_posterior,unchanged reference,False,132,-1
+diff_free_posterior,unchanged reference,False,132,-1
+diff_opp_two_posterior,unchanged reference,False,132,-1
+diff_opp_three_posterior,unchanged reference,False,132,-1
+diff_opp_free_posterior,unchanged reference,False,132,-1
+diff_three_share,unchanged reference,False,132,-1
+diff_opp_three_share,unchanged reference,False,132,-1
+diff_rank_consensus_logit,"established consensus, unchanged later-era replication",False,132,-1

@@ -1,0 +1,17 @@
+Gender,Season,feature,standardized_coefficient
+M,2017,diff_late_offense_surprise,-0.13041114509176227
+M,2017,diff_late_defense_surprise,-0.14726775241481435
+M,2017,diff_late_offense_change,0.099899328681661112
+M,2017,diff_late_defense_change,0.21427095433898435
+M,2019,diff_late_offense_surprise,-0.10706736921035426
+M,2019,diff_late_defense_surprise,-0.12020487611088233
+M,2019,diff_late_offense_change,0.032238925778960821
+M,2019,diff_late_defense_change,0.10696141183768906
+W,2017,diff_late_offense_surprise,-0.12377448381977743
+W,2017,diff_late_defense_surprise,-0.042794382443718013
+W,2017,diff_late_offense_change,-0.083897164309952851
+W,2017,diff_late_defense_change,-0.010285936649638807
+W,2019,diff_late_offense_surprise,-0.097883086005155912
+W,2019,diff_late_defense_surprise,-0.10019594990446813
+W,2019,diff_late_offense_change,-0.18426966029108641
+W,2019,diff_late_defense_change,-0.03866791948823195

@@ -1,0 +1,28 @@
+{
+  "sha256": {
+    "metrics.csv": "572b60d600e3bac519eca7588d055ec88e7a87d5db428742534e00ef60d8bc40",
+    "ablations.csv": "ed1cdb18411e07203b4f3ed94f07a412f8eba8334209561a1c8f1edb76756f02",
+    "aggregate.csv": "db630e122b56564b589b8fdf99c4666db448a8330aa89f9c54b336fd9fab5601",
+    "decisions.json": "0e2fe6f94c34f4d99a52e2cffe54fce7bd2971ef071e36b52193ce6874d99264",
+    "coefficients.csv": "6f1244233dd5e19c7c32bc2a45370fb949cb559b2cb9b2d76c943811770f792a",
+    "training_overlap.csv": "bd3444cc9f3a1de339930df2486b8380ff27c08a42413a7a62258b79f2b79271",
+    "cohort_metrics.csv": "5f0b5325d9b8b02f03591c4f60a81c6567ed0514a105fc4ba721c54a3dcc270a",
+    "support_by_fold.csv": "a80d9f768a2cda38b4679f21c8d6151b3860bf83123d238c9f72a25def01a26a",
+    "evaluation_receipt.json": "1f3c5e61ca733066b6dc20c74a010cb8bef2338f684e3bd29cba1eb4b86bed86",
+    "summary.json": "b04f99ceb0d52d3e639f8bf568e6b0453c3c3d07dc455864849c0e09f7735d30",
+    "prepare.json": "3f7e4bd8d18d032fd8673b0cb39377d8a987a76560e54a585e67c1e344c9e664",
+    "coverage.csv": "0c7e13ebce3958fbea323908809e790e48c6c01e9b5d6ca1b66148a96d59f77f",
+    "feature_registry.csv": "667aa16d85f018d8346136a99e9bf0b0f4db09a5648b9c0deb2f5e32bb584a08",
+    "prior_replay.csv": "b59421ecc148789dda5cedc8f95b2bdacf0749f42a685b0db8ecdb4303c6ef93",
+    "preflight.json": "1ca3d1c41fe9c62c66bb7719fed5197435e5d8063b64d7a6cdc7e4c796df3af1",
+    "manifest.json": "7e12f43af619dc67278a49131a727c5ced8d8d0ae9787f06a434d57912dea5fa",
+    "prepare_hashes.json": "d9f1c4cfad703d457fd729c40b1cd2b757dd660c35550cbea4bc60bfa2a86810",
+    "evaluation_hashes.json": "2d27903fcd5203084709f01c519cc468bfe45c03b2b2e6ceda2336d92b6b7a8f"
+  },
+  "excluded": [
+    "raw",
+    "models",
+    "game-level predictions",
+    "private notebooks"
+  ]
+}

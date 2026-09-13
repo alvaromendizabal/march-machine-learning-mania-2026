@@ -1,0 +1,292 @@
+test_accounting_no_turnovers_rebounds_ft (test_possession.FeatureContracts.test_accounting_no_turnovers_rebounds_ft) ... ok
+test_accounting_rebounds_increase (test_possession.FeatureContracts.test_accounting_rebounds_increase) ... ok
+test_accounting_turnovers_reduce (test_possession.FeatureContracts.test_accounting_turnovers_reduce) ... ok
+test_baseline_byte_equivalent_values (test_possession.FeatureContracts.test_baseline_byte_equivalent_values) ... ok
+test_blend_finite_at_endpoints (test_possession.FeatureContracts.test_blend_finite_at_endpoints) ... ok
+test_blend_neutral_league (test_possession.FeatureContracts.test_blend_neutral_league) ... ok
+test_concurrent_stage_rejected (test_possession.FeatureContracts.test_concurrent_stage_rejected) ... ok
+test_counts (test_possession.FeatureContracts.test_counts) ... ok
+test_decision_cannot_use_anchor_gain_as_mechanistic_gain (test_possession.FeatureContracts.test_decision_cannot_use_anchor_gain_as_mechanistic_gain) ... ok
+test_decision_pass (test_possession.FeatureContracts.test_decision_pass) ... ok
+test_decision_requires_four_seasons (test_possession.FeatureContracts.test_decision_requires_four_seasons) ... ok
+test_decision_stability_required (test_possession.FeatureContracts.test_decision_stability_required) ... ok
+test_duplicate_game_stops (test_possession.FeatureContracts.test_duplicate_game_stops) ... ok
+test_duplicate_team_stops (test_possession.FeatureContracts.test_duplicate_team_stops) ... ok
+test_future_regular_rows_ignored (test_possession.FeatureContracts.test_future_regular_rows_ignored) ... ok
+test_input_row_order_invariant (test_possession.FeatureContracts.test_input_row_order_invariant) ... ok
+test_invalid_denominator_stops (test_possession.FeatureContracts.test_invalid_denominator_stops) ... ok
+test_invalid_probability_stops (test_possession.FeatureContracts.test_invalid_probability_stops) ... ok
+test_invalid_stage (test_possession.FeatureContracts.test_invalid_stage) ... ok
+test_label_argument_absent (test_possession.FeatureContracts.test_label_argument_absent) ... ok
+test_missing_team_stops (test_possession.FeatureContracts.test_missing_team_stops) ... ok
+test_no_target_in_feature_lists (test_possession.FeatureContracts.test_no_target_in_feature_lists) ... ok
+test_notebook_no_styler (test_possession.FeatureContracts.test_notebook_no_styler) ... ok
+test_novel_count (test_possession.FeatureContracts.test_novel_count) ... ok
+test_post_cutoff_rows_ignored (test_possession.FeatureContracts.test_post_cutoff_rows_ignored) ... ok
+test_stage_budget (test_possession.FeatureContracts.test_stage_budget) ... ok
+test_supervisor_timeout (test_possession.FeatureContracts.test_supervisor_timeout) ... ok
+test_swap_parity (test_possession.FeatureContracts.test_swap_parity) ... ok
+test_zero_shot_opportunities_smoothed (test_possession.FeatureContracts.test_zero_shot_opportunities_smoothed) ... ok
+test_corrupt_new_checkpoint_stops (test_possession.Workflow.test_corrupt_new_checkpoint_stops) ... {"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 3.879, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 3.912, "event": "rate_snapshot_complete", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 3.932, "event": "rate_snapshot_complete", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 3.953, "event": "rate_snapshot_complete", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 3.972, "event": "rate_snapshot_complete", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 3.993, "event": "rate_snapshot_complete", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 4.014, "event": "rate_snapshot_complete", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 4.035, "event": "rate_snapshot_complete", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 4.056, "event": "rate_snapshot_complete", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 4.077, "event": "rate_snapshot_complete", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 4.1, "event": "rate_snapshot_complete", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 4.12, "event": "rate_snapshot_complete", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 4.139, "event": "rate_snapshot_complete", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 4.162, "event": "rate_snapshot_complete", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:35Z", "elapsed_seconds": 4.182, "event": "rate_snapshot_complete", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.331, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_corrupt_upstream_stops (test_possession.Workflow.test_corrupt_upstream_stops) ... {"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.452, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+ok
+test_data_change_stops (test_possession.Workflow.test_data_change_stops) ... {"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.544, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+ok
+test_environment_change_stops (test_possession.Workflow.test_environment_change_stops) ... {"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.631, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+ok
+test_frozen_source_change_stops (test_possession.Workflow.test_frozen_source_change_stops) ... {"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.699, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+ok
+test_full_evaluate_and_resume (test_possession.Workflow.test_full_evaluate_and_resume) ... {"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.767, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.799, "event": "rate_snapshot_complete", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.82, "event": "rate_snapshot_complete", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.841, "event": "rate_snapshot_complete", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.863, "event": "rate_snapshot_complete", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.883, "event": "rate_snapshot_complete", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.904, "event": "rate_snapshot_complete", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.928, "event": "rate_snapshot_complete", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.95, "event": "rate_snapshot_complete", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.97, "event": "rate_snapshot_complete", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 4.992, "event": "rate_snapshot_complete", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 5.012, "event": "rate_snapshot_complete", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 5.032, "event": "rate_snapshot_complete", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 5.052, "event": "rate_snapshot_complete", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 5.073, "event": "rate_snapshot_complete", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:36Z", "elapsed_seconds": 5.217, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.277, "event": "comparison_complete", "gender": "M", "season": 2016, "recipe": "anchor", "brier": 0.2471561731805035, "source": "new_fit", "completed": 1, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.283, "event": "comparison_complete", "gender": "M", "season": 2016, "recipe": "anchor_rates", "brier": 0.2471561731805035, "source": "new_fit", "completed": 2, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.289, "event": "comparison_complete", "gender": "M", "season": 2016, "recipe": "anchor_mechanism", "brier": 0.24567192847782995, "source": "new_fit", "completed": 3, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.296, "event": "comparison_complete", "gender": "M", "season": 2016, "recipe": "anchor_both", "brier": 0.24567192847782995, "source": "new_fit", "completed": 4, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.304, "event": "comparison_complete", "gender": "M", "season": 2017, "recipe": "anchor", "brier": 0.2553797828348293, "source": "upstream_replay", "completed": 5, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.312, "event": "comparison_complete", "gender": "M", "season": 2017, "recipe": "anchor_rates", "brier": 0.2553797828348293, "source": "new_fit", "completed": 6, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.318, "event": "comparison_complete", "gender": "M", "season": 2017, "recipe": "anchor_mechanism", "brier": 0.25376560159675454, "source": "new_fit", "completed": 7, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.326, "event": "comparison_complete", "gender": "M", "season": 2017, "recipe": "anchor_both", "brier": 0.25376560159675454, "source": "new_fit", "completed": 8, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.332, "event": "comparison_complete", "gender": "M", "season": 2018, "recipe": "anchor", "brier": 0.22661551655451576, "source": "upstream_replay", "completed": 9, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.338, "event": "comparison_complete", "gender": "M", "season": 2018, "recipe": "anchor_rates", "brier": 0.22661551655451576, "source": "new_fit", "completed": 10, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.346, "event": "comparison_complete", "gender": "M", "season": 2018, "recipe": "anchor_mechanism", "brier": 0.22583258845115045, "source": "new_fit", "completed": 11, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.353, "event": "comparison_complete", "gender": "M", "season": 2018, "recipe": "anchor_both", "brier": 0.22583258845115045, "source": "new_fit", "completed": 12, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.359, "event": "comparison_complete", "gender": "M", "season": 2019, "recipe": "anchor", "brier": 0.21794159754427042, "source": "upstream_replay", "completed": 13, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.366, "event": "comparison_complete", "gender": "M", "season": 2019, "recipe": "anchor_rates", "brier": 0.21794159754427042, "source": "new_fit", "completed": 14, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.372, "event": "comparison_complete", "gender": "M", "season": 2019, "recipe": "anchor_mechanism", "brier": 0.22219937093374484, "source": "new_fit", "completed": 15, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.379, "event": "comparison_complete", "gender": "M", "season": 2019, "recipe": "anchor_both", "brier": 0.22219937093374484, "source": "new_fit", "completed": 16, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.437, "event": "comparison_complete", "gender": "W", "season": 2016, "recipe": "anchor", "brier": 0.2471561731805035, "source": "upstream_replay", "completed": 17, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.445, "event": "comparison_complete", "gender": "W", "season": 2016, "recipe": "anchor_rates", "brier": 0.2471561731805035, "source": "new_fit", "completed": 18, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.452, "event": "comparison_complete", "gender": "W", "season": 2016, "recipe": "anchor_mechanism", "brier": 0.24567192847782995, "source": "new_fit", "completed": 19, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.46, "event": "comparison_complete", "gender": "W", "season": 2016, "recipe": "anchor_both", "brier": 0.24567192847782995, "source": "new_fit", "completed": 20, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.466, "event": "comparison_complete", "gender": "W", "season": 2017, "recipe": "anchor", "brier": 0.2553797828348293, "source": "upstream_replay", "completed": 21, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.472, "event": "comparison_complete", "gender": "W", "season": 2017, "recipe": "anchor_rates", "brier": 0.2553797828348293, "source": "new_fit", "completed": 22, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.48, "event": "comparison_complete", "gender": "W", "season": 2017, "recipe": "anchor_mechanism", "brier": 0.25376560159675454, "source": "new_fit", "completed": 23, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.489, "event": "comparison_complete", "gender": "W", "season": 2017, "recipe": "anchor_both", "brier": 0.25376560159675454, "source": "new_fit", "completed": 24, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.496, "event": "comparison_complete", "gender": "W", "season": 2018, "recipe": "anchor", "brier": 0.22661551655451576, "source": "upstream_replay", "completed": 25, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.504, "event": "comparison_complete", "gender": "W", "season": 2018, "recipe": "anchor_rates", "brier": 0.22661551655451576, "source": "new_fit", "completed": 26, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.51, "event": "comparison_complete", "gender": "W", "season": 2018, "recipe": "anchor_mechanism", "brier": 0.22583258845115045, "source": "new_fit", "completed": 27, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.516, "event": "comparison_complete", "gender": "W", "season": 2018, "recipe": "anchor_both", "brier": 0.22583258845115045, "source": "new_fit", "completed": 28, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.522, "event": "comparison_complete", "gender": "W", "season": 2019, "recipe": "anchor", "brier": 0.21794159754427042, "source": "upstream_replay", "completed": 29, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.528, "event": "comparison_complete", "gender": "W", "season": 2019, "recipe": "anchor_rates", "brier": 0.21794159754427042, "source": "new_fit", "completed": 30, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.534, "event": "comparison_complete", "gender": "W", "season": 2019, "recipe": "anchor_mechanism", "brier": 0.22219937093374484, "source": "new_fit", "completed": 31, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.54, "event": "comparison_complete", "gender": "W", "season": 2019, "recipe": "anchor_both", "brier": 0.22219937093374484, "source": "new_fit", "completed": 32, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.59, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.593, "event": "rate_snapshot_reused", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.593, "event": "rate_snapshot_reused", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.594, "event": "rate_snapshot_reused", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.594, "event": "rate_snapshot_reused", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.594, "event": "rate_snapshot_reused", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.594, "event": "rate_snapshot_reused", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.595, "event": "rate_snapshot_reused", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.596, "event": "rate_snapshot_reused", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.597, "event": "rate_snapshot_reused", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.597, "event": "rate_snapshot_reused", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.597, "event": "rate_snapshot_reused", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.597, "event": "rate_snapshot_reused", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.598, "event": "rate_snapshot_reused", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.598, "event": "rate_snapshot_reused", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.741, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.794, "event": "comparison_complete", "gender": "M", "season": 2016, "recipe": "anchor", "brier": 0.2471561731805035, "source": "local_checkpoint", "completed": 1, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.798, "event": "comparison_complete", "gender": "M", "season": 2016, "recipe": "anchor_rates", "brier": 0.2471561731805035, "source": "local_checkpoint", "completed": 2, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.801, "event": "comparison_complete", "gender": "M", "season": 2016, "recipe": "anchor_mechanism", "brier": 0.24567192847782995, "source": "local_checkpoint", "completed": 3, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.805, "event": "comparison_complete", "gender": "M", "season": 2016, "recipe": "anchor_both", "brier": 0.24567192847782995, "source": "local_checkpoint", "completed": 4, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.811, "event": "comparison_complete", "gender": "M", "season": 2017, "recipe": "anchor", "brier": 0.2553797828348293, "source": "upstream_replay", "completed": 5, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.814, "event": "comparison_complete", "gender": "M", "season": 2017, "recipe": "anchor_rates", "brier": 0.2553797828348293, "source": "local_checkpoint", "completed": 6, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.818, "event": "comparison_complete", "gender": "M", "season": 2017, "recipe": "anchor_mechanism", "brier": 0.25376560159675454, "source": "local_checkpoint", "completed": 7, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.823, "event": "comparison_complete", "gender": "M", "season": 2017, "recipe": "anchor_both", "brier": 0.25376560159675454, "source": "local_checkpoint", "completed": 8, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.828, "event": "comparison_complete", "gender": "M", "season": 2018, "recipe": "anchor", "brier": 0.22661551655451576, "source": "upstream_replay", "completed": 9, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.832, "event": "comparison_complete", "gender": "M", "season": 2018, "recipe": "anchor_rates", "brier": 0.22661551655451576, "source": "local_checkpoint", "completed": 10, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.836, "event": "comparison_complete", "gender": "M", "season": 2018, "recipe": "anchor_mechanism", "brier": 0.22583258845115045, "source": "local_checkpoint", "completed": 11, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.839, "event": "comparison_complete", "gender": "M", "season": 2018, "recipe": "anchor_both", "brier": 0.22583258845115045, "source": "local_checkpoint", "completed": 12, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.845, "event": "comparison_complete", "gender": "M", "season": 2019, "recipe": "anchor", "brier": 0.21794159754427042, "source": "upstream_replay", "completed": 13, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.849, "event": "comparison_complete", "gender": "M", "season": 2019, "recipe": "anchor_rates", "brier": 0.21794159754427042, "source": "local_checkpoint", "completed": 14, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.853, "event": "comparison_complete", "gender": "M", "season": 2019, "recipe": "anchor_mechanism", "brier": 0.22219937093374484, "source": "local_checkpoint", "completed": 15, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.857, "event": "comparison_complete", "gender": "M", "season": 2019, "recipe": "anchor_both", "brier": 0.22219937093374484, "source": "local_checkpoint", "completed": 16, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.913, "event": "comparison_complete", "gender": "W", "season": 2016, "recipe": "anchor", "brier": 0.2471561731805035, "source": "upstream_replay", "completed": 17, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.917, "event": "comparison_complete", "gender": "W", "season": 2016, "recipe": "anchor_rates", "brier": 0.2471561731805035, "source": "local_checkpoint", "completed": 18, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.921, "event": "comparison_complete", "gender": "W", "season": 2016, "recipe": "anchor_mechanism", "brier": 0.24567192847782995, "source": "local_checkpoint", "completed": 19, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.927, "event": "comparison_complete", "gender": "W", "season": 2016, "recipe": "anchor_both", "brier": 0.24567192847782995, "source": "local_checkpoint", "completed": 20, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.933, "event": "comparison_complete", "gender": "W", "season": 2017, "recipe": "anchor", "brier": 0.2553797828348293, "source": "upstream_replay", "completed": 21, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.938, "event": "comparison_complete", "gender": "W", "season": 2017, "recipe": "anchor_rates", "brier": 0.2553797828348293, "source": "local_checkpoint", "completed": 22, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.942, "event": "comparison_complete", "gender": "W", "season": 2017, "recipe": "anchor_mechanism", "brier": 0.25376560159675454, "source": "local_checkpoint", "completed": 23, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.946, "event": "comparison_complete", "gender": "W", "season": 2017, "recipe": "anchor_both", "brier": 0.25376560159675454, "source": "local_checkpoint", "completed": 24, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.953, "event": "comparison_complete", "gender": "W", "season": 2018, "recipe": "anchor", "brier": 0.22661551655451576, "source": "upstream_replay", "completed": 25, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.957, "event": "comparison_complete", "gender": "W", "season": 2018, "recipe": "anchor_rates", "brier": 0.22661551655451576, "source": "local_checkpoint", "completed": 26, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.961, "event": "comparison_complete", "gender": "W", "season": 2018, "recipe": "anchor_mechanism", "brier": 0.22583258845115045, "source": "local_checkpoint", "completed": 27, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.965, "event": "comparison_complete", "gender": "W", "season": 2018, "recipe": "anchor_both", "brier": 0.22583258845115045, "source": "local_checkpoint", "completed": 28, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.971, "event": "comparison_complete", "gender": "W", "season": 2019, "recipe": "anchor", "brier": 0.21794159754427042, "source": "upstream_replay", "completed": 29, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.975, "event": "comparison_complete", "gender": "W", "season": 2019, "recipe": "anchor_rates", "brier": 0.21794159754427042, "source": "local_checkpoint", "completed": 30, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.979, "event": "comparison_complete", "gender": "W", "season": 2019, "recipe": "anchor_mechanism", "brier": 0.22219937093374484, "source": "local_checkpoint", "completed": 31, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 5.983, "event": "comparison_complete", "gender": "W", "season": 2019, "recipe": "anchor_both", "brier": 0.22219937093374484, "source": "local_checkpoint", "completed": 32, "total": 32}
+{"utc": "2026-09-12T00:19:37Z", "elapsed_seconds": 6.037, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 6.463, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 6.468, "event": "report_complete", "return_zip": "/tmp/tmpvc37rlo4/fixture/march_possession_research/reports/milestone_08_return.zip", "html": "/tmp/tmpvc37rlo4/fixture/march_possession_research/private_runs/3538c47458cc9f652ee17d5164b6c970d55967a0fe273d4b37a4fb2953478dbe/possession_evidence.html", "plotly_figures": 10}
+ok
+test_further_notebook_change_stops (test_possession.Workflow.test_further_notebook_change_stops) ... {"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 6.897, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+ok
+test_future_tournament_rows_ignored (test_possession.Workflow.test_future_tournament_rows_ignored) ... {"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.004, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.041, "event": "rate_snapshot_complete", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.064, "event": "rate_snapshot_complete", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.084, "event": "rate_snapshot_complete", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.106, "event": "rate_snapshot_complete", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.126, "event": "rate_snapshot_complete", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.147, "event": "rate_snapshot_complete", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.168, "event": "rate_snapshot_complete", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.191, "event": "rate_snapshot_complete", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.213, "event": "rate_snapshot_complete", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:38Z", "elapsed_seconds": 7.233, "event": "rate_snapshot_complete", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.254, "event": "rate_snapshot_complete", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.274, "event": "rate_snapshot_complete", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.295, "event": "rate_snapshot_complete", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.317, "event": "rate_snapshot_complete", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.464, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_known_notebook_edits_preserved (test_possession.Workflow.test_known_notebook_edits_preserved) ... {"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.623, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.654, "event": "rate_snapshot_complete", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.673, "event": "rate_snapshot_complete", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.693, "event": "rate_snapshot_complete", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.712, "event": "rate_snapshot_complete", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.731, "event": "rate_snapshot_complete", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.76, "event": "rate_snapshot_complete", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.781, "event": "rate_snapshot_complete", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.803, "event": "rate_snapshot_complete", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.825, "event": "rate_snapshot_complete", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.845, "event": "rate_snapshot_complete", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.866, "event": "rate_snapshot_complete", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.885, "event": "rate_snapshot_complete", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.905, "event": "rate_snapshot_complete", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 7.925, "event": "rate_snapshot_complete", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 8.07, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+{"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 8.102, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_missing_manifest_stops (test_possession.Workflow.test_missing_manifest_stops) ... {"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 8.163, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+ok
+test_missing_upstream_stops (test_possession.Workflow.test_missing_upstream_stops) ... {"utc": "2026-09-12T00:19:39Z", "elapsed_seconds": 8.237, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+ok
+test_new_fit_budget_enforced (test_possession.Workflow.test_new_fit_budget_enforced) ... {"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.334, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.369, "event": "rate_snapshot_complete", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.389, "event": "rate_snapshot_complete", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.408, "event": "rate_snapshot_complete", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.427, "event": "rate_snapshot_complete", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.447, "event": "rate_snapshot_complete", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.466, "event": "rate_snapshot_complete", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.487, "event": "rate_snapshot_complete", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.508, "event": "rate_snapshot_complete", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.53, "event": "rate_snapshot_complete", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.55, "event": "rate_snapshot_complete", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.569, "event": "rate_snapshot_complete", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.589, "event": "rate_snapshot_complete", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.609, "event": "rate_snapshot_complete", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.63, "event": "rate_snapshot_complete", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.776, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_new_source_change_stops (test_possession.Workflow.test_new_source_change_stops) ... {"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.884, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+ok
+test_path_traversal_and_symlink (test_possession.Workflow.test_path_traversal_and_symlink) ... {"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 8.95, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+ok
+test_preflight_preserves (test_possession.Workflow.test_preflight_preserves) ... {"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 9.018, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 9.055, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_prepare_no_model_fit (test_possession.Workflow.test_prepare_no_model_fit) ... {"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 9.114, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 9.146, "event": "rate_snapshot_complete", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 9.166, "event": "rate_snapshot_complete", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 9.189, "event": "rate_snapshot_complete", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 9.21, "event": "rate_snapshot_complete", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 9.229, "event": "rate_snapshot_complete", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:40Z", "elapsed_seconds": 9.248, "event": "rate_snapshot_complete", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.267, "event": "rate_snapshot_complete", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.287, "event": "rate_snapshot_complete", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.308, "event": "rate_snapshot_complete", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.328, "event": "rate_snapshot_complete", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.347, "event": "rate_snapshot_complete", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.367, "event": "rate_snapshot_complete", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.387, "event": "rate_snapshot_complete", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.408, "event": "rate_snapshot_complete", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.557, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_preprocessing_uses_training_only (test_possession.Workflow.test_preprocessing_uses_training_only) ... {"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.616, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.648, "event": "rate_snapshot_complete", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.668, "event": "rate_snapshot_complete", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.687, "event": "rate_snapshot_complete", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.709, "event": "rate_snapshot_complete", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.728, "event": "rate_snapshot_complete", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.747, "event": "rate_snapshot_complete", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.767, "event": "rate_snapshot_complete", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.788, "event": "rate_snapshot_complete", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.808, "event": "rate_snapshot_complete", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.827, "event": "rate_snapshot_complete", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.846, "event": "rate_snapshot_complete", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.866, "event": "rate_snapshot_complete", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.885, "event": "rate_snapshot_complete", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 9.904, "event": "rate_snapshot_complete", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 10.049, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_stage_tamper_stops (test_possession.Workflow.test_stage_tamper_stops) ... {"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 10.163, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 10.193, "event": "rate_snapshot_complete", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 10.213, "event": "rate_snapshot_complete", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:41Z", "elapsed_seconds": 10.233, "event": "rate_snapshot_complete", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.252, "event": "rate_snapshot_complete", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.271, "event": "rate_snapshot_complete", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.29, "event": "rate_snapshot_complete", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.31, "event": "rate_snapshot_complete", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.334, "event": "rate_snapshot_complete", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.353, "event": "rate_snapshot_complete", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.372, "event": "rate_snapshot_complete", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.395, "event": "rate_snapshot_complete", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.415, "event": "rate_snapshot_complete", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.435, "event": "rate_snapshot_complete", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.455, "event": "rate_snapshot_complete", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.602, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+test_temporal_split (test_possession.Workflow.test_temporal_split) ... {"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.663, "event": "preflight_pass", "base_snapshots": 14, "existing_classifiers": 7, "new_rating_fits": 0}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.699, "event": "rate_snapshot_complete", "gender": "M", "season": 2013, "completed": 1, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.722, "event": "rate_snapshot_complete", "gender": "M", "season": 2014, "completed": 2, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.741, "event": "rate_snapshot_complete", "gender": "M", "season": 2015, "completed": 3, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.763, "event": "rate_snapshot_complete", "gender": "M", "season": 2016, "completed": 4, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.782, "event": "rate_snapshot_complete", "gender": "M", "season": 2017, "completed": 5, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.803, "event": "rate_snapshot_complete", "gender": "M", "season": 2018, "completed": 6, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.823, "event": "rate_snapshot_complete", "gender": "M", "season": 2019, "completed": 7, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.844, "event": "rate_snapshot_complete", "gender": "W", "season": 2013, "completed": 8, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.864, "event": "rate_snapshot_complete", "gender": "W", "season": 2014, "completed": 9, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.884, "event": "rate_snapshot_complete", "gender": "W", "season": 2015, "completed": 10, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.903, "event": "rate_snapshot_complete", "gender": "W", "season": 2016, "completed": 11, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.922, "event": "rate_snapshot_complete", "gender": "W", "season": 2017, "completed": 12, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.941, "event": "rate_snapshot_complete", "gender": "W", "season": 2018, "completed": 13, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 10.961, "event": "rate_snapshot_complete", "gender": "W", "season": 2019, "completed": 14, "total": 14}
+{"utc": "2026-09-12T00:19:42Z", "elapsed_seconds": 11.11, "event": "preservation_pass", "repository": true, "raw": true, "upstream": true}
+ok
+
+----------------------------------------------------------------------
+Ran 48 tests in 11.016s
+
+OK

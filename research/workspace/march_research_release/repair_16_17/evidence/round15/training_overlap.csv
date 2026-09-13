@@ -1,0 +1,17 @@
+Season,feature,closest_reference,abs_correlation,training_games,training_nonzero
+2022,common_venue_margin_gap,diff_rank_consensus_logit,0.4381454197657742,503,255
+2022,common_venue_win_gap,diff_rank_consensus_logit,0.35142853637661547,503,116
+2022,common_venue_offense_gap,diff_adj_offense,0.38969104033147456,503,259
+2022,common_venue_defense_gap,diff_adj_defense,0.32316410661212508,503,259
+2023,common_venue_margin_gap,diff_rank_consensus_logit,0.42234472082500013,566,284
+2023,common_venue_win_gap,diff_rank_consensus_logit,0.33180407680272755,566,132
+2023,common_venue_offense_gap,diff_adj_offense,0.36259313549460837,566,288
+2023,common_venue_defense_gap,diff_adj_defense,0.33256570277451403,566,288
+2024,common_venue_margin_gap,diff_rank_consensus_logit,0.42329459508403716,629,309
+2024,common_venue_win_gap,diff_rank_consensus_logit,0.33315165197583685,629,144
+2024,common_venue_offense_gap,diff_adj_offense,0.35819543888548905,629,313
+2024,common_venue_defense_gap,diff_adj_defense,0.32831768650316362,629,313
+2025,common_venue_margin_gap,diff_rank_consensus_logit,0.41355381603704716,692,340
+2025,common_venue_win_gap,diff_rank_consensus_logit,0.32067032289953201,692,157
+2025,common_venue_offense_gap,diff_adj_offense,0.36205802522473624,692,344
+2025,common_venue_defense_gap,diff_adj_defense,0.31251829849466956,692,344

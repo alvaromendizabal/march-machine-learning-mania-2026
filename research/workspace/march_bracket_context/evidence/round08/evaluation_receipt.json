@@ -1,0 +1,7 @@
+{
+  "local_checkpoint_reuses": 4,
+  "new_classifier_fits": 21,
+  "new_rating_fits": 0,
+  "total_comparisons": 32,
+  "upstream_classifier_replays": 7
+}

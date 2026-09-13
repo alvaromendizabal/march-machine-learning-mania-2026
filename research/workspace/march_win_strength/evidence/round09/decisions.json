@@ -1,0 +1,16 @@
+{
+  "Gender": "W",
+  "actual_home_advantage_proven": false,
+  "automatic_promotion": false,
+  "comparison": "scaled_given_status",
+  "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+  "improved_seasons": 2,
+  "mean_delta": 0.0004020908104074364,
+  "significance_claim": false,
+  "thresholds": {
+    "improved_seasons": 3,
+    "mean_delta": -0.0005,
+    "worst_delta": 0.003
+  },
+  "worst_delta": 0.0027863876332246407
+}

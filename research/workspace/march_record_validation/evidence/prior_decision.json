@@ -1,0 +1,7 @@
+{
+  "all_six_additions_worsened_2019": true,
+  "decision": "Pause automatic shooting-panel expansion; no shooting candidate promoted",
+  "explanation": "The old flag required ALL six deltas >0.01. False did not mean a gain.",
+  "old_clearly_unproductive_flag": false,
+  "scope": "Negative under one fixed recipe/season; not proof of uselessness in every model or season"
+}

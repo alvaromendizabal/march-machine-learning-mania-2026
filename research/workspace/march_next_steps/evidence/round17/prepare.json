@@ -1,0 +1,14 @@
+{
+  "base_snapshots_reused": 12,
+  "feature_snapshot_reuses": 1,
+  "new_candidate_definitions": 4,
+  "new_classifier_fits": 0,
+  "new_feature_snapshots": 11,
+  "new_rating_fits": 22,
+  "rating_reuses": 2,
+  "reference_models_replayed": 4,
+  "round": "17",
+  "smoke_work_included_in_reuses": true,
+  "status": "COMPLETE",
+  "unadjusted_rate_controls": 4
+}

@@ -1,0 +1,12 @@
+{
+  "protocol": "retrospective-nested-model-comparison",
+  "validation_seasons": [2016, 2017, 2018, 2019, 2021],
+  "first_training_season": 2013,
+  "minimum_inner_seasons": 2,
+  "threads": 2,
+  "seed": 2026,
+  "heartbeat_seconds": 15,
+  "calibration_temperature_bounds": [0.5, 2.0],
+  "ensemble_l2": 0.01,
+  "permutation_repeats": 5
+}

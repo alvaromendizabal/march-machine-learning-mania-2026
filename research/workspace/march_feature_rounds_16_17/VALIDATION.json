@@ -1,0 +1,132 @@
+{
+  "status": "PREPARED_STATIC_REVIEW_ONLY",
+  "design_date": "2026-09-12",
+  "project_code_imported": false,
+  "project_code_executed": false,
+  "tests_run": false,
+  "test_methods_prepared": 55,
+  "test_names": [
+    "test_features.py:test_exactly_four_candidates_each",
+    "test_features.py:test_exactly_four_rate_controls_each",
+    "test_features.py:test_disjoint_candidates_controls",
+    "test_features.py:test_separate_round_features",
+    "test_features.py:test_consensus_reference_dimensions",
+    "test_features.py:test_six_recipes_each",
+    "test_features.py:test_recipe_dimensions",
+    "test_features.py:test_primary_controls_identical",
+    "test_features.py:test_family_removal_does_not_replace_inputs",
+    "test_features.py:test_year_boundary",
+    "test_features.py:test_bad_round_rejected",
+    "test_features.py:test_long_game_count",
+    "test_features.py:test_orientation_home_sum",
+    "test_features.py:test_nonsteal_identity",
+    "test_features.py:test_negative_nonsteal_rejected",
+    "test_features.py:test_missing_steals_rejected",
+    "test_features.py:test_missing_blocks_rejected",
+    "test_features.py:test_future_day_excluded_before_validation",
+    "test_features.py:test_future_season_excluded",
+    "test_features.py:test_shuffle_invariance",
+    "test_features.py:test_duplicate_physical_game_rejected",
+    "test_features.py:test_compact_score_mismatch_rejected",
+    "test_features.py:test_fractional_counts_rejected",
+    "test_features.py:test_nan_rejected",
+    "test_features.py:test_two_point_attempts",
+    "test_features.py:test_bad_three_point_subset",
+    "test_features.py:test_illegal_location",
+    "test_features.py:test_solve_certificate_and_serialization",
+    "test_features.py:test_sign_convention",
+    "test_features.py:test_input_immutable",
+    "test_features.py:test_unobserved_seeded_team_rejected",
+    "test_features.py:test_support_gate",
+    "test_features.py:test_invalid_penalty",
+    "test_features.py:test_control_shrinkage_formula",
+    "test_features.py:test_pair_construction",
+    "test_features.py:test_duplicate_control_is_exact",
+    "test_features.py:test_team_difference_antisymmetry",
+    "test_features.py:test_csv_dtype_roundtrip_is_numeric",
+    "test_features.py:test_bad_pair_order_rejected",
+    "test_features.py:test_registry_does_not_count_controls",
+    "test_workflow.py:test_atomic_checkpoint_reuse",
+    "test_workflow.py:test_corrupt_checkpoint_rejected",
+    "test_workflow.py:test_missing_completion_not_reused",
+    "test_workflow.py:test_path_traversal_refused",
+    "test_workflow.py:test_symbolic_output_refused",
+    "test_workflow.py:test_legacy_metric_without_log_loss",
+    "test_workflow.py:test_bad_metric_not_silently_recomputed",
+    "test_workflow.py:test_gate_does_not_promote_bad_family",
+    "test_workflow.py:test_gate_requires_duplicate_control",
+    "test_workflow.py:test_gate_positive_case",
+    "test_workflow.py:test_partial_gate_rejected",
+    "test_workflow.py:test_hard_timeout_preserves_files",
+    "test_workflow.py:test_invalid_stage_does_not_launch",
+    "test_workflow.py:test_invalid_ceiling",
+    "test_workflow.py:test_both_rounds_export_resume_and_protection"
+  ],
+  "notebooks_executed": false,
+  "cloud_or_project_accounts_accessed": false,
+  "github_updated": false,
+  "static_inspection": {
+    "python_files_syntax_parsed": [
+      "feature_rounds.py",
+      "frozen/consensus_reference.py",
+      "frozen/research_workflow.py",
+      "frozen/shot_features.py",
+      "package_returns.py",
+      "prepare_publication.py",
+      "research_io.py",
+      "round_plots.py",
+      "round_workflow.py",
+      "run_round.py",
+      "run_tests.py",
+      "tests/fixtures.py",
+      "tests/test_features.py",
+      "tests/test_workflow.py"
+    ],
+    "notebook_source_syntax": {
+      "16_turnover_mechanisms.ipynb": {
+        "code_cells": 10,
+        "outputs_present": false,
+        "execution": "NOT_RUN",
+        "syntax_parse": "PASS",
+        "planned_plotly_charts": 10
+      },
+      "17_blocks_and_foul_pressure.ipynb": {
+        "code_cells": 10,
+        "outputs_present": false,
+        "execution": "NOT_RUN",
+        "syntax_parse": "PASS",
+        "planned_plotly_charts": 10
+      }
+    },
+    "manual_review": [
+      "Four adjusted and four raw-control definitions per round",
+      "Temporal source boundary and main-draw label alignment",
+      "Separate one-season smoke and repeat-no-fit gates",
+      "Fixed comparisons and sign conventions",
+      "Hash-bound reuse, safe-write and preservation paths",
+      "No Jinja2-dependent DataFrame styling",
+      "No execution outputs fabricated"
+    ]
+  },
+  "input_report_analysis": {
+    "sha256": "197c611959303be0a65bdc18582bac934a9007fc4c1dc198cb0869fd31faefe2",
+    "member_checks": {
+      "14": {
+        "declared_members": 21,
+        "all_return_member_hashes_match": true
+      },
+      "15": {
+        "declared_members": 21,
+        "all_return_member_hashes_match": true
+      }
+    }
+  },
+  "runtime_validation_status": "PENDING_USER_EXECUTION",
+  "limitations": [
+    "No new module, test, notebook, smoke fit, synthetic experiment, or real-data experiment was executed by ChatGPT.",
+    "Syntax parsing does not establish runtime correctness, numerical accuracy, checkpoint reuse, rendering, or predictive value.",
+    "The test receipt and two per-round smoke invocations must pass in the user environment.",
+    "Current account/repository status and the leaderboard were not independently checked.",
+    "Runtime and cost are unmeasured; stage limits are process ceilings, not billing limits."
+  ]
+}

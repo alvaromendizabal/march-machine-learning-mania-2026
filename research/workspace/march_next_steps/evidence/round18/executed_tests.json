@@ -1,0 +1,24 @@
+{
+  "elapsed_seconds": 14.207,
+  "error": null,
+  "project_data_used": false,
+  "returncode": 0,
+  "source_changed_during_tests": false,
+  "source_sha256": {
+    "feature_rounds.py": "34c4e758543a31dc0ffad23c8f4fa3af219724e795160e027381cd456fcb67b7",
+    "frozen/consensus_reference.py": "2b945d7bef821c924287e303f35158bafe8a39ab55ee49364e18829456e56a65",
+    "frozen/research_workflow.py": "5a556973f36908c6b2b7b683717a4580154f55d3fbeda58e9dcfc2ed8555bcd1",
+    "frozen/shot_features.py": "8d2f2c3bf9d556c0cd899bcb8ad6125fca1b185b04708f1b8c8012cc487f5c4c",
+    "research_io.py": "5d6ce0c5b00654ca993c3b5aca668ce41306f24c21adc4e0dd1bf50eb4781be0",
+    "round_plots.py": "bf08037ed56a0caa7b8bcd45e67395efca1bd79ea9fadb6b966b4700a6aac5aa",
+    "round_workflow.py": "2acc53944384b52a39eb6adfbc75d925cbc2bba8c9109221e75c0b9359a57ab0",
+    "run_round.py": "73b1933146c99d81aca7bd8ab8cb6b6e4b033e8e56cff0535651dedf795f0fae"
+  },
+  "status": "PASS",
+  "suite_sha256": {
+    "tests/fixtures.py": "f47246cd25c984af6161996b2e8e01065625ab97d40cdeddc61e2eac3adc9b8a",
+    "tests/test_features.py": "b580e0437b2a074621e1beffcf2e983144901299e6aded5a5a99e250ed1c8502",
+    "tests/test_workflow.py": "16ce999a6ec0f79e23cc1d023fb4c7f11f2de4c8979af969d700c86ae1ccce26"
+  },
+  "utc": "2026-09-13T00:53:45Z"
+}

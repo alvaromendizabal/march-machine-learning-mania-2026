@@ -1,0 +1,20 @@
+feature,family,novel,definition,available_asof,actual_venue_claim,outcomes_used_for_features,swap_parity
+diff_seed,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_strength,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_schedule_strength,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_win_rate,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_margin,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_margin_sd,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_adj_offense,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_adj_defense,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_two_posterior,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_three_posterior,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_free_posterior,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_opp_two_posterior,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_opp_three_posterior,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_opp_free_posterior,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_three_share,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_opp_three_share,anchor,False,Unchanged frozen reference difference,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+diff_top4_status,seed_status_control,False,I(seed_A<=4)-I(seed_B<=4); all supported years,"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+host_eligibility_contrast,bracket_eligibility,True,Status difference times same announced region/pod times I(2015<=season<=2019),"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1
+host_eligibility_volatility_scaled,eligibility_volatility,True,Eligibility contrast * 10 / sqrt(margin_sd_A^2+margin_sd_B^2+1),"After field announcement, before first NCAA game; regular-season snapshots through day132",False,False,-1

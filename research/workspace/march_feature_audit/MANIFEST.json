@@ -1,0 +1,27 @@
+{
+  "kit": "march_feature_audit",
+  "reference_commit": "84b8fb36644a6558beded6dad84f5645ea4405d3",
+  "files": {
+    "01_workspace_and_feature_evidence.ipynb": {
+      "bytes": 14351,
+      "sha256": "fe7504c2d74248dc5abf171dd042fb194fdda9d529a8b8e6a26875e4253e081a"
+    },
+    "feature_evidence.py": {
+      "bytes": 37197,
+      "sha256": "ac40d326773a5ae484c3005626c255add98789feae2159f65ef88916e61c2af5"
+    },
+    "START_HERE.md": {
+      "bytes": 8069,
+      "sha256": "ddb0415ad16baeb6ba848e22185b977cd64c52a6ff184f08679cce9f002b9bd2"
+    },
+    "VALIDATION.json": {
+      "bytes": 1059,
+      "sha256": "0ee00e7c8eb68d559aa821c2b2d1394b06788d7ba0a724039cc6ad75cd9f130e"
+    },
+    "tests/test_feature_evidence.py": {
+      "bytes": 12732,
+      "sha256": "d350f76d0b034d3229a9720d45390a72f2a67681a07563413ae9fcec94819bbb"
+    }
+  },
+  "generated_notebook": "Unexecuted user-ready notebook; synthetic validation outputs are not presented as real project results."
+}

@@ -1,0 +1,20 @@
+{
+  "fixture": "Synthetic Git repository, synthetic raw CSV and synthetic published reports; not competition evaluation",
+  "code_cells_executed": 8,
+  "notebook_errors": 0,
+  "inline_plotly_outputs": 6,
+  "html_plotly_figures": 18,
+  "expected_dirty_gate": "REVIEW_REQUIRED",
+  "repository_unchanged": true,
+  "new_models_fitted": 0,
+  "github_updated": false,
+  "unit_and_integration_tests": 28,
+  "unit_and_integration_status": "PASS",
+  "python_used_locally": "3.13 (the user environment is Python 3.12; no unsupported 3.13-only syntax is used)",
+  "actual_aws_execution": "Not performed by the assistant. User will run the notebook.",
+  "full_real_report_execution_locally": "Not performed: no full repository dataset mounted. Report schemas and provenance were checked through connected GitHub.",
+  "browser_pixel_preview": "Not performed; a Chromium executable was unavailable. Plotly JSON and HTML generation and notebook display MIME outputs were verified.",
+  "model_training": "None",
+  "cloud_resource_writes": "None",
+  "github_writes": "None"
+}

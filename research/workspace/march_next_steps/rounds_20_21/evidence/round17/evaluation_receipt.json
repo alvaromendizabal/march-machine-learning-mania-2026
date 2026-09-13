@@ -1,0 +1,14 @@
+{
+  "local_reuses": 0,
+  "new_classifier_fits": 20,
+  "new_rating_fits": 0,
+  "reference_replays": 4,
+  "round": "17",
+  "total_comparisons": 24,
+  "validation_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ]
+}

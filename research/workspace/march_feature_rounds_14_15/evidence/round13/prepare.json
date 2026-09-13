@@ -1,0 +1,16 @@
+{
+  "compact_snapshot_reuses": 0,
+  "early_years_not_refitted": true,
+  "matchup_table_reuses": 0,
+  "new_compact_snapshots": 5,
+  "new_feature_definitions": 0,
+  "new_matchup_tables": 5,
+  "new_ranking_panels": 5,
+  "new_rating_fits": 10,
+  "new_tournament_classifier_fits": 0,
+  "old_base_and_matchup_snapshots_reused": 7,
+  "old_consensus_models_replayed": 4,
+  "ranking_panel_reuses": 0,
+  "rating_component_reuses": 0,
+  "status": "COMPLETE"
+}

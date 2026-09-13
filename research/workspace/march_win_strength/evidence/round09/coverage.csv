@@ -1,0 +1,8 @@
+Gender,Season,actual_venue_measured,all_pairs,eligible_pairs,feature_swap_error,field_teams,policy_active,same_pod_pairs
+W,2013,False,2016,0,0,64,False,96
+W,2014,False,2016,0,0,64,False,96
+W,2015,False,2016,48,0,64,True,96
+W,2016,False,2016,48,0,64,True,96
+W,2017,False,2016,48,0,64,True,96
+W,2018,False,2016,48,0,64,True,96
+W,2019,False,2016,48,0,64,True,96

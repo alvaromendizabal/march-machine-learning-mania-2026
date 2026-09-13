@@ -1,0 +1,44 @@
+{
+  "aws_resources_modified": false,
+  "current_submitted_brier": 0.1222672,
+  "decision": {
+    "Gender": "W",
+    "actual_home_advantage_proven": false,
+    "automatic_promotion": false,
+    "comparison": "scaled_given_status",
+    "decision": "DO_NOT_EXPAND_AUTOMATICALLY",
+    "improved_seasons": 2,
+    "mean_delta": 0.0004020908104074364,
+    "significance_claim": false,
+    "thresholds": {
+      "improved_seasons": 3,
+      "mean_delta": -0.0005,
+      "worst_delta": 0.003
+    },
+    "worst_delta": 0.0027863876332246407
+  },
+  "fingerprint": "1975cfd231bc6cbb2b62fbce3c472f03127cbf0ae645beb203fd3b12cd77ba20",
+  "github_updated": false,
+  "limitations": [
+    "Repeatedly-used 2016--2019 seasons; no untouched-test claim",
+    "Seed-derived eligibility is not verified venue/home status",
+    "No pre2015 home advantage is encoded; 2016 fit has only 2015 policy-era training",
+    "Documented venue exceptions are not selectively patched; archived venue validation remains open",
+    "Pure features conditional on announced bracket; unsupported play-ins/later years stop",
+    "Fixed compact logistic is not the best submitted production model"
+  ],
+  "local_reuses": 0,
+  "new_candidates": 2,
+  "new_classifier_fits": 12,
+  "new_leaderboard_score": null,
+  "new_rating_fits": 0,
+  "phase": "women_bracket_context",
+  "raw_modified": false,
+  "repository_modified": false,
+  "research_target_brier": 0.1097454,
+  "seed_status_control": 1,
+  "status": "COMPLETE",
+  "total_comparisons": 16,
+  "upstream_modified": false,
+  "upstream_replays": 4
+}

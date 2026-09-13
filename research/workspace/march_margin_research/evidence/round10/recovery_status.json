@@ -1,0 +1,68 @@
+{
+  "events": [
+    {
+      "accepted_rating_seasons": [
+        2013,
+        2014
+      ],
+      "installer_sha256": "3db95d86a996870a40eaf6679f9d83d45eefd53b06337e81e49c5538187bdf98",
+      "project_models_fitted": 0,
+      "remaining_rating_seasons": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "stage": "install",
+      "status": "PASS"
+    },
+    {
+      "receipt": {
+        "base_snapshots_reused": 7,
+        "matchup_table_reuses": 2,
+        "new_candidates": 2,
+        "new_classifier_fits": 0,
+        "new_matchup_tables": 5,
+        "new_rating_fits": 5,
+        "rating_reuses": 2,
+        "raw_score_margins_used_for_new_ratings": false,
+        "reference_classifiers_replayed": 4,
+        "status": "COMPLETE",
+        "tournament_labels_used_for_new_ratings": false,
+        "tournament_labels_used_to_build_pairs": false
+      },
+      "stage": "prepare",
+      "status": "COMPLETE"
+    },
+    {
+      "receipt": {
+        "local_reuses": 0,
+        "new_classifier_fits": 8,
+        "new_rating_fits_in_evaluation": 0,
+        "total_comparisons": 12,
+        "upstream_replays": 4
+      },
+      "stage": "evaluate",
+      "status": "COMPLETE"
+    },
+    {
+      "receipt": {
+        "html": "/home/sagemaker-user/march_win_strength/private_runs/37b002a8fcedbd48bec948b3f78fce9910869edbe8cd53a4dc9dd29427c4dfc9/win_strength_evidence.html",
+        "plotly_figures": 10,
+        "return_sha256": "9dcfaf073b72de7105011d45e4cd7f3a42a74ac8c961c449ba053da51bebb86c",
+        "return_zip": "/home/sagemaker-user/march_win_strength/reports/milestone_10_return.zip",
+        "status": "COMPLETE"
+      },
+      "stage": "report",
+      "status": "COMPLETE"
+    }
+  ],
+  "interpreter": "/home/sagemaker-user/march-machine-learning-mania-2026/.venv/bin/python3",
+  "kit": "/home/sagemaker-user/march_win_strength",
+  "new_real_data_brier": null,
+  "note": "No claim of AWS execution until this notebook runs there.",
+  "recovery_id": "bt-csv-schema-recovery-20260912",
+  "session": "/home/sagemaker-user/march_win_strength/reports/recovery_sessions/20260912T042633Z-658ef6e1",
+  "status": "REPORT_COMPLETE"
+}

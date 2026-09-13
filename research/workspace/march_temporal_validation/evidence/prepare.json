@@ -1,0 +1,11 @@
+{
+  "base_snapshots_reused": 14,
+  "early_rating_checkpoint_reuses": 0,
+  "feature_snapshot_reuses": 0,
+  "feature_swap_error": 0.0,
+  "new_classifier_fits": 0,
+  "new_early_rating_fits": 14,
+  "new_feature_definitions": 4,
+  "new_feature_snapshots": 14,
+  "status": "COMPLETE"
+}

@@ -1,0 +1,31 @@
+{
+  "sha256": {
+    "metrics.csv": "7e952b7643d68d39599951f2c88777fc48a726bbb5e8eec19ef1227c7300b1dc",
+    "ablations.csv": "436353de56b8e459d5d37f094515b4e281f8106de97439c78ba6bc91d976deee",
+    "aggregate.csv": "970107231bc9efd17fae001a0413e07ec332a433cc4675dd655360c8f96fb305",
+    "decisions.json": "7b4b3cb08c44371a920cbb6086e400e856d46fcf180ba52c292dd9b5b073b570",
+    "coefficients.csv": "9c6999c3c9e239156051faee49256dd6c816ef26928d9a974c9a4dbd32fc7fe1",
+    "training_overlap.csv": "ab9edb96227a82370433129b0670609f092ce2c48948beddb16b1084070b1bd0",
+    "calibration.csv": "2a7085f8d3fd9909dc23e591a522a2a3916d3c96da235dde55422bd37e050ac6",
+    "evaluation_receipt.json": "d41b1e655155c3579c129aa112ad267e1bad2f1e3770ab572381c295a7535e80",
+    "summary.json": "7e2a3ca81666c93cafad0f07ce9542b2ec34652663929d9682400e943bc8e002",
+    "prepare.json": "d6519eddda8bc6d6e4ff6ef0c0b0ff6a88633e7833a632019b460743c6ecd4d3",
+    "coverage.csv": "68288c85631dec3aa3e5d851c5825a5d381cc25816d2e326c0bca4648e5ba658",
+    "feature_registry.csv": "cd4339ec55cc89ac04d213858857d7e0cfbe187d7924ff29309daa2b86a0500f",
+    "prior_replay.csv": "0ee1bad91a142a061c4e75d1e1ba8013088181b39850ab0adbced5a5dd252028",
+    "panel_coverage.csv": "b78b0a770b30eed953ca1dfca65d76af6c7a344e2a6da239544d09766c567986",
+    "prior_results_check.json": "11d9a80f77716e8c2d99768ce0579cd3e3570dbfe4ad649c5694726b9b6b95a6",
+    "preflight.json": "6d0e4f7ce2f08afd51ff1bf8c5ebe25aea9a3d582782e8a5264096c07c7da949",
+    "manifest.json": "2aa4c0b7a02e3bbf9c4a73aee411141c27ebe5fa5bb06902f7a99645540061b4",
+    "prepare_hashes.json": "6af5aa5425ca6539104c53c1fa7d6e7b43ae24d38f1ffe457db295836a6b3913",
+    "evaluation_hashes.json": "9a5c2833aaf1206d77d122e686431a6306654c9aaf9b10dfe382d639cfaaeb31",
+    "prior_milestone_11_return.zip": "b3880998146fe17e1803f75a149b3bde9dab7a2cc4fdb437227338e590899d0d"
+  },
+  "excluded": [
+    "raw rows",
+    "rating models/covariance",
+    "classifier models",
+    "individual predictions",
+    "private notebooks"
+  ]
+}

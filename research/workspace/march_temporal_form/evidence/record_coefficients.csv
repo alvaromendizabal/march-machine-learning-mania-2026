@@ -1,0 +1,17 @@
+Season,feature,standardized_coefficient,training_supported
+2016,diff_reference_surplus,0.077488307322465186,True
+2016,diff_reference_surplus_nonhome,-0.00046474842097589381,True
+2016,diff_reference_upset_credit,0.22493826103162459,True
+2016,diff_reference_bad_loss_cost,-0.056556690700002708,True
+2017,diff_reference_surplus,0.075734546287288776,True
+2017,diff_reference_surplus_nonhome,-0.0020896639273234327,True
+2017,diff_reference_upset_credit,0.20420890090693933,True
+2017,diff_reference_bad_loss_cost,-0.086081735346660554,True
+2018,diff_reference_surplus,0.095823977360968302,True
+2018,diff_reference_surplus_nonhome,0.061417159514637394,True
+2018,diff_reference_upset_credit,0.2071846643613261,True
+2018,diff_reference_bad_loss_cost,-0.10994908815377182,True
+2019,diff_reference_surplus,0.13219131305149734,True
+2019,diff_reference_surplus_nonhome,-0.0053190611707264104,True
+2019,diff_reference_upset_credit,0.26874762049338663,True
+2019,diff_reference_bad_loss_cost,-0.1619793221483323,True

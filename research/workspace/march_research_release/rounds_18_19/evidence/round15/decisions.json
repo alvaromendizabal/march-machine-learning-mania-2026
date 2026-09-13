@@ -1,0 +1,22 @@
+{
+  "automatic_promotion": false,
+  "comparison": "both_given_reference",
+  "decision": "DO_NOT_PROMOTE",
+  "duplication_sensitivity_pass": false,
+  "improved_seasons": 2,
+  "mean_delta": 0.0009450038388962995,
+  "mean_delta_vs_duplicate": 3.205494709723755e-06,
+  "significance_claim": false,
+  "thresholds": {
+    "improved_seasons": 3,
+    "mean_delta": -0.0005,
+    "worst_delta": 0.003
+  },
+  "validation_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "worst_delta": 0.003054798746966042
+}

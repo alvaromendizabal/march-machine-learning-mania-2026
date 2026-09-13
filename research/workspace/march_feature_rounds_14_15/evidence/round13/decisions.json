@@ -1,0 +1,21 @@
+{
+  "automatic_promotion": false,
+  "comparison": "consensus_given_anchor",
+  "decision": "CONSIDER_FIXED_PRODUCTION_RECIPE_TEST",
+  "discovery_years_excluded_from_gate": true,
+  "improved_seasons": 3,
+  "mean_delta": -0.0006879082713373494,
+  "significance_claim": false,
+  "thresholds": {
+    "improved_seasons": 3,
+    "mean_delta": -0.0005,
+    "worst_delta": 0.003
+  },
+  "validation_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "worst_delta": 6.24354579593922e-05
+}
