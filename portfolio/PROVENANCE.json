@@ -1,0 +1,31 @@
+{
+  "scope": "Public aggregate evidence from user-supplied archives; no new research execution or full AWS synchronization",
+  "source_publication_package": "march_next_steps.zip / public_portfolio/data/validation_metrics.csv",
+  "source_publication_table_sha256": "0ddafda15bcea80b3045382af9985af37179ae24cad63574ec9c74ac2ea14fdd",
+  "selected_source_rows": 252,
+  "round_count": 15,
+  "aggregation": "Arithmetic mean of recorded Brier over listed seasons within each round, population and public arm. Delta subtracts that round/population reference over the identical season set. Output rounded to 10 decimal places.",
+  "arm_identity": "Anonymized labels retained from the prepared public-only evidence package. Arm names are local to each round, not common estimators across rounds.",
+  "verification": "Each of the 15 original metric-table SHA-256 hashes below matched a member in the mounted user-supplied source archive. This checks source identity, not independent scientific reproduction or a signed competition receipt.",
+  "private_content_published": false,
+  "research_models_fitted_for_publication": 0,
+  "project_notebooks_executed_for_publication": 0,
+  "aws_full_sync_verified": false,
+  "sources": [
+    {"round":"02","archive":"milestone_02_return.zip","member":"smoke_metrics.csv","sha256":"d12680bc93a3a97a81f12534c7efd39ba233f5ca267d0a71327107fa4d713d84"},
+    {"round":"04","archive":"milestone_04_return.zip","member":"metrics.csv","sha256":"9a55946916e6df7705790bbaeb0ff34591a0c5a06ce169a609e72119233feb5b"},
+    {"round":"05","archive":"milestone_05_return.zip","member":"replication_metrics.csv","sha256":"5e4f563d7e3870d8a0f4fafbb0ab0a36432fd0390c21d0d3886294fa00b60b82"},
+    {"round":"06","archive":"milestone_06_return.zip","member":"metrics.csv","sha256":"b434d19863318d12265cf8eb79952d63b41a468b062d0e65f5613b516262d912"},
+    {"round":"07","archive":"milestone_07_return.zip","member":"replication_metrics.csv","sha256":"11049da3161216267c76ae89e16a675d383d0d0ccc12796962316452b4b60777"},
+    {"round":"08","archive":"milestone_08_return.zip","member":"metrics.csv","sha256":"ce4d72d7bc1cb05d06f6eed88737da127b448433fae2d35b38b5104d458fa340"},
+    {"round":"09","archive":"milestone_09_return.zip","member":"metrics.csv","sha256":"572b60d600e3bac519eca7588d055ec88e7a87d5db428742534e00ef60d8bc40"},
+    {"round":"11","archive":"milestone_11_return.zip","member":"metrics.csv","sha256":"e3f1433dc81c4dfb80cd2f770579e6bbdd5fa8329cd18b14ed96fdff8ff96a57"},
+    {"round":"12","archive":"milestone_12_return.zip","member":"metrics.csv","sha256":"7e952b7643d68d39599951f2c88777fc48a726bbb5e8eec19ef1227c7300b1dc"},
+    {"round":"13","archive":"milestone_13_return.zip","member":"metrics.csv","sha256":"ec72f33b892ed3f06266d6bc1257e0cf7c8476222ae6c66fabb18696b54e40ee"},
+    {"round":"14","archive":"rounds_14_15_return(1).zip","member":"milestone_14_return.zip/metrics.csv","sha256":"5e200d33685e2f131a1e1a1c1972542378bc2204d2c6a83b563d90541807fb13"},
+    {"round":"15","archive":"rounds_14_15_return(1).zip","member":"milestone_15_return.zip/metrics.csv","sha256":"3e682670d64a63b3eea8aeaea81581b18ce9c3e104c23ff0911973f466cbc534"},
+    {"round":"17","archive":"research_return.zip","member":"milestone_17_return.zip/metrics.csv","sha256":"fb301041c91759cf878418073aa0cafec59cf8608105b9e69e9e29cc74769b7e"},
+    {"round":"18","archive":"research_return.zip","member":"milestone_18_return.zip/metrics.csv","sha256":"97febe9e86d3f86ef53d14fa2f20c485579fac693c459a1ab613e41c3e260789"},
+    {"round":"19","archive":"research_return.zip","member":"milestone_19_return.zip/metrics.csv","sha256":"df140c678375a512bbdfdfb6e4a9e5f37d3682d8f6f86fdde4abfbdf30623b47"}
+  ]
+}
