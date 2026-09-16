@@ -180,3 +180,38 @@ def test_women_export_rejects_invalid_probabilities(tmp_path, invalid):
         forecasts.loc[0, "conference_c100"] = np.nan if invalid == "nan" else 1.2
     with pytest.raises(ValueError):
         API["export"](tmp_path, baseline, forecasts, finalists)
+
+
+def _women_recorded_source_fixture(tmp_path):
+    recorded = {}
+    for name in API["WOMEN_COMPUTATIONAL_SOURCES"]:
+        path = tmp_path / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(name + "\n", encoding="utf-8")
+        recorded[name] = API["digest"](path)
+    recorded[API["SCRIPT"]] = next(iter(API["LEGACY_PRODUCER_SCRIPT_SHA256"]))
+    return recorded
+
+
+def test_recorded_source_identity_ignores_only_unrecorded_additions(tmp_path):
+    recorded = _women_recorded_source_fixture(tmp_path)
+    assert API["recorded_source_matches"](tmp_path, recorded)
+
+    unrelated = tmp_path / "src/march_mania/selection_future.py"
+    unrelated.parent.mkdir(parents=True, exist_ok=True)
+    unrelated.write_text("value = 2\n", encoding="utf-8")
+    assert API["recorded_source_matches"](tmp_path, recorded)
+
+    tracked = tmp_path / "src/march_mania/modeling.py"
+    tracked.write_text("changed = True\n", encoding="utf-8")
+    assert not API["recorded_source_matches"](tmp_path, recorded)
+
+
+def test_legacy_women_producer_hash_is_explicitly_versioned(tmp_path):
+    recorded = _women_recorded_source_fixture(tmp_path)
+    legacy = next(iter(API["LEGACY_PRODUCER_SCRIPT_SHA256"]))
+    assert recorded[API["SCRIPT"]] == legacy
+    assert API["recorded_source_matches"](tmp_path, recorded)
+
+    recorded[API["SCRIPT"]] = "0" * 64
+    assert not API["recorded_source_matches"](tmp_path, recorded)

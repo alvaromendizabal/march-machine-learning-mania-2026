@@ -187,7 +187,17 @@ def test_full_fifty_file_execution_and_recovery(data, tmp_path, monkeypatch):
     atomic_json(public / "recipe.json", recipe)
     atomic_json(public / "input_receipts.json", receipts)
     assert production_release.check(root)["submission_files"] == 0
-    identity = {"recipe": recipe, "inputs": receipts, "source": {}}
+    synthetic_sources = {}
+    source_names = sorted(
+        set(production_release.PRODUCTION_REQUIRED_SOURCES)
+        | set(production_release.PRODUCTION_REVIEW_ONLY_SOURCES)
+    )
+    for name in source_names:
+        path = root / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(f"synthetic production source: {name}\n", encoding="utf-8")
+        synthetic_sources[name] = digest(path)
+    identity = {"recipe": recipe, "inputs": receipts, "source": synthetic_sources}
     key = fingerprint(identity)
     # Full feature mathematics is separately tested; this fixture supplies a
     # compact label-free matrix while retaining actual fitting and CSV assembly.
@@ -274,3 +284,33 @@ def test_failed_fit_does_not_publish_a_success(data, tmp_path, monkeypatch):
             data[7],
         )
     assert not list(tmp_path.rglob("checkpoint.json"))
+
+
+def test_production_source_lineage_ignores_review_only_changes(tmp_path):
+    required = set(production_release.PRODUCTION_REQUIRED_SOURCES)
+    review_only = set(production_release.PRODUCTION_REVIEW_ONLY_SOURCES)
+    names = sorted(required | review_only)
+    recorded = {}
+    for name in names:
+        path = tmp_path / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(name + "\n", encoding="utf-8")
+        recorded[name] = digest(path)
+
+    assert production_release.recorded_production_sources_match(tmp_path, recorded)
+
+    for name in sorted(review_only):
+        (tmp_path / name).write_text("review-only change\n", encoding="utf-8")
+    assert production_release.recorded_production_sources_match(tmp_path, recorded)
+
+    tracked = tmp_path / "src/march_mania/modeling.py"
+    tracked.write_text("computational change\n", encoding="utf-8")
+    assert not production_release.recorded_production_sources_match(tmp_path, recorded)
+
+
+def test_production_source_lineage_requires_core_dependencies(tmp_path):
+    name = "src/march_mania/modeling.py"
+    path = tmp_path / name
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("modeling\n", encoding="utf-8")
+    assert not production_release.recorded_production_sources_match(tmp_path, {name: digest(path)})

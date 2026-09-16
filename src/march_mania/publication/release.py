@@ -20,6 +20,8 @@ from march_mania.runtime import EventLog, atomic_json, digest
 
 REPORT = "reports/repository_release/repository_release_audit.json"
 METRICS = "reports/repository_release/repository_release_audit.csv"
+CURRENT_NOTEBOOK_RECEIPT = "reports/validation/selection_capacity.json"
+LEGACY_NOTEBOOK_RECEIPT = "reports/validation/final_results.json"
 FIGURES = {
     "feature_capacity.png": "Does retaining more candidates improve Brier score?",
     "ranking_systems.png": "Does individual-system information beat the compact consensus?",
@@ -212,7 +214,12 @@ def audit(root: Path) -> tuple[dict[str, Any], pd.DataFrame]:
             pd.read_csv(folder / filename), pd.read_csv(folder / score_file), keys, seasons
         )
         metric_rows.extend({"stage": stage, **row} for row in rows)
-    native = json.loads((root / "reports/validation/ranking_systems.json").read_text())
+    receipt_path = root / CURRENT_NOTEBOOK_RECEIPT
+    if not receipt_path.is_file():
+        receipt_path = root / LEGACY_NOTEBOOK_RECEIPT
+    native = json.loads(receipt_path.read_text())
+    if set(native.get("notebooks", {})) != set(NOTEBOOKS):
+        raise ValueError("Notebook publication receipt is incomplete")
     notebooks = {}
     for name in NOTEBOOKS:
         path = root / "notebooks" / name

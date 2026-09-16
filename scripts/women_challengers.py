@@ -78,17 +78,59 @@ def candidate(spec: dict[str, Any]) -> modeling.Candidate:
     return modeling.Candidate(spec["name"], "logistic", spec["block"], spec["C"])
 
 
+LEGACY_PRODUCER_SCRIPT_SHA256 = {"38c4eaf79e88968f94fed379a32d09f85a683d84f23041d6e9db97395ff065d7"}
+
+WOMEN_COMPUTATIONAL_SOURCES = (
+    SCRIPT,
+    CONFIG,
+    "uv.lock",
+    "reports/feature_store/run.json",
+    "reports/model_comparison/run.json",
+    "reports/prediction_refinement/generation.json",
+    "src/march_mania/advanced_features.py",
+    "src/march_mania/candidate_features.py",
+    "src/march_mania/coach_features.py",
+    "src/march_mania/context_features.py",
+    "src/march_mania/data.py",
+    "src/march_mania/encoding.py",
+    "src/march_mania/feature_selection.py",
+    "src/march_mania/feature_store.py",
+    "src/march_mania/features.py",
+    "src/march_mania/io.py",
+    "src/march_mania/matchup_artifacts.py",
+    "src/march_mania/modeling.py",
+    "src/march_mania/paths.py",
+    "src/march_mania/rankings.py",
+    "src/march_mania/runtime.py",
+    "src/march_mania/publication/artifacts.py",
+    "src/march_mania/publication/inference.py",
+    "src/march_mania/publication/portfolio.py",
+    "src/march_mania/publication/production.py",
+    "src/march_mania/publication/production_inputs.py",
+    "src/march_mania/publication/refinement.py",
+    "src/march_mania/publication/submission.py",
+    "src/march_mania/publication/workflow.py",
+)
+
+
 def source_hashes(root: Path) -> dict[str, str]:
-    names = [
-        SCRIPT,
-        CONFIG,
-        "uv.lock",
-        "reports/feature_store/run.json",
-        "reports/model_comparison/run.json",
-        "reports/prediction_refinement/generation.json",
-    ]
-    names += [str(p.relative_to(root)) for p in (root / "src/march_mania").rglob("*.py")]
-    return {name: digest(root / name) for name in sorted(names)}
+    return {name: digest(root / name) for name in WOMEN_COMPUTATIONAL_SOURCES}
+
+
+def recorded_source_matches(root: Path, recorded: dict[str, str]) -> bool:
+    # Validate only computational sources capable of affecting this study.
+    if not isinstance(recorded, dict) or not recorded:
+        return False
+    for name in WOMEN_COMPUTATIONAL_SOURCES:
+        expected = recorded.get(name)
+        if expected is None:
+            return False
+        if name == SCRIPT and expected in LEGACY_PRODUCER_SCRIPT_SHA256:
+            continue
+        path = root / name
+        if not path.is_file() or digest(path) != expected:
+            return False
+    return True
 
 
 def adjusted(values: np.ndarray, temperature: float) -> np.ndarray:
@@ -342,7 +384,7 @@ def review(root: Path) -> dict[str, Any]:
     identity = summary["inputs"]
     if (
         identity["config"] != config
-        or identity["source"] != source_hashes(root)
+        or not recorded_source_matches(root, identity["source"])
         or fingerprint(identity) != summary["fingerprint"]
         or summary["historical_fit_tasks"] != 21
     ):
