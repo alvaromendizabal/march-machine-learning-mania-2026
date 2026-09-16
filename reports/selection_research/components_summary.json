@@ -1,0 +1,575 @@
+{
+  "elapsed_seconds": 29.662293007997505,
+  "fingerprint": "ee1ac5da5fc632675c0974d03d4faa3531cb2d4447377d25401b6ab7d2d0756d",
+  "fold_tasks": 140,
+  "leaderboard": [
+    {
+      "Gender": "M",
+      "arm": "baseline",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 0,
+      "mean_delta": 0.0,
+      "mean_season_brier": 0.19126778097283573,
+      "scope": "all_tournament",
+      "worst_delta": 0.0
+    },
+    {
+      "Gender": "M",
+      "arm": "minimal",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.002759124382683248,
+      "mean_season_brier": 0.19402690535551897,
+      "scope": "all_tournament",
+      "worst_delta": 0.011027075828066807
+    },
+    {
+      "Gender": "M",
+      "arm": "minimal_quality",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.001916826938966326,
+      "mean_season_brier": 0.19318460791180203,
+      "scope": "all_tournament",
+      "worst_delta": 0.01298147019594409
+    },
+    {
+      "Gender": "M",
+      "arm": "single_away_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0013355926617901082,
+      "mean_season_brier": 0.19260337363462582,
+      "scope": "all_tournament",
+      "worst_delta": 0.00950464677294155
+    },
+    {
+      "Gender": "M",
+      "arm": "single_bad_loss_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 0,
+      "mean_delta": 0.0004010891829680785,
+      "mean_season_brier": 0.19166887015580378,
+      "scope": "all_tournament",
+      "worst_delta": 0.0008715257676112642
+    },
+    {
+      "Gender": "M",
+      "arm": "single_elite_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.00024836563529513357,
+      "mean_season_brier": 0.19151614660813085,
+      "scope": "all_tournament",
+      "worst_delta": 0.0008990727315905389
+    },
+    {
+      "Gender": "M",
+      "arm": "single_elite_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.00010358529138961847,
+      "mean_season_brier": 0.19137136626422532,
+      "scope": "all_tournament",
+      "worst_delta": 0.0006190566385771701
+    },
+    {
+      "Gender": "M",
+      "arm": "single_late_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0007157721817300899,
+      "mean_season_brier": 0.1919835531545658,
+      "scope": "all_tournament",
+      "worst_delta": 0.0025103874621943134
+    },
+    {
+      "Gender": "M",
+      "arm": "single_quality_margin",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0005317270292072629,
+      "mean_season_brier": 0.19179950800204298,
+      "scope": "all_tournament",
+      "worst_delta": 0.0023379202592763992
+    },
+    {
+      "Gender": "M",
+      "arm": "single_quality_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0002492100176068601,
+      "mean_season_brier": 0.19151699099044256,
+      "scope": "all_tournament",
+      "worst_delta": 0.001680447698901355
+    },
+    {
+      "Gender": "M",
+      "arm": "single_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0007693999435622989,
+      "mean_season_brier": 0.19203718091639801,
+      "scope": "all_tournament",
+      "worst_delta": 0.00266787958179443
+    },
+    {
+      "Gender": "M",
+      "arm": "single_schedule_quality",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0010145418790071525,
+      "mean_season_brier": 0.19228232285184285,
+      "scope": "all_tournament",
+      "worst_delta": 0.0024182666627975413
+    },
+    {
+      "Gender": "M",
+      "arm": "single_seeded_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.00042858437126588325,
+      "mean_season_brier": 0.1916963653441016,
+      "scope": "all_tournament",
+      "worst_delta": 0.0026354213659807724
+    },
+    {
+      "Gender": "M",
+      "arm": "single_seeded_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0009776944730234937,
+      "mean_season_brier": 0.1922454754458592,
+      "scope": "all_tournament",
+      "worst_delta": 0.004265574050459964
+    },
+    {
+      "Gender": "W",
+      "arm": "baseline",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 0,
+      "mean_delta": 0.0,
+      "mean_season_brier": 0.144307515227209,
+      "scope": "all_tournament",
+      "worst_delta": 0.0
+    },
+    {
+      "Gender": "W",
+      "arm": "minimal",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.006188477824575161,
+      "mean_season_brier": 0.15049599305178415,
+      "scope": "all_tournament",
+      "worst_delta": 0.01525250750239271
+    },
+    {
+      "Gender": "W",
+      "arm": "minimal_quality",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.005799271557115427,
+      "mean_season_brier": 0.15010678678432443,
+      "scope": "all_tournament",
+      "worst_delta": 0.01972191324484493
+    },
+    {
+      "Gender": "W",
+      "arm": "single_away_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0013288744174584088,
+      "mean_season_brier": 0.1456363896446674,
+      "scope": "all_tournament",
+      "worst_delta": 0.00583066208181604
+    },
+    {
+      "Gender": "W",
+      "arm": "single_bad_loss_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 3,
+      "mean_delta": 0.00028887968647277605,
+      "mean_season_brier": 0.14459639491368176,
+      "scope": "all_tournament",
+      "worst_delta": 0.005581764505215581
+    },
+    {
+      "Gender": "W",
+      "arm": "single_elite_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0015131551545910116,
+      "mean_season_brier": 0.1458206703818,
+      "scope": "all_tournament",
+      "worst_delta": 0.0037149080950063806
+    },
+    {
+      "Gender": "W",
+      "arm": "single_elite_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0007538591296355479,
+      "mean_season_brier": 0.14506137435684455,
+      "scope": "all_tournament",
+      "worst_delta": 0.0037947154102467573
+    },
+    {
+      "Gender": "W",
+      "arm": "single_late_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 4,
+      "mean_delta": -0.0007119014301028958,
+      "mean_season_brier": 0.14359561379710611,
+      "scope": "all_tournament",
+      "worst_delta": 0.002966548901031818
+    },
+    {
+      "Gender": "W",
+      "arm": "single_quality_margin",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0012060312791769335,
+      "mean_season_brier": 0.14551354650638593,
+      "scope": "all_tournament",
+      "worst_delta": 0.0032618685924057367
+    },
+    {
+      "Gender": "W",
+      "arm": "single_quality_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0014498188446352312,
+      "mean_season_brier": 0.14575733407184424,
+      "scope": "all_tournament",
+      "worst_delta": 0.004842881699134993
+    },
+    {
+      "Gender": "W",
+      "arm": "single_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 3,
+      "mean_delta": 0.00038146809525309023,
+      "mean_season_brier": 0.1446889833224621,
+      "scope": "all_tournament",
+      "worst_delta": 0.0032244408285601323
+    },
+    {
+      "Gender": "W",
+      "arm": "single_schedule_quality",
+      "exploratory_screen_pass": true,
+      "improved_seasons": 5,
+      "mean_delta": -0.0012270299221082027,
+      "mean_season_brier": 0.1430804853051008,
+      "scope": "all_tournament",
+      "worst_delta": -0.0002666703457397668
+    },
+    {
+      "Gender": "W",
+      "arm": "single_seeded_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0013487372713129665,
+      "mean_season_brier": 0.14565625249852196,
+      "scope": "all_tournament",
+      "worst_delta": 0.005718014490364548
+    },
+    {
+      "Gender": "W",
+      "arm": "single_seeded_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 3,
+      "mean_delta": 3.170991425411884e-05,
+      "mean_season_brier": 0.1443392251414631,
+      "scope": "all_tournament",
+      "worst_delta": 0.003687663907732147
+    },
+    {
+      "Gender": "M",
+      "arm": "baseline",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 0,
+      "mean_delta": 0.0,
+      "mean_season_brier": 0.1901437007235444,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0
+    },
+    {
+      "Gender": "M",
+      "arm": "minimal",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0009748576147290633,
+      "mean_season_brier": 0.19111855833827346,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0090822578331895
+    },
+    {
+      "Gender": "M",
+      "arm": "minimal_quality",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 3,
+      "mean_delta": -3.269850991937107e-05,
+      "mean_season_brier": 0.19011100221362504,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.010837045059298028
+    },
+    {
+      "Gender": "M",
+      "arm": "single_away_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0012375937482489107,
+      "mean_season_brier": 0.1913812944717933,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.009709977740718106
+    },
+    {
+      "Gender": "M",
+      "arm": "single_bad_loss_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 0,
+      "mean_delta": 0.0006135452406029307,
+      "mean_season_brier": 0.19075724596414734,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0012437594731055102
+    },
+    {
+      "Gender": "M",
+      "arm": "single_elite_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.00019345380265394784,
+      "mean_season_brier": 0.19033715452619834,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0008433131071818312
+    },
+    {
+      "Gender": "M",
+      "arm": "single_elite_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0001488716912404875,
+      "mean_season_brier": 0.19029257241478487,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0006809518340232801
+    },
+    {
+      "Gender": "M",
+      "arm": "single_late_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0005490019304082106,
+      "mean_season_brier": 0.1906927026539526,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.00229130406092104
+    },
+    {
+      "Gender": "M",
+      "arm": "single_quality_margin",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0008941501961804932,
+      "mean_season_brier": 0.1910378509197249,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.003701769322800169
+    },
+    {
+      "Gender": "M",
+      "arm": "single_quality_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.00048779669737279984,
+      "mean_season_brier": 0.1906314974209172,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.002486094568704744
+    },
+    {
+      "Gender": "M",
+      "arm": "single_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0009299189408768394,
+      "mean_season_brier": 0.19107361966442124,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0030374228296662087
+    },
+    {
+      "Gender": "M",
+      "arm": "single_schedule_quality",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0010946116073725976,
+      "mean_season_brier": 0.19123831233091698,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0022653270499345957
+    },
+    {
+      "Gender": "M",
+      "arm": "single_seeded_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0008009041124955707,
+      "mean_season_brier": 0.19094460483603998,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0037001173492896555
+    },
+    {
+      "Gender": "M",
+      "arm": "single_seeded_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0011436144546241977,
+      "mean_season_brier": 0.1912873151781686,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0044927323191513435
+    },
+    {
+      "Gender": "W",
+      "arm": "baseline",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 0,
+      "mean_delta": 0.0,
+      "mean_season_brier": 0.144307515227209,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0
+    },
+    {
+      "Gender": "W",
+      "arm": "minimal",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.006188477824575161,
+      "mean_season_brier": 0.15049599305178415,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.01525250750239271
+    },
+    {
+      "Gender": "W",
+      "arm": "minimal_quality",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.005799271557115427,
+      "mean_season_brier": 0.15010678678432443,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.01972191324484493
+    },
+    {
+      "Gender": "W",
+      "arm": "single_away_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0013288744174584088,
+      "mean_season_brier": 0.1456363896446674,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.00583066208181604
+    },
+    {
+      "Gender": "W",
+      "arm": "single_bad_loss_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 3,
+      "mean_delta": 0.00028887968647277605,
+      "mean_season_brier": 0.14459639491368176,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.005581764505215581
+    },
+    {
+      "Gender": "W",
+      "arm": "single_elite_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0015131551545910116,
+      "mean_season_brier": 0.1458206703818,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0037149080950063806
+    },
+    {
+      "Gender": "W",
+      "arm": "single_elite_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0007538591296355479,
+      "mean_season_brier": 0.14506137435684455,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0037947154102467573
+    },
+    {
+      "Gender": "W",
+      "arm": "single_late_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 4,
+      "mean_delta": -0.0007119014301028958,
+      "mean_season_brier": 0.14359561379710611,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.002966548901031818
+    },
+    {
+      "Gender": "W",
+      "arm": "single_quality_margin",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0012060312791769335,
+      "mean_season_brier": 0.14551354650638593,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0032618685924057367
+    },
+    {
+      "Gender": "W",
+      "arm": "single_quality_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 1,
+      "mean_delta": 0.0014498188446352312,
+      "mean_season_brier": 0.14575733407184424,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.004842881699134993
+    },
+    {
+      "Gender": "W",
+      "arm": "single_quality_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 3,
+      "mean_delta": 0.00038146809525309023,
+      "mean_season_brier": 0.1446889833224621,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.0032244408285601323
+    },
+    {
+      "Gender": "W",
+      "arm": "single_schedule_quality",
+      "exploratory_screen_pass": true,
+      "improved_seasons": 5,
+      "mean_delta": -0.0012270299221082027,
+      "mean_season_brier": 0.1430804853051008,
+      "scope": "main_draw_day136",
+      "worst_delta": -0.0002666703457397668
+    },
+    {
+      "Gender": "W",
+      "arm": "single_seeded_win_rate",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 2,
+      "mean_delta": 0.0013487372713129665,
+      "mean_season_brier": 0.14565625249852196,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.005718014490364548
+    },
+    {
+      "Gender": "W",
+      "arm": "single_seeded_wins",
+      "exploratory_screen_pass": false,
+      "improved_seasons": 3,
+      "mean_delta": 3.170991425411884e-05,
+      "mean_season_brier": 0.1443392251414631,
+      "scope": "main_draw_day136",
+      "worst_delta": 0.003687663907732147
+    }
+  ],
+  "new_feature_definitions": 0,
+  "new_fits": 130,
+  "new_kaggle_submission": false,
+  "output": "outputs/selection_components/ee1ac5da5fc632675c0974d03d4faa3531cb2d4447377d25401b6ab7d2d0756d",
+  "parent": "outputs/selection_research/b74a10f7eddcb267a2bdb4416c2fb2d2aab97017b0c284ecca71c5835b90b9db",
+  "question": "Component signal versus redundant groups",
+  "reused_baselines": 10,
+  "status": "completed"
+}
