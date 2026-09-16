@@ -124,3 +124,33 @@ def test_exports_reject_misalignment_and_invalid_probabilities(tmp_path, invalid
         forecasts.loc[0, challengers.VARIANTS[0]] = np.nan if invalid == "nonfinite" else 1.1
     with pytest.raises(ValueError):
         challengers.export(tmp_path, baseline, forecasts, config)
+
+
+def test_recorded_challenger_source_scope_ignores_unrelated_additions(tmp_path):
+    for name in challengers.CHALLENGER_COMPUTATIONAL_SOURCES:
+        path = tmp_path / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(name + "\n", encoding="utf-8")
+    recorded = {
+        name: challengers.digest(tmp_path / name)
+        for name in challengers.CHALLENGER_COMPUTATIONAL_SOURCES
+    }
+    producer = "src/march_mania/publication/challengers.py"
+    recorded[producer] = next(iter(challengers.LEGACY_PRODUCER_SOURCE_SHA256))
+
+    assert challengers.recorded_source_matches(tmp_path, recorded)
+
+    unrelated = tmp_path / "src/march_mania/selection_future.py"
+    unrelated.write_text("unrelated = True\n", encoding="utf-8")
+    assert challengers.recorded_source_matches(tmp_path, recorded)
+
+    tracked = tmp_path / "src/march_mania/modeling.py"
+    tracked.write_text("changed = True\n", encoding="utf-8")
+    assert not challengers.recorded_source_matches(tmp_path, recorded)
+
+
+def test_challenger_source_scope_excludes_selection_and_release_modules():
+    scope = set(challengers.CHALLENGER_COMPUTATIONAL_SOURCES)
+    assert "src/march_mania/selection_features.py" not in scope
+    assert "src/march_mania/selection_study.py" not in scope
+    assert "src/march_mania/publication/release.py" not in scope

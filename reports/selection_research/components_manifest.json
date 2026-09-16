@@ -1,0 +1,140 @@
+{
+  "config": {
+    "arms": {
+      "baseline": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd"
+      ],
+      "minimal": [
+        "diff_seed",
+        "diff_adj_offense",
+        "diff_adj_defense"
+      ],
+      "minimal_quality": [
+        "diff_seed",
+        "diff_adj_offense",
+        "diff_adj_defense",
+        "diff_resume_quality_wins"
+      ],
+      "single_away_quality_wins": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_away_quality_wins"
+      ],
+      "single_bad_loss_rate": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_bad_loss_rate"
+      ],
+      "single_elite_win_rate": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_elite_win_rate"
+      ],
+      "single_elite_wins": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_elite_wins"
+      ],
+      "single_late_quality_wins": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_late_quality_wins"
+      ],
+      "single_quality_margin": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_quality_margin"
+      ],
+      "single_quality_win_rate": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_quality_win_rate"
+      ],
+      "single_quality_wins": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_quality_wins"
+      ],
+      "single_schedule_quality": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_schedule_quality"
+      ],
+      "single_seeded_win_rate": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_seeded_win_rate"
+      ],
+      "single_seeded_wins": [
+        "diff_seed",
+        "diff_strength",
+        "diff_schedule_strength",
+        "diff_win_rate",
+        "diff_margin",
+        "diff_margin_sd",
+        "diff_resume_seeded_wins"
+      ]
+    },
+    "max_fits": 140,
+    "model": "fixed logistic C=0.1",
+    "promotion": "candidate only; no production replacement",
+    "screen_gate": "delta <= -0.001 and improvement in at least 4 of 5 seasons",
+    "validation_seasons": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2021
+    ]
+  },
+  "fingerprint": "ee1ac5da5fc632675c0974d03d4faa3531cb2d4447377d25401b6ab7d2d0756d",
+  "max_new_fits": 140,
+  "parent": "outputs/selection_research/b74a10f7eddcb267a2bdb4416c2fb2d2aab97017b0c284ecca71c5835b90b9db",
+  "parent_manifest_sha256": "605645c3ecb699e211f3f813f40f0e5da17e13377b407723f92a0b944f5e74e8",
+  "script_sha256": "35306f96252f36340d70dd35b1a009870544bce78c9586346f8338d890a02e04"
+}

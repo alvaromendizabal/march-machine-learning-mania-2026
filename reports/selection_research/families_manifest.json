@@ -1,0 +1,153 @@
+{
+  "fingerprint": "b74a10f7eddcb267a2bdb4416c2fb2d2aab97017b0c284ecca71c5835b90b9db",
+  "inputs": {
+    "config": {
+      "C": 0.1,
+      "arms": {
+        "all": [
+          "resume_quality_wins",
+          "resume_elite_wins",
+          "resume_seeded_wins",
+          "resume_quality_win_rate",
+          "resume_schedule_quality",
+          "resume_elite_win_rate",
+          "resume_seeded_win_rate",
+          "resume_bad_loss_rate",
+          "resume_away_quality_wins",
+          "resume_quality_margin",
+          "resume_late_quality_wins"
+        ],
+        "baseline": [],
+        "context": [
+          "resume_bad_loss_rate",
+          "resume_away_quality_wins",
+          "resume_quality_margin",
+          "resume_late_quality_wins"
+        ],
+        "opportunity": [
+          "resume_quality_win_rate",
+          "resume_schedule_quality",
+          "resume_elite_win_rate",
+          "resume_seeded_win_rate"
+        ],
+        "quality_volume": [
+          "resume_quality_wins",
+          "resume_elite_wins",
+          "resume_seeded_wins"
+        ],
+        "without_context": [
+          "resume_quality_wins",
+          "resume_elite_wins",
+          "resume_seeded_wins",
+          "resume_quality_win_rate",
+          "resume_schedule_quality",
+          "resume_elite_win_rate",
+          "resume_seeded_win_rate"
+        ],
+        "without_opportunity": [
+          "resume_quality_wins",
+          "resume_elite_wins",
+          "resume_seeded_wins",
+          "resume_bad_loss_rate",
+          "resume_away_quality_wins",
+          "resume_quality_margin",
+          "resume_late_quality_wins"
+        ],
+        "without_quality_volume": [
+          "resume_quality_win_rate",
+          "resume_schedule_quality",
+          "resume_elite_win_rate",
+          "resume_seeded_win_rate",
+          "resume_bad_loss_rate",
+          "resume_away_quality_wins",
+          "resume_quality_margin",
+          "resume_late_quality_wins"
+        ]
+      },
+      "controls": {
+        "adjusted": [
+          "diff_seed",
+          "diff_strength",
+          "diff_schedule_strength",
+          "diff_win_rate",
+          "diff_margin",
+          "diff_margin_sd",
+          "diff_adj_offense",
+          "diff_adj_defense",
+          "diff_recent_offense",
+          "diff_recent_defense"
+        ],
+        "strength": [
+          "diff_seed",
+          "diff_strength",
+          "diff_schedule_strength",
+          "diff_win_rate",
+          "diff_margin",
+          "diff_margin_sd"
+        ]
+      },
+      "cutoff": 132,
+      "first_season": 2013,
+      "max_folds": 10,
+      "protocol": "retrospective-development-feature-ablation",
+      "recent_half_life": 30.0,
+      "ridge_alpha": 20.0,
+      "seed_availability_day": 132,
+      "threads": 2,
+      "validation_seasons": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2021
+      ]
+    },
+    "data": {
+      "MNCAATourneyCompactResults.csv": "5260a076b4e0937aa0420fd5eb72789b9931c662ed071c5060407458d8de8a05",
+      "MNCAATourneySeeds.csv": "413916a4136af69346826ce433d749c6c6cbc96afd88a43d8645877d20d01691",
+      "MRegularSeasonCompactResults.csv": "f50b602151584b598d015a78355e7ffee533b031a66b8d9711ca01ad08b99e69",
+      "MRegularSeasonDetailedResults.csv": "5a7afaa262c2c725476ae3ee2a6abbf88ddc4a5973aab83d7140134a18b3d84d",
+      "WNCAATourneyCompactResults.csv": "13c44b67f2d4ea2661ef59ab0be720b3f3feede5f1de8ee419a8a46f7d99a6a5",
+      "WNCAATourneySeeds.csv": "fd80613514ac62ed63afcfc1ed0024c525ff02f4b43bd7a97ebccdb74a424ec6",
+      "WRegularSeasonCompactResults.csv": "ca8702630335ac5b8d00a5e5f09abc5aa10666b7584ac1db61b48784c77d4090",
+      "WRegularSeasonDetailedResults.csv": "0c416b6e59da818ea7356913caa7be2641b465ae97014551c617e0ccbefe432f"
+    },
+    "environment": {
+      "joblib": "1.5.2",
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "platform": "Linux-6.12.103-127.188.amzn2023.x86_64-x86_64-with-glibc2.39",
+      "pyarrow": "21.0.0",
+      "python": "3.12.13",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.16.3"
+    },
+    "source": {
+      "__init__.py": "fb8f7f61008dfb3648a0f2d5046109b11b5f0868a91c898ede383d014f9a8e73",
+      "advanced_features.py": "e49d02bdc557d3073734eb6365605037b232d375bcdbdd0d9de80fdf1bf6ce73",
+      "candidate_features.py": "208ca082aa95d24a4a12c34b0f3bab523481b0504cadb66b5c33bc8b03ccc05a",
+      "coach_features.py": "3901a1e91412f568c654cad7e9103e7b3d47d10f96530ffde2480d4924f8bca2",
+      "context_features.py": "96f85242c3ebeb9732ba4bd4153b58bbddc4147f8bd183cfeaa6e278c23fb9bf",
+      "data.py": "7f87a0a2376a020096e7d5ac9e7f9ae650d6e8c5364b1a329d0f22719e5c4a41",
+      "data_review.py": "761f51f95c6eb63e6037a12a8b5c0f37ba94c1336d626692730f8c842eeacab8",
+      "encoding.py": "49e61f4820bde51228e6d2e9c00e51a46937f7ef9dfa980db48c4a47a5ca2727",
+      "feature_selection.py": "63fa9d8d136cdfbab5ed2d6bae311a6c711ccaa6553db709e2a935b4908e6b77",
+      "feature_store.py": "ca47bfcadb759501e3fba0727018fbebd79c27840aef4ed2ac7bcf2556b69444",
+      "features.py": "ef5afd3c93368ef82e4e792cfc26c610711fb3341b8546da3085a8207891f154",
+      "io.py": "46decedac7173a2c806ae5a87bd5caaee31706817ca15ce0aab799b238bd45a0",
+      "matchup_artifacts.py": "43d7d9d12e331f3aa2c5ccd8cdc128418cab043e96c1b06231842bbc7c3a34d0",
+      "model_report.py": "7758377e4043f87d88f620e3e2826a5a0f1ea309c41a030e5544201416b4cce0",
+      "modeling.py": "921772edbdb5676d0fda2c58ca2f05914540ebaed39f8135504177157a290a2f",
+      "notebook_support.py": "a5cb439aa21b5037a06ba7fe00d1cc3bd8c7fa423d369262cce56ec1c96a3486",
+      "paths.py": "90c6af595fd0b9df6aab7d2d3161c350f6e0f2a00efd4771798b0da51b939aa5",
+      "rankings.py": "30a9b854ffb8c0a4fae3a819ce13e2066280993b371244f7156c517b967b7764",
+      "research.py": "31157076af9866b14d1166bdb8d53652c8f3f59c588b80e6dbe70a2c2a634a60",
+      "research_report.py": "9758126b93f6f0e6d3ad9bccd90ef82b413851b2ac15c8b584650ce272d2c6f7",
+      "reshape.py": "2820d630c10c554ec861fb0de9fb359c759d27de42bb8711b96dac8d0f008541",
+      "runtime.py": "a92bc32f18c1e33a7ef0928aee96edca73dd3c38760e7316ea2c550458672bf0",
+      "selection_features.py": "b8e353d414d73309070dfabe8b8e11efb9e91d8958cf9581c69b858a6e3b13bf",
+      "selection_study.py": "a93f3f2f40c2718c831dd1cfa2430f25ff89aebf0a1bce928d76fc9cd048a8e7",
+      "validation.py": "6d4fe5a339b11e255f087f27927335160e324fcc7aab5021d354bb711b80e235"
+    }
+  }
+}

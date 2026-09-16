@@ -1,0 +1,6 @@
+{
+  "change": "Local NumPy shape annotation only; no numerical operation changed",
+  "runtime_ast_equivalent": true,
+  "experiment_source_sha256": "a93f3f2f40c2718c831dd1cfa2430f25ff89aebf0a1bce928d76fc9cd048a8e7",
+  "publication_source_sha256": "363ff25f04e06814f471a0005c26046374edf68b727c513d73fb048b7aaa1117"
+}

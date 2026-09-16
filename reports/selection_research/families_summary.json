@@ -1,0 +1,276 @@
+{
+  "candidate_features": 11,
+  "completed_gender_season_folds": 10,
+  "elapsed_seconds": 36.33090689100209,
+  "evaluation_seasons": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2021
+  ],
+  "fingerprint": "b74a10f7eddcb267a2bdb4416c2fb2d2aab97017b0c284ecca71c5835b90b9db",
+  "fold_tasks": 160,
+  "holdout_status": "previously explored development seasons; not untouched",
+  "leaderboard": [
+    {
+      "Gender": "M",
+      "arm": "all",
+      "control": "adjusted",
+      "game_brier": 0.1970479164454739,
+      "games": 334,
+      "mean_season_brier": 0.19713065410724911
+    },
+    {
+      "Gender": "M",
+      "arm": "baseline",
+      "control": "adjusted",
+      "game_brier": 0.19117630608921507,
+      "games": 334,
+      "mean_season_brier": 0.19126821558435875
+    },
+    {
+      "Gender": "M",
+      "arm": "context",
+      "control": "adjusted",
+      "game_brier": 0.19457956755668462,
+      "games": 334,
+      "mean_season_brier": 0.19466171456745723
+    },
+    {
+      "Gender": "M",
+      "arm": "opportunity",
+      "control": "adjusted",
+      "game_brier": 0.19319889460862477,
+      "games": 334,
+      "mean_season_brier": 0.1932914301931606
+    },
+    {
+      "Gender": "M",
+      "arm": "quality_volume",
+      "control": "adjusted",
+      "game_brier": 0.19254011265655507,
+      "games": 334,
+      "mean_season_brier": 0.19262773463779237
+    },
+    {
+      "Gender": "M",
+      "arm": "without_context",
+      "control": "adjusted",
+      "game_brier": 0.19371337934419208,
+      "games": 334,
+      "mean_season_brier": 0.19380472728297995
+    },
+    {
+      "Gender": "M",
+      "arm": "without_opportunity",
+      "control": "adjusted",
+      "game_brier": 0.1955776348389507,
+      "games": 334,
+      "mean_season_brier": 0.19565929138538857
+    },
+    {
+      "Gender": "M",
+      "arm": "without_quality_volume",
+      "control": "adjusted",
+      "game_brier": 0.19662390404463753,
+      "games": 334,
+      "mean_season_brier": 0.19670948961192408
+    },
+    {
+      "Gender": "M",
+      "arm": "all",
+      "control": "strength",
+      "game_brier": 0.19690732993376114,
+      "games": 334,
+      "mean_season_brier": 0.19698076480859442
+    },
+    {
+      "Gender": "M",
+      "arm": "baseline",
+      "control": "strength",
+      "game_brier": 0.19118410825053275,
+      "games": 334,
+      "mean_season_brier": 0.19126778097283573
+    },
+    {
+      "Gender": "M",
+      "arm": "context",
+      "control": "strength",
+      "game_brier": 0.19460012238890578,
+      "games": 334,
+      "mean_season_brier": 0.19467244997255834
+    },
+    {
+      "Gender": "M",
+      "arm": "opportunity",
+      "control": "strength",
+      "game_brier": 0.1930333990179066,
+      "games": 334,
+      "mean_season_brier": 0.19311931791553538
+    },
+    {
+      "Gender": "M",
+      "arm": "quality_volume",
+      "control": "strength",
+      "game_brier": 0.1924039612972868,
+      "games": 334,
+      "mean_season_brier": 0.19248345667102865
+    },
+    {
+      "Gender": "M",
+      "arm": "without_context",
+      "control": "strength",
+      "game_brier": 0.19343267325189284,
+      "games": 334,
+      "mean_season_brier": 0.1935167754479032
+    },
+    {
+      "Gender": "M",
+      "arm": "without_opportunity",
+      "control": "strength",
+      "game_brier": 0.1956149358680806,
+      "games": 334,
+      "mean_season_brier": 0.1956869248465712
+    },
+    {
+      "Gender": "M",
+      "arm": "without_quality_volume",
+      "control": "strength",
+      "game_brier": 0.19645865788786243,
+      "games": 334,
+      "mean_season_brier": 0.19653490062295426
+    },
+    {
+      "Gender": "W",
+      "arm": "all",
+      "control": "adjusted",
+      "game_brier": 0.14710340803604136,
+      "games": 315,
+      "mean_season_brier": 0.14710340803604138
+    },
+    {
+      "Gender": "W",
+      "arm": "baseline",
+      "control": "adjusted",
+      "game_brier": 0.14664784155029875,
+      "games": 315,
+      "mean_season_brier": 0.14664784155029875
+    },
+    {
+      "Gender": "W",
+      "arm": "context",
+      "control": "adjusted",
+      "game_brier": 0.14771320281836894,
+      "games": 315,
+      "mean_season_brier": 0.14771320281836897
+    },
+    {
+      "Gender": "W",
+      "arm": "opportunity",
+      "control": "adjusted",
+      "game_brier": 0.14635486877185164,
+      "games": 315,
+      "mean_season_brier": 0.1463548687718516
+    },
+    {
+      "Gender": "W",
+      "arm": "quality_volume",
+      "control": "adjusted",
+      "game_brier": 0.14677997305351118,
+      "games": 315,
+      "mean_season_brier": 0.14677997305351115
+    },
+    {
+      "Gender": "W",
+      "arm": "without_context",
+      "control": "adjusted",
+      "game_brier": 0.14621791266077408,
+      "games": 315,
+      "mean_season_brier": 0.1462179126607741
+    },
+    {
+      "Gender": "W",
+      "arm": "without_opportunity",
+      "control": "adjusted",
+      "game_brier": 0.14767395644657086,
+      "games": 315,
+      "mean_season_brier": 0.14767395644657083
+    },
+    {
+      "Gender": "W",
+      "arm": "without_quality_volume",
+      "control": "adjusted",
+      "game_brier": 0.14696151853810813,
+      "games": 315,
+      "mean_season_brier": 0.1469615185381081
+    },
+    {
+      "Gender": "W",
+      "arm": "all",
+      "control": "strength",
+      "game_brier": 0.1461862291098243,
+      "games": 315,
+      "mean_season_brier": 0.14618622910982426
+    },
+    {
+      "Gender": "W",
+      "arm": "baseline",
+      "control": "strength",
+      "game_brier": 0.144307515227209,
+      "games": 315,
+      "mean_season_brier": 0.14430751522720903
+    },
+    {
+      "Gender": "W",
+      "arm": "context",
+      "control": "strength",
+      "game_brier": 0.14618329863744253,
+      "games": 315,
+      "mean_season_brier": 0.14618329863744256
+    },
+    {
+      "Gender": "W",
+      "arm": "opportunity",
+      "control": "strength",
+      "game_brier": 0.14511283011241807,
+      "games": 315,
+      "mean_season_brier": 0.14511283011241807
+    },
+    {
+      "Gender": "W",
+      "arm": "quality_volume",
+      "control": "strength",
+      "game_brier": 0.1447999328003648,
+      "games": 315,
+      "mean_season_brier": 0.1447999328003648
+    },
+    {
+      "Gender": "W",
+      "arm": "without_context",
+      "control": "strength",
+      "game_brier": 0.14505922269530916,
+      "games": 315,
+      "mean_season_brier": 0.14505922269530916
+    },
+    {
+      "Gender": "W",
+      "arm": "without_opportunity",
+      "control": "strength",
+      "game_brier": 0.1462607252210076,
+      "games": 315,
+      "mean_season_brier": 0.1462607252210076
+    },
+    {
+      "Gender": "W",
+      "arm": "without_quality_volume",
+      "control": "strength",
+      "game_brier": 0.14596626619948716,
+      "games": 315,
+      "mean_season_brier": 0.14596626619948716
+    }
+  ],
+  "new_kaggle_submission": false,
+  "output": "outputs/selection_research/b74a10f7eddcb267a2bdb4416c2fb2d2aab97017b0c284ecca71c5835b90b9db",
+  "status": "completed"
+}

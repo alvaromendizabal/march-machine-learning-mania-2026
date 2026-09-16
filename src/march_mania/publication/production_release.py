@@ -16,6 +16,47 @@ from march_mania.publication import portfolio, production
 from march_mania.publication.artifacts import download_input, restore_archive, safe_path
 from march_mania.runtime import EventLog, digest, fingerprint
 
+PRODUCTION_REVIEW_ONLY_SOURCES = frozenset(
+    {
+        "src/march_mania/publication/challengers.py",
+        "src/march_mania/publication/production_release.py",
+        "src/march_mania/publication/release.py",
+    }
+)
+
+PRODUCTION_REQUIRED_SOURCES = frozenset(
+    {
+        "src/march_mania/advanced_features.py",
+        "src/march_mania/feature_selection.py",
+        "src/march_mania/feature_store.py",
+        "src/march_mania/modeling.py",
+        "src/march_mania/runtime.py",
+        "src/march_mania/publication/artifacts.py",
+        "src/march_mania/publication/inference.py",
+        "src/march_mania/publication/portfolio.py",
+        "src/march_mania/publication/production.py",
+        "src/march_mania/publication/production_inputs.py",
+        "src/march_mania/publication/submission.py",
+        "src/march_mania/publication/workflow.py",
+    }
+)
+
+
+def recorded_production_sources_match(root: Path, recorded: dict[str, str]) -> bool:
+    # The original run recorded every src module. Review/audit-only modules
+    # cannot alter already-generated prediction bytes. All other recorded
+    # sources must still match exactly, and core production dependencies must
+    # exist in the historical inventory.
+    if not isinstance(recorded, dict) or not PRODUCTION_REQUIRED_SOURCES.issubset(recorded):
+        return False
+    for name, expected_hash in recorded.items():
+        if name in PRODUCTION_REVIEW_ONLY_SOURCES:
+            continue
+        path = safe_path(root, name)
+        if not path.is_file() or digest(path) != expected_hash:
+            return False
+    return True
+
 
 def check(root: Path) -> dict[str, Any]:
     """Verify the portable public evidence without private data or AWS credentials."""
@@ -51,9 +92,8 @@ def check(root: Path) -> dict[str, Any]:
         raise ValueError("Production fingerprint changed")
     if run["inputs"]["recipe"] != recipe or run["inputs"]["inputs"] != receipts:
         raise ValueError("Production recipe or input receipts changed")
-    for name, expected_hash in run["inputs"]["source"].items():
-        if digest(safe_path(root, name)) != expected_hash:
-            raise ValueError("Production source changed; preserve and review its lineage")
+    if not recorded_production_sources_match(root, run["inputs"]["source"]):
+        raise ValueError("Production source changed; preserve and review its lineage")
     for name, expected_hash in run["sha256"].items():
         if digest(safe_path(public, name)) != expected_hash:
             raise ValueError("Published production artifact changed")

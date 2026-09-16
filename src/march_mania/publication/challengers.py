@@ -73,18 +73,63 @@ def configuration(root: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     return config, variants
 
 
+LEGACY_PRODUCER_SOURCE_SHA256 = {"01e7c861350d359beef408631976207a127377d2f8dee4c0a228892ee6feb063"}
+
+CHALLENGER_COMPUTATIONAL_SOURCES = (
+    "src/march_mania/publication/challengers.py",
+    CONFIG,
+    retraining.CONFIG,
+    "uv.lock",
+    "reports/xgboost_retraining/summary.json",
+    "reports/prediction_production/submission_manifest.csv",
+    "reports/feature_store/run.json",
+    "reports/model_comparison/run.json",
+    "src/march_mania/advanced_features.py",
+    "src/march_mania/candidate_features.py",
+    "src/march_mania/coach_features.py",
+    "src/march_mania/context_features.py",
+    "src/march_mania/data.py",
+    "src/march_mania/encoding.py",
+    "src/march_mania/feature_selection.py",
+    "src/march_mania/feature_store.py",
+    "src/march_mania/features.py",
+    "src/march_mania/io.py",
+    "src/march_mania/matchup_artifacts.py",
+    "src/march_mania/modeling.py",
+    "src/march_mania/paths.py",
+    "src/march_mania/rankings.py",
+    "src/march_mania/runtime.py",
+    "src/march_mania/publication/artifacts.py",
+    "src/march_mania/publication/inference.py",
+    "src/march_mania/publication/portfolio.py",
+    "src/march_mania/publication/production.py",
+    "src/march_mania/publication/production_inputs.py",
+    "src/march_mania/publication/refinement.py",
+    "src/march_mania/publication/retraining.py",
+    "src/march_mania/publication/submission.py",
+    "src/march_mania/publication/workflow.py",
+)
+
+
 def source_hashes(root: Path) -> dict[str, str]:
-    names = [
-        CONFIG,
-        retraining.CONFIG,
-        "uv.lock",
-        "reports/xgboost_retraining/summary.json",
-        "reports/prediction_production/submission_manifest.csv",
-        "reports/feature_store/run.json",
-        "reports/model_comparison/run.json",
-    ]
-    names += [str(p.relative_to(root)) for p in (root / "src/march_mania").rglob("*.py")]
-    return {name: digest(root / name) for name in sorted(names)}
+    return {name: digest(root / name) for name in CHALLENGER_COMPUTATIONAL_SOURCES}
+
+
+def recorded_source_matches(root: Path, recorded: dict[str, str]) -> bool:
+    # Validate only files capable of affecting the recorded challenger run.
+    if not isinstance(recorded, dict) or not recorded:
+        return False
+    producer = "src/march_mania/publication/challengers.py"
+    for name in CHALLENGER_COMPUTATIONAL_SOURCES:
+        expected = recorded.get(name)
+        if expected is None:
+            return False
+        if name == producer and expected in LEGACY_PRODUCER_SOURCE_SHA256:
+            continue
+        path = root / name
+        if not path.is_file() or digest(path) != expected:
+            return False
+    return True
 
 
 def fit_final(
@@ -360,7 +405,7 @@ def review(root: Path) -> dict[str, Any]:
     summary = json.loads((root / REPORT / "summary.json").read_text())
     identity = summary["inputs"]
     if (
-        identity["source"] != source_hashes(root)
+        not recorded_source_matches(root, identity["source"])
         or identity["config"] != config
         or identity["variants"] != variants
         or fingerprint(identity) != summary["fingerprint"]

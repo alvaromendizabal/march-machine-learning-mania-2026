@@ -1,0 +1,36 @@
+{
+  "base_head_before_receipt_commit": "194ec1db567776ea19e556a9b9579c47aa074c31",
+  "branch": "research/selection-capacity-sync-20260916",
+  "execution_elapsed_seconds": 7.035046286999204,
+  "execution_manifest_sha256": "3bb48fbd70ab23efb065cb33b7bcf753c63845cbbb8c33234b13c246e26924a5",
+  "generated_at_utc": "2026-09-16T20:38:55.740409+00:00",
+  "notebooks": {
+    "00_data_audit_and_preparation.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "038a29dc45a078f0cadc1d9e9afa329577b1b311694bd30c8458a5c6be9cb29d"
+    },
+    "01_split_protocol_and_pre_tournament_snapshots.ipynb": {
+      "executed_code_cells": 3,
+      "sha256": "44c0e5f017da8078e8bc0cf23be7edf946d04441dbbe5f5e93e009d06cefb455"
+    },
+    "02_feature_store_and_diagnostics.ipynb": {
+      "executed_code_cells": 12,
+      "sha256": "1ae50da2fedaeecc603df2eb99671e96044bc5041e68d794db02595e87cbda07"
+    },
+    "03_model_comparison_and_diagnostics.ipynb": {
+      "executed_code_cells": 16,
+      "sha256": "38d661b5f66c01273eccdd66712eab29cce5ad7f4d4a31121dccd917481b40be"
+    },
+    "04_locked_benchmark_and_final_submission.ipynb": {
+      "executed_code_cells": 18,
+      "sha256": "31028dff3a427800ba30717f15d396f83f5d12da13486318bc928054a9e888c5"
+    },
+    "05_feature_research.ipynb": {
+      "executed_code_cells": 4,
+      "sha256": "6b99d212897ead235dbe9338e3f7e3e412a01870a46abcc153594e4324c5d38c"
+    }
+  },
+  "scope": "PR #25 selection/model-capacity milestone; canonical notebooks executed with the locked project environment before CI.",
+  "status": "local_native_notebooks_executed_and_validated",
+  "warnings_or_error_outputs": 0
+}
