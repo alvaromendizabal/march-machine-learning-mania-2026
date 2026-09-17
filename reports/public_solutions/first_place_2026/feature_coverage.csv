@@ -1,0 +1,15 @@
+dataset,gender,feature,rows,non_null,coverage
+historical_tournament,men,seed_diff,2898,2898,1.0
+historical_tournament,men,opp_qlty_pts_won_diff,2898,2898,1.0
+historical_tournament,men,harry_diff,2898,2898,1.0
+submission_2026,men,seed_diff,66430,2278,0.034291735661598675
+submission_2026,men,opp_qlty_pts_won_diff,66430,66430,1.0
+submission_2026,men,harry_diff,66430,66430,1.0
+historical_tournament,women,seed_diff,1922,1922,1.0
+historical_tournament,women,avg_blk_diff,1922,1922,1.0
+historical_tournament,women,opp_qlty_pts_won_diff,1922,1922,1.0
+historical_tournament,women,harry_diff,1922,1922,1.0
+submission_2026,women,seed_diff,65703,2278,0.03467117178819841
+submission_2026,women,avg_blk_diff,65703,65703,1.0
+submission_2026,women,opp_qlty_pts_won_diff,65703,65703,1.0
+submission_2026,women,harry_diff,65703,65703,1.0

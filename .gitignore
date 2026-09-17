@@ -101,3 +101,6 @@ Thumbs.db
 *.egg-info/
 *.tmp
 .lock
+
+# Generated standalone Plotly notebook fallbacks
+reports/public_solutions/*/figures/*.html

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "created_for_branch": "research/public-solution-reproduction-20260916",
+  "project_base_commit": "e10b16e9cf435e332a340c624f1fcd969cbef66a",
+  "competition_metric": "Brier score",
+  "references": [
+    {
+      "id": "first_place_2026",
+      "rank": 1,
+      "reported_final_score": 0.1097454,
+      "repository": "harrisonhoran/kaggle-march-mania-2026-1st-place",
+      "commit": "c4db013f88cf14a036ed4881bbffb05845f5bcd1",
+      "license": "MIT",
+      "primary_source": "march-mania-2026.py",
+      "strategy": "Separate men's/women's XGBRegressor fold ensembles with isotonic calibration and edge sharpening.",
+      "model_family": ["XGBRegressor"],
+      "training_objective": ["squared error regression"],
+      "validation_metric": ["RMSE", "Brier"],
+      "validation": "GroupKFold grouped by Season; n_splits equals number of seasons.",
+      "calibration": "Separate men's/women's isotonic regression on OOF predictions.",
+      "ensemble": "Mean of season-fold model predictions.",
+      "postprocessing": "Clip then sharpen only probabilities <=0.03 or >=0.97 with temperature 2.5.",
+      "men_features": ["seed_diff", "opp_qlty_pts_won_diff", "harry_diff"],
+      "women_features": ["seed_diff", "avg_blk_diff", "opp_qlty_pts_won_diff", "harry_diff"],
+      "external_inputs": ["Nishaan Amin March Madness Data / AP Poll Data", "college-basketball-injury-report_20260318_all.csv", "miya_player_bpr_v2.csv"],
+      "reproduction_priority": 1
+    },
+    {
+      "id": "second_place_2026",
+      "rank": 2,
+      "reported_final_score": 0.1149886,
+      "repository": "BrendanCarlin/march-mania-2026-2nd-place",
+      "commit": "401bcf8fb0cdfa62b9b9de6786ecf10803ef8ea7",
+      "license": "not_verified",
+      "strategy": "Standardized logistic regression plus XGBClassifier blend.",
+      "model_family": ["LogisticRegression", "XGBClassifier"],
+      "training_objective": ["log loss", "binary logistic"],
+      "ensemble": "0.4 Logistic Regression + 0.6 XGBoost.",
+      "reproduction_priority": 2
+    },
+    {
+      "id": "third_place_2026",
+      "rank": 3,
+      "reported_final_score": 0.1160374,
+      "repository": "kevin1000/march-mania-2026-3rd-place",
+      "commit": "63c10d4cb471eeb84d928de7d1fa29d5f7f6197f",
+      "license": "not_verified",
+      "strategy": "Gender-specific standardized logistic regression with rich external ratings and market overlays.",
+      "model_family": ["LogisticRegression"],
+      "training_objective": ["log loss"],
+      "validation_metric": ["Brier"],
+      "validation": "Leave-one-season-out / GroupKFold by Season.",
+      "reproduction_priority": 3
+    },
+    {
+      "id": "fourth_place_2026",
+      "rank": 4,
+      "reported_final_score": null,
+      "repository": "Xroxa/4th-Place-Solution-for-the-March-Machine-Learning-Mania-2026-Competition",
+      "commit": "546c36492ace1aac3aef73b0c471409d298034f9",
+      "license": "not_verified",
+      "strategy": "Symmetric XGBClassifier + LGBMClassifier ensemble.",
+      "model_family": ["XGBClassifier", "LGBMClassifier"],
+      "training_objective": ["binary classification"],
+      "reproduction_priority": 4
+    },
+    {
+      "id": "eighth_place_2026",
+      "rank": 8,
+      "reported_final_score": null,
+      "repository": "huuphuoc-phamquang/8th-march_ML_mania",
+      "commit": "c9c884ce6e86fd44cdc2e327f10c6de19a12ab36",
+      "license": "not_verified",
+      "strategy": "Separate men's/women's XGBRegressor + LGBMRegressor MSE ensemble.",
+      "model_family": ["XGBRegressor", "LGBMRegressor"],
+      "training_objective": ["MSE", "reg:squarederror", "regression"],
+      "validation_metric": ["Brier"],
+      "validation": "GroupKFold by Season.",
+      "reproduction_priority": 5
+    }
+  ]
+}
