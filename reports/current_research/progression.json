@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "as_of_utc": "2026-09-22T02:13:41.279078+00:00",
+  "setting": "Post-competition scoring and reused historical development assessments are separate.",
+  "scored": {
+    "automatic_followup_submissions": 0,
+    "benchmark": 0.1097454,
+    "candidate_score": 0.1094899,
+    "candidate_sha256": "b3deb57b527450e93682be298bf810275f41d9a7c5056bad6f1b48dd9573bc1c",
+    "decision": "IMPROVED_RECORDED_INCUMBENT",
+    "gain_vs_incumbent": 0.0003791999999999962,
+    "gap_to_published_benchmark": -0.0002555000000000057,
+    "incumbent_score": 0.1098691,
+    "numerically_below_benchmark": true,
+    "raw_submission": {"date":"2026-09-22 00:57:23.367000","description":"Frozen core75 margin25 men; sha256=b3deb57b527450e93682be298bf810275f41d9a7c5056bad6f1b48dd9573bc1c; one score test","filename":"march_core75_margin25_candidate.csv","privatescore":"0.1094899","publicscore":"0.1094899","ref":"56447505","status":"SubmissionStatus.COMPLETE"},
+    "score_field":"privatescore",
+    "setting":"post-competition score, not original rank or independent proof",
+    "status":"SCORED",
+    "submission_ref":"56447505"
+  },
+  "candidate_build":{"run_id":"20260922T005643434347Z-498","filename":"march_core75_margin25_candidate.csv","rows":132133,"changed_seeded_men_rows":2278,"protected_rows":129855,"protected_women_rows":65703,"new_tree_fits":66,"submissions":1},
+  "women_screen": {
+    "run_id":"20260922T021341276223Z-501",
+    "status":"COMPLETE",
+    "decision":"FULL_RECIPE_REVIEW",
+    "checks":{"all_tournament_guard":true,"beats_matched_binary":true,"conditional_support":true,"full_recipe_reference":true,"historical_gain":true,"recent_guard":true,"season_stability":true,"worst_season_guard":true},
+    "new_tree_fits":48,"regression_tests":46,"elapsed_seconds":18.8,
+    "rows":[
+      {"year":2017,"games":63,"baseline_brier":0.13397603172254574,"candidate_brier":0.13371958476339937,"gain":0.00025644695914636695},
+      {"year":2018,"games":63,"baseline_brier":0.16245148887488622,"candidate_brier":0.1579964500495894,"gain":0.004455038825296825},
+      {"year":2019,"games":63,"baseline_brier":0.13246463900383834,"candidate_brier":0.13123604125728347,"gain":0.0012285977465548714},
+      {"year":2021,"games":63,"baseline_brier":0.14770257036233223,"candidate_brier":0.14840113734543023,"gain":-0.0006985669830980035},
+      {"year":2022,"games":63,"baseline_brier":0.15417929239945866,"candidate_brier":0.14977667360797334,"gain":0.004402618791485319},
+      {"year":2023,"games":63,"baseline_brier":0.18274173172680688,"candidate_brier":0.1799550080717875,"gain":0.002786723655019391},
+      {"year":2024,"games":63,"baseline_brier":0.10960437084914558,"candidate_brier":0.1104641782176227,"gain":-0.000859807368477114},
+      {"year":2025,"games":63,"baseline_brier":0.10111429578808037,"candidate_brier":0.09865641695317318,"gain":0.0024578788349071956}
+    ],
+    "binary_rows":[
+      {"year":2017,"games":63,"baseline_brier":0.13397603172254574,"candidate_brier":0.13263849368623787,"gain":0.0013375380363078726},
+      {"year":2018,"games":63,"baseline_brier":0.16245148887488622,"candidate_brier":0.158639083288508,"gain":0.0038124055863782147},
+      {"year":2019,"games":63,"baseline_brier":0.13246463900383834,"candidate_brier":0.1326705908653791,"gain":-0.00020595186154076517},
+      {"year":2021,"games":63,"baseline_brier":0.14770257036233223,"candidate_brier":0.1523670269571039,"gain":-0.004664456594771688},
+      {"year":2022,"games":63,"baseline_brier":0.15417929239945866,"candidate_brier":0.15374471497524217,"gain":0.0004345774242164868},
+      {"year":2023,"games":63,"baseline_brier":0.18274173172680688,"candidate_brier":0.1839983795088883,"gain":-0.001256647782081427},
+      {"year":2024,"games":63,"baseline_brier":0.10960437084914558,"candidate_brier":0.11011361121844156,"gain":-0.0005092403692959768},
+      {"year":2025,"games":63,"baseline_brier":0.10111429578808037,"candidate_brier":0.09764111556639125,"gain":0.0034731802216891178}
+    ],
+    "full_reference_rows":[
+      {"year":2023,"games":63,"baseline_brier":0.1793314870111588,"candidate_brier":0.17736918369922117,"gain":0.001962303311937641},
+      {"year":2024,"games":63,"baseline_brier":0.11548383096018426,"candidate_brier":0.11481667285492077,"gain":0.0006671581052634934},
+      {"year":2025,"games":63,"baseline_brier":0.0928260250612658,"candidate_brier":0.09246843340216902,"gain":0.0003575916590967815}
+    ],
+    "screen_core_brier":0.14052930259088678,"screen_margin_brier":0.1387756862832824,"screen_binary_brier":0.14022662700827404,"screen_gain":0.001753616307604372,"objective_gain":0.001450940724991634,
+    "full_reference_core_brier":0.12921378101086964,"full_reference_margin_brier":0.12821809665210365,"screen_wins":6,"full_reference_wins":3,"new_kaggle_score":null,"submissions":0,"men_predictions_changed":0,"feature_count":32,
+    "limitations":["Reused historical women-only screening, not independent confirmation.","One fixed 25% margin blend; binary target is a matched control, not an alternative to promote.","No 2026 prediction or submission changes.","Four core and 28 auxiliary features; no invented women's Massey or AP top-12 inputs.","Early stopping and calibration share inner held-out scores; outer years remain excluded.","Stronger reference is the equal average of retained women reference seeds, not a refit.","The men's late score motivated this hypothesis; no 2026 outcome is used in fitting.","Conditional bootstrap ignores sequential model selection; pass justifies fuller-ensemble review."]
+  },
+  "sources":[
+    {"file":"march_margin_candidate_return_20260922T005643434347Z-498.zip","sha256":"4034c6f203f3f7b63c4f65ab3d70da6d7fb28170b33995a546135b14202021c6"},
+    {"file":"march_women_margin_return_20260922T021341276223Z-501.zip","sha256":"dcdafc3cdcc67a886faeeb390177005a28f7c788ab2ae354bff9d7ec494d7403"}
+  ],
+  "verification":{"scored_archive_inventory_entries":36,"women_archive_inventory_entries":20,"historical_metrics_recalculated":true,"scored_candidate_bytes_verified":true},
+  "next_step":"Fixed women 25% margin ensemble: three seeds and inner leave-one-season-out robustness. Build and score only after the next decision; no speculative submission."
+}

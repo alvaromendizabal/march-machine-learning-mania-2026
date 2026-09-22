@@ -1,7 +1,7 @@
 name: Current research evidence
 on:
   push:
-    branches: [main, publication/current-research-20260921]
+    branches: [main, publication/scored-update-20260922]
   pull_request:
 permissions:
   contents: read
@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   publish:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/publication/current-research-20260921'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/publication/scored-update-20260922'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: publication/current-research-20260921
+          ref: publication/scored-update-20260922
       - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
           version: '0.11.33'
@@ -31,22 +31,22 @@ jobs:
           uv run --locked python -m unittest discover -s portfolio -p 'test_current_research.py' -v
           uv run --locked python portfolio/current_research.py --build --kernel march-portfolio
           uv run --locked python portfolio/current_research.py --check
-      - name: Commit only generated publication evidence to the dedicated branch
+      - name: Commit allowlisted generated evidence to the publication branch
         env:
           EXPECTED_SHA: ${{ github.sha }}
         run: |
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
-          git add -f -- portfolio/current_research.ipynb reports/current_research/publication.json reports/current_research/figures/scored.png reports/current_research/figures/screen.png reports/current_research/figures/pooled.png reports/current_research/figures/years.png reports/current_research/figures/seeds.png reports/current_research/figures/ablation.png
           python - <<'PY'
           import subprocess
-          paths = subprocess.check_output(['git','diff','--cached','--name-only'], text=True).splitlines()
-          allowed = {'portfolio/current_research.ipynb','reports/current_research/publication.json'} | {'reports/current_research/figures/'+n+'.png' for n in ['scored','screen','pooled','years','seeds','ablation']}
-          assert paths and set(paths) <= allowed, paths
+          allowed = ['portfolio/current_research.ipynb','reports/current_research/publication.json'] + ['reports/current_research/figures/'+n+'.png' for n in ['scored','screen','pooled','years','seeds','ablation','women','women_years']]
+          subprocess.run(['git','add','-f','--',*allowed],check=True)
+          paths = subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()
+          assert paths and set(paths) <= set(allowed), paths
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Publish executed current research notebook and verified figures'
-          git push origin HEAD:refs/heads/publication/current-research-20260921
+          git commit -m 'Execute scored research case study with women transfer evidence'
+          git push origin HEAD:refs/heads/publication/scored-update-20260922
   verify:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
           version: '0.11.33'
           python-version: '3.12.13'
           enable-cache: true
-      - name: Verify committed outputs, then re-execute from a clean kernel
+      - name: Verify saved output and clean-kernel reproduction
         run: |
           uv sync --locked --group dev
           uv run --locked python -m unittest discover -s portfolio -p 'test_current_research.py' -v
