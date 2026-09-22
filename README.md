@@ -1,89 +1,72 @@
-# NCAA tournament probability forecasting
+# NCAA tournament forecasting | ML engineering case study
 
-**Alvaro Mendizabal · temporal validation · basketball representations · calibrated ensembles**
+**Alvaro Mendizabal · sports forecasting · rigorous evaluation · cloud ML engineering**
 
-A notebook-led ML research project that progressed from compact win/loss models to
-complementary score-margin supervision, with controlled experiments and a scored release.
+## Achieved result: 0.1094899 Brier
 
-## Start here
+A scored, post-competition NCAA forecasting system with a recorded Brier score of
+**0.1094899**, numerically below the published 2026 winning benchmark of **0.1097454**.
+The difference is **0.0002555**, or approximately **0.23% lower Brier**. This is a
+late-submission comparison, not a claim of original first place or proven future superiority.
 
-**[Open the executed research case study](portfolio/current_research.ipynb)** ·
-[Two-minute employer walkthrough](docs/employer_walkthrough.md) ·
-[Methods and limitations](docs/current_research.md)
+**[Open the executed case study](portfolio/current_research.ipynb)** ·
+[Employer walkthrough](docs/employer_walkthrough.md) ·
+[Evidence and evaluation boundaries](docs/current_research.md)
 
-| Evidence | Brier — lower is better | Interpretation |
+| Evidence | Result | Status |
 |---|---:|---|
-| **Current recorded late submission** | **0.1094899** | Fixed men's margin blend; Kaggle submission 56447505, COMPLETE |
-| Previous scored incumbent | 0.1098691 | Improvement of 0.0003792 |
-| Published first-place benchmark | 0.1097454 | Our late score is numerically lower by 0.0002555; not an original competition placement |
-| Women's historical screen | 0.1387757 | 504 games; improved from 0.1405293; not a new Kaggle score |
+| Recorded Kaggle submission 56447505 | **0.1094899 Brier** | COMPLETE; scored release |
+| Improvement over the preceding release | **0.0003792** | Same recorded score measure |
+| Women's extension: historical core | 0.1292138 | 189 main-bracket games, 2023–2025 |
+| Women's extension: margin-based ensemble | **0.1283061** | All seven robustness gates passed; not submitted |
 
-The achieved late score and historical validation are different evaluation settings.
-A lower post-competition number does not establish prospective superiority or retroactive
-first place. [Current score identity and research progression](reports/current_research/progression.json)
-record the exact scored file hash, observations, source returns and evaluation populations.
+![Women's historical robustness by year](reports/current_research/figures/women_robustness_years.png)
 
-![Women's season-level screening results](reports/current_research/figures/women_years.png)
+## What this project demonstrates
 
-## Research finding
+**Experimental judgment.** Broad feature expansion, dimensionality reduction,
+chronological subset selection and error corrections were not automatically useful.
+A controlled change to score-margin supervision identified complementary information
+and led to an improved scored release. Negative results remain part of the evidence.
 
-Adding more features did not automatically help. Full feature fusion, residual PCA,
-chronological subset selection and frozen-core corrections were rejected. Training a
-complementary model on actual point margins, rather than only wins, produced a useful
-fixed blend. Matched binary-target controls isolate the target's contribution.
+**Statistical care.** Whole-season assessment, training-only transformations,
+matched-target controls, fixed ensembles, calibration diagnostics and explicit
+prediction-time boundaries separate plausible explanations from measured gains.
+Repeatedly used development seasons are not presented as untouched holdouts.
 
-The men's blend passed fuller-ensemble testing before one candidate build and one score
-test. Only 2,278 seeded-men matchups changed; 129,855 prediction lines remained unchanged,
-including every women's line. The newly scored artifact remains frozen in AWS.
+**Reliable execution.** Bounded AWS experiments preserve model/checkpoint identities,
+verify probability and row contracts, reuse completed work, and produce diagnostic
+bundles on success or failure. The latest women's robustness run completed 234 fits
+and 78 regression tests; its candidate improved the reference across all three
+assessment years and all three fixed repeats.
 
-The separate women's transfer screen passed all eight criteria, improving six of eight
-historical seasons. Its next milestone is three-seed, whole-season-omission robustness,
-not an automatic submission. Reused development years and calibration limitations remain
-explicit. Negative findings are retained in the notebook rather than hidden.
+**Technical communication.** The executed notebook presents results, comparisons,
+and limitations with saved inline Plotly figures and embedded static fallbacks.
+A reviewer needs no cloud account to inspect the work.
 
-## Review the work
+## Review, not a training distribution
 
-| Artifact | What it demonstrates |
-|---|---|
-| [Current case study](portfolio/current_research.ipynb) | Eight saved Plotly charts, achieved score, negative results, matched-target ablation, seed/year stability, women's transfer |
-| [Data audit](notebooks/00_data_audit_and_preparation.ipynb) | Identifiers, input integrity and preparation |
-| [Split protocol](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | Whole-season assessment and point-in-time boundaries |
-| [Feature diagnostics](notebooks/02_feature_store_and_diagnostics.ipynb) | Domain representation and controlled comparisons |
-| [Model comparison](notebooks/03_model_comparison_and_diagnostics.ipynb) | Earlier model lineages, calibration and diagnostics |
-| [Research index](research/README.md) | Broader engineering and experiment history |
+This repository's current purpose is an **employer-facing case study**. New training
+pipelines, model binaries, feature formulas, tuning recipes, private data and current
+AWS working changes are not being published. The report code only renders approved
+aggregate evidence; it cannot refit or regenerate the forecasting system.
 
-## Reproduce this publication without AWS
+Earlier code and license grants already present in Git history remain accessible.
+This publication changes what is shared going forward; it does not make old public
+material confidential. See the [publication policy](docs/REPOSITORY_POLICY.md).
 
-```bash
-uv sync --locked --group dev
-uv run --locked python -m ipykernel install --user --name march-portfolio
-uv run --locked python -m unittest discover -s portfolio -p 'test_current_research.py'
-uv run --locked python portfolio/current_research.py --check
-uv run --locked python portfolio/current_research.py --build --kernel march-portfolio
-```
+## Completed milestone and next step
 
-The report reads committed aggregates, performs no training or downloads, and has
-embedded image fallbacks for static review. Interactive Plotly outputs are retained for
-compatible Jupyter front ends. Saved/reopened output checks block incomplete publication.
+**Completed:** scored men's margin release, women's historical robustness, and an
+updated employer-facing evidence review. **Next:** one validated women-only candidate
+build and controlled score test, while preserving the achieved men's predictions.
+An additional improvement is not assumed.
 
-## Deliberate publication boundary
+For [2027 preparation](docs/2027_readiness.md), the priority is a frozen, auditable
+prospective forecasting process. The 2026 score is a development result, not a
+substitute for testing on genuinely future games. No 2027 competition rules or
+submission schedule are assumed here.
 
-**GitHub is the curated evidence and engineering layer. AWS is the experimental workspace.**
-This update does not mirror raw competition records, feature caches, fitted models,
-per-game private artifacts, environments, credentials or uncommitted AWS work. Full
-training reproduction needs the retained authorized inputs and current AWS source state;
-the portable notebook reproduces its own aggregate analyses, not model training.
-
-The [earlier 70-submission release](reports/final_results/README.md), with its historical
-0.1222672 best, remains unchanged and is not presented as the current result. Earlier
-aggregate evidence remains in evidence.json; progression.json records the later score
-and women's screen. Existing repository quality checks remain intact.
-
-**Completed:** scored men's margin release, bounded women's screen and current research publication.
-**Next decision:** women's fuller-ensemble validation; one subsequent frozen build and
-separately authorized score test only if justified. No guarantee of another improvement.
-
-The compact reference is adapted from
-[Harrison Horan's first-place writeup](https://github.com/harrisonhoran/kaggle-march-mania-2026-1st-place/blob/main/kagglewriteup.md).
-Existing license and third-party notices remain unchanged. Our adaptation and limitations
-are documented in the methods note.
+The compact reference draws on [Harrison Horan's first-place writeup](https://github.com/harrisonhoran/kaggle-march-mania-2026-1st-place/blob/main/kagglewriteup.md).
+Attribution and historical licenses remain intact. Earlier release evidence is
+preserved, including the [original scored collection](reports/final_results/README.md).
