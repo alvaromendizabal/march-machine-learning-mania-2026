@@ -1,72 +1,66 @@
 # NCAA tournament forecasting | ML engineering case study
 
-**Alvaro Mendizabal · sports forecasting · rigorous evaluation · cloud ML engineering**
+**Alvaro Mendizabal · probability forecasting · controlled research · cloud ML engineering**
 
 ## Achieved result: 0.1094899 Brier
 
-A scored, post-competition NCAA forecasting system with a recorded Brier score of
-**0.1094899**, numerically below the published 2026 winning benchmark of **0.1097454**.
-The difference is **0.0002555**, or approximately **0.23% lower Brier**. This is a
-late-submission comparison, not a claim of original first place or proven future superiority.
+The retained release achieved **0.1094899 Brier** in recorded post-competition Kaggle
+scoring, numerically below the published 2026 winning benchmark of **0.1097454** by
+**0.0002555**. This is a late-submission comparison, not an original first-place finish.
 
 **[Open the executed case study](portfolio/current_research.ipynb)** ·
 [Employer walkthrough](docs/employer_walkthrough.md) ·
-[Evidence and evaluation boundaries](docs/current_research.md)
+[Current evidence](reports/current_research/release_decision.json)
 
-| Evidence | Result | Status |
+| Evidence | Result | Decision |
 |---|---:|---|
-| Recorded Kaggle submission 56447505 | **0.1094899 Brier** | COMPLETE; scored release |
-| Improvement over the preceding release | **0.0003792** | Same recorded score measure |
-| Women's extension: historical core | 0.1292138 | 189 main-bracket games, 2023–2025 |
-| Women's extension: margin-based ensemble | **0.1283061** | All seven robustness gates passed; not submitted |
+| Retained scored release | **0.1094899** | Keep |
+| Previous release | 0.1098691 | Improved by the retained release |
+| Subsequent women's extension | 0.1105237 | Rejected; champion unchanged |
 
-![Women's historical robustness by year](reports/current_research/figures/women_robustness_years.png)
+![Recorded scored releases](reports/current_research/figures/release_scores.png)
 
-## What this project demonstrates
+## What the project demonstrates
 
-**Experimental judgment.** Broad feature expansion, dimensionality reduction,
-chronological subset selection and error corrections were not automatically useful.
-A controlled change to score-margin supervision identified complementary information
-and led to an improved scored release. Negative results remain part of the evidence.
+**Research judgment.** Feature expansion, dimension reduction, chronological subset
+selection, target comparisons and ensemble experiments were evaluated against controlled
+references. Margin supervision yielded a complementary men's forecast and a better
+scored release. A later women's extension passed historical checks but lost when scored;
+that negative result is preserved rather than hidden.
 
-**Statistical care.** Whole-season assessment, training-only transformations,
-matched-target controls, fixed ensembles, calibration diagnostics and explicit
-prediction-time boundaries separate plausible explanations from measured gains.
-Repeatedly used development seasons are not presented as untouched holdouts.
+**Statistical care.** Whole-season assessments, training-only transformations, matched
+controls and probability diagnostics address the forecasting problem. Repeatedly used
+development seasons are not described as untouched tests. The distinction between a
+historical gain and an achieved Kaggle score is visible throughout the case study.
 
-**Reliable execution.** Bounded AWS experiments preserve model/checkpoint identities,
-verify probability and row contracts, reuse completed work, and produce diagnostic
-bundles on success or failure. The latest women's robustness run completed 234 fits
-and 78 regression tests; its candidate improved the reference across all three
-assessment years and all three fixed repeats.
+**Reliable execution.** Checksummed prediction files, protected-row contracts, resumable
+model artifacts and at-most-once submission attempts protect completed work. The latest
+replay reused all 45 candidate models, performed zero new fits and made no new upload.
+Every one of the achieved men's prediction lines stayed unchanged in the rejected candidate.
 
-**Technical communication.** The executed notebook presents results, comparisons,
-and limitations with saved inline Plotly figures and embedded static fallbacks.
-A reviewer needs no cloud account to inspect the work.
+**Technical communication.** The executed notebook has six inline Plotly figures and
+embedded static fallbacks. A reviewer can inspect the evidence without AWS access.
 
-## Review, not a training distribution
+## Scope and completion
 
-This repository's current purpose is an **employer-facing case study**. New training
-pipelines, model binaries, feature formulas, tuning recipes, private data and current
-AWS working changes are not being published. The report code only renders approved
-aggregate evidence; it cannot refit or regenerate the forecasting system.
+The achieved release and its review are complete milestones. Ongoing private research
+is not declared finished: feature selection is model- and objective-specific, and
+leading-solution coverage is not exhaustive. No 0.09 score or future advantage is claimed.
+The next bounded study investigates the successful model's representation, not another
+upload of the rejected candidate. [Evaluation boundaries](docs/current_research.md)
+explain what the evidence does and does not establish.
 
-Earlier code and license grants already present in Git history remain accessible.
-This publication changes what is shared going forward; it does not make old public
-material confidential. See the [publication policy](docs/REPOSITORY_POLICY.md).
+**Public case study, not a current training distribution.** New forecasting implementation,
+feature formulas, fitted models, tuning recipes, raw data and AWS changes remain outside
+this update. The small report program only renders approved aggregate evidence. Earlier
+public code, repository history and existing licenses remain accessible; this update does
+not make those materials confidential. [Publication policy](docs/REPOSITORY_POLICY.md).
 
-## Completed milestone and next step
+For [2027 readiness](docs/2027_readiness.md), freeze a private baseline, audit season-specific
+inputs and record forecasts before future outcomes arrive. More late-score optimization is
+not a substitute for prospective evidence. No 2027 competition rules or dates are assumed.
 
-**Completed:** scored men's margin release, women's historical robustness, and an
-updated employer-facing evidence review. **Next:** one validated women-only candidate
-build and controlled score test, while preserving the achieved men's predictions.
-An additional improvement is not assumed.
-
-For [2027 preparation](docs/2027_readiness.md), the priority is a frozen, auditable
-prospective forecasting process. The 2026 score is a development result, not a
-substitute for testing on genuinely future games. No 2027 competition rules or
-submission schedule are assumed here.
-
-The compact reference draws on [Harrison Horan's first-place writeup](https://github.com/harrisonhoran/kaggle-march-mania-2026-1st-place/blob/main/kagglewriteup.md).
-Attribution and historical licenses remain intact. Earlier release evidence is
-preserved, including the [original scored collection](reports/final_results/README.md).
+The compact reference is credited to [Harrison Horan's first-place solution](https://www.kaggle.com/c/march-machine-learning-mania-2026/writeups/march-machine-learning-mania-2026-1st-place-solut).
+Historical evidence and the [earlier scored collection](reports/final_results/README.md)
+remain intact. This is benchmark-informed applied ML research, not a claim of universally
+state-of-the-art forecasting.
