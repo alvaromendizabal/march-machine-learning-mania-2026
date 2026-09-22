@@ -1,19 +1,22 @@
 {
   "status": "PASS",
-  "scope": "Executed aggregate report, not model training",
+  "scope": "Executed aggregate report; no training",
   "evidence_sha256": "8ecb787e2271ee5e97e846cd64fe57ae661d4132c544dbefc7c4683fb9e82d9e",
-  "notebook_sha256": "fddf130745cf65a18abd799f177993e5716f36197edf955d6829133d54f73b97",
-  "builder_sha256": "3c0e0f314a764666d9fe7914db5ef17a6c162ae20ca266bafd3187ddffd11e04",
-  "executed_code_cells": 9,
-  "plotly_outputs": 6,
-  "embedded_png_fallbacks": 6,
+  "progression_sha256": "529494ec0cde81cf36097f1815e5452ff5ce58f74279508d05212049f1af291d",
+  "notebook_sha256": "7998cd118a2973208b97297c987d0386a1c09d0726fafb38347738f036b0452d",
+  "builder_sha256": "6b99cb9c8de9539bda6adcb266a59b30251168ea9837e0511fcc677bfb02b30d",
+  "executed_code_cells": 11,
+  "plotly_outputs": 8,
+  "embedded_png_fallbacks": 8,
   "report_model_fits": 0,
   "figure_sha256": {
-    "ablation.png": "8665eb68a7fa15978c763eb34d56ea60f52630a91106824ef11d734ad1639b80",
-    "pooled.png": "00e9f956157902426f02fce2aeb27244932c735cdeff148563eaad5033e641ea",
-    "scored.png": "e63c77242f0ae06bce3eae03c65cf38bb269a7394f23cb8bc784e150cc02368c",
-    "screen.png": "76cf26cdb696a5432ecf4ab3cc4a42e6603404179d63d26c768745861db6e477",
-    "seeds.png": "974abb3b8c97a88b1eb14ca554efcccb8e35e2ab2737e123d9b8b1451170be64",
-    "years.png": "5230edc4e24960ea323d5399767a16bb97c45fdd06a479342e24033876e6f583"
+    "scored.png": "1ec293bdef5708fa11072c92a971fa6054fa9bcf6ae826fd96d37d10ad1a7ef0",
+    "screen.png": "db465b9d46902215883ff07a0aa2d9b58dda07bc79d60cf1aebee8aa8cd4ace3",
+    "pooled.png": "56c7127a3a23d6e8a506255f2fee95ce8ee0eeb65cd64d1ba9b6ecbc31e48af1",
+    "years.png": "1664c2c79c1a9005ad4efaa07018f4254721071161384839b9f252ae1f4eb65e",
+    "seeds.png": "d474a03440e909ab793d71df494e611254676a72a32025fb3e94f3e915d3a9f0",
+    "ablation.png": "8f2abf89f4a51f189bca813bfc712f20f5189d5e63838a269823f5cad2f5f083",
+    "women.png": "dafae6c3ea39d8f5574bf40cd96ab6daf5b43d1e26fa5f29343a6afa3dba7ba6",
+    "women_years.png": "193640bfb2e82e4f8995dc20d6b2ef4703ef9a63ade5a391673a8f96770a6058"
   }
 }
