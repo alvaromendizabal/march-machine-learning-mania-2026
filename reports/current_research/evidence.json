@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "as_of_utc": "2026-09-21T23:50:23Z",
+  "metric": "game-weighted Brier; lower is better",
+  "publication_scope": "Curated aggregate research evidence; not an AWS mirror or complete training archive.",
+  "scored": {
+    "setting": "post-competition Kaggle submission; not original competition placement",
+    "previous": 0.1099121,
+    "incumbent": 0.1098691,
+    "published_benchmark": 0.1097454,
+    "benchmark_games": 126,
+    "submission_ref": 56442784,
+    "filename": "march_first_place_two_feature_men_candidate.csv",
+    "candidate_sha256": "c9644499daed876aa5795cc6c4e923b31611a26e750692843a5dd839877e6393",
+    "score_observed_utc": "2026-09-21T20:14:56.673000Z",
+    "score_receipt_sha256": "828308510cd28056d57a22536671faf85a993ba48e3f2902ffd66cd772b45dd4",
+    "benchmark_source": "https://github.com/harrisonhoran/kaggle-march-mania-2026-1st-place/blob/main/kagglewriteup.md"
+  },
+  "robustness": {
+    "run_id": "20260921T234907325480Z-561",
+    "setting": "Men, 2023-2025, 189 main-bracket games; reused development years",
+    "rows": [
+      {"year": 2023, "games": 63, "core": 0.20992812704093927, "binary": 0.2081748540702003, "margin": 0.20797680881437555},
+      {"year": 2024, "games": 63, "core": 0.18846819116742988, "binary": 0.18760344757722663, "margin": 0.1862582901054765},
+      {"year": 2025, "games": 63, "core": 0.14011754588755293, "binary": 0.1378665878201566, "margin": 0.13815935447502373}
+    ],
+    "pooled": {"core": 0.1795046213653074, "binary": 0.17788162982252784, "margin": 0.17746481779829198},
+    "seeds": [
+      {"seed": 20260921, "brier": 0.1773634804114964},
+      {"seed": 20260922, "brier": 0.17754758152617067},
+      {"seed": 20260923, "brier": 0.17748468546908816}
+    ],
+    "checks": {"all_tournament_guard": true, "at_least_two_seasons": true, "conditional_support": true, "every_predeclared_seed_nonnegative": true, "gain_over_strong_core": true, "margin_beats_matched_binary": true, "worst_season_guard": true},
+    "decision": "CANDIDATE_BUILD_REVIEW",
+    "new_tree_fits": 360,
+    "regression_tests": 61,
+    "run_elapsed_seconds": 75.78,
+    "worker_elapsed_seconds": 63.09,
+    "new_kaggle_score": null,
+    "submissions": 0,
+    "feature_rebuilds": 0,
+    "women_predictions_changed": 0,
+    "source_files_verified": 21,
+    "source_notebook_sha256": "16ca299994a67b44c9858bd6184dfad9342d3fb497de50baa331851838e97cbe",
+    "all_tournament_gain": 0.0016179282932679562
+  },
+  "screen": {
+    "setting": "Men, 2017-2019 and 2021-2025; 503 main-bracket games; reused development years",
+    "rows": [
+      {"experiment": "Full feature bundle", "core": 0.18666405247262732, "candidate": 0.18999577734811493, "decision": "Rejected"},
+      {"experiment": "Residual PCA bundle", "core": 0.18666405247262732, "candidate": 0.1890002773136495, "decision": "Rejected"},
+      {"experiment": "Nested subset selection", "core": 0.18666405247262732, "candidate": 0.18778864929308758, "decision": "Rejected"},
+      {"experiment": "Frozen-core feature correction", "core": 0.18666405247262732, "candidate": 0.18713026412007405, "decision": "Rejected"},
+      {"experiment": "Fixed 25% rich margin blend", "core": 0.18666405247262732, "candidate": 0.18552885717823125, "decision": "Advanced to robustness"}
+    ]
+  },
+  "method": {
+    "core_features": ["seed_diff", "harry_diff"],
+    "auxiliary_feature_count": 31,
+    "total_features": 33,
+    "margin_weight": 0.25,
+    "target": "signed score margin divided by 20; matched control is signed binary outcome",
+    "learner": "XGBoost squared-error regression",
+    "calibration": "Shared zero-intercept sigmoid method; inner held-out scores",
+    "outer_years": [2023, 2024, 2025],
+    "inner_fold_counts": [19, 20, 21],
+    "seeds": [20260921, 20260922, 20260923],
+    "max_depth": 3,
+    "learning_rate": 0.03,
+    "n_estimators_cap": 1200,
+    "early_stopping_rounds": 75,
+    "threads": 2
+  },
+  "limitations": [
+    "This is a fuller margin ensemble (three seeds, inner leave-one-season-out), not an exact reproduction of the winner's hyperparameters or calibration.",
+    "Assessment is restricted to previously used 2023–2025 development seasons, 189 main-bracket games; not an independent confirmation.",
+    "The rich 25% margin blend was selected from four screen proposals on overlapping historical seasons; the bootstrap is conditional, not selection-adjusted proof.",
+    "Inner held-out seasons guide early stopping and sigmoid calibration; outer-year outcomes remain excluded from training, early stopping and calibration.",
+    "The mean of three seed forecasts is fixed before scoring; seed results are diagnostics, not candidates to pick among.",
+    "A pass authorizes candidate-build review only. No 2026 outcomes, prediction file, submission, or leaderboard gain is produced.",
+    "Publication reproduces aggregate analyses and figures. Refitting needs retained authorized data, feature cache, frozen probabilities, and the AWS source state; these are not redistributed.",
+    "The numerical late-score gap does not establish original placement or guarantee exact scoring-scope equivalence."
+  ],
+  "sources": [
+    {"file": "march_margin_robustness_return_20260921T234907325480Z-561.zip", "sha256": "4b1f034521a2a81a9b84f5f3d2720949e0d63cfe898740bfee400978e1d6a8ab"},
+    {"file": "march_winner_feature_fusion_return_20260921T204905Z-499.zip", "sha256": "88ae0fa9ecae1aca4cedb9c1ef770f5dc720eb9132e50eefa61a299e41923a2d"},
+    {"file": "march_nested_feature_selection_return_20260921T220319Z-500.zip", "sha256": "732c803ee5818b46a81e45e8b10d6859022730cf0f3363f0823928d71c6bf73d"},
+    {"file": "march_frozen_core_correction_return_20260921T225729338716Z-508.zip", "sha256": "0df131b0f5311174d8ce8de3c46cadbdbad19d5642f0f9dfdcaf1925bf669142"},
+    {"file": "march_margin_objective_return_20260921T232308244876Z-508.zip", "sha256": "1ada497937b9af0a680b6b40d578e425636c8fc9320a7a8617a3893b5f41900d"}
+  ],
+  "next_step": "Freeze one 2026 candidate build, validate schema and unchanged women/protected rows, then separately authorize a single submission. No new model is deployed by this publication."
+}
