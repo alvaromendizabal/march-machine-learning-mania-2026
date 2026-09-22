@@ -1,63 +1,57 @@
-# NCAA forecasting: an employer walkthrough
+# A two-minute review of NCAA forecasting research
 
-**Final observed result: 0.1222672 Brier.** The completed portfolio contains 70
-scored submissions, 3,946 feature hypotheses, executed notebooks and reproducible
-model artifacts. The best late submission combines pooled XGBoost for men with
-conference logistic regression for women.
+**The scored incumbent achieved 0.1098691 late-submission Brier.** The latest
+unsubmitted challenger improves historical men's Brier from **0.1795046 to
+0.1774648**. These are different evaluation settings and must not be conflated.
 
-## A two-minute review
-
-| Open | What to look for |
-|---|---|
-| [Final results](../reports/final_results/README.md) | Observed Brier, exact winning model, all 70 scores and the distinction between retrospective selection and forecasting claims |
-| [Notebook 02](../notebooks/02_feature_store_and_diagnostics.ipynb) | Domain hypotheses, legal feature timing, controlled ablations and evidence against unlimited feature expansion |
-| [Notebook 03](../notebooks/03_model_comparison_and_diagnostics.ipynb) | Matched season comparisons, calibration, model-selection boundaries and negative findings |
-| [Notebook 04](../notebooks/04_locked_benchmark_and_final_submission.ipynb) | Polished Plotly results, the completed score ledger and default-off recovery/generation controls |
-| [Quality workflow](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml) | Tests, type checks, release integrity and native notebook execution on the proposed revision |
-
-The saved outputs require no setup to inspect. Data provenance and split design
-are in notebooks 00–01; notebook 05 is an optional appendix.
-
-## Trace the winning prediction
-
-1. [Official input receipts](../reports/prediction_production/input_receipts.json)
-   identify the immutable feature matrix, team snapshots and Stage 2 template.
-2. The men’s component is `c_7808f53a9ebd1b6bf13a`, pooled `xgboost_full_2`:
-   120 depth-2 trees, 128 training-screened inputs, fitted on 1,575 games through 2025.
-   [The original recipe](../reports/prediction_production/recipe.json) and
-   [fit audits](../reports/prediction_production/fit_audits.json) preserve its identity.
-3. Women’s `conference_c100` is logistic regression with C=1.0, fitted on 772
-   women’s games through 2025. Its [two route audits](../reports/women_challengers/final_fit_audits.json)
-   record 16 seeded and 15 seed-free retained inputs.
-4. Temperatures 0.90 for men and 1.10 for women produce
-   `m_pooled_xgboost_t090__w_conference_c100_t110.csv`: 132,133 rows,
-   SHA-256 `b7704da76ea2b48839e1fdfaa32d593cf0cc23171d3b67e13987f152342bc92e`.
-5. [Screenshot provenance](../reports/final_results/provenance.json) joins that
-   exact file to the displayed private/public Brier of 0.1222672.
-   [The final collection](../reports/final_results/collection.json) verifies all
-   70 original CSVs without fitting or changing their bytes.
+Start with the [executed current research notebook](../portfolio/current_research.ipynb).
+It requires no AWS access to inspect and opens with saved metrics and six charts.
 
 ## What the work demonstrates
 
-Temporal snapshots, target encodings and coach histories respect information
-availability. Feature screening uses only the training fold. Whole-season
-validation avoids treating related games as independently shuffled observations.
-Brier, log loss, ranking metrics and calibration diagnostics remain separate.
-Model reload checks, team-swap symmetry, ID validation, content hashes and
-checkpoint reuse cover both statistical and engineering failure modes.
+**Research judgment.** The notebook retains failed feature-fusion, subset-selection
+and correction hypotheses. Rather than continuing to rearrange features, the next
+experiment changed the target to signed point margin. A matched binary-target
+control identifies the contribution of the objective, not merely extra complexity.
 
-Compact feature groups remain competitive with much wider banks. Massey helps
-some men’s models, but broader inputs, extra trees and coach additions do not
-consistently improve earlier-season selection. The project preserves those negative
-results instead of presenting only a favorable final score.
+**Validation.** Assessment uses earlier-season training, whole-season inner folds,
+training-only transformations and outer-year exclusion. The fixed 25% blend and
+three-seed average prevent selecting weights or favorable seeds after evaluation.
+Reused 2023–2025 seasons and shared inner early-stopping/calibration data are
+explicit limitations, not described as pristine holdouts.
 
-## Limits that matter
+**Engineering.** AWS experiments preserve fitted models and content-hashed fold
+receipts, can resume completed work, run correctness gates, emit progress, and
+package results on failure. The latest robustness run completed 360 model fits
+and passed 61 regression tests. The publication layer instead performs no training:
+it validates aggregate arithmetic, executes a report notebook and verifies saved
+Plotly and image outputs.
 
-The final submissions were late and selected retrospectively. The explored
-2016–2019/2021 development seasons and previously consumed 2022–2025 benchmark
-are not new holdouts. No 2026 outcome enters fitting, but 2026 score feedback informed
-later hypotheses. The final observed winner is distinct from the unchanged frozen
-development reference. Seed-free template coverage lacks matched tournament validation.
+**Practical evidence.** The fixed margin blend improves the core in all three years
+and all three seeds. It beats the matched binary blend in two of three years,
+not uniformly. The original incumbent remains untouched; the decision is a
+candidate-build review, not automatic promotion.
 
-All bounded release work is complete. Timestamped external player information or
-a future tournament under a frozen protocol would be a new project extension.
+## A deeper review
+
+Follow the [method and provenance note](current_research.md) for the experiment
+contract, publication boundary and source hashes. Inspect
+[Notebook 00](../notebooks/00_data_audit_and_preparation.ipynb) and
+[Notebook 01](../notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb)
+for data/split engineering; [Notebook 02](../notebooks/02_feature_store_and_diagnostics.ipynb)
+and [Notebook 03](../notebooks/03_model_comparison_and_diagnostics.ipynb) show the
+broader earlier feature and model research. Their metrics belong to their own
+lineages, not the current margin experiment.
+
+The [older scored collection](../reports/final_results/README.md) is preserved for
+traceability. Its 0.1222672 result was the best of that historical collection;
+it is not the project's latest observed score. The current release intentionally
+does not redistribute the entire AWS source tree, datasets or fitted model files.
+
+## Honest completion
+
+This is a completed, reproducible **research-report milestone**. The margin
+challenger is not yet a scored 2026 prediction artifact. The next modeling decision
+is to freeze and validate one candidate before separately authorizing a submission.
+Nothing here claims first place, a future win, or independent confirmation from
+previously consumed seasons.
