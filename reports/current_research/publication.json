@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "Executed aggregate report, not model training",
+  "evidence_sha256": "8ecb787e2271ee5e97e846cd64fe57ae661d4132c544dbefc7c4683fb9e82d9e",
+  "notebook_sha256": "fddf130745cf65a18abd799f177993e5716f36197edf955d6829133d54f73b97",
+  "builder_sha256": "3c0e0f314a764666d9fe7914db5ef17a6c162ae20ca266bafd3187ddffd11e04",
+  "executed_code_cells": 9,
+  "plotly_outputs": 6,
+  "embedded_png_fallbacks": 6,
+  "report_model_fits": 0,
+  "figure_sha256": {
+    "ablation.png": "8665eb68a7fa15978c763eb34d56ea60f52630a91106824ef11d734ad1639b80",
+    "pooled.png": "00e9f956157902426f02fce2aeb27244932c735cdeff148563eaad5033e641ea",
+    "scored.png": "e63c77242f0ae06bce3eae03c65cf38bb269a7394f23cb8bc784e150cc02368c",
+    "screen.png": "76cf26cdb696a5432ecf4ab3cc4a42e6603404179d63d26c768745861db6e477",
+    "seeds.png": "974abb3b8c97a88b1eb14ca554efcccb8e35e2ab2737e123d9b8b1451170be64",
+    "years.png": "5230edc4e24960ea323d5399767a16bb97c45fdd06a479342e24033876e6f583"
+  }
+}
