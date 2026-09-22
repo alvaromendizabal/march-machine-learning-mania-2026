@@ -1,19 +1,19 @@
 {
   "status": "PASS",
-  "scope": "Executed aggregate case study, no training",
-  "milestone_sha256": "625b6c1abbd93fe1ff8e1fdf8dc3d3d27d788d9f47b0f58b45b277b4a0a729e9",
-  "builder_sha256": "c1d20a4a48d301bc75812f51c1baf666e686e467aaaf59b3e1171b040d68d5b2",
-  "notebook_sha256": "4e92f08c4344dcea4259f1b8f28b8deed3b30af83c970846bd2d1871e27a1aff",
-  "executed_code_cells": 9,
+  "scope": "Aggregate employer case study; no training",
+  "source_sha256": "d4ca04ff7f8d9d568c5f4a55e3dc09378df2a9d0bb4e95c9bb79a8e67d1dc652",
+  "builder_sha256": "2767a951e50faae3b7c7600f5d5907e0f69308ca78d8d887670aacf9ee8deebe",
+  "notebook_sha256": "51653409a56631f90260da408ab4f4a44916396eb0196172372236391e01fe66",
+  "code_cells": 8,
   "plotly_outputs": 6,
   "png_fallbacks": 6,
   "model_fits": 0,
   "figures": {
-    "scored": "165ecf666af646e1dafecd332db7e34a157720f248bd8586f370f2c45a5b0097",
-    "women_screen_history": "efa3f9e19a274147cd3910cd0cd109c733729c8bcc483c4017cbd3b926b36026",
-    "women_robustness": "70f60beb07fc2478b562c1c886c541d08ed70e473355e71375e60ee8e6b724a4",
-    "women_robustness_years": "1c41750919d92d71a4926db291efb63945372027ea70df41e6308b8041da3e1c",
-    "women_robustness_repeats": "864d75b121502b082a22debd8672581afbe55491f35eb45f5397efd66f615b08",
-    "women_objective_ablation": "fb378248c28af7f6fc7e9b2801f24b3d74e6accbc330513c4ae2ade54b90fddc"
+    "release_scores": "df9c09e38f29f9ba2967446ded70ebb13c5201b8af6de3fce5653930062348a7",
+    "men_research": "ac6bee8420151c1ca15b00e7452ea4fd8eec544e4809ab4b61e2a53c4ca8f5d3",
+    "women_historical": "e39d7f451211ab6a6e279e659090d929da98703b167d033c1669b13fbb2c9a92",
+    "women_years": "0bc295d5efa8af13c6d85e011e52f3a16edea95e99f2bed20fbe68bb3b855bc1",
+    "women_target_control": "62285f5e0be5c361467d4c12578973cf226fcdc5b66792623805d0ebe0b4b704",
+    "protected_rows": "e2e0d26036cd1a4ae1f5921da038e9c780ae8c0db94d78c416d973bfe2a8d8c9"
   }
 }

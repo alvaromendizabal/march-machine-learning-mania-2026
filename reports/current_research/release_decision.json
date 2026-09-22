@@ -1,0 +1,11 @@
+{
+ "schema":1,
+ "as_of_utc":"2026-09-22T16:36:43.235972+00:00",
+ "scored":{"champion":0.1094899,"champion_ref":"56447505","champion_sha256":"b3deb57b527450e93682be298bf810275f41d9a7c5056bad6f1b48dd9573bc1c","benchmark":0.1097454,"predecessor":0.1098691,"women_candidate":0.1105237,"women_ref":"56469094","women_sha256":"ded9249b39e82d7526146bd64466f8b875a15f10d33b4610fd432e8e9896d9f4","decision":"KEEP_CHAMPION_REJECT_WOMEN","setting":"Recorded post-competition Kaggle scores, not original competition placement"},
+ "replay":{"run_id":"20260922T163620151512Z-533","new_tree_fits":0,"reused_tree_fits":45,"new_submissions":0,"elapsed_seconds":23.08,"inventory_verified":33},
+ "women_historical":{"setting":"189 women main-bracket games, 2023–2025; reused development seasons","core":0.12921378101086964,"binary":0.12899329521841046,"margin":0.12830612086349052,"years":[{"year":2023,"core":0.1793314870111588,"binary":0.18077416760821968,"margin":0.17776901603320538},{"year":2024,"core":0.11548383096018426,"binary":0.11521532247957514,"margin":0.11496759767662948},{"year":2025,"core":0.0928260250612658,"binary":0.09099039556743659,"margin":0.09218174888063677}]},
+ "men_historical":{"setting":"503 men main-bracket games, 2017–2019 and 2021–2025","core":0.18666405247262732,"full_feature_fusion":0.18999577734811493,"nested_binary_selection":0.18778864929308758,"margin_blend":0.18552885717823125},
+ "preservation":{"total_rows":132133,"changed_women_rows":2278,"protected_rows":129855,"men_rows":66430},
+ "source":{"filename":"march_women_margin_candidate_return_20260922T163620151512Z-533.zip","sha256":"54d2d1ebfb63f43f53c42e3c6ab149ccaf7f2da8f28f64ff6a7fb664ebc16126","winning_benchmark_url":"https://www.kaggle.com/c/march-machine-learning-mania-2026/writeups/march-machine-learning-mania-2026-1st-place-solut"},
+ "next_step":"Private model-specific feature-family study; no candidate or score improvement asserted. No current training implementation published."
+}

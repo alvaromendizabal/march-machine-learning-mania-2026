@@ -1,32 +1,30 @@
-"""Small aggregate-only portfolio invariants; no model fitting."""
-import copy
-import unittest
-from current_research import load, validate
-
-class ReportTests(unittest.TestCase):
-    def setUp(self): self.data=load()
-    def reject(self,section,key,value):
-        data=copy.deepcopy(self.data);data[section][key]=value
-        with self.assertRaises(ValueError):validate(data)
-    def test_valid(self): self.assertEqual(validate(self.data)['schema'],1)
-    def test_no_invented_score(self): self.reject('women','kaggle_score',.1)
-    def test_no_invented_submission(self): self.reject('women','new_submissions',1)
-    def test_no_invented_incumbent(self): self.reject('scored','incumbent',.09)
-    def test_scored_identity(self): self.reject('scored','submission_ref','123')
-    def test_scored_hash(self): self.reject('scored','sha256','?')
-    def test_pooled_consistency(self): self.reject('women','margin',.1)
-    def test_nonfinite(self): self.reject('women','core',float('nan'))
-    def test_complete_years(self): self.reject('women','years',self.data['women']['years'][:2])
-    def test_all_repeats_retained(self): self.reject('women','repeats',self.data['women']['repeats'][:1])
-    def test_decision(self): self.reject('women','decision','SUBMIT_NOW')
-    def test_unchanged_tests(self): self.reject('women','regression_tests',100)
-    def test_unchanged_fits(self): self.reject('women','new_tree_fits',200)
-    def test_checks(self): self.reject('women','checks',{'one':True})
-    def test_screen_complete(self): self.reject('screen','gain',[.1])
-    def test_screen_finite(self): self.reject('screen','gain',[float('nan')]*8)
-    def test_not_always_beating_control(self):
-        self.assertEqual(sum(x['margin']<x['binary'] for x in self.data['women']['years']),2)
-    def test_all_years_beat_core(self):
-        self.assertTrue(all(x['margin']<x['core'] for x in self.data['women']['years']))
-
-if __name__=='__main__': unittest.main()
+import copy, unittest
+from current_research import load,validate
+class Tests(unittest.TestCase):
+ def setUp(self):self.d=load()
+ def reject(self,section,key,value):
+  d=copy.deepcopy(self.d);d[section][key]=value
+  with self.assertRaises(ValueError):validate(d)
+ def test_valid(self):self.assertEqual(validate(self.d)['schema'],1)
+ def test_incumbent(self):self.reject('scored','champion',.09)
+ def test_candidate(self):self.reject('scored','women_candidate',.09)
+ def test_promotion(self):self.reject('scored','decision','PROMOTE')
+ def test_champion_ref(self):self.reject('scored','champion_ref','1')
+ def test_women_ref(self):self.reject('scored','women_ref','1')
+ def test_champion_hash(self):self.reject('scored','champion_sha256','x')
+ def test_women_hash(self):self.reject('scored','women_sha256','z'*64)
+ def test_source_hash(self):self.reject('source','sha256','0')
+ def test_no_new_fits(self):self.reject('replay','new_tree_fits',1)
+ def test_no_new_upload(self):self.reject('replay','new_submissions',1)
+ def test_reused(self):self.reject('replay','reused_tree_fits',0)
+ def test_years(self):self.reject('women_historical','years',self.d['women_historical']['years'][:2])
+ def test_pooled(self):self.reject('women_historical','margin',.09)
+ def test_protected_rows(self):self.reject('preservation','men_rows',0)
+ def test_row_count(self):self.reject('preservation','total_rows',1)
+ def test_not_always_better(self):self.assertEqual(sum(x['margin']<x['binary'] for x in self.d['women_historical']['years']),2)
+ def test_historical_not_score(self):self.assertNotEqual(self.d['women_historical']['margin'],self.d['scored']['women_candidate'])
+ def test_nan(self):
+  d=copy.deepcopy(self.d);d['women_historical']['years'][0]['margin']=float('nan')
+  with self.assertRaises(ValueError):validate(d)
+ def test_positive_champion_gap(self):self.assertGreater(self.d['scored']['benchmark']-self.d['scored']['champion'],0)
+if __name__=='__main__':unittest.main()
