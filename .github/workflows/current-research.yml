@@ -1,7 +1,7 @@
 name: Current research evidence
 on:
   push:
-    branches: [main, publication/scored-update-20260922]
+    branches: [main, publication/private-research-case-study-20260922]
   pull_request:
 permissions:
   contents: read
@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   publish:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/publication/scored-update-20260922'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/publication/private-research-case-study-20260922'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -18,35 +18,35 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: publication/scored-update-20260922
+          ref: publication/private-research-case-study-20260922
       - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
           version: '0.11.33'
           python-version: '3.12.13'
           enable-cache: true
-      - name: Execute aggregate report only
+      - name: Execute approved aggregate case study only
         run: |
           uv sync --locked --group dev
           uv run --locked python -m ipykernel install --user --name march-portfolio
           uv run --locked python -m unittest discover -s portfolio -p 'test_current_research.py' -v
           uv run --locked python portfolio/current_research.py --build --kernel march-portfolio
           uv run --locked python portfolio/current_research.py --check
-      - name: Commit allowlisted generated evidence to the publication branch
+      - name: Commit only allowlisted report outputs to the dedicated branch
         env:
           EXPECTED_SHA: ${{ github.sha }}
         run: |
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          git add -f -- portfolio/current_research.ipynb reports/current_research/publication.json reports/current_research/figures/scored.png reports/current_research/figures/women_screen_history.png reports/current_research/figures/women_robustness.png reports/current_research/figures/women_robustness_years.png reports/current_research/figures/women_robustness_repeats.png reports/current_research/figures/women_objective_ablation.png
           python - <<'PY'
           import subprocess
-          allowed = ['portfolio/current_research.ipynb','reports/current_research/publication.json'] + ['reports/current_research/figures/'+n+'.png' for n in ['scored','screen','pooled','years','seeds','ablation','women','women_years']]
-          subprocess.run(['git','add','-f','--',*allowed],check=True)
-          paths = subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()
-          assert paths and set(paths) <= set(allowed), paths
+          paths = subprocess.check_output(['git','diff','--cached','--name-only'], text=True).splitlines()
+          allowed = {'portfolio/current_research.ipynb','reports/current_research/publication.json'} | {'reports/current_research/figures/'+n+'.png' for n in ['scored','women_screen_history','women_robustness','women_robustness_years','women_robustness_repeats','women_objective_ablation']}
+          assert paths and set(paths) <= allowed, paths
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Execute scored research case study with women transfer evidence'
-          git push origin HEAD:refs/heads/publication/scored-update-20260922
+          git commit -m 'Publish executed employer case study and verified figures'
+          git push origin HEAD:refs/heads/publication/private-research-case-study-20260922
   verify:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
           version: '0.11.33'
           python-version: '3.12.13'
           enable-cache: true
-      - name: Verify saved output and clean-kernel reproduction
+      - name: Check saved evidence and re-execute report from a clean kernel
         run: |
           uv sync --locked --group dev
           uv run --locked python -m unittest discover -s portfolio -p 'test_current_research.py' -v

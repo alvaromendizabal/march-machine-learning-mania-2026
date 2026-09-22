@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "as_of_utc": "2026-09-22T02:53:11Z",
+  "purpose": "Employer-facing case study; training implementation and future recipes remain outside this publication.",
+  "scored": {"predecessor":0.1098691,"incumbent":0.1094899,"published_benchmark":0.1097454,"submission_ref":"56447505","status":"COMPLETE","filename":"march_core75_margin25_candidate.csv","sha256":"b3deb57b527450e93682be298bf810275f41d9a7c5056bad6f1b48dd9573bc1c","setting":"Late post-competition score, not an original competition rank","benchmark_source":"https://github.com/harrisonhoran/kaggle-march-mania-2026-1st-place/blob/main/kagglewriteup.md"},
+  "women": {
+    "setting":"189 main-bracket games, 2023–2025; reused historical development years","decision":"CANDIDATE_BUILD_REVIEW",
+    "checks":{"all_tournament_guard":true,"at_least_two_seasons":true,"conditional_support":true,"every_predeclared_seed_nonnegative":true,"gain_over_strong_core":true,"margin_beats_matched_binary":true,"worst_season_guard":true},
+    "core":0.12921378101086964,"binary":0.12899329521841046,"margin":0.12830612086349052,"all_tournament_gain":0.0010450845437952605,
+    "new_tree_fits":234,"regression_tests":78,"run_seconds":53.43,"new_submissions":0,"kaggle_score":null,
+    "years":[{"year":2023,"games":63,"core":0.1793314870111588,"margin":0.17776901603320538,"binary":0.18077416760821968},{"year":2024,"games":63,"core":0.11548383096018426,"margin":0.11496759767662948,"binary":0.11521532247957514},{"year":2025,"games":63,"core":0.0928260250612658,"margin":0.09218174888063677,"binary":0.09099039556743659}],
+    "repeats":[{"repeat":"Repeat 1","brier":0.12837952420986504},{"repeat":"Repeat 2","brier":0.12828181532647148},{"repeat":"Repeat 3","brier":0.12825941674550306}]
+  },
+  "screen":{"setting":"Women, 504 main-bracket games, 2017–2019 and 2021–2025; reused development years","years":[2017,2018,2019,2021,2022,2023,2024,2025],"gain":[0.00025644695914636695,0.004455038825296825,0.0012285977465548714,-0.0006985669830980035,0.004402618791485319,0.002786723655019391,-0.000859807368477114,0.0024578788349071956]},
+  "sources":{"women_return_sha256":"52c742b0532438dbaa71f84d54e7f089245de34fdac5df36b3e9836d4ff5e44e","women_notebook_sha256":"38b01fe952f3db3139356dc30379b04df1d8a1c83305f4d39ee06f8980970f8d","scored_release_evidence":"reports/current_research/progression.json"},
+  "limits":["Historical development years were reused and hypotheses selected sequentially; this is not independent confirmation.","Calibration and early stopping share inner held-out predictions; outer years are excluded from fitting.","Three fixed random repeats assess numerical stability, not independent tournaments.","The women component is not scored. Its historical gain is not a predicted Kaggle improvement.","Previously published licensed material remains public. This update does not revoke past permissions or erase Git history."],
+  "next_step":"Build one frozen women candidate, preserve every scored men prediction, validate all rows, then allow at most one separately controlled score test."
+}
