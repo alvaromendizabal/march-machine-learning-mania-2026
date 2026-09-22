@@ -1,111 +1,106 @@
-# Current research: margin supervision as a complementary forecast
+# Current research: scored margin ensemble and women's transfer
 
-Evidence through **2026-09-21 23:50 UTC**. Main entry point:
-[executed case study](../portfolio/current_research.ipynb).
+Evidence through the women's run on **2026-09-22 at 02:13 UTC**. Open the
+[executed case study](../portfolio/current_research.ipynb) for the visual account.
 
-## Contract and mechanism
+## Achieved scored milestone
 
-The retained men's core uses seed difference and Harry-rating difference. The
-auxiliary representation adds 31 existing feature differences (ratings, schedule,
-efficiency, shooting, possession and form). The controlled comparison uses the
-same 33 inputs for signed binary outcomes and signed point margins divided by 20.
-Both targets use XGBoost squared error, depth 3, learning rate 0.03, at most 1,200
-trees and 75-round early stopping. The complete publication policy is recorded
-in `method` within the [evidence file](../reports/current_research/evidence.json).
+Kaggle submission **56447505**, file `march_core75_margin25_candidate.csv`, completed
+with both public and private Brier **0.1094899**. Its SHA-256 is
+`b3deb57b527450e93682be298bf810275f41d9a7c5056bad6f1b48dd9573bc1c`.
+The predecessor scored 0.1098691. The observed improvement is 0.0003792.
 
-For outer years 2023, 2024 and 2025, only earlier tournament seasons enter training.
-Each earlier season is left out in turn: 19, 20 and 21 inner folds. Three seeds and
-two targets produce **(19 + 20 + 21) × 3 × 2 = 360 fits**. A common zero-intercept
-sigmoid calibration method is fitted on pooled inner held-out scores; calibrated
-per-model forecasts are averaged over folds and then seeds. The final rule is
-**0.75 × frozen stronger core + 0.25 × auxiliary probability**.
+The first-place author reports **0.1097454 on 126 games**. The late-submission number
+is lower by 0.0002555, but this is not retroactive first place or independent evidence
+of prospective superiority. No historical Brier delta is converted into a forecast
+of a Kaggle score. The returned Kaggle observation is evidence, not a fresh live API
+lookup performed by this publication.
 
-The reference core is not refitted. The richer margin ensemble is not an exact
-reproduction of the competition winner's hyperparameters or calibration. Margin
-supervision and this fixed blending experiment are tested adaptations, not a
-claim to own another author's method or replicate every winning component.
+The men's prediction rule is 75% frozen core plus 25% rich margin model, with a fixed
+three-seed average. A 66-fit build changed only 2,278 seeded-men matchups in the
+132,133-row file. The 129,855 protected lines include every women's prediction.
+Only one submission occurred. The scored file is preserved outside this public update.
 
-## Results and decision
+## Historical mechanism and matched controls
 
-| Historical men: 189 main-bracket games | Brier |
+The men's margin model uses the two-feature core plus 31 auxiliary differences.
+Binary and signed margin/20 targets share XGBoost squared error, depth-three trees,
+regularization, sigmoid calibration and assessment splits. The robustness run used
+19, 20 and 21 inner leave-one-season-out folds, three seeds and two targets: 360 fits.
+On the same 189 men's main-bracket games, core Brier was 0.1795046214, matched binary
+blend 0.1778816298 and margin blend 0.1774648178. Margin improved the core in all
+three years and seeds; it beat binary in two of three years. Its historical build-review
+decision remains unchanged in evidence.json. The later successful score belongs to
+progression.json, rather than being inserted into the historical experiment.
+
+## Women's screening result
+
+Women have a different four-feature core and 28 auxiliary differences, 32 total.
+The fixed 25% rich margin blend was the only candidate; the binary-target blend was
+a matched control, not an alternative selected after evaluation. No women's Massey
+or men-only AP features were invented. The same tree and calibration settings were
+used for both targets. Forty-eight fits covered eight outer years and three inner
+whole-season folds per target. Training, fitted scaling, early stopping and calibration
+excluded each outer assessment year.
+
+| Women: same 504 main-bracket games | Historical Brier |
 |---|---:|
-| Frozen stronger core | 0.1795046214 |
-| 25% rich binary-target blend | 0.1778816298 |
-| 25% rich margin-target blend | 0.1774648178 |
+| Frozen screening core | 0.1405293026 |
+| Matched binary blend | 0.1402266270 |
+| Fixed margin blend | 0.1387756863 |
 
-The margin blend gains **0.0020398036** against the core and **0.0004168120** against
-the matched binary blend. It improves the core in all three years and for all
-three seeds. Margin beats binary in two years; binary is better in 2025.
-All-tournament improvement, including play-ins, is **0.0016179283**. It is not the
-same evaluation population as the main-bracket table.
+The margin gain is 0.0017536163 against the core and 0.0014509407 over the binary
+control; six of eight years improve. Against the retained stronger women reference
+on 189 games in 2023–2025, the same screened margin forecasts improve Brier from
+0.1292137810 to 0.1282180967 in all three years. This is **not** a fully trained
+margin-ensemble result. All eight screening checks passed; the decision is
+**FULL_RECIPE_REVIEW**. No 2026 women probabilities or Kaggle score were produced.
 
-All seven predeclared checks passed. These require at least 0.0005 gain against
-the stronger core, at least 0.00025 gain over the matched target control, at least
-two improving years, nonnegative aggregate results for every seed, an all-tournament
-guard, worst-season guard and conditional bootstrap support. The decision remains
-**CANDIDATE_BUILD_REVIEW**. No 2026 challenger file or new Kaggle score was produced.
+## Limitations
 
-## Why negative results are included
+Historical years were reused across experiments and hypothesis selection. Outer-year
+exclusion prevents direct same-year training, not accumulated validation overfitting.
+Inner held-out scores guide early stopping and calibration. Bootstrap support is
+conditional on the selected procedure; it is not selection-adjusted proof. Seeds
+measure numerical stability, not independent tournament outcomes. The men's late
+score motivated the women's hypothesis; no 2026 tournament outcomes enter fitting.
 
-The report compares five procedures on the same eight-year, 503-game men's screen:
-full feature union, residual PCA, nested subset selection, frozen-core feature
-correction, and the fixed rich margin blend. The first four were rejected. The
-margin screen justified the later fuller-ensemble check, not an immediate submission.
-The women's subset branch was stopped after a predefined worst-season violation;
-its four-season partial evaluation is not plotted as an eight-season result.
+The retained official women's score file is checksum-locked and agrees with frozen
+labels. This publication did not independently recover an original official snapshot.
+Likewise, returned control-prediction hashes are verified without claiming that every
+underlying control model binary was revalidated.
 
-## Limitations that affect interpretation
+## Provenance and reproducibility
 
-2023–2025 were already used in project development. The margin proposal was
-selected from an earlier four-proposal screen on overlapping years. Outer-year
-exclusion prevents direct same-year fitting, but does not reverse accumulated
-validation selection. Bootstrap estimates are conditional on the chosen model
-and three reused seasons; they are not selection-adjusted confidence in a future
-competition result. Inner held-out scores guide both early stopping and calibration.
-Averaging three seeds measures numerical stability, not three independent tournaments.
+The scored source return has SHA-256
+`4034c6f203f3f7b63c4f65ab3d70da6d7fb28170b33995a546135b14202021c6`;
+all 36 inventory entries were checked. The women's source return has SHA-256
+`dcdafc3cdcc67a886faeeb390177005a28f7c788ab2ae354bff9d7ec494d7403`;
+all 20 inventory entries were checked. Historical metrics were independently
+recalculated from saved predictions. The score record and exact candidate hash agree.
+Source metadata, aggregate year results and checks are retained in
+[progression.json](../reports/current_research/progression.json).
 
-The incumbent's 0.1098691 score is a recorded late Kaggle submission. Harrison
-Horan's writeup reports the 0.1097454 first-place benchmark on 126 games. The
-0.0001237 difference is a numerical reference, not an original rank claim or
-proof of exact scoring-scope equivalence. No historical Brier improvement is
-converted into a predicted Kaggle score.
+GitHub receives the curated notebook, report code, tests, aggregate evidence and
+interpretation. AWS retains raw data, current full training source state, caches,
+models, per-game artifacts, environments and local modifications. This update is
+not an AWS synchronization. Re-executing the public report reproduces aggregates
+and figures, not training; hashes do not make omitted private artifacts recoverable.
+The earlier 70-submission release and evidence.json are preserved.
 
-## Provenance and publication boundaries
+## Next boundary
 
-The latest source is `march_margin_robustness_return_20260921T234907325480Z-561.zip`,
-SHA-256 `4b1f034521a2a81a9b84f5f3d2720949e0d63cfe898740bfee400978e1d6a8ab`.
-Its 21 inventory entries were checked, and main-bracket Brier was independently
-recalculated from saved predictions before publication. The original AWS notebook
-has seven Plotly outputs and seven image fallbacks. Its SHA-256 is recorded in
-the evidence JSON; this curated six-chart report is a different notebook.
+Evaluate the exact women's blend with three seeds and inner leave-one-season-out
+training against the retained stronger core and a matched binary-target control.
+Passing earns one candidate-build review. A new score test requires a validated
+frozen artifact and separate execution authorization; no speculative upload is part
+of this publication.
 
-The JSON preserves aggregate results, source archive hashes, source notebook
-identity, the late-submission identifier and prediction-file checksum. This is
-an auditable publication extract, not a claim that hashes alone enable recovery
-of the private source files. The underlying archives remain in the owner's records.
+## Attribution
 
-**GitHub receives:** portable report code, a clean-kernel executed notebook,
-aggregate evidence, figures, tests and interpretation. Existing repository
-implementation and historical release evidence remain intact.
-
-**AWS retains:** complete current training sources and local modifications, raw
-competition records, feature caches, per-game predictions, model binaries,
-checkpoint directories, local configuration and environments. This curated
-publication does not pretend to synchronize all of those files. Full training
-reproduction needs those authorized inputs and the retained source state.
-The report reproduces its own published analyses using only committed aggregates.
-
-## Attribution and missing mechanisms
-
-The compact core is adapted from [Harrison Horan's first-place writeup](https://github.com/harrisonhoran/kaggle-march-mania-2026-1st-place/blob/main/kagglewriteup.md).
-Existing broader research is indexed in [research/README.md](../research/README.md).
-External market/player information and every other top-solution mechanism have
-not been reproduced merely because this target ablation passed. This publication
-makes no claim of comprehensive top-solution reconstruction.
-
-## Next modeling boundary
-
-Freeze one candidate using the retained policy; verify temporal inputs, probability
-ranges, template ordering, unique IDs, exact women/protected-row invariance and
-checkpoint lineage. Only after those checks should one separately authorized
-submission test the candidate. Publication itself does not train, deploy or submit.
+The compact reference is adapted from
+[Harrison Horan's first-place writeup](https://github.com/harrisonhoran/kaggle-march-mania-2026-1st-place/blob/main/kagglewriteup.md).
+The margin extension is a controlled adaptation, not an exact reproduction of the
+winner's full training or calibration. Broader implementation history remains in
+[the research index](../research/README.md); all external leading-solution mechanisms
+are not claimed to have been recreated merely because this extension worked.
