@@ -1,22 +1,19 @@
 {
   "status": "PASS",
-  "scope": "Executed aggregate report; no training",
-  "evidence_sha256": "8ecb787e2271ee5e97e846cd64fe57ae661d4132c544dbefc7c4683fb9e82d9e",
-  "progression_sha256": "529494ec0cde81cf36097f1815e5452ff5ce58f74279508d05212049f1af291d",
-  "notebook_sha256": "7998cd118a2973208b97297c987d0386a1c09d0726fafb38347738f036b0452d",
-  "builder_sha256": "6b99cb9c8de9539bda6adcb266a59b30251168ea9837e0511fcc677bfb02b30d",
-  "executed_code_cells": 11,
-  "plotly_outputs": 8,
-  "embedded_png_fallbacks": 8,
-  "report_model_fits": 0,
-  "figure_sha256": {
-    "scored.png": "1ec293bdef5708fa11072c92a971fa6054fa9bcf6ae826fd96d37d10ad1a7ef0",
-    "screen.png": "db465b9d46902215883ff07a0aa2d9b58dda07bc79d60cf1aebee8aa8cd4ace3",
-    "pooled.png": "56c7127a3a23d6e8a506255f2fee95ce8ee0eeb65cd64d1ba9b6ecbc31e48af1",
-    "years.png": "1664c2c79c1a9005ad4efaa07018f4254721071161384839b9f252ae1f4eb65e",
-    "seeds.png": "d474a03440e909ab793d71df494e611254676a72a32025fb3e94f3e915d3a9f0",
-    "ablation.png": "8f2abf89f4a51f189bca813bfc712f20f5189d5e63838a269823f5cad2f5f083",
-    "women.png": "dafae6c3ea39d8f5574bf40cd96ab6daf5b43d1e26fa5f29343a6afa3dba7ba6",
-    "women_years.png": "193640bfb2e82e4f8995dc20d6b2ef4703ef9a63ade5a391673a8f96770a6058"
+  "scope": "Executed aggregate case study, no training",
+  "milestone_sha256": "625b6c1abbd93fe1ff8e1fdf8dc3d3d27d788d9f47b0f58b45b277b4a0a729e9",
+  "builder_sha256": "c1d20a4a48d301bc75812f51c1baf666e686e467aaaf59b3e1171b040d68d5b2",
+  "notebook_sha256": "4e92f08c4344dcea4259f1b8f28b8deed3b30af83c970846bd2d1871e27a1aff",
+  "executed_code_cells": 9,
+  "plotly_outputs": 6,
+  "png_fallbacks": 6,
+  "model_fits": 0,
+  "figures": {
+    "scored": "165ecf666af646e1dafecd332db7e34a157720f248bd8586f370f2c45a5b0097",
+    "women_screen_history": "efa3f9e19a274147cd3910cd0cd109c733729c8bcc483c4017cbd3b926b36026",
+    "women_robustness": "70f60beb07fc2478b562c1c886c541d08ed70e473355e71375e60ee8e6b724a4",
+    "women_robustness_years": "1c41750919d92d71a4926db291efb63945372027ea70df41e6308b8041da3e1c",
+    "women_robustness_repeats": "864d75b121502b082a22debd8672581afbe55491f35eb45f5397efd66f615b08",
+    "women_objective_ablation": "fb378248c28af7f6fc7e9b2801f24b3d74e6accbc330513c4ae2ade54b90fddc"
   }
 }
