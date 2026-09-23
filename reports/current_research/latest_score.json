@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "as_of_utc": "2026-09-23T01:52:03Z",
+  "setting": "post-competition Kaggle scoring; not original competition placement or independent prospective validation",
+  "champion": {
+    "submission_ref": "56479241",
+    "filename": "march_champion_bpi_futures_only_men.csv",
+    "score": 0.1089408,
+    "public_score": 0.1089408,
+    "private_score": 0.1089408,
+    "sha256": "b10aeddf304ca6f5e2c6f749ce4a792210ac554f6a99bb6d8b68aeabbfe110d9"
+  },
+  "predecessor": {
+    "submission_ref": "56447505",
+    "score": 0.1094899,
+    "sha256": "b3deb57b527450e93682be298bf810275f41d9a7c5056bad6f1b48dd9573bc1c"
+  },
+  "published_benchmark": {
+    "score": 0.1097454,
+    "label": "2026 first-place benchmark"
+  },
+  "gains": {
+    "vs_predecessor": 0.0005491,
+    "vs_published_benchmark": 0.0008046
+  },
+  "stretch_target": {
+    "score": 0.09,
+    "gap": 0.0189408,
+    "relative_reduction_required": 0.173865
+  },
+  "component": {
+    "name": "BPI championship-futures tier",
+    "changed_rows": 1986,
+    "protected_rows": 130147,
+    "women_rows_unchanged": 65703,
+    "model_fits": 0,
+    "upload_attempts": 1,
+    "automatic_followups": 0
+  },
+  "decomposition": {
+    "full_overlay_score": 0.1098037,
+    "round1_only_score": 0.1103527,
+    "inferred_score": 0.1089409,
+    "inferred_interval": [
+      0.10894075,
+      0.10894105
+    ],
+    "observed_score": 0.1089408,
+    "consistent": true
+  },
+  "limitations": [
+    "Component selection used post-competition leaderboard feedback.",
+    "The fixed component probabilities existed before the component scores were observed, but isolation is post hoc.",
+    "This does not establish original competition placement or 2027 generalization.",
+    "0.09 is an unachieved stretch target."
+  ],
+  "public_scope": "Employer-facing aggregate evidence; current training implementation and fitted artifacts remain private."
+}

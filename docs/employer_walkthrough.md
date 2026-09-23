@@ -1,37 +1,31 @@
-# Employer walkthrough | achieved forecasting release
+# Employer walkthrough | NCAA forecasting research
 
-**0.1094899 recorded late-submission Brier**, compared with the published 2026 winning
-benchmark of **0.1097454**. The numerical lead is 0.0002555; it is not an original
-competition placement or a guarantee of future superiority.
+## Headline
 
-Start with the [executed case study](../portfolio/current_research.ipynb). It shows the
-achieved score, the rejected follow-on candidate and the controlled experiments behind them.
+**Best recorded post-competition Brier: 0.1089408.**
 
-## What to evaluate
+The published 2026 winning benchmark was **0.1097454**, so the recorded result is numerically lower by **0.0008046**, approximately **0.73% lower Brier**. This is a retrospective benchmark result—not an original competition placement or a claim of prospective superiority.
 
-**Experimental design:** the project did not equate large feature counts with quality.
-It compared feature representations and learning targets, preserved failed hypotheses,
-and advanced a margin-based complement only after historical checks. The successful
-men's release and unsuccessful women's extension demonstrate why actual scoring remains
-separate from validation.
+## What I would evaluate as an employer
 
-**Engineering:** private experiments preserve source/data/model identity, resume completed
-folds, validate input and probability contracts, protect previously scored rows, and
-avoid duplicate uploads after uncertain network responses. The latest replay reused
-45 models with zero new fits or submissions. The original champion was not overwritten.
+**Research judgment.** The project began from public leading-solution ideas but did not stop at reproduction. The strongest statistical improvement came from separating two jobs: a compact win-probability core and a richer score-margin ensemble. Multiple plausible alternatives were tested and rejected rather than hidden.
 
-**Communication and judgment:** the notebook retains negative evidence and acknowledges
-reused development years. The women's historical improvement did not justify promotion
-after its recorded score deteriorated. Model-specific feature selection and missing-signal
-research remain open without claiming exhaustive coverage or an unattained target.
+**Controlled iteration.** Historical whole-season assessments, matched controls, fixed blend rules and explicit promotion gates constrained model development. Later post-competition score tests are labeled as such; repeated leaderboard feedback is not presented as an untouched holdout.
 
-## Ownership and the next boundary
+**Engineering reliability.** Scored artifacts are checksum-locked. Candidate builders protect unaffected rows byte-for-byte, checkpoint expensive work, validate notebook outputs after reopening, and prevent duplicate uploads after ambiguous responses. The latest scored run made one upload attempt, zero model fits, and passed all eleven stages.
 
-The public case study exposes approved results and high-level reasoning, not the current
-forecasting pipeline or detailed next-season recipe. Existing public source and licenses
-remain visible; no history rewriting or repository visibility change is implied.
+**Evidence-based debugging.** A full market overlay worsened the score, and a Round-1-only overlay worsened it further. Because those candidate changes were disjoint, their Brier contributions could be decomposed algebraically. The isolated championship-futures tier was predicted to score about 0.1089409 before submission and then scored **0.1089408**.
 
-The achieved release review is complete. Further private research is a separate milestone.
-The 2027 objective is to collect and evaluate forecasts made before outcomes, with audited
-season-specific input availability and a frozen decision procedure. See the
-[readiness plan](2027_readiness.md) and [evaluation note](current_research.md).
+## Model lineage
+
+The strongest statistical model uses XGBoost in two complementary roles: a compact binary-outcome core and a richer score-margin ensemble. The margin representation incorporates efficiency, shooting, possession, rating, schedule and form information. The latest scored artifact adds a fixed championship-futures information tier to selected men’s pairings while preserving the rest of the champion.
+
+The public portfolio communicates the architecture, evidence, controls and achieved results. Current private training implementation, model binaries, exact feature formulas and future competition recipes remain outside this publication.
+
+## Limitations
+
+The 0.1089408 result was obtained after the competition and after iterative research using 2026 feedback. It therefore does not establish what the system would have achieved under the original competition information set, nor does it predict 2027 performance.
+
+The 0.09 figure is a stretch target, not an achieved or published winning score. A genuinely stronger 2027 claim should come from predictions recorded before future outcomes.
+
+See [current research](current_research.md), [2027 readiness](2027_readiness.md), and the [machine-readable milestone](../reports/current_research/latest_score.json).
