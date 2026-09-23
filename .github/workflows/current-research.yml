@@ -1,7 +1,7 @@
 name: Current research evidence
 on:
   push:
-    branches: [main, publication/research-status-20260922]
+    branches: [main, publication/futures-champion-20260922]
   pull_request:
 permissions:
   contents: read
@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   publish:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/publication/research-status-20260922'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/publication/futures-champion-20260922'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: publication/research-status-20260922
+          ref: publication/futures-champion-20260922
       - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
         with:
           version: '0.11.33'
@@ -36,17 +36,17 @@ jobs:
           EXPECTED_SHA: ${{ github.sha }}
         run: |
           test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
-          git add -f -- portfolio/current_research.ipynb reports/current_research/publication.json reports/current_research/figures/release_scores.png reports/current_research/figures/men_research.png reports/current_research/figures/women_historical.png reports/current_research/figures/women_years.png reports/current_research/figures/women_target_control.png reports/current_research/figures/protected_rows.png
+          git add -f -- portfolio/current_research.ipynb reports/current_research/publication.json reports/current_research/figures/release_scores.png reports/current_research/figures/gains.png reports/current_research/figures/market_components.png reports/current_research/figures/scope.png reports/current_research/figures/score_gap.png reports/current_research/figures/research_boundary.png
           python - <<'PY'
           import subprocess
-          paths = subprocess.check_output(['git','diff','--cached','--name-only'], text=True).splitlines()
-          allowed = {'portfolio/current_research.ipynb','reports/current_research/publication.json'} | {'reports/current_research/figures/'+n+'.png' for n in ['release_scores','men_research','women_historical','women_years','women_target_control','protected_rows']}
-          assert paths and set(paths) <= allowed, paths
+          paths=subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()
+          allowed={'portfolio/current_research.ipynb','reports/current_research/publication.json'} | {'reports/current_research/figures/'+n+'.png' for n in ['release_scores','gains','market_components','scope','score_gap','research_boundary']}
+          assert paths and set(paths)<=allowed, paths
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Publish verified release-decision report and figures'
-          git push origin HEAD:refs/heads/publication/research-status-20260922
+          git commit -m 'Publish executed futures-champion case study and figures'
+          git push origin HEAD:refs/heads/publication/futures-champion-20260922
   verify:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest

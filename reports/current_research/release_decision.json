@@ -1,11 +1,69 @@
 {
- "schema":1,
- "as_of_utc":"2026-09-22T16:36:43.235972+00:00",
- "scored":{"champion":0.1094899,"champion_ref":"56447505","champion_sha256":"b3deb57b527450e93682be298bf810275f41d9a7c5056bad6f1b48dd9573bc1c","benchmark":0.1097454,"predecessor":0.1098691,"women_candidate":0.1105237,"women_ref":"56469094","women_sha256":"ded9249b39e82d7526146bd64466f8b875a15f10d33b4610fd432e8e9896d9f4","decision":"KEEP_CHAMPION_REJECT_WOMEN","setting":"Recorded post-competition Kaggle scores, not original competition placement"},
- "replay":{"run_id":"20260922T163620151512Z-533","new_tree_fits":0,"reused_tree_fits":45,"new_submissions":0,"elapsed_seconds":23.08,"inventory_verified":33},
- "women_historical":{"setting":"189 women main-bracket games, 2023–2025; reused development seasons","core":0.12921378101086964,"binary":0.12899329521841046,"margin":0.12830612086349052,"years":[{"year":2023,"core":0.1793314870111588,"binary":0.18077416760821968,"margin":0.17776901603320538},{"year":2024,"core":0.11548383096018426,"binary":0.11521532247957514,"margin":0.11496759767662948},{"year":2025,"core":0.0928260250612658,"binary":0.09099039556743659,"margin":0.09218174888063677}]},
- "men_historical":{"setting":"503 men main-bracket games, 2017–2019 and 2021–2025","core":0.18666405247262732,"full_feature_fusion":0.18999577734811493,"nested_binary_selection":0.18778864929308758,"margin_blend":0.18552885717823125},
- "preservation":{"total_rows":132133,"changed_women_rows":2278,"protected_rows":129855,"men_rows":66430},
- "source":{"filename":"march_women_margin_candidate_return_20260922T163620151512Z-533.zip","sha256":"54d2d1ebfb63f43f53c42e3c6ab149ccaf7f2da8f28f64ff6a7fb664ebc16126","winning_benchmark_url":"https://www.kaggle.com/c/march-machine-learning-mania-2026/writeups/march-machine-learning-mania-2026-1st-place-solut"},
- "next_step":"Private model-specific feature-family study; no candidate or score improvement asserted. No current training implementation published."
+  "schema": 1,
+  "as_of_utc": "2026-09-23T01:52:03.479376+00:00",
+  "scored": {
+    "benchmark": 0.1097454,
+    "stretch_target": 0.09,
+    "predecessor": 0.1098691,
+    "margin_release": {
+      "score": 0.1094899,
+      "ref": "56447505",
+      "sha256": "b3deb57b527450e93682be298bf810275f41d9a7c5056bad6f1b48dd9573bc1c"
+    },
+    "full_market": {
+      "score": 0.1098037,
+      "ref": "56477974",
+      "sha256": "8ffe8bf0d6e7d4f654713fe679a5fe45fece57fe4fabf816c23b408766277c3a",
+      "decision": "REJECT"
+    },
+    "r1_market": {
+      "score": 0.1103527,
+      "ref": "56478385",
+      "sha256": "5a98947efb4351e79b4c38f15fa1ccde276802ef2240a32e7aced42a2bb1405e",
+      "decision": "REJECT"
+    },
+    "champion": {
+      "score": 0.1089408,
+      "ref": "56479241",
+      "sha256": "b10aeddf304ca6f5e2c6f749ce4a792210ac554f6a99bb6d8b68aeabbfe110d9",
+      "decision": "RETAIN"
+    },
+    "setting": "Recorded post-competition Kaggle scores, not original competition placement"
+  },
+  "decomposition": {
+    "formula": "futures_only = margin_release + full_market - r1_market",
+    "inferred_score": 0.1089409,
+    "inferred_interval": [
+      0.10894075,
+      0.10894105
+    ],
+    "scored_consistent": true,
+    "full_market_rows": 2018,
+    "r1_rows": 32,
+    "futures_rows": 1986,
+    "disjoint": true
+  },
+  "integrity": {
+    "rows": 132133,
+    "changed_rows": 1986,
+    "protected_rows": 130147,
+    "women_rows_unchanged": 65703,
+    "men_rows_unchanged": 64444,
+    "tree_fits": 0,
+    "probability_model_fits": 0,
+    "upload_attempts": 1,
+    "automatic_followups": 0,
+    "elapsed_seconds": 30.66
+  },
+  "limitations": [
+    "The retained result is post-competition and benefited from public solution information and prior score feedback.",
+    "The futures component was selected after observing scores from two disjoint market variants; it is not independent validation.",
+    "The scored result does not imply an original competition placement, prize, or guaranteed 2027 improvement.",
+    "Public evidence is intentionally aggregate; the current private training and inference implementation is not published by this milestone."
+  ],
+  "source": {
+    "return_filename": "march_bpi_futures_ablation_return_20260923T015203485144Z-500(1).zip",
+    "return_sha256": "cade9315d47c2c3a22a9c53df0d4b026a7bf526911a29745a6c7427147606a6f",
+    "benchmark_url": "https://www.kaggle.com/competitions/march-machine-learning-mania-2026/leaderboard"
+  }
 }
