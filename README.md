@@ -1,66 +1,46 @@
 # NCAA tournament forecasting | ML engineering case study
 
-**Alvaro Mendizabal · probability forecasting · controlled research · cloud ML engineering**
+**Alvaro Mendizabal · probability forecasting · controlled experimentation · cloud ML engineering**
 
-## Achieved result: 0.1094899 Brier
+## Best recorded result: 0.1089408 Brier
 
-The retained release achieved **0.1094899 Brier** in recorded post-competition Kaggle
-scoring, numerically below the published 2026 winning benchmark of **0.1097454** by
-**0.0002555**. This is a late-submission comparison, not an original first-place finish.
+A checksum-verified post-competition submission achieved **0.1089408 Brier**, numerically below the published 2026 winning benchmark of **0.1097454** by **0.0008046** (about **0.73% lower Brier**).
 
-**[Open the executed case study](portfolio/current_research.ipynb)** ·
-[Employer walkthrough](docs/employer_walkthrough.md) ·
-[Current evidence](reports/current_research/release_decision.json)
+This is a **post-competition benchmark result**, not a claim of original first place, prize eligibility, or independent prospective superiority.
 
-| Evidence | Result | Decision |
+| Recorded milestone | Brier | What changed |
 |---|---:|---|
-| Retained scored release | **0.1094899** | Keep |
-| Previous release | 0.1098691 | Improved by the retained release |
-| Subsequent women's extension | 0.1105237 | Rejected; champion unchanged |
+| Earlier scored reference | 0.1098691 | Compact reference refinement |
+| Margin-ensemble champion | 0.1094899 | Rich score-margin model added to compact core |
+| **Current recorded best** | **0.1089408** | Fixed BPI championship-futures information layered onto the champion |
+| Published 2026 winning benchmark | 0.1097454 | External reference |
 
-![Recorded scored releases](reports/current_research/figures/release_scores.png)
+**[Employer walkthrough](docs/employer_walkthrough.md)** ·
+[Evaluation boundaries](docs/current_research.md) ·
+[Machine-readable milestone](reports/current_research/latest_score.json)
 
-## What the project demonstrates
+## Why the project is interesting
 
-**Research judgment.** Feature expansion, dimension reduction, chronological subset
-selection, target comparisons and ensemble experiments were evaluated against controlled
-references. Margin supervision yielded a complementary men's forecast and a better
-scored release. A later women's extension passed historical checks but lost when scored;
-that negative result is preserved rather than hidden.
+**Modeling contribution.** The strongest statistical release did not come from blindly expanding a winning feature set. A compact XGBoost win-probability core was complemented by a richer XGBoost score-margin ensemble using efficiency, shooting, possession, ratings, schedule and recent-form information. That division of labor produced the 0.1094899 scored release.
 
-**Statistical care.** Whole-season assessments, training-only transformations, matched
-controls and probability diagnostics address the forecasting problem. Repeatedly used
-development seasons are not described as untouched tests. The distinction between a
-historical gain and an achieved Kaggle score is visible throughout the case study.
+**Information contribution.** Subsequent controlled ablations showed that game-specific Round-1 market forecasts hurt this completed-tournament score, while a predeclared championship-futures tier improved it. The resulting 0.1089408 artifact changed 1,986 men’s matchup rows while preserving 130,147 rows, including all 65,703 women’s predictions.
 
-**Reliable execution.** Checksummed prediction files, protected-row contracts, resumable
-model artifacts and at-most-once submission attempts protect completed work. The latest
-replay reused all 45 candidate models, performed zero new fits and made no new upload.
-Every one of the achieved men's prediction lines stayed unchanged in the rejected candidate.
+**Research discipline.** The project retains negative results: women’s margin transfer, broad market overlays, Round-1 market blending, sparse ranking selection, robust loss, leaf readout, feature-family removal and calibration did not earn promotion. A failed hypothesis is not rewritten as a success.
 
-**Technical communication.** The executed notebook has six inline Plotly figures and
-embedded static fallbacks. A reviewer can inspect the evidence without AWS access.
+**Engineering discipline.** Experiments use checksummed artifacts, protected-row contracts, restartable checkpoints, independent prediction verification, bounded fit counts and at-most-once submission logic. The latest scored run fitted **zero models**, made exactly **one upload attempt**, passed all 11 stages, and matched the score predicted by a disjoint-component Brier decomposition.
 
-## Scope and completion
+## Current system, at a glance
 
-The achieved release and its review are complete milestones. Ongoing private research
-is not declared finished: feature selection is model- and objective-specific, and
-leading-solution coverage is not exhaustive. No 0.09 score or future advantage is claimed.
-The next bounded study investigates the successful model's representation, not another
-upload of the rejected candidate. [Evaluation boundaries](docs/current_research.md)
-explain what the evidence does and does not establish.
+The retained modeling lineage combines a compact men’s XGBoost core with a richer score-margin XGBoost ensemble. The latest scored artifact then adds a fixed BPI championship-futures information tier on 1,986 men’s pairings. The detailed current training implementation, fitted models, private feature formulas, tuning recipes, raw data and AWS working state are intentionally not distributed by this public case-study update.
 
-**Public case study, not a current training distribution.** New forecasting implementation,
-feature formulas, fitted models, tuning recipes, raw data and AWS changes remain outside
-this update. The small report program only renders approved aggregate evidence. Earlier
-public code, repository history and existing licenses remain accessible; this update does
-not make those materials confidential. [Publication policy](docs/REPOSITORY_POLICY.md).
+Earlier source code and license grants already present in Git history remain accessible. This publication does not rewrite history or claim that previously public material is confidential.
 
-For [2027 readiness](docs/2027_readiness.md), freeze a private baseline, audit season-specific
-inputs and record forecasts before future outcomes arrive. More late-score optimization is
-not a substitute for prospective evidence. No 2027 competition rules or dates are assumed.
+## What the score does—and does not—mean
 
-The compact reference is credited to [Harrison Horan's first-place solution](https://www.kaggle.com/c/march-machine-learning-mania-2026/writeups/march-machine-learning-mania-2026-1st-place-solut).
-Historical evidence and the [earlier scored collection](reports/final_results/README.md)
-remain intact. This is benchmark-informed applied ML research, not a claim of universally
-state-of-the-art forecasting.
+The official 2026 winning score was **0.1097454**, not 0.09. The project’s **0.09** figure is an unachieved stretch research target. Moving from 0.1089408 to 0.0900000 would still require another **0.0189408 absolute Brier reduction**, roughly **17.4%**.
+
+The latest component choice used post-competition leaderboard feedback to isolate two disjoint market tiers. That makes the result useful for retrospective research and portfolio evidence, but **not an independent estimate of 2027 performance**. Future claims require forecasts frozen before outcomes are known.
+
+For 2027, the priority is prospective evaluation: timestamped pregame inputs, frozen model-selection rules, auditable season-transition checks, and predictions recorded before games occur. See [2027 readiness](docs/2027_readiness.md).
+
+The compact reference lineage is credited to Harrison Horan’s public first-place solution. This repository presents the user’s subsequent engineering and research work without claiming ownership of public methods or an original competition win.
