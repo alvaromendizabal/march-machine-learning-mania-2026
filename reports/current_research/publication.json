@@ -1,19 +1,19 @@
 {
   "status": "PASS",
-  "scope": "Aggregate employer case study; no training",
-  "source_sha256": "d4ca04ff7f8d9d568c5f4a55e3dc09378df2a9d0bb4e95c9bb79a8e67d1dc652",
-  "builder_sha256": "2767a951e50faae3b7c7600f5d5907e0f69308ca78d8d887670aacf9ee8deebe",
-  "notebook_sha256": "51653409a56631f90260da408ab4f4a44916396eb0196172372236391e01fe66",
+  "scope": "Aggregate employer case study; no forecasting implementation",
+  "source_sha256": "cdec47c1604b7956628c18a976005ba88088fc36e8e4347d577127a02a8d1d91",
+  "builder_sha256": "77dc9f56a5c7cf03aea5f5fbf9c5c28f44d5ba39faf61002b6bd02daa518289c",
+  "notebook_sha256": "3675a528ec83a247af0d243f50658d592d2e8a92662c1bc399fe038477549d74",
   "code_cells": 8,
   "plotly_outputs": 6,
   "png_fallbacks": 6,
   "model_fits": 0,
   "figures": {
-    "release_scores": "df9c09e38f29f9ba2967446ded70ebb13c5201b8af6de3fce5653930062348a7",
-    "men_research": "ac6bee8420151c1ca15b00e7452ea4fd8eec544e4809ab4b61e2a53c4ca8f5d3",
-    "women_historical": "e39d7f451211ab6a6e279e659090d929da98703b167d033c1669b13fbb2c9a92",
-    "women_years": "0bc295d5efa8af13c6d85e011e52f3a16edea95e99f2bed20fbe68bb3b855bc1",
-    "women_target_control": "62285f5e0be5c361467d4c12578973cf226fcdc5b66792623805d0ebe0b4b704",
-    "protected_rows": "e2e0d26036cd1a4ae1f5921da038e9c780ae8c0db94d78c416d973bfe2a8d8c9"
+    "release_scores": "b026e2ddb0ad34236df92f21e0034ab5d028c1aa4bd31a563a530ff5d8dad8b4",
+    "gains": "61287fd702d409a379deba636902969e4ca508abe484b79d3e55b9af5f9cecea",
+    "market_components": "be53e5f9b1312adae9800be772b7a243e80d70a53ecc0584568a664aca150004",
+    "scope": "131b381b8abee195394277551a4c3403d0b62f7bd44b36d6ef2c61187db3c79d",
+    "score_gap": "6f20163215ed6a7dbc6a698b6203af13657acec602717b9366cec990ddb7950e",
+    "research_boundary": "72fed339fb8077ed2917ddcebd2add845091de1c8ac73794bbc7e4d592a20ae5"
   }
 }

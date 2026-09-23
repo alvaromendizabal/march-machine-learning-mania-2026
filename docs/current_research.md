@@ -1,61 +1,48 @@
 # Current result and evaluation boundaries
 
-## Recorded decision
+## Retained scored release
 
-Retain submission **56447505**, **0.1094899 Brier**, prediction SHA-256
-`b3deb57b527450e93682be298bf810275f41d9a7c5056bad6f1b48dd9573bc1c`.
-Reject the later women's extension, submission **56469094**, **0.1105237 Brier**,
-SHA-256 `ded9249b39e82d7526146bd64466f8b875a15f10d33b4610fd432e8e9896d9f4`.
-Both are recorded post-competition scores; the comparison does not establish original
-placement or prospective superiority.
+Retain post-competition submission **56479241**, **0.1089408 Brier**, prediction SHA-256
+`b10aeddf304ca6f5e2c6f749ce4a792210ac554f6a99bb6d8b68aeabbfe110d9`.
 
-The latest returned run, `20260922T163620151512Z-533`, was a successful replay:
-45 completed models reused, zero new tree fits, zero new submissions, 23.08 seconds.
-All 33 inventory entries were checked. The candidate retained 132,133 unique IDs in order;
-only 2,278 women lines differed. All 66,430 men lines and 129,855 total protected lines
-were byte-identical. The scored champion remains a separate, unchanged artifact.
+The published 2026 first-place benchmark is **0.1097454**, so the retained late score is numerically lower by **0.0008046**. This does not establish an original competition placement or prospective superiority.
 
-## What the negative result means
+## How this release emerged
 
-The women's fuller historical ensemble improved Brier from 0.1292137810 to 0.1283061209
-on 189 previously used 2023–2025 main-bracket games. Its later recorded score was worse
-than the champion by 0.0010338. Historical improvement did not transfer in this test.
-The returned evidence does not establish a single cause. No game-level 2026 error
-attribution is asserted from a scalar score alone.
+The prior margin-ensemble release scored **0.1094899**. Two subsequent market experiments were intentionally separated:
 
-Chronological outer-year exclusion and train-only transformations matter, but they do not
-undo repeated researcher selection using the same historical years. Inner held-out scores
-also informed early stopping and calibration. Additional random seeds are not additional
-independent tournaments. Conditional bootstrap support is not proof of a future gain.
+- full market overlay: **0.1098037**, rejected;
+- Round-1-only market overlay: **0.1103527**, rejected.
 
-## Feature and leading-solution coverage
+Those scored variants changed disjoint components. Their exact row sets made the championship-futures component algebraically identifiable before it was uploaded. The inferred score interval was approximately **0.10894075–0.10894105**; the frozen futures-only candidate then scored **0.1089408**, consistent with that decomposition.
 
-Prior full-bundle fusion, residual PCA and chronological single/pair selection answer
-specific questions. The single/pair search used win/loss supervision; it does not exhaust
-selection for the later successful margin component. Nor does a tested rating family
-prove that every formula, interaction, data snapshot or other leading-solution mechanism
-has been recreated. The private evidence review separates tested components, excluded
-inputs, reviewed-only methods and missing information.
+This is unusually strong internal consistency, but it is still **post-hoc component selection using post-competition leaderboard feedback**. It is not an independent test or evidence that the same mechanism will improve 2027 forecasts.
 
-The next bounded private study tests representation contributions against the successful
-margin approach, holding the comparison structure fixed. It is a new hypothesis, not
-an achieved result or a promise of 0.09. Details sufficient to recreate the current
-training system are intentionally not added to this public report.
+## Latest run integrity
 
-## Attribution and scope
+The successful run finished in **30.66 seconds** and performed:
 
-The published winning benchmark is the first-place author's reported 0.1097454 on
-126 games. The compact reference is attributed to Harrison Horan's public solution.
-The existing scored result is numerically below that number by 0.0002555. Describing
-this as benchmark-informed applied research is supported; claiming a universal frontier
-breakthrough or original competition win is not.
+- zero tree fits;
+- zero probability-model fits;
+- one submission upload attempt;
+- zero automatic follow-up submissions.
 
-[release_decision.json](../reports/current_research/release_decision.json) records the
-latest source archive checksum, score identities, replay counts and aggregate evidence.
-Earlier milestone and progression files are preserved as historical records; their then-current
-candidate-review status is superseded by this rejection, not silently overwritten.
+The candidate contained **132,133 unique IDs**, changed exactly **1,986 men’s rows**, and protected the other **130,147 rows**, including all **65,703 women’s rows**. The previous 0.1094899 artifact remained unchanged.
 
-GitHub contains an employer-facing case study. AWS retains current private data, features,
-models, detailed implementations and uncommitted work. Public report execution only
-renders approved aggregates. Previously published source and license terms remain in
-history; no confidentiality, license revocation or complete anti-copy protection is promised.
+## Research status
+
+The project has recreated or adapted mechanisms from multiple leading public solutions, but it does not claim complete parity with every archived top submission. Important negative findings remain part of the research record: broad feature fusion, nested binary feature selection, a women’s margin extension, alternative robust loss, tree-leaf probability readout, fourth-place calibration, sparse ranking selection, the full market overlay, and Round-1-only market information did not become retained scored improvements.
+
+The strongest private system now contains three high-level capabilities:
+
+1. a compact statistical tournament reference;
+2. a complementary men’s score-margin ensemble;
+3. a bounded men’s championship-strength information layer.
+
+Details sufficient to regenerate the current private system are intentionally not added to this public report.
+
+## Evaluation boundary
+
+The 2026 competition is complete. The retained score was obtained during post-competition late-submission research after public solution information and prior score feedback were available. It should therefore be described as **post-competition benchmark-informed applied research**, not as an original leaderboard result.
+
+The next stronger generalization claim must come from forecasts frozen before genuinely future outcomes. The 2027 readiness plan should preserve timestamped inputs, model identities, prediction hashes, and a predeclared evaluation procedure.

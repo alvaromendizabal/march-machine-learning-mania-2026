@@ -2,65 +2,38 @@
 
 **Alvaro Mendizabal · probability forecasting · controlled research · cloud ML engineering**
 
-## Achieved result: 0.1094899 Brier
+## Achieved result: 0.1089408 Brier
 
-The retained release achieved **0.1094899 Brier** in recorded post-competition Kaggle
-scoring, numerically below the published 2026 winning benchmark of **0.1097454** by
-**0.0002555**. This is a late-submission comparison, not an original first-place finish.
+The retained release achieved **0.1089408 Brier** in recorded post-competition Kaggle scoring, numerically below the published 2026 winning benchmark of **0.1097454** by **0.0008046**. This is a late-submission comparison, not an original competition placement.
 
 **[Open the executed case study](portfolio/current_research.ipynb)** ·
 [Employer walkthrough](docs/employer_walkthrough.md) ·
 [Current evidence](reports/current_research/release_decision.json)
 
-| Evidence | Result | Decision |
+| Scored milestone | Brier | Decision |
 |---|---:|---|
-| Retained scored release | **0.1094899** | Keep |
-| Previous release | 0.1098691 | Improved by the retained release |
-| Subsequent women's extension | 0.1105237 | Rejected; champion unchanged |
+| Previous simplified release | 0.1098691 | Superseded |
+| Margin-ensemble release | 0.1094899 | Superseded |
+| Full market overlay | 0.1098037 | Rejected |
+| Round-1-only market overlay | 0.1103527 | Rejected |
+| **Retained futures-informed release** | **0.1089408** | **Current champion** |
 
-![Recorded scored releases](reports/current_research/figures/release_scores.png)
+![Recorded score progression](reports/current_research/figures/release_scores.png)
 
 ## What the project demonstrates
 
-**Research judgment.** Feature expansion, dimension reduction, chronological subset
-selection, target comparisons and ensemble experiments were evaluated against controlled
-references. Margin supervision yielded a complementary men's forecast and a better
-scored release. A later women's extension passed historical checks but lost when scored;
-that negative result is preserved rather than hidden.
+**Research judgment.** The project did not equate more features or more models with better forecasting. It rejected feature bundles, calibration variants, alternative losses, sparse-ranking variants, a full market overlay, and a Round-1-only market overlay. The strongest scored system combines a compact statistical reference with a complementary score-margin component and a bounded championship-strength information layer.
 
-**Statistical care.** Whole-season assessments, training-only transformations, matched
-controls and probability diagnostics address the forecasting problem. Repeatedly used
-development seasons are not described as untouched tests. The distinction between a
-historical gain and an achieved Kaggle score is visible throughout the case study.
+**Controlled experimentation.** Whole-season historical tests, matched controls, protected-row contracts, and one-factor score tests separate mechanisms whenever practical. The final market component was isolated only after two disjoint scored variants established which information source helped; that is explicitly post-competition and post-hoc evidence, not an independent prospective test.
 
-**Reliable execution.** Checksummed prediction files, protected-row contracts, resumable
-model artifacts and at-most-once submission attempts protect completed work. The latest
-replay reused all 45 candidate models, performed zero new fits and made no new upload.
-Every one of the achieved men's prediction lines stayed unchanged in the rejected candidate.
+**Reliable execution.** Prediction files are checksum-locked, completed checkpoints are reused, candidate scope is verified row by row, and submission attempts are at-most-once. The latest run performed zero model fits, changed 1,986 men’s rows, protected the other 130,147 rows, and recorded a single COMPLETE submission.
 
-**Technical communication.** The executed notebook has six inline Plotly figures and
-embedded static fallbacks. A reviewer can inspect the evidence without AWS access.
+**Technical communication.** The executed case-study notebook exposes scored progression, negative results, scope protection, and limitations with saved inline Plotly figures. A reviewer does not need AWS access to understand the work.
 
-## Scope and completion
+## Public scope
 
-The achieved release and its review are complete milestones. Ongoing private research
-is not declared finished: feature selection is model- and objective-specific, and
-leading-solution coverage is not exhaustive. No 0.09 score or future advantage is claimed.
-The next bounded study investigates the successful model's representation, not another
-upload of the rejected candidate. [Evaluation boundaries](docs/current_research.md)
-explain what the evidence does and does not establish.
+This repository is an **employer-facing case study**, not a distribution of the current private training system. New model binaries, feature formulas, source-specific production code, private data, tuning recipes, and AWS working changes are intentionally excluded from this publication. Earlier public code and licenses remain in repository history; this update does not make previously published material confidential.
 
-**Public case study, not a current training distribution.** New forecasting implementation,
-feature formulas, fitted models, tuning recipes, raw data and AWS changes remain outside
-this update. The small report program only renders approved aggregate evidence. Earlier
-public code, repository history and existing licenses remain accessible; this update does
-not make those materials confidential. [Publication policy](docs/REPOSITORY_POLICY.md).
+The 2026 result is a development milestone. For 2027, the stronger standard is prospective: freeze the private champion, timestamp inputs and forecasts before outcomes, audit season-specific assumptions, and evaluate against genuinely future games.
 
-For [2027 readiness](docs/2027_readiness.md), freeze a private baseline, audit season-specific
-inputs and record forecasts before future outcomes arrive. More late-score optimization is
-not a substitute for prospective evidence. No 2027 competition rules or dates are assumed.
-
-The compact reference is credited to [Harrison Horan's first-place solution](https://www.kaggle.com/c/march-machine-learning-mania-2026/writeups/march-machine-learning-mania-2026-1st-place-solut).
-Historical evidence and the [earlier scored collection](reports/final_results/README.md)
-remain intact. This is benchmark-informed applied ML research, not a claim of universally
-state-of-the-art forecasting.
+The compact reference is credited to [Harrison Horan’s first-place solution](https://www.kaggle.com/c/march-machine-learning-mania-2026/writeups/march-machine-learning-mania-2026-1st-place-solut). The market-information research was informed by the public third-place solution. The achieved post-competition result does not imply an original competition rank, medal, prize, or guaranteed 2027 advantage.

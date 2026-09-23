@@ -1,37 +1,23 @@
-# Employer walkthrough | achieved forecasting release
+# Employer walkthrough | NCAA forecasting research
 
-**0.1094899 recorded late-submission Brier**, compared with the published 2026 winning
-benchmark of **0.1097454**. The numerical lead is 0.0002555; it is not an original
-competition placement or a guarantee of future superiority.
+## Result
 
-Start with the [executed case study](../portfolio/current_research.ipynb). It shows the
-achieved score, the rejected follow-on candidate and the controlled experiments behind them.
+The current retained post-competition release scored **0.1089408 Brier**, compared with the published 2026 winning benchmark of **0.1097454**. The numerical difference is **0.0008046**, approximately **0.73% lower Brier**. It is not an original competition placement or proof of future superiority.
+
+Open the [executed case study](../portfolio/current_research.ipynb). It presents the achieved score progression, the rejected market variants, and the protected-row engineering around each score test.
 
 ## What to evaluate
 
-**Experimental design:** the project did not equate large feature counts with quality.
-It compared feature representations and learning targets, preserved failed hypotheses,
-and advanced a margin-based complement only after historical checks. The successful
-men's release and unsuccessful women's extension demonstrate why actual scoring remains
-separate from validation.
+**Research progression.** A first-place-derived compact reference was simplified, then complemented with a richer score-margin model. That produced the 0.1094899 release. Later experiments evaluated ranking systems, feature-family removals, alternative objectives, leaf readouts, a reconstructed fourth-place system, and external information. Most were rejected.
 
-**Engineering:** private experiments preserve source/data/model identity, resume completed
-folds, validate input and probability contracts, protect previously scored rows, and
-avoid duplicate uploads after uncertain network responses. The latest replay reused
-45 models with zero new fits or submissions. The original champion was not overwritten.
+**Mechanism isolation.** A broad market overlay scored worse, and a Round-1-only market overlay scored worse still. Because those components were disjoint, the championship-futures component could be isolated exactly. The frozen futures-only candidate then scored **0.1089408**, matching the arithmetic implication of the prior scored components.
 
-**Communication and judgment:** the notebook retains negative evidence and acknowledges
-reused development years. The women's historical improvement did not justify promotion
-after its recorded score deteriorated. Model-specific feature selection and missing-signal
-research remain open without claiming exhaustive coverage or an unattained target.
+**Engineering discipline.** The latest candidate had 132,133 unique IDs in the original order, changed exactly 1,986 approved men’s rows, and preserved the other 130,147 rows byte-for-byte, including all 65,703 women’s rows. The run performed zero model fits and made exactly one upload.
 
-## Ownership and the next boundary
+**Judgment under uncertainty.** The winning component was selected using post-competition feedback, so it is development evidence rather than independent validation. The public portfolio makes that limitation visible instead of presenting the score as a prospective result.
 
-The public case study exposes approved results and high-level reasoning, not the current
-forecasting pipeline or detailed next-season recipe. Existing public source and licenses
-remain visible; no history rewriting or repository visibility change is implied.
+## Ownership and 2027
 
-The achieved release review is complete. Further private research is a separate milestone.
-The 2027 objective is to collect and evaluate forecasts made before outcomes, with audited
-season-specific input availability and a frozen decision procedure. See the
-[readiness plan](2027_readiness.md) and [evaluation note](current_research.md).
+The public repository demonstrates the problem, score progression, validation philosophy, engineering controls, and decisions. The current private implementation, exact feature construction, fitted artifacts, and future competition recipe remain outside the publication.
+
+For 2027, the goal is to preserve the 2026 champion privately and create timestamped forecasts before outcomes. That prospective process is a stronger test of generalization than additional late-score optimization on a completed tournament.
