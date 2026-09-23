@@ -22,10 +22,15 @@ def validate(d):
     expected=s["margin_release"]["score"]+s["full_market"]["score"]-s["r1_market"]["score"]
     if abs(expected-d["decomposition"]["inferred_score"])>1e-12: raise ValueError("Decomposition arithmetic changed")
     lo,hi=d["decomposition"]["inferred_interval"]
-    if not (lo<=c["score"]<=hi): raise ValueError("Scored result outside implied interval")
+    if [lo,hi] != [0.10894075,0.10894105] or not (lo<=c["score"]<=hi):
+        raise ValueError("Scored result or inferred interval changed")
     i=d["integrity"]
     if i["rows"]!=132133 or i["changed_rows"]!=1986 or i["protected_rows"]!=130147 or i["women_rows_unchanged"]!=65703:
         raise ValueError("Row protection evidence changed")
+    if i["tree_fits"]!=0 or i["probability_model_fits"]!=0:
+        raise ValueError("Latest score test must remain zero-fit")
+    if i["upload_attempts"]!=1 or i["automatic_followups"]!=0:
+        raise ValueError("Submission discipline evidence changed")
     for h in [c["sha256"],d["source"]["return_sha256"]]:
         if len(h)!=64 or any(x not in "0123456789abcdef" for x in h): raise ValueError("Invalid checksum")
     return d
