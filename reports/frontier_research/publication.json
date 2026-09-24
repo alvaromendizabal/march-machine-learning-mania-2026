@@ -1,0 +1,20 @@
+{
+  "builder_sha256": "56f17692b4ffd0ff044f6089ca5cafbdd2e3d853bb438034211c32249418235f",
+  "code_cells": 8,
+  "figures": {
+    "candidate_scope": "5d401cd6b5310f113efd36d391e3bd2e4c2163f8541937e54486b879313a3076",
+    "family_gain": "a46c82a5bbdce9e8cee6fb438dbb88d1e7e8f943fbfcf9fd3a90fd07f5440313",
+    "family_stability": "79ee5b1a8eb70850e5564fe0898986ad8be123c3f530558a83f4ce064439080d",
+    "frontier_status": "c53f718bb4258431ba405d248f67813db84ccfddff85608bbc494756b99f002a",
+    "score_boundary": "de46c2e7831d987adc986db320861dc1f362230a7347e8f3d531ce16aa55cd7c",
+    "score_progression": "aecd5ac93af074a5691556f1baefc63b113f1e8cbd4e92b4ce87afd94cd07aba"
+  },
+  "model_fits": 0,
+  "notebook_sha256": "d6b1203e4db0c2dbf708821606a172c85b931206c494d1b8f80c0c21acf0aa00",
+  "plotly_outputs": 6,
+  "png_fallbacks": 6,
+  "scope": "Aggregate frontier case study; no forecasting implementation",
+  "source_sha256": "90a4b97b4ace0b2cc016ae2288703962d4d4e7deece21c463b307fede946d4b1",
+  "status": "PASS",
+  "submissions": 0
+}
