@@ -1,7 +1,7 @@
 name: Current research evidence
 on:
   push:
-    branches: [main, publication/futures-champion-20260922]
+    branches: [main, publication/futures-champion-20260922, publication/frontier-residual-20260924]
   pull_request:
 permissions:
   contents: read
@@ -47,6 +47,50 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'Publish executed futures-champion case study and figures'
           git push origin HEAD:refs/heads/publication/futures-champion-20260922
+
+  frontier_publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/publication/frontier-residual-20260924'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: publication/frontier-residual-20260924
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          version: '0.11.33'
+          python-version: '3.12.13'
+          enable-cache: true
+      - name: Execute frontier aggregate case study
+        run: |
+          uv sync --locked --group dev
+          uv run --locked python -m ipykernel install --user --name march-frontier
+          uv run --locked python -m unittest discover -s portfolio -p 'test_frontier_research.py' -v
+          uv run --locked python portfolio/frontier_research.py --build --kernel march-frontier
+          uv run --locked python portfolio/frontier_research.py --check
+      - name: Commit allowlisted frontier outputs
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          git add -f -- portfolio/frontier_research.ipynb reports/frontier_research/publication.json reports/frontier_research/figures/score_boundary.png reports/frontier_research/figures/score_progression.png reports/frontier_research/figures/family_gain.png reports/frontier_research/figures/family_stability.png reports/frontier_research/figures/candidate_scope.png reports/frontier_research/figures/frontier_status.png
+          python - <<'PY'
+          import subprocess
+          paths=subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()
+          allowed={'portfolio/frontier_research.ipynb','reports/frontier_research/publication.json'} | {'reports/frontier_research/figures/'+n+'.png' for n in ['score_boundary','score_progression','family_gain','family_stability','candidate_scope','frontier_status']}
+          assert set(paths)<=allowed, paths
+          PY
+          if git diff --cached --quiet; then
+            echo "No generated frontier outputs changed."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish executed frontier research notebook and figures'
+          git push origin HEAD:refs/heads/publication/frontier-residual-20260924
+
   verify:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -58,11 +102,18 @@ jobs:
           version: '0.11.33'
           python-version: '3.12.13'
           enable-cache: true
-      - name: Check saved evidence and re-execute with a clean kernel
+      - name: Check saved evidence and re-execute with clean kernels
         run: |
           uv sync --locked --group dev
+
           uv run --locked python -m unittest discover -s portfolio -p 'test_current_research.py' -v
           uv run --locked python portfolio/current_research.py --check
           uv run --locked python -m ipykernel install --user --name march-portfolio
           uv run --locked python portfolio/current_research.py --build --kernel march-portfolio
           uv run --locked python portfolio/current_research.py --check
+
+          uv run --locked python -m unittest discover -s portfolio -p 'test_frontier_research.py' -v
+          uv run --locked python portfolio/frontier_research.py --check
+          uv run --locked python -m ipykernel install --user --name march-frontier
+          uv run --locked python portfolio/frontier_research.py --build --kernel march-frontier
+          uv run --locked python portfolio/frontier_research.py --check

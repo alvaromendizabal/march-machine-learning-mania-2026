@@ -1,48 +1,70 @@
 # Current result and evaluation boundaries
 
-## Retained scored release
+## Retained scored boundary
 
-Retain post-competition submission **56479241**, **0.1089408 Brier**, prediction SHA-256
-`b10aeddf304ca6f5e2c6f749ce4a792210ac554f6a99bb6d8b68aeabbfe110d9`.
+Retain post-competition submission **56500599** at **0.1072824 Brier**. The retained prediction artifact is checksum-tracked privately as
+`36bdd994ffbe675550521b6e3149ef37cf3f1845816b57cfa82ab899739e831b`.
 
-The published 2026 first-place benchmark is **0.1097454**, so the retained late score is numerically lower by **0.0008046**. This does not establish an original competition placement or prospective superiority.
+The published 2026 first-place benchmark is **0.1097454**, so the retained late score is numerically lower by **0.0024630**, approximately **2.24% lower Brier**. This does not establish an original competition placement or prospective superiority.
 
-## How this release emerged
+The active stretch target is **0.0900000**. The remaining absolute reduction is **0.0172824**. That gap is large enough that ordinary parameter nudges and near-duplicate feature variants are no longer the primary research strategy.
 
-The prior margin-ensemble release scored **0.1094899**. Two subsequent market experiments were intentionally separated:
+## Latest unscored frontier candidate
 
-- full market overlay: **0.1098037**, rejected;
-- Round-1-only market overlay: **0.1103527**, rejected.
+Run `20260924T041114549348Z-2633` completed a frozen nested-residual candidate build. It did **not** make a Kaggle submission.
 
-Those scored variants changed disjoint components. Their exact row sets made the championship-futures component algebraically identifiable before it was uploaded. The inferred score interval was approximately **0.10894075–0.10894105**; the frozen futures-only candidate then scored **0.1089408**, consistent with that decomposition.
+The pre-2026 selector compared eight coherent residual representations using season-grouped historical evidence. The selected family was `volume_plus_differences`:
 
-This is unusually strong internal consistency, but it is still **post-hoc component selection using post-competition leaderboard feedback**. It is not an independent test or evidence that the same mechanism will improve 2027 forecasts.
+- aggregate Brier gain versus the base margin reference: **0.0037810**;
+- recent selection seasons improved: **5 of 6**;
+- worst single-season movement: **-0.0011233**;
+- known 2026 tournament outcomes used for selection or training: **none**;
+- futures/market inputs used for selection or training: **none**.
 
-## Latest run integrity
+The larger `all_residual` family produced a higher aggregate mean gain (**0.0049982**) but failed the predeclared stability guardrail because its worst season deteriorated by **0.0031222**. It was rejected rather than promoted on the basis of mean performance alone.
 
-The successful run finished in **30.66 seconds** and performed:
+This candidate therefore represents a new capability: chronology-safe selection of a complementary residual representation under an explicit stability constraint. It is **not** yet a scored improvement.
 
-- zero tree fits;
-- zero probability-model fits;
-- one submission upload attempt;
-- zero automatic follow-up submissions.
+## Candidate integrity
 
-The candidate contained **132,133 unique IDs**, changed exactly **1,986 men’s rows**, and protected the other **130,147 rows**, including all **65,703 women’s rows**. The previous 0.1094899 artifact remained unchanged.
+The candidate-build milestone performed **90 new tree fits** and produced a 132,133-row frozen challenger with checksum
+`d3f1be06bba2328f8747c24d907f75af9109da82d0d3692ba9d991b49ff065c4`.
+
+Its scope contract passed:
+
+- **2,278** approved men's rows changed;
+- **129,855** rows remained byte-identical;
+- all **65,703 women's rows** remained byte-identical;
+- candidate/template ID order was preserved;
+- **12 model/integrity tests** passed;
+- the executed candidate notebook retained **6 inline Plotly outputs** after reopen;
+- no automatic submission occurred.
+
+The scored champion remains **0.1072824** until the exact challenger is separately scored.
+
+## Futures provenance boundary
+
+The 2026 blend and pairwise transformation logic were independently recreated and the resulting artifacts were checksummed. However, the original 2026 market observations were pinned from a post-competition public repository rather than independently rebuilt from timestamped raw pre-deadline API responses.
+
+Accordingly, those observations are classified as **pinned post-competition reproduction, not prospectively verified**. They may remain a fixed opaque component in retrospective research, but they are not used to fit the residual model or choose its configuration. They do not establish a prospective leakage-safety claim for 2026.
+
+The prospective 2027 standard is stronger: raw responses first, immutable timestamped snapshots, explicit season validation, source checksums, and a final cutoff freeze that refuses stale or post-cutoff substitution.
 
 ## Research status
 
-The project has recreated or adapted mechanisms from multiple leading public solutions, but it does not claim complete parity with every archived top submission. Important negative findings remain part of the research record: broad feature fusion, nested binary feature selection, a women’s margin extension, alternative robust loss, tree-leaf probability readout, fourth-place calibration, sparse ranking selection, the full market overlay, and Round-1-only market information did not become retained scored improvements.
+The project has recreated, adapted, or tested multiple leading public mechanisms, but it does not claim exhaustive parity with every archived solution. Important negative results remain visible: broad feature fusion, nested binary selection, a women's margin extension, alternative robust loss, tree-leaf readout, fourth-place calibration, sparse-ranking selection, broad market overlays, and unstable all-residual representations were not promoted as the strongest system.
 
-The strongest private system now contains three high-level capabilities:
+The private research system currently combines four high-level capabilities:
 
 1. a compact statistical tournament reference;
-2. a complementary men’s score-margin ensemble;
-3. a bounded men’s championship-strength information layer.
+2. a complementary men's score-margin ensemble;
+3. a bounded championship-strength information layer;
+4. chronology-safe residual-family selection and a frozen no-submit challenger.
 
-Details sufficient to regenerate the current private system are intentionally not added to this public report.
+The next frontier is structural: score the exact frozen challenger once, then use the result to decide whether to promote it or move directly to women-specific reconstruction, roster/availability information, and a leakage-safe heterogeneous OOF ensemble.
 
 ## Evaluation boundary
 
-The 2026 competition is complete. The retained score was obtained during post-competition late-submission research after public solution information and prior score feedback were available. It should therefore be described as **post-competition benchmark-informed applied research**, not as an original leaderboard result.
+The 2026 competition is complete. All retained scores described here were obtained during post-competition research after public solution information and prior score feedback were available. They should therefore be described as **post-competition benchmark-informed applied ML research**, not as original leaderboard results.
 
-The next stronger generalization claim must come from forecasts frozen before genuinely future outcomes. The 2027 readiness plan should preserve timestamped inputs, model identities, prediction hashes, and a predeclared evaluation procedure.
+The next stronger generalization claim must come from forecasts frozen before genuinely future outcomes. The 2027 program is designed around that prospective standard.
