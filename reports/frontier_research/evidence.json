@@ -1,0 +1,122 @@
+{
+  "as_of_utc": "2026-09-24T04:11:44Z",
+  "latest_candidate": {
+    "all_residual_gain": 0.004998188865624087,
+    "all_residual_worst_season_gain": -0.0031221822937750054,
+    "candidate_score": null,
+    "candidate_sha256": "d3f1be06bba2328f8747c24d907f75af9109da82d0d3692ba9d991b49ff065c4",
+    "changed_mens_rows": 2278,
+    "decision": "CANDIDATE_READY_NOT_SUBMITTED",
+    "inline_plotly_outputs": 6,
+    "known_2026_outcomes_used": false,
+    "market_inputs_used_for_selection": false,
+    "market_inputs_used_for_training": false,
+    "model_integrity_tests": 12,
+    "new_tree_fits": 90,
+    "protected_rows": 129855,
+    "run_id": "20260924T041114549348Z-2633",
+    "selected_family": "volume_plus_differences",
+    "selection_gain": 0.003781018951485665,
+    "selection_seasons": 6,
+    "selection_wins": 5,
+    "women_rows_byte_identical": 65703,
+    "worst_season_gain": -0.0011233103762186836
+  },
+  "provenance": {
+    "futures_classification": "PINNED_POST_COMPETITION_REPRODUCTION_NOT_PROSPECTIVELY_VERIFIED",
+    "independently_rebuilt_raw_2026_market_observations": false,
+    "independently_rebuilt_transformations": true,
+    "prospective_2027_standard": "raw-first immutable timestamped capture with target-season and cutoff eligibility gates"
+  },
+  "reproduction_matrix": [
+    {
+      "mechanism": "Compact statistical reference",
+      "public_note": "Adapted and validated as a compact reference system.",
+      "status": "ADAPTED_VALIDATED"
+    },
+    {
+      "mechanism": "Score-margin supervision",
+      "public_note": "Adapted and validated as a complementary men’s model.",
+      "status": "ADAPTED_VALIDATED"
+    },
+    {
+      "mechanism": "Residual representation",
+      "public_note": "Chronology-safe family selection produced a frozen unscored challenger.",
+      "status": "VALIDATED_HISTORICALLY"
+    },
+    {
+      "mechanism": "Broad all-residual panel",
+      "public_note": "Rejected because worst-season stability breached the guardrail.",
+      "status": "REJECTED"
+    },
+    {
+      "mechanism": "Championship futures layer",
+      "public_note": "Retrospective adaptation; raw pre-deadline 2026 capture is not independently verified.",
+      "status": "ADAPTED_PROVENANCE_LIMITED"
+    },
+    {
+      "mechanism": "Broad / Round-1 market overlays",
+      "public_note": "Rejected in controlled post-competition score tests.",
+      "status": "REJECTED"
+    },
+    {
+      "mechanism": "Fourth-place calibration ideas",
+      "public_note": "Recreated and not retained.",
+      "status": "REJECTED"
+    },
+    {
+      "mechanism": "Women’s richer margin extension",
+      "public_note": "Historical gain did not transfer to the scored candidate.",
+      "status": "REJECTED"
+    },
+    {
+      "mechanism": "Tree-leaf probability readout",
+      "public_note": "Did not justify promotion.",
+      "status": "REJECTED"
+    },
+    {
+      "mechanism": "Sparse ranking-selection variants",
+      "public_note": "Did not become the strongest system.",
+      "status": "REJECTED"
+    },
+    {
+      "mechanism": "Prospective Kalshi collection",
+      "public_note": "Raw-first scheduled market snapshots.",
+      "status": "OPERATIONAL"
+    },
+    {
+      "mechanism": "Prospective ESPN collection",
+      "public_note": "Stale-season rows are quarantined.",
+      "status": "OPERATIONAL_GATED"
+    },
+    {
+      "mechanism": "Prospective BartTorvik ratings",
+      "public_note": "Men’s ratings and schedule capture are operational.",
+      "status": "OPERATIONAL_PARTIAL"
+    },
+    {
+      "mechanism": "Roster / availability information",
+      "public_note": "High-value prospective information gap.",
+      "status": "MISSING_FRONTIER"
+    },
+    {
+      "mechanism": "Heterogeneous OOF stacking",
+      "public_note": "High-priority structural ensemble gap.",
+      "status": "MISSING_FRONTIER"
+    }
+  ],
+  "schema": 1,
+  "scores": {
+    "published_2026_winner": 0.1097454,
+    "relative_brier_reduction_vs_published_winner_pct": 2.2443,
+    "remaining_absolute_reduction": 0.0172824,
+    "retained_private_champion": 0.1072824,
+    "retained_submission_ref": "56500599",
+    "stretch_target": 0.09
+  },
+  "setting": "Post-competition benchmark-informed research; not original competition placement",
+  "source_return": {
+    "filename": "march_nested_residual_candidate_return_20260924T041114549348Z-2633.zip",
+    "sha256": "b5d8f24eb1315c5611884e7cbaad248044681acad08349200ced9c5923a6c283"
+  }
+}
