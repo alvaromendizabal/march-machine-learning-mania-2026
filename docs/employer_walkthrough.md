@@ -2,32 +2,32 @@
 
 ## Start here
 
-Open the [frontier research notebook](../portfolio/frontier_research.ipynb). It is the current employer-facing view of the project: the **0.1072824** retained post-competition boundary, the chronology-safe residual-family study, the frozen unscored challenger, the provenance controls, and the remaining gap to 0.09.
+Open the [frontier notebook](../portfolio/frontier_research.ipynb). It is the current employer-facing view of the project: the verified **0.1051853** post-competition boundary, the chronological reconstruction, the rejected ensemble, the residual-correlation diagnosis, and the prospective 2027 data state.
 
-The earlier [scored component case study](../portfolio/current_research.ipynb) remains useful historical evidence for how the 0.1089408 public release was isolated. It is no longer the current private score boundary.
+## Result and framing
 
-## Result
+The retained private system scores **0.1051853 Brier** on the full 126-game 2026 cohort. The published 2026 winner scored **0.1097454**. The private research result is numerically lower, but all of this work is post-competition and informed by public benchmarks, so it is presented as an applied ML research case study rather than an original placement.
 
-The strongest retained private post-competition release is **0.1072824 Brier**, compared with the published 2026 winning benchmark of **0.1097454**. The numerical difference is **0.0024630**, about **2.24% lower Brier**. This is not an original competition placement or proof of prospective superiority.
-
-The active stretch target is **0.09**, leaving **0.0172824** absolute Brier to close. The project therefore treats the remaining work as a frontier research problem rather than a polishing exercise.
+The target is **0.09**, leaving **0.0151853** absolute Brier.
 
 ## What to evaluate
 
-**Research judgment.** The latest residual study did not simply choose the configuration with the largest average gain. The full residual panel improved the historical mean more, but violated a predeclared worst-season guardrail. A smaller, more stable representation was selected instead. This is the kind of tradeoff that matters when models must generalize across tournament seasons.
+**1. Validation design.** The latest model history is reconstructed with explicit forecast-year boundaries. Each model and scaler sees only earlier tournament labels, and annual blend weights use only earlier out-of-time predictions. The 2026 outcomes enter only after all forecasts are frozen.
 
-**Validation design.** Configuration selection was season-grouped and used only tournament outcomes through 2025. The 2026 tournament outcome was prohibited. Market/futures inputs were also excluded from residual training and model selection. The resulting candidate is therefore a test of a new statistical representation rather than a leaderboard-tuned market variant.
+**2. Negative-result discipline.** The latest 78-fit ensemble did not pass promotion. It is published because it answers an important question: the candidate experts are too correlated to close the gap through smarter weighting alone.
 
-**Engineering discipline.** The frozen challenger changes only 2,278 approved men's rows and preserves 129,855 rows byte-for-byte, including every women's row. It passed schema, ordering, numerical, formula, preservation, and notebook checks. Candidate construction made no submission.
+**3. Data engineering.** The private AWS workspace contains official competition data, rich team-state reconstruction, player-history tables, external-source captures, feature receipts, hashes, and resumable checkpoints. Public GitHub contains reviewed aggregate evidence rather than raw competitive artifacts.
 
-**Provenance honesty.** The project explicitly distinguishes independently rebuilt transformations from historical observations whose original pre-deadline capture cannot be proven. The 2026 futures layer is retained only as a retrospective fixed component. For 2027, raw-first collectors, immutable source timestamps, stale-season quarantine, and cutoff-aware freezing are the standard.
+**4. Reproduction rigor.** Mechanisms from 2025 and 2026 public solutions are classified individually as adapted, validated, rejected, blocked, or missing. The project does not claim exact reproduction when external/proprietary inputs are absent.
 
-**Cloud engineering.** The research program uses a private AWS/SageMaker workspace for active experiments and public GitHub for reviewed evidence. The 2027 data layer already operates scheduled collectors for Kalshi, ESPN, and BartTorvik, while refusing invalid target-season data rather than silently filling gaps.
+**5. Prospective readiness.** The 2027 collector has already captured 1,629 men’s and 2,280 women’s schedule records. Zero completed games is represented as a waiting state; future competition mappings and deadlines are not guessed.
 
-**Frontier awareness.** The repository now includes an explicit leading-solution reproduction matrix. It shows what was recreated and validated, what was adapted, what failed, what is blocked by unavailable point-in-time data, and what remains missing. The next planned capabilities—women-specific reconstruction, roster/availability signals, and a heterogeneous OOF ensemble—come directly from that gap analysis.
+**6. Engineering quality.** The latest run completed in ~44 seconds on CPU, passed 53 self-tests, produced 78 model checkpoints and 26 blend checkpoints, retained six Plotly figures after notebook reopen, and preserved a full return bundle with cost and provenance evidence.
 
-## Ownership and public/private boundary
+## Latest research decision
 
-The public repository demonstrates the problem, score progression, validation philosophy, top-solution adaptation, engineering controls, negative results, provenance limitations, and prospective research plan.
+Retain **0.1051853**. Do not spend another round tuning a highly correlated team-level ensemble. The highest-value next capabilities are prospectively valid player availability/injury context, stronger women-specific external/player-value information, and representations that demonstrate genuinely different residual structure before blending.
 
-The active private implementation, current candidate bytes, fitted model artifacts, detailed production feature formulas, private data, and source-specific competitive recipes remain outside the public release. That separation keeps the portfolio technically rich without turning an evolving competition system into a public reproduction kit.
+## Public/private boundary
+
+The repository intentionally does not publish private prediction CSVs, model binaries, raw external snapshots, credentials, exact production formulas, or the canonical AWS workspace. The public portfolio is designed to make the research process, engineering decisions, and evaluation rigor assessable without distributing the active competition system.
