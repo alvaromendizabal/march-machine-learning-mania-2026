@@ -2,69 +2,66 @@
 
 ## Retained scored boundary
 
-Retain post-competition submission **56500599** at **0.1072824 Brier**. The retained prediction artifact is checksum-tracked privately as
-`36bdd994ffbe675550521b6e3149ef37cf3f1845816b57cfa82ab899739e831b`.
+The current private post-competition system is **0.1051853 Brier** on the complete 126-game 2026 men’s + women’s cohort. The published 2026 first-place benchmark is **0.1097454**. The numerical comparison is favorable, but the timing matters: this is **post-competition, benchmark-informed research**, not an original leaderboard placement or prospective superiority claim.
 
-The published 2026 first-place benchmark is **0.1097454**, so the retained late score is numerically lower by **0.0024630**, approximately **2.24% lower Brier**. This does not establish an original competition placement or prospective superiority.
+The active stretch target is **0.0900000**, leaving **0.0151853** absolute Brier.
 
-The active stretch target is **0.0900000**. The remaining absolute reduction is **0.0172824**. That gap is large enough that ordinary parameter nudges and near-duplicate feature variants are no longer the primary research strategy.
+## Latest completed experiment
 
-## Latest unscored frontier candidate
+The chronological-ensemble milestone rebuilt a new historical prediction bank directly from official competition data so that training and selection lineage is auditable.
 
-Run `20260924T041114549348Z-2633` completed a frozen nested-residual candidate build. It did **not** make a Kaggle submission.
+### Reconstruction
 
-The pre-2026 selector compared eight coherent residual representations using season-grouped historical evidence. The selected family was `volume_plus_differences`:
+- 31 official-data matchup-difference features;
+- 1,385 men’s + 945 women’s main-bracket historical labels = **2,330 supervised games**;
+- **84,376** all-pair feature rows;
+- main-bracket membership determined from official seed suffixes rather than a generic day cutoff;
+- play-ins excluded consistently;
+- historical snapshots use regular-season information through Day 133.
 
-- aggregate Brier gain versus the base margin reference: **0.0037810**;
-- recent selection seasons improved: **5 of 6**;
-- worst single-season movement: **-0.0011233**;
-- known 2026 tournament outcomes used for selection or training: **none**;
-- futures/market inputs used for selection or training: **none**.
+### Model families
 
-The larger `all_residual` family produced a higher aggregate mean gain (**0.0049982**) but failed the predeclared stability guardrail because its worst season deteriorated by **0.0031222**. It was rejected rather than promoted on the basis of mean performance alone.
+Three fixed reference families were trained separately by gender:
 
-This candidate therefore represents a new capability: chronology-safe selection of a complementary residual representation under an explicit stability constraint. It is **not** yet a scored improvement.
+1. seed-only logistic regression;
+2. broad standardized logistic regression using the 31-feature representation;
+3. compact boosted-tree probability model using a small strength/seed subset.
 
-## Candidate integrity
+For each forecast year, model fitting and preprocessing use only earlier tournament seasons. Chronological blend weights use only earlier frozen out-of-time predictions and labels.
 
-The candidate-build milestone performed **90 new tree fits** and produced a 132,133-row frozen challenger with checksum
-`d3f1be06bba2328f8747c24d907f75af9109da82d0d3692ba9d991b49ff065c4`.
+### Result
 
-Its scope contract passed:
+The learned blend was rejected.
 
-- **2,278** approved men's rows changed;
-- **129,855** rows remained byte-identical;
-- all **65,703 women's rows** remained byte-identical;
-- candidate/template ID order was preserved;
-- **12 model/integrity tests** passed;
-- the executed candidate notebook retained **6 inline Plotly outputs** after reopen;
-- no automatic submission occurred.
+| Assessment | Equal / incumbent | Chronological ensemble | Movement |
+|---|---:|---:|---:|
+| Historical pooled | 0.1634288 | 0.1638382 | −0.0004094 gain |
+| 2026 men | 0.1357844 incumbent | 0.1568559 | worse |
+| 2026 women | 0.0745863 incumbent | 0.0995077 | worse |
+| 2026 combined | **0.1051853 incumbent** | **0.1281818** | **−0.0229965 gain** |
 
-The scored champion remains **0.1072824** until the exact challenger is separately scored.
+The three experts also show very high residual correlation (roughly **0.956–0.975** pairwise), explaining why learned weights do not add enough genuinely new information.
 
-## Futures provenance boundary
+## Validation correction from the prior milestone
 
-The 2026 blend and pairwise transformation logic were independently recreated and the resulting artifacts were checksummed. However, the original 2026 market observations were pinned from a post-competition public repository rather than independently rebuilt from timestamped raw pre-deadline API responses.
+A previous audit found that an older correction selector had used the same later seasons in both eligibility/ranking and subsequent confirmation language. The retained score itself reproduced correctly, but that historical selection process did not support an independent-confirmation claim.
 
-Accordingly, those observations are classified as **pinned post-competition reproduction, not prospectively verified**. They may remain a fixed opaque component in retrospective research, but they are not used to fit the residual model or choose its configuration. They do not establish a prospective leakage-safety claim for 2026.
+The chronological reconstruction addresses this by creating a new auditable forecast history with explicit training-year boundaries and past-only ensemble weights. Repeatedly examined 2023–2026 outcomes remain retrospective research evidence, not pristine holdouts.
 
-The prospective 2027 standard is stronger: raw responses first, immutable timestamped snapshots, explicit season validation, source checksums, and a final cutoff freeze that refuses stale or post-cutoff substitution.
+## Data recreation boundary
 
-## Research status
+The private AWS project independently reconstructs or operationalizes official results, seeds, team identity mappings, conferences, coaches, detailed box scores, efficiency/four-factor/shooting/tempo features, recent form, Elo/SRS/Colley/quality systems, selected rating/market histories, player-season history, roster continuity, and regular-season pregame examples.
 
-The project has recreated, adapted, or tested multiple leading public mechanisms, but it does not claim exhaustive parity with every archived solution. Important negative results remain visible: broad feature fusion, nested binary selection, a women's margin extension, alternative robust loss, tree-leaf readout, fourth-place calibration, sparse-ranking selection, broad market overlays, and unstable all-residual representations were not promoted as the strongest system.
+Not every external source is complete or prospectively verifiable. Remaining gaps include complete historical predeadline BPI, contemporaneous injury/availability history, authorized proprietary player value, licensed KenPom inputs, multi-book no-vig consensus, and stronger women-specific external/player-value history.
 
-The private research system currently combines four high-level capabilities:
+The correct language is **point-in-time controlled, chronology-gated, cutoff-eligible, raw-first, and checksum-verified where supported**—not universally “leakage-proof.”
 
-1. a compact statistical tournament reference;
-2. a complementary men's score-margin ensemble;
-3. a bounded championship-strength information layer;
-4. chronology-safe residual-family selection and a frozen no-submit challenger.
+## 2027 prospective state
 
-The next frontier is structural: score the exact frozen challenger once, then use the result to decide whether to promote it or move directly to women-specific reconstruction, roster/availability information, and a leakage-safe heterogeneous OOF ensemble.
+The latest run captured **1,629 men’s** and **2,280 women’s** 2027 schedule records. Neither catalog contained completed games at capture time. Official 2027 competition mappings and the final deadline are not yet available, so downstream team states correctly remain waiting states.
 
-## Evaluation boundary
+This is intentional. Missing future data must not be backfilled with final or later information.
 
-The 2026 competition is complete. All retained scores described here were obtained during post-competition research after public solution information and prior score feedback were available. They should therefore be described as **post-competition benchmark-informed applied ML research**, not as original leaderboard results.
+## Current decision
 
-The next stronger generalization claim must come from forecasts frozen before genuinely future outcomes. The 2027 program is designed around that prospective standard.
+Retain **0.1051853**. Close the highly correlated chronological-ensemble direction. Prioritize structurally new information or representations whose residuals are demonstrably complementary before another blend or submission is considered.
