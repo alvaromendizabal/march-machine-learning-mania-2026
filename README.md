@@ -1,68 +1,54 @@
 # NCAA tournament forecasting | ML engineering case study
 
-**Alvaro Mendizabal · probability forecasting · controlled research · cloud ML engineering**
+**Alvaro Mendizabal · probability forecasting · temporal validation · cloud ML engineering**
 
-## Current verified boundary: 0.1072824 Brier
+## Current verified research boundary: 0.1051853 Brier
 
-The strongest retained private release achieved **0.1072824 Brier** in recorded post-competition Kaggle scoring. The published 2026 winning benchmark was **0.1097454**, so the retained late score is numerically lower by **0.0024630** (about **2.24% lower Brier**). This is benchmark-informed post-competition research, not an original competition placement, medal, or prize.
+The strongest retained private post-competition system scores **0.1051853 Brier** on the complete 126-game 2026 men’s + women’s cohort. The published 2026 winning benchmark was **0.1097454**. The retained late score is numerically lower, but this repository is **benchmark-informed post-competition research**, not an original competition placement or claim of prospective superiority.
 
-The active stretch target is **0.0900000**. The remaining absolute reduction is **0.0172824**, so the research program is now focused on structural capability gains rather than cosmetic tuning.
+The active stretch target is **0.0900000**, leaving **0.0151853** absolute Brier to close.
 
-**[Open the current frontier notebook](portfolio/frontier_research.ipynb)** ·
-[Employer walkthrough](docs/employer_walkthrough.md) ·
-[Current research boundary](docs/current_research.md) ·
-[Frontier and reproduction matrix](docs/frontier_research.md)
+**[Open the current frontier notebook](portfolio/frontier_research.ipynb)** · [Employer walkthrough](docs/employer_walkthrough.md) · [Current research boundary](docs/current_research.md) · [Research frontier](docs/frontier_research.md)
 
-| Scored milestone | Brier | Status |
+| Boundary | Brier | Interpretation |
 |---|---:|---|
-| Previous simplified release | 0.1098691 | Superseded |
-| Margin-ensemble release | 0.1094899 | Superseded |
-| Futures-informed public release | 0.1089408 | Superseded privately |
-| **Retained private post-competition champion** | **0.1072824** | **Current scored boundary** |
+| Published 2026 winner | 0.1097454 | Original competition benchmark |
+| **Retained private post-competition system** | **0.1051853** | Current research boundary |
+| Latest independent chronological ensemble | 0.1281818 | Rejected |
 | Stretch target | 0.0900000 | Research objective, not achieved |
 
-## Latest frontier milestone
+## Latest milestone: auditable chronological reconstruction
 
-A chronology-safe residual-family study produced a new **unscored** challenger without using 2026 tournament outcomes for selection or fitting. Eight coherent residual representations were evaluated on season-grouped historical evidence. The selected `volume_plus_differences` family improved the base margin reference by **0.0037810 Brier** across the six-season selection window, won **5 of 6 seasons**, and stayed within the predeclared worst-season guardrail.
+The newest milestone rebuilt a clean prediction history from official competition data rather than inheriting an uncertain historical forecast bank. It produced:
 
-The larger `all_residual` representation had a stronger aggregate mean gain (**0.0049982**) but violated the stability gate because its worst season deteriorated by **0.0031222**. It was rejected. That decision is important: the research process optimizes for stable, transferable evidence rather than maximizing one summary statistic.
+- **31** matchup-difference features;
+- **2,330** main-bracket historical supervised games;
+- **84,376** all-pair feature rows;
+- **78** recorded model fits across seed-only logistic regression, broad logistic regression, and a compact boosted-tree reference;
+- **26** chronological blend checkpoints whose weights use only earlier out-of-time predictions and labels;
+- **53** regression/self-tests and an executed notebook with **6 Plotly figures** plus static fallbacks;
+- prospective 2027 schedule capture for **1,629 men’s** and **2,280 women’s** schedule records, with **0 completed games** correctly treated as a waiting state.
 
-The resulting frozen challenger:
+The learned blend did **not** pass promotion. Historical Brier was **0.1638382** versus **0.1634288** for the equal blend, and the frozen 2026 replay scored **0.1281818** versus the retained **0.1051853** system. This is a useful negative result: the three independently reconstructed experts are highly correlated, so more weighting sophistication does not create missing information.
 
-- performed **90 new tree fits** during the candidate-build milestone;
-- changes **2,278 approved men's rows**;
-- preserves **129,855 rows byte-for-byte**, including all **65,703 women's rows**;
-- passed **12 model/integrity tests**;
-- produced an executed notebook with **6 inline Plotly outputs**;
-- made **no Kaggle submission** in the candidate-build milestone.
+## What this project demonstrates
 
-Until that exact challenger receives a separately authorized score, **0.1072824 remains the scored champion**.
+**Point-in-time validation.** Forecast-year models use only earlier tournament labels; preprocessing and ensemble weights are fitted inside their allowed historical partitions; 2026 outcomes enter only after prediction files are frozen.
 
-## What the project demonstrates
+**Research judgment.** Negative experiments are retained when they close a credible direction. The latest ensemble was rejected rather than tuned against the assessment cohort.
 
-**Frontier-aware research judgment.** Leading public mechanisms are independently adapted rather than copied wholesale. The project now contains a compact statistical tournament reference, a complementary score-margin system, bounded market information, chronology-safe residual-family selection, and prospective external-data collection. The public reproduction matrix states which mechanisms are validated, rejected, adapted, blocked, or still missing.
+**Reproduction discipline.** Public 2025/2026 solution mechanisms are tracked individually as adapted, validated, rejected, blocked, or still missing. Similarity of an idea is not presented as an exact reproduction.
 
-**Validation discipline.** Season-grouped and nested selection, predeclared promotion gates, protected-row contracts, and strict point-in-time rules are used to prevent easy but misleading gains. Stronger average performance can be rejected when its year-level stability is unacceptable.
+**Data engineering.** Official results, seeds, mappings, detailed box scores, multiple strength systems, player histories, market histories, and prospective source captures are maintained privately on AWS with cutoffs, checksums, receipts, and explicit waiting/quarantine states.
 
-**Leakage honesty.** The 2026 futures observations used in retrospective scoring were pinned from a post-competition public source, not independently reconstructed from raw timestamped pre-deadline captures. They are therefore treated as a fixed retrospective component and excluded from residual-model training and configuration selection. The 2027 collector architecture uses raw-first immutable snapshots and explicit target-season eligibility gates.
+**Engineering discipline.** Substantial runs are bounded, checkpointed, resumable, test-gated, and packaged with an executed notebook and evidence bundle. Private model binaries, prediction files, data, and competitive implementation details remain off public GitHub.
 
-**Engineering discipline.** Prediction artifacts are checksummed; candidates preserve protected rows exactly; experiments are bounded, restartable, and test-gated; notebooks retain inline Plotly evidence after reopen; and public GitHub remains intentionally separated from private AWS research state.
+## Current frontier
 
-## 2027 prospective infrastructure
+The latest experiment shows that another blend of highly correlated team-level experts is unlikely to close the remaining gap. The highest-value missing capabilities are **new information**, especially prospectively captured player availability / injury context, stronger women-specific external ratings and player value, and genuinely complementary representations whose residuals are measurably different before blending.
 
-The project has moved beyond retrospective modeling into prospective data engineering:
-
-- **Kalshi:** raw-first men's and women's championship-market collection is operational;
-- **ESPN:** collector is operational, with stale-season rows explicitly quarantined instead of silently admitted;
-- **BartTorvik:** men's ratings and schedule capture is operational;
-- **Remaining information gaps:** roster continuity, transfer value, player availability/injuries, target-season women's external ratings, and a stronger heterogeneous ensemble.
-
-These gaps define the next frontier. The goal is not to keep producing tiny variants of the same model; it is to add information and modeling capabilities that plausibly close the remaining distance to 0.09.
+The 2027 pipeline is already operating in prospective mode: raw source objects are timestamped and checksum-tracked, missing target-season data is treated as `WAITING_FOR_TARGET_DATA`, and future competition identifiers / deadlines will be mapped only when officially available.
 
 ## Public scope
 
-This repository is an **employer-facing and research-frontier case study**, not a distribution of the current private competition system. Current model binaries, candidate prediction bytes, private datasets, exact production feature formulas, source-specific private logic, tuning recipes, credentials, and AWS working changes remain outside the public release.
-
-Previously published source and licenses remain in repository history. The public artifacts expose the research questions, controlled evidence, engineering decisions, negative results, provenance limitations, and forward research plan without pretending the private system is fully reproducible from GitHub alone.
-
-The compact reference is credited to [Harrison Horan's first-place solution](https://www.kaggle.com/c/march-machine-learning-mania-2026/writeups/march-machine-learning-mania-2026-1st-place-solut). Market-information research was informed by the public [third-place solution repository](https://github.com/kevin1000/march-mania-2026-3rd-place). Those sources inform mechanisms; the implementation and validation decisions in this project are independent.
+This repository is an employer-facing research case study. It publishes aggregate methodology, validation design, experiment evidence, negative results, and engineering decisions. It intentionally does **not** publish private datasets, credentials, fitted production models, exact private feature formulas, candidate prediction bytes, or the full AWS research workspace.
