@@ -1,0 +1,11 @@
+milestone,status,development_gain,recent_confirmation_gain,regular_season_gain,coverage,public_note
+Corrected player-impact exposure,REJECTED,0.0006080,-0.0003626,,0.8704,"Corrected exposure definition improved development but failed pooled confirmation."
+Shot-context recovery,REJECTED,-0.0000445,-0.0002799,,0.9974,"Recovered 53,860 additional verified games and completed all required historical fits; no stable tournament gain."
+Daily shot-context transfer,REJECTED,-0.0003271,-0.0001033,0.0008394,0.9974,"Shot context helped later regular-season prediction but did not transfer to tournament forecasting."
+Possession/lineup reconstruction,BLOCKED,,,,,"Validated 88,079 games and 12.4M possession rows; tournament profile coverage was insufficient and the fixed holdout gate did not improve."
+Data readiness and provenance,COMPLETED,,,,,"Scoped registry expanded to 4,318 hashed CSV paths; 903 matched discovered reconstruction receipts."
+2027 launch reference,COMPLETED,,,,,"Frozen 99 men's and 366 women's preseason reference forecasts; separate from tournament scoring."
+Cross-season player-origin correction,REJECTED,0.0001023,0.0009086,,,"Improved all three recent assessment years but missed the predeclared development threshold."
+Residual-source fusion,REJECTED,0.0011638,0.0004496,,,"Passed development but missed the 0.0005 recent-confirmation gate by roughly 0.0000504."
+Joint 33-feature representation,REJECTED,-0.0008591,0.0008437,,,"Nonlinear + linear joint model improved recent confirmation but regressed development."
+Roster geometry reconstruction,BLOCKED,,,,0.9233,"Built 125,657 historical roster-attribute rows and 25,524 cutoff profiles; one early fold lacked enough prior training examples."

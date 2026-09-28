@@ -4,51 +4,79 @@
 
 ## Current verified research boundary: 0.1051853 Brier
 
-The strongest retained private post-competition system scores **0.1051853 Brier** on the complete 126-game 2026 men’s + women’s cohort. The published 2026 winning benchmark was **0.1097454**. The retained late score is numerically lower, but this repository is **benchmark-informed post-competition research**, not an original competition placement or claim of prospective superiority.
+The strongest retained private post-competition system scores **0.1051853 Brier** on the complete 126-game 2026 men's + women's cohort. The published 2026 winning benchmark was **0.1097454**. The retained late score is numerically lower, but this repository is **benchmark-informed post-competition research**, not an original competition placement or a claim of prospective superiority.
 
 The active stretch target is **0.0900000**, leaving **0.0151853** absolute Brier to close.
 
-**[Open the current frontier notebook](portfolio/frontier_research.ipynb)** · [Employer walkthrough](docs/employer_walkthrough.md) · [Current research boundary](docs/current_research.md) · [Research frontier](docs/frontier_research.md)
+**[Open the current frontier notebook](portfolio/frontier_research.ipynb)** · [Employer walkthrough](docs/employer_walkthrough.md) · [Current research boundary](docs/current_research.md) · [Post-merge research log](docs/post_merge_research_log.md) · [Research frontier](docs/frontier_research.md)
 
 | Boundary | Brier | Interpretation |
 |---|---:|---|
 | Published 2026 winner | 0.1097454 | Original competition benchmark |
 | **Retained private post-competition system** | **0.1051853** | Current research boundary |
-| Latest independent chronological ensemble | 0.1281818 | Rejected |
 | Stretch target | 0.0900000 | Research objective, not achieved |
 
-## Latest milestone: auditable chronological reconstruction
+## What changed since the previous public release
 
-The newest milestone rebuilt a clean prediction history from official competition data rather than inheriting an uncertain historical forecast bank. It produced:
+The project moved from a single chronological-ensemble study into a broader **data, validation, and representation program**. The retained score did not improve, but the research boundary is much better understood.
 
-- **31** matchup-difference features;
-- **2,330** main-bracket historical supervised games;
-- **84,376** all-pair feature rows;
-- **78** recorded model fits across seed-only logistic regression, broad logistic regression, and a compact boosted-tree reference;
-- **26** chronological blend checkpoints whose weights use only earlier out-of-time predictions and labels;
-- **53** regression/self-tests and an executed notebook with **6 Plotly figures** plus static fallbacks;
-- prospective 2027 schedule capture for **1,629 men’s** and **2,280 women’s** schedule records, with **0 completed games** correctly treated as a waiting state.
+### Data and provenance expansion
 
-The learned blend did **not** pass promotion. Historical Brier was **0.1638382** versus **0.1634288** for the equal blend, and the frozen 2026 replay scored **0.1281818** versus the retained **0.1051853** system. This is a useful negative result: the three independently reconstructed experts are highly correlated, so more weighting sophistication does not create missing information.
+- **154,657** advanced-context regular-season games validated across 32 gender-season archives.
+- **167,143** daily pregame examples reconstructed with same-day leakage controls; **86,929** met the fixed training-eligibility contract.
+- **88,079** games and **12.4 million** possession-level records validated for lineup-oriented research.
+- **125,657** historical roster-attribute observations reconstructed across 24 gender-season datasets.
+- A scoped registry now contains **4,318 hashed CSV paths**, including **903 paths that match discovered reconstruction receipts**.
+- The prospective 2027 layer froze **99 men's + 366 women's** preseason reference forecasts while keeping tournament IDs, bracket, seeds, and final cutoff explicitly unresolved.
+
+These counts describe different observation grains. They are not additive independent training examples.
+
+### Research conclusions
+
+The post-release program tested several distinct hypotheses rather than continuing micro-variants of one model:
+
+- corrected player-impact exposure improved development but failed confirmation;
+- shot-context features were useful in held-out regular-season games but did not transfer reliably to tournaments;
+- possession/lineup data produced a large validated warehouse, but the first fixed lineup formulation did not satisfy its own holdout gate;
+- cross-season player-origin information improved all three recent assessment years but failed the earlier development gate;
+- combining independent residual corrections came close to promotion but missed the recent-confirmation threshold;
+- a direct 33-feature linear/nonlinear joint model improved recent seasons but regressed development;
+- roster geometry and role attributes are now reconstructed, but the first historical test was blocked by one early cold-start fold rather than scored selectively.
+
+The detailed outcomes are in [the post-merge research log](docs/post_merge_research_log.md), with aggregate machine-readable results in [portfolio/post_merge_experiments.csv](portfolio/post_merge_experiments.csv).
 
 ## What this project demonstrates
 
-**Point-in-time validation.** Forecast-year models use only earlier tournament labels; preprocessing and ensemble weights are fitted inside their allowed historical partitions; 2026 outcomes enter only after prediction files are frozen.
+**Temporal validation discipline.** Forecast-year transforms, models, and combination weights are constrained to information available from earlier training years. Assessment outcomes do not retroactively choose the model family.
 
-**Research judgment.** Negative experiments are retained when they close a credible direction. The latest ensemble was rejected rather than tuned against the assessment cohort.
+**Negative-result discipline.** A model that helps recent seasons but violates a predeclared development gate is rejected instead of promoted post hoc.
 
-**Reproduction discipline.** Public 2025/2026 solution mechanisms are tracked individually as adapted, validated, rejected, blocked, or still missing. Similarity of an idea is not presented as an exact reproduction.
+**Data engineering at multiple grains.** The private AWS workspace maintains team-game, player-game, daily pregame, possession, roster, schedule, and prospective observation layers with explicit receipts, checksums, and eligibility states.
 
-**Data engineering.** Official results, seeds, mappings, detailed box scores, multiple strength systems, player histories, market histories, and prospective source captures are maintained privately on AWS with cutoffs, checksums, receipts, and explicit waiting/quarantine states.
+**Reproduction without copying.** Public 2025 and 2026 solution mechanisms are decomposed into transferable ideas—strength, matchup differences, boosting, margin supervision, player context, and market information—then independently reconstructed and tested. Missing proprietary or point-in-time inputs remain labeled as missing rather than approximated into false parity.
 
-**Engineering discipline.** Substantial runs are bounded, checkpointed, resumable, test-gated, and packaged with an executed notebook and evidence bundle. Private model binaries, prediction files, data, and competitive implementation details remain off public GitHub.
+**Cloud engineering.** Long-running steps are checkpointed, resumable, bounded by runtime/memory budgets, and packaged with executed notebooks and audit evidence.
+
+## 2027 prospective infrastructure
+
+The 2027 path is intentionally conservative:
+
+- roster and schedule observations are captured with source time and season identity;
+- **99 men's and 366 women's preseason reference forecasts** are frozen as dated research products;
+- unavailable target-season sources remain `WAITING_FOR_TARGET_DATA`;
+- raw observations are not automatically promoted into model features;
+- official tournament mappings, bracket, seeds, and final cutoff remain unresolved until they actually exist.
+
+The goal is to enter 2027 with a tested data contract, not to fabricate readiness before the competition inputs exist.
 
 ## Current frontier
 
-The latest experiment shows that another blend of highly correlated team-level experts is unlikely to close the remaining gap. The highest-value missing capabilities are **new information**, especially prospectively captured player availability / injury context, stronger women-specific external ratings and player value, and genuinely complementary representations whose residuals are measurably different before blending.
+The retained 0.1051853 system remains strongest. The evidence now argues against more weighting tricks on highly related team-level models. The highest-value remaining gaps are **genuinely new information**—especially point-in-time availability/injury context, stronger women's external/player-value data, and complementary representations that survive both early development and recent confirmation windows.
 
-The 2027 pipeline is already operating in prospective mode: raw source objects are timestamped and checksum-tracked, missing target-season data is treated as `WAITING_FOR_TARGET_DATA`, and future competition identifiers / deadlines will be mapped only when officially available.
+The next private milestone completes the roster-geometry test using an explicit cold-start policy without lowering the 80-game training minimum or dropping the blocked year.
 
-## Public scope
+## Public/private boundary
 
-This repository is an employer-facing research case study. It publishes aggregate methodology, validation design, experiment evidence, negative results, and engineering decisions. It intentionally does **not** publish private datasets, credentials, fitted production models, exact private feature formulas, candidate prediction bytes, or the full AWS research workspace.
+This repository is an **employer-facing, semi-reproducible research case study**. It publishes aggregate methods, experiment outcomes, validation contracts, synthetic-safe notebook logic, provenance boundaries, and negative results.
+
+It intentionally does **not** publish private datasets, prediction CSVs, fitted production models, exact private feature formulas, source-specific identity logic, production correction weights, credentials, or the canonical AWS workspace.
