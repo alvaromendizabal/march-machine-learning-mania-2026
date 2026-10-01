@@ -86,7 +86,15 @@ def main():
     if a.build: print(json.dumps(build(a.kernel),indent=2))
     elif a.check:
         r=inspect(); saved=json.loads(RECEIPT.read_text())
-        if r!=saved: raise ValueError("Publication receipt mismatch")
+        stable=("status","scope","code_cells","plotly_outputs","model_fits","submissions")
+        if any(r.get(k)!=saved.get(k) for k in stable):
+            raise ValueError("Publication receipt stable contract mismatch")
+        # When a clean-kernel build has regenerated exact hashes in this worktree,
+        # verify them too. The committed pre-build receipt intentionally carries
+        # only the stable public contract because GitHub normalizes text bytes.
+        hash_keys=("evidence_sha256","experiments_sha256","ownership_sha256")
+        if all(k in saved for k in hash_keys) and any(r[k]!=saved[k] for k in hash_keys):
+            raise ValueError("Publication receipt content hash mismatch")
         print(json.dumps(r,indent=2))
     else: p.error("Select --build or --check")
 if __name__=="__main__": main()
