@@ -2,19 +2,19 @@ milestone,status,development_gain,recent_confirmation_gain,regular_season_gain,c
 Corrected player-impact exposure,REJECTED,0.0006080,-0.0003626,,0.8704,,,Corrected exposure definition improved development but failed pooled confirmation.
 Shot-context recovery,REJECTED,-0.0000445,-0.0002799,,0.9974,,,Coverage solved; stable tournament gain absent.
 Daily shot-context transfer,REJECTED,-0.0003271,-0.0001033,0.0008394,0.9974,,,Regular-season gain did not transfer to tournament forecasting.
-Possession/lineup reconstruction,BLOCKED,,,,,,,,Validated 88,079 games and 12.4M possession rows; fixed holdout formulation did not pass.
-Data readiness and provenance,COMPLETED,,,,,,,,Scoped provenance and reconstruction registries completed.
-2027 launch reference,COMPLETED,,,,,,,,Prospective waiting-state infrastructure operational.
+Possession/lineup reconstruction,BLOCKED,,,,,,,"Validated 88,079 games and 12.4M possession rows; fixed holdout formulation did not pass."
+Data readiness and provenance,COMPLETED,,,,,,,Scoped provenance and reconstruction registries completed.
+2027 launch reference,COMPLETED,,,,,,,Prospective waiting-state infrastructure operational.
 Cross-season player-origin correction,REJECTED,0.0001023,0.0009086,,,,,Recent gain insufficient without development support.
 Residual-source fusion,REJECTED,0.0011638,0.0004496,,,,,Missed the fixed confirmation threshold narrowly.
 Joint 33-feature representation,REJECTED,-0.0008591,0.0008437,,,,,Recent improvement accompanied development regression.
-Supplemental operational release,COMPLETED,,,,,96531,,,Owned external-input mart and dated rating archive completed.
+Supplemental operational release,COMPLETED,,,,96531,,,Owned external-input mart and dated rating archive completed.
 Owned preseason trajectory plus coach history,REJECTED,0.0002100,-0.0009346,,,,,Trajectory source retained; correction rejected.
 Owned player-value availability v1,REJECTED,0.0017768,-0.0004962,,,,,Owned player-value/participation proxy failed confirmation.
 Owned box-value availability v2,REJECTED,-0.0010510,-0.0012728,,,,,Second player-value representation also failed transfer.
 Owned external consensus v10,PROMOTED_RESEARCH,,,,,0.1043512820,false,Independently reconstructed external context established a new complete-cohort research baseline.
 Public-solution frontier v11,REJECTED,,,,,0.1122002172,false,Generic replacement families failed the complete 2026 audit.
-AP archive reconstruction,COMPLETED,,,,1.0,,,16530 ranked rows mapped across competition-era scope.
+AP archive reconstruction,COMPLETED,,,,1.0,,,"16,530 ranked rows mapped across competition-era scope."
 AP first-place style correction v12,REJECTED,0.00246,-0.00120,,,,,AP source ownership succeeded but the tested model failed confirmation.
 Season-level ESPN BPI archive,TIMING_BLOCKED,,,,0.0,,,Historical endpoint state was post-cutoff/final and excluded from modeling.
 Sparse pruned LR residual v15,REJECTED,0.0028597,-0.0024645,,,,,Strong development gain broke in 2023 confirmation.
