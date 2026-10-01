@@ -2,81 +2,77 @@
 
 **Alvaro Mendizabal · probability forecasting · temporal validation · cloud ML engineering**
 
-## Current verified research boundary: 0.1051853 Brier
+## Current verified research boundary: 0.1033437 Brier
 
-The strongest retained private post-competition system scores **0.1051853 Brier** on the complete 126-game 2026 men's + women's cohort. The published 2026 winning benchmark was **0.1097454**. The retained late score is numerically lower, but this repository is **benchmark-informed post-competition research**, not an original competition placement or a claim of prospective superiority.
+The strongest **AWS-reproduced post-competition research system** scores **0.1033437 Brier** on the complete 126-game 2026 men's + women's cohort. The published 2026 winning benchmark was **0.1097454**. This comparison is benchmark-informed, post-competition research—not an original competition placement or a prospective superiority claim.
 
-The active stretch target is **0.0900000**, leaving **0.0151853** absolute Brier to close.
+The active stretch target is **0.0900000**, leaving **0.0133437** absolute Brier to close.
 
-**[Open the current frontier notebook](portfolio/frontier_research.ipynb)** · [Employer walkthrough](docs/employer_walkthrough.md) · [Current research boundary](docs/current_research.md) · [Post-merge research log](docs/post_merge_research_log.md) · [Research frontier](docs/frontier_research.md)
+A further **0.1027974 local replay candidate** has passed aggregate reconstruction checks but is intentionally labeled **pending canonical AWS reproduction** rather than promoted.
+
+**[Open the executed frontier notebook](portfolio/frontier_research.ipynb)** · [Current research boundary](docs/current_research.md) · [Post-merge research log](docs/post_merge_research_log.md) · [Supplemental-source ownership](docs/supplemental_source_ownership.md) · [Employer walkthrough](docs/employer_walkthrough.md)
 
 | Boundary | Brier | Interpretation |
 |---|---:|---|
 | Published 2026 winner | 0.1097454 | Original competition benchmark |
-| **Retained private post-competition system** | **0.1051853** | Current research boundary |
+| Previous retained research system | 0.1051853 | Earlier post-competition boundary |
+| Owned external-consensus system | 0.1043513 | Independently reconstructed external inputs |
+| **AWS-reproduced current system** | **0.1033437** | Current canonical research boundary |
+| Local replay candidate | 0.1027974 | Pending canonical AWS reproduction |
 | Stretch target | 0.0900000 | Research objective, not achieved |
 
 ## What changed since the previous public release
 
-The project moved from a single chronological-ensemble study into a broader **data, validation, and representation program**. The retained score did not improve, but the research boundary is much better understood.
+The private AWS program shifted from broad representation search to **owned supplemental data, strict source timing, and selective residual correction**.
 
-### Data and provenance expansion
+### Independently reconstructed supplemental inputs
 
-- **154,657** advanced-context regular-season games validated across 32 gender-season archives.
-- **167,143** daily pregame examples reconstructed with same-day leakage controls; **86,929** met the fixed training-eligibility contract.
-- **88,079** games and **12.4 million** possession-level records validated for lineup-oriented research.
-- **125,657** historical roster-attribute observations reconstructed across 24 gender-season datasets.
-- A scoped registry now contains **4,318 hashed CSV paths**, including **903 paths that match discovered reconstruction receipts**.
-- The prospective 2027 layer froze **99 men's + 366 women's** preseason reference forecasts while keeping tournament IDs, bracket, seeds, and final cutoff explicitly unresolved.
+- **AP polling:** competition-era weekly observations are independently collected and mapped; the private feature layer retains trajectory summaries rather than depending on a frozen public CSV.
+- **Dated BartTorvik:** **9,652 dated observations across 27 editions** are retained with explicit cutoff eligibility.
+- **Supplemental games/context:** **96,531 corroborated games**, **19,006 cutoff-specific team profiles**, **90,550 venue-context rows**, **3,486 conference-context rows**, and **19,006 observed coach-history rows**.
+- **Player-value research:** **1,210,609 pre-cutoff player-game rows** and **53,808 player source/profile rows** support independently derived player-value/availability proxies; these are not relabeled as proprietary BPR or medical injury data.
+- **ESPN game context:** game-specific BPI/predictor and multi-provider market information are independently captured and normalized; the strongest stable gain came from a selective men-only correction while protecting women and previously strong first-round rows.
 
-These counts describe different observation grains. They are not additive independent training examples.
+These counts describe different observation grains and are not additive training examples.
 
-### Research conclusions
+### Modeling conclusions
 
-The post-release program tested several distinct hypotheses rather than continuing micro-variants of one model:
-
-- corrected player-impact exposure improved development but failed confirmation;
-- shot-context features were useful in held-out regular-season games but did not transfer reliably to tournaments;
-- possession/lineup data produced a large validated warehouse, but the first fixed lineup formulation did not satisfy its own holdout gate;
-- cross-season player-origin information improved all three recent assessment years but failed the earlier development gate;
-- combining independent residual corrections came close to promotion but missed the recent-confirmation threshold;
-- a direct 33-feature linear/nonlinear joint model improved recent seasons but regressed development;
-- roster geometry and role attributes are now reconstructed, but the first historical test was blocked by one early cold-start fold rather than scored selectively.
-
-The detailed outcomes are in [the post-merge research log](docs/post_merge_research_log.md), with aggregate machine-readable results in [portfolio/post_merge_experiments.csv](portfolio/post_merge_experiments.csv).
+- generic public-solution model replacements repeatedly failed transfer even when development looked strong;
+- direct player-value, trajectory, sparse-LR, and broad rating-consensus variants were rejected under frozen gates;
+- an owned external-consensus correction improved the complete cohort to **0.1043513**;
+- an uncertainty-gated dated-Torvik correction reproduced at **0.1033437** on AWS;
+- a narrower agreement-gated candidate reaches **0.1027974** in local replay but remains pending canonical AWS reproduction;
+- women remain substantially stronger than men, so current private research concentrates new correction capacity on men while protecting women's predictions.
 
 ## What this project demonstrates
 
-**Temporal validation discipline.** Forecast-year transforms, models, and combination weights are constrained to information available from earlier training years. Assessment outcomes do not retroactively choose the model family.
+**Temporal validation discipline.** Development, confirmation, and final-audit stages remain separated. A direction is rejected when early and recent evidence disagree instead of being rescued with post-hoc threshold changes.
 
-**Negative-result discipline.** A model that helps recent seasons but violates a predeclared development gate is rejected instead of promoted post hoc.
+**Data ownership without false equivalence.** Public solution mechanisms are decomposed into upstream data requirements and independently reconstructed where feasible. Proprietary KenPom/EvanMiya values and contemporaneous historical injury feeds are explicitly labeled unavailable rather than approximated into false parity.
 
-**Data engineering at multiple grains.** The private AWS workspace maintains team-game, player-game, daily pregame, possession, roster, schedule, and prospective observation layers with explicit receipts, checksums, and eligibility states.
+**Negative-result discipline.** Successful execution is distinct from successful science. Engineering failures, source/timing blocks, and model rejections are tracked separately.
 
-**Reproduction without copying.** Public 2025 and 2026 solution mechanisms are decomposed into transferable ideas—strength, matchup differences, boosting, margin supervision, player context, and market information—then independently reconstructed and tested. Missing proprietary or point-in-time inputs remain labeled as missing rather than approximated into false parity.
+**Selective residual modeling.** The strongest post-release gains come from preserving strong baseline rows and applying complementary signals only where historical transfer supports them.
 
-**Cloud engineering.** Long-running steps are checkpointed, resumable, bounded by runtime/memory budgets, and packaged with executed notebooks and audit evidence.
+**Cloud ML engineering.** Private runners are checkpointed, resumable, integrity-checked, memory/time bounded, and package deterministic research evidence with executed notebooks.
+
+## Competition-era scope
+
+Active supplemental reconstruction and modeling use **men 2003+** and **women 2010+** where the competition-era inputs support them. Earlier cached observations may remain as inert provenance but are not an active modeling target.
 
 ## 2027 prospective infrastructure
 
-The 2027 path is intentionally conservative:
+The 2027 path is built around real publication timing:
 
-- roster and schedule observations are captured with source time and season identity;
-- **99 men's and 366 women's preseason reference forecasts** are frozen as dated research products;
-- unavailable target-season sources remain `WAITING_FOR_TARGET_DATA`;
-- raw observations are not automatically promoted into model features;
-- official tournament mappings, bracket, seeds, and final cutoff remain unresolved until they actually exist.
-
-The goal is to enter 2027 with a tested data contract, not to fabricate readiness before the competition inputs exist.
-
-## Current frontier
-
-The retained 0.1051853 system remains strongest. The evidence now argues against more weighting tricks on highly related team-level models. The highest-value remaining gaps are **genuinely new information**—especially point-in-time availability/injury context, stronger women's external/player-value data, and complementary representations that survive both early development and recent confirmation windows.
-
-The next private milestone completes the roster-geometry test using an explicit cold-start policy without lowering the 80-game training minimum or dropping the blocked year.
+- raw source responses are captured before feature normalization;
+- capture timestamps and checksums are retained;
+- missing future data remains **WAITING_FOR_TARGET_DATA**;
+- unavailable sources do not become zero-valued pseudo-features;
+- tournament mappings, seeds, bracket, and final cutoff remain unresolved until they actually exist;
+- roster/availability information is intended for prospective capture rather than retrospective relabeling.
 
 ## Public/private boundary
 
-This repository is an **employer-facing, semi-reproducible research case study**. It publishes aggregate methods, experiment outcomes, validation contracts, synthetic-safe notebook logic, provenance boundaries, and negative results.
+This repository is an **employer-facing, semi-reproducible research case study**. It publishes aggregate methods, experiment outcomes, validation contracts, source-ownership states, and executed report notebooks.
 
-It intentionally does **not** publish private datasets, prediction CSVs, fitted production models, exact private feature formulas, source-specific identity logic, production correction weights, credentials, or the canonical AWS workspace.
+It intentionally excludes raw supplemental datasets, row-level predictions, private candidate CSVs, fitted production models, private orchestration archives, exact production correction weights/gates, source-specific identity logic, credentials, and canonical AWS paths.

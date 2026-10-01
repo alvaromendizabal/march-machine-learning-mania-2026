@@ -1,86 +1,107 @@
 # Current result and evaluation boundaries
 
-## Retained scored boundary
+## Canonical research boundary
 
-The current private post-competition system remains **0.1051853 Brier** on the complete 126-game 2026 men's + women's cohort. The published 2026 first-place benchmark is **0.1097454**.
+The current AWS-reproduced post-competition system scores **0.1033437336 Brier** on the complete 126-game 2026 men's + women's cohort. The published 2026 winning benchmark is **0.1097454**.
 
-The numerical comparison is favorable, but the timing matters: this is **post-competition, benchmark-informed applied ML research**, not an original competition placement or a prospective generalization claim.
+The numerical comparison is favorable, but the timing matters: this is **post-competition, benchmark-informed research**, not an original competition placement or a prospective generalization claim.
 
-The active stretch target is **0.0900000**, leaving **0.0151853** absolute Brier.
+The active stretch target is **0.0900000**, leaving **0.0133437336** absolute Brier.
 
-## Post-release research program
+A separate agreement-gated candidate scores **0.1027974461** in local replay. It is not promoted here because canonical AWS reproduction is still pending.
 
-Since the previous public release, the private AWS research program expanded in two directions simultaneously:
+## Score progression since the previous public release
 
-1. **new data and provenance layers** — player, shot-context, possession, roster, schedule, and prospective source captures;
-2. **strictly matched model tests** — control vs augmented comparisons with fixed gates and earlier-year-only fitting.
-
-The retained champion did not change. Several credible directions were closed cleanly rather than tuned until they looked favorable.
-
-## Major reconstructed data layers
-
-| Layer | Verified scale | Boundary |
+| Research milestone | Complete-cohort Brier | Public interpretation |
 |---|---:|---|
-| Advanced-context regular-season games | 154,657 | Source-reconstructed, independently matched to official games |
-| Daily pregame examples | 167,143 total / 86,929 eligible | Same-day state frozen before the current game |
-| Possession-level lineup records | 12,397,243 across 88,079 games | Provider-reconstructed lineups; not raw ground truth |
-| Historical roster attributes | 125,657 observations | Retrospective attributes; original predeadline publication time not certified |
-| Scoped CSV registry | 4,318 hashed paths | 903 match discovered reconstruction receipts |
-| Frozen 2027 preseason reference forecasts | 99 men's / 366 women's | Preseason research priors, not tournament submissions |
+| Previous retained boundary | 0.1051853186 | Post-competition reference |
+| Owned external-consensus correction | 0.1043512820 | First stable improvement from independently reconstructed external context |
+| Dated-Torvik residual | 0.1042218008 | Historical gate passed, but final gain was below the promotion requirement |
+| **Uncertainty-gated dated-Torvik correction** | **0.1033437336** | AWS-reproduced current research boundary |
+| Agreement-gated candidate | 0.1027974461 | Local replay only; canonical run pending |
 
-Counts above describe different grains and should not be summed as independent observations.
+Lower is better. Scores are retrospective research evaluations on the known 2026 outcomes and must not be represented as original leaderboard results.
 
-## Model findings since the previous public release
+## Supplemental-source program
 
-### Corrected player-impact exposure
+The project now treats public winning solutions primarily as **mechanism and source inventories**, not as files to copy.
 
-After fixing the exposure denominator and protected-row handling, development improved by **0.0006080 Brier**, but pooled confirmation worsened by **0.0003626**. Rejected.
+### Independently owned / reconstructed
 
-### Shot-context reconstruction and transfer
+- competition-era AP polling observations and trajectory summaries;
+- dated BartTorvik snapshots and trajectory state;
+- game-specific ESPN predictor/BPI context;
+- multi-provider no-vig market context;
+- regular-season venue, conference, and coach-history summaries;
+- historical player-game data supporting owned player-value and participation proxies;
+- direct competition-derived Elo/SRS/Colley/Massey-style strength systems.
 
-A broad source-recovery pass increased advanced-context coverage to 154,657 games. The tournament-only correction still failed: development moved by **-0.0000445** and pooled confirmation by **-0.0002799**.
+### Partial or substitute-only
 
-A separate daily pregame experiment found a real regular-season gain of **+0.0008394** across 19,205 held-out games, but tournament confirmation moved by **-0.0001033**. This is an important domain-transfer result: useful regular-season signal did not automatically translate into tournament improvement.
+- coach PASE: a chronological analogue exists; exact numeric parity is not claimed;
+- player value: owned substitutes exist; exact EvanMiya/BPR parity is not claimed;
+- availability: participation proxies exist; they are not medical injury labels;
+- preseason strength: owned Torvik trajectories exist; they are not relabeled KenPom.
 
-### Possession and lineup research
+### Explicit remaining gaps
 
-The possession pipeline validated 88,079 games and 12.4 million possession rows and completed 48 player-effect fits. The fixed later-regular-season holdout formulation was slightly worse, and tournament profile coverage was insufficient for the planned correction. The data layer is retained; the fixed model direction is closed.
+- authorized exact historical KenPom where access is not independently available;
+- exact proprietary EvanMiya/BPR values;
+- complete contemporaneous historical injury/availability snapshots;
+- independently reconstructed WNCAA NET history suitable for a strict point-in-time pipeline.
 
-### Cross-season player-origin signal
+## Source timing and leakage boundary
 
-The cross-season origin correction improved 2023, 2024, and 2025, with pooled recent confirmation **+0.0009086**, but development improved only **+0.0001023**. The predeclared development threshold was not met. Rejected.
+A reconstructed historical source can be useful without being prospectively certified.
 
-### Residual fusion
+The project distinguishes:
 
-A past-only combination of distinct corrections improved development by **+0.0011638** and recent confirmation by **+0.0004496**. The confirmation requirement was +0.0005, so it remained below the promotion line by roughly 0.0000504. Rejected without changing the gate.
+1. **receipt integrity** — current bytes match a captured source/recipe;
+2. **cutoff eligibility** — the observation is dated before the modeled forecast cutoff;
+3. **historical publication provenance** — evidence that the same observation existed before the original forecast;
+4. **predictive evidence** — a frozen matched comparison improves its declared assessment window.
 
-### Joint 33-feature representation
+A checksum alone is not a leakage claim. Retrospective sources without original publication proof remain labeled retrospective.
 
-A matched linear/nonlinear model using the reconstructed origin + shot-context representation improved recent confirmation by **+0.0008437**, but development deteriorated by **0.0008591**. Rejected.
+## Major negative findings since the previous release
 
-### Roster geometry
+Several plausible mechanisms were deliberately closed rather than continuously retuned:
 
-The roster-attribute reconstruction produced 125,657 rows and 25,524 cutoff profiles. The first model run fitted nothing because women's 2018 had **67 eligible prior games** against the fixed minimum of 80. The direction is **blocked, not rejected**. The next private milestone uses an explicit cold-start policy that leaves that fold unchanged while keeping every assessment game in the score.
+- owned preseason trajectory + coach history;
+- two owned player-value/availability representations;
+- generic public-solution LR/XGBoost replacements;
+- AP-enhanced first-place-style boosting;
+- historical season-level BPI whose endpoint returned post-cutoff/final state;
+- sparse/pruned LR residual correction;
+- broad robust rating consensus;
+- unconditional dated-Torvik correction whose final gain was below the frozen promotion margin.
 
-## Provenance boundary
+The pattern is consistent: **recent/development gains are insufficient unless transfer remains stable across the untouched confirmation seasons and the final complete-cohort audit.**
 
-The project uses several different evidence standards:
+## Why the current system improved
 
-- **receipt-matched reconstruction:** current bytes match a recorded reconstruction recipe;
-- **temporal eligibility:** the feature contract admits only observations satisfying the forecast cutoff;
-- **historical publication provenance:** whether a source snapshot can be proven to have existed before the original forecast;
-- **predictive evidence:** whether a fixed, matched comparison improved its assessment window.
+The strongest gain does not come from replacing the full model. It comes from **selective men-only residual correction** on rows where the retained system historically showed sufficient uncertainty, while protecting strong first-round and women's predictions.
 
-These are not interchangeable. A hash alone is not a leakage claim. A retrospective roster archive can be useful for research without being labeled prospectively verified.
+This is reported at a high level only. Exact private gating rules, weights, row-level corrections, and production artifacts are intentionally not public.
 
-## Remaining external gaps
+## Active modeling scope
 
-The private system still lacks complete point-in-time versions of several inputs used or approximated by leading systems: historical predeadline BPI, contemporaneous player availability/injury information, authorized proprietary player-value data, licensed KenPom inputs, multi-book no-vig consensus, and stronger women-specific external/player-value history.
+New supplemental reconstruction/modeling is bounded to:
 
-These are kept as explicit gaps. The project does not relabel reconstructed box-score or roster proxies as equivalent sources.
+- **men 2003+**
+- **women 2010+**
+
+Older cached material may remain for provenance but is not an active modeling target.
 
 ## 2027 state
 
-The 2027 machinery is functioning but intentionally incomplete. The project has frozen 465 preseason reference forecasts and retained roster/schedule captures as dated observations. Missing target-season sources remain waiting states. Official tournament mappings, bracket, seeds, and final deadline are not guessed.
+The prospective layer is designed to capture real source timing rather than recreate it after the tournament:
 
-The next stronger generalization claim must come from forecasts frozen before genuinely future outcomes.
+- raw observations first;
+- capture timestamps and SHA-256 receipts;
+- normalization/mapping as separate steps;
+- source-level waiting states for unpublished 2027 inputs;
+- no copy-forward of 2026 values;
+- no automatic promotion of a new source into production features.
+
+The next defensible generalization claim requires a genuinely future tournament scored under a frozen pre-outcome protocol.

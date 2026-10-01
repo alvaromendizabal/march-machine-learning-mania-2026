@@ -1,51 +1,83 @@
-# Research extension · Evidence portfolio
+# Research extension · owned supplemental data frontier
 
 **Alvaro Mendizabal · NCAA tournament probability forecasting**
 
-This portfolio documents continued feature-first research after the original scored release. It presents supplied aggregate measurements and their limitations; it is not a public distribution of the new private training pipeline.
+This portfolio documents the post-competition research program after the earlier public release. It is an employer-facing aggregate presentation, not a public distribution of the private training/submission pipeline.
 
-## Three numbers with different meanings
+## Current research boundary
 
 | Measurement | Value | Interpretation |
 |---|---:|---|
-| Best reported late Kaggle submission | 0.1222672 | Preserved original observed submission result; no new submission is claimed here |
-| Historical research target | 0.1097454 | Target supplied for this project, not a newly verified live leaderboard position |
-| Later-era compact-reference consensus effect | −0.0006879 | Mean-season Brier change on explored men's 2022–2025 tournament games; not a production-model or leaderboard result |
+| Published 2026 winner | 0.1097454 | Original competition benchmark |
+| Previous retained post-competition system | 0.1051853 | Earlier private research boundary |
+| Owned external-consensus system | 0.1043513 | Independently reconstructed external context |
+| **AWS-reproduced current system** | **0.1033437** | Current canonical post-competition research boundary |
+| Agreement-gated replay candidate | 0.1027974 | Pending canonical AWS reproduction |
+| Stretch target | 0.0900000 | Research objective, not achieved |
 
-Lower Brier is better. A validation improvement is not evidence that the Kaggle target has been reached.
+Lower Brier is better. None of the post-competition rows above should be interpreted as an original competition placement.
 
-## Research question
+## What changed
 
-Which representations improve pre-tournament probabilities on matched games, survive additional-season checks, and justify their complexity? The work compares new feature families against fixed references and relevant ordinary-statistic controls. It separates real incremental information from effects caused by extra correlated inputs and regularization.
+The private research program now emphasizes **independent supplemental-source reconstruction, source timing, and selective residual correction** rather than broad feature accumulation.
 
-The inspected extension reports include shooting, schedule records, temporal form, possession accounting, bracket context, alternative strength representations, ranking information, common opponents, and opponent-adjusted box-score behavior. Negative findings remain visible rather than being removed from the story.
+Public-safe highlights:
 
-## Evidence and navigation
+- 96,531 corroborated supplemental games;
+- 19,006 cutoff-specific team profiles;
+- 90,550 venue-context rows;
+- 3,486 conference-context rows;
+- 19,006 coach-history rows;
+- 9,652 dated BartTorvik observations across 27 editions;
+- 1,210,609 pre-cutoff player-game rows supporting owned player-value/participation proxies;
+- competition-era AP polling reconstructed and mapped independently;
+- ESPN game-specific predictor/BPI and multi-provider market context normalized independently.
 
-- [Experiment ledger](EXPERIMENT_LEDGER.md): completed, rejected, inconclusive, and pending investigations.
-- [Validation summary](validation_summary.csv): all configuration/population groups from the 252 selected supplied result rows, aggregated equally across their recorded seasons.
-- [Provenance](PROVENANCE.json): exact source-table hashes, source archives, and publication scope.
-- [Disclosure](DISCLOSURE.md): limits of this publication and the private/public boundary.
-- [Original executed notebooks](../README.md#original-review-notebooks): the preserved released research presentation.
+These observation counts are at different grains and are not additive samples.
 
-The summary table's arm labels are anonymized presentation identifiers from the supplied public-only package. They are meaningful only within a round; `Arm 2` is not a common model across rounds. Exact recipes and implementations are withheld from this extension publication.
+## Evidence
 
-## Findings that changed the research direction
+- [Executed frontier notebook](frontier_research.ipynb)
+- [Aggregate experiment ledger](post_merge_experiments.csv)
+- [Supplemental source ownership matrix](supplemental_source_ownership.csv)
+- [Current research boundary](../docs/current_research.md)
+- [Post-merge research log](../docs/post_merge_research_log.md)
+- [Supplemental-source ownership and 2027 contract](../docs/supplemental_source_ownership.md)
 
-**Replication matters.** Initial schedule-record and temporal-change gains did not consistently repeat on the additional seasons selected for their checks. Their expansions were stopped under their declared rules, rather than retuned to rescue a favorable result.
+## Research conclusions
 
-**Controls matter.** Some apparent gains against a small reference disappeared when the comparison already included the same ordinary rates or ranking consensus. The correct primary comparison is the one specified for the investigation, not whichever baseline gives the largest improvement.
+**Source ownership and model usefulness are separate.** AP reconstruction succeeded as a data milestone even though the tested AP-enhanced booster failed confirmation.
 
-**Consensus is useful under one tested setting.** In the later compact-reference check, ranking consensus improved three of four seasons. Much of the gain came from 2024. Testing against the actual fixed production recipe remains a separate, unfinished obligation.
+**Broad replacement is fragile.** Several public-solution-inspired LR/XGBoost/rating replacements improved development or recent years and then failed the complete 2026 audit.
 
-**Successful execution is not successful science.** Round 17's mean change beyond its rate control was −0.0004715, just short of its declared improvement threshold. Rounds 18 and 19 had mean changes of +0.0010283 and +0.0003371 against their rate controls. These findings did not justify promotion.
+**Selective correction transfers better.** The current retained gain comes from preserving strong baseline rows and applying complementary information only to historically supported men's cases.
 
-## Reading the summary correctly
+**Timing is a first-class feature contract.** Historical season-level BPI was available but updated after tournament cutoffs; the project archived it and refused to use it as pre-tournament history.
 
-`mean_season_brier` is the arithmetic mean across the seasons listed in that row. `delta_vs_round_reference` subtracts the reference from the same round, population, and season set. Negative is better. These are not pooled leaderboard scores, independent replications, statistical-significance results, or the original study's game-weighted metrics.
+**Negative results remain part of the portfolio.** Rejected models, timing blocks, and engineering failures are separated instead of collapsed into a single success/failure label.
 
-Several rounds contain both discovery and additional-season results. Their all-season means are descriptive only: promotion decisions must still use the predeclared evaluation subset and conditional baseline. Reused reference rows must not be counted as newly fitted models. Absent reports are not assigned fabricated scores.
+## 2027 readiness
 
-## Current publication status
+The private pipeline is designed to collect future observations prospectively with real timestamps and checksums. Missing target-season sources remain waiting states until publication. No 2026 value is silently copied into 2027.
 
-This is an evidence-only extension of the existing public repository. The original MIT release, canonical notebooks, and scientific source are preserved. New private implementation, raw inputs, models, predictions, and credential-bearing files are not included. The blocked AWS publication plan has not been approved or represented as synchronized.
+The highest-value remaining data gaps are women-specific external rating parity and prospective roster/availability information.
+
+## Public/private boundary
+
+Published here:
+
+- aggregate experiment outcomes;
+- executed report logic;
+- source ownership/provenance states;
+- validation and timing contracts;
+- negative results and limitations.
+
+Intentionally withheld:
+
+- raw/private supplemental data;
+- prediction CSVs;
+- fitted production models;
+- exact residual gates/weights;
+- source-specific identity logic;
+- credentials;
+- private orchestration archives and AWS paths.
