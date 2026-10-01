@@ -1,0 +1,12 @@
+source,state,active_scope,public_safe_summary
+AP Poll,OWNED,"M 2003+; W 2010+","Weekly observations mapped independently; trajectory summaries retained."
+Dated BartTorvik,OWNED,"competition era","Dated snapshots with cutoff eligibility; 9,652 observations across 27 editions."
+ESPN game predictor/BPI,OWNED_PARTIAL,"recent competition era","Game-specific context independently captured; retrospective publication timing caveat retained."
+Multi-provider market context,OWNED_SUBSTITUTE,"recent competition era","Provider-level odds normalized to no-vig summaries; raw private quotes not published."
+Venue/context,OWNED,"competition era","Observed H/A/N and contextual summaries; not relabeled as publisher-adjusted ratings."
+Coach performance,OWNED_ANALOGUE,"competition era","Past-only coach-history analogue; exact proprietary PASE parity not claimed."
+Player value,OWNED_PROXY,"M 2015+","Independent player-value/participation proxies; not relabeled EvanMiya/BPR."
+Season-level ESPN BPI,TIMING_BLOCKED,"M 2008+; W recent","Historical endpoint state updated after tournament cutoff; archive retained, model use blocked."
+WNCAA NET,OPEN_GAP,"W 2021+","Independent point-in-time reconstruction remains a priority."
+KenPom exact,AUTHORIZED_ONLY,"where licensed","No false substitution; owned Torvik representations remain separately named."
+Historical injury/availability,OPEN_GAP,"prospective 2027 focus","Participation proxies exist; contemporaneous medical/injury history not certified."
