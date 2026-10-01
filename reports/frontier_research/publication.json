@@ -1,9 +1,6 @@
 {
   "status": "PASS",
   "scope": "Aggregate owned-data frontier case study; no forecasting implementation",
-  "evidence_sha256": "29c77307f97a61ad689d5a7a1fcc35c2707596af902d9b2ea1d740091f72bba0",
-  "experiments_sha256": "4d215e9da00d6c61fba7980b2053c469330e1afdeed0ccadb9253fa2f2ee70ec",
-  "ownership_sha256": "2fa6f460402c8c4b8d4ea6132c6ef0a70df39f9c58416fd9af42c5e6428893d8",
   "code_cells": 6,
   "plotly_outputs": 4,
   "model_fits": 0,
