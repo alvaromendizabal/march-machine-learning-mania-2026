@@ -1,46 +1,55 @@
-# Employer walkthrough | NCAA forecasting research
+# Employer walkthrough
 
-## Start here
+## 60-second summary
 
-Open the [frontier research notebook](../portfolio/frontier_research.ipynb). It is the fastest way to review the project: current score boundary, post-release experiment progression, data/provenance growth, 2027 readiness, and the public/private implementation boundary.
+This project is a post-competition NCAA tournament probability-forecasting research program focused on three things:
 
-For the chronological details, see the [post-merge research log](post_merge_research_log.md).
+1. **temporal validation discipline** — policies are selected on earlier seasons and frozen before a 2026 audit;
+2. **supplemental-data ownership** — useful public-solution inputs are independently reconstructed from official/original sources rather than copied from competitor CSVs;
+3. **cloud ML engineering** — source acquisition, caching, validation, modeling, notebook reporting, cost logging, and failure packaging are automated in bounded AWS runners.
 
-## Result and framing
+The current fully owned/recreated system scores **0.1206458 Brier** on a late/post-competition Kaggle submission and **0.1206458343** on an exact independently reconstructed 126-game local audit.
 
-The retained private post-competition system scores **0.1051853 Brier** on the complete 126-game 2026 cohort. The published 2026 winner scored **0.1097454**. The private result is numerically lower, but the research is post-competition and informed by public benchmarks, so it is presented as an applied ML case study rather than an original competition placement.
+## What I built
 
-The stretch target is **0.09**, leaving **0.0151853** absolute Brier.
+- independently reconstructed Bart Torvik Time Machine history;
+- competition-era AP polling archive and trajectory features;
+- official-data rating systems including Elo/SRS/Colley/Bradley-Terry/Massey-derived consensus;
+- point-in-time source eligibility and quarantine logic;
+- a reliability-gated correction system that improved all three recent confirmation seasons;
+- a 126-game scorer that independently reproduces the Kaggle Brier;
+- resumable/cached AWS research runners with telemetry and deterministic return artifacts;
+- a source-ownership matrix for 2027 prospective collection.
 
-## What to evaluate
+## What I rejected
 
-**Research discipline.** Several post-release models improved recent seasons and were still rejected because they failed earlier development gates. The project treats stability across seasons as a first-class criterion.
+A core part of the project is not promoting attractive-looking models that fail transfer.
 
-**Point-in-time engineering.** Same-day states are frozen before the current game, forecast-year transforms fit only on permitted training partitions, and future source captures retain observation timestamps. Missing future data is a waiting state, not an excuse to substitute later information.
+Rejected directions include:
+- broad internal-strength expansion;
+- simple recent rotation continuity;
+- richer boxscore player-impact proxies;
+- dynamic opponent-adjusted offense/defense/pace/margin;
+- broad blending among highly correlated weaker branches.
 
-**Data-system breadth.** The private AWS workspace now spans team-game, player-game, daily pregame, possession, lineup, roster, schedule, and prospective observation layers. A scoped registry tracks 4,318 hashed CSV paths and 903 receipt-matched reconstructions.
+Historical BPI and historical timestamped market odds were blocked by source/timing constraints rather than forced into the model.
 
-**Matched experimentation.** New information is evaluated against an identical-row control whenever possible. Only the incremental value of the additional feature family is allowed to become a candidate correction.
+## Why the current public score looks worse than an older research score
 
-**Negative-result quality.** The shot-context study is a good example: it improved held-out regular-season prediction by roughly 0.00084 Brier but did not improve tournament confirmation. That result closed a plausible transfer direction without discarding the reconstructed data layer.
+The project deliberately tightened its ownership standard for 2027. Older post-competition research reached lower retrospective Brier values using external artifacts that are no longer considered independently reproducible. Those scores remain research history; the **0.1206458 v26 system is the current owned/recreated boundary**.
 
-**Leading-solution awareness.** Public 2025 and 2026 mechanisms are decomposed into transferable ideas and tested independently. Missing injury, proprietary player-value, and point-in-time external-rating inputs remain explicitly missing instead of being quietly approximated into claims of exact reproduction.
+That distinction is intentional: reproducibility and source provenance are part of the engineering target, not cleanup after the fact.
 
-**Cloud engineering.** Substantial workflows are checkpointed, resumable, runtime-bounded, and packaged with an executed notebook and audit evidence. The most expensive reconstruction steps are reused instead of repeated across each experiment.
+## What I would discuss in an interview
 
-## Post-release highlights
+- why Brier score changes model-selection behavior relative to accuracy;
+- why temporal validation matters in tournament forecasting;
+- how source timing can invalidate an otherwise useful feature;
+- how I separate engineering failure, source block, and scientific rejection;
+- why residual complementarity matters more than model count;
+- how AWS caching/checkpointing avoids redoing expensive source work;
+- how the 2027 source contract prevents hindsight and silent future-data fabrication.
 
-- 154,657 validated advanced-context games.
-- 167,143 daily pregame examples; 86,929 eligible under the fixed contract.
-- 12.4M possession rows across 88,079 verified games.
-- 125,657 historical roster-attribute observations.
-- 465 frozen 2027 preseason reference forecasts.
-- residual fusion that narrowly missed promotion rather than being retuned after the fact.
-- a 33-feature linear/nonlinear joint model that improved recent years but failed development.
-- roster-geometry reconstruction now ready for a cold-start-safe historical completion test.
+## Public/private boundary
 
-## Semi-reproducible public surface
-
-The notebook and [post_merge_experiments.csv](../portfolio/post_merge_experiments.csv) reproduce the public aggregate charts and gate interpretations without exposing the private forecasting implementation.
-
-Public GitHub intentionally excludes raw private datasets, prediction files, model binaries, exact feature formulas, source-specific mapping logic, production correction weights, credentials, and AWS paths.
+This repository exposes the research story and aggregate evidence without publishing raw third-party source archives, candidate prediction rows, exact private model gates/weights, credentials, or private orchestration artifacts.
