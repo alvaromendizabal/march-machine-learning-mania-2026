@@ -1,0 +1,7 @@
+milestone,state,evaluation_context,brier,notes
+Historical broader-data boundary,retired for 2027 ownership,post-competition full 126-game audit,0.1033437336,Uses broader legacy external lineage; retained only as research history
+Historical v19 replay,retired for 2027 ownership,post-competition full 126-game replay,0.1027974461,Numerically stronger but not admissible under current ownership rules
+v22 clean owned baseline,clean owned baseline,late/post-competition Kaggle submission,0.1227708,First fully clean owned-only submission
+v26 owned Torvik reliability,CURRENT OWNED CHAMPION,late/post-competition Kaggle submission,0.1206458,Official competition data + independently recreated Torvik + owned reliability gate
+v26 exact offline audit,CURRENT OWNED CHAMPION,exact reconstructed 63M + 63W game audit,0.1206458343253354,Matches Kaggle submission score to displayed precision
+Stretch target,research target,future research objective,0.09,Target only; not achieved

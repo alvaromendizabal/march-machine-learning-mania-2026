@@ -1,0 +1,13 @@
+source_family,ownership,research_state,coverage,public_boundary
+Official competition data,official,active,Men 2003+; Women 2010+,Primary training/validation source
+AP polling archive,independently recreated,tested / model rejected,competition era,Source remains legitimate despite rejected model branch
+Bart Torvik Time Machine,independently recreated,PROMOTED,2011–2026,Current strongest supplemental source
+Massey ordinals,official-derived,active,competition era,Chronology-safe latest legal editions
+Elo / SRS / Colley / Bradley-Terry,owned derived,active / partially rejected,competition era,Derived from official results
+ESPN player boxscores,independently collected,tested / representations rejected,historical pre-cutoff,Infrastructure remains useful prospectively
+WNCAA NET,independently recreated partial,open gap,2021–2024; 2026 previously recovered,2025 and durable canonicalization remain
+Historical ESPN season BPI,source/timing blocked,blocked,historical,Prospective 2027 capture only
+Historical timestamped ESPN market odds,source blocked,blocked,2021–2026 attempted,Prospective 2027 capture only
+KenPom,not independently owned,authorized-only,n/a,Never relabel substitutes as KenPom
+EvanMiya / BPR,not independently owned,open proprietary gap,n/a,Owned proxies are named separately
+Historical injury snapshots,not independently owned,open gap,n/a,Prospective 2027 capture preferred

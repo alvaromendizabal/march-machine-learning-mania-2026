@@ -1,62 +1,71 @@
 # Supplemental-source ownership and 2027 readiness
 
-This document summarizes which external inputs used or discussed by leading public March Mania solutions are independently reconstructed in the private research system.
+This repository publishes the **state** of supplemental data ownership, not the private data itself.
 
-It is an **ownership/provenance matrix**, not a public dump of the source data. Raw third-party observations, exact private feature formulas, candidate predictions, credentials, and source-specific identity maps are intentionally excluded.
+"Owned" here means the pipeline independently acquires or reconstructs the relevant public observations from official/original sources, preserving provenance and timing, rather than relying on another competitor's prepared feature CSV.
 
-## Active historical scope
+## Active modeling scope
 
-New reconstruction/modeling is bounded to:
+- Men: modern competition era, generally 2003+
+- Women: modern competition era, generally 2010+
+- Narrower sources start later when the publisher/source did not exist earlier
 
-- **Men: 2003+**
-- **Women: 2010+**
+## Ownership matrix
 
-Narrower sources may begin later. Earlier cached observations can remain as inert provenance but are not an active modeling target.
+| Source family | Ownership state | Research state | Public boundary |
+|---|---|---|---|
+| Official competition data | Official | Active | Primary training/validation source |
+| AP polling | Independently recreated | Tested; model branch rejected | Source remains legitimate |
+| Bart Torvik Time Machine | Independently recreated | **Promoted in v26** | Current strongest supplemental source |
+| Massey ordinals | Official-derived | Active | Chronology-safe legal editions |
+| Elo / SRS / Colley / Bradley-Terry | Owned derived | Active / partially rejected | Derived from official results |
+| ESPN player boxscores | Independently collected | Two tested representations rejected | Retained for prospective 2027 capture |
+| WNCAA NET | Independently recreated partial | Open source gap | 2021–2024 retained; 2025 missing; 2026 requires durable canonicalization |
+| NCAA NET men | Not yet comprehensively owned | Open gap | Next source frontier |
+| ESPN historical season BPI | Timing/source blocked | Blocked | Prospective 2027 only |
+| Historical timestamped market odds | Source blocked | Blocked | Prospective 2027 only |
+| KenPom | Not independently owned exact | Authorized-only | No fabricated parity |
+| EvanMiya / BPR | Not independently owned exact | Open proprietary gap | Owned substitutes are named separately |
+| Historical injury snapshots | Not independently owned | Open gap | Prospective 2027 capture preferred |
 
-## Current status
-
-| Source family | State | Public boundary |
-|---|---|---|
-| AP polling | Owned | Weekly observations mapped independently; pre-tournament summaries/trajectory available |
-| Dated BartTorvik | Owned | 9,652 dated observations across 27 editions with explicit cutoff eligibility |
-| ESPN game-specific predictor/BPI | Owned partial | Useful game context captured; retrospective original publication timing is not always independently certified |
-| Multi-provider market context | Owned substitute | Provider-level no-vig summaries; private raw quotes not published |
-| Venue/context | Owned | Observed context only; not relabeled as publisher-adjusted venue ratings |
-| Coach performance | Owned analogue | Past-only coach-history signal; exact external PASE parity not claimed |
-| Player value/availability | Owned proxy | Derived from player-game/participation history; not relabeled BPR or injury diagnosis |
-| Season-level ESPN BPI | Timing blocked historically | Historical endpoint state was updated after tournament cutoff; retained only as archive/prospective reference |
-| WNCAA NET | Open gap | Independent point-in-time reconstruction remains a priority |
-| Exact KenPom | Authorized-only | No fabricated parity |
-| Exact EvanMiya/BPR | Open proprietary gap | Owned substitutes exist but are named separately |
-| Historical medical injury context | Open gap | 2027 prospective capture preferred to retrospective relabeling |
-
-Machine-readable version: [portfolio/supplemental_source_ownership.csv](../portfolio/supplemental_source_ownership.csv).
-
-## What "owned" means here
-
-Owned does **not** mean ownership of a third party's intellectual property. It means the research pipeline can independently acquire/normalize the relevant public observations or reconstruct a separately named analogue without relying on another competitor's prepared feature CSV.
+Machine-readable version: [portfolio/supplemental_source_status_2027.csv](../portfolio/supplemental_source_status_2027.csv).
 
 ## Timing standard
 
-The project keeps four ideas separate:
+Each reconstructed source is evaluated on four independent questions:
 
-1. **capture integrity** — bytes/checksums/receipts are stable;
-2. **forecast cutoff eligibility** — an observation is dated early enough to enter the model;
-3. **original historical publication proof** — evidence the historical observation was actually published before that old forecast;
-4. **predictive transfer** — a frozen model rule improves development and confirmation under its declared protocol.
+1. **Capture integrity** — can the source bytes and normalized representation be reproduced?
+2. **Historical timing** — did the observation exist before the relevant tournament/prediction cutoff?
+3. **Model eligibility** — does the row map cleanly to the competition entity/time contract?
+4. **Predictive transfer** — does a frozen historical policy improve the official metric?
 
-A source can pass integrity and fail timing. A source can pass timing and fail predictive transfer.
+Passing one does not imply passing the others.
 
-## 2027 prospective contract
+## Examples
 
-For future data, the goal is stronger provenance than retrospective reconstruction:
+### Bart Torvik
+The project reconstructed historical Time Machine observations from the upstream source, mapped them to official TeamIDs, preserved receipts, and then tested them historically. The raw signal was useful but unstable; a disagreement/reliability gate transferred across recent seasons and became the current champion.
 
-- capture raw source responses before transformation;
-- store real capture timestamps and checksums;
-- preserve source IDs and mapping status;
-- separate acquisition from feature eligibility;
-- leave unpublished sources in **WAITING_FOR_TARGET_DATA**;
-- never copy 2026 values into 2027 as placeholders;
-- promote a source only after both engineering and historical/prospective validation gates pass.
+### ESPN BPI
+Historical source material was explored, but the defensible pre-cutoff archive path was not adequate. The project preserved the collector idea for prospective 2027 capture instead of using final/postseason values retrospectively.
 
-The highest-value remaining data work is women-specific external rating parity and prospectively captured roster/availability context.
+### Historical markets
+Event discovery and provider-level odds mechanics were reconstructed, but timestamped pre-deadline history was not available at sufficient coverage. The historical branch was closed rather than backfilled with closing lines.
+
+### Player availability
+Pre-cutoff ESPN boxscores were captured and tested through two owned representations. Neither transferred strongly enough to promote. The raw infrastructure remains useful for prospectively timestamped 2027 participation/availability.
+
+## 2027 contract
+
+For future source collection:
+- retain the raw response/object;
+- retain source URL and provider identity;
+- retain actual capture timestamp;
+- retain source publication timestamp when available;
+- hash raw and normalized artifacts;
+- retain mapping state;
+- retain model eligibility state;
+- retain quarantine reason;
+- leave unavailable future sources as WAITING_FOR_TARGET_DATA;
+- never copy 2026 values into 2027;
+- never convert post-cutoff data into synthetic pre-cutoff history.
