@@ -1,7 +1,8 @@
 milestone,state,evaluation_context,brier,notes
-Historical broader-data boundary,retired for 2027 ownership,post-competition full 126-game audit,0.1033437336,Uses broader legacy external lineage; retained only as research history
-Historical v19 replay,retired for 2027 ownership,post-competition full 126-game replay,0.1027974461,Numerically stronger but not admissible under current ownership rules
-v22 clean owned baseline,clean owned baseline,late/post-competition Kaggle submission,0.1227708,First fully clean owned-only submission
-v26 owned Torvik reliability,CURRENT OWNED CHAMPION,late/post-competition Kaggle submission,0.1206458,Official competition data + independently recreated Torvik + owned reliability gate
-v26 exact offline audit,CURRENT OWNED CHAMPION,exact reconstructed 63M + 63W game audit,0.1206458343253354,Matches Kaggle submission score to displayed precision
-Stretch target,research target,future research objective,0.09,Target only; not achieved
+v22 clean owned baseline,accepted historical baseline,late/post-competition submission,0.1227708,First strict owned/recreated baseline
+v26 owned Torvik reliability,ACCEPTED SUBMITTED CONTROL,late/post-competition submission,0.1206458,Official data plus independently recreated Torvik and frozen reliability policy
+v26 exact offline audit,verified scorer,complete reconstructed 63M + 63W audit,0.1206458343253354,Exact 126-game scorer reproduces submitted result
+v45 native women reconstruction,numerically reproduced research branch,63 women scored games,0.07673831718385483,65,703 all-pair probabilities matched archived reference within 1e-4
+v47 reconstructed ranking-chain frontier,experimental complete-cohort audit,complete 126-game post-competition audit,0.10873119081444298,Owned women reconstruction plus independently rebuilt official-data ranking corrections
+v49 qualified first-round comparator,STRONGEST RECONSTRUCTED EXPERIMENTAL,complete 126-game post-competition audit,0.10693622128918275,Preserved reconstructed parent plus source-qualified target-season first-round information; not promoted
+v50 fixed championship-ratio substitution,rejected experiment,complete 126-game post-competition audit,0.10896599142207598,Correctly executed negative experiment; stronger parent retained

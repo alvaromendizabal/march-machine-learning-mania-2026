@@ -1,104 +1,125 @@
 # NCAA tournament forecasting | owned-data ML engineering case study
 
-**Alvaro Mendizabal · probability forecasting · temporal validation · cloud ML engineering**
+**Alvaro Mendizabal · probability forecasting · temporal validation · source provenance · cloud ML engineering**
 
-## Current 2027-ready owned boundary: 0.1206458 Brier
+This repository is an employer-facing case study of a multi-season NCAA tournament forecasting program built around one principle: **use strong predictive information only when its provenance, timing, transformation, and evaluation can be defended.**
 
-The strongest **fully owned/recreated, 2027-ready** system is **v26**, with a late/post-competition Kaggle Brier of **0.1206458**. The exact independently reconstructed 126-game audit reproduces that result at **0.1206458343** across **63 men's + 63 women's games**.
+## Current verified state
 
-This repository now distinguishes two research eras:
+The accepted owned-data submission remains **v26 at 0.1206458 Brier**. An independently reconstructed local scorer reproduces the complete 126-game result at **0.1206458343** across **63 men's and 63 women's games**.
 
-- **historical broader-data research**, which reached lower retrospective scores but depended on external artifacts that are no longer considered acceptable for the 2027 ownership standard;
-- **current owned/recreated research**, where supplemental data must be independently reconstructed from official or original sources before it is model-eligible.
+The private reconstruction program has also produced a stronger **experimental** post-competition forecast at **0.1069362 Brier**. It is intentionally not called the champion because its parent lineage did not pass every historical promotion gate. That separation between *best retrospective result* and *best accepted system* is part of the research discipline.
 
-The active research target remains **0.0900000**, leaving **0.0306458** absolute Brier from the current owned champion.
+| System | Evaluation setting | Brier | Lifecycle |
+|---|---|---:|---|
+| v26 owned Torvik reliability system | late/post-competition submission | **0.1206458** | Accepted / submitted control |
+| v26 exact local audit | complete 126-game reconstructed audit | **0.1206458343** | Verified scorer |
+| Native women reconstruction | 63 women tournament games | **0.0767383172** | Numerically reproduced research branch |
+| Reconstructed research frontier | complete 126-game post-competition audit | **0.1069362213** | Experimental; not promoted |
 
-**[Owned-frontier portfolio](portfolio/owned_frontier_2027.md)** · [Current research boundary](docs/current_research.md) · [Supplemental source ownership](docs/supplemental_source_ownership.md) · [Research log](docs/post_merge_research_log.md) · [Public-solution reproduction matrix](docs/reproduction_matrix.md) · [Employer walkthrough](docs/employer_walkthrough.md)
+Lower Brier is better. These are post-competition research measurements; they are not presented as original competition placement claims.
 
-| Boundary | Brier | Interpretation |
-|---|---:|---|
-| Historical broader-data post-competition boundary | 0.1033437 | Retained as research history; not the 2027 ownership boundary |
-| Historical v19 replay | 0.1027974 | Numerically stronger but retired under current source-ownership rules |
-| v22 clean owned baseline | 0.1227708 | First fully clean owned/recreated submission |
-| **v26 owned Torvik reliability system** | **0.1206458** | **Current 2027-ready owned champion** |
-| Exact v26 offline audit | 0.1206458343 | 126/126 scored games; reproduces Kaggle |
-| Stretch target | 0.0900000 | Research objective, not achieved |
+**[Employer walkthrough](docs/employer_walkthrough.md)** ·
+[Current research boundary](docs/current_research.md) ·
+[Supplemental-source ownership](docs/supplemental_source_ownership.md) ·
+[Research log](docs/post_merge_research_log.md) ·
+[Reproduction matrix](docs/reproduction_matrix.md) ·
+[Owned-data portfolio](portfolio/owned_frontier_2027.md)
 
-Lower Brier is better. All 2026 comparisons are post-competition research measurements, not claims of original leaderboard placement.
+## What makes this project technically interesting
 
-## What changed since the previous public release
+### 1. Source-equivalent reconstruction, not CSV copying
 
-The private AWS program moved from an earlier broader-data research frontier to a stricter **owned/recreated supplemental-data standard** designed for 2027 repeatability.
+The project retired supplemental artifacts that could not be independently regenerated. Useful signals were decomposed into their underlying information families and rebuilt from original or authoritative sources.
 
-### Independently recreated and validated
+Current owned/recreated infrastructure includes:
 
-- **Bart Torvik Time Machine, 2011–2026:** recreated from original upstream snapshots with source receipts, timing controls, TeamID mapping, caching, and deterministic normalized outputs.
-- **AP polling archive:** independently reconstructed and enriched with preseason, Week 6, Week 14, trajectory, weeks-ranked, best-rank, and mean-rank context.
-- **Official-data strength systems:** carry-over Elo, SRS, Colley, Bradley-Terry, adjusted efficiency, pace, recency, schedule strength, and Massey-derived consensus features.
-- **Historical player participation infrastructure:** independently captured ESPN boxscores were used to test recent rotation, continuity, and player-impact proxies.
-- **Exact 2026 scorer:** 63 men's + 63 women's outcomes are independently reconstructed and matched to submission IDs, reproducing the v26 Kaggle Brier exactly.
+- **Bart Torvik Time Machine:** 15 men's tournament seasons, 5,268 / 5,304 team-season rows in the active source window, with dated source receipts and point-in-time checks.
+- **AP polling archive:** 117 rank-complete editions and 95 vote-complete editions, with repaired edition semantics, current/previous-rank separation, and chronology-aware activation.
+- **Official-derived ratings:** Elo, SRS, Colley, Bradley-Terry, efficiency, pace, schedule strength, recent form, and Massey consensus.
+- **Tournament-selection facts:** independently reconstructed NIT/WBIT/WNIT membership from original announcements.
+- **Historical player infrastructure:** more than 1.2M mapped pre-cutoff men's player-game rows, retained for controlled roster/availability research.
+- **Original-source market and BPI research:** independently archived target-season observations with source-time qualification rather than copied prediction tables.
 
-### Major modeling conclusions
+### 2. Numerical reproduction of a strong public mechanism
 
-- a reliability-gated Torvik correction improved all **3/3** recent confirmation seasons and became v26;
-- broad internal-strength expansions did not transfer reliably;
-- historical BPI reconstruction was blocked by archive/timing limitations rather than relaxed into leakage;
-- historical timestamped market odds were blocked because pre-deadline quote timing could not be established at sufficient coverage;
-- simple recent-rotation features were rejected;
-- richer boxscore player-impact features were rejected;
-- a dynamic opponent-adjusted offense/defense/pace/margin representation was rejected before final promotion.
+The women's native four-feature XGBoost branch was rebuilt from owned inputs and reproduced **65,703 pairwise probabilities within 1e-4** of the archived reference.
 
-Negative results are retained because they narrow the search space and prevent repeated spending on high-correlation ideas.
+The reconstructed model scored **0.0767383172 Brier** on the 63 scored women's games, while all 15 historical member-fit counts and best-iteration receipts matched the archived behavior.
 
-## Exact metric boundary
+That result is important because it demonstrates that stronger historical behavior can be recovered without relying on another competitor's prepared feature file.
 
-The official metric is **Brier score**, lower is better.
+### 3. Reproduction errors are treated as engineering defects
 
-| Population | Games | Brier |
-|---|---:|---:|
-| Men | 63 | 0.1445997537 |
-| Women | 63 | 0.0966919150 |
-| **Combined** | **126** | **0.1206458343** |
+The program identified and repaired several subtle mismatches that materially changed model behavior:
 
-This exact local scorer is now a reusable post-freeze audit tool for future clean candidates.
+- AP edition indexing;
+- current rank versus previous rank;
+- pre-2008 feature activation;
+- WBIT-only versus expanded postseason membership;
+- raw versus overtime-normalized margin supervision;
+- probability-conversion and ensemble-order differences.
 
-## 2027 source contract
+A changed implementation is no longer described as a failed reproduction.
 
-Future supplemental sources follow a stricter contract:
+### 4. Negative results are first-class evidence
 
-- preserve raw source objects before transformation;
-- record source URL and capture timestamp;
-- keep checksums and mapping state;
-- distinguish source availability from model eligibility;
-- quarantine post-cutoff or timing-ambiguous observations;
-- represent unavailable future inputs as **WAITING_FOR_TARGET_DATA**;
-- never copy 2026 values into 2027;
-- never relabel an owned proxy as KenPom, EvanMiya/BPR, or medical injury data.
+The project records successful negative experiments instead of hiding them. Examples include:
 
-## Current open frontier
+- broad internal-strength expansion;
+- two player/availability representations;
+- dynamic opponent-adjusted offense/defense/pace/margin states;
+- several market transformations;
+- broad blends of highly correlated weaker branches.
 
-The highest-value remaining public-safe source gap is **independently reconstructed NCAA NET/WNCAA NET history**, especially the missing/uncanonical women-specific years. The next private milestone tests whether official NET/WAB/quadrant/road information adds stable historical signal beyond v26.
+This keeps the experiment queue focused on genuinely missing information rather than repeated parameter motion.
+
+### 5. Cloud research engineering
+
+Private AWS/SageMaker runners are:
+
+- self-testing and self-gating;
+- resumable and checkpointed;
+- source- and artifact-hash aware;
+- bounded by runtime, memory, storage, and cost limits;
+- instrumented with timestamped heartbeats and JSONL telemetry;
+- capable of packaging diagnostics on success, failure, or timeout;
+- designed to preserve completed work rather than restart expensive stages.
+
+The exact 126-game scorer is downstream of policy freeze and is used as a final audit rather than a tuning loop.
+
+## Current research frontier
+
+The highest-value remaining capabilities are not another round of tiny hyperparameter changes. They are:
+
+- broader original-version BPI / availability reconstruction;
+- stronger point-in-time player and roster representations;
+- remaining historical NET coverage where source timing is defensible;
+- a complete incoming-season acquisition → mapping → feature → train/infer → candidate-freeze rehearsal for 2027.
+
+The current private program already parameterizes many source and feature routines by season, but the complete 2027 chain is **not** claimed finished until it is exercised end to end.
 
 ## Public/private boundary
 
-This repository is an **employer-facing, semi-reproducible research case study**.
+This repository is deliberately **semi-reproducible**.
 
 Published:
-- aggregate validation results;
-- source/provenance states;
-- public-safe experiment ledgers;
-- analytical portfolio artifacts;
-- exact metric/evaluation definitions;
-- negative-result conclusions;
-- 2027 acquisition contracts.
+
+- metric definitions and evaluation populations;
+- aggregate source coverage and provenance state;
+- public-safe experiment outcomes;
+- validation and lifecycle rules;
+- reproduction status of public mechanisms;
+- engineering architecture and negative-result conclusions.
 
 Intentionally withheld:
+
 - row-level private predictions;
 - candidate submission CSVs;
 - raw supplemental source archives;
 - fitted private models;
-- exact private correction gates/weights;
+- exact private correction rules, thresholds, or weights;
 - source-specific identity logic;
-- credentials;
-- private orchestration archives;
-- canonical AWS paths.
+- credentials and private AWS orchestration state.
+
+The goal is to make the research legible and technically credible to employers without distributing the competitive implementation.

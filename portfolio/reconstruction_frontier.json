@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "as_of_utc": "2026-10-03",
+  "metric": {
+    "name": "Brier score",
+    "direction": "lower_is_better",
+    "exact_2026_population": {
+      "men_games": 63,
+      "women_games": 63,
+      "total_games": 126
+    }
+  },
+  "accepted_control": {
+    "system": "v26",
+    "submission_brier": 0.1206458,
+    "exact_offline_brier": 0.1206458343253354,
+    "men_brier": 0.14459975367131522,
+    "women_brier": 0.0966919149793556,
+    "lifecycle": "SUBMITTED"
+  },
+  "strongest_reconstructed_experimental": {
+    "combined_brier": 0.10693622128918275,
+    "men_brier": 0.13713412539451067,
+    "women_brier": 0.07673831718385483,
+    "lifecycle": "EXPERIMENTAL",
+    "submitted": false,
+    "promoted": false,
+    "note": "Retrospective reconstruction result; parent historical promotion gates did not all pass."
+  },
+  "native_women_reproduction": {
+    "pairwise_predictions_checked": 65703,
+    "all_within_absolute_tolerance": 0.0001,
+    "max_abs_difference_approx": 0.00004199,
+    "mean_abs_difference_approx": 0.0000000235,
+    "member_receipts_matched": 15,
+    "scored_games_brier": 0.07673831718385483
+  },
+  "historical_reproduction_evidence": {
+    "men_core_team_season_rows_checked": 7981,
+    "men_auxiliary_feature_columns_matched": 31,
+    "men_directed_historical_rows_checked": 2898,
+    "margin_target": "overtime-normalized definition matched",
+    "ap_rank_complete_editions": 117,
+    "ap_vote_complete_editions": 95
+  },
+  "source_coverage": {
+    "official_derived_men_team_seasons": 7993,
+    "official_derived_women_team_seasons": 5614,
+    "massey_men_team_seasons": "7992/7993",
+    "torvik_team_seasons": "5268/5304",
+    "torvik_tournament_teams": "1016/1020",
+    "player_game_rows_men_pre_cutoff": 1210512,
+    "target_selection_facts": 112,
+    "target_championship_market_observations": 133,
+    "possible_first_round_market_pairs": 57,
+    "qualified_target_pregame_bpi_predictions": 16
+  },
+  "public_private_boundary": {
+    "published": [
+      "aggregate metrics",
+      "evaluation populations",
+      "source provenance state",
+      "reproduction evidence",
+      "negative experiment conclusions",
+      "prospective readiness contracts"
+    ],
+    "withheld": [
+      "row-level private predictions",
+      "candidate submission CSVs",
+      "raw supplemental source archives",
+      "fitted private models",
+      "exact private correction rules, thresholds, and weights",
+      "source-specific private identity logic",
+      "AWS orchestration state"
+    ]
+  }
+}
