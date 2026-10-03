@@ -40,9 +40,9 @@ Do not publish:
 
 Private repeatability is not the same as distributing a public reproduction kit.
 
-## Benchmark / ranking presentation
+## External comparison presentation
 
-Current employer-facing surfaces should present the project's own results, engineering evidence, and research progression **without competitor score comparisons or leaderboard-ranking claims**.
+Current employer-facing surfaces should present the project's own results, engineering evidence, and research progression **without competitor score comparisons or external ranking claims**.
 
 If a historical file or Git commit contains an older comparison, preserve Git history rather than rewriting it. New and current-facing pages should not repeat the comparison unless the owner explicitly authorizes it later.
 
