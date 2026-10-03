@@ -1,61 +1,111 @@
 # Current research boundary
 
-## Current owned/recreated champion
+## Metric contract
 
-The current **2027-ready owned/recreated champion** is **v26**, with a late/post-competition Kaggle Brier of **0.1206458**.
+Primary metric: **Brier score** on NCAA tournament win probabilities. Lower is better.
 
-An independently reconstructed 126-game scorer reproduces the result at **0.1206458343253354**.
+The project keeps three evaluation concepts separate:
+
+1. historical development / confirmation;
+2. the exact 126-game 2026 audit;
+3. externally submitted scores.
+
+A lower retrospective 2026 score does not automatically become the accepted champion.
+
+## Accepted system
+
+The accepted owned/recreated control remains **v26**:
 
 | Population | Games | Brier |
 |---|---:|---:|
 | Men | 63 | 0.1445997537 |
 | Women | 63 | 0.0966919150 |
-| Combined | 126 | 0.1206458343 |
+| Combined | 126 | **0.1206458343** |
 
-Lower is better.
+The late/post-competition submission score is **0.1206458**.
 
-The research target remains **0.0900000**, a gap of **0.0306458343** from the current owned champion.
+v26 combines official competition data, independently recreated Bart Torvik history, and a frozen reliability/disagreement policy that improved all three recent confirmation seasons before the final audit.
 
-## Historical score context
+## Strongest reconstructed experimental frontier
 
-Earlier post-competition research reached lower retrospective scores, including a 0.1033437 broader-data boundary and a 0.1027974 replay candidate. Those results remain useful historical evidence, but they are **not the current 2027 ownership boundary** because some external inputs were not independently recreated under the stricter source contract now used by the project.
+The strongest current post-competition reconstruction scores:
 
-This distinction prevents a lower historical number from being misrepresented as a repeatable 2027 system.
+- combined: **0.1069362213**
+- men: **0.1371341254**
+- women: **0.0767383172**
+- evaluation population: **63 men + 63 women = 126 games**
+- lifecycle: **EXPERIMENTAL**
+- submitted: **no**
+- promoted: **no**
 
-## What v26 adds
+The lower score is retained as research evidence, not promoted as the accepted system, because its parent lineage did not pass every historical transfer gate and repeated 2026 analysis has consumed the tournament as development information.
 
-v26 combines:
-- official competition data;
-- independently recreated Bart Torvik Time Machine history;
-- the clean owned baseline;
-- a frozen reliability/disagreement gate selected before 2026 audit.
+That distinction is intentional: the repository separates *what can be reconstructed retrospectively* from *what has earned prospective trust*.
 
-The Torvik reliability rule improved all three recent confirmation seasons before the final 2026 audit and was promoted without post-hoc 2026 tuning.
+## Native women numerical reproduction
 
-## Exact scorer
+The clearest reconstruction success is the women’s native branch.
 
-The exact 2026 scorer is now complete:
-- 63/63 men's games;
-- 63/63 women's games;
-- 126/126 combined;
-- exact submission-ID alignment;
-- exact Brier reproduction of the v26 Kaggle score.
+The rebuilt source-equivalent pipeline:
 
-The scorer is downstream of policy selection. It is used only after a policy is frozen.
+- generated all **65,703** pairwise women probabilities;
+- matched the archived reference within **1e-4** for every row;
+- had maximum absolute prediction difference of roughly **4.2e-05**;
+- had mean absolute difference of roughly **2.35e-08**;
+- matched all 15 archived member training-row counts and best-iteration receipts;
+- scored **0.0767383172 Brier** on the 63 scored women’s games.
 
-## Closed directions
+This branch uses owned / independently recreated inputs and demonstrates that strong historical behavior can be recovered without copying another competitor's prepared feature table.
 
-The following representations were tested and rejected under frozen validation:
+## Men’s reproduction status
+
+The historical men reconstruction has also progressed materially.
+
+Verified at the audited grain:
+
+- all four native historical core ingredients match across **7,981 team-season rows** within numerical tolerance;
+- all **31 auxiliary margin features** match across **2,898 directed historical rows**;
+- the overtime-normalized margin target matches the archived definition;
+- AP edition semantics and historical activation rules were repaired.
+
+Remaining target-season differences are tied to still-incomplete source families such as exact historical availability/player-value information and corrected target postseason-membership identities.
+
+## Supplemental-source frontier
+
+Current independently recreated / owned source families include:
+
+- Bart Torvik Time Machine;
+- AP polling history;
+- official-derived Elo / SRS / Colley / Bradley-Terry / efficiency / pace / recency;
+- Massey ordinals;
+- original postseason-selection announcements;
+- historical player boxscore infrastructure;
+- partial original-source market history;
+- partial archived ESPN BPI / pregame prediction history.
+
+The project does not relabel substitutes as proprietary publisher metrics.
+
+## Closed or rejected directions
+
+Correctly executed negative experiments include:
+
 - broad owned internal-strength expansion;
-- simple recent rotation/continuity;
-- richer boxscore player-impact/availability;
-- dynamic opponent-adjusted offense/defense/pace/margin;
-- repeated broad blending among highly correlated weak branches.
+- simple rotation / continuity;
+- richer boxscore player-impact proxies;
+- dynamic opponent-adjusted offense / defense / pace / margin;
+- several broad market transformations;
+- repeated blending of highly correlated weaker branches.
 
-Historical ESPN BPI and timestamped market reconstruction were source/timing blocked rather than converted into leakage-prone inputs.
+These results remain part of the scientific record because they reduce repeated spending on low-information directions.
 
-## Current open frontier
+## 2027 boundary
 
-The next material external-data question is independently reconstructed NCAA NET/WNCAA NET history. The goal is to own the source, preserve timing/provenance, and test whether official NET/WAB/quadrant information is complementary to v26.
+A large part of the pipeline is season-parameterized, but the complete incoming-season chain is not yet called finished.
 
-No promotion is allowed from source availability alone. A source must also pass frozen historical transfer.
+The final readiness test must execute:
+
+**source acquisition → raw receipt preservation → mapping → chronology checks → feature generation → fresh training/inference → final candidate freeze → schema/hash/provenance validation**
+
+using an incoming-season contract without borrowing prepared feature artifacts.
+
+Missing future observations remain `WAITING_FOR_TARGET_DATA`; 2026 values are never renamed as 2027 data.
