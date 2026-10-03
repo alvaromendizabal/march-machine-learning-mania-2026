@@ -1,50 +1,122 @@
-# 2027 readiness | proposed private research plan
+# 2027 readiness | prospective evaluation plan
 
-The 2026 project has an achieved late score below the published winning benchmark.
-The next stronger claim must come from genuinely prospective forecasts. This is a
-readiness plan, not a claim that a 2027 competition or its rules have been announced.
+The project now has a mature post-competition research stack, but the next stronger claim must come from **prospective, pre-outcome evidence**.
 
-## 1. Freeze the baseline and keep development results separate
+This document defines the public readiness contract without publishing the private competition implementation.
 
-Preserve the scored prediction file, exact model/data/source identities and the
-current release decision in private storage. Treat 2026 outcomes and repeated late
-scoring as consumed development feedback. Do not describe a further 2026 improvement
-as a new independent test. Set a bounded stop for late-score iteration.
+## 1. Preserve the accepted control and separate research tiers
 
-## 2. Make season transition a tested contract
+Keep the accepted submitted control, reconstructed experimental forecasts, and historical replay artifacts as distinct lifecycle states.
 
-Audit year-specific input routes and assumptions: team identities, conferences,
-rosters, transfers, seed/template availability, rankings and injury observations.
-Require 2027-season inputs to carry availability timestamps and provenance. No
-stale 2026 injury adjustment, seed assignment or hand-entered current-year exception
-should flow into a new season unnoticed. A missing prerequisite must stop prediction
-rather than silently invent a feature.
+For every retained artifact, preserve:
 
-## 3. Accumulate prospective snapshots
+- model / system ID;
+- source and data-lineage version;
+- immutable prediction hash;
+- evaluation population;
+- lifecycle state;
+- promotion decision;
+- source-timing evidence.
 
-When permitted sources become available, retain immutable pregame data snapshots
-and predictions before observing outcomes. Log cutoff time, source version and model
-identity. Keep market, roster and injury information distinct from postgame updates;
-review any competition's actual external-data and inference rules before use.
-Do not retrieve current snapshots and relabel them as historical pregame evidence.
+Do not let a lower retrospective score silently replace an accepted champion.
 
-## 4. Predeclare the decision procedure
+## 2. Make season transition an executable contract
 
-Before the tournament, freeze eligible model families, selection/calibration periods,
-primary metric, candidate-comparison rules and submission policy. Benchmark against
-simple reference forecasts as well as the private current champion. Use historical
-rolling assessments for development while reserving the upcoming games for a true
-prospective evaluation. Changing the pipeline after outcomes arrive starts a new
-retrospective analysis, not an edited version of the original forecast.
+Audit every year-specific input route and assumption:
 
-## 5. Rehearse reliability before the deadline
+- team identities and aliases;
+- conferences;
+- rosters / transfers;
+- seeds and tournament-selection metadata;
+- rankings / ratings;
+- player participation / availability;
+- external-source publication timing;
+- sample-submission / candidate schema.
 
-Test missing inputs, invalid IDs, missing checkpoints, interruption/restart and the
-submission schema with a dry run. Freeze the final forecast artifact and checksum;
-verify the submitted bytes and receipt. Keep public portfolio claims limited to
-what the resulting evidence establishes. A good 2026 late score is the starting
-point for this process, not a guarantee of a 2027 win.
+Require incoming-season inputs to carry provenance and timing evidence.
 
-Implementation and the detailed future training recipe remain private. This public
-roadmap communicates research priorities and risk management without distributing
-the competition system.
+A missing prerequisite should produce a clear `WAITING_FOR_TARGET_DATA` or source-blocked state rather than silently copying a previous season's value.
+
+## 3. Exercise the full pipeline before outcomes
+
+Use 2026 as a historical incoming-season rehearsal where practical.
+
+The rehearsal should execute:
+
+**source acquisition → raw receipt preservation → normalization → team mapping → chronology checks → feature construction → model training / inference → final composition → schema / hash / provenance validation → immutable candidate freeze**
+
+The goal is to prove that the project can move from newly available data to a frozen candidate without depending on another competitor's prepared file.
+
+## 4. Accumulate prospective source snapshots
+
+When permitted sources become available, retain immutable snapshots before outcomes are known.
+
+Each source record should preserve:
+
+- original URL / provider identity;
+- actual capture timestamp;
+- publisher update timestamp when available;
+- raw-body checksum;
+- normalized-table checksum;
+- mapping state;
+- model eligibility state;
+- quarantine reason.
+
+Market, roster, ranking, and player information must remain distinct from postgame updates.
+
+## 5. Predeclare the decision procedure
+
+Before the tournament:
+
+- freeze eligible model families;
+- freeze development / confirmation periods;
+- freeze the primary metric and exact aggregation;
+- freeze promotion / rejection rules;
+- freeze calibration / composition rules;
+- freeze submission policy.
+
+Changing the system after outcomes are observed creates a new retrospective experiment, not a revision of the original prospective forecast.
+
+## 6. Rehearse operational failure paths
+
+Before the deadline, test:
+
+- missing source files;
+- invalid IDs / aliases;
+- corrupted checkpoints;
+- partial source coverage;
+- source timestamps after cutoff;
+- interrupted acquisition;
+- interrupted training;
+- resume behavior;
+- candidate schema;
+- duplicate candidate hashes;
+- submission-action failure.
+
+A delivery failure should not trigger retraining of an already frozen candidate.
+
+## 7. Keep public and private boundaries separate
+
+The public repository should continue to publish:
+
+- aggregate evaluation evidence;
+- source-provenance state;
+- reproduction status;
+- negative-result conclusions;
+- operational readiness contracts.
+
+The private AWS workspace should retain:
+
+- raw source archives;
+- exact feature formulas;
+- fitted models;
+- candidate predictions;
+- private thresholds / weights;
+- source-specific identity logic;
+- orchestration state.
+
+## Readiness definition
+
+The project should be called incoming-season ready only after the complete chain is demonstrated end to end on a historical incoming-season rehearsal and then applied prospectively to the actual 2027 source state.
+
+Parameterized functions alone are not sufficient evidence.
