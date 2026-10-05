@@ -1,6 +1,6 @@
 # Start here | employer review guide
 
-This repository is a curated ML research case study. The canonical public surface is intentionally smaller than the private AWS research workspace: it shows the data contracts, validation design, model evidence, tests, notebooks, and aggregate results needed to evaluate the work without publishing a turnkey competition implementation.
+This repository is a curated ML research case study. The public surface is intentionally narrower than the private AWS research workspace: it exposes the data contracts, validation design, model evidence, tests, notebooks, and aggregate results needed to evaluate the work without publishing a turnkey competition implementation.
 
 ## 30-second review
 
@@ -10,9 +10,9 @@ The key signals are:
 
 - exact Brier-score evaluation on a 126-game audit;
 - independently recreated external-data sources with chronology and provenance controls;
-- numerical reproduction of 65,703 women’s pairwise probabilities within 1e-4;
-- men’s core and margin model-procedure parity on matched inputs;
-- a complete 566-game historical men’s evaluation bank;
+- numerical reproduction of 65,703 women's pairwise probabilities within 1e-4;
+- men's core and margin model-procedure parity on matched inputs;
+- a complete 566-game historical men's evaluation bank;
 - AWS/SageMaker execution with checkpoints, telemetry, manifests, and cost controls;
 - explicit rejection of experiments that improve one slice but fail broader validation.
 
@@ -22,11 +22,11 @@ The key signals are:
 2. [System architecture](docs/architecture.md)
 3. [Current research boundary](docs/current_research.md)
 
-These three documents explain what was built, how the evidence is separated by lifecycle state, and what is intentionally public versus private.
+These three documents explain what was built, how evidence is separated by lifecycle state, and what is intentionally public versus private.
 
 ## 10-minute technical review
 
-Open the canonical notebooks in order:
+Open the six canonical notebooks in order:
 
 1. [00 · Data audit and preparation](notebooks/00_data_audit_and_preparation.ipynb)
 2. [01 · Split protocol and pre-tournament snapshots](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb)
@@ -39,11 +39,9 @@ Then inspect:
 
 - [Supplemental-source ownership](docs/supplemental_source_ownership.md)
 - [Public-solution reproduction matrix](docs/reproduction_matrix.md)
-- [Aggregate owned-data portfolio](portfolio/owned_frontier_2027.md)
+- [Aggregate research portfolio](portfolio/README.md)
 
 ## Deep technical review
-
-The public engineering surface is organized as follows:
 
 | Area | Purpose |
 |---|---|
@@ -54,13 +52,13 @@ The public engineering surface is organized as follows:
 | `reports/` | committed aggregate evidence used by publication checks |
 | `portfolio/` | employer-facing aggregate notebooks and machine-readable summaries |
 | `docs/` | architecture, research boundaries, source ownership, and reproduction state |
-| `research/provenance/` | historical provenance snapshots retained as evidence |
+| `references/` | official/reference material retained only when relevant to the public project |
 
-Historical scratch work and duplicate workspace snapshots are intentionally absent from the current tree. They remain preserved in Git history.
+Historical scratch work, migration snapshots, duplicate workspaces, and obsolete starter material are intentionally absent from the current tree. Git history preserves them.
 
 ## Public reproducibility check
 
-After installing the locked environment, run:
+After installing the locked environment:
 
 ```bash
 uv sync --locked --group dev
