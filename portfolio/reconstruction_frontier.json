@@ -1,6 +1,6 @@
 {
-  "schema": 1,
-  "as_of_utc": "2026-10-03",
+  "schema": 2,
+  "as_of_utc": "2026-10-05",
   "metric": {
     "name": "Brier score",
     "direction": "lower_is_better",
@@ -19,13 +19,14 @@
     "lifecycle": "SUBMITTED"
   },
   "strongest_reconstructed_experimental": {
-    "combined_brier": 0.10693622128918275,
-    "men_brier": 0.13713412539451067,
-    "women_brier": 0.07673831718385483,
+    "system": "v54",
+    "combined_brier": 0.1067095543,
+    "men_brier": 0.1366807914,
+    "women_brier": 0.0767383172,
     "lifecycle": "EXPERIMENTAL",
     "submitted": false,
     "promoted": false,
-    "note": "Retrospective reconstruction result; parent historical promotion gates did not all pass."
+    "note": "Retrospective reconstruction result; historical promotion gates did not all pass."
   },
   "native_women_reproduction": {
     "pairwise_predictions_checked": 65703,
@@ -35,13 +36,21 @@
     "member_receipts_matched": 15,
     "scored_games_brier": 0.07673831718385483
   },
-  "historical_reproduction_evidence": {
-    "men_core_team_season_rows_checked": 7981,
-    "men_auxiliary_feature_columns_matched": 31,
-    "men_directed_historical_rows_checked": 2898,
-    "margin_target": "overtime-normalized definition matched",
-    "ap_rank_complete_editions": 117,
-    "ap_vote_complete_editions": 95
+  "men_model_reproduction": {
+    "core_members_checked": 66,
+    "core_best_iterations_match": true,
+    "core_same_input_predictions_match": true,
+    "margin_members_checked": 66,
+    "margin_best_iterations_match": true,
+    "margin_calibration_slopes_match": true,
+    "auxiliary_feature_columns_reconciled": 31
+  },
+  "historical_control": {
+    "forecast_seasons": 9,
+    "played_main_bracket_games": 566,
+    "previously_saved_predictions_reproduced": 558,
+    "restored_legitimate_equal_seed_games": 8,
+    "confirmation_2023_2025_games": 189
   },
   "source_coverage": {
     "official_derived_men_team_seasons": 7993,
@@ -49,11 +58,29 @@
     "massey_men_team_seasons": "7992/7993",
     "torvik_team_seasons": "5268/5304",
     "torvik_tournament_teams": "1016/1020",
+    "ap_rank_complete_editions": 117,
+    "ap_vote_complete_editions": 95,
     "player_game_rows_men_pre_cutoff": 1210512,
     "target_selection_facts": 112,
     "target_championship_market_observations": 133,
     "possible_first_round_market_pairs": 57,
-    "qualified_target_pregame_bpi_predictions": 16
+    "qualified_target_pregame_bpi_predictions": 16,
+    "publisher_bracket_fields": {
+      "men_2025_teams": 68,
+      "men_2026_teams": 68
+    }
+  },
+  "recent_negative_evidence": {
+    "pair_exchange": {
+      "confirmation_gain_brier": 0.0039263622,
+      "development_gain_brier": -0.0008263743,
+      "decision": "REJECTED"
+    },
+    "exact_date_ap_refresh": {
+      "confirmation_gain_brier": 0.0020148787,
+      "development_gain_brier": -0.0027006225,
+      "decision": "REJECTED"
+    }
   },
   "public_private_boundary": {
     "published": [

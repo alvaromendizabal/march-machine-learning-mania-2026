@@ -2,7 +2,10 @@ milestone,state,evaluation_context,brier,notes
 v22 clean owned baseline,accepted historical baseline,late/post-competition submission,0.1227708,First strict owned/recreated baseline
 v26 owned Torvik reliability,ACCEPTED SUBMITTED CONTROL,late/post-competition submission,0.1206458,Official data plus independently recreated Torvik and frozen reliability policy
 v26 exact offline audit,verified scorer,complete reconstructed 63M + 63W audit,0.1206458343253354,Exact 126-game scorer reproduces submitted result
-v45 native women reconstruction,numerically reproduced research branch,63 women scored games,0.07673831718385483,65,703 all-pair probabilities matched archived reference within 1e-4
+v45 native women reconstruction,numerically reproduced research branch,63 women scored games,0.07673831718385483,"65,703 all-pair probabilities matched archived reference within 1e-4"
 v47 reconstructed ranking-chain frontier,experimental complete-cohort audit,complete 126-game post-competition audit,0.10873119081444298,Owned women reconstruction plus independently rebuilt official-data ranking corrections
-v49 qualified first-round comparator,STRONGEST RECONSTRUCTED EXPERIMENTAL,complete 126-game post-competition audit,0.10693622128918275,Preserved reconstructed parent plus source-qualified target-season first-round information; not promoted
-v50 fixed championship-ratio substitution,rejected experiment,complete 126-game post-competition audit,0.10896599142207598,Correctly executed negative experiment; stronger parent retained
+v49 qualified first-round comparator,experimental complete-cohort audit,complete 126-game post-competition audit,0.10693622128918275,Source-qualified first-round information improved the reconstructed parent; not promoted
+v54 original pregame source integration,STRONGEST RECONSTRUCTED EXPERIMENTAL,complete 126-game post-competition audit,0.1067095543,Fixed original-source first-round integration improved the research frontier; not promoted
+v57 rating-to-probability bridge,rejected experiment,complete 126-game post-competition audit,0.1081561176,Source-fidelity success did not translate to better tournament Brier
+v61 publisher contract repair,rejected experiment,complete 126-game post-competition audit,0.1070415407,Expanded original-source matchup comparison did not replace v54
+v62 bracket reconstruction,rejected experiment,complete 126-game post-competition audit,0.1073545214,Complete men's publisher probability field reconstructed; forecasting blend rejected
