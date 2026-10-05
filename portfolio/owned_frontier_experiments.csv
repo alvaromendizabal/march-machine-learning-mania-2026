@@ -7,14 +7,18 @@ v33,richer boxscore player impact,rejected,0 of 3 recent years improved,Second d
 v34,dynamic opponent-adjusted O/D/pace/margin,rejected,no development policy passed,Exact 126-game scorer completed
 v35,NCAA / WNCAA NET source frontier,source-limited,insufficient historical coverage,Retained source contract; no fabricated history
 v39,complete women historical control repair,success,441-game bank,Restored omitted legitimate equal-seed games and exact historical control parity
-v40,original target source reconstruction,data success,133 championship observations + selection facts,Expanded owned target-season source evidence
-v41,market projection,rejected,primary worsened,No promotion
-v42,owned historical information bank,data success,"13,607 team-season rows; 2,330 matchup rows",Broad source/feature coverage quantified
-v44,AP schema and semantics repair,data success,"117 rank-complete; 95 vote-complete editions",Source retained even though AP-driven model policy rejected
+v42,owned historical information bank,data success,"13,607 team-season rows; 2,330 matchup rows",Broad source and feature coverage quantified
+v44,AP schema and semantics repair,data success,"117 rank-complete; 95 vote-complete editions",Source retained even though AP-driven model policies were rejected
 v45,native women source-equivalent reproduction,numerical reproduction,0.0767383172 women Brier,"65,703 probabilities matched within 1e-4"
-v46,native men core / margin reconstruction,partial reproduction,31 auxiliary columns matched,Forecast not promoted
 v47,official-data reference + ranking corrections,experimental improvement,0.1087311908 complete-cohort audit,Improved reconstructed frontier; historical gates failed
-v48,AP ordinal + overtime-target repair,reproduction success,historical core/target parity,Primary forecast did not replace v47
-v49,qualified first-round comparator,experimental improvement,0.1069362213 complete-cohort audit,Strongest reconstructed experimental forecast; not promoted
-v50,fixed championship-ratio substitution,rejected,0.1089659914 complete-cohort audit,Negative experiment; parent retained
-v51-v53,archived ESPN BPI reconstruction,partial source success,"archived pages + 16 qualified pregame predictions",Broad historical and women coverage remain incomplete
+v49,qualified first-round comparator,experimental improvement,0.1069362213 complete-cohort audit,Source-qualified first-round comparison; not promoted
+v54,original pregame source integration,experimental improvement,0.1067095543 complete-cohort audit,Current reconstructed experimental frontier; not promoted
+v57,rating-to-probability bridge,rejected,0.1081561176 complete-cohort audit,Publisher probability fidelity did not improve tournament performance
+v58,matchup interactions,rejected,historical gates failed,No target challenger generated
+v59,paired men model audit,reproduction success,"66 core + 66 margin members checked",Model procedure substantially reconciled; candidate itself rejected
+v61,publisher contract repair,rejected,0.1070415407 complete-cohort audit,Expanded original-source comparison did not replace frontier
+v62,complete bracket probability reconstruction,rejected,0.1073545214 complete-cohort audit,68-team source field recovered; fixed forecast integration rejected
+v63,2025 publisher historical validation,rejected,2025 fixed blend failed threshold,Historical source retained without promotion
+v65,complete men's historical control recovery,reproduction success,"566 played games; 558 saved predictions reproduced",Restored eight legitimately omitted equal-seed games
+v66,pair-exchange mirrored training,rejected,"confirmation +0.0039264; development -0.0008264",Improved all recent confirmation seasons but failed development gate
+v67,exact-date AP source refresh,rejected,"confirmation +0.0020149; development -0.0027006",Source integration failed robust historical gate
