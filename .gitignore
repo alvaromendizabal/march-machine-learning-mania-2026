@@ -101,3 +101,8 @@ Thumbs.db
 *.egg-info/
 *.tmp
 .lock
+
+# Curated public repository boundary
+research/workspace/
+research/publication_archive/
+**/private_backups/

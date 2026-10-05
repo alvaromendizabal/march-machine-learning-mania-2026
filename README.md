@@ -2,6 +2,13 @@
 
 **Alvaro Mendizabal · probability forecasting · temporal validation · source provenance · AWS ML engineering**
 
+[![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
+[![Current research evidence](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml)
+
+**Portfolio tour:** [Start here](START_HERE.md) · [Architecture](docs/architecture.md) · [Employer walkthrough](docs/employer_walkthrough.md)
+
+**Core stack:** Python · pandas · scikit-learn · XGBoost · LightGBM · Plotly · AWS SageMaker · GitHub Actions
+
 This repository is an employer-facing case study of a multi-season NCAA tournament forecasting program built around one principle: **predictive information is useful only when its provenance, timing, transformation, and evaluation can be defended.**
 
 ## Current verified state
