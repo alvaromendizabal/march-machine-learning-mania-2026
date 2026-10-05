@@ -156,7 +156,8 @@ def main() -> int:
     print(f"- reconstructed experimental Brier: {EXPECTED_FRONTIER_BRIER:.10f}")
     print(f"- historical control games: {EXPECTED_HISTORICAL_GAMES}")
     print(
-        "- curated navigation, source matrix, lifecycle states, and public/private boundary verified"
+        "- curated navigation, source matrix, lifecycle states, "
+        "and public/private boundary verified"
     )
     return 0
 
