@@ -17,8 +17,9 @@ It is intentionally **semi-reproducible**: aggregate evidence and provenance sta
 
 ### Strongest reconstructed experimental frontier
 
-- combined Brier: **0.1069362213**
-- men: **0.1371341254**
+- system: **v54**
+- combined Brier: **0.1067095543**
+- men: **0.1366807914**
 - women: **0.0767383172**
 - evaluation: same exact 126-game 2026 audit
 - lifecycle: **EXPERIMENTAL**
@@ -39,8 +40,6 @@ The lower research result is intentionally not relabeled as the accepted champio
 
 ### Native women
 
-The most complete source-equivalent reproduction now in the project:
-
 - 65,703 target pairwise probabilities checked;
 - every row within 1e-4 of the archived reference;
 - maximum absolute difference about 4.2e-05;
@@ -48,56 +47,44 @@ The most complete source-equivalent reproduction now in the project:
 - 15 / 15 member training-row counts and best-iteration receipts matched;
 - women 2026 Brier: **0.0767383172**.
 
-### Men feature / target parity
+### Men's model procedure
 
-At the audited historical grain:
+- 66 core members match archived best iterations and same-input predictions;
+- 66 margin members match best iterations and calibration slopes;
+- 31 auxiliary margin features were reconciled;
+- AP semantics and historical activation boundaries were repaired;
+- the original margin-target contract was corrected after re-audit.
 
-- four native core ingredients match across 7,981 team-season rows;
-- 31 auxiliary margin features match across 2,898 directed rows;
-- overtime-normalized margin supervision matches;
-- AP edition and activation semantics have been reconciled.
+### Historical control
 
-Remaining parity gaps are concentrated in target-season external information that is not yet fully independently owned.
+The men's evaluation bank now covers **566 played main-bracket games across nine forecast seasons**.
+
+All 558 previously saved predictions were reproduced before eight legitimately omitted equal-seed later-round games were restored.
 
 ## Source-ownership progress
 
-The source program now includes:
-
-- official competition data;
-- official-derived Massey coverage across virtually the complete men team-season bank;
-- 15 men's Torvik tournament seasons with source receipts;
-- 117 rank-complete AP editions;
-- 95 vote-complete AP editions;
-- 112 independently reconstructed target postseason-selection facts;
-- >1.2M mapped pre-cutoff men's player-game rows;
-- partial original-source championship / first-round market history;
-- partial archived ESPN BPI / pregame prediction history.
+The source program now includes official competition data, official-derived Massey, 15 men's Torvik tournament seasons, 117 rank-complete AP editions, 95 vote-complete AP editions, 112 independently reconstructed target postseason-selection facts, more than 1.2M mapped pre-cutoff men's player-game rows, partial original-source market / BPI history, and complete 68-team men's publisher probability fields for 2025 and 2026.
 
 A source can remain valuable even when a particular model branch using it is rejected.
 
+## Recent robust-gate examples
+
+The mirrored pair-exchange study improved all three recent confirmation seasons but worsened development, so it was rejected.
+
+The exact-date AP refresh improved aggregate recent confirmation but worsened development and did not improve every confirmation season, so it was rejected.
+
+Those outcomes are preserved because the project treats stable validation behavior as more important than selecting the most favorable slice.
+
 ## Scientific discipline
 
-The project preserves negative evidence instead of promoting every plausible variation.
+Closed or rejected directions include broad internal-strength expansion, recent rotation / continuity, richer boxscore player proxies, dynamic opponent-adjusted states, publisher probability blends, several market transformations, broad high-correlation blends, matched equal-seed training correction, mirrored pair-exchange training, and fixed exact-date AP integration.
 
-Closed or rejected directions include:
+## Current private research question
 
-- broad internal-strength expansion;
-- recent rotation / continuity;
-- richer boxscore player proxies;
-- dynamic opponent-adjusted O/D/pace/margin;
-- several market transformations;
-- broad high-correlation blends.
+The active next study evaluates probability calibration using **strictly earlier-season held-out predictions**. No public result is claimed until the AWS milestone executes.
 
-This keeps future work focused on information gaps rather than cosmetic model diversity.
+## Public/private boundary
 
-## What remains
+GitHub publishes the curated evidence layer. AWS remains the source of truth for current private experiments.
 
-The largest remaining gaps are:
-
-- original-version player availability / value information;
-- broader defensible BPI history;
-- remaining point-in-time NET coverage;
-- stronger roster-role representations from owned raw data;
-- a complete incoming-season acquisition → feature → fresh train/infer → immutable candidate rehearsal.
-
-The private AWS program remains the source of truth for current experiments. GitHub publishes the curated evidence layer.
+Public artifacts expose source provenance, aggregate metrics, validation populations, numerical reproduction evidence, and scientific decisions while withholding row-level predictions, fitted competition models, raw supplemental archives, and exact private correction arithmetic.
