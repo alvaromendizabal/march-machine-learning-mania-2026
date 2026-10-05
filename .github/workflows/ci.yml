@@ -61,6 +61,8 @@ jobs:
           sha256sum outputs/validation/wheels/* > outputs/validation/wheels.sha256
       - name: Compile, lint, format, type check, and test
         run: uv run --locked python scripts/quality.py
+      - name: Verify employer-facing portfolio contract
+        run: uv run --locked python -m march_mania.publication.portfolio_contract
       - name: Verify current published research release
         run: uv run --locked python -m march_mania.publication.release --check
       - name: Recompute the development prediction portfolio
