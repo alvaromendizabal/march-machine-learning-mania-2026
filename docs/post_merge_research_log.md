@@ -1,6 +1,6 @@
 # Post-merge research log
 
-This log summarizes the private AWS research program since the previous public owned-data release. It intentionally excludes private candidate bytes, raw source archives, fitted private models, exact correction weights/gates, credentials, and AWS-local implementation details.
+This log summarizes the private AWS research program since the previous public owned-data release. It intentionally excludes private candidate bytes, raw source archives, fitted private models, exact correction weights / gates, credentials, and AWS-local implementation details.
 
 ## Public-safe milestone progression
 
@@ -14,36 +14,35 @@ This log summarizes the private AWS research program since the previous public o
 | v33 | richer player-impact / availability proxy | rejected |
 | v34 | dynamic O/D/pace/margin state | rejected; exact 126-game scorer completed |
 | v35 | NCAA / WNCAA NET frontier | insufficient historical source coverage for promotion |
-| v37–v38 | native women reconstruction attempts | representation differences isolated |
-| v39 | complete women historical control repair | exact historical control parity and omitted equal-seed games restored |
-| v40 | source recovery + men core/margin study | original championship source and postseason-selection facts recovered |
-| v41 | market projection | negative; no promotion |
-| v42 | owned historical information bank | 13,607 team-season rows and 2,330 historical matchup rows assembled |
-| v43–v44 | AP source semantics / parser repair | 117 rank-complete and 95 vote-complete editions qualified |
+| v39 | complete women historical control | omitted legitimate equal-seed games restored |
+| v42 | owned historical information bank | 13,607 team-season rows and 2,330 matchup rows assembled |
+| v44 | AP source semantics / parser repair | 117 rank-complete and 95 vote-complete editions qualified |
 | v45 | native women source-equivalent reproduction | **0.0767383172 women Brier; 65,703 pair probabilities reproduced within 1e-4** |
-| v46 | native men core / margin reconstruction | 31 auxiliary feature columns reproduced; forecast not promoted |
-| v47 | official-data reference + ranking corrections | reconstructed experimental combined Brier improved to **0.1087312** |
-| v48 | AP ordinal + overtime-target corrections | historical core ingredients / target definitions matched at audited grain |
-| v49 | final-layer study + qualified first-round comparator | strongest reconstructed experimental combined Brier reached **0.1069362** |
-| v50 | fixed championship-ratio source substitution | negative; parent preserved |
-| v51–v53 | archived ESPN BPI reconstruction | original archived pages recovered; broad historical coverage still incomplete |
+| v47 | official-data reference + ranking corrections | reconstructed combined Brier **0.1087312** |
+| v49 | qualified first-round comparator | reconstructed combined Brier **0.1069362** |
+| v54 | original pregame source integration | reconstructed experimental frontier improved to **0.1067095543** |
+| v55–v56 | source-history / upstream recovery | broadened provenance evidence; no new champion |
+| v57 | rating-to-probability bridge | rejected; reconstructed frontier preserved |
+| v58 | matchup interactions | historical gates failed; no target candidate |
+| v59 | men margin-target restoration + paired model audit | core procedure parity established; candidate rejected |
+| v60 | publisher extraction | engineering parser failure; fixed in next milestone |
+| v61 | publisher contract repair | challenger rejected |
+| v62 | full 68-team bracket reconstruction | challenger rejected; historical source images recovered |
+| v63 | 2025 historical publisher validation | fixed blend failed threshold; source retained |
+| v64 | complete-cohort attempt | engineering/source-hash assumption failure |
+| v65 | source-receipt recovery + complete cohort | **566 historical games restored; 558 saved controls reproduced** |
+| v66 | pair-exchange / mirrored training | confirmation improved materially; development failed gate |
+| v67 | exact-date AP feature refresh | confirmation improved; development failed gate |
 
-## Accepted control versus reconstructed frontier
+## Current score boundary
 
 The accepted submitted owned-data control remains **v26 at 0.1206458 Brier**.
 
-The strongest reconstructed post-competition research forecast is **0.1069362213 Brier** on the same 126-game audit population. It remains **experimental and unsubmitted** because its parent lineage did not satisfy every historical promotion gate.
-
-That distinction is deliberate. The research program tracks two separate questions:
-
-1. *Can the original information and model behavior be independently reconstructed?*
-2. *Does the reconstructed system transfer strongly enough to earn prospective trust?*
-
-A favorable answer to the first does not override a weak answer to the second.
+The strongest reconstructed post-competition research forecast is **0.1067095543 Brier** on the same 126-game audit population. It remains **experimental and unsubmitted** because historical promotion requirements were not all satisfied.
 
 ## Exact scorer
 
-The 2026 scorer is now complete and reusable downstream of policy freeze:
+The 2026 scorer is complete and reusable downstream of policy freeze:
 
 - 63 / 63 men's games;
 - 63 / 63 women's games;
@@ -52,8 +51,6 @@ The 2026 scorer is now complete and reusable downstream of policy freeze:
 - exact v26 Brier reproduction: **0.1206458343**.
 
 ## Native women reproduction
-
-The most decisive source-equivalent reconstruction is the native women branch.
 
 Verified:
 
@@ -64,80 +61,69 @@ Verified:
 - 15 / 15 archived member training-row counts and best-iteration receipts matched;
 - 2026 women Brier: **0.0767383172**.
 
-This result established that independently owned source reconstruction can recover strong historical model behavior without copied feature artifacts.
+## Men model-procedure parity
 
-## Men feature / target parity work
+Verified:
 
-Subsequent reconstruction isolated multiple implementation mismatches rather than repeatedly retraining approximate versions.
+- 66 core members match best iterations and same-input predictions;
+- 66 margin members match best iterations and calibration slopes;
+- 31 auxiliary historical feature columns were reconciled;
+- the original margin target contract was corrected after re-audit;
+- AP edition semantics and activation boundaries were repaired.
 
-At the audited grain:
+The remaining information gap is source / representation specific rather than unexplained wholesale model drift.
 
-- four native historical core ingredients match across 7,981 team-season rows;
-- 31 auxiliary historical feature columns match across 2,898 directed rows;
-- overtime-normalized margin supervision matches the archived definition;
-- AP edition semantics and historical activation rules were repaired.
+## Historical cohort repair
 
-Remaining target-season differences are concentrated in incomplete external information families rather than unexplained broad feature drift.
+The men's historical control now covers **566 played main-bracket games across nine forecast seasons**.
+
+The old equal-seed filter had excluded eight legitimate later-round games. v65 reproduced every previously saved control prediction, restored those games, and established a complete **189-game 2023–2025 confirmation population**.
+
+The corresponding training correction was evaluated and rejected because it did not produce a robust enough performance improvement.
+
+## Recent robust-gate examples
+
+The pair-exchange primary improved 2023–2025 confirmation by **0.0039264 Brier** and improved all three confirmation seasons, but development deteriorated by **0.0008264**. It was rejected.
+
+The exact-date AP primary improved 2023–2025 confirmation by **0.0020149**, but development deteriorated by **0.0027006**. It was rejected.
+
+These are useful examples of why the project separates "worked on one slice" from "earned promotion."
 
 ## Source reconstruction milestones
 
 ### AP
 
-The source bank now contains:
-
 - 117 rank-complete editions;
 - 95 vote-complete editions;
-- repaired current/previous-rank semantics;
-- explicit poll-edition identity;
-- separate rank/vote completeness.
+- current / previous-rank semantics repaired;
+- explicit edition identity;
+- separate rank / ballot completeness.
 
-Several AP-driven model branches were correctly rejected, but the source itself remains reusable.
+### Original markets and BPI
 
-### Original markets
+The project has independently recovered:
 
-The project recovered target-season original historical market responses covering:
+- 133 target-season championship-team observations;
+- 57 possible first-round pair observations;
+- partial archived ESPN rating / probability vintages;
+- 16 qualified pregame BPI matchup predictions.
 
-- 133 championship-team observations;
-- 57 possible first-round pair observations.
+Coverage remains insufficient for a broad multi-season supervised bank.
 
-These sources are retained as independently reconstructed context, but limited historical breadth prevents them from being presented as a general supervised training bank.
+### Original publisher bracket probabilities
 
-### ESPN BPI archive
+Complete 68-team men's probability fields were recovered for both 2025 and 2026 from original dated source material.
 
-Archive reconstruction progressed from an initially blocked source to partial original-source ownership.
+The fixed blend experiments were rejected, but the source assets remain independently owned research inputs.
 
-The current bank includes:
+### Player / availability infrastructure
 
-- archived men's rating pages;
-- multiple tournament-probability page vintages;
-- snapshot-aware normalization;
-- a pre-cutoff target-day page with 16 numerical men's pregame BPI matchup predictions.
+More than 1.2M mapped pre-cutoff men's player-game rows are retained.
 
-Broad historical and women's coverage remain incomplete.
-
-## Negative-result discipline
-
-Several plausible directions were closed after correct execution:
-
-- broad internal-strength expansion;
-- recent rotation/continuity;
-- richer boxscore player-impact proxies;
-- dynamic opponent-adjusted O/D/pace/margin;
-- broad correlated blends;
-- bracket inversion of championship probabilities;
-- fixed championship-ratio source substitution.
-
-A negative experiment is recorded as successful execution with negative scientific evidence, not an engineering failure.
+Two scalar / continuity proxy representations were rejected. The raw data remains available for materially different roster-role research, without being relabeled as proprietary player value or medical injury history.
 
 ## Current research conclusion
 
-The program has moved from "add more features" toward **source-equivalent information recovery plus prospective validation**.
+The program now has strong evidence that source-equivalent reconstruction is feasible, model-procedure parity must be separated from source parity, complete evaluation cohorts matter, source assets can remain valuable after a particular model use is rejected, and promotion gates should reject favorable but unstable slices.
 
-The highest-value remaining gaps are:
-
-- original-version availability / player-value information;
-- broader defensible BPI history;
-- remaining official NET history where point-in-time sources exist;
-- a complete incoming-season rehearsal that exercises acquisition through candidate freeze.
-
-The next experiments should close one of those capability gaps rather than retune already-rejected 2026 transformations.
+The current private research question is temporal calibration using strictly earlier-season held-out predictions. No performance result is claimed until that AWS milestone executes.
