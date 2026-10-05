@@ -67,7 +67,7 @@ uv run --locked python -m march_mania.publication.portfolio_contract
 
 The check verifies that the public score boundary, historical-control counts, source-coverage evidence, milestone ledgers, README links, canonical notebook set, and curated employer narrative remain internally consistent.
 
-The full CI suite additionally compiles, lints, formats, type-checks, tests, re-executes notebooks, and verifies publication artifacts.
+The full CI suite additionally compiles, lints, formats, type-checks, tests, re-executes notebooks, and verifies publication artifacts. The workflow badges on the README link directly to the current GitHub Actions evidence.
 
 ## Public/private contract
 
