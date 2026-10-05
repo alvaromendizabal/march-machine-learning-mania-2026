@@ -1,83 +1,92 @@
-# Research extension · owned supplemental data frontier
+# Portfolio | NCAA tournament forecasting research
 
-**Alvaro Mendizabal · NCAA tournament probability forecasting**
+**Alvaro Mendizabal · temporal ML · probability forecasting · source provenance · AWS/SageMaker**
 
-This portfolio documents the post-competition research program after the earlier public release. It is an employer-facing aggregate presentation, not a public distribution of the private training/submission pipeline.
+This directory is the compact, employer-facing evidence layer for the project. It summarizes the research without publishing the private competition implementation.
 
-## Current research boundary
+## Current verified boundary
 
-| Measurement | Value | Interpretation |
-|---|---:|---|
-| Published 2026 winner | 0.1097454 | Original competition benchmark |
-| Previous retained post-competition system | 0.1051853 | Earlier private research boundary |
-| Owned external-consensus system | 0.1043513 | Independently reconstructed external context |
-| **AWS-reproduced current system** | **0.1033437** | Current canonical post-competition research boundary |
-| Agreement-gated replay candidate | 0.1027974 | Pending canonical AWS reproduction |
-| Stretch target | 0.0900000 | Research objective, not achieved |
+| System | Evaluation | Brier | State |
+|---|---|---:|---|
+| v26 owned-data control | submitted result | **0.1206458** | Accepted / submitted |
+| v26 exact local replay | 126 scored games | **0.1206458343** | Verified scorer |
+| Native women reconstruction | 63 women games | **0.0767383172** | Numerically reproduced |
+| v54 reconstructed research frontier | 126 scored games | **0.1067095543** | Experimental / not promoted |
 
-Lower Brier is better. None of the post-competition rows above should be interpreted as an original competition placement.
+Lower Brier is better. The experimental result is presented as retrospective research, not as a replacement for the accepted system.
 
-## What changed
+## What this portfolio demonstrates
 
-The private research program now emphasizes **independent supplemental-source reconstruction, source timing, and selective residual correction** rather than broad feature accumulation.
+### Source ownership and provenance
 
-Public-safe highlights:
+The project independently reconstructed or derived substantial supplemental information instead of relying on another competitor's prepared feature files:
 
-- 96,531 corroborated supplemental games;
-- 19,006 cutoff-specific team profiles;
-- 90,550 venue-context rows;
-- 3,486 conference-context rows;
-- 19,006 coach-history rows;
-- 9,652 dated BartTorvik observations across 27 editions;
-- 1,210,609 pre-cutoff player-game rows supporting owned player-value/participation proxies;
-- competition-era AP polling reconstructed and mapped independently;
-- ESPN game-specific predictor/BPI and multi-provider market context normalized independently.
+- 15 men's Bart Torvik tournament seasons with dated source receipts;
+- 117 rank-complete AP editions and 95 ballot-complete editions;
+- official-derived Elo, SRS, Colley, Bradley-Terry, efficiency, pace, schedule, and Massey context;
+- more than 1.2M mapped pre-cutoff men's player-game rows;
+- independently reconstructed postseason-selection facts;
+- partial original-source market and ESPN BPI history;
+- complete 68-team men's publisher probability fields for 2025 and 2026.
 
-These observation counts are at different grains and are not additive samples.
+### Numerical reproduction
 
-## Evidence
+The native women's model was reconstructed from owned inputs and reproduced **65,703 pairwise probabilities within 1e-4** of the archived reference.
 
-- [Executed frontier notebook](frontier_research.ipynb)
-- [Aggregate experiment ledger](post_merge_experiments.csv)
-- [Supplemental source ownership matrix](supplemental_source_ownership.csv)
+The men's reconstruction separately established same-input procedure parity for **66 core members** and **66 margin members**, plus reconciliation of 31 auxiliary feature columns.
+
+### Validation repair
+
+The historical men's evaluation bank now covers **566 played main-bracket games across nine forecast seasons**.
+
+The project reproduced all **558 previously saved control predictions** before restoring eight legitimate later-round games that an old equal-seed filter had omitted.
+
+### Negative-result discipline
+
+Recent matched experiments were not promoted simply because a recent confirmation slice improved:
+
+- mirrored pair-exchange training improved all three recent confirmation seasons but worsened development;
+- exact-date AP integration improved aggregate recent confirmation but worsened development;
+- complete publisher probability reconstruction succeeded as source recovery but its fixed forecast blend was rejected.
+
+This distinction between a successful execution and a successful scientific hypothesis is central to the project.
+
+## Evidence map
+
+- [Start here](../START_HERE.md)
+- [Employer walkthrough](../docs/employer_walkthrough.md)
+- [System architecture](../docs/architecture.md)
 - [Current research boundary](../docs/current_research.md)
-- [Post-merge research log](../docs/post_merge_research_log.md)
-- [Supplemental-source ownership and 2027 contract](../docs/supplemental_source_ownership.md)
+- [Source ownership](../docs/supplemental_source_ownership.md)
+- [Reproduction matrix](../docs/reproduction_matrix.md)
+- [Research log](../docs/post_merge_research_log.md)
+- [Owned-data frontier](owned_frontier_2027.md)
 
-## Research conclusions
+Machine-readable summaries:
 
-**Source ownership and model usefulness are separate.** AP reconstruction succeeded as a data milestone even though the tested AP-enhanced booster failed confirmation.
-
-**Broad replacement is fragile.** Several public-solution-inspired LR/XGBoost/rating replacements improved development or recent years and then failed the complete 2026 audit.
-
-**Selective correction transfers better.** The current retained gain comes from preserving strong baseline rows and applying complementary information only to historically supported men's cases.
-
-**Timing is a first-class feature contract.** Historical season-level BPI was available but updated after tournament cutoffs; the project archived it and refused to use it as pre-tournament history.
-
-**Negative results remain part of the portfolio.** Rejected models, timing blocks, and engineering failures are separated instead of collapsed into a single success/failure label.
-
-## 2027 readiness
-
-The private pipeline is designed to collect future observations prospectively with real timestamps and checksums. Missing target-season sources remain waiting states until publication. No 2026 value is silently copied into 2027.
-
-The highest-value remaining data gaps are women-specific external rating parity and prospective roster/availability information.
+- [reconstruction_frontier.json](reconstruction_frontier.json)
+- [owned_frontier_milestones.csv](owned_frontier_milestones.csv)
+- [owned_frontier_experiments.csv](owned_frontier_experiments.csv)
+- [supplemental_source_status_2027.csv](supplemental_source_status_2027.csv)
 
 ## Public/private boundary
 
 Published here:
 
-- aggregate experiment outcomes;
-- executed report logic;
-- source ownership/provenance states;
-- validation and timing contracts;
-- negative results and limitations.
+- aggregate metrics and exact evaluation populations;
+- source-coverage and provenance states;
+- reproduction evidence;
+- historical validation decisions;
+- negative-result conclusions;
+- public-safe notebooks and architecture.
 
 Intentionally withheld:
 
-- raw/private supplemental data;
-- prediction CSVs;
-- fitted production models;
-- exact residual gates/weights;
+- row-level private forecasts;
+- fitted private competition models;
+- raw supplemental source archives;
+- exact private correction rules, thresholds, and weights;
 - source-specific identity logic;
-- credentials;
-- private orchestration archives and AWS paths.
+- credentials and AWS-local orchestration state.
+
+The goal is a technically auditable portfolio, not a turnkey competition package.
