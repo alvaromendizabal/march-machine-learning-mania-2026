@@ -14,13 +14,13 @@ This repository publishes the **state and coverage of supplemental-data ownershi
 
 | Source family | Ownership state | Current coverage / evidence | Research state |
 |---|---|---|---|
-| Official competition data | Official | complete active competition scope | Primary training / validation source |
+| Official competition data | Official | raw census: 42 men's seasons / 13,753 team-seasons and 29 women's seasons / 9,851 team-seasons | Primary training / validation source; v76 raw-to-feature replay verified |
 | Massey ordinals | Official-derived | 7,992 / 7,993 men team-seasons; complete tournament-team coverage | Active |
 | Bart Torvik Time Machine | Independently recreated | 15 men's tournament seasons; 5,268 / 5,304 team-season rows; 1,016 / 1,020 tournament-team rows | Promoted source family |
 | AP polling | Independently recreated | 117 rank-complete editions; 95 vote-complete editions | Source validated; several model uses rejected |
 | Elo / SRS / Colley / Bradley-Terry | Owned derived | competition-era official-result history | Active / representation-dependent |
 | Tournament selection announcements | Independently recreated | 32 NIT + 32 WBIT + 48 WNIT target-season facts | Active source facts |
-| ESPN player boxscores | Independently collected | >1.2M mapped pre-cutoff men's player-game rows across 11 seasons | Two scalar proxy representations rejected; raw infrastructure retained |
+| ESPN player boxscores | Independently collected | >1.2M mapped pre-cutoff men's player-game rows in the broader archive; later qualified modeling bank retained 1,036,477 rows with 541 / 566 eligible historical matchups | Several proxy / role representations rejected; raw and identity infrastructure retained |
 | Historical championship / first-round market observations | Independently recreated partial | 133 target-season championship-team observations; 57 possible first-round pairs | Useful target-season evidence; insufficient broad historical training coverage |
 | Archived ESPN BPI / pregame predictions | Independently recreated partial | men's archived rating / probability vintages plus 16 qualified target-season pregame predictions | Active reconstruction frontier; broad historical / women's coverage incomplete |
 | Original publisher bracket probability tables | Independently recreated partial | complete 68-team men's fields for 2025 and 2026 | Source validated; fixed blend experiments rejected |
@@ -29,6 +29,7 @@ This repository publishes the **state and coverage of supplemental-data ownershi
 | KenPom | Not independently owned exact | no publisher-exact historical bank | Authorized-only |
 | EvanMiya / BPR | Not independently owned exact | no publisher-exact historical bank | Open proprietary gap |
 | Historical injury / availability snapshots | Not independently owned exact | participation proxies exist, not medical history | Open / prospective capture preferred |
+| Reconstructed ten-player matchup stints | Independently downloaded reconstruction, not original event-state history | three late historical files were audited; interval semantics were incompatible with the first modeling contract | Quarantined from modeling pending original event/substitution reconstruction |
 
 Machine-readable version: [portfolio/supplemental_source_status_2027.csv](../portfolio/supplemental_source_status_2027.csv).
 
@@ -44,6 +45,22 @@ Every reconstructed source is evaluated on independent questions:
 6. **Predictive transfer** — does a frozen historical policy improve the official metric?
 
 Passing one does not imply passing the others.
+
+## Official raw-game foundation
+
+The latest source milestone independently rebuilds public-safe descriptive features from official compact and detailed game records rather than prepared feature tables.
+
+Current evidence includes:
+
+- 13,753 men’s team-season rows and 9,851 women’s team-season rows in the raw census;
+- 566 / 566 historical men’s matchup identities with both teams present;
+- 566 / 566 complete performance and schedule feature pairs;
+- 554 / 566 complete temporal / venue pairs, with missingness retained explicitly;
+- separate-process raw-to-feature replay for both genders;
+- a 2026-as-incoming feature rehearsal;
+- chronology poisoning and season-prefix invariance checks.
+
+This is a source/feature reproducibility result, not a forecasting promotion.
 
 ## Notable reconstruction results
 
