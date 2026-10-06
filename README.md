@@ -26,9 +26,12 @@ The private reconstruction program has also produced a stronger **experimental**
 
 Lower Brier is better. These are post-competition research measurements, not claims about original competition placement.
 
+The latest validated AWS milestone adds a **raw official-game feature foundation with independent replay**: 42 men's raw seasons and 29 women's raw seasons were rebuilt into 13,753 men's and 9,851 women's team-season rows. The milestone performs no new model fitting; its purpose is to make subsequent research more reproducible and auditable.
+
 **[Employer walkthrough](docs/employer_walkthrough.md)** ·
 [Current research boundary](docs/current_research.md) ·
 [Supplemental-source ownership](docs/supplemental_source_ownership.md) ·
+[Owned raw-game foundation](docs/reproducible_source_foundation.md) ·
 [Research log](docs/post_merge_research_log.md) ·
 [Reproduction matrix](docs/reproduction_matrix.md) ·
 [Owned-data portfolio](portfolio/owned_frontier_2027.md)
@@ -99,7 +102,23 @@ The project records successful negative experiments instead of hiding them. Rece
 
 Several later experiments improved recent confirmation seasons but were still rejected because development behavior deteriorated. That promotion discipline prevents favorable slices from becoming automatic "wins."
 
-### 6. Cloud research engineering
+### 6. Owned raw-game feature foundation
+
+The latest source milestone independently rebuilds broad men’s and women’s feature banks from official compact and detailed game records rather than relying on prepared feature tables.
+
+Public-safe evidence includes:
+
+- **13,753 men’s team-season rows across 42 raw seasons**;
+- **9,851 women’s team-season rows across 29 raw seasons**;
+- complete performance and schedule feature support for all **566 historical men’s evaluation matchups**;
+- explicit missingness rather than forward-filled historical values;
+- separate-process raw-to-feature replay with matching outputs;
+- a 2026-as-incoming feature rehearsal for both genders;
+- chronology poison tests proving excluded future/post-cutoff rows do not change historical features.
+
+This milestone is source/feature engineering evidence, not a new forecasting result.
+
+### 7. Cloud research engineering
 
 AWS/SageMaker is the canonical research environment. Private runners are:
 
@@ -128,12 +147,16 @@ The historical men's evaluation bank now covers **566 played main-bracket games 
 
 ## Current research frontier
 
-The highest-information open capabilities are:
+The source program has moved from reconstructing isolated supplemental tables toward a broader owned-data foundation. The latest completed milestone verifies raw-to-feature replay and historical coverage without claiming a model gain.
 
-- temporally separated calibration using earlier-season held-out predictions;
+The next high-information modeling question is whether **strictly pregame regular-season supervision can transfer useful matchup information into tournament forecasts** beyond compact seed/reference controls. That experiment is intentionally separated from the accepted system and must pass the complete historical promotion gate before any target-year audit.
+
+Important open capabilities remain:
+
 - broader original-version availability / player-value history;
-- stronger point-in-time roster-role representations;
-- remaining defensible historical NET coverage;
+- broader point-in-time pregame probability history;
+- independent roster / experience information with multi-season coverage;
+- a complete raw-source-to-score reconstruction certificate;
 - a complete incoming-season acquisition → mapping → feature → train/infer → immutable-candidate rehearsal.
 
 The complete future-season chain is not called finished until exercised end to end.
