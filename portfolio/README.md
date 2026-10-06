@@ -35,6 +35,20 @@ The native women's model was reconstructed from owned inputs and reproduced **65
 
 The men's reconstruction separately established same-input procedure parity for **66 core members** and **66 margin members**, plus reconciliation of 31 auxiliary feature columns.
 
+### Reproducible raw-game foundation
+
+The latest AWS milestone rebuilds a broad official-data foundation from raw compact and detailed game records:
+
+- 13,753 men’s team-season rows across 42 raw seasons;
+- 9,851 women’s team-season rows across 29 raw seasons;
+- all 566 historical men’s matchup identities covered by both teams;
+- complete performance and schedule feature pairs for all 566 games;
+- temporal / venue feature completeness for 554 / 566 games;
+- separate-process raw-to-feature replay for both genders;
+- 2026 feature generation rehearsed as an incoming-season update.
+
+This evidence strengthens reproducibility without changing the accepted or experimental score boundary.
+
 ### Validation repair
 
 The historical men's evaluation bank now covers **566 played main-bracket games across nine forecast seasons**.
@@ -58,6 +72,7 @@ This distinction between a successful execution and a successful scientific hypo
 - [System architecture](../docs/architecture.md)
 - [Current research boundary](../docs/current_research.md)
 - [Source ownership](../docs/supplemental_source_ownership.md)
+- [Owned raw-game foundation](../docs/reproducible_source_foundation.md)
 - [Reproduction matrix](../docs/reproduction_matrix.md)
 - [Research log](../docs/post_merge_research_log.md)
 - [Owned-data frontier](owned_frontier_2027.md)
@@ -68,6 +83,7 @@ Machine-readable summaries:
 - [owned_frontier_milestones.csv](owned_frontier_milestones.csv)
 - [owned_frontier_experiments.csv](owned_frontier_experiments.csv)
 - [supplemental_source_status_2027.csv](supplemental_source_status_2027.csv)
+- [owned_source_foundation_v76.json](owned_source_foundation_v76.json)
 
 ## Public/private boundary
 

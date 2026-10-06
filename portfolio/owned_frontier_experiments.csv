@@ -22,3 +22,7 @@ v63,2025 publisher historical validation,rejected,2025 fixed blend failed thresh
 v65,complete men's historical control recovery,reproduction success,"566 played games; 558 saved predictions reproduced",Restored eight legitimately omitted equal-seed games
 v66,pair-exchange mirrored training,rejected,"confirmation +0.0039264; development -0.0008264",Improved all recent confirmation seasons but failed development gate
 v67,exact-date AP source refresh,rejected,"confirmation +0.0020149; development -0.0027006",Source integration failed robust historical gate
+v68,chronological held-out calibration,rejected,historical gate failed,Earlier-season calibration evidence retained; no target challenger promoted
+v74,qualified player-role representation,rejected,"source coverage passed; primary worsened robust historical validation",Source and identity repairs retained; fixed model closed
+v75,reconstructed lineup feasibility,engineering stop,"15,965 official games matched; zero model fits",Interval semantics invalidated continuous-exposure contract; source quarantined
+v76,broad official raw-game foundation,data success,"13,753 men + 9,851 women team-season rows; independent replay",Source/feature reproducibility milestone; zero model fits and no score claim

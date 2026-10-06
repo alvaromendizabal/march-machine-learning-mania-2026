@@ -1,11 +1,11 @@
 source_family,ownership,research_state,coverage,public_boundary
-Official competition data,official,active,"Men 2003+; Women 2010+",Primary training and validation source
+Official competition data,official,active,"raw census: 42 men's seasons / 13,753 team-seasons; 29 women's seasons / 9,851 team-seasons",Primary training and validation source; raw-to-feature replay verified
 Massey ordinals,official-derived,active,"7,992 / 7,993 men team-seasons; complete tournament-team coverage",Chronology-safe official source
 Bart Torvik Time Machine,independently recreated,PROMOTED SOURCE FAMILY,"15 men's tournament seasons; 5,268 / 5,304 team-season rows; 1,016 / 1,020 tournament-team rows",Raw receipts and timing checks retained privately
 AP polling archive,independently recreated,tested / several model branches rejected,"117 rank-complete; 95 ballot-complete editions",Source remains legitimate and reusable
 Elo / SRS / Colley / Bradley-Terry,owned derived,active / representation-dependent,competition-era official-result history,Derived from official results
 Tournament selection announcements,independently recreated,active source facts,"32 NIT + 32 WBIT + 48 WNIT target-season facts",Original announcements retained privately
-ESPN player boxscores,independently collected,tested / two scalar proxy representations rejected,">1.2M mapped pre-cutoff men's player-game rows across 11 seasons",Raw infrastructure retained; not labeled proprietary player value
+ESPN player boxscores,independently collected,tested / multiple proxy and role representations rejected,">1.2M mapped rows in broader archive; later qualified bank retained 1,036,477 rows and 541 / 566 eligible historical matchups",Raw / identity infrastructure retained; not labeled proprietary player value
 Historical championship / first-round markets,independently recreated partial,target-season experimental,"133 championship-team observations; 57 possible first-round pairs",Insufficient broad historical training coverage
 Archived ESPN BPI / pregame predictions,independently recreated partial,active reconstruction frontier,"partial men's rating/probability vintages + 16 qualified target-season pregame predictions",Broad historical and women's coverage incomplete
 Original publisher bracket probability tables,independently recreated partial,source validated / model integration rejected,"complete 68-team men's fields for 2025 and 2026",Retained as dated source evidence; fixed blends rejected
@@ -14,3 +14,4 @@ NCAA NET men,partial / incomplete,open gap,not comprehensive across clean histor
 KenPom,not independently owned exact,authorized-only,n/a,Never relabel substitutes as KenPom
 EvanMiya / BPR,not independently owned exact,open proprietary gap,n/a,Owned proxies are named separately
 Historical injury / availability snapshots,not independently owned exact,open gap,n/a,Participation proxies are not medical history
+Reconstructed ten-player matchup stints,independently downloaded reconstruction,quarantined,"three late historical files audited; first modeling contract invalidated by interval semantics",Not admitted to modeling pending original event / substitution reconstruction

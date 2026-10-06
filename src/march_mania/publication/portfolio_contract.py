@@ -26,6 +26,7 @@ CURATED_DOCS = (
     "docs/current_research.md",
     "docs/post_merge_research_log.md",
     "docs/reproduction_matrix.md",
+    "docs/reproducible_source_foundation.md",
     "docs/supplemental_source_ownership.md",
     "portfolio/owned_frontier_2027.md",
 )
@@ -102,6 +103,34 @@ def validate_repository(root: Path) -> list[str]:
     for milestone in ("v66", "v67"):
         if states.get(milestone) != "rejected":
             errors.append(f"{milestone} must remain a rejected historical experiment")
+
+    foundation_path = root / "portfolio/owned_source_foundation_v76.json"
+    try:
+        foundation = json.loads(foundation_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"v76 foundation JSON is unreadable: {exc}")
+        foundation = {}
+
+    if foundation.get("milestone") != "v76":
+        errors.append("owned source foundation must identify milestone v76")
+    if foundation.get("model_fits") != 0:
+        errors.append("v76 source foundation must remain a zero-fit milestone")
+    if foundation.get("score_change_claimed") is not False:
+        errors.append("v76 source foundation must not claim a score change")
+
+    raw = foundation.get("official_raw_foundation", {})
+    if raw.get("men", {}).get("team_seasons") != 13753:
+        errors.append("v76 men's team-season count drifted")
+    if raw.get("women", {}).get("team_seasons") != 9851:
+        errors.append("v76 women's team-season count drifted")
+
+    hist = foundation.get("historical_mens_evaluation", {})
+    if hist.get("games") != 566 or hist.get("both_teams_available") != 566:
+        errors.append("v76 historical matchup coverage drifted")
+    if hist.get("performance_complete") != 566 or hist.get("schedule_complete") != 566:
+        errors.append("v76 complete feature-family coverage drifted")
+    if hist.get("temporal_venue_complete") != 554:
+        errors.append("v76 temporal coverage drifted")
 
     source_rows = _load_csv(root / "portfolio/supplemental_source_status_2027.csv")
     source_names = {row.get("source_family") for row in source_rows}

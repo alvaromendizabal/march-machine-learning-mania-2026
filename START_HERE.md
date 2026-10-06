@@ -13,6 +13,7 @@ The key signals are:
 - numerical reproduction of 65,703 women's pairwise probabilities within 1e-4;
 - men's core and margin model-procedure parity on matched inputs;
 - a complete 566-game historical men's evaluation bank;
+- independently replayed official raw-game feature banks covering 13,753 men's and 9,851 women's team-seasons;
 - AWS/SageMaker execution with checkpoints, telemetry, manifests, and cost controls;
 - explicit rejection of experiments that improve one slice but fail broader validation.
 
@@ -21,6 +22,7 @@ The key signals are:
 1. [Employer walkthrough](docs/employer_walkthrough.md)
 2. [System architecture](docs/architecture.md)
 3. [Current research boundary](docs/current_research.md)
+4. [Owned raw-game foundation](docs/reproducible_source_foundation.md)
 
 These three documents explain what was built, how evidence is separated by lifecycle state, and what is intentionally public versus private.
 

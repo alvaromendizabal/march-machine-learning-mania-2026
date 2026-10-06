@@ -102,11 +102,37 @@ Current independently recreated / owned source families include Bart Torvik Time
 
 The project does not relabel owned substitutes as proprietary publisher metrics.
 
+## Latest completed source foundation
+
+The latest validated AWS milestone rebuilds a broad official raw-game foundation without fitting a new forecasting model.
+
+Verified public-safe evidence:
+
+- **13,753 men's team-season rows across 42 raw seasons**;
+- **9,851 women's team-season rows across 29 raw seasons**;
+- all **566 historical men's matchup identities** have both teams present;
+- performance and schedule feature families are complete for all 566 matchups;
+- temporal / venue features are complete for **554 / 566** matchups, with remaining missingness preserved;
+- **46 / 46 retained external source objects** were reverified;
+- men and women raw-to-feature outputs replay independently and reproducibly;
+- 2026 was rehearsed as an incoming feature season for both genders.
+
+This milestone establishes source and feature reproducibility. It does not claim a new Brier result, native-model equivalence, or complete future-season readiness.
+
+## Recent reconstruction decisions
+
+- chronology-separated calibration was tested and rejected under the fixed historical gate;
+- player-role / boxscore representation work ultimately passed source coverage but worsened robust historical validation, so the fixed model recipe was closed;
+- a reconstructed lineup-stint pilot was stopped before fitting when the source interval semantics proved incompatible with the runner's continuous-exposure assumption;
+- the broad official raw-game foundation was then rebuilt directly, preserving useful source work while retiring the invalid representation.
+
+These decisions illustrate a core project rule: a legitimate source can survive even when one modeling recipe or source contract is rejected.
+
 ## Current research question
 
-The next private study uses **strictly earlier-season held-out predictions for calibration**, separating base-model training from calibration selection.
+The next private study asks whether **strictly pregame regular-season supervision can transfer useful matchup information into tournament forecasts** beyond compact tournament controls.
 
-This is staged as a new research question; no public performance result is claimed yet.
+The experiment is intentionally separated from the accepted system. No public performance result is claimed until the historical gate and independent replay are complete.
 
 ## Incoming-season boundary
 

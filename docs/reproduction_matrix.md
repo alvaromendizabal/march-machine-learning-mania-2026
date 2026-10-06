@@ -77,6 +77,24 @@ The source reconstruction succeeded; the fixed model integration was rejected. T
 
 Both studies produced favorable recent-confirmation behavior but failed development gates. They are retained as negative scientific evidence rather than promoted selectively.
 
+## Recent reconstruction program
+
+### Chronological calibration
+
+An earlier-season held-out calibration policy was implemented and evaluated under the complete historical gate. It produced useful chronological evidence but did not earn promotion.
+
+### Player-role / boxscore representation
+
+Historical player identity and coverage work progressed to a qualified ten-season men’s bank. The fixed player-role residual primary ultimately worsened robust historical validation and was closed. The source and identity repairs were retained.
+
+### Reconstructed lineup stints
+
+A later lineup-stint feasibility run stopped before model fitting because the producer’s segment times represent observed-event spans rather than guaranteed continuous exposure. The files remain quarantined; the project does not repair that mismatch by inventing unobserved time.
+
+### Owned raw-game foundation
+
+The subsequent source milestone rebuilt broad men’s and women’s official-data features directly from raw compact / detailed results and reproduced the outputs independently. It provides a clean foundation for future complementary models without claiming that the descriptive features themselves improve tournament Brier.
+
 ## Why the matrix matters
 
 Every mechanism is evaluated by whether the project independently reconstructed the source, matched feature semantics, reproduced the training target, reproduced inference behavior, tested historical transfer, and preserved an honest promotion lifecycle.
@@ -91,4 +109,4 @@ A failed adaptation is not proof that the original mechanism was bad, and a nume
 - stronger owned roster-role representations;
 - complete incoming-season integration.
 
-The current private study evaluates calibration with strictly earlier-season held-out predictions. No result is claimed publicly until the AWS evidence exists.
+The current private modeling question tests whether strictly pregame regular-season supervision can transfer useful information to tournament forecasts. No result is claimed publicly until the AWS evidence exists.

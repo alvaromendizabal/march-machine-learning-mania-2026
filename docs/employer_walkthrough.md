@@ -12,7 +12,8 @@ The accepted submitted owned-data system scores **0.1206458 Brier**, with an exa
 - a repaired AP polling archive with 117 rank-complete and 95 vote-complete editions;
 - official-data rating systems including Elo, SRS, Colley, Bradley-Terry, efficiency, pace, schedule strength, recency, and Massey consensus;
 - original-source postseason-selection facts from dated announcements;
-- a historical player-box infrastructure with more than 1.2M mapped pre-cutoff men's player-game rows;
+- a historical player-box infrastructure with more than 1.2M mapped pre-cutoff men's player-game rows, plus a stricter qualified modeling bank used in later controlled experiments;
+- a reproducible official raw-game foundation spanning 42 men's and 29 women's raw seasons, with independent raw-to-feature replay;
 - partial original-source market and ESPN BPI archives with strict timing qualification;
 - complete 68-team publisher probability-table reconstructions for 2025 and 2026;
 - a complete 126-game scorer that reproduces the accepted v26 result exactly;
@@ -86,13 +87,16 @@ AWS/SageMaker is the canonical workspace. Substantial milestones self-test, gate
 
 ## Current engineering frontier
 
-The current research program is evaluating:
+The latest completed AWS milestone moved the project from source reconstruction into a replayable official-data foundation:
 
-- temporally separated calibration built only from earlier-season held-out predictions;
-- broader original-version availability / player-value information;
-- stronger roster-role representations from owned raw data;
-- defensible historical NET coverage;
-- a complete incoming-season acquisition-to-frozen-candidate rehearsal.
+- broad men’s and women’s raw-game coverage is fingerprinted;
+- descriptive performance, schedule, recency, and venue features are rebuilt from raw inputs;
+- missing historical fields remain explicit instead of being backfilled;
+- raw-to-feature outputs replay independently;
+- 2026 feature generation is rehearsed as an incoming-season update;
+- late or semantically ambiguous reconstructed sources remain quarantined.
+
+The next modeling study tests whether strictly pregame regular-season supervision transfers useful information to tournaments. Separate source-equivalence work continues for original-version availability / player-value information, broader pregame probability history, and a complete incoming-season acquisition-to-frozen-candidate rehearsal.
 
 No result is claimed until the corresponding AWS evidence exists.
 
