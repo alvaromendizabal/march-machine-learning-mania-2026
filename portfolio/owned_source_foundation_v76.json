@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "milestone": "v76",
+  "lifecycle": "SOURCE_FEATURE_RECONSTRUCTION",
+  "aws_canonical": true,
+  "model_fits": 0,
+  "score_change_claimed": false,
+  "official_raw_foundation": {
+    "men": {
+      "raw_seasons": 42,
+      "team_seasons": 13753,
+      "incoming_2026_rows": 365
+    },
+    "women": {
+      "raw_seasons": 29,
+      "team_seasons": 9851,
+      "incoming_2026_rows": 363
+    }
+  },
+  "historical_mens_evaluation": {
+    "games": 566,
+    "both_teams_available": 566,
+    "performance_complete": 566,
+    "schedule_complete": 566,
+    "temporal_venue_complete": 554
+  },
+  "external_receipts": {
+    "objects_checked": 46,
+    "objects_present": 46,
+    "objects_reverified": 46
+  },
+  "reproducibility": {
+    "independent_raw_feature_replay": true,
+    "chronology_poison_tests": true,
+    "season_prefix_invariance": true,
+    "incoming_2026_feature_rehearsal": true
+  },
+  "public_private_boundary": {
+    "published": [
+      "aggregate counts",
+      "feature-family semantics",
+      "source-state conclusions",
+      "replay status",
+      "missingness policy"
+    ],
+    "withheld": [
+      "row-level forecasts",
+      "raw supplemental payloads",
+      "fitted private models",
+      "exact competition-specific correction logic",
+      "private identity rules",
+      "AWS orchestration internals"
+    ]
+  }
+}
