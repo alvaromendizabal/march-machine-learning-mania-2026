@@ -28,3 +28,18 @@ The summary CSV includes 15 rounds with supplied metric tables. It does not inve
 ## Decision integrity
 
 A favorable all-season average does not supersede a failed preregistered replication subset or conditional comparison. Mean-season Brier is not directly comparable to the observed Kaggle submission score. Selection against reused years remains exploratory, and negative findings are retained.
+
+
+## Owned reconstruction program — later milestones
+
+The private AWS reconstruction program continues beyond the early feature-research rounds above. The public ledger records aggregate decisions rather than private candidate bytes or exact competition logic.
+
+| Milestone | Scope | Public-safe disposition |
+|---|---|---|
+| v68 | earlier-season chronological probability calibration | Correctly executed; historical promotion gate not cleared |
+| v69–v73 | player identity, event-date, and source-contract recovery | Multiple engineering/source issues repaired; completed work checkpointed rather than restarted |
+| v74 | qualified player-role / boxscore representation | Source coverage succeeded; fixed historical model was rejected |
+| v75 | reconstructed ten-player lineup feasibility | Stopped before fitting when interval semantics invalidated the continuous-exposure contract; data quarantined |
+| v76 | broad official raw-game foundation | **Successful source/feature milestone:** men and women feature banks rebuilt and independently replayed; no model fit and no score claim |
+
+The v76 result deliberately separates **source reproducibility** from **predictive usefulness**. Later modeling must still pass the established historical promotion gates.
