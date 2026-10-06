@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "as_of_utc": "2026-10-05",
+  "as_of_utc": "2026-10-06",
   "metric": {
     "name": "Brier score",
     "direction": "lower_is_better",
@@ -32,7 +32,7 @@
     "pairwise_predictions_checked": 65703,
     "all_within_absolute_tolerance": 0.0001,
     "max_abs_difference_approx": 0.00004199,
-    "mean_abs_difference_approx": 0.0000000235,
+    "mean_abs_difference_approx": 2.35e-8,
     "member_receipts_matched": 15,
     "scored_games_brier": 0.07673831718385483
   },
@@ -80,6 +80,14 @@
       "confirmation_gain_brier": 0.0020148787,
       "development_gain_brier": -0.0027006225,
       "decision": "REJECTED"
+    },
+    "chronological_calibration": {
+      "decision": "REJECTED",
+      "note": "Earlier-season calibration policy did not clear the fixed historical promotion gate."
+    },
+    "player_role_transfer": {
+      "decision": "REJECTED",
+      "note": "Qualified player-role primary worsened robust historical validation; source repairs retained."
     }
   },
   "public_private_boundary": {
@@ -100,5 +108,27 @@
       "source-specific private identity logic",
       "AWS orchestration state"
     ]
+  },
+  "owned_raw_foundation_v76": {
+    "lifecycle": "SOURCE_FEATURE_RECONSTRUCTION",
+    "model_fits": 0,
+    "men_raw_seasons": 42,
+    "women_raw_seasons": 29,
+    "men_team_seasons": 13753,
+    "women_team_seasons": 9851,
+    "historical_mens_pairs": 566,
+    "pairs_with_both_teams": 566,
+    "performance_complete_pairs": 566,
+    "schedule_complete_pairs": 566,
+    "temporal_complete_pairs": 554,
+    "external_objects_reverified": "46/46",
+    "independent_raw_feature_replay": true,
+    "incoming_2026_feature_rehearsal": true,
+    "note": "Source/feature reproducibility evidence only; no new forecasting result."
+  },
+  "latest_engineering_lesson": {
+    "milestone": "v75",
+    "decision": "SOURCE_CONTRACT_INVALID",
+    "note": "Prepared lineup segments encoded observed-event spans rather than continuous exposure; modeling stopped before fitting and the source remains quarantined."
   }
 }
