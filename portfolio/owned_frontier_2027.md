@@ -79,9 +79,25 @@ Those outcomes are preserved because the project treats stable validation behavi
 
 Closed or rejected directions include broad internal-strength expansion, recent rotation / continuity, richer boxscore player proxies, dynamic opponent-adjusted states, publisher probability blends, several market transformations, broad high-correlation blends, matched equal-seed training correction, mirrored pair-exchange training, and fixed exact-date AP integration.
 
+## Latest source-engineering milestone
+
+The latest completed AWS milestone rebuilds a broad official raw-game foundation for both genders and reproduces the feature banks independently.
+
+Aggregate public evidence:
+
+- 42 men's raw seasons / 13,753 team-season rows;
+- 29 women's raw seasons / 9,851 team-season rows;
+- 566 / 566 historical men's matchup identities with both teams present;
+- 566 / 566 complete performance and schedule pairs;
+- 554 / 566 complete temporal / venue pairs;
+- 46 / 46 retained external source objects reverified;
+- zero new model fits in the milestone.
+
+This strengthens the owned-data lineage without changing the score frontier.
+
 ## Current private research question
 
-The active next study evaluates probability calibration using **strictly earlier-season held-out predictions**. No public result is claimed until the AWS milestone executes.
+The active next study tests whether **strictly pregame regular-season supervision transfers useful matchup information to tournament forecasts** beyond compact tournament controls. No public result is claimed until the AWS historical evidence exists.
 
 ## Public/private boundary
 
