@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="380" viewBox="0 0 780 380" role="img" aria-labelledby="title description">
+<title id="title">Brier score: official competition winner and accepted post-competition release</title>
+<desc id="description">Lower is better. Both bars start at zero. This is a post-competition comparison, not an official competition placement.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#203449}.label{font-size:17px}.value{font-size:19px;font-weight:700}.note{font-size:15px}</style>
+<rect width="780" height="380" fill="#fff"/>
+<text x="28" y="38" font-size="25" font-weight="700">Official winner vs. accepted late release</text>
+<text x="28" y="67" class="note">Brier score · lower is better · zero baseline</text>
+<text x="28" y="105" class="label">Published winning benchmark</text>
+<rect x="28" y="118" width="484.709" height="29" fill="#536b83"/>
+<text x="522.709" y="139" class="value">0.1097454</text>
+<text x="28" y="205" class="label">Accepted post-competition release</text>
+<rect x="28" y="218" width="471.300" height="29" fill="#047a70"/>
+<text x="509.300" y="239" class="value">0.1067095</text>
+<text x="28" y="308" class="value">0.0030359 lower Brier · 2.7663% relative reduction</text>
+<text x="28" y="342" class="note">Post-competition research; not an original rank or a fresh generalization test.</text>
+</svg>

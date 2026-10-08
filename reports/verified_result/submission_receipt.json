@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "kind": "sanitized_owner_delivery_receipt",
+  "competition": "march-machine-learning-mania-2026",
+  "submission_id": "56928396",
+  "remote_status": "COMPLETE",
+  "public_score": "0.1067095",
+  "private_score": "0.1067095",
+  "submitted_at_utc": "2026-10-08T01:49:51.713000Z",
+  "prediction_rows": 132133,
+  "prediction_sha256": "f933164988acc85b8c207e7c4c247fde30ce20c15aacbf0bf737f537f763a89f",
+  "source_return_sha256": "74755a7865fa99ea29b1677610402d069ea376ffa180bd01e493193d8884e880",
+  "source_receipt_sha256": "08c44d0420805186d60e939fb90b3e2dce82fd4b6840341a3ca39cba630903b2",
+  "late_submission": true,
+  "evaluation": "Post-competition retrospective research; outcomes already inspected",
+  "historical_promotion": false,
+  "row_level_predictions_published": false
+}

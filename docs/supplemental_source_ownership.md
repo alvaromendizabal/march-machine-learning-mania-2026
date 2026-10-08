@@ -1,3 +1,5 @@
+> **Ownership clarification, October 8, 2026:** historical player archive counts below include third-party-derived NCAA records. They are not newly certified original ESPN data. The exact v81 cache bank is awaiting a corrected audit, and the v99 original ESPN pilot is delivered but has no returned owner result at this snapshot. See [current research](current_research.md).
+
 # Supplemental-source ownership and incoming-season readiness
 
 This repository publishes the **state and coverage of supplemental-data ownership**, not private raw source bodies or the competition implementation.

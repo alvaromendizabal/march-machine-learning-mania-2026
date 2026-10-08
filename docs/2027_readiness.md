@@ -1,122 +1,50 @@
-# 2027 readiness | prospective evaluation plan
+# 2027 readiness: prospective evaluation contract
 
-The project now has a mature post-competition research stack, but the next stronger claim must come from **prospective, pre-outcome evidence**.
+The project has a confirmed **0.1067095 late-submission Brier score** and substantial historical reproduction evidence. The next stronger claim requires a forecast frozen **before future outcomes are known**. The October 2026 submission does not establish prospective 2027 performance.
 
-This document defines the public readiness contract without publishing the private competition implementation.
+## Current readiness
 
-## 1. Preserve the accepted control and separate research tiers
+| Component | Evidence in hand | Still required |
+|---|---|---|
+| Official game foundation | 42 men's and 29 women's seasons; independent feature replay | Actual incoming-season records |
+| Probability artifacts | Accepted v54 forecast, delivered through v93r1; immutable release evidence | Fresh pre-outcome forecast and submission receipt |
+| Historical evaluation | Complete 566-game men's cohort; retained control comparisons | A genuinely new prospective evaluation period |
+| Supplemental sources | Reconstructed ratings/polls and partial original archives | Broad timing-qualified player, availability, BPI, and market inputs |
+| Original boxscore route | v99 qualification package delivered | Owner return, then sufficient qualified historical coverage |
+| Operational pipeline | Bounded jobs, self-tests, checkpoints, resume and packaging contracts | Full acquisition-to-freeze rehearsal and actual 2027 execution |
 
-Keep the accepted submitted control, reconstructed experimental forecasts, and historical replay artifacts as distinct lifecycle states.
+## Preserve separate lifecycle states
 
-For every retained artifact, preserve:
+Keep the latest accepted late submission, earlier historical controls, experimental forecasts, and source-only pilots distinct. Every artifact must retain its system ID, input/configuration hashes, prediction hash where applicable, population, lifecycle state, and source-timing evidence.
 
-- model / system ID;
-- source and data-lineage version;
-- immutable prediction hash;
-- evaluation population;
-- lifecycle state;
-- promotion decision;
-- source-timing evidence.
+Submission acceptance is an operational fact. Model promotion and prospective validation are scientific claims with additional requirements.
 
-Do not let a lower retrospective score silently replace an accepted champion.
+## Make the season transition executable
 
-## 2. Make season transition an executable contract
+Audit incoming team identities and aliases, conferences, roster changes, seeds, rankings, player information, publication timestamps, and the official submission schema. Source records must retain the original URL/provider, actual capture time, publisher update time when available, raw checksum, normalized checksum, identity mapping, eligibility, and quarantine reason.
 
-Audit every year-specific input route and assumption:
+Missing future observations produce `WAITING_FOR_TARGET_DATA` or a source-blocked result. Values are never copied forward merely to make a pipeline complete. A response retrieved today about an old game is not automatically a certified pre-tournament snapshot.
 
-- team identities and aliases;
-- conferences;
-- rosters / transfers;
-- seeds and tournament-selection metadata;
-- rankings / ratings;
-- player participation / availability;
-- external-source publication timing;
-- sample-submission / candidate schema.
+## Rehearse the complete chain
 
-Require incoming-season inputs to carry provenance and timing evidence.
+The historical incoming-season rehearsal must execute:
 
-A missing prerequisite should produce a clear `WAITING_FOR_TARGET_DATA` or source-blocked state rather than silently copying a previous season's value.
+**source acquisition → receipt preservation → normalization and identity mapping → chronology checks → feature construction → training and inference → composition → schema/hash/provenance checks → immutable candidate freeze**
 
-## 3. Exercise the full pipeline before outcomes
+The existing 2026 feature rehearsal covers part of this chain. Full readiness requires the complete chain and then the actual 2027 source state; season parameters alone are insufficient.
 
-Use 2026 as a historical incoming-season rehearsal where practical.
+## Freeze decisions before outcomes
 
-The rehearsal should execute:
+Declare eligible model families, development and confirmation periods, metric aggregation, promotion rules, calibration/composition rules, and submission policy before the tournament. Keep game-weighted Brier and mean-season Brier separate. Do not tune the frozen decision procedure on the consumed historical benchmark or 2026 outcomes.
 
-**source acquisition → raw receipt preservation → normalization → team mapping → chronology checks → feature construction → model training / inference → final composition → schema / hash / provenance validation → immutable candidate freeze**
+Changing a forecast after outcomes creates a new retrospective experiment, not an improved version of the original prospective forecast.
 
-The goal is to prove that the project can move from newly available data to a frozen candidate without depending on another competitor's prepared file.
+## Exercise failures without losing completed work
 
-## 4. Accumulate prospective source snapshots
+Test missing files, invalid identities, corrupt checkpoints, partial coverage, late timestamps, interrupted acquisition/training, resume behavior, candidate schema, duplicate hashes, and submission-action failures. A delivery failure should reuse the frozen forecast instead of retraining it.
 
-When permitted sources become available, retain immutable snapshots before outcomes are known.
+## Public review and private implementation
 
-Each source record should preserve:
+Publish aggregate metrics, source-provenance status, reproduction evidence, research decisions, and readiness contracts. Retain raw archives, exact private features/weights, fitted competition models, row-level forecasts, source-specific mappings, and cloud state privately.
 
-- original URL / provider identity;
-- actual capture timestamp;
-- publisher update timestamp when available;
-- raw-body checksum;
-- normalized-table checksum;
-- mapping state;
-- model eligibility state;
-- quarantine reason.
-
-Market, roster, ranking, and player information must remain distinct from postgame updates.
-
-## 5. Predeclare the decision procedure
-
-Before the tournament:
-
-- freeze eligible model families;
-- freeze development / confirmation periods;
-- freeze the primary metric and exact aggregation;
-- freeze promotion / rejection rules;
-- freeze calibration / composition rules;
-- freeze submission policy.
-
-Changing the system after outcomes are observed creates a new retrospective experiment, not a revision of the original prospective forecast.
-
-## 6. Rehearse operational failure paths
-
-Before the deadline, test:
-
-- missing source files;
-- invalid IDs / aliases;
-- corrupted checkpoints;
-- partial source coverage;
-- source timestamps after cutoff;
-- interrupted acquisition;
-- interrupted training;
-- resume behavior;
-- candidate schema;
-- duplicate candidate hashes;
-- submission-action failure.
-
-A delivery failure should not trigger retraining of an already frozen candidate.
-
-## 7. Keep public and private boundaries separate
-
-The public repository should continue to publish:
-
-- aggregate evaluation evidence;
-- source-provenance state;
-- reproduction status;
-- negative-result conclusions;
-- operational readiness contracts.
-
-The private AWS workspace should retain:
-
-- raw source archives;
-- exact feature formulas;
-- fitted models;
-- candidate predictions;
-- private thresholds / weights;
-- source-specific identity logic;
-- orchestration state.
-
-## Readiness definition
-
-The project should be called incoming-season ready only after the complete chain is demonstrated end to end on a historical incoming-season rehearsal and then applied prospectively to the actual 2027 source state.
-
-Parameterized functions alone are not sufficient evidence.
+The [benchmark comparison](benchmark_comparison.md), [current research boundary](current_research.md), and [release evidence](../portfolio/release_evidence.json) define what is established today.

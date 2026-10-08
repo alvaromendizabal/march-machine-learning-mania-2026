@@ -1,188 +1,80 @@
-# NCAA tournament forecasting | reproducible ML research case study
+# NCAA tournament forecasting
 
-**Alvaro Mendizabal · probability forecasting · temporal validation · source provenance · AWS ML engineering**
+**Alvaro Mendizabal · probabilistic machine learning · source reconstruction · AWS research engineering**
 
 [![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
 [![Current research evidence](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml)
 
-**Portfolio tour:** [Start here](START_HERE.md) · [Architecture](docs/architecture.md) · [Employer walkthrough](docs/employer_walkthrough.md)
+## The result
 
-**Core stack:** Python · pandas · scikit-learn · XGBoost · LightGBM · Plotly · AWS SageMaker · GitHub Actions
+**Kaggle-confirmed Brier: 0.1067095 — 2.77% lower than the official winning score of 0.1097454.**
 
-This repository is an employer-facing case study of a multi-season NCAA tournament forecasting program built around one principle: **predictive information is useful only when its provenance, timing, transformation, and evaluation can be defended.**
+This is a **post-competition research result**, submitted October 8, 2026 UTC, after the March 19 competition deadline and after outcomes had been inspected. It is a numerical benchmark comparison, not an official first-place finish or evidence of prospective superiority. The improvement is **0.0030359 Brier**, or **2.77% less mean squared probability error**; it is not an accuracy percentage or a statistical-significance claim.
 
-## Current verified state
+| Result | Brier ↓ | Evaluation context |
+|---|---:|---|
+| **This project's confirmed submission** | **0.1067095** | Kaggle late submission, public/private scores, COMPLETE |
+| Official winning reference, Harrison Horan / harry | 0.1097454 | Original competition final leaderboard |
+| First-place-method reconstruction | 0.1099121050 | Matched local 126-game retrospective audit |
+| Previous project submission | 0.1206458 | Earlier late-submission control |
 
-The accepted submitted owned-data system remains **v26 at 0.1206458 Brier**. An independently reconstructed scorer reproduces the complete 126-game result at **0.1206458343** across **63 men's and 63 women's games**.
+The submitted file contains **132,133 matchup probabilities**. The exact local audit covers **126 played games**, split evenly between the men's and women's tournaments. [Submission receipt](reports/verified_result/submission_receipt.json) · [Comparison, context, and sources](docs/benchmark_comparison.md)
 
-The private reconstruction program has also produced a stronger **experimental** post-competition forecast at **0.1067095543 Brier** on the same 126-game audit. It remains experimental because the project requires historical transfer evidence before promotion.
+![Brier comparison: official winner versus this project’s late research release](reports/verified_result/score_comparison.svg)
 
-| System | Evaluation setting | Brier | Lifecycle |
-|---|---|---:|---|
-| v26 owned Torvik reliability system | late/post-competition submission | **0.1206458** | Accepted / submitted control |
-| v26 exact local audit | complete 126-game reconstructed audit | **0.1206458343** | Verified scorer |
-| Native women reconstruction | 63 women tournament games | **0.0767383172** | Numerically reproduced research branch |
-| Reconstructed research frontier | complete 126-game post-competition audit | **0.1067095543** | Experimental; not promoted |
+**Review in five minutes:** [Start here](START_HERE.md) → [Executed result notebook](portfolio/verified_result.ipynb) → [Employer walkthrough](docs/employer_walkthrough.md) → [Architecture](docs/architecture.md)
 
-Lower Brier is better. These are post-competition research measurements, not claims about original competition placement.
+## How the result was built
 
-The latest validated AWS milestone adds a **raw official-game feature foundation with independent replay**: 42 men's raw seasons and 29 women's raw seasons were rebuilt into 13,753 men's and 9,851 women's team-season rows. The milestone performs no new model fitting; its purpose is to make subsequent research more reproducible and auditable.
+A strong public method supplied a reference for an extensive reconstruction program. The work separated four problems that are often mixed together: **source equivalence, model equivalence, complementary information, and reliable delivery**.
 
-**[Employer walkthrough](docs/employer_walkthrough.md)** ·
-[Current research boundary](docs/current_research.md) ·
-[Supplemental-source ownership](docs/supplemental_source_ownership.md) ·
-[Owned raw-game foundation](docs/reproducible_source_foundation.md) ·
-[Research log](docs/post_merge_research_log.md) ·
-[Reproduction matrix](docs/reproduction_matrix.md) ·
-[Owned-data portfolio](portfolio/owned_frontier_2027.md)
+1. **Reconstruct the forecasting core.** Separate men's and women's models preserve their different probability distributions. The women's compact XGBoost/calibration branch reproduced **65,703 pairwise probabilities within 1e-4** of an archived reference. Men's same-input checks reconciled **66 core members and 66 margin members**, isolating modeling differences from input differences.
+2. **Recover useful information from its sources.** Official game records and ranking inputs support independent rating construction. Dated pregame BPI and market observations supplied complementary probability information in the submitted research lineage. Exact private composition rules remain withheld.
+3. **Preserve the strong branch; improve the weaker branch.** Against the reconstructed method, observed men's Brier improved from **0.1430858925 to 0.1366807914**, a **4.48% reduction**. Women's Brier remained approximately **0.0767383172**. The resulting matched combined improvement was **2.91%**. These are measured component-level differences, not causal proof that any one feature produced the entire gain.
+4. **Make the delivered artifact auditable.** Validate every required matchup, probability range, identity, and file hash; retain replay evidence; then verify the external submission response. Generation, submission, and historical model promotion are separate lifecycle events.
 
-## What makes this project technically interesting
+The approach builds on the winning solution with attribution. Its authors' compact design and competition-time judgment provide a valuable baseline. Our [comparison](docs/benchmark_comparison.md) explains the additional research scope and the limitations that remain on both sides of the numerical comparison.
 
-### 1. Source-equivalent reconstruction instead of CSV copying
+## Engineering depth behind the score
 
-Supplemental artifacts that could not be independently regenerated were retired. Useful signals were decomposed into their underlying information families and rebuilt from official or original sources.
+| Capability | Evidence | Why it matters |
+|---|---|---|
+| Broad source foundation | **42 men's / 29 women's raw seasons**; 13,753 / 9,851 team-season rows | Reusable data engineering across historical regimes |
+| Complete historical identity bank | **566** men's tournament games across nine forecast seasons | Prevents selective omission of difficult matchups |
+| Independent replay | Raw-to-feature reproduction and same-input model reconciliation | Distinguishes implementation errors from failed hypotheses |
+| Temporal contracts | Cutoff checks, explicit missingness, source-version records, future-row poison tests | Makes availability assumptions inspectable |
+| Controlled research | Development/confirmation controls; rejected experiments retained | Resists promotion based on a favorable slice |
+| Bounded AWS execution | Resume checkpoints, process-tree limits, progress telemetry, diagnostic returns | Makes iterative research economical and recoverable |
+| Public auditability | Executable aggregate checks, result notebook, source citations, CI | Gives reviewers a concrete way to inspect the claims |
 
-Current owned/recreated infrastructure includes:
+The broad foundation is engineering evidence. It is **not** a claim that every later source or experiment caused the submitted score improvement. [Foundation evidence](docs/reproducible_source_foundation.md) · [Reproduction matrix](docs/reproduction_matrix.md)
 
-- **Bart Torvik Time Machine:** 15 men's tournament seasons, 5,268 / 5,304 team-season rows in the active window, with dated source receipts and point-in-time checks.
-- **AP polling archive:** 117 rank-complete editions and 95 vote-complete editions, with repaired edition semantics and chronology-aware activation.
-- **Official-derived ratings:** Elo, SRS, Colley, Bradley-Terry, efficiency, pace, schedule strength, recent form, and Massey consensus.
-- **Tournament-selection facts:** independently reconstructed NIT / WBIT / WNIT membership from dated announcements.
-- **Historical player infrastructure:** more than 1.2M mapped pre-cutoff men's player-game rows retained for controlled roster / availability research.
-- **Original-source market and BPI research:** independently archived observations with source-time qualification rather than copied prediction tables.
-- **Original publisher bracket tables:** complete 68-team men's probability fields recovered for 2025 and 2026 and evaluated under explicit source-version rules.
+## Reproduce the public result audit
 
-### 2. Numerical reproduction of a strong public mechanism
+The lightweight audit uses Python 3.12's standard library and needs no credentials, competition data, GPU, or model downloads:
 
-The native women's four-feature XGBoost branch was rebuilt from owned inputs and reproduced **65,703 pairwise probabilities within 1e-4** of the archived reference.
+```bash
+git clone https://github.com/alvaromendizabal/march-machine-learning-mania-2026.git
+cd march-machine-learning-mania-2026
+python portfolio/reproduce_release.py --check
+```
 
-The reconstructed model scored **0.0767383172 Brier** on the 63 scored women's games. All 15 historical member-fit counts and best-iteration receipts matched the archived behavior.
+It verifies the sanitized delivery receipt, source-document hashes, exact decimal score comparisons, the full historical denominator, and disclosure flags. The [executed notebook](portfolio/verified_result.ipynb) makes the evidence readable; [machine-readable results](reports/verified_result/reproduction.json) make it inspectable.
 
-That result demonstrates source, feature, training, calibration, and inference reconciliation—not merely a similar reimplementation.
+**Reproduction scope:** this recomputes aggregate comparisons and checks published evidence. It does not regenerate the private forecast or independently rescore its withheld row-level predictions. The repository also retains a tested public research framework and six canonical review notebooks; their locked-environment review instructions and lineage boundaries are in [Start here](START_HERE.md).
 
-### 3. Men's model behavior was isolated from source differences
+## Research status and limits
 
-The men reconstruction eventually separated model-procedure parity from missing external information.
+The **0.1067095 submission is confirmed**. The same lineage has **not passed every historical promotion gate**, and the 2026 outcomes were repeatedly inspected. It remains a retrospective research release rather than a certified future-season champion. This distinction is intentionally preserved in the [result evidence](portfolio/release_evidence.json).
 
-Public-safe verification includes:
+Current source work addresses broad original player histories, dated availability, historical market/BPI coverage, and future-season acquisition. The latest v99 original-boxscore pilot is **built and locally tested, awaiting its owner-run return** at this publication snapshot. It has not generated a new model or score. Some older player archives are third-party-derived NCAA records, not original ESPN records; their identifiers and ownership claims remain separate.
 
-- **66 core members:** matching best iterations and same-input predictions at numerical precision.
-- **66 margin members:** matching best iterations and calibration slopes; same-input prediction differences are negligible relative to the forecast gap.
-- **Complete historical cohort:** 566 played men's main-bracket games restored across nine evaluation seasons.
-- **Control replay:** all 558 previously saved historical predictions reproduced before adding the eight legitimately omitted equal-seed games.
+A 2026-as-incoming **feature** rehearsal has completed. A complete new-season acquisition-to-forecast run and actual 2027 validation remain open. [Current research](docs/current_research.md) · [2027 readiness](docs/2027_readiness.md)
 
-This narrowed the remaining uncertainty from "is the model different?" to specific source and representation questions.
+## Selective reproducibility
 
-### 4. Reproduction defects are treated as engineering defects
+Published: aggregate results, metric arithmetic, source categories, evaluation populations, reconstruction evidence, architecture, tests, executed notebooks, and public research code.
 
-The program found and repaired subtle mismatches that materially changed behavior:
+Withheld from this release: private blend weights and transforms, row-level private forecasts, submission CSVs, fitted private models, raw supplemental archives, source-specific private identity rules, and AWS execution bundles. Existing published code and license grants remain intact. [Disclosure boundary](portfolio/DISCLOSURE.md)
 
-- AP edition indexing and current-versus-previous rank semantics;
-- historical activation boundaries;
-- WBIT-only versus expanded postseason membership;
-- an equal-seed filter that removed legitimate later-round historical games;
-- raw versus transformed margin-target assumptions;
-- probability conversion and team-order sensitivity;
-- source-version and aggregate-hash assumptions.
-
-When an implementation changes the original contract, the result is not described as a failed reproduction.
-
-### 5. Negative results are first-class evidence
-
-The project records successful negative experiments instead of hiding them. Recent examples include:
-
-- full publisher-bracket probability reconstruction;
-- matched equal-seed training correction;
-- mirrored pair-exchange training;
-- exact-date AP feature refresh;
-- broad internal-strength expansion;
-- two player / availability representations;
-- dynamic opponent-adjusted offense / defense / pace / margin;
-- multiple market transformations.
-
-Several later experiments improved recent confirmation seasons but were still rejected because development behavior deteriorated. That promotion discipline prevents favorable slices from becoming automatic "wins."
-
-### 6. Owned raw-game feature foundation
-
-The latest source milestone independently rebuilds broad men’s and women’s feature banks from official compact and detailed game records rather than relying on prepared feature tables.
-
-Public-safe evidence includes:
-
-- **13,753 men’s team-season rows across 42 raw seasons**;
-- **9,851 women’s team-season rows across 29 raw seasons**;
-- complete performance and schedule feature support for all **566 historical men’s evaluation matchups**;
-- explicit missingness rather than forward-filled historical values;
-- separate-process raw-to-feature replay with matching outputs;
-- a 2026-as-incoming feature rehearsal for both genders;
-- chronology poison tests proving excluded future/post-cutoff rows do not change historical features.
-
-This milestone is source/feature engineering evidence, not a new forecasting result.
-
-### 7. Cloud research engineering
-
-AWS/SageMaker is the canonical research environment. Private runners are:
-
-- self-testing and self-gating;
-- resumable and checkpointed;
-- source- and artifact-hash aware;
-- bounded by runtime, memory, storage, and cost limits;
-- instrumented with timestamped heartbeats and JSONL telemetry;
-- capable of packaging diagnostics on success, failure, or timeout;
-- designed to reuse completed work rather than restart expensive stages.
-
-The exact 126-game scorer sits downstream of policy freeze and is used as an audit, not as a tuning loop.
-
-## Validation discipline
-
-The project separates:
-
-1. chronological historical development;
-2. later-season confirmation;
-3. the exact 126-game 2026 retrospective audit;
-4. externally submitted results.
-
-A lower retrospective score does not automatically become the accepted champion.
-
-The historical men's evaluation bank now covers **566 played main-bracket games across nine forecast seasons**. The corrected complete 2023–2025 confirmation population contains **189 games**.
-
-## Current research frontier
-
-The source program has moved from reconstructing isolated supplemental tables toward a broader owned-data foundation. The latest completed milestone verifies raw-to-feature replay and historical coverage without claiming a model gain.
-
-The next high-information modeling question is whether **strictly pregame regular-season supervision can transfer useful matchup information into tournament forecasts** beyond compact seed/reference controls. That experiment is intentionally separated from the accepted system and must pass the complete historical promotion gate before any target-year audit.
-
-Important open capabilities remain:
-
-- broader original-version availability / player-value history;
-- broader point-in-time pregame probability history;
-- independent roster / experience information with multi-season coverage;
-- a complete raw-source-to-score reconstruction certificate;
-- a complete incoming-season acquisition → mapping → feature → train/infer → immutable-candidate rehearsal.
-
-The complete future-season chain is not called finished until exercised end to end.
-
-## Public/private boundary
-
-This repository is deliberately **semi-reproducible**.
-
-Published:
-
-- metric definitions and evaluation populations;
-- aggregate source coverage and provenance state;
-- public-safe experiment outcomes;
-- validation and lifecycle rules;
-- reproduction status of public mechanisms;
-- engineering architecture and negative-result conclusions;
-- machine-readable aggregate portfolio artifacts.
-
-Intentionally withheld:
-
-- row-level private predictions;
-- candidate submission CSVs;
-- raw supplemental source archives;
-- fitted private models;
-- exact private correction rules, thresholds, or weights;
-- source-specific private identity logic;
-- credentials and private AWS orchestration state.
-
-The repository is designed to be technically reviewable by employers without distributing a turnkey competition system.
+**Stack:** Python · pandas · scikit-learn · XGBoost · LightGBM · Plotly · AWS SageMaker · GitHub Actions.

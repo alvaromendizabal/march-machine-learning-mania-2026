@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "as_of_utc": "2026-10-06",
+  "as_of_utc": "2026-10-08",
   "metric": {
     "name": "Brier score",
     "direction": "lower_is_better",
@@ -16,7 +16,8 @@
     "exact_offline_brier": 0.1206458343253354,
     "men_brier": 0.14459975367131522,
     "women_brier": 0.0966919149793556,
-    "lifecycle": "SUBMITTED"
+    "lifecycle": "SUBMITTED",
+    "note": "Previous submitted historical control; not the latest or lowest confirmed submission."
   },
   "strongest_reconstructed_experimental": {
     "system": "v54",
@@ -24,15 +25,18 @@
     "men_brier": 0.1366807914,
     "women_brier": 0.0767383172,
     "lifecycle": "EXPERIMENTAL",
-    "submitted": false,
+    "submitted": true,
     "promoted": false,
-    "note": "Retrospective reconstruction result; historical promotion gates did not all pass."
+    "note": "Kaggle-confirmed late submission; research lifecycle remains EXPERIMENTAL because historical promotion gates did not all pass. Outcomes were inspected.",
+    "submission_brier": 0.1067095,
+    "submission_id": "56928396",
+    "delivery_status": "COMPLETE"
   },
   "native_women_reproduction": {
     "pairwise_predictions_checked": 65703,
     "all_within_absolute_tolerance": 0.0001,
-    "max_abs_difference_approx": 0.00004199,
-    "mean_abs_difference_approx": 2.35e-8,
+    "max_abs_difference_approx": 4.199e-05,
+    "mean_abs_difference_approx": 2.35e-08,
     "member_receipts_matched": 15,
     "scored_games_brier": 0.07673831718385483
   },
@@ -68,7 +72,8 @@
     "publisher_bracket_fields": {
       "men_2025_teams": 68,
       "men_2026_teams": 68
-    }
+    },
+    "player_game_rows_provenance_note": "Historical mapped archive count; derived NCAA provider records are not certified original ESPN data. Separate v81 cached-bank receipts expect914703rows pendingv99audit."
   },
   "recent_negative_evidence": {
     "pair_exchange": {
@@ -130,5 +135,19 @@
     "milestone": "v75",
     "decision": "SOURCE_CONTRACT_INVALID",
     "note": "Prepared lineup segments encoded observed-event spans rather than continuous exposure; modeling stopped before fitting and the source remains quarantined."
+  },
+  "latest_confirmed_submission": {
+    "system": "v54",
+    "submission_id": "56928396",
+    "brier": 0.1067095,
+    "state": "COMPLETE",
+    "late_submission": true,
+    "historically_promoted": false,
+    "evidence": "reports/verified_result/submission_receipt.json"
+  },
+  "latest_source_pilot": {
+    "milestone": "v99",
+    "state": "DELIVERED_AWAITING_OWNER_RETURN",
+    "score_change_claimed": false
   }
 }

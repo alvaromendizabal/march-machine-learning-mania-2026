@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "as_of_utc": "2026-10-08",
+  "scored": {
+    "metric": "brier",
+    "lower_is_better": true,
+    "accepted": {
+      "score": "0.1067095",
+      "submission_id": "56928396",
+      "status": "COMPLETE",
+      "rows": 132133,
+      "sha256": "f933164988acc85b8c207e7c4c247fde30ce20c15aacbf0bf737f537f763a89f"
+    },
+    "reference": {
+      "score": "0.1097454",
+      "label": "Official competition winning result \u2014 harry (Harrison Horan)",
+      "source_url": "https://www.kaggle.com/competitions/march-machine-learning-mania-2026/leaderboard",
+      "scope": "official_competition"
+    }
+  },
+  "historical": {
+    "games": 566,
+    "legacy_eligible": 541,
+    "legacy_ineligible": 25,
+    "prior_v81_eligible": 418,
+    "prior_v81_ineligible": 148,
+    "consumed": true
+  },
+  "provenance": {
+    "owner_return_sha256": "74755a7865fa99ea29b1677610402d069ea376ffa180bd01e493193d8884e880",
+    "source_documents": [
+      {
+        "path": "reports/verified_result/submission_receipt.json",
+        "sha256": "ae23fff360ed6bb9efc9dab404800a6502421d02bcee4b212c5a4ae390e91d36"
+      }
+    ]
+  },
+  "disclosure": {
+    "late_submission": true,
+    "original_rank_claim": false,
+    "private_training_reproduced": false,
+    "2027_prospectively_validated": false
+  },
+  "matched_reconstruction": {
+    "evaluation_games": 126,
+    "men_games": 63,
+    "women_games": 63,
+    "reference_method_brier": "0.10991210500176371",
+    "project_brier": "0.10670955428085621",
+    "reference_men_brier": "0.1430858925405759",
+    "project_men_brier": "0.1366807913778576",
+    "reference_women_brier": "0.07673831746295151",
+    "project_women_brier": "0.07673831718385483",
+    "evaluation_setting": "retrospective; already-inspected outcomes; not a fresh holdout",
+    "source_audit_sha256": "680438e18b4d496e506f4c3e11021c2207fcc63706705da2d71ee959a4639413"
+  },
+  "previous_submission": {
+    "system": "v26",
+    "score": "0.1206458",
+    "scope": "late_submission"
+  },
+  "scope": {
+    "men_raw_seasons": 42,
+    "women_raw_seasons": 29,
+    "men_team_seasons": 13753,
+    "women_team_seasons": 9851,
+    "women_pair_predictions_reconciled": 65703,
+    "men_core_members_reconciled": 66,
+    "men_margin_members_reconciled": 66,
+    "source_foundation_is_causal_score_attribution": false
+  },
+  "research_status": {
+    "v99": "DELIVERED_AWAITING_OWNER_RETURN",
+    "new_v99_score_claim": false,
+    "historical_promotion": false,
+    "source_vintage_fully_certified": false
+  }
+}

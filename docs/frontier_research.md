@@ -1,3 +1,5 @@
+> **Historical research snapshot.** This page preserves its original experiment lineage. The current confirmed late-submission result is **0.1067095**; [current status](current_research.md) and [verified result evidence](../portfolio/release_evidence.json) supersede older submission-status statements below. Historical scores do not establish source certification or promotion.
+
 # Frontier research | owned supplemental data and selective correction
 
 ## Current boundary
