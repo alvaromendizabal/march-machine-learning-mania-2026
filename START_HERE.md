@@ -1,94 +1,49 @@
-# Start here | employer review guide
+# Start here
 
-This repository is a curated ML research case study. The public surface is intentionally narrower than the private AWS research workspace: it exposes the data contracts, validation design, model evidence, tests, notebooks, and aggregate results needed to evaluate the work without publishing a turnkey competition implementation.
+## Five-minute review
 
-## 30-second review
+This project combines a **Kaggle-confirmed 0.1067095 late-submission Brier score** with source reconstruction, temporal evaluation, and reproducible research engineering. The score is numerically **2.77% below the official winning reference**, with the post-competition setting stated explicitly.
 
-Read the [README](README.md).
+1. Read the [result and comparison](docs/benchmark_comparison.md): exact scores, matched evaluation, timing, and attribution.
+2. Open the [executed result notebook](portfolio/verified_result.ipynb): inspect the comparisons and public evidence without running a cloud job.
+3. Read the [employer walkthrough](docs/employer_walkthrough.md): responsibilities, engineering decisions, and transferable skills.
+4. Inspect the [architecture](docs/architecture.md), [reproduction matrix](docs/reproduction_matrix.md), and [disclosure boundary](portfolio/DISCLOSURE.md).
+5. Run the public evidence check below.
 
-The key signals are:
+## Lightweight public audit
 
-- exact Brier-score evaluation on a 126-game audit;
-- independently recreated external-data sources with chronology and provenance controls;
-- numerical reproduction of 65,703 women's pairwise probabilities within 1e-4;
-- men's core and margin model-procedure parity on matched inputs;
-- a complete 566-game historical men's evaluation bank;
-- independently replayed official raw-game feature banks covering 13,753 men's and 9,851 women's team-seasons;
-- AWS/SageMaker execution with checkpoints, telemetry, manifests, and cost controls;
-- explicit rejection of experiments that improve one slice but fail broader validation.
-
-## 3-minute review
-
-1. [Employer walkthrough](docs/employer_walkthrough.md)
-2. [System architecture](docs/architecture.md)
-3. [Current research boundary](docs/current_research.md)
-4. [Owned raw-game foundation](docs/reproducible_source_foundation.md)
-
-These three documents explain what was built, how evidence is separated by lifecycle state, and what is intentionally public versus private.
-
-## 10-minute technical review
-
-Open the six canonical notebooks in order:
-
-1. [00 · Data audit and preparation](notebooks/00_data_audit_and_preparation.ipynb)
-2. [01 · Split protocol and pre-tournament snapshots](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb)
-3. [02 · Feature store and diagnostics](notebooks/02_feature_store_and_diagnostics.ipynb)
-4. [03 · Model comparison and diagnostics](notebooks/03_model_comparison_and_diagnostics.ipynb)
-5. [04 · Locked benchmark and final inference](notebooks/04_locked_benchmark_and_final_submission.ipynb)
-6. [05 · Feature research](notebooks/05_feature_research.ipynb)
-
-Then inspect:
-
-- [Supplemental-source ownership](docs/supplemental_source_ownership.md)
-- [Public-solution reproduction matrix](docs/reproduction_matrix.md)
-- [Aggregate research portfolio](portfolio/README.md)
-
-## Deep technical review
-
-| Area | Purpose |
-|---|---|
-| `src/march_mania/` | reusable data, feature, modeling, runtime, and publication modules |
-| `tests/` | correctness, leakage, publication, recovery, and model-contract tests |
-| `configs/` | explicit modeling and publication configuration |
-| `notebooks/` | canonical executed research narrative |
-| `reports/` | committed aggregate evidence used by publication checks |
-| `portfolio/` | employer-facing aggregate notebooks and machine-readable summaries |
-| `docs/` | architecture, research boundaries, source ownership, and reproduction state |
-| `references/` | official/reference material retained only when relevant to the public project |
-
-Historical scratch work, migration snapshots, duplicate workspaces, and obsolete starter material are intentionally absent from the current tree. Git history preserves them.
-
-## Public reproducibility check
-
-After installing the locked environment:
+From the repository root, with Python 3.12:
 
 ```bash
-uv sync --locked --group dev
-uv run --locked python -m march_mania.publication.portfolio_contract
+python portfolio/reproduce_release.py --check
 ```
 
-The check verifies that the public score boundary, historical-control counts, source-coverage evidence, milestone ledgers, README links, canonical notebook set, and curated employer narrative remain internally consistent.
+This requires no credentials or external data. It verifies published receipt fields and hashes and recomputes comparison arithmetic. It does not refit the private submitted model or recover withheld predictions. The [aggregate input](portfolio/release_evidence.json) and [audit output](reports/verified_result/reproduction.json) make that scope explicit.
 
-The full CI suite additionally compiles, lints, formats, type-checks, tests, re-executes notebooks, and verifies publication artifacts. The workflow badges on the README link directly to the current GitHub Actions evidence.
+## Full public framework review
 
-## Public/private contract
+The public framework has a Python 3.12.13 environment locked in uv.lock. Install with uv sync --locked --group dev. Run uv run --locked python scripts/quality.py for compilation, lint, formatting, types, and tests. Register the march-mania kernel with uv run --locked python -m ipykernel install --user --name march-mania, then execute uv run --locked python scripts/notebook.py --execute --publish in its default review mode. The GitHub Research quality workflow exercises these commands on the proposed change.
 
-Published:
+Review mode reads published aggregate evidence; it does not initiate private training or submit to Kaggle. Training is a separately controlled AWS workflow. Public framework outputs and private submitted forecasts have distinct lineage.
 
-- aggregate metrics and exact evaluation populations;
-- source coverage and provenance state;
-- feature/model reproduction evidence;
-- validation rules and lifecycle decisions;
-- negative experiment conclusions;
-- canonical notebooks, tests, and engineering architecture.
+| Notebook | Review question |
+|---|---|
+| [00 — Data audit](notebooks/00_data_audit_and_preparation.ipynb) | Are tables and physical game identities coherent? |
+| [01 — Splits and snapshots](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | What information is available at a prediction cutoff? |
+| [02 — Feature store](notebooks/02_feature_store_and_diagnostics.ipynb) | How are features and provenance organized? |
+| [03 — Model comparison](notebooks/03_model_comparison_and_diagnostics.ipynb) | How are distinct model families compared? |
+| [04 — Historical benchmark](notebooks/04_locked_benchmark_and_final_submission.ipynb) | What does the consumed historical benchmark establish? |
+| [05 — Feature research](notebooks/05_feature_research.ipynb) | How are hypotheses, ablations, and failures recorded? |
 
-Not published:
+These six notebooks document the public framework's historical lineages. The latest confirmed submission is documented in [verified_result.ipynb](portfolio/verified_result.ipynb), rather than relabeling old experiments as current results.
 
-- row-level private forecasts;
-- raw supplemental source archives;
-- fitted private competition models;
-- exact private correction rules, thresholds, or weights;
-- private source-identity logic;
-- credentials or AWS-local orchestration state.
+## Read the evidence correctly
 
-That boundary keeps the project technically reviewable while preserving competitive implementation details.
+- Brier is mean squared probability error; lower is better.
+- The official winner and this project's late result have different information-time settings. No original competition rank is claimed.
+- The 126-game retrospective audit and 566-game men's historical bank are different populations.
+- A confirmed upload does not certify historical promotion, unseen-season performance, or complete source vintage.
+- Source coverage is reported separately from evidence that a source improved the score.
+- v99 is a pending original-source pilot at this snapshot; its local tests are not an AWS research result.
+
+Public materials omit private weights, prediction rows, fitted models, and supplemental raw archives. [Current state](docs/current_research.md) · [2027 work still required](docs/2027_readiness.md)

@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Public aggregate arithmetic and provenance consistency only",
+  "accepted_submission_id": "56928396",
+  "submission_rows": 132133,
+  "accepted_brier": "0.1067095",
+  "reference_brier": "0.1097454",
+  "absolute_brier_reduction": "0.0030359",
+  "relative_brier_reduction_percent": "2.766311845416755508659132865705532988171",
+  "relative_brier_reduction_percent_display": "2.7663",
+  "matched_reconstruction": {
+    "evaluation_games": 126,
+    "men_games": 63,
+    "women_games": 63,
+    "reference_method_brier": "0.10991210500176371",
+    "project_brier": "0.10670955428085621",
+    "absolute_brier_reduction": "0.00320255072090750",
+    "relative_brier_reduction_percent": "2.913737955301747803218351194183623012363",
+    "relative_brier_reduction_percent_display": "2.9137",
+    "source_audit_sha256": "680438e18b4d496e506f4c3e11021c2207fcc63706705da2d71ee959a4639413",
+    "fresh_holdout": false
+  },
+  "historical_coverage": {
+    "games": 566,
+    "legacy_eligible": 541,
+    "legacy_ineligible": 25,
+    "prior_v81_eligible": 418,
+    "prior_v81_ineligible": 148,
+    "consumed": true
+  },
+  "source_documents_verified": [
+    {
+      "path": "reports/verified_result/submission_receipt.json",
+      "sha256": "ae23fff360ed6bb9efc9dab404800a6502421d02bcee4b212c5a4ae390e91d36"
+    }
+  ],
+  "owner_return_sha256": "74755a7865fa99ea29b1677610402d069ea376ffa180bd01e493193d8884e880",
+  "private_predictions_read": false,
+  "model_fits": 0,
+  "network_requests": 0,
+  "fresh_generalization_test": false,
+  "statistical_significance_established": false,
+  "official_competition_placement_claim": false,
+  "private_model_reproduced": false,
+  "evidence_sha256": "fbb55faf4df04c39bf9bb247ecbf3bbfe080151c1d3fd1a5c58afff40c0b38e9",
+  "reproducer_sha256": "4b888e68d28cc1fe81fc90ce0d492faeb7f3977af30e7f9c25ffd2153a2b30d8"
+}

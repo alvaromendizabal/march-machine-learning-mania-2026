@@ -1,3 +1,5 @@
+> **Historical research snapshot.** This page preserves its original experiment lineage. The current confirmed late-submission result is **0.1067095**; [current status](../docs/current_research.md) and [verified result evidence](release_evidence.json) supersede older submission-status statements below. Historical scores do not establish source certification or promotion.
+
 # Owned-data forecasting frontier | aggregate research portfolio
 
 This page is the public-safe counterpart to the private AWS research program.

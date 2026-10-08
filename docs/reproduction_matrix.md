@@ -1,112 +1,47 @@
-# Public-solution reproduction matrix
+# Reproduction matrix
 
-This document tracks transferable mechanisms from strong recent March Mania public work. "Recreated" means independently implemented inside this project; it does not mean copied code, copied predictions, or copied feature CSVs.
+This project studies transferable mechanisms from public NCAA forecasting work, including Harrison Horan's credited methods, and distinguishes implementation ownership from source ownership. Reproduction means independently checking a mechanism or reconstructing its behavior; it does not imply that every underlying source is original, timing-certified, or publicly redistributable.
 
-The repository intentionally emphasizes **mechanism coverage and engineering ownership**, not leaderboard imitation.
+The current result is the **confirmed v54 late submission delivered through v93r1 at 0.1067095 Brier**. Submission acceptance is separate from historical model promotion. See the [benchmark comparison](benchmark_comparison.md) and [release evidence](../portfolio/release_evidence.json).
 
-| Public lineage | Mechanism | Current state |
+| Mechanism or source family | Demonstrated result | Remaining boundary |
 |---|---|---|
-| 2023 public work | engineered team statistics + boosting | Recreated / adapted; no promoted gain beyond accepted system |
-| 2023 public work | conference / rolling / margin representations | Recreated / tested |
-| 2024 public work | opponent-adjusted offense / defense / pace | Reimplemented; rejected scientifically |
-| 2024 public work | margin-based probability modeling | Reimplemented / tested; not promoted |
-| 2025 public work | compact engineered boosting system | Recreated / adapted; not promoted |
-| 2026 public lineage A | separate-gender modeling | Incorporated |
-| 2026 public lineage A | shallow women XGBoost + isotonic calibration | **Numerically reproduced on owned inputs** |
-| 2026 public lineage A | AP signal | Source independently recreated; several model uses rejected |
-| 2026 public lineage A | player / injury / value information | Exact original publisher inputs not owned; two clean proxies rejected |
-| 2026 public lineage B | LR / XGB reference + MOV Elo + Massey | Reimplemented / adapted; used in ranking-correction reconstruction |
-| 2026 public lineage C | simple small-data LR / pruning | Recreated / adapted; sparse residual variants rejected |
-| 2026 public lineage C | Torvik strength | **Independently recreated and promoted as a source family** |
-| 2026 public lineage C | uncertainty / disagreement | **Extended and promoted in v26** |
-| 2026 public lineage C | BPI | Partial original-source archive recovery; broad history incomplete |
-| 2026 public lineage C | market signal | Partial original-source recovery; limited multi-season coverage |
-| 2026 public lineage D | symmetric boosting | Recreated / adapted; rejected |
+| Separate men's/women's modeling | Incorporated in the submitted composition | Gains are not attributed causally without matched ablations |
+| Women's compact XGBoost/calibration branch | 65,703 pair probabilities reproduced within 1e-4; historical fit receipts matched | Submitted composition retains the women's reference baseline; reproduction is not a claim of inventing that method |
+| Men's core model procedure | 66 members reproduce archived iterations and same-input predictions | Matched-input parity does not establish source timing |
+| Men's margin procedure | 66 members reproduce iterations and calibration slopes; 31 auxiliary features reconciled | Raw-margin target contract retained after re-audit |
+| Official-data reference and ranking branch | Independently rebuilt and adapted in the men's probability system | Historical transfer remains a separate gate |
+| Torvik Time Machine | Historical snapshots independently reconstructed | Provider attribution and timing remain attached to each source |
+| AP polling | Editions, rank semantics, and activation boundaries reconstructed | Several fixed model integrations failed validation |
+| Official raw-game features | 42 men's and 29 women's seasons; independent replay | Descriptive feature coverage is not evidence of a predictive gain |
+| Derived NCAA player-box bank | Historical identity, coverage, and model-contract work retained | Not relabeled as original ESPN data or an original-owned player archive |
+| Original ESPN boxscores | v99 package delivered for a 60-game, 20-group qualification pilot | Owner return pending; broad history and availability semantics unproven |
+| BPI and market information | Partial original-source recovery | Broad dated history remains incomplete |
+| Publisher advancement probabilities | Complete 68-team fields reconstructed for 2025 and 2026 | Fixed blending recipe rejected; source success did not imply model success |
 
-## Source-equivalent reproduction progress
+## Independent validation repairs
 
-### Women native branch
+The men's historical evaluation now contains **566 played main-bracket games across nine forecast seasons**. An equal-seed filter had excluded eight legitimate later-round games. The repaired implementation reproduced all **558 saved control predictions** before restoring those games.
 
-Verified:
+Other reconciled contracts include team-order symmetry, AP edition semantics, historical source activation, the original margin target, and raw-object versus aggregate-file identity. Each repair addresses a different failure mode; no single parity check substitutes for the others.
 
-- all 65,703 target pairwise probabilities match the archived reference within 1e-4;
-- reconstructed 2026 women Brier is 0.0767383172;
-- historical member training-row counts and best-iteration receipts match archived behavior.
+## What negative experiments established
 
-### Men native branch
+Mirrored training and exact-date AP integration improved recent confirmation aggregates but worsened development results. They did not earn promotion. Reconstructed opponent-adjusted features, sparse residual variants, and fixed publisher blends likewise remain recorded according to their own evidence.
 
-Model-procedure reconstruction is now substantially complete on matched inputs.
+The earlier player experiments used different banks and masks. A qualified ten-season representation and the later nine-season cached bank must not be treated as one identical dataset. In particular, the later player recipe was source-inconclusive under its minimum training coverage, so it is not described as a complete valid-negative experiment.
 
-Verified:
+A lineup-stint pilot stopped before fitting because the producer's interval semantics did not establish continuous player exposure. The project retained the records without inventing missing time or calling the result adjusted plus-minus.
 
-- all 66 core members reproduce archived best iterations and same-input predictions;
-- all 66 margin members reproduce best iterations and calibration slopes;
-- 31 auxiliary margin features were reconciled;
-- the original margin-target contract was corrected after re-audit;
-- AP edition semantics / activation rules were repaired.
+## Reproducibility levels
 
-The remaining parity questions are concentrated in external information families rather than broad model-procedure drift.
+| Level | What a reviewer should expect |
+|---|---|
+| Public review | Aggregate score comparison, metric checks, provenance boundaries, architecture, and documented reproduction procedures |
+| Private artifact replay | Exact saved inputs, configurations, predictions, model receipts, and checkpoints |
+| Source-to-feature replay | Rebuilt normalized tables from retained raw source objects |
+| Fresh-season reproduction | Newly acquired season inputs through a frozen candidate before outcomes |
 
-### Official-data reference / ranking branch
+The [public notebook](../portfolio/verified_result.ipynb) and [audit CLI](../portfolio/reproduce_release.py) reproduce aggregate release checks. They do not rerun private training or recreate the private prediction rows.
 
-The compact official-data reference mechanism and ranking-history correction logic have been independently rebuilt using earlier-season training outputs rather than copied prepared predictions.
-
-This branch contributed to the reconstructed experimental frontier, while historical transfer gates prevented automatic promotion.
-
-### Torvik / reliability branch
-
-Torvik Time Machine data is independently owned with broad historical coverage in the active men's window.
-
-The project's reliability / disagreement extension passed the declared recent confirmation requirements and became part of v26.
-
-## Additional reconstruction findings
-
-### Complete historical cohort
-
-The men's historical evaluation bank now covers 566 played main-bracket games across nine forecast seasons.
-
-An equal-seed filtering defect had removed eight legitimate later-round games. The repaired control reproduced all 558 saved historical predictions before restoring those omissions.
-
-### Original publisher bracket fields
-
-Complete 68-team men's advancement-probability fields were independently reconstructed for 2025 and 2026.
-
-The source reconstruction succeeded; the fixed model integration was rejected. The source therefore remains an owned research asset without being promoted as a forecasting component.
-
-### Pair-exchange and exact-date AP studies
-
-Both studies produced favorable recent-confirmation behavior but failed development gates. They are retained as negative scientific evidence rather than promoted selectively.
-
-## Recent reconstruction program
-
-### Chronological calibration
-
-An earlier-season held-out calibration policy was implemented and evaluated under the complete historical gate. It produced useful chronological evidence but did not earn promotion.
-
-### Player-role / boxscore representation
-
-Historical player identity and coverage work progressed to a qualified ten-season men’s bank. The fixed player-role residual primary ultimately worsened robust historical validation and was closed. The source and identity repairs were retained.
-
-### Reconstructed lineup stints
-
-A later lineup-stint feasibility run stopped before model fitting because the producer’s segment times represent observed-event spans rather than guaranteed continuous exposure. The files remain quarantined; the project does not repair that mismatch by inventing unobserved time.
-
-### Owned raw-game foundation
-
-The subsequent source milestone rebuilt broad men’s and women’s official-data features directly from raw compact / detailed results and reproduced the outputs independently. It provides a clean foundation for future complementary models without claiming that the descriptive features themselves improve tournament Brier.
-
-## Why the matrix matters
-
-Every mechanism is evaluated by whether the project independently reconstructed the source, matched feature semantics, reproduced the training target, reproduced inference behavior, tested historical transfer, and preserved an honest promotion lifecycle.
-
-A failed adaptation is not proof that the original mechanism was bad, and a numerical reproduction is not proof of future-season generalization.
-
-## Important remaining mechanism gaps
-
-- broader original-version availability / player-value history;
-- broader BPI and timestamp-qualified market history;
-- remaining point-in-time NET coverage;
-- stronger owned roster-role representations;
-- complete incoming-season integration.
-
-The current private modeling question tests whether strictly pregame regular-season supervision can transfer useful information to tournament forecasts. No result is claimed publicly until the AWS evidence exists.
+Private artifact and source-to-feature replay have substantial evidence, with scope varying by source and model family. Fresh-season reproduction remains an explicit [2027 readiness requirement](2027_readiness.md). Private weights, detailed correction logic, fitted competition artifacts, and row-level private forecasts are withheld.

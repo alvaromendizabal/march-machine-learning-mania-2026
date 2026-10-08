@@ -42,9 +42,9 @@ Private repeatability is not the same as distributing a public reproduction kit.
 
 ## External comparison presentation
 
-Current employer-facing surfaces should present the project's own results, engineering evidence, and research progression **without competitor score comparisons or external ranking claims**.
+The owner explicitly authorized a sourced comparison with the official winning score on October 8, 2026. Current pages may report the exact numerical difference while placing the late-submission, inspected-outcome setting alongside the result. Do not imply an official rank, prospective superiority, statistical significance, or unsupported causal attribution. Credit the original method and describe its documented scope respectfully. Private score targets and private implementation remain outside the public narrative.
 
-If a historical file or Git commit contains an older comparison, preserve Git history rather than rewriting it. New and current-facing pages should not repeat the comparison unless the owner explicitly authorizes it later.
+Historical comparisons remain preserved in Git history. The current result source is portfolio/release_evidence.json and its sanitized submission receipt.
 
 ## Semi-reproducible standard
 

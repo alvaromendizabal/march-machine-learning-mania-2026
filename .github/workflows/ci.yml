@@ -63,6 +63,12 @@ jobs:
         run: uv run --locked python scripts/quality.py
       - name: Verify employer-facing portfolio contract
         run: uv run --locked python -m march_mania.publication.portfolio_contract
+      - name: Verify and execute the current scored-result case study
+        run: |
+          uv run --locked python portfolio/reproduce_release.py --check
+          uv run --locked python -m ipykernel install --user --name march-release
+          uv run --locked python portfolio/reproduce_release.py --execute-notebook --kernel march-release
+          uv run --locked python portfolio/reproduce_release.py --check
       - name: Verify current published research release
         run: uv run --locked python -m march_mania.publication.release --check
       - name: Recompute the development prediction portfolio

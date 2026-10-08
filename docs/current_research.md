@@ -1,147 +1,61 @@
 # Current research boundary
 
-## Metric contract
+Updated October 8, 2026. This page supersedes older research snapshots when they describe the current submission state.
 
-Primary metric: **Brier score** on NCAA tournament win probabilities. Lower is better.
+## Confirmed result and metric contract
 
-The project keeps four evaluation concepts separate:
+The latest confirmed Kaggle submission, **the v54 forecast delivered through v93r1**, received **0.1067095** in both displayed score fields. It contains **132,133 prediction rows**. The corresponding reconstructed 126-game audit is **0.1067095543**; the scored population is 63 men's and 63 women's games.
 
-1. historical development;
-2. later-season confirmation;
-3. the exact 126-game 2026 audit;
-4. externally submitted scores.
+The official winning score was **0.1097454**. The late submission is **0.0030359 lower (2.77% less Brier loss)**. The competition's March 19 deadline and this project's October 8 submission are different evaluation conditions. This is a retrospective result, not an official rank or prospective victory. See [the complete comparison](benchmark_comparison.md).
 
-A lower retrospective 2026 score does not automatically become the accepted champion.
+| Evidence | Brier | Interpretation |
+|---|---:|---|
+| Latest accepted late submission, v54 / v93r1 | **0.1067095** | Kaggle-confirmed result |
+| Corresponding 126-game reconstruction | **0.1067095543** | Local retrospective audit |
+| Women's reconstructed branch, 63 games | **0.0767383172** | Numerical reproduction evidence |
+| Earlier owned-data control, v26 | **0.1206458** | Historical submitted control |
 
-## Accepted system
+The submitted composition adapts the men's probability system and retains the women's reference baseline. Public-method credit, including Harrison Horan's contribution, is preserved. A completed upload establishes submission acceptance; it does not retroactively satisfy every historical promotion gate.
 
-The accepted owned/recreated control remains **v26**:
+## Separate the evidence types
 
-| Population | Games | Brier |
-|---|---:|---:|
-| Men | 63 | 0.1445997537 |
-| Women | 63 | 0.0966919150 |
-| Combined | 126 | **0.1206458343** |
+The project keeps historical development, later-season confirmation, retrospective 2026 scoring, numerical reproduction, and external submission acceptance distinct. The historical benchmark and 2026 outcomes have been inspected repeatedly. Neither is described as a fresh untouched holdout.
 
-The late/post-competition submission score is **0.1206458**.
+The complete men's historical evaluation covers **566 played main-bracket games across nine forecast seasons**, including **189 games in 2023–2025**. Repairing an equal-seed filter restored eight legitimate later-round games after reproducing all 558 saved control predictions.
 
-## Strongest reconstructed experimental frontier
+New model work must beat fixed historical controls across the declared development and confirmation populations, improve each recent confirmation season, and beat the matched static or simpler counterpart where the experiment requires one. A favorable target-year score alone does not qualify a new recipe.
 
-The strongest current post-competition reconstruction scores:
+## Reproduction and source foundation
 
-- combined: **0.1067095543**
-- men: **0.1366807914**
-- women: **0.0767383172**
-- evaluation population: **63 men + 63 women = 126 games**
-- lifecycle: **EXPERIMENTAL**
-- submitted: **no**
-- promoted: **no**
+- The women's reconstruction matched **65,703 pairwise probabilities within 1e-4** and all 15 archived member-fit counts and best-iteration receipts.
+- Men's matched-input procedure checks reproduced **66 core members** and **66 margin members**, with 31 auxiliary feature columns reconciled.
+- The official raw-game foundation contains **13,753 men's team-season rows across 42 seasons** and **9,851 women's rows across 29 seasons**.
+- Both teams are present for all **566 historical men's matchup identities**. Performance and schedule features cover all 566; temporal and venue features cover 554, with missingness preserved.
+- Men's and women's raw-to-feature outputs were independently replayed; 2026 feature generation was rehearsed as an incoming-season update.
 
-This result comes from the reconstructed women branch, independently rebuilt ranking/reference components, qualified original-source first-round information, and a fixed source-composition policy.
+These foundations establish what was reconstructed and replayed. They do not establish complete source parity, a new model gain, or full prospective readiness.
 
-It remains research evidence because its upstream historical promotion requirements were not all satisfied and 2026 has been repeatedly inspected.
+## Current milestone: original player-boxscore qualification
 
-## Native women numerical reproduction
+**v99 has been delivered; its owner execution result is pending.** The bounded package combines four workstreams:
 
-The rebuilt source-equivalent women pipeline:
+1. Audit the exact nine cached seasons, totaling 914,703 canonical rows including 1,678 quarantine markers.
+2. Reuse 18 original game responses and attempt 42 additional summaries, covering 60 games across 20 men's/women's season groups.
+3. Check boxscore statistics and match game identities to pinned official records.
+4. Produce source coverage and preserve the full 566-game historical cohort.
 
-- generated all **65,703** pairwise target probabilities;
-- matched the archived reference within **1e-4** for every row;
-- had maximum absolute difference of roughly **4.2e-05**;
-- had mean absolute difference of roughly **2.35e-08**;
-- matched all 15 archived member training-row counts and best-iteration receipts;
-- scored **0.0767383172 Brier** on the 63 scored women's games.
+The existing normalized player bank contains derived NCAA records with NCAA-provider identities. It is not an original ESPN player archive. The new source route uses a separate identity namespace and requires original-response receipts.
 
-## Men's reproduction status
+A successful source pilot would justify a broader acquisition study. It would not by itself justify a model fit, infer injury or lineup effects, or create a submission. Missing or malformed source cells remain visible rather than being filled with guesses.
 
-Verified:
+## What remains
 
-- all **66 core members** match archived best iterations and same-input predictions at numerical precision;
-- all **66 margin members** match archived best iterations and calibration slopes, with only negligible same-input prediction differences;
-- all **31 auxiliary historical feature columns** were reconciled;
-- the original margin-branch target contract was re-audited and uses raw final-score margin; an earlier overtime-normalized equivalence claim was withdrawn;
-- AP semantics and historical activation boundaries were repaired.
+| Gap | Completion evidence needed |
+|---|---|
+| Original player histories and availability | Broad qualified historical coverage, reliable identities, and defensible timing |
+| BPI and market histories | Original dated records with sufficient multi-season coverage |
+| New complementary signal | Complete historical comparison and matched ablations |
+| Legacy source timing | Original-version evidence; numerical parity alone is insufficient |
+| Prospective 2027 readiness | Actual incoming inputs and a fresh end-to-end run before outcomes |
 
-The remaining uncertainty is concentrated in source and representation families rather than broad unexplained model drift.
-
-## Complete historical men's control
-
-The historical evaluation bank now covers **566 played main-bracket games across nine forecast seasons**.
-
-The original implementation had excluded every equal-numbered-seed matchup, which removed legitimate later-round games. The repaired evaluation:
-
-- reproduced all **558** previously saved control predictions;
-- restored **8** legitimate omitted games;
-- yields a complete **189-game 2023–2025 confirmation population**.
-
-A matched training correction was also tested and rejected because it did not improve robustly enough across development and confirmation.
-
-## Recent matched experiments
-
-### Pair-exchange / mirrored training
-
-A fixed mirrored-training primary improved the 2023–2025 confirmation Brier from **0.1812860970 to 0.1773597347**, improving all three confirmation seasons.
-
-Development deteriorated from **0.1838583627 to 0.1846847370**, so the experiment failed its predeclared gate and did not proceed to target-year inference.
-
-### Exact-date AP refresh
-
-A broader exact-date AP primary improved confirmation from **0.1812860970 to 0.1792712182** but worsened development to **0.1865589852**.
-
-The source reconstruction remains useful; the fixed model integration was rejected.
-
-### Original publisher probability tables
-
-Complete 68-team men's advancement-probability fields were independently recovered for both 2025 and 2026.
-
-The fixed probability-blending policy was rejected after it failed to improve robustly. The source assets remain useful as dated, independently owned information rather than a promoted model component.
-
-## Supplemental-source frontier
-
-Current independently recreated / owned source families include Bart Torvik Time Machine, AP polling history, official-derived ratings, Massey ordinals, postseason-selection announcements, historical player boxscore infrastructure, partial market / BPI archives, and original publisher bracket probability tables for 2025 and 2026.
-
-The project does not relabel owned substitutes as proprietary publisher metrics.
-
-## Latest completed source foundation
-
-The latest validated AWS milestone rebuilds a broad official raw-game foundation without fitting a new forecasting model.
-
-Verified public-safe evidence:
-
-- **13,753 men's team-season rows across 42 raw seasons**;
-- **9,851 women's team-season rows across 29 raw seasons**;
-- all **566 historical men's matchup identities** have both teams present;
-- performance and schedule feature families are complete for all 566 matchups;
-- temporal / venue features are complete for **554 / 566** matchups, with remaining missingness preserved;
-- **46 / 46 retained external source objects** were reverified;
-- men and women raw-to-feature outputs replay independently and reproducibly;
-- 2026 was rehearsed as an incoming feature season for both genders.
-
-This milestone establishes source and feature reproducibility. It does not claim a new Brier result, native-model equivalence, or complete future-season readiness.
-
-## Recent reconstruction decisions
-
-- chronology-separated calibration was tested and rejected under the fixed historical gate;
-- player-role / boxscore representation work ultimately passed source coverage but worsened robust historical validation, so the fixed model recipe was closed;
-- a reconstructed lineup-stint pilot was stopped before fitting when the source interval semantics proved incompatible with the runner's continuous-exposure assumption;
-- the broad official raw-game foundation was then rebuilt directly, preserving useful source work while retiring the invalid representation.
-
-These decisions illustrate a core project rule: a legitimate source can survive even when one modeling recipe or source contract is rejected.
-
-## Current research question
-
-The next private study asks whether **strictly pregame regular-season supervision can transfer useful matchup information into tournament forecasts** beyond compact tournament controls.
-
-The experiment is intentionally separated from the accepted system. No public performance result is claimed until the historical gate and independent replay are complete.
-
-## Incoming-season boundary
-
-A large part of the pipeline is season-parameterized, but the complete incoming-season chain is not called finished.
-
-The final readiness test must execute:
-
-**source acquisition → raw receipt preservation → mapping → chronology checks → feature generation → fresh training / inference → final candidate freeze → schema / hash / provenance validation**
-
-without borrowing prepared feature artifacts.
-
-Unavailable future observations remain WAITING_FOR_TARGET_DATA; values are never copied forward from a prior season.
+The next modeling step follows source qualification and uses a genuinely new representation. Closed recipes are not restarted unchanged. [The reproduction matrix](reproduction_matrix.md) separates completed mechanisms from remaining source gaps; [the readiness contract](2027_readiness.md) defines the future-season claim.

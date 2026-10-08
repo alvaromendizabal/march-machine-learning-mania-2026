@@ -1,3 +1,5 @@
+> **Historical research snapshot.** This page preserves its original experiment lineage. The current confirmed late-submission result is **0.1067095**; [current status](current_research.md) and [verified result evidence](../portfolio/release_evidence.json) supersede older submission-status statements below. Historical scores do not establish source certification or promotion.
+
 # Post-merge research log
 
 This log summarizes the private AWS research program since the previous public owned-data release. It intentionally excludes private candidate bytes, raw source archives, fitted private models, exact correction weights / gates, credentials, and AWS-local implementation details.

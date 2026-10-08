@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "notebook_sha256": "b27ad54ccc0c0623e39990d96c90e44832ffadf2e42fb81d342d2390bc36962b",
+  "evidence_sha256": "fbb55faf4df04c39bf9bb247ecbf3bbfe080151c1d3fd1a5c58afff40c0b38e9",
+  "reproducer_sha256": "4b888e68d28cc1fe81fc90ce0d492faeb7f3977af30e7f9c25ffd2153a2b30d8",
+  "code_cells": 5,
+  "plotly_outputs": 1,
+  "png_outputs": 1,
+  "execution_engine": "ipython_in_process",
+  "png_sha256": "9c30965ed5998bd5c688ff891d6754a7ec212394a1d9611298fbc55df949d26d",
+  "model_fits": 0,
+  "private_model_reproduced": false
+}
