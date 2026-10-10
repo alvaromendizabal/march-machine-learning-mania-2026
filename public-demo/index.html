@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="An interactive, browser-local probability lab. Adjust fictional team ratings and inspect exact advancement probabilities through an eight-team bracket."
+    />
+    <title>Tournament Lab · A probability workbench</title>
+    <link
+      rel="canonical"
+      href="https://alvaro-tournament-lab.tartmacaw2.chatgpt.site/"
+    />
+    <meta
+      property="og:title"
+      content="Tournament Lab · A probability workbench"
+    />
+    <meta
+      property="og:description"
+      content="Eight fictional teams. Every possible path. Explore an exact, transparent tournament forecast in your browser."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://alvaro-tournament-lab.tartmacaw2.chatgpt.site/"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="data.js"></script>
+    <script defer src="engine.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <noscript
+      ><p class="noscript">
+        Enable JavaScript to compute the fictional tournament probabilities on
+        this device.
+      </p></noscript
+    >
+    <div class="shell">
+      <header class="masthead">
+        <a
+          class="brand"
+          href="https://github.com/alvaromendizabal/march-machine-learning-mania-2026"
+          ><span class="bracket-mark" aria-hidden="true">⌘</span
+          ><span
+            >TOURNAMENT LAB<small
+              >ALVARO MENDIZABAL / PROBABILISTIC ML</small
+            ></span
+          ></a
+        ><a
+          class="source-link"
+          href="https://github.com/alvaromendizabal/march-machine-learning-mania-2026/tree/main/public-demo"
+          target="_blank"
+          rel="noreferrer"
+          >View the source <span aria-hidden="true">↗</span></a
+        >
+      </header>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">EIGHT TEAMS / EVERY POSSIBLE PATH</p>
+          <h1>
+            A bracket is a story.<br /><em>Probability keeps it honest.</em>
+          </h1>
+        </div>
+        <div class="intro-note">
+          <p>
+            Change a rating. Turn up uncertainty.<br />Watch the chances move.
+          </p>
+          <span class="scope-tag">FICTIONAL TEAMS · EXACT CALCULATION</span>
+          <p class="scope-copy">
+            A transparent educational model running on your device. Separate
+            from the project’s historical results and private forecasting
+            system.
+          </p>
+        </div>
+      </section>
+      <main>
+        <div class="lab">
+          <section class="bracket-panel" aria-labelledby="bracket-title">
+            <div class="board-heading">
+              <div>
+                <p class="board-kicker">NO WINNER IS ASSUMED</p>
+                <h2 id="bracket-title">The complete probability bracket</h2>
+              </div>
+              <span class="board-badge">8 → 4 → 2 → 1</span>
+            </div>
+            <p class="board-description">
+              Every team remains visible. Each percentage is its chance of
+              reaching that stage, accounting for every possible opponent.
+            </p>
+            <div
+              id="bracket-viewport"
+              class="bracket-viewport"
+              tabindex="0"
+              role="region"
+              aria-label="Tournament bracket; scroll horizontally on smaller screens"
+            >
+              <div id="bracket" class="bracket"></div>
+            </div>
+            <p class="scroll-hint">
+              On a small screen, scroll the bracket sideways. Select any team to
+              inspect its path.
+            </p>
+            <div class="board-footer">
+              <span id="selected-summary"
+                >Select a team to follow its path.</span
+              ><span>Exact propagation · No simulation</span>
+            </div>
+          </section>
+          <aside class="controls" aria-labelledby="controls-title">
+            <div class="section-heading">
+              <span class="step">01</span>
+              <h2 id="controls-title">Shape the field</h2>
+            </div>
+            <p class="control-intro">
+              Explore a scenario, then make it your own.
+            </p>
+            <div class="presets" aria-label="Tournament scenarios">
+              <button id="preset-rated" class="preset">Rated field</button
+              ><button id="preset-even" class="preset">Even field</button
+              ><button id="preset-challenger" class="preset">Challenger</button>
+            </div>
+            <label for="team" class="field-label">Team to adjust</label
+            ><select id="team"></select>
+            <div class="rating-readout">
+              <span id="rating-base">Starting rating</span
+              ><strong id="rating-current">—</strong>
+            </div>
+            <div class="range-heading">
+              <label for="rating" class="field-label">Rating adjustment</label
+              ><output id="rating-value" for="rating">+0</output>
+            </div>
+            <input
+              id="rating"
+              type="range"
+              min="-300"
+              max="300"
+              step="10"
+              value="0"
+            />
+            <p class="control-help">
+              Other teams keep their current ratings. The bracket’s seed
+              positions stay fixed.
+            </p>
+            <div class="range-heading">
+              <label for="temperature" class="field-label"
+                >Uncertainty scale</label
+              ><output id="temperature-value" for="temperature">400</output>
+            </div>
+            <input
+              id="temperature"
+              type="range"
+              min="100"
+              max="800"
+              step="20"
+              value="400"
+            />
+            <div class="range-extremes">
+              <span>Sharper favorites</span><span>Closer to 50/50</span>
+            </div>
+            <p class="control-help">
+              A higher scale softens rating differences in each matchup. It does
+              not change the ratings.
+            </p>
+            <div class="control-actions">
+              <button id="reset" class="reset-button">Reset all ratings</button
+              ><button id="export" class="export-button">Export JSON ↓</button>
+            </div>
+            <p id="status" class="status" role="status"></p>
+            <p id="error" class="error" role="alert" hidden></p>
+            <div class="check-line">
+              <span>Champion probabilities sum to</span
+              ><strong id="total-probability">—</strong>
+            </div>
+            <p class="control-help">
+              Eight teams enter, but exactly one must win. This is a numerical
+              consistency check, not an accuracy score.
+            </p>
+          </aside>
+        </div>
+        <div class="analysis-grid">
+          <section
+            class="probability-panel"
+            aria-labelledby="probability-title"
+          >
+            <div class="section-heading">
+              <span class="step">02</span>
+              <h2 id="probability-title">See the whole field</h2>
+              <label class="round-label" for="round"
+                >Stage<select id="round">
+                  <option value="2">Win tournament</option>
+                  <option value="1">Reach final</option>
+                  <option value="0">Reach semifinals</option>
+                </select></label
+              >
+            </div>
+            <p id="round-note" class="help"></p>
+            <div id="probability-bars" class="probability-bars"></div>
+          </section>
+          <section class="matchup-panel" aria-labelledby="matchup-title">
+            <div class="section-heading">
+              <span class="step">03</span>
+              <h2 id="matchup-title">Inspect a matchup</h2>
+            </div>
+            <p class="help">
+              Compare any two teams directly. Their chance of winning this
+              matchup differs from their chance of surviving the full bracket.
+            </p>
+            <div class="matchup-inputs">
+              <label for="team-a"
+                ><span>Team A</span
+                ><select id="team-a"></select></label
+              ><span class="versus">vs</span
+              ><label for="team-b"
+                ><span>Team B</span
+                ><select id="team-b"></select
+              ></label>
+            </div>
+            <div id="matchup-output">
+              <div class="matchup-values">
+                <div>
+                  <strong id="probability-a">—</strong><span id="name-a"></span>
+                </div>
+                <div>
+                  <strong id="probability-b">—</strong><span id="name-b"></span>
+                </div>
+              </div>
+              <div
+                class="matchup-bar"
+                role="img"
+                id="matchup-bar"
+                aria-label="Head-to-head win probabilities"
+              >
+                <span id="matchup-fill"></span>
+              </div>
+              <div class="matchup-rating">
+                <span id="rating-a"></span><span id="rating-b"></span>
+              </div>
+              <p id="matchup-explanation" class="matchup-explanation"></p>
+            </div>
+            <p id="matchup-error" class="error" role="alert" hidden></p>
+            <div class="formula">
+              <span class="small-label">THE ENTIRE MATCHUP RULE</span>
+              <p>
+                P(A wins) = 1 / [1 + 10<sup>(rating B − rating A) / scale</sup>]
+              </p>
+              <span
+                >Ratings are invented inputs, not fitted team-strength
+                estimates.</span
+              >
+            </div>
+          </section>
+        </div>
+        <details class="method-notes">
+          <summary>What is exact here — and what is assumed?</summary>
+          <div class="method-grid">
+            <div>
+              <h3>Every route is included</h3>
+              <p>
+                The engine propagates matchup probabilities round by round. A
+                team’s chance of advancing combines its own survival probability
+                with the possible opponents and their chances of reaching that
+                game. No random simulation is needed.
+              </p>
+            </div>
+            <div>
+              <h3>The assumptions stay simple</h3>
+              <p>
+                Ratings are fixed through the tournament. Matchup probabilities
+                depend only on rating differences and the uncertainty scale.
+                There are no injuries, schedules, player features, learned
+                parameters or changing game conditions in this demo.
+              </p>
+            </div>
+            <div>
+              <h3>Keep the evidence separate</h3>
+              <p>
+                All eight teams and any example outcomes are fictional. These
+                probabilities do not reproduce the project’s private historical
+                forecast, and changing controls does not establish calibration
+                or predictive performance.
+              </p>
+            </div>
+          </div>
+        </details>
+      </main>
+      <footer>
+        <span
+          >Built by Alvaro Mendizabal · Probabilities, evaluation &amp; reliable
+          ML systems</span
+        ><span>SYNTHETIC_ONLY · No accounts, uploads or network calls</span>
+      </footer>
+    </div>
+  </body>
+</html>

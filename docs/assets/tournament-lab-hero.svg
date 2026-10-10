@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="600" viewBox="0 0 1320 600" role="img" aria-labelledby="title description">
+  <title id="title">Tournament Lab — eight teams, every possible path</title>
+  <desc id="description">An original vector illustration of an eight-team bracket. Fictional team cards converge through semifinal and final distributions. No winner or performance result is asserted. The accompanying browser demo computes exact probabilities from editable rating assumptions.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#32485e" stroke-width=".6"/></pattern>
+  </defs>
+  <rect width="1320" height="600" rx="16" fill="#f5f1e7"/>
+  <path d="M16 0h1288a16 16 0 0 1 16 16v69H0V16A16 16 0 0 1 16 0" fill="#fffdf7"/>
+  <path d="M40 85H1280" stroke="#d2d3cd"/>
+  <g fill="#1d2e42" font-family="Arial,Helvetica,sans-serif">
+    <text x="44" y="48" font-size="17" letter-spacing="2.4" font-weight="700">TOURNAMENT LAB</text>
+    <text x="1276" y="47" text-anchor="end" font-size="13" letter-spacing="1.1">ALVARO MENDIZABAL / PROBABILISTIC ML</text>
+    <text x="46" y="146" fill="#ad4c24" font-size="13" letter-spacing="1.5">ASSUMPTIONS YOU CAN INSPECT</text>
+    <g font-family="Georgia,serif" font-size="43">
+      <text x="43" y="209">Eight teams.</text>
+      <text x="43" y="263">Every possible path.</text>
+    </g>
+    <g font-size="17" fill="#5c6671">
+      <text x="46" y="309">Change a rating. Adjust uncertainty.</text>
+      <text x="46" y="336">See how the whole bracket responds.</text>
+    </g>
+    <rect x="45" y="375" width="318" height="53" rx="4" fill="#172a40"/>
+    <text x="66" y="408" font-size="16" fill="#fff5e4">Ratings → probabilities → paths</text>
+    <g font-size="14" fill="#5c6671">
+      <text x="46" y="466">Fictional teams · No training</text>
+      <text x="46" y="490">Exact calculation under explicit assumptions</text>
+    </g>
+  </g>
+  <rect x="499" y="117" width="777" height="411" rx="8" fill="#172a40"/>
+  <rect x="499" y="117" width="777" height="411" rx="8" fill="url(#grid)" opacity=".55"/>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="12" letter-spacing="1" fill="#c3cfdd">
+    <text x="521" y="149">8 ENTRANTS</text><text x="756" y="149">4 ADVANCE</text><text x="970" y="149">2 ADVANCE</text>
+    <text x="1200" y="149" text-anchor="middle">1 TITLE</text>
+  </g>
+  <g stroke="#7c91a7" stroke-width="2" fill="none">
+    <path d="M701 190h28v21h26M701 232h28v-21M701 277h28v21h26M701 319h28v-21M701 364h28v21h26M701 406h28v-21M701 451h28v21h26M701 493h28v-21"/>
+    <path d="M896 211h30v44h36M896 298h30v-43M896 385h30v44h36M896 472h30v-43"/>
+    <path d="M1100 255h38v86h28M1100 429h38v-88"/>
+  </g>
+  <g fill="#233d57" stroke="#64768b">
+    <rect x="520" y="173" width="181" height="34" rx="3"/>
+    <rect x="520" y="215" width="181" height="34" rx="3"/>
+    <rect x="520" y="260" width="181" height="34" rx="3"/>
+    <rect x="520" y="302" width="181" height="34" rx="3"/>
+    <rect x="520" y="347" width="181" height="34" rx="3"/>
+    <rect x="520" y="389" width="181" height="34" rx="3"/>
+    <rect x="520" y="434" width="181" height="34" rx="3"/>
+    <rect x="520" y="476" width="181" height="34" rx="3"/>
+  </g>
+  <g fill="#fff5e4" font-family="Arial,Helvetica,sans-serif" font-size="13">
+    <text x="533" y="195">1  Harbor Foxes</text><text x="533" y="237">8  Meadow Finches</text>
+    <text x="533" y="282">4  Summit Herons</text><text x="533" y="324">5  Juniper Kites</text>
+    <text x="533" y="369">2  Copper Owls</text><text x="533" y="411">7  Mesa Otters</text>
+    <text x="533" y="456">3  Cedar Comets</text><text x="533" y="498">6  Orchard Lynx</text>
+  </g>
+  <g fill="#344e67" stroke="#9aadbf">
+    <rect x="755" y="192" width="141" height="38" rx="3"/>
+    <rect x="755" y="279" width="141" height="38" rx="3"/>
+    <rect x="755" y="366" width="141" height="38" rx="3"/>
+    <rect x="755" y="453" width="141" height="38" rx="3"/>
+    <rect x="962" y="231" width="138" height="48" rx="3"/>
+    <rect x="962" y="405" width="138" height="48" rx="3"/>
+  </g>
+  <g fill="#e9eff5" font-family="Arial,Helvetica,sans-serif" font-size="12" text-anchor="middle">
+    <text x="825" y="216">Possible entrants</text><text x="825" y="303">Possible entrants</text>
+    <text x="825" y="390">Possible entrants</text><text x="825" y="477">Possible entrants</text>
+    <text x="1031" y="253">Finalist</text><text x="1031" y="269">distribution</text>
+    <text x="1031" y="427">Finalist</text><text x="1031" y="443">distribution</text>
+  </g>
+  <rect x="1166" y="290" width="89" height="102" rx="5" fill="#f1dfc3"/>
+  <g fill="#172a40" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+    <text x="1210" y="320" font-size="13" font-weight="700">ALL PATHS</text>
+    <path d="M1182 336h55m-55 11h55m-55 11h55" fill="none" stroke="#a26938" stroke-width="3"/>
+    <text x="1210" y="374" font-size="12">No winner</text><text x="1210" y="388" font-size="12">assumed</text>
+  </g>
+  <path d="M44 548H1276" stroke="#d2d3cd"/>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#5c6671">
+    <text x="46" y="575">ORIGINAL BRACKET ILLUSTRATION · SYNTHETIC DEMONSTRATION</text>
+    <text x="1275" y="575" text-anchor="end">Separate from the private forecasting system and historical scores</text>
+  </g>
+</svg>

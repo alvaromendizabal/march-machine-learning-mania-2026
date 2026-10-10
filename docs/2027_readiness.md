@@ -1,6 +1,6 @@
 # 2027 readiness: prospective evaluation contract
 
-The project has a confirmed **0.1067095 late-submission Brier score** and substantial historical reproduction evidence. The next stronger claim requires a forecast frozen **before future outcomes are known**. The October 2026 submission does not establish prospective 2027 performance.
+The project has a confirmed **0.1067095 late-submission Brier score** and substantial historical verification evidence. The next stronger claim requires a forecast frozen **before future outcomes are known**. The October 2026 submission does not establish prospective 2027 performance.
 
 ## Current readiness
 
@@ -9,8 +9,8 @@ The project has a confirmed **0.1067095 late-submission Brier score** and substa
 | Official game foundation | 42 men's and 29 women's seasons; independent feature replay | Actual incoming-season records |
 | Probability artifacts | Accepted v54 forecast, delivered through v93r1; immutable release evidence | Fresh pre-outcome forecast and submission receipt |
 | Historical evaluation | Complete 566-game men's cohort; retained control comparisons | A genuinely new prospective evaluation period |
-| Supplemental sources | Reconstructed ratings/polls and partial original archives | Broad timing-qualified player, availability, BPI, and market inputs |
-| Original boxscore route | v99 qualification package delivered | Owner return, then sufficient qualified historical coverage |
+| Supplemental sources | Verified rating/poll inputs and partial original archives | Broad timing-qualified player, availability, BPI, and market inputs |
+| Latest source qualification | v128 SOURCE_PARTIAL; 2,258 market rows repaired, 1,075 rows with missing last quotes retained; no model admission | Exact injury inputs and sufficient timing-qualified historical coverage |
 | Operational pipeline | Bounded jobs, self-tests, checkpoints, resume and packaging contracts | Full acquisition-to-freeze rehearsal and actual 2027 execution |
 
 ## Preserve separate lifecycle states
