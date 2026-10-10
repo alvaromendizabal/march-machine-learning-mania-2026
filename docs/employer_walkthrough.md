@@ -1,16 +1,18 @@
 # Engineering a verifiable probability forecast
 
+**Alvaro Mendizabal · Probability modeling · Temporal data engineering · ML systems**
+
 ## Result and responsibility
 
 **I built and evaluated an auditable NCAA probability-forecasting system that received a Kaggle-confirmed late-submission Brier score of 0.1067095.** That is **0.0030359 lower, or 2.77% less Brier loss**, than the official winning score of **0.1097454**.
 
-The competition closed on March 19, 2026; I submitted this forecast on October 8 after outcomes had been inspected. The score demonstrates a retrospective numerical improvement, not an official competition victory, an equal-information contest or prospective outperformance. [Comparison](benchmark_comparison.md) · [Release evidence](../portfolio/release_evidence.json)
+The competition closed on March 19, 2026; I submitted this forecast on October 8 after outcomes had been inspected. The score demonstrates a retrospective numerical improvement, not an official competition victory, an equal-information contest or prospective outperformance. [Comparison scope](benchmark_comparison.md) · [Release evidence](../portfolio/release_evidence.json)
 
 [Explore Tournament Lab](https://alvaro-tournament-lab.tartmacaw2.chatgpt.site) for a hands-on view of probability assumptions and exact bracket propagation. Its fictional data and transparent rating rule are separate from the private research forecast.
 
-## What I built
+## Engineering contributions
 
-I integrated the men's probability system, retained the stable women's branch, qualified supplemental sources and built the evaluation and delivery controls around them. The project uses credited public methods, including Harrison Horan's work; [method lineage](benchmark_comparison.md#method-lineage-and-additional-work) records that foundation without attributing its invention to me.
+I engineered forecast construction, source qualification, numerical verification and delivery around separate men's and women's probability branches. I integrated the men's system, retained the stable women's branch, and established the controls needed to evaluate changes without confusing input differences, implementation drift and predictive improvement.
 
 My contributions span four connected problems:
 
@@ -52,4 +54,4 @@ The best confirmed score remains **0.1067095**. The latest inspected execution r
 
 Remaining gaps include exact injury inputs, broad timing-qualified player/availability and BPI/market histories, a newly validated complementary representation, and a full prospective 2027 run. Derived NCAA records are not relabeled as original ESPN records; retrieving an old game today does not prove the same bytes were available before its tournament.
 
-[Reviewer guide](../START_HERE.md) · [Validation matrix](reproduction_matrix.md) · [Current research](current_research.md) · [2027 readiness](2027_readiness.md) · [Disclosure](../portfolio/DISCLOSURE.md)
+[Reviewer guide](../START_HERE.md) · [Validation matrix](reproduction_matrix.md) · [Current research](current_research.md) · [2027 readiness](2027_readiness.md) · [References and comparison scope](benchmark_comparison.md) · [Disclosure](../portfolio/DISCLOSURE.md)
