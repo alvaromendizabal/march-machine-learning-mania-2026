@@ -53,7 +53,7 @@ This recomputes aggregate comparisons and verifies published receipt hashes and 
 
 ## Current boundary
 
-The **0.1067095 result remains the latest confirmed score**. The latest inspected execution return, **v128, completed October 10, 2026**, ended **SOURCE_PARTIAL**: it repaired 2,258 market-quote rows while retaining 1,075 missing rows. It admitted no model and performed **zero fits, inferences, candidates or submissions**. Historical promotion gates remain unmet; exact injury inputs and broader timing-qualified source coverage remain open.
+The **0.1067095 result remains the latest confirmed score**. The latest inspected execution return, **v128, completed October 10, 2026**, ended **SOURCE_PARTIAL**: it repaired 2,258 market-quote rows while retaining 1,075 rows with missing last quotes. It admitted no model and performed **zero fits, inferences, candidates or submissions**. Historical promotion gates remain unmet; exact injury inputs and broader timing-qualified source coverage remain open.
 
 A 2026-as-incoming feature rehearsal is complete. A full acquisition-to-forecast run and prospective 2027 validation are still required. [Current research](docs/current_research.md) · [Inspected execution receipt](portfolio/latest_execution.json) · [2027 readiness](docs/2027_readiness.md)
 

@@ -228,6 +228,7 @@
     }
   }
   function refresh() {
+    const focusedId = doc.activeElement?.id;
     try {
       if (
         !Number.isFinite(state.temperature) ||
@@ -243,6 +244,9 @@
       renderBracket();
       renderBars();
       renderMatchup();
+      if (/^(?:bracket-[0-2]-|bar-)/.test(focusedId || "")) {
+        el(focusedId)?.focus();
+      }
     } catch (error) {
       fail(`Unable to calculate this scenario. ${error.message}`);
     }

@@ -48,7 +48,7 @@ The public result audit serves a different purpose: it verifies aggregate releas
 
 ## Current state and remaining work
 
-The best confirmed score remains **0.1067095**. The latest inspected execution return, **v128, completed October 10, 2026**, ended **SOURCE_PARTIAL**. It repaired **2,258 market-quote rows**, preserved **1,075 missing rows**, and admitted no model. There were **zero fits, inferences, candidates or submissions**.
+The best confirmed score remains **0.1067095**. The latest inspected execution return, **v128, completed October 10, 2026**, ended **SOURCE_PARTIAL**. It repaired **2,258 market-quote rows**, retained **1,075 rows with missing last quotes**, and admitted no model. There were **zero fits, inferences, candidates or submissions**.
 
 Remaining gaps include exact injury inputs, broad timing-qualified player/availability and BPI/market histories, a newly validated complementary representation, and a full prospective 2027 run. Derived NCAA records are not relabeled as original ESPN records; retrieving an old game today does not prove the same bytes were available before its tournament.
 

@@ -20,7 +20,7 @@ The public repository provides aggregate evidence, reviewable metric and validat
 
 Private prediction rows, fitted competition models, raw supplemental archives, detailed private feature/correction rules, weights, credentials, and cloud orchestration state are intentionally withheld. Publicly exposed historical code retains its existing scope and license; this disclosure does not promise that all previously public methods have become private.
 
-Derived third-party NCAA player records are not relabeled as original-owned ESPN records. Original response acquisition, source timing, identity mapping, and model admission are separate checks. The latest inspected execution return, v128 on October 10, 2026, ended SOURCE_PARTIAL: 2,258 market-quote rows repaired and 1,075 still missing, with model admission false and zero fits, inferences, candidates or submissions. The [sanitized receipt](latest_execution.json) records the inspected-return scope; it is not a claim about uninspected live AWS files. Earlier v99 snapshots remain dated historical records.
+Derived third-party NCAA player records are not relabeled as original-owned ESPN records. Original response acquisition, source timing, identity mapping, and model admission are separate checks. The latest inspected execution return, v128 on October 10, 2026, ended SOURCE_PARTIAL: 2,258 market-quote rows repaired and 1,075 rows with missing last quotes retained, with model admission false and zero fits, inferences, candidates or submissions. The [sanitized receipt](latest_execution.json) records the inspected-return scope; it is not a claim about uninspected live AWS files. Earlier v99 snapshots remain dated historical records.
 
 ## Public demo boundary
 

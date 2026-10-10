@@ -39,7 +39,7 @@ These foundations establish what was built, reconciled and independently replaye
 
 The latest inspected execution return is **v128-owned-source-repair-20261010**, completed **October 10, 2026 at 01:32:58 UTC**, with status **SOURCE_PARTIAL**. All **75 manifested members** were checked against their recorded hashes and sizes.
 
-- **2,258 market-quote rows repaired**; the remaining **1,075 missing rows** stay explicitly missing.
+- **2,258 market-quote rows repaired**; **1,075 rows with missing last quotes** were retained.
 - **Model admission: ineligible.** Exact injury inputs remain missing and the historical gate remains false.
 - **Zero model fits, inferences, candidates and submissions.** No new score or model improvement is claimed.
 - **Latest confirmed score remains 0.1067095.** Source repair does not promote the existing research composition.

@@ -36,7 +36,8 @@ function browser({
   const timers = [];
   let exportedBlob = null,
     download = null,
-    revoked = null;
+    revoked = null,
+    activeElement = null;
   class Element {
     constructor(tag = "div") {
       this.tag = tag;
@@ -87,6 +88,9 @@ function browser({
     remove() {
       this.removed = true;
     }
+    focus() {
+      activeElement = this;
+    }
     click() {
       if (this.disabled) return;
       this.handlers.click?.();
@@ -116,6 +120,9 @@ function browser({
       return timers.length;
     },
     document: {
+      get activeElement() {
+        return activeElement;
+      },
       getElementById: (id) => nodes.get(id),
       createElement: (tag) => new Element(tag),
       body: new Element("body"),
@@ -241,6 +248,32 @@ await test("both bracket and probability bars select teams through their actual 
   ui.click("bar-copper");
   assert.equal(ui.el("team").value, "copper");
   assert.match(ui.el("selected-summary").textContent, /^Copper Owls/);
+});
+
+await test("team selection restores keyboard focus to replacement bracket and bar buttons", () => {
+  const ui = browser();
+  for (const id of ["bracket-1-meadow", "bar-copper"]) {
+    const original = ui.el(id);
+    original.focus();
+    assert.equal(ui.sandbox.document.activeElement, original);
+    original.click();
+    const replacement = ui.el(id);
+    assert.notEqual(
+      replacement,
+      original,
+      "The actual handler rebuilt this button",
+    );
+    assert.equal(ui.sandbox.document.activeElement, replacement);
+    assert.equal(replacement.attributes["aria-pressed"], "true");
+  }
+  const slider = ui.el("rating");
+  slider.focus();
+  ui.change("rating", 50, "input");
+  assert.equal(
+    ui.sandbox.document.activeElement,
+    slider,
+    "Other focused controls are not moved",
+  );
 });
 
 await test("the even-field preset yields exact half, quarter and eighth probabilities", async () => {
