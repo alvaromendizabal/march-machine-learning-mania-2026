@@ -8,6 +8,7 @@ class Tests(unittest.TestCase):
         target[path[-1]]=value
         with self.assertRaises(ValueError): validate(d)
     def test_valid(self): self.assertEqual(validate(self.d)["schema"],1)
+    def test_unmeasured_score_rejected(self): self.reject(["scored","unmeasured_goal"],0.08)
     def test_champion_score(self): self.reject(["scored","champion","score"],0.09)
     def test_champion_ref(self): self.reject(["scored","champion","ref"],"x")
     def test_full_market(self): self.reject(["scored","full_market","score"],0.1)

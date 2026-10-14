@@ -2,7 +2,7 @@
 
 This project studies transferable mechanisms from public NCAA forecasting work, including Harrison Horan's credited methods, and distinguishes implementation ownership from source ownership. Reproduction means independently checking a mechanism or reconstructing its behavior; it does not imply that every underlying source is original, timing-certified, or publicly redistributable.
 
-The current result is the **confirmed v54 late submission delivered through v93r1 at 0.1067095 Brier**. Submission acceptance is separate from historical model promotion. See the [benchmark comparison](benchmark_comparison.md) and [release evidence](../portfolio/release_evidence.json).
+The published scored case study is the **confirmed v54 late submission delivered through v93r1 at 0.1067095 Brier**. Submission acceptance is separate from historical model promotion. See the [benchmark comparison](benchmark_comparison.md) and [release evidence](../portfolio/release_evidence.json).
 
 | Mechanism or source family | Demonstrated result | Remaining boundary |
 |---|---|---|
@@ -15,9 +15,12 @@ The current result is the **confirmed v54 late submission delivered through v93r
 | AP polling | Editions, rank semantics, and activation boundaries reconstructed | Several fixed model integrations failed validation |
 | Official raw-game features | 42 men's and 29 women's seasons; independent replay | Descriptive feature coverage is not evidence of a predictive gain |
 | Derived NCAA player-box bank | Historical identity, coverage, and model-contract work retained | Not relabeled as original ESPN data or an original-owned player archive |
-| Original ESPN boxscores | v99 package delivered for a 60-game, 20-group qualification pilot | Owner return pending; broad history and availability semantics unproven |
+| Original-source acquisition | Earlier pilots are retained as dated evidence; latest v170 audit reconstructs official features | Historical player availability and original-version timing remain incomplete |
 | BPI and market information | Partial original-source recovery | Broad dated history remains incomplete |
 | Publisher advancement probabilities | Complete 68-team fields reconstructed for 2025 and 2026 | Fixed blending recipe rejected; source success did not imply model success |
+
+| Latest official feature rebuild | v170: 14,311 team-season profiles and 132,133 covered matchups | Existing forecast recovery is not a newly fitted model |
+| Public synthetic forecast/evaluation lab | Fully executable cutoff, identity, probability and scoring contracts | Authored fixtures; no claim of private-model parity |
 
 ## Independent validation repairs
 
@@ -37,6 +40,7 @@ A lineup-stint pilot stopped before fitting because the producer's interval sema
 
 | Level | What a reviewer should expect |
 |---|---|
+| Public examples | Synthetic forecast/evaluation lab and browser bracket engine, fully executable without credentials |
 | Public review | Aggregate score comparison, metric checks, provenance boundaries, architecture, and documented reproduction procedures |
 | Private artifact replay | Exact saved inputs, configurations, predictions, model receipts, and checkpoints |
 | Source-to-feature replay | Rebuilt normalized tables from retained raw source objects |

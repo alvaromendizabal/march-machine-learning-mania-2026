@@ -1,16 +1,16 @@
 # Current research boundary
 
-Updated October 10, 2026 UTC. This page supersedes older research snapshots when they describe the current submission state.
+Updated October 14, 2026 UTC. This page distinguishes the published scored case study from the newest supplied source audit. It does not inventory live AWS state.
 
 ## Confirmed result and metric contract
 
-The latest confirmed Kaggle submission, **the v54 forecast delivered through v93r1**, received **0.1067095** in both displayed score fields. It contains **132,133 prediction rows**. The corresponding local 126-game audit is **0.1067095543**; the scored population is 63 men's and 63 women's games.
+The published Kaggle scoring receipt for **the v54 forecast delivered through v93r1**, received **0.1067095** in both displayed score fields. It contains **132,133 prediction rows**. The corresponding local 126-game audit is **0.1067095543**; the scored population is 63 men's and 63 women's games.
 
 The official winning score was **0.1097454**. The late submission is **0.0030359 lower (2.77% less Brier loss)**. The competition's March 19 deadline and this project's October 8 submission are different evaluation conditions. This is a retrospective result, not an official rank or prospective victory. See [the complete comparison](benchmark_comparison.md).
 
 | Evidence | Brier | Interpretation |
 |---|---:|---|
-| Latest accepted late submission, v54 / v93r1 | **0.1067095** | Kaggle-confirmed result |
+| Published scored case study, v54 / v93r1 | **0.1067095** | Kaggle-confirmed result |
 | Corresponding 126-game audit | **0.1067095543** | Local retrospective audit |
 | Women's retained branch, 63 games | **0.0767383172** | Numerical reproduction evidence |
 | Earlier owned-data control, v26 | **0.1206458** | Historical submitted control |
@@ -35,18 +35,23 @@ New model work must beat fixed historical controls across the declared developme
 
 These foundations establish what was built, reconciled and independently replayed. They do not establish complete source parity, a new model gain, or full prospective readiness.
 
-## Latest inspected execution return: v128 source repair
+## Latest inspected execution return: v170 source reconstruction
 
-The latest inspected execution return is **v128-owned-source-repair-20261010**, completed **October 10, 2026 at 01:32:58 UTC**, with status **SOURCE_PARTIAL**. All **75 manifested members** were checked against their recorded hashes and sizes.
+The supplied return completed **October 14, 2026 at 00:34:11 UTC**. Its 19 manifested members match their recorded hashes and sizes. Public status is **SOURCE_REBUILD_COMPLETED_ADMISSION_BLOCKED**: the source audit completed, while full forecast reconstruction and historical admission remain incomplete.
 
-- **2,258 market-quote rows repaired**; **1,075 rows with missing last quotes** were retained.
-- **Model admission: ineligible.** Exact injury inputs remain missing and the historical gate remains false.
-- **Zero model fits, inferences, candidates and submissions.** No new score or model improvement is claimed.
-- **Latest confirmed score remains 0.1067095.** Source repair does not promote the existing research composition.
+| Observation | Scope |
+|---|---|
+| 14,311 team-season profiles | 8,346 men's profiles, 2003–2026; 5,965 women's profiles, 2010–2026 |
+| 211,716 regular-season games | Runner-reported aggregate; underlying raw game corpus not included for independent recounting |
+| 132,133 unique valid matchup probabilities | Existing forecast recovered and checked; no new model or score |
+| 19 manifest entries verified | File integrity, not original-provider timing authentication |
+| No new candidate or submission | Source work did not become model promotion |
 
-The older v99 package is a dated source-pilot snapshot, not the current execution state. Its historical files and the October 8 release evidence remain unchanged for provenance. The [sanitized execution receipt](../portfolio/latest_execution.json) preserves this return's status, counts and provenance without raw archives, private configuration or cloud paths. Check it with `python tools/summarize_execution.py --check` from the repository root. This is the latest inspected return, not a claim to have inventoried every file on the live AWS workspace.
+The injury transformation was **not recomputed** in this execution: source-schema compatibility and original status reconstruction remain open. Referenced cached acquisitions do not establish exact historical snapshot parity. The full private forecast replay and its historical admission gate are still incomplete.
 
-The normalized player bank includes third-party-derived NCAA records with their own provider identities. These records are not an original ESPN archive. Source ownership, original-response receipts, publication timing and model admission remain separate checks.
+The [sanitized receipt](../portfolio/latest_execution.json) exposes only allowlisted aggregates and provenance. Check it with `python tools/summarize_execution.py --check`. The private source tables, forecast rows, notebook and reconstruction specifications are excluded from publication.
+
+The return carries inherited performance summaries, not new scoring receipts. Consequently the **0.1067095 public scored case study is preserved as a dated receipt**, not presented as the newest or strongest private experiment. Earlier source pilots and model lineages remain historical records, not competing current-status pages.
 
 ## What remains
 

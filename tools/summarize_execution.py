@@ -8,8 +8,12 @@ No archive members are extracted or executed. The private archive is not publish
 from __future__ import annotations
 
 import argparse
+import csv
+import gzip
 import hashlib
+import io
 import json
+import math
 import re
 import stat
 import zipfile
@@ -23,22 +27,47 @@ RELEASE = ROOT / "portfolio/release_evidence.json"
 ARCHIVE_LIMIT = 16 * 1024 * 1024
 TOTAL_LIMIT = 64 * 1024 * 1024
 MEMBER_LIMIT = 32 * 1024 * 1024
-MEMBER_COUNT = 75
+MEMBER_COUNT = 19
+MANIFEST = "return_manifest.json"
 SUMMARY = "summary.json"
-REPAIR = "market_repair/repair_receipt.json"
-INJURY = "new_original_sources/provider_injury_sources/provider_acquisition_result.json"
+FEATURES = "rebuilt_official_team_season_feature_bank.json"
+PAIRS = "reconstructed_v19_source_linked_pair_bank.json"
+INJURY = "injury_23_status_weight_and_team_rebuild.json"
+CLOSURE = "v19_10stage_closure_and_stop_decision.json"
+BLOCKERS = "v19_stages_missing_original_sources_and_models.json"
+BASELINE = "recovered_strongest_baseline.json"
+SOFTWARE_TESTS = "unit_tests.json"
+AGGREGATE_MEMBERS = (SUMMARY, FEATURES, PAIRS, INJURY, CLOSURE, BLOCKERS, BASELINE, SOFTWARE_TESTS)
+FEATURE_DATA = "official_owned_trimmed_efficiency_2003_2026.csv.gz"
+PAIR_DATA = "v170_2026_owned_pair_inputs.csv.gz"
+BASELINE_DATA = "restored_v155_sha_verified.csv"
 PINNED_PROVENANCE = {
-    "source_zip_sha256": "12c77d28998170dc7afd53b6d2d81706182a45da83f216244d855e6c4dafb99b",
-    "manifest_sha256": "0cbff9a4af630c8dd71e7a97225ff28716e6c2f40b340a0c054bb6f1f8a55fac",
-    "summary_sha256": "5d6392195f623e276ff3aea64a8a08797f136def2669acc122f6c0df36a8994a",
-    "repair_receipt_sha256": "f004f423cb9447ad037c67671027e8d149fcd66cc5b22b6788514ae7fbec5de6",
-    "injury_receipt_sha256": "ce49352b800546fb19bec234c25e9eed0fed62f835c0de3a1fc32b6ebb32c995",
+    "source_zip_sha256": "80fed2dbee847c2ec3986e15981802e924e4e790efc33c6dee3f10fed40a8de7",
+    "manifest_sha256": "a0bba9dedc793b689e166aeffead6e12101e4e77b22127bd561f9f5d046dc2c2",
+    "aggregate_receipt_sha256": {
+        "execution": "b7ca3b8023006005a3e4f5bde8b2fb72449e7f11188649da6b26d76e29f08b69",
+        "official_feature_coverage": (
+            "5589e257daabee749830f40c8d9d3ccd1a1669a88e55bbeade03c2bc023ce32d"
+        ),
+        "matchup_coverage": "763291268088698d26684daac6726ec673f33b0633034d4bc3b71d239b22bc17",
+        "injury_rebuild": "224080e8088c93bc44de46117cdb25b64491fac4acaf9a6a7068cd603f9e4b17",
+        "admission": "fb05cdcae213bc4c6ff65bb5cb6e2fdb088b351d6568dab282e935b704591c0f",
+        "unresolved_dependencies": (
+            "98bf32ec1dbe14509407c30b833bfa16bb2f7388975c445a22afaa50f07b2746"
+        ),
+        "baseline_restoration": "dd171d7766eb552e8d0cb6cabf02dbc4dffee4098536f1bdf9c21aa55feec926",
+        "software_tests": "ca30df9463718d8a2965072e67b9cc86f9b60f00b6e570198154729514513471",
+    },
     "verified_manifest_members": MEMBER_COUNT,
-    "only_unmanifested_member": "manifest.json",
+    "only_unmanifested_member": MANIFEST,
 }
 VERIFICATION = (
-    "Derived from an inspected owner return. Archive integrity was verified; "
-    "private predictions were not independently replayed."
+    "Every archive member was checked against the manifest. Feature-profile and "
+    "matchup counts, unique identifiers, coverage flags, and restored-probability "
+    "validity were independently computed from private CSV members in memory. "
+    "Regular-season game totals remain producer-reported; original game records "
+    "and private forecasting stages were not independently replayed. "
+    "Restoring existing prediction bytes is not a new forecast or score receipt."
 )
 RECENCY = (
     "Latest owner return inspected for this publication, not a claim about the globally "
@@ -84,8 +113,8 @@ def accepted_score(path: Path = RELEASE) -> str:
     return str(score)
 
 
-def inspect_archive(path: Path, expected_sha256: str) -> tuple[dict[str, bytes], dict]:
-    """Validate every member while retaining only three small aggregate JSON objects."""
+def inspect_archive(path: Path, expected_sha256: str) -> tuple[dict[str, bytes], dict, dict]:
+    """Validate every member while retaining only allowlisted aggregate JSON objects."""
     require(path.stat().st_size <= ARCHIVE_LIMIT, "archive size limit exceeded")
     archive_digest = hashlib.sha256()
     with path.open("rb") as stream:
@@ -107,12 +136,12 @@ def inspect_archive(path: Path, expected_sha256: str) -> tuple[dict[str, bytes],
             names.append(info.filename)
         require(len(set(name.casefold() for name in names)) == len(names), "duplicate ZIP member")
         require(sum(info.file_size for info in members) <= TOTAL_LIMIT, "total size limit exceeded")
-        require("manifest.json" in names, "missing manifest")
-        manifest_info = archive.getinfo("manifest.json")
+        require(MANIFEST in names, "missing manifest")
+        manifest_info = archive.getinfo(MANIFEST)
         require(manifest_info.file_size <= 1024 * 1024, "manifest size limit exceeded")
         manifest_raw = archive.read(manifest_info)
         manifest = read_json(manifest_raw)
-        artifacts = manifest["artifacts"]
+        artifacts = manifest["files"]
         require(
             isinstance(artifacts, list) and len(artifacts) == MEMBER_COUNT,
             "manifest count mismatch",
@@ -122,30 +151,20 @@ def inspect_archive(path: Path, expected_sha256: str) -> tuple[dict[str, bytes],
             require(isinstance(item, dict), "invalid manifest artifact")
             name = item["path"]
             safe_member(name)
-            require(name not in receipts and name != "manifest.json", "duplicate manifest member")
-            require(
-                type(item["size_bytes"]) is int and item["size_bytes"] >= 0, "invalid declared size"
-            )
+            require(name not in receipts and name != MANIFEST, "duplicate manifest member")
+            require(type(item["size"]) is int and item["size"] >= 0, "invalid declared size")
             require(
                 isinstance(item["sha256"], str)
                 and re.fullmatch(r"[a-f0-9]{64}", item["sha256"]) is not None,
                 "invalid declared digest",
             )
-            require(item["required_for_return"] is True, "unrequired manifest member")
             receipts[name] = item
-        require(set(receipts) == set(names) - {"manifest.json"}, "manifest coverage mismatch")
-        required = manifest["required_members"]
-        require(
-            isinstance(required, list)
-            and len(required) == MEMBER_COUNT
-            and set(required) == set(receipts),
-            "required member coverage mismatch",
-        )
+        require(set(receipts) == set(names) - {MANIFEST}, "manifest coverage mismatch")
         kept = {}
         total_read = 0
         for name, receipt in receipts.items():
             info = archive.getinfo(name)
-            require(info.file_size == receipt["size_bytes"], "manifest size mismatch")
+            require(info.file_size == receipt["size"], "manifest size mismatch")
             member_digest = hashlib.sha256()
             size = 0
             retained = bytearray()
@@ -158,140 +177,307 @@ def inspect_archive(path: Path, expected_sha256: str) -> tuple[dict[str, bytes],
                         "decompression bound exceeded",
                     )
                     member_digest.update(block)
-                    if name in (SUMMARY, REPAIR, INJURY):
+                    if name in AGGREGATE_MEMBERS:
                         require(size <= 1024 * 1024, "aggregate JSON size limit exceeded")
                         retained.extend(block)
             require(
-                size == receipt["size_bytes"] and member_digest.hexdigest() == receipt["sha256"],
+                size == receipt["size"] and member_digest.hexdigest() == receipt["sha256"],
                 "manifest hash or size mismatch",
             )
-            if name in (SUMMARY, REPAIR, INJURY):
+            if name in AGGREGATE_MEMBERS:
                 kept[name] = bytes(retained)
-        require(set(kept) == {SUMMARY, REPAIR, INJURY}, "missing aggregate receipt")
+        require(set(kept) == set(AGGREGATE_MEMBERS), "missing aggregate receipt")
         provenance = {
             "source_zip_sha256": expected_sha256,
             "manifest_sha256": digest(manifest_raw),
-            "summary_sha256": digest(kept[SUMMARY]),
-            "repair_receipt_sha256": digest(kept[REPAIR]),
-            "injury_receipt_sha256": digest(kept[INJURY]),
+            "aggregate_receipt_sha256": {
+                label: digest(kept[name])
+                for label, name in zip(
+                    PINNED_PROVENANCE["aggregate_receipt_sha256"], AGGREGATE_MEMBERS, strict=True
+                )
+            },
             "verified_manifest_members": len(receipts),
-            "only_unmanifested_member": "manifest.json",
+            "only_unmanifested_member": MANIFEST,
         }
-    return kept, provenance
+        independent = verify_private_tables(archive)
+    return kept, provenance, independent
+
+
+def csv_rows(archive: zipfile.ZipFile, name: str, required: set[str]):
+    """Stream bounded private rows; never extract files or return their values publicly."""
+    total_chars = 0
+    with archive.open(name) as raw:
+        binary = gzip.GzipFile(fileobj=raw) if name.endswith(".gz") else raw
+        with io.TextIOWrapper(binary, encoding="utf-8", newline="") as stream:
+            rows = csv.DictReader(stream)
+            headers = rows.fieldnames
+            require(
+                headers is not None
+                and len(set(headers)) == len(headers)
+                and required <= set(headers),
+                "private CSV header mismatch",
+            )
+            require(len(headers) <= 64, "private CSV column limit exceeded")
+            for count, row in enumerate(rows, start=1):
+                require(count <= 150000, "private CSV row limit exceeded")
+                require(
+                    None not in row and all(value is not None for value in row.values()),
+                    "private CSV row width mismatch",
+                )
+                total_chars += sum(len(value) + 1 for value in row.values())
+                require(total_chars <= TOTAL_LIMIT, "private CSV decompression limit exceeded")
+                yield row
+
+
+def canonical_matchup(identifier: str) -> str:
+    require(
+        re.fullmatch(r"2026_[13][0-9]{3}_[13][0-9]{3}", identifier) is not None,
+        "invalid matchup identifier",
+    )
+    _, first, second = identifier.split("_")
+    require(first < second and first[0] == second[0], "invalid matchup team order")
+    return "M" if first[0] == "1" else "W"
+
+
+def verify_private_tables(archive: zipfile.ZipFile) -> dict:
+    """Independently compute only aggregate integrity facts from authenticated CSV bytes."""
+    require(
+        {FEATURE_DATA, PAIR_DATA, BASELINE_DATA} <= set(archive.namelist()),
+        "missing private verification table",
+    )
+    profiles = set()
+    profile_counts = {"M": 0, "W": 0}
+    for row in csv_rows(archive, FEATURE_DATA, {"Sex", "Season", "TeamID"}):
+        require(row["Sex"] in profile_counts, "invalid feature category")
+        require(re.fullmatch(r"[0-9]{4}", row["Season"]) is not None, "invalid feature season")
+        require(re.fullmatch(r"[13][0-9]{3}", row["TeamID"]) is not None, "invalid feature team")
+        identity = (row["Sex"], row["Season"], row["TeamID"])
+        require(identity not in profiles, "duplicate feature profile")
+        profiles.add(identity)
+        profile_counts[row["Sex"]] += 1
+    pair_ids = set()
+    pair_counts = {"M": 0, "W": 0}
+    coverage_count = 0
+    for row in csv_rows(
+        archive,
+        PAIR_DATA,
+        {"ID", "Sex", "OfficialFeaturesPresent", "GameEffDiff", "WinPctDiff"},
+    ):
+        sex = canonical_matchup(row["ID"])
+        require(row["Sex"] == sex, "matchup category disagreement")
+        require(row["ID"] not in pair_ids, "duplicate matchup identifier")
+        require(row["OfficialFeaturesPresent"] == "1", "missing official matchup features")
+        season, first, second = row["ID"].split("_")
+        require(
+            (sex, season, first) in profiles and (sex, season, second) in profiles,
+            "matchup team missing official feature profile",
+        )
+        for key in ("GameEffDiff", "WinPctDiff"):
+            try:
+                value = float(row[key])
+            except ValueError:
+                raise ValueError("EXECUTION_SUMMARY: invalid official matchup feature") from None
+            require(math.isfinite(value), "invalid official matchup feature")
+        pair_ids.add(row["ID"])
+        pair_counts[sex] += 1
+        coverage_count += 1
+    baseline_ids = set()
+    valid_probabilities = 0
+    for row in csv_rows(archive, BASELINE_DATA, {"ID", "Pred"}):
+        canonical_matchup(row["ID"])
+        require(row["ID"] not in baseline_ids, "duplicate baseline identifier")
+        baseline_ids.add(row["ID"])
+        try:
+            probability = float(row["Pred"])
+        except ValueError:
+            raise ValueError("EXECUTION_SUMMARY: invalid baseline probability") from None
+        require(
+            math.isfinite(probability) and 0 <= probability <= 1, "invalid baseline probability"
+        )
+        valid_probabilities += 1
+    require(pair_ids == baseline_ids, "matchup and baseline identifier disagreement")
+    return {
+        "feature_profile_rows": len(profiles),
+        "unique_feature_profiles": len(profiles),
+        "men_feature_profile_rows": profile_counts["M"],
+        "women_feature_profile_rows": profile_counts["W"],
+        "matchup_rows": len(pair_ids),
+        "unique_matchup_ids": len(pair_ids),
+        "men_matchup_rows": pair_counts["M"],
+        "women_matchup_rows": pair_counts["W"],
+        "matchups_with_official_features": coverage_count,
+        "restored_forecast_rows": len(baseline_ids),
+        "unique_restored_forecast_ids": len(baseline_ids),
+        "finite_probabilities_in_unit_interval": valid_probabilities,
+        "matchup_ids_equal_restored_forecast_ids": True,
+        "method": "streamed_private_archive_csv_members_in_memory",
+    }
+
+
+def assert_int(value: object, expected: int, message: str) -> None:
+    require(type(value) is int and value == expected, message)
+
+
+def public_fields(score: str) -> dict:
+    """The complete disclosure contract; private fields never pass through this object."""
+    return {
+        "schema": 2,
+        "scope": "latest_inspected_owner_return",
+        "recorded_ended_utc": "2026-10-14T00:34:11.305161Z",
+        "version": "v170-owned-source-rebuild-20261013",
+        "run_id": "20261014T003403546859Z-5ffbd983",
+        "status": "SOURCE_REBUILD_COMPLETED_ADMISSION_BLOCKED",
+        "producer_reported_status": "V170_COMPLETED_REBUILD_NO_QUALIFIED_SUBMISSION",
+        "previously_published_accepted_brier": score,
+        "new_score_receipt_present": False,
+        "activity": {"restored_baselines": 1, "new_candidates": 0, "submissions": 0},
+        "score_improvement_claim": False,
+        "historical_gate_passed": False,
+        "full_forecast_reconstruction_complete": False,
+        "source_vintage": "retrospective_2026",
+        "target_tournament_outcomes_loaded": False,
+        "source_engineering": {
+            "official_feature_coverage": {
+                "men": {
+                    "regular_season_games": 124529,
+                    "team_seasons": 8346,
+                    "earliest_season": 2003,
+                    "latest_season": 2026,
+                },
+                "women": {
+                    "regular_season_games": 87187,
+                    "team_seasons": 5965,
+                    "earliest_season": 2010,
+                    "latest_season": 2026,
+                },
+            },
+            "matchup_rows": 132133,
+            "men_matchup_rows": 66430,
+            "women_matchup_rows": 65703,
+            "official_features_present_for_all_matchups": True,
+            "injury_recomputed_in_this_execution": False,
+            "full_original_source_qualification": False,
+        },
+        "independent_verification": {
+            "feature_profile_rows": 14311,
+            "unique_feature_profiles": 14311,
+            "men_feature_profile_rows": 8346,
+            "women_feature_profile_rows": 5965,
+            "matchup_rows": 132133,
+            "unique_matchup_ids": 132133,
+            "men_matchup_rows": 66430,
+            "women_matchup_rows": 65703,
+            "matchups_with_official_features": 132133,
+            "restored_forecast_rows": 132133,
+            "unique_restored_forecast_ids": 132133,
+            "finite_probabilities_in_unit_interval": 132133,
+            "matchup_ids_equal_restored_forecast_ids": True,
+            "method": "streamed_private_archive_csv_members_in_memory",
+        },
+        "unresolved_dependencies": [
+            "Historical source versions and complete provider coverage",
+            "Injury input schema compatibility and status reconstruction",
+            "Private model checkpoints and ordered forecast reproduction",
+            "Historical admission of a newly reconstructed candidate",
+        ],
+        "producer_software_tests": {"passed": 7, "failures": 0, "errors": 0},
+        "verification_scope": VERIFICATION,
+        "recency_scope": RECENCY,
+    }
 
 
 def summarize_archive(path: Path, expected_sha256: str, score: str) -> dict:
-    kept, provenance = inspect_archive(path, expected_sha256)
-    summary, repair, injury = (read_json(kept[name]) for name in (SUMMARY, REPAIR, INJURY))
-    require(summary["status"] == "SOURCE_PARTIAL", "unexpected execution outcome")
-    require(
-        repair["status"] == "PASS" and injury["status"] == "SOURCE_PARTIAL",
-        "source component status mismatch",
+    kept, provenance, independent = inspect_archive(path, expected_sha256)
+    execution, features, pairs, injury, closure, blockers, baseline, tests = (
+        read_json(kept[name]) for name in AGGREGATE_MEMBERS
     )
     require(
-        Decimal(str(summary["current_best_confirmed_kaggle_brier"])) == Decimal(score),
-        "accepted score disagreement",
+        execution["status"] == "V170_COMPLETED_REBUILD_NO_QUALIFIED_SUBMISSION"
+        and execution["failure"] is None,
+        "unexpected producer execution outcome",
+    )
+    require(
+        execution["schema"] == "v170_owned_v19_primary_source_closure_20261013",
+        "unexpected producer schema",
     )
     for key in (
-        "model_fits",
-        "model_fits_completed",
-        "model_inferences",
-        "model_inferences_completed",
-        "new_candidates",
-        "submissions",
+        "2026_outcomes_loaded",
+        "kaggle_submission_attempted",
+        "new_candidate",
+        "qualifying_new_submission",
     ):
-        require(
-            type(summary[key]) is int and summary[key] == 0,
-            "unexpected model or submission activity",
-        )
+        require(execution[key] is False, "unexpected scientific promotion claim")
+    require(execution["labelling"] == "2026_RETROSPECTIVE_ONLY", "unexpected source vintage")
     for key in (
-        "score_improvement_claim",
-        "historical_gate_passed",
-        "all_gaps_closed",
-        "candidate_written",
-        "submission_attempted",
-        "target_score_computed",
-        "exact_v19_recreated",
+        "full_forecast",
+        "full_source_qualified",
+        "historical_admission",
+        "kaggle_submit_attempted",
     ):
-        require(summary[key] is False, "unexpected scientific promotion claim")
-    for key in ("model_fits", "model_inferences", "submissions"):
-        require(type(repair[key]) is int and repair[key] == 0, "repair activity disagreement")
+        require(closure[key] is False, "unexpected scientific promotion claim")
     require(
-        summary["quote_rows_reparsed"] == summary["repaired_quote_rows"] == repair["rows"] == 2258,
-        "repaired quote count disagreement",
+        blockers["exact_legacy_parity"] == "NOT_ESTABLISHED"
+        and blockers["full_10stage_candidate_qualified"] is False,
+        "unexpected reconstruction completion claim",
     )
+    assert_int(blockers["historical_2026_tournament_labels_used"], 0, "target outcome disagreement")
+    require(injury["fully_recomputed"] is False, "unexpected injury rebuild completion")
+    assert_int(injury["target_players"], 0, "injury rebuild count disagreement")
     require(
-        repair["last_missing_retained"] == 1075 and repair["eligible_model_feature"] is False,
-        "source admission disagreement",
+        pairs["no_2026_outcome_columns"] is True
+        and pairs["no_borrowed_competitor_numerics"] is True,
+        "matchup source policy disagreement",
     )
+    result = public_fields(score)
     require(
-        injury["exact23_injury_values_reconstructed"] is False
-        and injury["model_admitted_BPR"] == 0
-        and injury["proven_legacy_BPR_parity"] == 0,
-        "injury completion disagreement",
+        independent == result["independent_verification"],
+        "independently computed table integrity disagrees with published counts",
     )
+    result["independent_verification"] = independent
+    for category, sex in (("men", "M"), ("women", "W")):
+        actual = features["coverage"][sex]
+        expected = result["source_engineering"]["official_feature_coverage"][category]
+        for public_key, source_key in (
+            ("regular_season_games", "regular_games"),
+            ("team_seasons", "team_seasons"),
+            ("earliest_season", "earliest_season"),
+            ("latest_season", "latest_season"),
+        ):
+            assert_int(actual[source_key], expected[public_key], "official coverage disagreement")
+        expected_pairs = result["source_engineering"][f"{category}_matchup_rows"]
+        for key in (f"{sex}_pairs", f"{sex}_OfficialFeaturesPresent"):
+            assert_int(
+                pairs["sex_counts_and_coverage"][key],
+                expected_pairs,
+                "matchup coverage disagreement",
+            )
+        assert_int(baseline[category], expected_pairs, "baseline coverage disagreement")
+    assert_int(pairs["rows"], 132133, "matchup row disagreement")
+    assert_int(baseline["rows"], 132133, "baseline row disagreement")
     require(
-        summary["components"]["market_repair"] == repair
-        and summary["components"]["provider_sources"] == injury,
-        "component receipt disagreement",
+        baseline["sha256"]
+        == execution["base_v155_sha"]
+        == "432be1110f99f867009671367abd40a27637b966e3ffe64bc9ef00d81d061d0d",
+        "baseline restoration digest disagreement",
     )
-    ended = summary["ended_utc"]
+    for key, expected in result["producer_software_tests"].items():
+        assert_int(tests[key], expected, "producer software test disagreement")
+    require(tests["software_only"] is True, "unexpected model validation claim")
+    ended = execution["finished_utc"]
     require(isinstance(ended, str) and ended.endswith("Z"), "missing recorded UTC time")
     datetime.fromisoformat(ended.replace("Z", "+00:00"))
-    require(
-        re.fullmatch(r"v\d+-[a-z0-9-]+", summary["version"]) is not None, "invalid public version"
-    )
-    require(
-        re.fullmatch(r"\d{8}T\d{12}Z-[a-f0-9]{8}", summary["run_id"]) is not None,
-        "invalid public run identity",
-    )
-    # Construct a new object. Never copy producer dictionaries or private detail fields.
-    return {
-        "schema": 1,
-        "scope": "latest_inspected_owner_return",
-        "recorded_ended_utc": ended,
-        "version": summary["version"],
-        "run_id": summary["run_id"],
-        "status": summary["status"],
-        "best_confirmed_brier": score,
-        "activity": {"model_fits": 0, "model_inferences": 0, "new_candidates": 0, "submissions": 0},
-        "score_improvement_claim": False,
-        "historical_gate_passed": False,
-        "source_engineering": {
-            "repaired_quote_rows": repair["rows"],
-            "missing_last_quote_rows_retained": repair["last_missing_retained"],
-            "eligible_model_feature": False,
-            "original_injury_inputs_complete": False,
-        },
-        "provenance": provenance,
-        "verification_scope": VERIFICATION,
-        "recency_scope": RECENCY,
-    }
+    require(ended == result["recorded_ended_utc"], "execution timestamp disagreement")
+    require(execution["run_id"] == result["run_id"], "execution identity disagreement")
+    # Older score references in producer summaries are not new Kaggle receipts.
+    # Preserve only the separately authenticated public release score.
+    result["provenance"] = provenance
+    return result
 
 
 def validate_snapshot(snapshot: dict, score: str) -> None:
-    expected = {
-        "schema": 1,
-        "scope": "latest_inspected_owner_return",
-        "recorded_ended_utc": "2026-10-10T01:32:58.968371Z",
-        "version": "v128-owned-source-repair-20261010",
-        "run_id": "20261010T013254065226Z-2d8e2bc2",
-        "status": "SOURCE_PARTIAL",
-        "best_confirmed_brier": score,
-        "activity": {"model_fits": 0, "model_inferences": 0, "new_candidates": 0, "submissions": 0},
-        "score_improvement_claim": False,
-        "historical_gate_passed": False,
-        "source_engineering": {
-            "repaired_quote_rows": 2258,
-            "missing_last_quote_rows_retained": 1075,
-            "eligible_model_feature": False,
-            "original_injury_inputs_complete": False,
-        },
-        "provenance": PINNED_PROVENANCE,
-        "verification_scope": VERIFICATION,
-        "recency_scope": RECENCY,
-    }
-    # Serialized equality also rejects bool/int substitutions and additional keys.
+    expected = public_fields(score)
+    expected["provenance"] = PINNED_PROVENANCE
+    # Serialized equality rejects bool/int substitutions and additional private keys.
     require(
         json.dumps(snapshot, sort_keys=True) == json.dumps(expected, sort_keys=True),
         "public snapshot fields or provenance disagree",

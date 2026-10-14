@@ -1,57 +1,53 @@
 # Engineering a verifiable probability forecast
 
-**Alvaro Mendizabal · Probability modeling · Temporal data engineering · ML systems**
+**Alvaro Mendizabal · ML engineering · Data science · Research systems**
 
-## Result and responsibility
+## The problem
 
-**I built and evaluated an auditable NCAA probability-forecasting system that received a Kaggle-confirmed late-submission Brier score of 0.1067095.** That is **0.0030359 lower, or 2.77% less Brier loss**, than the official winning score of **0.1097454**.
+A tournament predictor must estimate uncertainty across many possible matchups using information that exists at the prediction cutoff. An attractive metric can hide duplicated games, hindsight in source snapshots, or a forecast that cannot be recovered after an interrupted run. I engineered the project around making these failure modes visible.
 
-The competition closed on March 19, 2026; I submitted this forecast on October 8 after outcomes had been inspected. The score demonstrates a retrospective numerical improvement, not an official competition victory, an equal-information contest or prospective outperformance. [Comparison scope](benchmark_comparison.md) · [Release evidence](../portfolio/release_evidence.json)
+The work spans source acquisition and qualification, team and matchup features, gender-specific models, probability calibration, historical evaluation and AWS delivery. [System architecture](architecture.md)
 
-[Explore Tournament Lab](https://alvaro-tournament-lab.tartmacaw2.chatgpt.site) for a hands-on view of probability assumptions and exact bracket propagation. Its fictional data and transparent rating rule are separate from the private research forecast.
+## My contribution
 
-## Engineering contributions
-
-I engineered forecast construction, source qualification, numerical verification and delivery around separate men's and women's probability branches. I integrated the men's system, retained the stable women's branch, and established the controls needed to evaluate changes without confusing input differences, implementation drift and predictive improvement.
-
-My contributions span four connected problems:
-
-- **Forecast construction:** gender-specific probability modeling, team-strength and ranking inputs, calibration, and controlled composition of complementary pregame signals.
-- **Source qualification:** raw receipts, immutable hashes, publication-time checks, provider-specific identities and explicit quarantine when records cannot support the intended claim.
-- **Numerical verification:** independently replayed features and matched-input model checks to distinguish implementation errors from input changes.
-- **Operational delivery:** AWS/SageMaker execution with self-tests, checkpoints, heartbeats, resumable work and verified return bundles.
-
-On the matched retrospective audit, men's Brier falls from **0.1430858925 to 0.1366807914** while women's Brier remains approximately **0.076738317**. Combined Brier falls from **0.1099121050 to 0.1067095543**. This local baseline is distinct from the official leaderboard score. The branch comparison locates the observed gain; causal credit for individual inputs still requires matched ablations.
-
-## Decisions with inspectable evidence
-
-| Engineering result | Verified scope | Decision it supports |
+| Area | What I built or integrated | Where to inspect it |
 |---|---|---|
-| Raw-game foundation | 42 men's / 29 women's seasons; 13,753 / 9,851 team-season rows | Reuse a documented feature foundation across historical regimes |
-| Women's numerical parity | 65,703 pairwise probabilities within 1e-4 | Retain a stable branch while examining changes elsewhere |
-| Men's procedure checks | 66 core and 66 margin members; 31 auxiliary features reconciled | Separate source differences from implementation drift |
-| Complete historical cohort | 558 saved controls replayed; eight legitimate games restored; 566 total | Evaluate the full declared population |
-| Independent feature replay | Men's and women's raw-to-feature outputs rebuilt and compared | Catch semantic errors before fitting another candidate |
-| Delivered artifact | 132,133 validated rows and a confirmed external receipt | Distinguish generation, submission and model promotion |
+| Data engineering | Provider identities, chronology checks, raw-to-feature replay, missingness and source receipts | [Source foundation](reproducible_source_foundation.md), [data audit notebook](../notebooks/00_data_audit_and_preparation.ipynb) |
+| Probability modeling | Separate men's/women's branches, ranking and strength features, calibrated outputs and controlled composition | [Model comparison](../notebooks/03_model_comparison_and_diagnostics.ipynb), [credited method lineage](benchmark_comparison.md) |
+| Evaluation design | Complete physical-game populations, season-based comparisons and separate development/confirmation evidence | [Reproduction matrix](reproduction_matrix.md), [split contracts](../configs/splits.yaml) |
+| ML operations | Bounded AWS jobs, checkpoint verification, resume behavior, heartbeats and diagnostic return bundles | [Runtime](../src/march_mania/runtime.py), [failure tests](../tests/test_runtime.py) |
+| Review experience | Executed notebooks, a synthetic Python evaluation lab, an interactive bracket demo and aggregate receipt checks | [Start here](../START_HERE.md), [evidence map](evidence_map.md) |
 
-Source coverage alone does not prove forecast quality. Numerical parity alone does not certify source publication timing.
+The system builds on credited public methods. Their underlying ideas are not presented as my inventions. The integration, evaluation repairs, source qualification and operational controls are explicit project contributions.
 
-## Research judgment
+## Measured delivery
 
-I retained negative findings rather than promoting a favorable slice. Mirrored training and an exact-date AP integration improved some recent results but failed broader historical requirements. Their useful source assets remained available; the failed recipes did not become approved models.
+The public scoring receipt records **0.1067095 Brier** for a 132,133-row research forecast. The submission occurred after the 2026 tournament and after outcomes were inspected. It is numerically below the published 2026 winning reference, with the unequal evaluation conditions documented in the [comparison](benchmark_comparison.md).
 
-I also repaired semantic errors that tuning would miss: AP edition interpretation, historical activation boundaries, equal-seed filtering, team order, margin targets and source-object identity. These controls are central to the work, not incidental bookkeeping.
+The latest source audit is a separate engineering result: **14,311 team-season profiles**, a recovered **132,133-row forecast**, and **19 manifest members verified**. The run reports 211,716 regular-season games; those raw game records were not included for independent recounting. The private forecast reconstruction remains incomplete. [Latest execution receipt](../portfolio/latest_execution.json)
 
-## A public demonstration of the reasoning
+## Decisions and tradeoffs
 
-[Tournament Lab](public_demo.md) exposes an eight-team synthetic bracket. Changing a team's rating or the probability temperature recomputes advancement probabilities across every possible bracket path. Matchup comparisons and exported assumptions make the calculation inspectable. The JSON also includes diagnostics on a small authored scoring sample. It uses no learned model, private forecasts or real tournament outcomes.
+**Repair evaluation before interpreting a gain.** An equal-seed filter excluded eight legitimate men's games. I reconciled all 558 saved control predictions before restoring them, creating a 566-game cohort. Otherwise an apparently stronger result could simply reflect a changed denominator.
 
-The public result audit serves a different purpose: it verifies aggregate release arithmetic, receipt hashes and disclosure flags. It cannot regenerate withheld private prediction rows.
+**Separate numerical parity from information availability.** A model can reproduce probabilities while using a source revision that was unavailable before tipoff. I retain source timing and parity as separate gates. Missing evidence stays missing rather than becoming an assumed pregame observation.
 
-## Current state and remaining work
+**Preserve stable components while isolating changes.** Matched-input checks reproduced women's probabilities and men's model procedures. This helps distinguish a changed input from an implementation error before crediting a new modeling idea. Causal claims still require matched ablations.
 
-The best confirmed score remains **0.1067095**. The latest inspected execution return, **v128, completed October 10, 2026**, ended **SOURCE_PARTIAL**. It repaired **2,258 market-quote rows**, retained **1,075 rows with missing last quotes**, and admitted no model. There were **zero fits, inferences, candidates or submissions**.
+**Retain negative results and completed work.** Several ranking and source integrations improved narrow slices but failed broader historical requirements. Their source assets and diagnostics remained reusable; the rejected recipes did not become approved models. Checkpoints keep a delivery failure from causing unnecessary retraining.
 
-Remaining gaps include exact injury inputs, broad timing-qualified player/availability and BPI/market histories, a newly validated complementary representation, and a full prospective 2027 run. Derived NCAA records are not relabeled as original ESPN records; retrieving an old game today does not prove the same bytes were available before its tournament.
+**Publish enough to inspect the engineering.** The public examples expose transparent temporal, identity and scoring contracts. Private fitted models, forecast rows and exact composition rules remain outside this release. Existing public methods retain their license and attribution.
 
-[Reviewer guide](../START_HERE.md) · [Validation matrix](reproduction_matrix.md) · [Current research](current_research.md) · [2027 readiness](2027_readiness.md) · [References and comparison scope](benchmark_comparison.md) · [Disclosure](../portfolio/DISCLOSURE.md)
+## How to interview this project
+
+- **ML engineer:** trace a corrupt checkpoint or late source timestamp through the failure path; explain the model/feature lineage and artifact freeze.
+- **Data scientist:** distinguish game-weighted from season-weighted Brier, explain the complete cohort repair, and separate retrospective improvement from prospective evidence.
+- **AI engineer:** discuss typed inputs, observable execution, durable state, controlled publication and reproducible evaluation. This project demonstrates forecasting systems; it makes no claim of being an LLM application.
+
+The [public Python example](public_reproduction.md) gives an interviewer a small executable starting point. The full framework and notebooks provide deeper evidence without requiring access to the private research environment.
+
+## Scope of closeout
+
+This release closes the public portfolio presentation and review path. It does not certify a completed private-model reconstruction or future-season performance. The latest return made no new submission. A prospective claim requires frozen predictions before future outcomes under the [2027 evaluation contract](2027_readiness.md).
+
+[Evidence map](evidence_map.md) · [Architecture](architecture.md) · [Reproduction matrix](reproduction_matrix.md) · [Disclosure](../portfolio/DISCLOSURE.md)

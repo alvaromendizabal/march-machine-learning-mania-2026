@@ -1,0 +1,97 @@
+{
+  "auc_convention": "Pairwise positive-versus-negative ranking; ties count one half; null if undefined",
+  "evidence_scope": "SYNTHETIC_ONLY",
+  "interpretation": "Synthetic diagnostic only; not NCAA accuracy or calibration evidence.",
+  "log_loss_probability_clip": 1e-15,
+  "per_season": {
+    "2023": {
+      "brier": 0.3499594444397932,
+      "log_loss": 0.9204517071182424,
+      "mean_prediction": 0.5505228400125812,
+      "observed_team_a_win_rate": 0.5625,
+      "physical_games": 16,
+      "roc_auc": 0.3492063492063492
+    },
+    "2024": {
+      "brier": 0.2389637424504258,
+      "log_loss": 0.6704660473579034,
+      "mean_prediction": 0.5023672840316242,
+      "observed_team_a_win_rate": 0.5,
+      "physical_games": 20,
+      "roc_auc": 0.58
+    },
+    "2025": {
+      "brier": 0.2358077751774502,
+      "log_loss": 0.6676615534945807,
+      "mean_prediction": 0.5372284445268564,
+      "observed_team_a_win_rate": 0.5833333333333334,
+      "physical_games": 24,
+      "roc_auc": 0.6357142857142857
+    },
+    "2026": {
+      "brier": 0.2575321036454043,
+      "log_loss": 0.7103691239489611,
+      "mean_prediction": 0.5245655808259141,
+      "observed_team_a_win_rate": 0.6071428571428571,
+      "physical_games": 28,
+      "roc_auc": 0.5935828877005348
+    }
+  },
+  "pooled_game_weighted": {
+    "brier": 0.2641921757542651,
+    "log_loss": 0.7278495569942135,
+    "mean_prediction": 0.5276935233250447,
+    "observed_team_a_win_rate": 0.5681818181818182,
+    "physical_games": 88,
+    "roc_auc": 0.5505263157894736
+  },
+  "reference_50_percent_brier": 0.25,
+  "reliability": {
+    "bins": [
+      {
+        "count": 4,
+        "lower_inclusive": 0.0,
+        "mean_prediction": 0.17539114012285772,
+        "observed_win_rate": 0.25,
+        "upper": 0.2,
+        "upper_inclusive": false
+      },
+      {
+        "count": 21,
+        "lower_inclusive": 0.2,
+        "mean_prediction": 0.32422715270283914,
+        "observed_win_rate": 0.5238095238095238,
+        "upper": 0.4,
+        "upper_inclusive": false
+      },
+      {
+        "count": 34,
+        "lower_inclusive": 0.4,
+        "mean_prediction": 0.5085186167123981,
+        "observed_win_rate": 0.6176470588235294,
+        "upper": 0.6,
+        "upper_inclusive": false
+      },
+      {
+        "count": 19,
+        "lower_inclusive": 0.6,
+        "mean_prediction": 0.6999929407691624,
+        "observed_win_rate": 0.5263157894736842,
+        "upper": 0.8,
+        "upper_inclusive": false
+      },
+      {
+        "count": 10,
+        "lower_inclusive": 0.8,
+        "mean_prediction": 0.8337196442517258,
+        "observed_win_rate": 0.7,
+        "upper": 1.0,
+        "upper_inclusive": true
+      }
+    ],
+    "caution": "Small authored sample; bin diagnostics are not a calibration guarantee.",
+    "expected_calibration_error": 0.14587607479157683
+  },
+  "schema_version": 1,
+  "unweighted_mean_season_brier": 0.27056576642826835
+}

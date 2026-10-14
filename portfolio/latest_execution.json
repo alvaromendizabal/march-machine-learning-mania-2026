@@ -1,34 +1,88 @@
 {
-  "schema": 1,
+  "schema": 2,
   "scope": "latest_inspected_owner_return",
-  "recorded_ended_utc": "2026-10-10T01:32:58.968371Z",
-  "version": "v128-owned-source-repair-20261010",
-  "run_id": "20261010T013254065226Z-2d8e2bc2",
-  "status": "SOURCE_PARTIAL",
-  "best_confirmed_brier": "0.1067095",
+  "recorded_ended_utc": "2026-10-14T00:34:11.305161Z",
+  "version": "v170-owned-source-rebuild-20261013",
+  "run_id": "20261014T003403546859Z-5ffbd983",
+  "status": "SOURCE_REBUILD_COMPLETED_ADMISSION_BLOCKED",
+  "producer_reported_status": "V170_COMPLETED_REBUILD_NO_QUALIFIED_SUBMISSION",
+  "previously_published_accepted_brier": "0.1067095",
+  "new_score_receipt_present": false,
   "activity": {
-    "model_fits": 0,
-    "model_inferences": 0,
+    "restored_baselines": 1,
     "new_candidates": 0,
     "submissions": 0
   },
   "score_improvement_claim": false,
   "historical_gate_passed": false,
+  "full_forecast_reconstruction_complete": false,
+  "source_vintage": "retrospective_2026",
+  "target_tournament_outcomes_loaded": false,
   "source_engineering": {
-    "repaired_quote_rows": 2258,
-    "missing_last_quote_rows_retained": 1075,
-    "eligible_model_feature": false,
-    "original_injury_inputs_complete": false
+    "official_feature_coverage": {
+      "men": {
+        "regular_season_games": 124529,
+        "team_seasons": 8346,
+        "earliest_season": 2003,
+        "latest_season": 2026
+      },
+      "women": {
+        "regular_season_games": 87187,
+        "team_seasons": 5965,
+        "earliest_season": 2010,
+        "latest_season": 2026
+      }
+    },
+    "matchup_rows": 132133,
+    "men_matchup_rows": 66430,
+    "women_matchup_rows": 65703,
+    "official_features_present_for_all_matchups": true,
+    "injury_recomputed_in_this_execution": false,
+    "full_original_source_qualification": false
   },
+  "independent_verification": {
+    "feature_profile_rows": 14311,
+    "unique_feature_profiles": 14311,
+    "men_feature_profile_rows": 8346,
+    "women_feature_profile_rows": 5965,
+    "matchup_rows": 132133,
+    "unique_matchup_ids": 132133,
+    "men_matchup_rows": 66430,
+    "women_matchup_rows": 65703,
+    "matchups_with_official_features": 132133,
+    "restored_forecast_rows": 132133,
+    "unique_restored_forecast_ids": 132133,
+    "finite_probabilities_in_unit_interval": 132133,
+    "matchup_ids_equal_restored_forecast_ids": true,
+    "method": "streamed_private_archive_csv_members_in_memory"
+  },
+  "unresolved_dependencies": [
+    "Historical source versions and complete provider coverage",
+    "Injury input schema compatibility and status reconstruction",
+    "Private model checkpoints and ordered forecast reproduction",
+    "Historical admission of a newly reconstructed candidate"
+  ],
+  "producer_software_tests": {
+    "passed": 7,
+    "failures": 0,
+    "errors": 0
+  },
+  "verification_scope": "Every archive member was checked against the manifest. Feature-profile and matchup counts, unique identifiers, coverage flags, and restored-probability validity were independently computed from private CSV members in memory. Regular-season game totals remain producer-reported; original game records and private forecasting stages were not independently replayed. Restoring existing prediction bytes is not a new forecast or score receipt.",
+  "recency_scope": "Latest owner return inspected for this publication, not a claim about the globally latest AWS artifact or current live execution state.",
   "provenance": {
-    "source_zip_sha256": "12c77d28998170dc7afd53b6d2d81706182a45da83f216244d855e6c4dafb99b",
-    "manifest_sha256": "0cbff9a4af630c8dd71e7a97225ff28716e6c2f40b340a0c054bb6f1f8a55fac",
-    "summary_sha256": "5d6392195f623e276ff3aea64a8a08797f136def2669acc122f6c0df36a8994a",
-    "repair_receipt_sha256": "f004f423cb9447ad037c67671027e8d149fcd66cc5b22b6788514ae7fbec5de6",
-    "injury_receipt_sha256": "ce49352b800546fb19bec234c25e9eed0fed62f835c0de3a1fc32b6ebb32c995",
-    "verified_manifest_members": 75,
-    "only_unmanifested_member": "manifest.json"
-  },
-  "verification_scope": "Derived from an inspected owner return. Archive integrity was verified; private predictions were not independently replayed.",
-  "recency_scope": "Latest owner return inspected for this publication, not a claim about the globally latest AWS artifact or current live execution state."
+    "source_zip_sha256": "80fed2dbee847c2ec3986e15981802e924e4e790efc33c6dee3f10fed40a8de7",
+    "manifest_sha256": "a0bba9dedc793b689e166aeffead6e12101e4e77b22127bd561f9f5d046dc2c2",
+    "aggregate_receipt_sha256": {
+      "execution": "b7ca3b8023006005a3e4f5bde8b2fb72449e7f11188649da6b26d76e29f08b69",
+      "official_feature_coverage": "5589e257daabee749830f40c8d9d3ccd1a1669a88e55bbeade03c2bc023ce32d",
+      "matchup_coverage": "763291268088698d26684daac6726ec673f33b0633034d4bc3b71d239b22bc17",
+      "injury_rebuild": "224080e8088c93bc44de46117cdb25b64491fac4acaf9a6a7068cd603f9e4b17",
+      "admission": "fb05cdcae213bc4c6ff65bb5cb6e2fdb088b351d6568dab282e935b704591c0f",
+      "unresolved_dependencies": "98bf32ec1dbe14509407c30b833bfa16bb2f7388975c445a22afaa50f07b2746",
+      "baseline_restoration": "dd171d7766eb552e8d0cb6cabf02dbc4dffee4098536f1bdf9c21aa55feec926",
+      "software_tests": "ca30df9463718d8a2965072e67b9cc86f9b60f00b6e570198154729514513471"
+    },
+    "verified_manifest_members": 19,
+    "only_unmanifested_member": "return_manifest.json"
+  }
 }

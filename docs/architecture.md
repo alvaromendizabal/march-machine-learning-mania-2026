@@ -3,37 +3,25 @@
 ## Research system
 
 ```mermaid
-flowchart LR
-    A[Official competition data] --> D[Provenance + chronology gate]
-    B[Independently recreated external sources] --> D
-    C[Owned derived ratings] --> D
-    D --> E[Normalized team / player / matchup stores]
-    E --> F[Leakage-safe feature construction]
-    F --> G[Chronological development]
-    F --> H[Later-season confirmation]
-    G --> I[Fixed model / composition policy]
-    H --> I
-    I --> J[Immutable forecast freeze]
-    J --> K[Exact Brier audit]
-    K --> L[Lifecycle decision]
-    L --> M[Aggregate public evidence]
+flowchart TD
+    A[Official records] --> C[Provenance and chronology]
+    B[Original-provider observations] --> C
+    C --> D[Normalized feature stores]
+    D --> E[Chronological development]
+    D --> F[Later-season evaluation]
+    E --> G[Fixed forecast policy]
+    F --> G
+    G --> H[Immutable forecast artifact]
+    H --> I[Evaluation and release evidence]
 ```
 
 The architecture deliberately separates **source eligibility**, **historical model evaluation**, and **final retrospective audit**. A lower audit score alone does not override failed historical promotion gates.
 
 ## Execution and publication flow
 
-```mermaid
-flowchart LR
-    AWS[AWS / SageMaker
-canonical research state] --> GH[GitHub
-curated reproducibility + portfolio]
-    AWS --> CAND[Immutable candidate artifact]
-    CAND --> SUB[Submission action only]
-    SUB --> AWS
-```
+AWS/SageMaker retains canonical private research state: source observations, fitted models, configurations, checkpoints and forecast rows. GitHub carries the public framework, synthetic examples, executed review notebooks and allowlisted aggregate evidence. Candidate generation, external submission acceptance and scientific model promotion have separate receipts.
 
-AWS is the source of truth for active research. GitHub is the versioned employer-facing evidence layer.
+The [public synthetic example](public_reproduction.md) makes the input-to-forecast-to-evaluation contract executable without private inputs. The [publication guard](../tools/check_publication.py) checks changed Git blobs for common private artifacts and credential patterns before publication. It complements manual diff review.
 
 ## Major layers
 

@@ -27,9 +27,8 @@ def validate(d,exp,own):
       "owned_external_consensus":0.1043512820,
       "canonical_aws_reproduced":0.1033437336,
       "pending_local_candidate":0.1027974461,
-      "stretch_target":0.09,
-      "remaining_absolute_reduction":0.0133437336,
     }
+    if set(s) != set(expected): raise ValueError("Only measured historical scores may be published")
     for k,v in expected.items():
         if abs(float(s[k])-v)>1e-12: raise ValueError(f"Score boundary changed: {k}")
     if q["men_first_season"]!=2003 or q["women_first_season"]!=2010 or not q["post_competition_research"] or q["pending_candidate_promoted"]:
@@ -59,6 +58,7 @@ def inspect():
     if "PUBLIC_OWNED_DATA_FRONTIER_COMPLETE" not in str(nb.cells[-1].outputs): raise ValueError("Missing publication sentinel")
     return {
       "status":"PASS",
+      "execution_engine":nb.metadata.get("execution_engine", "jupyter_kernel"),
       "scope":"Aggregate owned-data frontier case study; no forecasting implementation",
       "evidence_sha256":digest(DATA),
       "experiments_sha256":digest(EXP),
@@ -69,11 +69,16 @@ def inspect():
       "submissions":0
     }
 
-def build(kernel):
+def build(kernel, *, in_process=False):
     import nbformat
     from nbclient import NotebookClient
     nb=nbformat.read(NB,as_version=4)
-    NotebookClient(nb,timeout=120,kernel_name=kernel,resources={"metadata":{"path":str(ROOT)}}).execute()
+    if in_process:
+        from reproduce_release import execute_in_process
+        execute_in_process(nb, ROOT)
+    else:
+        NotebookClient(nb,timeout=120,kernel_name=kernel,resources={"metadata":{"path":str(ROOT)}}).execute()
+    nb.metadata["execution_engine"] = "ipython_in_process" if in_process else "jupyter_kernel"
     NB.write_text(nbformat.writes(nb))
     r=inspect(); RECEIPT.write_text(json.dumps(r,indent=2,sort_keys=True)+"\n"); return r
 
@@ -82,11 +87,12 @@ def main():
     p.add_argument("--build",action="store_true")
     p.add_argument("--check",action="store_true")
     p.add_argument("--kernel",default="python3")
+    p.add_argument("--in-process",action="store_true",help="Execute real sequential IPython cells without a separate kernel")
     a=p.parse_args(); load()
-    if a.build: print(json.dumps(build(a.kernel),indent=2))
+    if a.build: print(json.dumps(build(a.kernel, in_process=a.in_process),indent=2))
     elif a.check:
         r=inspect(); saved=json.loads(RECEIPT.read_text())
-        stable=("status","scope","code_cells","plotly_outputs","model_fits","submissions")
+        stable=("status","scope","execution_engine","code_cells","plotly_outputs","model_fits","submissions")
         if any(r.get(k)!=saved.get(k) for k in stable):
             raise ValueError("Publication receipt stable contract mismatch")
         # When a clean-kernel build has regenerated exact hashes in this worktree,
