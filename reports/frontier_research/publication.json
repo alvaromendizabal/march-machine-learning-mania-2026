@@ -1,8 +1,12 @@
 {
-  "status": "PASS",
-  "scope": "Aggregate owned-data frontier case study; no forecasting implementation",
   "code_cells": 6,
-  "plotly_outputs": 4,
+  "evidence_sha256": "917ad873c7acede60df6c2886d57c493d399d3673c4f64189eb6074b60c431c0",
+  "execution_engine": "ipython_in_process",
+  "experiments_sha256": "4d215e9da00d6c61fba7980b2053c469330e1afdeed0ccadb9253fa2f2ee70ec",
   "model_fits": 0,
+  "ownership_sha256": "2fa6f460402c8c4b8d4ea6132c6ef0a70df39f9c58416fd9af42c5e6428893d8",
+  "plotly_outputs": 4,
+  "scope": "Aggregate owned-data frontier case study; no forecasting implementation",
+  "status": "PASS",
   "submissions": 0
 }

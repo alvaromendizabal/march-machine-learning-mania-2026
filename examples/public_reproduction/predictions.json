@@ -1,0 +1,709 @@
+{
+  "evidence_scope": "SYNTHETIC_ONLY",
+  "forecasts": [
+    {
+      "game_id": "synthetic-2023-r1-g1",
+      "probability_a": 0.7011023537260904,
+      "season": 2023,
+      "started_at_utc": "2023-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2023-r1-g2",
+      "probability_a": 0.8195451642565212,
+      "season": 2023,
+      "started_at_utc": "2023-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_07",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2023-r1-g3",
+      "probability_a": 0.7072018763550456,
+      "season": 2023,
+      "started_at_utc": "2023-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2023-r1-g4",
+      "probability_a": 0.5718853024781444,
+      "season": 2023,
+      "started_at_utc": "2023-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2023-r2-g1",
+      "probability_a": 0.3960797695207024,
+      "season": 2023,
+      "started_at_utc": "2023-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2023-r2-g2",
+      "probability_a": 0.46359307125177557,
+      "season": 2023,
+      "started_at_utc": "2023-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2023-r2-g3",
+      "probability_a": 0.6880894081596711,
+      "season": 2023,
+      "started_at_utc": "2023-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2023-r2-g4",
+      "probability_a": 0.39780446925464863,
+      "season": 2023,
+      "started_at_utc": "2023-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2023-r3-g1",
+      "probability_a": 0.6696642243907496,
+      "season": 2023,
+      "started_at_utc": "2023-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2023-r3-g2",
+      "probability_a": 0.3269380266630965,
+      "season": 2023,
+      "started_at_utc": "2023-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2023-r3-g3",
+      "probability_a": 0.1911832033631312,
+      "season": 2023,
+      "started_at_utc": "2023-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2023-r3-g4",
+      "probability_a": 0.285717192700203,
+      "season": 2023,
+      "started_at_utc": "2023-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2023-r4-g1",
+      "probability_a": 0.5745012559774122,
+      "season": 2023,
+      "started_at_utc": "2023-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_05"
+    },
+    {
+      "game_id": "synthetic-2023-r4-g2",
+      "probability_a": 0.7852376569307455,
+      "season": 2023,
+      "started_at_utc": "2023-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2023-r4-g3",
+      "probability_a": 0.3550320652455122,
+      "season": 2023,
+      "started_at_utc": "2023-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_03",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2023-r4-g4",
+      "probability_a": 0.8747903999278493,
+      "season": 2023,
+      "started_at_utc": "2023-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2024-r1-g1",
+      "probability_a": 0.5474204736477625,
+      "season": 2024,
+      "started_at_utc": "2024-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2024-r1-g2",
+      "probability_a": 0.4299477929647497,
+      "season": 2024,
+      "started_at_utc": "2024-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_07",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2024-r1-g3",
+      "probability_a": 0.37695949629358194,
+      "season": 2024,
+      "started_at_utc": "2024-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_03",
+      "team_b": "FICTIONAL_06"
+    },
+    {
+      "game_id": "synthetic-2024-r1-g4",
+      "probability_a": 0.4794510288672076,
+      "season": 2024,
+      "started_at_utc": "2024-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_05"
+    },
+    {
+      "game_id": "synthetic-2024-r2-g1",
+      "probability_a": 0.47214088817950506,
+      "season": 2024,
+      "started_at_utc": "2024-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2024-r2-g2",
+      "probability_a": 0.5611775282487889,
+      "season": 2024,
+      "started_at_utc": "2024-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2024-r2-g3",
+      "probability_a": 0.4228812555053992,
+      "season": 2024,
+      "started_at_utc": "2024-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2024-r2-g4",
+      "probability_a": 0.5166675789518806,
+      "season": 2024,
+      "started_at_utc": "2024-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2024-r3-g1",
+      "probability_a": 0.3926477426256567,
+      "season": 2024,
+      "started_at_utc": "2024-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_06"
+    },
+    {
+      "game_id": "synthetic-2024-r3-g2",
+      "probability_a": 0.5072226134634271,
+      "season": 2024,
+      "started_at_utc": "2024-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_07",
+      "team_b": "FICTIONAL_05"
+    },
+    {
+      "game_id": "synthetic-2024-r3-g3",
+      "probability_a": 0.5473170827542497,
+      "season": 2024,
+      "started_at_utc": "2024-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2024-r3-g4",
+      "probability_a": 0.6129889961189734,
+      "season": 2024,
+      "started_at_utc": "2024-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2024-r4-g1",
+      "probability_a": 0.5206531212775056,
+      "season": 2024,
+      "started_at_utc": "2024-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2024-r4-g2",
+      "probability_a": 0.607252734945611,
+      "season": 2024,
+      "started_at_utc": "2024-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2024-r4-g3",
+      "probability_a": 0.455659363567062,
+      "season": 2024,
+      "started_at_utc": "2024-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_03",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2024-r4-g4",
+      "probability_a": 0.5506661164247805,
+      "season": 2024,
+      "started_at_utc": "2024-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2024-r5-g1",
+      "probability_a": 0.5001043272508182,
+      "season": 2024,
+      "started_at_utc": "2024-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2024-r5-g2",
+      "probability_a": 0.5371656329298871,
+      "season": 2024,
+      "started_at_utc": "2024-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2024-r5-g3",
+      "probability_a": 0.4893566261879034,
+      "season": 2024,
+      "started_at_utc": "2024-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_06"
+    },
+    {
+      "game_id": "synthetic-2024-r5-g4",
+      "probability_a": 0.5196652804277335,
+      "season": 2024,
+      "started_at_utc": "2024-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2025-r1-g1",
+      "probability_a": 0.7489543274803149,
+      "season": 2025,
+      "started_at_utc": "2025-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2025-r1-g2",
+      "probability_a": 0.5435677275005928,
+      "season": 2025,
+      "started_at_utc": "2025-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2025-r1-g3",
+      "probability_a": 0.3773742959726341,
+      "season": 2025,
+      "started_at_utc": "2025-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_03",
+      "team_b": "FICTIONAL_06"
+    },
+    {
+      "game_id": "synthetic-2025-r1-g4",
+      "probability_a": 0.7800615967903536,
+      "season": 2025,
+      "started_at_utc": "2025-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2025-r2-g1",
+      "probability_a": 0.8393563376958646,
+      "season": 2025,
+      "started_at_utc": "2025-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2025-r2-g2",
+      "probability_a": 0.7052441611989486,
+      "season": 2025,
+      "started_at_utc": "2025-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2025-r2-g3",
+      "probability_a": 0.28551154101742005,
+      "season": 2025,
+      "started_at_utc": "2025-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_05"
+    },
+    {
+      "game_id": "synthetic-2025-r2-g4",
+      "probability_a": 0.24859508439092687,
+      "season": 2025,
+      "started_at_utc": "2025-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2025-r3-g1",
+      "probability_a": 0.4450611110828574,
+      "season": 2025,
+      "started_at_utc": "2025-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2025-r3-g2",
+      "probability_a": 0.2512421575209382,
+      "season": 2025,
+      "started_at_utc": "2025-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_07",
+      "team_b": "FICTIONAL_05"
+    },
+    {
+      "game_id": "synthetic-2025-r3-g3",
+      "probability_a": 0.6757767759629804,
+      "season": 2025,
+      "started_at_utc": "2025-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2025-r3-g4",
+      "probability_a": 0.31921573678961535,
+      "season": 2025,
+      "started_at_utc": "2025-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2025-r4-g1",
+      "probability_a": 0.36321241255652015,
+      "season": 2025,
+      "started_at_utc": "2025-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2025-r4-g2",
+      "probability_a": 0.832970431156101,
+      "season": 2025,
+      "started_at_utc": "2025-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2025-r4-g3",
+      "probability_a": 0.28250042856574364,
+      "season": 2025,
+      "started_at_utc": "2025-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_07",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2025-r4-g4",
+      "probability_a": 0.4047553723518471,
+      "season": 2025,
+      "started_at_utc": "2025-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2025-r5-g1",
+      "probability_a": 0.13853950423517442,
+      "season": 2025,
+      "started_at_utc": "2025-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2025-r5-g2",
+      "probability_a": 0.5398915580097577,
+      "season": 2025,
+      "started_at_utc": "2025-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2025-r5-g3",
+      "probability_a": 0.7786965019184436,
+      "season": 2025,
+      "started_at_utc": "2025-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2025-r5-g4",
+      "probability_a": 0.6365459157985617,
+      "season": 2025,
+      "started_at_utc": "2025-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2025-r6-g1",
+      "probability_a": 0.6729051990181,
+      "season": 2025,
+      "started_at_utc": "2025-03-23T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2025-r6-g2",
+      "probability_a": 0.5863122347862526,
+      "season": 2025,
+      "started_at_utc": "2025-03-23T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2025-r6-g3",
+      "probability_a": 0.6298549964731762,
+      "season": 2025,
+      "started_at_utc": "2025-03-23T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2025-r6-g4",
+      "probability_a": 0.8073372603714263,
+      "season": 2025,
+      "started_at_utc": "2025-03-23T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2026-r1-g1",
+      "probability_a": 0.8024450002068011,
+      "season": 2026,
+      "started_at_utc": "2026-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2026-r1-g2",
+      "probability_a": 0.8790450147598349,
+      "season": 2026,
+      "started_at_utc": "2026-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_07",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2026-r1-g3",
+      "probability_a": 0.3942343161357838,
+      "season": 2026,
+      "started_at_utc": "2026-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2026-r1-g4",
+      "probability_a": 0.5403062316094889,
+      "season": 2026,
+      "started_at_utc": "2026-03-18T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2026-r2-g1",
+      "probability_a": 0.8805671006114849,
+      "season": 2026,
+      "started_at_utc": "2026-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_07",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2026-r2-g2",
+      "probability_a": 0.585949314488616,
+      "season": 2026,
+      "started_at_utc": "2026-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_06"
+    },
+    {
+      "game_id": "synthetic-2026-r2-g3",
+      "probability_a": 0.7986820584752162,
+      "season": 2026,
+      "started_at_utc": "2026-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2026-r2-g4",
+      "probability_a": 0.4370720796873421,
+      "season": 2026,
+      "started_at_utc": "2026-03-19T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2026-r3-g1",
+      "probability_a": 0.2583808082931517,
+      "season": 2026,
+      "started_at_utc": "2026-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_06"
+    },
+    {
+      "game_id": "synthetic-2026-r3-g2",
+      "probability_a": 0.353122899773533,
+      "season": 2026,
+      "started_at_utc": "2026-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2026-r3-g3",
+      "probability_a": 0.4574157749237658,
+      "season": 2026,
+      "started_at_utc": "2026-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2026-r3-g4",
+      "probability_a": 0.18701019638243907,
+      "season": 2026,
+      "started_at_utc": "2026-03-20T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2026-r4-g1",
+      "probability_a": 0.8009864728920895,
+      "season": 2026,
+      "started_at_utc": "2026-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2026-r4-g2",
+      "probability_a": 0.4559905979871693,
+      "season": 2026,
+      "started_at_utc": "2026-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2026-r4-g3",
+      "probability_a": 0.3742885665146403,
+      "season": 2026,
+      "started_at_utc": "2026-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_03",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2026-r4-g4",
+      "probability_a": 0.8001532606392857,
+      "season": 2026,
+      "started_at_utc": "2026-03-21T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2026-r5-g1",
+      "probability_a": 0.7739753101863484,
+      "season": 2026,
+      "started_at_utc": "2026-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_04",
+      "team_b": "FICTIONAL_01"
+    },
+    {
+      "game_id": "synthetic-2026-r5-g2",
+      "probability_a": 0.5228535505272559,
+      "season": 2026,
+      "started_at_utc": "2026-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_03",
+      "team_b": "FICTIONAL_05"
+    },
+    {
+      "game_id": "synthetic-2026-r5-g3",
+      "probability_a": 0.2611485238579098,
+      "season": 2026,
+      "started_at_utc": "2026-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_06"
+    },
+    {
+      "game_id": "synthetic-2026-r5-g4",
+      "probability_a": 0.6447784611110176,
+      "season": 2026,
+      "started_at_utc": "2026-03-22T17:00:00Z",
+      "team_a": "FICTIONAL_07",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2026-r6-g1",
+      "probability_a": 0.18483165651068628,
+      "season": 2026,
+      "started_at_utc": "2026-03-23T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_03"
+    },
+    {
+      "game_id": "synthetic-2026-r6-g2",
+      "probability_a": 0.22855262680364893,
+      "season": 2026,
+      "started_at_utc": "2026-03-23T17:00:00Z",
+      "team_a": "FICTIONAL_02",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2026-r6-g3",
+      "probability_a": 0.5022937414665944,
+      "season": 2026,
+      "started_at_utc": "2026-03-23T17:00:00Z",
+      "team_a": "FICTIONAL_08",
+      "team_b": "FICTIONAL_05"
+    },
+    {
+      "game_id": "synthetic-2026-r6-g4",
+      "probability_a": 0.28021204626375434,
+      "season": 2026,
+      "started_at_utc": "2026-03-23T17:00:00Z",
+      "team_a": "FICTIONAL_06",
+      "team_b": "FICTIONAL_07"
+    },
+    {
+      "game_id": "synthetic-2026-r7-g1",
+      "probability_a": 0.49640161812064587,
+      "season": 2026,
+      "started_at_utc": "2026-03-24T17:00:00Z",
+      "team_a": "FICTIONAL_01",
+      "team_b": "FICTIONAL_02"
+    },
+    {
+      "game_id": "synthetic-2026-r7-g2",
+      "probability_a": 0.520564120956772,
+      "season": 2026,
+      "started_at_utc": "2026-03-24T17:00:00Z",
+      "team_a": "FICTIONAL_03",
+      "team_b": "FICTIONAL_08"
+    },
+    {
+      "game_id": "synthetic-2026-r7-g3",
+      "probability_a": 0.6828533195737367,
+      "season": 2026,
+      "started_at_utc": "2026-03-24T17:00:00Z",
+      "team_a": "FICTIONAL_07",
+      "team_b": "FICTIONAL_04"
+    },
+    {
+      "game_id": "synthetic-2026-r7-g4",
+      "probability_a": 0.5837215943665833,
+      "season": 2026,
+      "started_at_utc": "2026-03-24T17:00:00Z",
+      "team_a": "FICTIONAL_05",
+      "team_b": "FICTIONAL_06"
+    }
+  ]
+}

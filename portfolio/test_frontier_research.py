@@ -15,7 +15,7 @@ class Tests(unittest.TestCase):
     def test_valid(self): self.assertEqual(validate(self.d,self.exp,self.own)[0]["schema"],2)
     def test_canonical(self): self.reject_d(["scores","canonical_aws_reproduced"],0.09)
     def test_pending(self): self.reject_d(["scores","pending_local_candidate"],0.09)
-    def test_target(self): self.reject_d(["scores","stretch_target"],0.08)
+    def test_unmeasured_score_rejected(self): self.reject_d(["scores","unmeasured_goal"],0.08)
     def test_scope_men(self): self.reject_d(["scope","men_first_season"],1985)
     def test_scope_women(self): self.reject_d(["scope","women_first_season"],1998)
     def test_post_competition(self): self.reject_d(["scope","post_competition_research"],False)
@@ -34,7 +34,5 @@ class Tests(unittest.TestCase):
     def test_ownership(self):
         x=self.own[self.own["source"]!="WNCAA NET"].copy()
         with self.assertRaises(ValueError): validate(self.d,self.exp,x)
-    def test_gap_arithmetic(self):
-        self.assertAlmostEqual(self.d["scores"]["canonical_aws_reproduced"]-self.d["scores"]["stretch_target"],self.d["scores"]["remaining_absolute_reduction"],12)
 
 if __name__=="__main__": unittest.main()

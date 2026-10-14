@@ -106,3 +106,19 @@ Thumbs.db
 research/workspace/
 research/publication_archive/
 **/private_backups/
+
+# Private owner execution handoffs and source/model stores (public summaries are explicit).
+*.pyz
+*.csv.gz
+*.json.gz
+*.parquet
+*.feather
+*.arrow
+*.npy
+*.npz
+**/owner_returns/
+**/private_artifacts/
+**/raw_supplemental/
+**/restored_v155_sha_verified.csv
+**/target_23_injury_and_bpr_source_inventory.json
+**/injury_23_status_weight_and_team_rebuild.json

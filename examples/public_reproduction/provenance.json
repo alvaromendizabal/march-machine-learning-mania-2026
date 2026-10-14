@@ -1,0 +1,233 @@
+{
+  "artifacts": {
+    "evaluation.json": {
+      "bytes": 2923,
+      "sha256": "5bfe16352605136eab5431e1cba754011ee81e3012cd063b5abc0b035e4898c9"
+    },
+    "predictions.json": {
+      "bytes": 20307,
+      "sha256": "4e03ecd33d6c0351afb57d8cb481b25ceb208c986c32b980d69abfeb15e26c0d"
+    },
+    "synthetic_fixture.json": {
+      "bytes": 37071,
+      "sha256": "255db3392176ec7337118f898501289bb8b541c81683cf87fca33cab98a49666"
+    }
+  },
+  "evidence_scope": "SYNTHETIC_ONLY",
+  "fixture_seed": 20261014,
+  "generator": "tools/reproduce_public.py",
+  "generator_sha256": "d2d057464d7b14134d7a9cd599c715116470779d05f176295ea41984c6c390de",
+  "model": "Unfitted logistic rating example with fixed scale 400",
+  "model_fits": 0,
+  "network_requests": 0,
+  "private_artifacts_read": 0,
+  "schema_version": 1,
+  "scope_limit": "Reproduces only this authored example, not a private model or a Kaggle score.",
+  "source_audit": {
+    "excluded_post_cutoff_observations": 32,
+    "forecast_cutoffs_utc": {
+      "2023": "2023-03-16T23:59:59Z",
+      "2024": "2024-03-16T23:59:59Z",
+      "2025": "2025-03-16T23:59:59Z",
+      "2026": "2026-03-16T23:59:59Z"
+    },
+    "prediction_inputs_contain_labels": false,
+    "selected_observations": [
+      {
+        "observed_at_utc": "2023-03-16T12:00:00Z",
+        "rating": 1545.77964,
+        "season": 2023,
+        "team": "FICTIONAL_01"
+      },
+      {
+        "observed_at_utc": "2023-03-16T12:00:00Z",
+        "rating": 1356.17666,
+        "season": 2023,
+        "team": "FICTIONAL_02"
+      },
+      {
+        "observed_at_utc": "2023-03-16T12:00:00Z",
+        "rating": 1515.350189,
+        "season": 2023,
+        "team": "FICTIONAL_03"
+      },
+      {
+        "observed_at_utc": "2023-03-16T12:00:00Z",
+        "rating": 1443.323041,
+        "season": 2023,
+        "team": "FICTIONAL_04"
+      },
+      {
+        "observed_at_utc": "2023-03-16T12:00:00Z",
+        "rating": 1493.62256,
+        "season": 2023,
+        "team": "FICTIONAL_05"
+      },
+      {
+        "observed_at_utc": "2023-03-16T12:00:00Z",
+        "rating": 1668.540235,
+        "season": 2023,
+        "team": "FICTIONAL_06"
+      },
+      {
+        "observed_at_utc": "2023-03-16T12:00:00Z",
+        "rating": 1619.058407,
+        "season": 2023,
+        "team": "FICTIONAL_07"
+      },
+      {
+        "observed_at_utc": "2023-03-16T12:00:00Z",
+        "rating": 1693.883212,
+        "season": 2023,
+        "team": "FICTIONAL_08"
+      },
+      {
+        "observed_at_utc": "2024-03-16T12:00:00Z",
+        "rating": 1448.120108,
+        "season": 2024,
+        "team": "FICTIONAL_01"
+      },
+      {
+        "observed_at_utc": "2024-03-16T12:00:00Z",
+        "rating": 1516.498235,
+        "season": 2024,
+        "team": "FICTIONAL_02"
+      },
+      {
+        "observed_at_utc": "2024-03-16T12:00:00Z",
+        "rating": 1436.606489,
+        "season": 2024,
+        "team": "FICTIONAL_03"
+      },
+      {
+        "observed_at_utc": "2024-03-16T12:00:00Z",
+        "rating": 1448.192602,
+        "season": 2024,
+        "team": "FICTIONAL_04"
+      },
+      {
+        "observed_at_utc": "2024-03-16T12:00:00Z",
+        "rating": 1462.479537,
+        "season": 2024,
+        "team": "FICTIONAL_05"
+      },
+      {
+        "observed_at_utc": "2024-03-16T12:00:00Z",
+        "rating": 1523.895126,
+        "season": 2024,
+        "team": "FICTIONAL_06"
+      },
+      {
+        "observed_at_utc": "2024-03-16T12:00:00Z",
+        "rating": 1467.498672,
+        "season": 2024,
+        "team": "FICTIONAL_07"
+      },
+      {
+        "observed_at_utc": "2024-03-16T12:00:00Z",
+        "rating": 1481.170561,
+        "season": 2024,
+        "team": "FICTIONAL_08"
+      },
+      {
+        "observed_at_utc": "2025-03-16T12:00:00Z",
+        "rating": 1670.631364,
+        "season": 2025,
+        "team": "FICTIONAL_01"
+      },
+      {
+        "observed_at_utc": "2025-03-16T12:00:00Z",
+        "rating": 1413.749181,
+        "season": 2025,
+        "team": "FICTIONAL_02"
+      },
+      {
+        "observed_at_utc": "2025-03-16T12:00:00Z",
+        "rating": 1545.319267,
+        "season": 2025,
+        "team": "FICTIONAL_03"
+      },
+      {
+        "observed_at_utc": "2025-03-16T12:00:00Z",
+        "rating": 1353.166669,
+        "season": 2025,
+        "team": "FICTIONAL_04"
+      },
+      {
+        "observed_at_utc": "2025-03-16T12:00:00Z",
+        "rating": 1573.097801,
+        "season": 2025,
+        "team": "FICTIONAL_05"
+      },
+      {
+        "observed_at_utc": "2025-03-16T12:00:00Z",
+        "rating": 1632.301159,
+        "season": 2025,
+        "team": "FICTIONAL_06"
+      },
+      {
+        "observed_at_utc": "2025-03-16T12:00:00Z",
+        "rating": 1383.398253,
+        "season": 2025,
+        "team": "FICTIONAL_07"
+      },
+      {
+        "observed_at_utc": "2025-03-16T12:00:00Z",
+        "rating": 1480.750326,
+        "season": 2025,
+        "team": "FICTIONAL_08"
+      },
+      {
+        "observed_at_utc": "2026-03-16T12:00:00Z",
+        "rating": 1321.687091,
+        "season": 2026,
+        "team": "FICTIONAL_01"
+      },
+      {
+        "observed_at_utc": "2026-03-16T12:00:00Z",
+        "rating": 1324.187546,
+        "season": 2026,
+        "team": "FICTIONAL_02"
+      },
+      {
+        "observed_at_utc": "2026-03-16T12:00:00Z",
+        "rating": 1579.475471,
+        "season": 2026,
+        "team": "FICTIONAL_03"
+      },
+      {
+        "observed_at_utc": "2026-03-16T12:00:00Z",
+        "rating": 1535.515581,
+        "season": 2026,
+        "team": "FICTIONAL_04"
+      },
+      {
+        "observed_at_utc": "2026-03-16T12:00:00Z",
+        "rating": 1563.584125,
+        "season": 2026,
+        "team": "FICTIONAL_05"
+      },
+      {
+        "observed_at_utc": "2026-03-16T12:00:00Z",
+        "rating": 1504.855374,
+        "season": 2026,
+        "team": "FICTIONAL_06"
+      },
+      {
+        "observed_at_utc": "2026-03-16T12:00:00Z",
+        "rating": 1668.742483,
+        "season": 2026,
+        "team": "FICTIONAL_07"
+      },
+      {
+        "observed_at_utc": "2026-03-16T12:00:00Z",
+        "rating": 1565.177991,
+        "season": 2026,
+        "team": "FICTIONAL_08"
+      }
+    ],
+    "selected_team_season_observations": 32,
+    "selection_rule": "Latest observation at or before that season's fixed forecast cutoff",
+    "source_observations": 96
+  }
+}

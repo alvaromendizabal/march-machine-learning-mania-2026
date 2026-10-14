@@ -2,7 +2,7 @@
 
 **Alvaro Mendizabal · probability modeling · temporal validation · source provenance · AWS/SageMaker**
 
-The latest confirmed Kaggle late submission scores **0.1067095 Brier**, compared with the official winner's **0.1097454**: **0.0030359 lower, or 2.77% less probability loss**. This is a meaningful numerical reduction in the measured loss, not a 2.77-point increase in accuracy.
+The published October 8 Kaggle late-submission receipt records **0.1067095 Brier**, compared with the official winner's **0.1097454**: **0.0030359 lower, or 2.77% less probability loss**. This is a meaningful numerical reduction in the measured loss, not a 2.77-point increase in accuracy.
 
 The official deadline was March 19, 2026; the project submitted this result on October 8 after outcomes were available. It is a retrospective improvement, not an official competition victory. The score alone does not establish statistical significance or isolate which method caused the improvement. [Read the comparison and its scope](../docs/benchmark_comparison.md).
 
@@ -26,11 +26,11 @@ The submitted system adapts the men's probability composition and retains the wo
 - **Reliable execution:** self-tests, bounded concurrency, checkpoint integrity, resumable stages, and validated output bundles on AWS/SageMaker.
 - **Research judgment:** plausible experiments are retained as negative evidence when they fail declared historical requirements.
 
-## Current frontier
+## Latest inspected source audit
 
-v99 is delivered and awaits the owner's actual return. It audits the exact historical cache and tests an original-source boxscore route across 60 games and 20 gender-season groups. It is a source qualification milestone, not a new submission.
+The **v170 October 14** return completed source reconstruction over **14,311 team-season profiles** and recovered **132,133 valid existing matchup probabilities**. All **19 manifested members** passed integrity checks. It did not create a new candidate or submission, complete the full private forecast reconstruction, or pass historical admission. Injury transformation and exact source timing remain incomplete.
 
-Broad original player/availability histories, dated market and BPI coverage, and prospective 2027 execution remain open. The earlier derived NCAA player bank is not represented as original ESPN data. Partial source coverage is not presented as a finished predictive feature.
+The [execution receipt](latest_execution.json) contains only allowlisted aggregates. The scored case study above is a dated published receipt, not a statement of the best or newest private experiment. [Current evidence](../docs/current_research.md) · [Executable public example](../docs/public_reproduction.md)
 
 ## Review path
 

@@ -1,12 +1,12 @@
 # Publication and evaluation disclosure
 
-## Current result
+## Published scored case study
 
-The current confirmed result is **v54 forecast, delivered through v93r1: 0.1067095 Brier**, accepted by Kaggle as a late submission on October 8, 2026. Both displayed score fields match. The corresponding local 126-game audit is **0.1067095543**.
+The published scoring receipt records **v54 forecast, delivered through v93r1: 0.1067095 Brier**, accepted by Kaggle as a late submission on October 8, 2026. Both displayed score fields match. The corresponding local 126-game audit is **0.1067095543**.
 
 The official winning score was **0.1097454**, from predictions submitted by the March 19 competition deadline. The numerical difference is **0.0030359**, or **2.77% lower Brier loss**. Because this project submitted after outcomes were known and inspected, the comparison does not establish an official victory, an equal-information contest, statistical significance, or prospective superiority. Historical fold metrics use different populations and are not interchangeable with the submission score.
 
-The [benchmark comparison](../docs/benchmark_comparison.md) and [release evidence](release_evidence.json) are the current references. Earlier snapshots reporting 0.1222672 or identifying the 0.1067 reconstruction as unsubmitted describe earlier lifecycle states.
+The [benchmark comparison](../docs/benchmark_comparison.md) and [release evidence](release_evidence.json) document this dated scored case study. Earlier snapshots reporting 0.1222672 or identifying the 0.1067 reconstruction as unsubmitted describe earlier lifecycle states.
 
 ## Attribution and contribution
 
@@ -20,7 +20,13 @@ The public repository provides aggregate evidence, reviewable metric and validat
 
 Private prediction rows, fitted competition models, raw supplemental archives, detailed private feature/correction rules, weights, credentials, and cloud orchestration state are intentionally withheld. Publicly exposed historical code retains its existing scope and license; this disclosure does not promise that all previously public methods have become private.
 
-Derived third-party NCAA player records are not relabeled as original-owned ESPN records. Original response acquisition, source timing, identity mapping, and model admission are separate checks. The latest inspected execution return, v128 on October 10, 2026, ended SOURCE_PARTIAL: 2,258 market-quote rows repaired and 1,075 rows with missing last quotes retained, with model admission false and zero fits, inferences, candidates or submissions. The [sanitized receipt](latest_execution.json) records the inspected-return scope; it is not a claim about uninspected live AWS files. Earlier v99 snapshots remain dated historical records.
+Derived third-party NCAA player records are not relabeled as original-owned ESPN records. Acquisition, timing, identity mapping and model admission are separate checks. The latest inspected return, **v170 on October 14, 2026 UTC**, completes a source-reconstruction audit, covers 14,311 team-season profiles, and recovers 132,133 existing probabilities. It submits no new candidate and does not complete the private forecast reconstruction. Injury recomputation and historical admission remain incomplete. The [sanitized receipt](latest_execution.json) records the inspected-return scope; it is not a claim about uninspected live AWS files.
+
+The public scored case study remains tied to its own October 8 receipt. Later inherited score summaries are not promoted into authenticated submission claims. No four-year competition-win claim is supported by this publication.
+
+## Public synthetic reproduction
+
+The [Python evaluation example](../docs/public_reproduction.md) publishes authored synthetic snapshots, prediction requests, labels and outputs. Its transparent illustrative model demonstrates temporal and evaluation contracts. Its rows are intentionally public synthetic examples, not private competition predictions. Its metrics provide no estimate of NCAA model performance. The publication guard permits only this explicitly named example location for those fixtures.
 
 ## Public demo boundary
 

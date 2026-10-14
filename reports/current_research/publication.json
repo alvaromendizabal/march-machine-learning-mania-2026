@@ -1,9 +1,10 @@
 {
   "status": "PASS",
+  "execution_engine": "ipython_in_process",
   "scope": "Aggregate employer case study; no forecasting implementation",
-  "source_sha256": "cdec47c1604b7956628c18a976005ba88088fc36e8e4347d577127a02a8d1d91",
-  "builder_sha256": "77dc9f56a5c7cf03aea5f5fbf9c5c28f44d5ba39faf61002b6bd02daa518289c",
-  "notebook_sha256": "3675a528ec83a247af0d243f50658d592d2e8a92662c1bc399fe038477549d74",
+  "source_sha256": "9a0b643977ff09afce8f89f58c08673abe8a471a2c3bc954542a28f04bbd4344",
+  "builder_sha256": "92dae59257b53db9c4942ec44e6ed656ffc039a928aa5b0162fc27422cb9c2fa",
+  "notebook_sha256": "15d881a7f0e01e0ce8c48dbec2ffa2dce54afb49cbe23677861d58905e823388",
   "code_cells": 8,
   "plotly_outputs": 6,
   "png_fallbacks": 6,
@@ -13,7 +14,7 @@
     "gains": "61287fd702d409a379deba636902969e4ca508abe484b79d3e55b9af5f9cecea",
     "market_components": "be53e5f9b1312adae9800be772b7a243e80d70a53ecc0584568a664aca150004",
     "scope": "131b381b8abee195394277551a4c3403d0b62f7bd44b36d6ef2c61187db3c79d",
-    "score_gap": "6f20163215ed6a7dbc6a698b6203af13657acec602717b9366cec990ddb7950e",
+    "score_gap": "52d4ad5b1577c5728225ed9b8ced0ad1db5a5678c1e3d796d6c9407f981f8bda",
     "research_boundary": "72fed339fb8077ed2917ddcebd2add845091de1c8ac73794bbc7e4d592a20ae5"
   }
 }

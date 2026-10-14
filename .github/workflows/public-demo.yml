@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+          fetch-depth: 0
       - name: Set up dependency-free Python checks
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
@@ -26,6 +27,16 @@ jobs:
         with:
           node-version: "24.19.0"
           package-manager-cache: false
+      - name: Verify the public reproduction and failure contracts
+        run: |
+          python tools/reproduce_public.py --check
+          python -m unittest discover -s tools -p 'test_public_reproduction.py'
+          python -m unittest discover -s tools -p 'test_publication.py'
+      - name: Check the exact proposed publication
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: python tools/check_publication.py --base "$BASE_SHA" --head "$HEAD_SHA"
       - name: Verify the static publication boundary
         run: |
           python -m unittest discover -s tools -p 'test_public_demo_boundary.py'
