@@ -412,7 +412,56 @@
       scope: "Hypothetical user-entered prices; not live odds, expected profit or a betting recommendation.",
     };
   }
+  // Decompose the championship marginal into mutually exclusive final-opponent paths.
+  function finalPaths(data, teamId, settings = {}) {
+    validateData(data);
+    const result = forecast(data.teams, data.bracket, settings);
+    const chosen = result.teams.find(t => t.id === teamId);
+    if (!chosen) fail("Select a known scenario team");
+    const position = data.bracket.indexOf(teamId);
+    const opposite = data.bracket.slice(position < 4 ? 4 : 0, position < 4 ? 8 : 4);
+    const rows = opposite.map(otherId => {
+      const other = result.teams.find(t => t.id === otherId);
+      const probability = winProbability(chosen.adjusted_rating, other.adjusted_rating, result.settings.temperature);
+      return { opponent: other.id, name: other.name, opponent_reaches_final: other.advance[1],
+        win_matchup: probability, contribution: chosen.advance[1] * other.advance[1] * probability };
+    }).sort((a,b) => b.contribution - a.contribution);
+    return { team: teamId, reaches_final: chosen.advance[1], title_probability: chosen.advance[2], rows };
+  }
+  function sensitivity(data, teamId, settings = {}) {
+    const initial = forecast(data.teams, data.bracket, settings);
+    if (!initial.teams.some(t => t.id === teamId)) fail("Unknown sensitivity team");
+    const current = initial.settings.adjustments[teamId] || 0;
+    const deltas = [...new Set([-100,-50,0,50,100].map(d => Math.max(-300,Math.min(300,current+d))-current))];
+    return deltas.map(delta => {
+      const result = forecast(data.teams, data.bracket, { temperature: initial.settings.temperature,
+        adjustments: {...initial.settings.adjustments, [teamId]: current + delta} });
+      return { delta, probabilities: Object.fromEntries(result.teams.map(t => [t.id,t.champion_probability])) };
+    });
+  }
+  // Share only bounded public controls; data and score evidence cannot be injected.
+  function validateScenario(data, value) {
+    exactKeys(value, ["v","fixture","team","a","b","round","temperature","adjustments","prices"], "Scenario");
+    if (value.v !== 1 || value.fixture !== data.public_fixture_id) fail("Unknown scenario version or fixture");
+    for (const key of ["team","a","b"])
+      if (!data.teams.some(t => t.id === value[key])) fail("Unknown scenario team");
+    if (value.a === value.b) fail("Scenario needs two distinct teams");
+    if (!Number.isInteger(value.round) || value.round < 0 || value.round > 2) fail("Invalid scenario round");
+    if (!Number.isFinite(value.temperature) || value.temperature < 100 || value.temperature > 800) fail("Invalid scenario uncertainty scale");
+    exactKeys(value.prices, ["a","b"], "Scenario prices");
+    priceComparison(0.5,value.prices.a,value.prices.b);
+    const checked = forecast(data.teams,data.bracket,{temperature:value.temperature,adjustments:value.adjustments});
+    return {...value, adjustments:{...checked.settings.adjustments}, prices:{...value.prices}};
+  }
+  function encodeScenario(data, value) {
+    return "#scenario=" + encodeURIComponent(JSON.stringify(validateScenario(data,value)));
+  }
+  function decodeScenario(data, fragment) {
+    if (typeof fragment !== "string" || fragment.length > 4000 || !fragment.startsWith("#scenario=")) fail("Invalid scenario link");
+    return validateScenario(data,JSON.parse(decodeURIComponent(fragment.slice(10))));
+  }
   const api = {
+    finalPaths, sensitivity, encodeScenario, decodeScenario,
     priceComparison,
     DEFAULT_TEMPERATURE,
     winProbability,

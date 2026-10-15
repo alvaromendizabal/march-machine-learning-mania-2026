@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
-      content="An interactive, browser-local probability lab. Adjust illustrative Duke and college-team ratings and inspect exact advancement probabilities through an eight-team bracket."
+      content="An interactive, browser-local probability lab. Compare Duke and 2026 champion Michigan, adjust illustrative team ratings and inspect exact advancement probabilities through an eight-team bracket."
     />
-    <title>Tournament Lab · Duke matchup & bracket workbench</title>
+    <title>Tournament Lab · Duke × Michigan</title>
     <link
       rel="canonical"
       href="https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html"
     />
     <meta
       property="og:title"
-      content="Tournament Lab · Duke matchup & bracket workbench"
+      content="Tournament Lab · Duke × Michigan"
     />
     <meta
       property="og:description"
-      content="Duke leads an illustrative eight-team field. Every possible path. Explore an exact, transparent tournament forecast in your browser."
+      content="Duke and 2026 champion Michigan. One interactive field. Every possible path. Explore an exact, transparent tournament forecast in your browser."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -59,29 +59,33 @@
       </header>
       <section class="intro">
         <div>
-          <p class="eyebrow">EIGHT TEAMS / EVERY POSSIBLE PATH</p>
+          <p class="eyebrow">DUKE × MICHIGAN / THE CHAMPIONS EDITION</p>
           <h1>
-            Start with Duke.<br /><em>Question every probability.</em>
+            Duke. Michigan.<br /><em>One title. Many paths.</em>
           </h1>
         </div>
-        <div class="intro-note">
-          <p>
-            A matchup favorite is not a tournament certainty.<br />Put that distinction to the test.
-          </p>
+        <div class="intro-note result-lockup">
+          <p class="eyebrow">KAGGLE-SCORED RESEARCH</p>
+          <a class="score-anchor" href="https://github.com/alvaromendizabal/march-machine-learning-mania-2026/blob/main/docs/champion_result.md"><strong>0.1034347</strong><span>Brier score · lower is better ↗</span></a>
+          <p class="scope-copy">Submission 57122407 · retrospective 2026 result. The interactive lab below is a separate, reproducible scenario model.</p>
           <span class="scope-tag">REAL SCHOOLS · SYNTHETIC SCENARIOS</span>
-          <p class="scope-copy">
-            An authored eight-team scenario, not a real NCAA bracket or current-season forecast. Separate
-            from the project’s historical results and private forecasting
-            system.
-          </p>
         </div>
       </section>
       <main id="workbench">
-        <section class="duke-spotlight" aria-labelledby="duke-title">
-          <div class="duke-wordmark" aria-hidden="true">DUKE<span>SCENARIO / 01</span></div>
-          <div class="duke-story"><p class="eyebrow">THE STARTING QUESTION</p><h2 id="duke-title">Strong enough to win. Still far from certain.</h2><p id="duke-readout">Calculating Duke’s path through every possible opponent.</p><p class="fine-print">School names identify the scenario only. No affiliation or endorsement.</p></div>
-          <div class="duke-stat"><span>Win this eight-team field</span><strong id="duke-title-probability">—</strong><span id="duke-baseline-delta">Baseline scenario</span></div>
+        <p id="print-settings" class="print-settings"></p>
+        <section class="spotlight-grid" aria-label="Duke and the 2026 national champions">
+          <article class="featured-card duke-card" aria-labelledby="duke-title">
+            <div class="card-heading"><span class="team-monogram" aria-hidden="true">D</span><div><p class="eyebrow">THE CHALLENGER</p><h2 id="duke-title">Duke</h2></div><button type="button" id="focus-duke" class="focus-team" aria-pressed="true">Explore Duke</button></div>
+            <div class="featured-number"><strong id="duke-title-probability">—</strong><span>Win this illustrative field</span></div>
+            <p id="duke-readout">Calculating every route.</p><p id="duke-baseline-delta" class="baseline-delta">Baseline scenario</p>
+          </article>
+          <article class="featured-card michigan-card" aria-labelledby="michigan-title">
+            <div class="card-heading"><span class="team-monogram" aria-hidden="true">M</span><div><p class="eyebrow">2026 NCAA MEN’S CHAMPION</p><h2 id="michigan-title">Michigan</h2></div><button type="button" id="focus-michigan" class="focus-team" aria-pressed="false">Explore Michigan</button></div>
+            <div class="featured-number"><strong id="michigan-title-probability">—</strong><span>Win this illustrative field</span></div>
+            <p id="michigan-readout">Calculating every route.</p><p id="michigan-baseline-delta" class="baseline-delta">Baseline scenario</p>
+          </article>
         </section>
+        <div class="context-strip"><p><strong>Real history.</strong> Michigan won the 2026 title, 69–63 over UConn. <a href="https://www.ncaa.com/news/basketball-men/article/2026-04-06/michigan-beats-uconn-wins-2026-mens-basketball-national-championship" target="_blank" rel="noreferrer">NCAA source ↗</a></p><p><strong>Independent scenario.</strong> Equal starting ratings for Duke and Michigan. Authored bracket, not a replay of 2026. No school affiliation.</p></div>
         <div class="lab">
           <section class="bracket-panel" aria-labelledby="bracket-title">
             <div class="board-heading">
@@ -258,6 +262,11 @@
             </div>
           </section>
         </div>
+        <section class="insight-grid" aria-label="Scenario sensitivity and path attribution">
+          <article class="insight-panel" aria-labelledby="sensitivity-title"><p class="eyebrow">CHANGE ONE ASSUMPTION</p><h2 id="sensitivity-title">How much does it move?</h2><p id="sensitivity-note" class="help">Local rating sensitivity, not a statistical confidence interval.</p><div class="sensitivity-legend"><span class="duke-key">Duke title probability</span><span class="michigan-key">Michigan title probability</span></div><div id="sensitivity-rows"></div><p class="fine-print">Each row perturbs only the selected team; all other current settings remain fixed. Bars use a common 0–100% scale.</p></article>
+          <article class="insight-panel" aria-labelledby="path-title"><p class="eyebrow">OPEN THE CALCULATION</p><h2 id="path-title">Where does the title chance come from?</h2><p id="path-note" class="help"></p><div class="path-head"><span>Possible final opponent</span><span>Contribution</span></div><div id="path-rows"></div><p id="path-total" class="path-total"></p><p class="fine-print">Contribution = reach final × opponent reaches final × win that matchup. The four mutually exclusive paths add to the title probability.</p></article>
+        </section>
+        <section class="share-panel" aria-labelledby="share-title"><div><p class="eyebrow">REPRODUCE THIS EXACT SCENARIO</p><h2 id="share-title">An analyst’s handoff, not just a screenshot.</h2><p>Keep the inputs, assumptions and full-precision outputs together. Scenario links encode only public controls in the URL fragment—no uploads or account.</p></div><div><button type="button" id="share-scenario" class="action secondary">Create scenario link</button><button type="button" id="print-report" class="action secondary">Print analyst brief</button><label for="scenario-link" class="field-label" id="scenario-link-label" hidden>Copy this scenario URL</label><input type="text" readonly id="scenario-link" hidden /><p id="share-status" role="status"></p></div></section>
         <section class="price-panel" aria-labelledby="price-title">
           <div><p class="eyebrow">THE ANALYST’S LENS</p><h2 id="price-title">Probability is not the same as price.</h2><p>Compare the selected matchup with a hypothetical two-sided market. Remove the margin first; then inspect the difference. These prices do not change the bracket.</p><p class="fine-print">Illustrative decimal prices, not live odds or betting advice. A difference is not proof of an edge.</p></div>
           <div class="price-controls"><label for="price-a"><span id="price-name-a">Team A decimal price</span><input id="price-a" type="number" min="1.01" max="1000" step="0.01" value="1.80" inputmode="decimal" /></label><label for="price-b"><span id="price-name-b">Team B decimal price</span><input id="price-b" type="number" min="1.01" max="1000" step="0.01" value="2.20" inputmode="decimal" /></label><p id="price-error" class="error" role="alert" hidden></p></div>

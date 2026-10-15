@@ -1,8 +1,8 @@
 # Tournament Lab
 
-**[Open Tournament Lab](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)** to explore how probability assumptions propagate through an eight-team bracket.
+**[Open Duke × Michigan](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)** to explore how probability assumptions propagate through an eight-team bracket.
 
-This public browser application uses real school names with authored synthetic ratings, bracket positions, prices and outcomes. It is separate from the **0.1067095 late research submission** described in the [result comparison](benchmark_comparison.md).
+This public browser application uses real school names with authored synthetic ratings, bracket positions, prices and outcomes. It is separate from the **0.1034347 Kaggle-scored retrospective forecast** described in the [featured result](champion_result.md).
 
 ## Try it in two minutes
 
@@ -28,9 +28,9 @@ The engine uses **exact dynamic programming**: it combines each team's probabili
 
 The exported JSON includes a separate **16-outcome authored synthetic sample** with Brier loss, log loss and a five-bin diagnostic. These diagnostics are export-only; the visible interface focuses on bracket and matchup probabilities. Outcome labels are supplied to scoring, separately from identity-only prediction requests. The sample is small and constructed; its metrics are not an untouched holdout, a calibration guarantee or evidence about NCAA performance.
 
-## Duke and price context
+## Duke × Michigan and price context
 
-Duke is the default selected team and UConn the default direct opponent. The field also contains Houston, Florida, Kansas, Arizona, North Carolina and Gonzaga. Their numbered positions are fictional eight-team bracket slots, **not actual NCAA seeds**. No school endorsement is implied.
+Duke is the default selected team and Michigan the default direct opponent. Both have dedicated feature cards and controls. The field also contains UConn, Houston, Florida, Arizona, North Carolina and Gonzaga. Their numbered positions are fictional eight-team bracket slots, **not actual NCAA seeds**. No school endorsement is implied.
 
 The Duke headline and baseline difference come from the same exact bracket engine as the table. The price panel accepts hypothetical decimal prices greater than 1 and no greater than 1000. With quoted prices dA and dB, its normalized market probability is `(1/dA) / ((1/dA) + (1/dB))`. It reports the overround and model-minus-market difference. These display-only inputs never alter matchup or bracket forecasts. Invalid prices hide stale price results; a valid bracket can still be exported with null price context.
 
@@ -68,3 +68,11 @@ Scenario data is authored in [public-demo/data.js](../public-demo/data.js); prob
 | [Confirmed submission receipt](../reports/verified_result/submission_receipt.json) | External acceptance and displayed score of the separate private forecast |
 
 Changing ratings or temperature is interactive exploration. It is not training, a new submission or a fresh validation period. No private model, forecast rows or source archive is included. See the [disclosure](../portfolio/DISCLOSURE.md) and [2027 readiness contract](2027_readiness.md).
+
+## Champions edition
+
+Duke and Michigan are the two featured teams and the default direct matchup. Michigan's 2026 title is factual context linked to the NCAA report in the interface. Ratings and field positions remain authored scenarios; the historical result never enters the probability engine.
+
+The new final-path function decomposes title probability into four mutually exclusive opponent contributions. Sensitivity changes only the selected team's current rating and respects the slider's −300..300 range. It is not a confidence interval. Scenario links use a size-bounded, allowlisted JSON schema in the URL fragment; invalid state loads the safe baseline with a visible warning. The JSON export additionally carries scenario inputs, final-opponent paths and local sensitivity.
+
+**Create scenario link** works on the hosted lab; offline users retain JSON export and print. No runtime data request, analytics, account or persistent storage is introduced. URL fragments are not an encryption mechanism; only public controls belong there. [Release acceptance contract](reviewer_contract.md)

@@ -1,16 +1,20 @@
-# Current research boundary
+# Current research · featured scored result
+
+**0.1034347 public/private Kaggle Brier · submission 57122407** is the current featured retrospective result. [Result and evidence](champion_result.md). Older result records below are preserved as historical milestones, not the current best score.
+
+## Evidence boundary
 
 Public review updated October 15, 2026 UTC (October 14 in Los Angeles). This page distinguishes a published Kaggle receipt, later owner execution records and synthetic public demonstrations. It does not inventory live AWS state.
 
 ## Latest inspected research evidence
 
-The separately scoped [public review snapshot](../portfolio/review_snapshot.json) records an integrity-checked owner execution from October 15 at 02:34 UTC. It reports **0.1034347** as the protected, source-rebuilt retrospective Brier. This is an inherited owner record, **not a fresh Kaggle receipt** included in this public release. The run fitted no new models and made no new submissions. It strengthened original forecast/producer-lineage evidence but did not complete private end-to-end replay or establish untouched confirmation.
+The separately scoped [public review snapshot](../portfolio/review_snapshot.json) records an integrity-checked owner execution from October 15 at 02:34 UTC. It reports **0.1034347** as the protected, source-rebuilt retrospective Brier. The retained records identify Kaggle submission **57122407**; the owner reconfirmed the actual scored result for this publication. [Featured result](champion_result.md). No live account query occurred in this release. The run fitted no new models and made no new submissions. It strengthened original forecast/producer-lineage evidence but did not complete private end-to-end replay or establish untouched confirmation.
 
 The directly published **0.1067095** Kaggle receipt below remains a dated earlier case study. The **v170** source-foundation receipt remains useful historical evidence; it is no longer described as the globally latest research run. Its open issues describe that execution, not the complete current private workspace.
 
-The latest public demo uses Duke and other real school names with synthetic ratings and outcomes. Its no-vig price panel is a transparent display-only calculation, not an odds feed or a performance claim. [Duke walkthrough](scouting_walkthrough.md) · [Model card](model_card.md)
+The latest public demo features Duke and Michigan alongside other real school names with synthetic ratings and outcomes. Its no-vig price panel is a transparent display-only calculation, not an odds feed or a performance claim. [Duke walkthrough](scouting_walkthrough.md) · [Model card](model_card.md)
 
-## Confirmed result and metric contract
+## Archived earlier result and metric contract
 
 The published Kaggle scoring receipt for **the v54 forecast delivered through v93r1**, received **0.1067095** in both displayed score fields. It contains **132,133 prediction rows**. The corresponding local 126-game audit is **0.1067095543**; the scored population is 63 men's and 63 women's games.
 

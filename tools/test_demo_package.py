@@ -50,12 +50,19 @@ class PackageTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Unreviewed public"):
                 artifacts(root / "public-demo")
 
-    def test_review_snapshot_separates_receipt_from_inherited_score(self):
+    def test_review_snapshot_links_featured_score_and_preserves_archived_receipt(self):
         snapshot = json.loads((ROOT / "portfolio/review_snapshot.json").read_text())
         receipt = json.loads((ROOT / snapshot["direct_receipt"]).read_text())
         self.assertEqual(snapshot["directly_published_earlier_brier"], float(receipt["public_score"]))
         self.assertEqual(snapshot["score_evidence_class"],
-                         "INHERITED_OWNER_EXECUTION_RECORD_NOT_FRESH_KAGGLE_RECEIPT")
+                         "RECORDED_KAGGLE_SCORED_RESULT_OWNER_RECONFIRMED")
+        featured = json.loads((ROOT / snapshot["featured_result"]).read_text())
+        self.assertEqual(featured["submission_ref"], 57122407)
+        self.assertEqual(featured["public_brier"], 0.1034347)
+        self.assertEqual(featured["private_brier"], 0.1034347)
+        self.assertFalse(featured["live_kaggle_query_in_this_release"])
+        self.assertFalse(featured["raw_api_response"])
+        self.assertEqual(featured["men_rows"] + featured["women_rows"], featured["forecast_rows"])
         self.assertFalse(snapshot["latest_inspected_activity"]["full_private_replay_complete"])
         self.assertFalse(snapshot["public_demo"]["private_assets_used"])
         for key in ("source_zip_sha256", "manifest_sha256", "summary_sha256"):

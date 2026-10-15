@@ -1,4 +1,9 @@
-# Start here
+# Start here · sports ML with inspectable evidence
+
+**Featured result: 0.1034347 Kaggle public/private Brier · submission 57122407.** [Score and scope](docs/champion_result.md)
+
+Start with the [Duke × Michigan demo](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html), then inspect the [analyst walkthrough](docs/scouting_walkthrough.md) or the [release acceptance contract](docs/reviewer_contract.md). The champions edition adds paired sensitivity, path attribution, scenario replay and print without exposing private forecasting assets.
+
 
 **A short review path for ML engineers, data scientists and hiring teams.**
 
@@ -71,4 +76,4 @@ These six notebooks document public-framework lineages. [Verified result](portfo
 
 ## Read the results correctly
 
-The latest public review snapshot references a later owner lineage audit; v170 remains the dated source-foundation receipt. The directly published Kaggle receipt records 0.1067095. Later owner execution evidence reports 0.1034347, a different evidence class; see [the review snapshot](portfolio/review_snapshot.json). Brier is mean squared probability error, not accuracy. Historical outcomes were inspected, and the example's synthetic scores establish no NCAA performance. Prospective evaluation requires a forecast frozen before future outcomes. [Evaluation disclosure](portfolio/DISCLOSURE.md)
+The featured scored result is **0.1034347 Kaggle Brier, submission 57122407**. [Result and evidence](docs/champion_result.md). Older receipts remain archival records; the demonstration's synthetic scores establish no NCAA performance. Prospective evaluation requires a forecast frozen before future outcomes. [Evaluation disclosure](portfolio/DISCLOSURE.md)
