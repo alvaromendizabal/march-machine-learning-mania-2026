@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
-      content="An interactive, browser-local probability lab. Adjust fictional team ratings and inspect exact advancement probabilities through an eight-team bracket."
+      content="An interactive, browser-local probability lab. Adjust illustrative Duke and college-team ratings and inspect exact advancement probabilities through an eight-team bracket."
     />
-    <title>Tournament Lab · A probability workbench</title>
+    <title>Tournament Lab · Duke matchup & bracket workbench</title>
     <link
       rel="canonical"
-      href="https://alvaro-tournament-lab.tartmacaw2.chatgpt.site/"
+      href="https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html"
     />
     <meta
       property="og:title"
-      content="Tournament Lab · A probability workbench"
+      content="Tournament Lab · Duke matchup & bracket workbench"
     />
     <meta
       property="og:description"
-      content="Eight fictional teams. Every possible path. Explore an exact, transparent tournament forecast in your browser."
+      content="Duke leads an illustrative eight-team field. Every possible path. Explore an exact, transparent tournament forecast in your browser."
     />
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://alvaro-tournament-lab.tartmacaw2.chatgpt.site/"
+      content="https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html"
     />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="data.js"></script>
@@ -31,9 +31,10 @@
     <script defer src="app.js"></script>
   </head>
   <body>
+    <a class="skip-link" href="#workbench">Skip to the workbench</a>
     <noscript
       ><p class="noscript">
-        Enable JavaScript to compute the fictional tournament probabilities on
+        Enable JavaScript to compute the illustrative tournament probabilities on
         this device.
       </p></noscript
     >
@@ -60,22 +61,27 @@
         <div>
           <p class="eyebrow">EIGHT TEAMS / EVERY POSSIBLE PATH</p>
           <h1>
-            A bracket is a story.<br /><em>Probability keeps it honest.</em>
+            Start with Duke.<br /><em>Question every probability.</em>
           </h1>
         </div>
         <div class="intro-note">
           <p>
-            Change a rating. Turn up uncertainty.<br />Watch the chances move.
+            A matchup favorite is not a tournament certainty.<br />Put that distinction to the test.
           </p>
-          <span class="scope-tag">FICTIONAL TEAMS · EXACT CALCULATION</span>
+          <span class="scope-tag">REAL SCHOOLS · SYNTHETIC SCENARIOS</span>
           <p class="scope-copy">
-            A transparent educational model running on your device. Separate
+            An authored eight-team scenario, not a real NCAA bracket or current-season forecast. Separate
             from the project’s historical results and private forecasting
             system.
           </p>
         </div>
       </section>
-      <main>
+      <main id="workbench">
+        <section class="duke-spotlight" aria-labelledby="duke-title">
+          <div class="duke-wordmark" aria-hidden="true">DUKE<span>SCENARIO / 01</span></div>
+          <div class="duke-story"><p class="eyebrow">THE STARTING QUESTION</p><h2 id="duke-title">Strong enough to win. Still far from certain.</h2><p id="duke-readout">Calculating Duke’s path through every possible opponent.</p><p class="fine-print">School names identify the scenario only. No affiliation or endorsement.</p></div>
+          <div class="duke-stat"><span>Win this eight-team field</span><strong id="duke-title-probability">—</strong><span id="duke-baseline-delta">Baseline scenario</span></div>
+        </section>
         <div class="lab">
           <section class="bracket-panel" aria-labelledby="bracket-title">
             <div class="board-heading">
@@ -87,7 +93,7 @@
             </div>
             <p class="board-description">
               Every team remains visible. Each percentage is its chance of
-              reaching that stage, accounting for every possible opponent.
+              reaching that stage, accounting for every possible opponent. Numbers are illustrative field slots, not NCAA seeds.
             </p>
             <div
               id="bracket-viewport"
@@ -117,14 +123,14 @@
               Explore a scenario, then make it your own.
             </p>
             <div class="presets" aria-label="Tournament scenarios">
-              <button id="preset-rated" class="preset">Rated field</button
+              <button id="preset-rated" class="preset">Baseline</button
               ><button id="preset-even" class="preset">Even field</button
-              ><button id="preset-challenger" class="preset">Challenger</button>
+              ><button id="preset-challenger" class="preset">Gonzaga surge</button>
             </div>
             <label for="team" class="field-label">Team to adjust</label
             ><select id="team"></select>
             <div class="rating-readout">
-              <span id="rating-base">Starting rating</span
+              <span id="rating-base">Illustrative rating</span
               ><strong id="rating-current">—</strong>
             </div>
             <div class="range-heading">
@@ -252,6 +258,12 @@
             </div>
           </section>
         </div>
+        <section class="price-panel" aria-labelledby="price-title">
+          <div><p class="eyebrow">THE ANALYST’S LENS</p><h2 id="price-title">Probability is not the same as price.</h2><p>Compare the selected matchup with a hypothetical two-sided market. Remove the margin first; then inspect the difference. These prices do not change the bracket.</p><p class="fine-print">Illustrative decimal prices, not live odds or betting advice. A difference is not proof of an edge.</p></div>
+          <div class="price-controls"><label for="price-a"><span id="price-name-a">Team A decimal price</span><input id="price-a" type="number" min="1.01" max="1000" step="0.01" value="1.80" inputmode="decimal" /></label><label for="price-b"><span id="price-name-b">Team B decimal price</span><input id="price-b" type="number" min="1.01" max="1000" step="0.01" value="2.20" inputmode="decimal" /></label><p id="price-error" class="error" role="alert" hidden></p></div>
+          <div id="price-results" class="price-results"><div><span>No-vig market · Team A</span><strong id="price-no-vig">—</strong></div><div><span>Model minus market</span><strong id="price-difference">—</strong></div><div><span>Quoted overround</span><strong id="price-overround">—</strong></div></div>
+        </section>
+        <section class="review-links" aria-labelledby="review-title"><div><p class="eyebrow">BEYOND THE DEMO</p><h2 id="review-title">Sports intuition. Inspectable engineering.</h2><p>The public lab makes the probability mechanics reproducible. The separate research system adds source-qualified data, season-forward evaluation and recoverable AWS execution.</p></div><a href="https://github.com/alvaromendizabal/march-machine-learning-mania-2026/blob/main/docs/scouting_walkthrough.md">Sports analyst walkthrough ↗</a><a href="https://github.com/alvaromendizabal/march-machine-learning-mania-2026/blob/main/START_HERE.md">Technical review &amp; evidence ↗</a></section>
         <details class="method-notes">
           <summary>What is exact here — and what is assumed?</summary>
           <div class="method-grid">
@@ -276,7 +288,7 @@
             <div>
               <h3>Keep the evidence separate</h3>
               <p>
-                All eight teams and any example outcomes are fictional. These
+                The school names are real. All ratings, bracket positions, prices and example outcomes are synthetic. These
                 probabilities do not reproduce the project’s private historical
                 forecast, and changing controls does not establish calibration
                 or predictive performance.

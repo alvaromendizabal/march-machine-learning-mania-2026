@@ -385,14 +385,35 @@
         "No reseeding, injuries, changing form, or correlated tournament effects.",
       ],
       limitations: [
-        "Fictional teams, ratings and outcomes; no real 2026 predictions or private model assets.",
+        "Real school names with synthetic ratings, bracket positions and outcomes; no real-season predictions or private model assets.",
         "Exact means all bracket paths are integrated under this illustrative model; it does not mean the probabilities are calibrated.",
         "Scenario controls are interactive sensitivity exploration, not fitted or selected parameters.",
         "Repeatedly inspecting the same small synthetic scoring sample is not an independent evaluation.",
       ],
     };
   }
+  // Display-only price context. Prices never feed back into matchup or bracket inference.
+  function priceComparison(probabilityA, decimalA, decimalB) {
+    if (!Number.isFinite(probabilityA) || probabilityA < 0 || probabilityA > 1)
+      fail("Probability must be finite and inside [0, 1]");
+    for (const value of [decimalA, decimalB])
+      if (!Number.isFinite(value) || value <= 1 || value > 1000)
+        fail("Enter decimal prices greater than 1 and no greater than 1000");
+    const impliedA = 1 / decimalA, impliedB = 1 / decimalB;
+    const total = impliedA + impliedB;
+    return {
+      evidence_type: "SYNTHETIC_ONLY",
+      decimal_a: decimalA, decimal_b: decimalB,
+      no_vig_probability_a: impliedA / total,
+      no_vig_probability_b: impliedB / total,
+      overround: total - 1,
+      model_minus_market: probabilityA - impliedA / total,
+      fair_decimal_a: probabilityA > 0 ? 1 / probabilityA : null,
+      scope: "Hypothetical user-entered prices; not live odds, expected profit or a betting recommendation.",
+    };
+  }
   const api = {
+    priceComparison,
     DEFAULT_TEMPERATURE,
     winProbability,
     forecast,

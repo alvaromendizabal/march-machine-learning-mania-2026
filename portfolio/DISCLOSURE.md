@@ -1,5 +1,9 @@
 # Publication and evaluation disclosure
 
+## Latest owner-recorded research result
+
+The [review snapshot](review_snapshot.json) reports a later source-rebuilt retrospective Brier of **0.1034347** from an integrity-checked owner execution record. That is inherited scoring evidence, not a newly queried Kaggle receipt in this release. It must not be relabeled as prospective performance, a competition win or proof of profitability. The earlier directly published scoring receipt below remains independently inspectable.
+
 ## Published scored case study
 
 The published scoring receipt records **v54 forecast, delivered through v93r1: 0.1067095 Brier**, accepted by Kaggle as a late submission on October 8, 2026. Both displayed score fields match. The corresponding local 126-game audit is **0.1067095543**.
@@ -20,7 +24,7 @@ The public repository provides aggregate evidence, reviewable metric and validat
 
 Private prediction rows, fitted competition models, raw supplemental archives, detailed private feature/correction rules, weights, credentials, and cloud orchestration state are intentionally withheld. Publicly exposed historical code retains its existing scope and license; this disclosure does not promise that all previously public methods have become private.
 
-Derived third-party NCAA player records are not relabeled as original-owned ESPN records. Acquisition, timing, identity mapping and model admission are separate checks. The latest inspected return, **v170 on October 14, 2026 UTC**, completes a source-reconstruction audit, covers 14,311 team-season profiles, and recovers 132,133 existing probabilities. It submits no new candidate and does not complete the private forecast reconstruction. Injury recomputation and historical admission remain incomplete. The [sanitized receipt](latest_execution.json) records the inspected-return scope; it is not a claim about uninspected live AWS files.
+Derived third-party NCAA player records are not relabeled as original-owned ESPN records. Acquisition, timing, identity mapping and model admission are separate checks. The previously published source-foundation return, **v170 on October 14, 2026 UTC**, completes a source-reconstruction audit, covers 14,311 team-season profiles, and recovers 132,133 existing probabilities. It submits no new candidate and does not complete the private forecast reconstruction. Injury recomputation and historical admission remain incomplete. The [sanitized receipt](latest_execution.json) records the inspected-return scope; it is not a claim about uninspected live AWS files.
 
 The public scored case study remains tied to its own October 8 receipt. Later inherited score summaries are not promoted into authenticated submission claims. No four-year competition-win claim is supported by this publication.
 
@@ -30,7 +34,7 @@ The [Python evaluation example](../docs/public_reproduction.md) publishes author
 
 ## Public demo boundary
 
-[Tournament Lab](../docs/public_demo.md) uses eight authored fictional teams, a transparent rating-to-probability rule and a small authored synthetic scoring sample. Its exact bracket calculation is exact only under those declared assumptions. It is not the private forecast, a trained model, calibrated NCAA evidence or a prospective test. Interactive parameter changes are exploration, not independent repeated validation.
+[Tournament Lab](../docs/public_demo.md) uses eight real school names, authored synthetic ratings and bracket positions, a transparent rating-to-probability rule and a small authored synthetic scoring sample. Duke is the default example; no school affiliation or endorsement is implied. Hypothetical decimal prices are a display-only comparison and do not alter the forecasts. Its exact bracket calculation is exact only under those declared assumptions. It is not the private forecast, a trained model, calibrated NCAA evidence or a prospective test. Interactive parameter changes are exploration, not independent repeated validation.
 
 ## Prospective boundary
 

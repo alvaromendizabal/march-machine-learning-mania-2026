@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "scope": "PUBLIC_AGGREGATE_REVIEW_ONLY",
+  "recorded_run_utc": "2026-10-15T02:34:59.619704Z",
+  "source_evidence": "Owner-supplied v194 execution return, locally integrity-checked; no new live Kaggle query.",
+  "reported_best_retrospective_brier": 0.1034347,
+  "score_evidence_class": "INHERITED_OWNER_EXECUTION_RECORD_NOT_FRESH_KAGGLE_RECEIPT",
+  "directly_published_earlier_brier": 0.1067095,
+  "direct_receipt": "reports/verified_result/submission_receipt.json",
+  "latest_inspected_activity": {
+    "new_training_fits": 0,
+    "new_submissions": 0,
+    "full_private_replay_complete": false,
+    "confirmation_untouched": false
+  },
+  "source_foundation_receipt": "portfolio/latest_execution.json",
+  "public_demo": {
+    "team_names": "real school names",
+    "ratings_bracket_and_outcomes": "SYNTHETIC_ONLY",
+    "private_assets_used": false,
+    "current_odds_loaded": false
+  },
+  "provenance": {
+    "source_zip_sha256": "f79506f4edd0a6b4084eb369e132d48db042a567403ed6a7714e75a97ba6ddab",
+    "manifest_sha256": "a1fab4a68a7920c3b4e87a22d8974cb93046e46c277aaa8d0a3f0560d0768af2",
+    "summary_sha256": "c9bdff046578a8ea8be8a7e409482b1eacc75603a2daa500429fd1feb2df1fba",
+    "manifest_artifacts_verified": 12
+  },
+  "interpretation": "Public showcase closeout; not a new model result, an official competition win, a profitability claim or completed private end-to-end reproduction."
+}

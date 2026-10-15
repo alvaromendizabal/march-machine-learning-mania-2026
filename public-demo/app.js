@@ -1,4 +1,4 @@
-/* Browser-local view for the fictional Tournament Lab. No network or persistence. */
+/* Browser-local view for the public Tournament Lab. No network or persistence. */
 (function (root) {
   "use strict";
   const doc = root.document;
@@ -6,15 +6,17 @@
   const engine = root.MarchTournamentEngine;
   const data = root.MARCH_TOURNAMENT_DATA;
   const state = {
-    team: "harbor",
+    team: "duke",
     temperature: 400,
     adjustments: {},
     preset: "rated",
     round: 2,
-    teamA: "harbor",
-    teamB: "copper",
+    teamA: "duke",
+    teamB: "uconn",
     result: null,
     matchup: null,
+    prices: { a: 1.8, b: 2.2 },
+    priceAnalysis: null,
   };
   const stageNames = ["Reach semifinals", "Reach final", "Win tournament"];
   const pct = (value) => `${(100 * value).toFixed(1)}%`;
@@ -35,6 +37,11 @@
     el("round-note").textContent = "";
     el("total-probability").textContent = "—";
     el("rating-current").textContent = "—";
+    el("duke-title-probability").textContent = "—";
+    el("duke-readout").textContent = "Calculation unavailable. Reset the scenario.";
+    el("duke-baseline-delta").textContent = "—";
+    el("price-results").hidden = true;
+    state.priceAnalysis = null;
     el("matchup-output").hidden = true;
     el("matchup-error").hidden = true;
     el("export").disabled = true;
@@ -51,7 +58,7 @@
   }
   function chooseTeam(id) {
     if (!data.teams.some((team) => team.id === id))
-      throw new Error("Select a known fictional team.");
+      throw new Error("Select a known scenario team.");
     state.team = id;
     refresh();
   }
@@ -180,6 +187,32 @@
       button.setAttribute("aria-pressed", String(state.preset === preset));
     }
   }
+  function renderSpotlight() {
+    const duke = state.result.teams.find((team) => team.id === "duke");
+    const baseline = engine.forecast(data.teams, data.bracket).teams.find((team) => team.id === "duke");
+    el("duke-title-probability").textContent = pct(duke.champion_probability);
+    const delta = 100 * (duke.champion_probability - baseline.champion_probability);
+    el("duke-baseline-delta").textContent = `${delta >= 0 ? "+" : ""}${delta.toFixed(1)} percentage points vs baseline`;
+    el("duke-readout").textContent = `Duke reaches the semifinal ${pct(duke.advance[0])} of the time under these assumptions, but wins the field ${pct(duke.advance[2])}. Every possible opponent contributes to that path.`;
+  }
+  function renderPrice() {
+    state.priceAnalysis = null;
+    el("price-results").hidden = true;
+    el("price-error").hidden = true;
+    if (!state.matchup) return;
+    try {
+      const result = engine.priceComparison(state.matchup.probability_a, state.prices.a, state.prices.b);
+      state.priceAnalysis = result;
+      el("price-no-vig").textContent = pct(result.no_vig_probability_a);
+      const delta = 100 * result.model_minus_market;
+      el("price-difference").textContent = `${delta >= 0 ? "+" : ""}${delta.toFixed(1)} pp`;
+      el("price-overround").textContent = pct(result.overround);
+      el("price-results").hidden = false;
+    } catch (error) {
+      el("price-error").textContent = error.message;
+      el("price-error").hidden = false;
+    }
+  }
   function renderMatchup() {
     state.matchup = null;
     el("team-a").value = state.teamA;
@@ -203,6 +236,8 @@
       el("probability-b").textContent = pct(1 - probabilityA);
       el("name-a").textContent = a.name;
       el("name-b").textContent = b.name;
+      el("price-name-a").textContent = `${a.name} decimal price`;
+      el("price-name-b").textContent = `${b.name} decimal price`;
       el("rating-a").textContent = `Rating ${a.adjusted_rating}`;
       el("rating-b").textContent = `Rating ${b.adjusted_rating}`;
       el("matchup-fill").style.width = `${100 * probabilityA}%`;
@@ -212,15 +247,17 @@
       );
       el("matchup-explanation").textContent =
         `A direct meeting at the current ratings and scale ${state.temperature}. Bracket placement has no effect on this two-team calculation.`;
+      renderPrice();
       el("matchup-output").hidden = false;
       el("matchup-error").hidden = true;
       el("export").disabled = false;
       el("status").textContent =
         "Updated on this device. Displayed percentages are rounded; JSON preserves full precision.";
     } catch (error) {
+      renderPrice();
       el("matchup-output").hidden = true;
       el("matchup-error").textContent =
-        `Choose two distinct fictional teams. ${error.message}`;
+        `Choose two distinct scenario teams. ${error.message}`;
       el("matchup-error").hidden = false;
       el("export").disabled = true;
       el("status").textContent =
@@ -244,6 +281,7 @@
       renderBracket();
       renderBars();
       renderMatchup();
+      renderSpotlight();
       if (/^(?:bracket-[0-2]-|bar-)/.test(focusedId || "")) {
         el(focusedId)?.focus();
       }
@@ -262,8 +300,8 @@
       for (const team of data.teams)
         state.adjustments[team.id] = average - team.rating;
     } else if (name === "challenger") {
-      state.adjustments.meadow = 250;
-      state.team = "meadow";
+      state.adjustments.gonzaga = 250;
+      state.team = "gonzaga";
     }
     refresh();
   }
@@ -288,6 +326,7 @@
         analysis: state.result,
         selected_matchup: state.matchup,
         illustrative_scoring: data.scoring,
+        hypothetical_price_context: state.priceAnalysis,
       };
       const blob = new root.Blob([JSON.stringify(artifact, null, 2)], {
         type: "application/json",
@@ -301,7 +340,7 @@
       link.remove();
       root.setTimeout(() => root.URL.revokeObjectURL(url), 1000);
       el("status").textContent =
-        "JSON exported with exact probabilities, settings and separately labeled fictional scoring examples.";
+        "JSON exported with exact probabilities, settings and separately labeled synthetic scoring examples.";
     } catch (error) {
       el("status").textContent =
         `Export unavailable: ${error.message}. The current calculations remain visible.`;
@@ -355,12 +394,22 @@
     for (const name of ["rated", "even", "challenger"])
       el(`preset-${name}`).addEventListener("click", () => preset(name));
     el("reset").addEventListener("click", () => {
-      state.team = "harbor";
-      state.teamA = "harbor";
-      state.teamB = "copper";
+      state.team = "duke";
+      state.teamA = "duke";
+      state.teamB = "uconn";
       state.round = 2;
+      state.prices = { a: 1.8, b: 2.2 };
+      el("price-a").value = "1.8";
+      el("price-b").value = "2.2";
       preset("rated");
     });
+    for (const side of ["a", "b"]) {
+      el(`price-${side}`).value = String(state.prices[side]);
+      el(`price-${side}`).addEventListener("input", () => {
+        state.prices[side] = Number(el(`price-${side}`).value);
+        renderPrice();
+      });
+    }
     el("export").addEventListener("click", exportAnalysis);
     refresh();
   } catch (error) {

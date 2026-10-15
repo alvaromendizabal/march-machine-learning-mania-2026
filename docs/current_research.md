@@ -1,6 +1,14 @@
 # Current research boundary
 
-Updated October 14, 2026 UTC. This page distinguishes the published scored case study from the newest supplied source audit. It does not inventory live AWS state.
+Public review updated October 15, 2026 UTC (October 14 in Los Angeles). This page distinguishes a published Kaggle receipt, later owner execution records and synthetic public demonstrations. It does not inventory live AWS state.
+
+## Latest inspected research evidence
+
+The separately scoped [public review snapshot](../portfolio/review_snapshot.json) records an integrity-checked owner execution from October 15 at 02:34 UTC. It reports **0.1034347** as the protected, source-rebuilt retrospective Brier. This is an inherited owner record, **not a fresh Kaggle receipt** included in this public release. The run fitted no new models and made no new submissions. It strengthened original forecast/producer-lineage evidence but did not complete private end-to-end replay or establish untouched confirmation.
+
+The directly published **0.1067095** Kaggle receipt below remains a dated earlier case study. The **v170** source-foundation receipt remains useful historical evidence; it is no longer described as the globally latest research run. Its open issues describe that execution, not the complete current private workspace.
+
+The latest public demo uses Duke and other real school names with synthetic ratings and outcomes. Its no-vig price panel is a transparent display-only calculation, not an odds feed or a performance claim. [Duke walkthrough](scouting_walkthrough.md) · [Model card](model_card.md)
 
 ## Confirmed result and metric contract
 
@@ -35,7 +43,7 @@ New model work must beat fixed historical controls across the declared developme
 
 These foundations establish what was built, reconciled and independently replayed. They do not establish complete source parity, a new model gain, or full prospective readiness.
 
-## Latest inspected execution return: v170 source reconstruction
+## Previously published source foundation: v170
 
 The supplied return completed **October 14, 2026 at 00:34:11 UTC**. Its 19 manifested members match their recorded hashes and sizes. Public status is **SOURCE_REBUILD_COMPLETED_ADMISSION_BLOCKED**: the source audit completed, while full forecast reconstruction and historical admission remain incomplete.
 
@@ -63,4 +71,4 @@ The return carries inherited performance summaries, not new scoring receipts. Co
 | Legacy source timing | Original-version evidence; numerical parity alone is insufficient |
 | Prospective 2027 readiness | Actual incoming inputs and a fresh end-to-end run before outcomes |
 
-The next modeling step follows source qualification and uses a genuinely new representation. Closed recipes are not restarted unchanged. [The reproduction matrix](reproduction_matrix.md) separates completed mechanisms from remaining source gaps; [the readiness contract](2027_readiness.md) defines the future-season claim.
+Further research remains separate from this public showcase closeout and must follow source qualification and frozen evaluation contracts. Closed recipes are not restarted unchanged. [The reproduction matrix](reproduction_matrix.md) separates completed mechanisms from remaining source gaps; [the readiness contract](2027_readiness.md) defines the future-season claim.
