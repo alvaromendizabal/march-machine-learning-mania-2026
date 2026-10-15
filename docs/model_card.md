@@ -23,9 +23,11 @@ Season-forward validation, fitting preprocessing inside training partitions, phy
 
 A low late 2026 Brier does not establish prospective superiority. Source ownership and point-in-time validity are distinct: independently retrieving an original source later does not prove those exact values were available before the tournament. The 2027 contract requires an actual pre-outcome source freeze and prospective run.
 
-## Evidence quality
+## Featured Kaggle result
 
-**0.1067095** is backed by the directly published earlier Kaggle scoring receipt. **0.1034347** is inherited in the inspected owner execution record as the best source-rebuilt retrospective result; a fresh scoring receipt is not published with this update. Exact private forecast regeneration, all fitted checkpoint bytes and complete historical source timing remain incomplete. See [current evidence](current_research.md).
+**0.1034347 public/private Brier · submission 57122407** is the scored retrospective research result featured in this release. Its [normalized result record](../reports/champion_result/kaggle_record.json) links the score to retained owner audit evidence and the original forecast identity. This release does not perform a fresh Kaggle account query. Earlier receipts are historical evidence, not the current headline result. [Score context](champion_result.md)
+
+Exact private forecast regeneration, all fitted checkpoint bytes and complete historical source timing remain separate research work. The public demo is fully reproducible within its stated boundary, not a claim that the private pipeline is public.
 
 ## Failure modes and limitations
 

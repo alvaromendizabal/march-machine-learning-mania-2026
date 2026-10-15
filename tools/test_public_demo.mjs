@@ -31,6 +31,7 @@ function browser({
   missingEngine = false,
   mutateData = null,
   exportFailure = false,
+  hash = "",
 } = {}) {
   const nodes = new Map();
   const timers = [];
@@ -103,6 +104,8 @@ function browser({
     element.hidden = /\bhidden\b/.test(match[0]);
   }
   const sandbox = {
+    location: {protocol:"https:", href:"https://example.org/lab/"+hash, hash},
+    print() {sandbox.printed=true;},
     console,
     Blob,
     URL: {
@@ -245,14 +248,14 @@ await test("both bracket and probability bars select teams through their actual 
       "true",
     );
   assert.equal(ui.el("bar-gonzaga").attributes["aria-pressed"], "true");
-  ui.click("bar-uconn");
-  assert.equal(ui.el("team").value, "uconn");
-  assert.match(ui.el("selected-summary").textContent, /^UConn/);
+  ui.click("bar-michigan");
+  assert.equal(ui.el("team").value, "michigan");
+  assert.match(ui.el("selected-summary").textContent, /^Michigan/);
 });
 
 await test("team selection restores keyboard focus to replacement bracket and bar buttons", () => {
   const ui = browser();
-  for (const id of ["bracket-1-gonzaga", "bar-uconn"]) {
+  for (const id of ["bracket-1-gonzaga", "bar-michigan"]) {
     const original = ui.el(id);
     original.focus();
     assert.equal(ui.sandbox.document.activeElement, original);
@@ -281,7 +284,7 @@ await test("the even-field preset yields exact half, quarter and eighth probabil
   ui.click("preset-even");
   const exported = await ui.export();
   for (const team of exported.analysis.teams) {
-    assert.equal(team.adjusted_rating, 1590);
+    assert.equal(team.adjusted_rating, ui.data().teams.reduce((s,t)=>s+t.rating,0)/8);
     assert.deepEqual(team.advance, [0.5, 0.25, 0.125]);
   }
   assert.equal(ui.el("preset-even").attributes["aria-pressed"], "true");
@@ -331,6 +334,7 @@ await test("stage selection uses actual advance probabilities and fixed 0–100%
 
 await test("higher temperature softens a non-tied direct matchup without changing team ratings", async () => {
   const ui = browser();
+  ui.change("team-b", "gonzaga");
   ui.change("temperature", 100, "input");
   const low = await ui.export();
   ui.change("temperature", 800, "input");
@@ -349,7 +353,7 @@ await test("higher temperature softens a non-tied direct matchup without changin
 await test("matchup changes obey swap symmetry and have an exact-width accessible comparison bar", async () => {
   const ui = browser();
   const original = await ui.export();
-  ui.change("team-a", "uconn");
+  ui.change("team-a", "michigan");
   ui.change("team-b", "duke");
   const swapped = await ui.export();
   close(
@@ -362,7 +366,7 @@ await test("matchup changes obey swap symmetry and have an exact-width accessibl
   );
   assert.match(
     ui.el("matchup-bar").attributes["aria-label"],
-    /UConn.*Duke/,
+    /Michigan.*Duke/,
   );
 });
 
@@ -421,7 +425,7 @@ await test("reset restores every scenario, stage and matchup control", async () 
     preset: "rated",
   });
   assert.equal(exported.selected_matchup.team_a, "duke");
-  assert.equal(exported.selected_matchup.team_b, "uconn");
+  assert.equal(exported.selected_matchup.team_b, "michigan");
 });
 
 await test("JSON export replays every exact probability and keeps fictional outcome evidence explicit", async () => {
@@ -571,6 +575,44 @@ await test("price normalization rejects malformed inputs and has explicit zero-p
   for (const price of [0,1,Infinity,1001]) assert.throws(() => e.priceComparison(0.5,price,2));
 });
 
+
+await test("both featured controls select real fixture teams and update path attribution",async()=>{
+  const ui=browser();ui.click("focus-michigan");assert.equal(ui.el("team").value,"michigan");
+  assert.equal(ui.el("focus-michigan").attributes["aria-pressed"],"true");
+  assert.match(ui.el("path-note").textContent,/Michigan/);
+  const value=await ui.export();close(value.final_opponent_paths.rows.reduce((s,r)=>s+r.contribution,0),value.analysis.teams.find(t=>t.id==="michigan").champion_probability);
+  ui.click("focus-duke");assert.equal(ui.el("team").value,"duke");
+});
+await test("Michigan and Duke spotlights use recalculated numbers rather than fixed text",async()=>{
+  const ui=browser();ui.click("focus-michigan");ui.change("rating",100,"input");const result=await ui.export();
+  for(const id of ["duke","michigan"])assert.equal(ui.el(`${id}-title-probability`).textContent,percentage(result.analysis.teams.find(t=>t.id===id).champion_probability));
+  assert.equal(ui.el("sensitivity-rows").children.length,5);
+});
+await test("scenario URL reloads exact settings, matchup and probabilities",async()=>{
+  const first=browser();first.click("focus-michigan");first.change("rating",125,"input");first.change("temperature",500,"input");first.change("price-a",2.6,"input");
+  const expected=await first.export();first.click("share-scenario");const link=first.el("scenario-link").value;
+  assert.equal(first.el("scenario-link").hidden,false);assert.ok(link.startsWith("https://example.org/lab/#scenario="));
+  const second=browser({hash:link.slice(link.indexOf("#"))});const actual=await second.export();
+  assert.deepEqual(actual.analysis,expected.analysis);assert.deepEqual(actual.scenario,expected.scenario);
+});
+await test("invalid scenario links load baseline with a visible warning",()=>{
+  const ui=browser({hash:"#scenario=%zz"});assert.match(ui.el("share-status").textContent,/Invalid scenario link/);assert.equal(ui.el("error").hidden,true);assert.equal(ui.el("team").value,"duke");
+});
+await test("failure clears both spotlights, sensitivity, path and stale scenario links",()=>{
+  const ui=browser();ui.click("share-scenario");ui.change("temperature","bad","input");
+  assert.equal(ui.el("michigan-title-probability").textContent,"—");assert.equal(ui.el("sensitivity-rows").children.length,0);assert.equal(ui.el("path-rows").children.length,0);assert.equal(ui.el("scenario-link").hidden,true);assert.equal(ui.el("share-scenario").disabled,true);
+});
+await test("invalid matchup disables scenario sharing and printing until corrected",()=>{
+  const ui=browser();ui.change("team-b","duke");assert.equal(ui.el("share-scenario").disabled,true);assert.equal(ui.el("print-report").disabled,true);
+  ui.change("team-b","michigan");assert.equal(ui.el("share-scenario").disabled,false);ui.click("print-report");assert.equal(ui.sandbox.printed,true);
+});
+await test("print brief contains all scenario ratings and synthetic scope",()=>{
+  const ui=browser();ui.click("focus-michigan");ui.change("rating",70,"input");
+  assert.match(ui.el("print-settings").textContent,/Michigan 1790/);assert.match(ui.el("print-settings").textContent,/Not a current-season forecast/);assert.match(css,/@media print/);
+});
+await test("champion fact and current Kaggle score are visible without altering prediction inputs",()=>{
+  assert.match(html,/0\.1034347/);assert.match(html,/57122407/);assert.match(html,/2026 NCAA MEN’S CHAMPION/);assert.match(html,/ncaa\.com/);assert.doesNotMatch(html,/0\.1067095/);
+});
 console.log(
   `PASS: ${checks} Tournament Lab UI checks (real handlers + real engine; no browser renderer).`,
 );

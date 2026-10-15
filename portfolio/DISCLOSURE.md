@@ -2,7 +2,7 @@
 
 ## Latest owner-recorded research result
 
-The [review snapshot](review_snapshot.json) reports a later source-rebuilt retrospective Brier of **0.1034347** from an integrity-checked owner execution record. That is inherited scoring evidence, not a newly queried Kaggle receipt in this release. It must not be relabeled as prospective performance, a competition win or proof of profitability. The earlier directly published scoring receipt below remains independently inspectable.
+The featured result is **0.1034347 public/private Kaggle Brier, submission 57122407**. The [normalized result record](../reports/champion_result/kaggle_record.json) preserves the existing scored evidence and original forecast identity; the owner reconfirmed the result for this publication. No new Kaggle account query occurred. This retrospective result is not a prospective performance or profitability claim. [Score context](../docs/champion_result.md).
 
 ## Published scored case study
 
@@ -26,7 +26,7 @@ Private prediction rows, fitted competition models, raw supplemental archives, d
 
 Derived third-party NCAA player records are not relabeled as original-owned ESPN records. Acquisition, timing, identity mapping and model admission are separate checks. The previously published source-foundation return, **v170 on October 14, 2026 UTC**, completes a source-reconstruction audit, covers 14,311 team-season profiles, and recovers 132,133 existing probabilities. It submits no new candidate and does not complete the private forecast reconstruction. Injury recomputation and historical admission remain incomplete. The [sanitized receipt](latest_execution.json) records the inspected-return scope; it is not a claim about uninspected live AWS files.
 
-The public scored case study remains tied to its own October 8 receipt. Later inherited score summaries are not promoted into authenticated submission claims. No four-year competition-win claim is supported by this publication.
+The public scored case study remains tied to its own October 8 receipt. The featured later result is separately identified by its own submission reference and normalized evidence record. No four-year competition-win claim is supported by this publication.
 
 ## Public synthetic reproduction
 

@@ -12,7 +12,7 @@
     preset: "rated",
     round: 2,
     teamA: "duke",
-    teamB: "uconn",
+    teamB: "michigan",
     result: null,
     matchup: null,
     prices: { a: 1.8, b: 2.2 },
@@ -40,6 +40,13 @@
     el("duke-title-probability").textContent = "—";
     el("duke-readout").textContent = "Calculation unavailable. Reset the scenario.";
     el("duke-baseline-delta").textContent = "—";
+    el("michigan-title-probability").textContent = "—";
+    el("michigan-readout").textContent = "Calculation unavailable. Reset the scenario.";
+    el("michigan-baseline-delta").textContent = "—";
+    el("sensitivity-rows").replaceChildren(); el("path-rows").replaceChildren();
+    el("path-note").textContent = ""; el("path-total").textContent = ""; el("print-settings").textContent = "";
+    el("share-scenario").disabled = true; el("print-report").disabled = true;
+    el("scenario-link").hidden = true; el("scenario-link-label").hidden = true;
     el("price-results").hidden = true;
     state.priceAnalysis = null;
     el("matchup-output").hidden = true;
@@ -188,12 +195,57 @@
     }
   }
   function renderSpotlight() {
-    const duke = state.result.teams.find((team) => team.id === "duke");
-    const baseline = engine.forecast(data.teams, data.bracket).teams.find((team) => team.id === "duke");
-    el("duke-title-probability").textContent = pct(duke.champion_probability);
-    const delta = 100 * (duke.champion_probability - baseline.champion_probability);
-    el("duke-baseline-delta").textContent = `${delta >= 0 ? "+" : ""}${delta.toFixed(1)} percentage points vs baseline`;
-    el("duke-readout").textContent = `Duke reaches the semifinal ${pct(duke.advance[0])} of the time under these assumptions, but wins the field ${pct(duke.advance[2])}. Every possible opponent contributes to that path.`;
+    const baseline = engine.forecast(data.teams,data.bracket);
+    for (const id of ["duke","michigan"]) {
+      const team = state.result.teams.find(t => t.id === id);
+      const old = baseline.teams.find(t => t.id === id);
+      el(`${id}-title-probability`).textContent = pct(team.champion_probability);
+      const delta = 100*(team.champion_probability-old.champion_probability);
+      el(`${id}-baseline-delta`).textContent = `${delta>=0?"+":""}${delta.toFixed(1)} percentage points vs baseline`;
+      el(`${id}-readout`).textContent = `${team.name} reaches the final ${pct(team.advance[1])} of the time under these assumptions. Winning the whole field is a different question.`;
+      el(`focus-${id}`).setAttribute("aria-pressed",String(state.team===id));
+    }
+    doc.body.setAttribute("data-focus",state.team);
+  }
+  function renderInsights() {
+    const team = data.teams.find(t => t.id === state.team);
+    el("sensitivity-note").textContent = `Change ${team.name}'s rating around its current value. This is sensitivity, not a confidence interval.`;
+    el("sensitivity-rows").replaceChildren(...engine.sensitivity(data,state.team,settings()).map(row => {
+      const line = node("div",`sensitivity-row${row.delta===0?" sensitivity-current":""}`);
+      line.append(node("span","sensitivity-label",row.delta===0?"Current":`${signed(row.delta)} rating`));
+      for (const id of ["duke","michigan"]) {
+        const value=row.probabilities[id]; const track=node("div",`sensitivity-track ${id}-track`);
+        const bar=node("span","sensitivity-fill"); bar.style.width=`${value*100}%`;
+        track.append(bar,node("strong","",pct(value))); line.append(track);
+      }
+      return line;
+    }));
+    el("print-settings").textContent = `Illustrative inputs: uncertainty scale ${state.temperature}. ` + state.result.teams.map(t=>`${t.name} ${t.adjusted_rating}`).join("; ") + `. Hypothetical decimal prices: ${state.teamA} ${state.prices.a}, ${state.teamB} ${state.prices.b}. Fixed public fixture ${data.public_fixture_id}. Not a current-season forecast.`;
+    const paths=engine.finalPaths(data,state.team,settings());
+    el("path-note").textContent = `${team.name}: ${pct(paths.reaches_final)} to reach the final. Each contribution below already includes that survival probability.`;
+    el("path-rows").replaceChildren(...paths.rows.map(row => {
+      const line=node("div","path-row");
+      const label=node("div");label.append(node("strong","",row.name),node("small","",`${pct(row.opponent_reaches_final)} to reach final · ${pct(row.win_matchup)} ${team.name} matchup win`));
+      line.append(label,node("strong","path-value",pct(row.contribution))); return line;
+    }));
+    el("path-total").textContent = `${team.name} title probability · ${pct(paths.rows.reduce((sum,row)=>sum+row.contribution,0))}`;
+    el("share-scenario").disabled = !state.matchup || !state.priceAnalysis;
+    el("print-report").disabled = !state.matchup;
+    el("scenario-link").hidden = true; el("scenario-link-label").hidden = true;
+  }
+  function scenarioValue() {
+    return {v:1,fixture:data.public_fixture_id,team:state.team,a:state.teamA,b:state.teamB,round:state.round,
+      temperature:state.temperature,adjustments:{...state.adjustments},prices:{...state.prices}};
+  }
+  function shareScenario() {
+    try {
+      const fragment=engine.encodeScenario(data,scenarioValue());
+      if (!root.location || !/^https?:$/.test(root.location.protocol)) throw new Error("Use the hosted lab for a shareable URL. The JSON export works offline.");
+      const address=root.location.href.split("#")[0]+fragment;
+      el("scenario-link").value=address;el("scenario-link").hidden=false;el("scenario-link-label").hidden=false;
+      el("scenario-link").focus(); el("scenario-link").select?.();
+      el("share-status").textContent="Copy the selected URL. It reconstructs these exact public controls; no data is sent to a server.";
+    } catch(error) { el("share-status").textContent=error.message; }
   }
   function renderPrice() {
     state.priceAnalysis = null;
@@ -282,6 +334,7 @@
       renderBars();
       renderMatchup();
       renderSpotlight();
+      renderInsights();
       if (/^(?:bracket-[0-2]-|bar-)/.test(focusedId || "")) {
         el(focusedId)?.focus();
       }
@@ -327,6 +380,9 @@
         selected_matchup: state.matchup,
         illustrative_scoring: data.scoring,
         hypothetical_price_context: state.priceAnalysis,
+        scenario: scenarioValue(),
+        final_opponent_paths: engine.finalPaths(data,state.team,settings()),
+        local_sensitivity: engine.sensitivity(data,state.team,settings()),
       };
       const blob = new root.Blob([JSON.stringify(artifact, null, 2)], {
         type: "application/json",
@@ -388,7 +444,7 @@
     ]) {
       el(id).addEventListener("change", () => {
         state[property] = el(id).value;
-        if (state.result) renderMatchup();
+        if (state.result) { renderMatchup(); renderInsights(); }
       });
     }
     for (const name of ["rated", "even", "challenger"])
@@ -396,7 +452,7 @@
     el("reset").addEventListener("click", () => {
       state.team = "duke";
       state.teamA = "duke";
-      state.teamB = "uconn";
+      state.teamB = "michigan";
       state.round = 2;
       state.prices = { a: 1.8, b: 2.2 };
       el("price-a").value = "1.8";
@@ -408,9 +464,21 @@
       el(`price-${side}`).addEventListener("input", () => {
         state.prices[side] = Number(el(`price-${side}`).value);
         renderPrice();
+        if(state.result) renderInsights();
       });
     }
     el("export").addEventListener("click", exportAnalysis);
+    for (const id of ["duke","michigan"]) el(`focus-${id}`).addEventListener("click",()=>chooseTeam(id));
+    el("share-scenario").addEventListener("click",shareScenario);
+    el("print-report").addEventListener("click",()=>{if(state.result && state.matchup) root.print?.();});
+    if (root.location?.hash?.startsWith("#scenario=")) {
+      try {
+        const loaded=engine.decodeScenario(data,root.location.hash);
+        state.team=loaded.team;state.teamA=loaded.a;state.teamB=loaded.b;state.round=loaded.round;
+        state.temperature=loaded.temperature;state.adjustments=loaded.adjustments;state.prices=loaded.prices;state.preset="custom";
+        el("price-a").value=String(loaded.prices.a);el("price-b").value=String(loaded.prices.b);
+      } catch(error) {el("share-status").textContent=`Invalid scenario link; safe baseline loaded. ${error.message}`;}
+    }
     refresh();
   } catch (error) {
     fail(error.message);

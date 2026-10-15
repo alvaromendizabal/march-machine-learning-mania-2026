@@ -384,6 +384,44 @@ test("deterministic forecasts do not mutate inputs or invoke randomness, network
       200000,
   );
 });
+
+test("final-opponent contributions reconcile for every team at extreme settings", () => {
+  for (const scale of [100,400,800]) for (const team of data.teams) {
+    const paths=engine.finalPaths(data,team.id,{temperature:scale,adjustments:{[team.id]:250}});
+    assert.equal(paths.rows.length,4); assert.equal(new Set(paths.rows.map(r=>r.opponent)).size,4);
+    near(paths.rows.reduce((s,r)=>s+r.contribution,0),paths.title_probability);
+    near(paths.rows.reduce((s,r)=>s+r.opponent_reaches_final,0),1);
+    assert.ok(paths.rows.every(r=>r.opponent!==team.id && r.contribution>=0));
+  }
+});
+test("equal field has four equal opponent contributions",()=>{
+  const fixture=plain(data); fixture.teams.forEach(t=>t.rating=1500);
+  for(const t of fixture.teams) engine.finalPaths(fixture,t.id).rows.forEach(r=>near(r.contribution,1/32));
+});
+test("sensitivity is monotone for the intervened team and never mutates source",()=>{
+  const before=JSON.stringify(data); const rows=engine.sensitivity(data,"duke");
+  assert.deepEqual(plain(rows.map(r=>r.delta)),[-100,-50,0,50,100]);
+  rows.forEach((r,i)=>{near(Object.values(r.probabilities).reduce((s,p)=>s+p,0),1); if(i) assert.ok(r.probabilities.duke>rows[i-1].probabilities.duke);});
+  assert.equal(JSON.stringify(data),before);
+});
+test("sensitivity respects adjustment limits without duplicate perturbations",()=>{
+  for(const v of [-300,300]) {const rows=engine.sensitivity(data,"michigan",{adjustments:{michigan:v}});assert.equal(new Set(rows.map(r=>r.delta)).size,rows.length);assert.ok(rows.some(r=>r.delta===0));}
+});
+const validScenario={v:1,fixture:data.public_fixture_id,team:"michigan",a:"duke",b:"michigan",round:2,temperature:470,adjustments:{duke:-50,michigan:80},prices:{a:2.1,b:1.9}};
+test("shareable scenarios preserve exact settings and resulting probabilities",()=>{
+  const fragment=engine.encodeScenario(data,validScenario), recovered=engine.decodeScenario(data,fragment);
+  assert.deepEqual(plain(recovered),validScenario);
+  assert.deepEqual(plain(engine.forecast(data.teams,data.bracket,{temperature:recovered.temperature,adjustments:recovered.adjustments})),plain(engine.forecast(data.teams,data.bracket,{temperature:470,adjustments:{duke:-50,michigan:80}})));
+});
+test("links reject unknown keys, versions, fixtures, teams, bounds and oversized input",()=>{
+  for(const patch of [{v:2},{fixture:"old"},{team:"invalid"},{a:"michigan"},{round:4},{temperature:0},{adjustments:{duke:301}},{predictions:[]},{prices:{a:1,b:2}}])assert.throws(()=>engine.encodeScenario(data,{...validScenario,...patch}));
+  for(const text of ["#scenario="+"x".repeat(4001),"#scenario=%zz","#unexpected=1"])assert.throws(()=>engine.decodeScenario(data,text));
+});
+test("Duke and Michigan are genuine fixture members with neutral direct baseline",()=>{
+  assert.ok(data.teams.some(t=>t.id==="michigan"&&t.name==="Michigan"));
+  near(engine.matchup(data,"duke","michigan"),0.5);
+});
+
 console.log(
   JSON.stringify(
     {

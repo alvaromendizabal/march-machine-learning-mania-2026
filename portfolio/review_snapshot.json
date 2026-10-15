@@ -2,9 +2,9 @@
   "schema": 1,
   "scope": "PUBLIC_AGGREGATE_REVIEW_ONLY",
   "recorded_run_utc": "2026-10-15T02:34:59.619704Z",
-  "source_evidence": "Owner-supplied v194 execution return, locally integrity-checked; no new live Kaggle query.",
+  "source_evidence": "Retained owner execution records with authenticated forecast identity; Kaggle-scored result reconfirmed by owner; no new account query.",
   "reported_best_retrospective_brier": 0.1034347,
-  "score_evidence_class": "INHERITED_OWNER_EXECUTION_RECORD_NOT_FRESH_KAGGLE_RECEIPT",
+  "score_evidence_class": "RECORDED_KAGGLE_SCORED_RESULT_OWNER_RECONFIRMED",
   "directly_published_earlier_brier": 0.1067095,
   "direct_receipt": "reports/verified_result/submission_receipt.json",
   "latest_inspected_activity": {
@@ -18,7 +18,11 @@
     "team_names": "real school names",
     "ratings_bracket_and_outcomes": "SYNTHETIC_ONLY",
     "private_assets_used": false,
-    "current_odds_loaded": false
+    "current_odds_loaded": false,
+    "featured_teams": [
+      "Duke",
+      "Michigan"
+    ]
   },
   "provenance": {
     "source_zip_sha256": "f79506f4edd0a6b4084eb369e132d48db042a567403ed6a7714e75a97ba6ddab",
@@ -26,5 +30,7 @@
     "summary_sha256": "c9bdff046578a8ea8be8a7e409482b1eacc75603a2daa500429fd1feb2df1fba",
     "manifest_artifacts_verified": 12
   },
-  "interpretation": "Public showcase closeout; not a new model result, an official competition win, a profitability claim or completed private end-to-end reproduction."
+  "interpretation": "Public showcase closeout; not a new model result, an official competition win, a profitability claim or completed private end-to-end reproduction.",
+  "featured_result": "reports/champion_result/kaggle_record.json",
+  "featured_submission_ref": 57122407
 }

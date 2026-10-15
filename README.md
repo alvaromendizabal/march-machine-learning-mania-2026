@@ -1,4 +1,4 @@
-# Tournament Lab · NCAA probability forecasting
+# Tournament Lab · Duke × Michigan
 
 **Alvaro Mendizabal · Machine learning engineering · Sports analytics**
 
@@ -6,17 +6,17 @@
 [![Public demo](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/public-demo.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/public-demo.yml)
 [![Evidence checks](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml)
 
-[![Tournament Lab: Duke matchup scenarios, exact bracket probabilities and inspectable ML engineering.](docs/assets/forecasting-system.svg)](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)
+[![Tournament Lab: Duke and Michigan: 0.1034347 Kaggle Brier, exact bracket scenarios and reproducible engineering.](docs/assets/forecasting-system.svg)](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)
 
-### A strong team is not a certain winner. Build the probabilities—and the evidence behind them.
+### 0.1034347 Kaggle Brier. Two marquee teams. Every possible path.
 
-I built an NCAA forecasting research system spanning data qualification, men's and women's probability models, season-forward evaluation and recoverable AWS execution. This repository pairs that work with a **Duke-centered interactive lab** and a runnable public engineering example. The public demo is reproducible; the private competition pipeline stays private.
+I built an NCAA forecasting research system spanning data qualification, men's and women's probability models, season-forward evaluation and recoverable AWS execution. This repository pairs that work with a **Duke × Michigan interactive lab** and a runnable public engineering example. The public demo is reproducible; the private competition pipeline stays private.
 
-**[Open the Duke workbench ↗](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)** · **[Sports analyst walkthrough](docs/scouting_walkthrough.md)** · **[Three-minute technical review](START_HERE.md)**
+**[Open the Duke × Michigan workbench ↗](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)** · **[Sports analyst walkthrough](docs/scouting_walkthrough.md)** · **[Three-minute technical review](START_HERE.md)**
 
 ## Start with a basketball question
 
-**How much should a change in Duke's strength move its matchup probability—and its chance of winning a bracket?** Adjust the field, compare Duke with UConn, then inspect every possible tournament path. Enter hypothetical prices to separate a probability estimate from a no-vig market comparison. Export the inputs and full-precision calculation.
+**Duke or Michigan—how does a basketball opinion become a defensible probability?** Michigan is the [2026 NCAA men's champion](https://www.ncaa.com/news/basketball-men/article/2026-04-06/michigan-beats-uconn-wins-2026-mens-basketball-national-championship). Start with either team, adjust its strength, and inspect the matchup, the bracket, the sensitivity and every possible final opponent. Export the complete calculation, create a replayable scenario link, or print an analyst brief.
 
 The school names are real. The demo's ratings, bracket positions, prices and outcomes are **authored synthetic scenarios**, not current NCAA forecasts. No private models or live odds are loaded. [Method and scope](docs/public_demo.md)
 
@@ -30,15 +30,23 @@ The school names are real. The demo's ratings, bracket positions, prices and out
 | **Public, offline reproducibility** | [Duke lab source](public-demo/), [Python evaluation example](docs/public_reproduction.md), deterministic demo packaging |
 | **Recoverable delivery and a protected publication boundary** | [Architecture](docs/architecture.md), [publication checks](tools/check_publication.py), [disclosure](portfolio/DISCLOSURE.md) |
 
-## Results, with evidence attached
+## Featured result: 0.1034347
 
-| Result | Evidence class | What it means |
-|---|---|---|
-| **0.1034347 Brier** | [Owner execution record](portfolio/review_snapshot.json) | Best recorded source-rebuilt retrospective result in the inspected October research evidence; not a fresh Kaggle receipt in this release |
-| **0.1067095 Brier** | [Published Kaggle receipt](reports/verified_result/submission_receipt.json) | Directly inspectable earlier late-submission case study |
-| **Public browser and Python demos** | Synthetic test fixtures | Demonstrate mechanics and engineering, not NCAA predictive performance |
+**Kaggle public and private Brier: 0.1034347 · submission 57122407.** This is a scored retrospective 2026 result, not an offline-only estimate. [Result and evidence](docs/champion_result.md) · [Machine-readable record](reports/champion_result/kaggle_record.json)
 
-Brier is probability error, not accuracy; lower is better. These 2026 research results were obtained **after outcomes were available**. They are not official competition wins, evidence of betting profitability or prospective performance. The public package does not regenerate the private scored forecasts. [Full evidence boundaries](docs/current_research.md)
+The forecast covers **132,133 possible matchups** across men's and women's basketball. Brier measures probability error on scored games, not accuracy; lower is better. The result was obtained after outcomes were available. It is not an official competition victory, prospective validation or a profitability claim.
+
+The public demo reproduces its own probability calculations, not the private competition forecast. Earlier receipts remain in the [historical case study](docs/benchmark_comparison.md); they are not the current headline result.
+
+## What makes the work inspectable
+
+| Public capability | Review it |
+|---|---|
+| **Duke and Michigan, side by side** | Two live team cards and a default head-to-head comparison |
+| **Sensitivity, not false precision** | Perturb one input and see both title probabilities change |
+| **Open the path calculation** | Four final-opponent contributions reconcile to the title probability |
+| **Reproduce an analyst's exact scenario** | Bounded URL-fragment state, full-precision JSON, printable brief, deterministic offline HTML |
+| **Separate research evidence from interface assumptions** | [Model card](docs/model_card.md), [release contract](docs/reviewer_contract.md), automated publication tests |
 
 ## Reproduce the public work
 
