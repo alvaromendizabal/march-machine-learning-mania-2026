@@ -1,60 +1,65 @@
-# NCAA tournament forecasting
+# Tournament Lab · NCAA probability forecasting
 
-**Alvaro Mendizabal · Machine learning engineering · Applied data science**
+**Alvaro Mendizabal · Machine learning engineering · Sports analytics**
 
 [![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
-[![Evidence checks](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml)
 [![Public demo](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/public-demo.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/public-demo.yml)
+[![Evidence checks](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/current-research.yml)
 
-![Forecasting systems: 14,311 team-season profiles, 132,133 validated matchup probabilities, and a reproducible public review.](docs/assets/forecasting-system.svg)
+[![Tournament Lab: Duke matchup scenarios, exact bracket probabilities and inspectable ML engineering.](docs/assets/forecasting-system.svg)](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)
 
-I build probability forecasts whose inputs, evaluation and delivery can be inspected. This project brings together temporal data engineering, separate men's and women's modeling, calibration, and recoverable AWS execution. The public repository demonstrates the engineering with runnable examples, executed notebooks, tests and carefully scoped research evidence.
+### A strong team is not a certain winner. Build the probabilities—and the evidence behind them.
 
-**[Try Tournament Lab](https://alvaro-tournament-lab.tartmacaw2.chatgpt.site)** · **[Three-minute review](START_HERE.md)** · **[Engineering case study](docs/employer_walkthrough.md)** · **[Architecture](docs/architecture.md)**
+I built an NCAA forecasting research system spanning data qualification, men's and women's probability models, season-forward evaluation and recoverable AWS execution. This repository pairs that work with a **Duke-centered interactive lab** and a runnable public engineering example. The public demo is reproducible; the private competition pipeline stays private.
 
-## What I built
+**[Open the Duke workbench ↗](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)** · **[Sports analyst walkthrough](docs/scouting_walkthrough.md)** · **[Three-minute technical review](START_HERE.md)**
 
-| Engineering outcome | Evidence | Why it matters |
+## Start with a basketball question
+
+**How much should a change in Duke's strength move its matchup probability—and its chance of winning a bracket?** Adjust the field, compare Duke with UConn, then inspect every possible tournament path. Enter hypothetical prices to separate a probability estimate from a no-vig market comparison. Export the inputs and full-precision calculation.
+
+The school names are real. The demo's ratings, bracket positions, prices and outcomes are **authored synthetic scenarios**, not current NCAA forecasts. No private models or live odds are loaded. [Method and scope](docs/public_demo.md)
+
+## Engineering at a glance
+
+| Capability | Inspectable evidence |
+|---|---|
+| **14,311 team-season profiles** across men's and women's basketball | [Source-foundation receipt](portfolio/latest_execution.json); distinct season windows and explicit missingness |
+| **132,133 matchup probabilities** in the research forecast population | [Evidence map](docs/evidence_map.md); identities, ranges and file integrity checked |
+| **Season-aware evaluation** rather than a random-split headline | [Splits notebook](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb), [model card](docs/model_card.md) |
+| **Public, offline reproducibility** | [Duke lab source](public-demo/), [Python evaluation example](docs/public_reproduction.md), deterministic demo packaging |
+| **Recoverable delivery and a protected publication boundary** | [Architecture](docs/architecture.md), [publication checks](tools/check_publication.py), [disclosure](portfolio/DISCLOSURE.md) |
+
+## Results, with evidence attached
+
+| Result | Evidence class | What it means |
 |---|---|---|
-| **14,311 team-season profiles** across men's and women's basketball | [Latest source audit](portfolio/latest_execution.json) | Reusable feature construction with explicit source and season boundaries |
-| **132,133 validated matchup probabilities** in a recovered artifact | [Execution verification](portfolio/latest_execution.json) | Complete identities, valid probability ranges and checksum-verified recovery |
-| **566 historical men's games**, including eight restored equal-seed games | [Evaluation repairs](docs/reproduction_matrix.md) | Difficult matchups remain in the evaluation denominator |
-| **A Kaggle-recorded research forecast** with a published receipt | [Measured result](docs/benchmark_comparison.md) | Connects a concrete forecast artifact to an external scoring record |
-| **Public, executable engineering examples** | [Synthetic evaluation lab](docs/public_reproduction.md) · [Browser demo](docs/public_demo.md) | Review the reasoning and failure handling without credentials or private data |
+| **0.1034347 Brier** | [Owner execution record](portfolio/review_snapshot.json) | Best recorded source-rebuilt retrospective result in the inspected October research evidence; not a fresh Kaggle receipt in this release |
+| **0.1067095 Brier** | [Published Kaggle receipt](reports/verified_result/submission_receipt.json) | Directly inspectable earlier late-submission case study |
+| **Public browser and Python demos** | Synthetic test fixtures | Demonstrate mechanics and engineering, not NCAA predictive performance |
 
-The latest source audit reports **211,716 official regular-season games** and verifies 19 manifested files. Its profile and probability counts were independently checked in the supplied return. The raw game corpus was not included for independent recounting. These source results are separate from the scored forecast; they do not establish its causal improvement.
+Brier is probability error, not accuracy; lower is better. These 2026 research results were obtained **after outcomes were available**. They are not official competition wins, evidence of betting profitability or prospective performance. The public package does not regenerate the private scored forecasts. [Full evidence boundaries](docs/current_research.md)
 
-## Run it in one minute
+## Reproduce the public work
 
-Python 3.12, standard library only; no credentials, GPU, model download or external dataset:
+Python 3.12 and Node are enough for the lightweight review; no credentials, cloud account or model download:
 
 ```bash
 git clone https://github.com/alvaromendizabal/march-machine-learning-mania-2026.git
 cd march-machine-learning-mania-2026
 python tools/reproduce_public.py --check
 python portfolio/reproduce_release.py --check
-python tools/summarize_execution.py --check
+node tools/test_public_demo_engine.mjs
+node tools/test_public_demo.mjs
+python tools/package_public_demo.py
 ```
 
-The first command rebuilds a **synthetic forecast-and-evaluation example** and checks its saved artifacts. The other two verify published aggregate evidence. The example demonstrates cutoff selection, one row per physical game, team-swap symmetry, Brier/log loss and reliability diagnostics. It does not reproduce the private competition forecast. [Inputs, outputs and failure cases](docs/public_reproduction.md)
+Open **outputs/public-demo/Tournament_Lab.html** directly in a browser. The packager creates a deterministic self-contained HTML file and a five-file ZIP after checking the public boundary. The same browser calculation runs entirely offline. [Full setup and locked-environment checks](START_HERE.md)
 
-For the full framework, use the [locked Python environment and six review notebooks](START_HERE.md#full-framework-review). For a visual introduction, [Tournament Lab](docs/public_demo.md) lets you change fictional ratings and inspect exact bracket advancement probabilities.
+## Review the work behind the interface
 
-## Results with a clear scope
+[Engineering case study](docs/employer_walkthrough.md) · [Model card](docs/model_card.md) · [Architecture](docs/architecture.md) · [Six executed research notebooks](START_HERE.md#full-framework-review) · [Data provenance](docs/reproducible_source_foundation.md) · [2027 evaluation contract](docs/2027_readiness.md)
 
-The published receipt records **0.1067095 Brier** for a **late, retrospective 2026 submission**, submitted after outcomes had been inspected. It is numerically below the published 2026 winning reference; it is not an official competition victory or evidence of prospective superiority. [Receipt, comparison and attribution](docs/benchmark_comparison.md)
+**Stack:** Python, pandas, scikit-learn, XGBoost, LightGBM, Plotly, AWS SageMaker, GitHub Actions; dependency-free browser demonstration.
 
-That receipt is the public scored case study, not a claim that it is the newest or strongest private experiment. The latest inspected return, **v170, October 14, 2026 UTC**, completes a source-reconstruction audit and recovers an existing forecast. It produces **no new candidate or submission**, and the full private model replay remains incomplete. [Current evidence boundary](docs/current_research.md)
-
-## Decisions worth reviewing
-
-- **Evaluate full populations.** Reconcile identities before calculating improvements; report game-weighted and mean-season Brier separately.
-- **Qualify information before modeling.** Treat event time, publisher time and retrieval time as different facts. Preserve missingness when original timing cannot be proved.
-- **Make research recoverable.** Use manifest checks, bounded jobs, checkpoints, heartbeats and failure artifacts to preserve completed AWS work.
-- **Keep negative results.** A promising recent slice does not override a failed historical gate. [Research decisions](docs/employer_walkthrough.md#decisions-and-tradeoffs)
-
-[Reviewer evidence map](docs/evidence_map.md) · [Source lineage](docs/reproducible_source_foundation.md) · [Public/private boundary](portfolio/DISCLOSURE.md) · [Contributing](CONTRIBUTING.md)
-
-**Stack:** Python · pandas · scikit-learn · XGBoost · LightGBM · Plotly · AWS SageMaker · GitHub Actions.
-
-**Author:** [Alvaro Mendizabal](https://github.com/alvaromendizabal) · [MIT license](LICENSE)
+**Author:** [Alvaro Mendizabal](https://github.com/alvaromendizabal) · [MIT license](LICENSE) · [Method attribution and disclosure](portfolio/DISCLOSURE.md)

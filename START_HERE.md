@@ -6,7 +6,9 @@ I built this project around two questions: are the probabilities useful, and can
 
 ## Three-minute review
 
-1. **Explore:** [Tournament Lab](https://alvaro-tournament-lab.tartmacaw2.chatgpt.site) propagates fictional team strengths through an eight-team bracket. The calculations are exact under the demo's declared assumptions.
+For a sports-first introduction, start with the [analyst walkthrough](docs/scouting_walkthrough.md). For use limits and evidence classes, read the [model card](docs/model_card.md).
+
+1. **Explore:** [Tournament Lab](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html) starts with Duke and propagates illustrative team strengths through an eight-team bracket. The calculations are exact under the demo's declared assumptions.
 2. **Understand the contribution:** [Engineering case study](docs/employer_walkthrough.md) connects source qualification, forecast construction, evaluation repairs and recoverable execution.
 3. **Check the evidence:** [Evidence map](docs/evidence_map.md) identifies the proof and limitation behind each headline result.
 
@@ -30,6 +32,10 @@ The [synthetic evaluation lab](docs/public_reproduction.md) runs a complete publ
 | What was actually delivered? | [Scored receipt](reports/verified_result/submission_receipt.json), [latest source audit](portfolio/latest_execution.json) |
 | What can I reproduce? | [Reproduction matrix](docs/reproduction_matrix.md), [disclosure](portfolio/DISCLOSURE.md) |
 | How are failures handled? | [Runtime code](src/march_mania/runtime.py), [runtime tests](tests/test_runtime.py), [publication gate](tools/check_publication.py) |
+
+## A portable, offline demo
+
+Run `python tools/package_public_demo.py`, then open **outputs/public-demo/Tournament_Lab.html** directly. Packaging verifies the public boundary first and produces deterministic HTML, a five-file ZIP and content hashes. No server, credentials or npm install is required for the packaged browser demo.
 
 ## Browser demo locally
 
@@ -65,4 +71,4 @@ These six notebooks document public-framework lineages. [Verified result](portfo
 
 ## Read the results correctly
 
-The latest inspected return is v170, a source audit with no new submission. The public scored case study has a recorded Brier of 0.1067095; that is not a claim about the best private experiment. Brier is mean squared probability error, not accuracy. Historical outcomes were inspected, and the example's synthetic scores establish no NCAA performance. Prospective evaluation requires a forecast frozen before future outcomes. [Evaluation disclosure](portfolio/DISCLOSURE.md)
+The latest public review snapshot references a later owner lineage audit; v170 remains the dated source-foundation receipt. The directly published Kaggle receipt records 0.1067095. Later owner execution evidence reports 0.1034347, a different evidence class; see [the review snapshot](portfolio/review_snapshot.json). Brier is mean squared probability error, not accuracy. Historical outcomes were inspected, and the example's synthetic scores establish no NCAA performance. Prospective evaluation requires a forecast frozen before future outcomes. [Evaluation disclosure](portfolio/DISCLOSURE.md)

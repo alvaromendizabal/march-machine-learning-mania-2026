@@ -29,13 +29,13 @@ function near(actual, expected, tolerance = 1e-12) {
 }
 const scenarios = [
   {},
-  { temperature: 100, adjustments: { meadow: 250 } },
-  { temperature: 800, adjustments: { harbor: -200, cedar: 120 } },
+  { temperature: 100, adjustments: { gonzaga: 250 } },
+  { temperature: 800, adjustments: { duke: -200, houston: 120 } },
   { temperature: 1 },
   { temperature: 2000 },
 ];
 
-test("authored fixture has eight unique fictional teams, fixed seed bracket and separate outcomes", () => {
+test("authored fixture has eight unique scenario teams, fixed seed bracket and separate outcomes", () => {
   assert.equal(engine.validateData(data), true);
   assert.equal(data.teams.length, 8);
   assert.equal(new Set(data.teams.map((team) => team.id)).size, 8);
@@ -98,10 +98,10 @@ test("equal strengths yield exact half, quarter and eighth advancement for every
 test("one stronger team wins the tournament with the hand-derived p cubed", () => {
   const teams = data.teams.map((team) => ({
     ...team,
-    rating: team.id === "harbor" ? 1900 : 1500,
+    rating: team.id === "duke" ? 1900 : 1500,
   }));
   const result = engine.forecast(teams, data.bracket),
-    strong = result.teams.find((team) => team.id === "harbor");
+    strong = result.teams.find((team) => team.id === "duke");
   near(strong.advance[0], 10 / 11);
   near(strong.advance[1], (10 / 11) ** 2);
   near(strong.advance[2], (10 / 11) ** 3);
@@ -183,21 +183,21 @@ test("round totals conserve four, two and one survivors and probabilities decrea
 });
 test("a rating intervention changes its forecast while preserving the fixed bracket", () => {
   const baseline = engine.analyze(data),
-    adjusted = engine.analyze(data, { adjustments: { meadow: 250 } });
+    adjusted = engine.analyze(data, { adjustments: { gonzaga: 250 } });
   assert.deepEqual(plain(adjusted.bracket), plain(baseline.bracket));
   assert.ok(
-    adjusted.teams.find((team) => team.id === "meadow").champion_probability >
-      baseline.teams.find((team) => team.id === "meadow").champion_probability,
+    adjusted.teams.find((team) => team.id === "gonzaga").champion_probability >
+      baseline.teams.find((team) => team.id === "gonzaga").champion_probability,
   );
   for (const team of adjusted.teams)
     assert.equal(
       team.adjusted_rating,
-      team.rating + (team.id === "meadow" ? 250 : 0),
+      team.rating + (team.id === "gonzaga" ? 250 : 0),
     );
   near(
-    engine.matchup(data, "meadow", "harbor", { adjustments: { meadow: 250 } }),
+    engine.matchup(data, "gonzaga", "duke", { adjustments: { gonzaga: 250 } }),
     adjusted.matchups.find(
-      (row) => row.team_a === "meadow" && row.team_b === "harbor",
+      (row) => row.team_a === "gonzaga" && row.team_b === "duke",
     ).probability_a,
   );
 });
@@ -225,7 +225,7 @@ test("changing every synthetic outcome leaves all forecasts and game predictions
   assert.throws(
     () =>
       engine.predictGames(data.teams, [
-        { ...data.scoring.requests[0], winner_id: "harbor" },
+        { ...data.scoring.requests[0], winner_id: "duke" },
       ]),
     /Identifier-only/,
   );
@@ -337,14 +337,14 @@ test("invalid teams, partitions, settings and attached outcome fields reject vis
     { temperature: 0 },
     { temperature: NaN },
     { temperature: 2001 },
-    { adjustments: { harbor: 301 } },
+    { adjustments: { duke: 301 } },
     { adjustments: { unknown: 1 } },
-    { adjustments: { harbor: "20" } },
+    { adjustments: { duke: "20" } },
     { temperature: 400, hidden_recipe: 1 },
   ])
     assert.throws(() => engine.analyze(data, settings));
-  assert.throws(() => engine.matchup(data, "harbor", "harbor"));
-  assert.throws(() => engine.matchup(data, "harbor", "missing"));
+  assert.throws(() => engine.matchup(data, "duke", "duke"));
+  assert.throws(() => engine.matchup(data, "duke", "missing"));
   for (const args of [
     [NaN, 1500, 400],
     [1500, Infinity, 400],
@@ -356,11 +356,11 @@ test("invalid teams, partitions, settings and attached outcome fields reject vis
 test("deterministic forecasts do not mutate inputs or invoke randomness, network or hidden model assets", () => {
   const before = JSON.stringify(data),
     one = JSON.stringify(
-      engine.analyze(data, { temperature: 350, adjustments: { summit: 125 } }),
+      engine.analyze(data, { temperature: 350, adjustments: { florida: 125 } }),
     );
   assert.equal(
     JSON.stringify(
-      engine.analyze(data, { temperature: 350, adjustments: { summit: 125 } }),
+      engine.analyze(data, { temperature: 350, adjustments: { florida: 125 } }),
     ),
     one,
   );

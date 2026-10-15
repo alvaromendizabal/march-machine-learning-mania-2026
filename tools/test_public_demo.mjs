@@ -206,14 +206,14 @@ await test("rating edits preserve the public fixture and only adjust the selecte
     original = plain(ui.data());
   ui.change("rating", 120, "input");
   const exported = await ui.export();
-  assert.deepEqual(exported.inputs.settings.adjustments, { harbor: 120 });
+  assert.deepEqual(exported.inputs.settings.adjustments, { duke: 120 });
   assert.equal(
-    exported.analysis.teams.find((team) => team.id === "harbor")
+    exported.analysis.teams.find((team) => team.id === "duke")
       .adjusted_rating,
     1840,
   );
   for (const team of exported.analysis.teams.filter(
-    (team) => team.id !== "harbor",
+    (team) => team.id !== "duke",
   ))
     assert.equal(team.adjusted_rating, team.rating);
   assert.deepEqual(plain(ui.data()), original);
@@ -224,35 +224,35 @@ await test("rating edits preserve the public fixture and only adjust the selecte
 await test("each team's adjustment survives selection changes and native range events", async () => {
   const ui = browser();
   ui.change("rating", 100, "input");
-  ui.change("team", "cedar");
+  ui.change("team", "houston");
   assert.equal(ui.el("rating").value, "0");
   ui.change("rating", -50, "input");
-  ui.change("team", "harbor");
+  ui.change("team", "duke");
   assert.equal(ui.el("rating").value, "100");
   assert.deepEqual((await ui.export()).inputs.settings.adjustments, {
-    cedar: -50,
-    harbor: 100,
+    houston: -50,
+    duke: 100,
   });
 });
 
 await test("both bracket and probability bars select teams through their actual click handlers", () => {
   const ui = browser();
-  ui.click("bracket-1-meadow");
-  assert.equal(ui.el("team").value, "meadow");
+  ui.click("bracket-1-gonzaga");
+  assert.equal(ui.el("team").value, "gonzaga");
   for (let round = 0; round < 3; round++)
     assert.equal(
-      ui.el(`bracket-${round}-meadow`).attributes["aria-pressed"],
+      ui.el(`bracket-${round}-gonzaga`).attributes["aria-pressed"],
       "true",
     );
-  assert.equal(ui.el("bar-meadow").attributes["aria-pressed"], "true");
-  ui.click("bar-copper");
-  assert.equal(ui.el("team").value, "copper");
-  assert.match(ui.el("selected-summary").textContent, /^Copper Owls/);
+  assert.equal(ui.el("bar-gonzaga").attributes["aria-pressed"], "true");
+  ui.click("bar-uconn");
+  assert.equal(ui.el("team").value, "uconn");
+  assert.match(ui.el("selected-summary").textContent, /^UConn/);
 });
 
 await test("team selection restores keyboard focus to replacement bracket and bar buttons", () => {
   const ui = browser();
-  for (const id of ["bracket-1-meadow", "bar-copper"]) {
+  for (const id of ["bracket-1-gonzaga", "bar-uconn"]) {
     const original = ui.el(id);
     original.focus();
     assert.equal(ui.sandbox.document.activeElement, original);
@@ -293,15 +293,15 @@ await test("the challenger preset resets other adjustments and materially change
   const before = ui
     .engine()
     .analyze(ui.data())
-    .teams.find((team) => team.id === "meadow").champion_probability;
+    .teams.find((team) => team.id === "gonzaga").champion_probability;
   ui.click("preset-even");
   ui.click("preset-challenger");
   const exported = await ui.export();
-  assert.deepEqual(exported.inputs.settings.adjustments, { meadow: 250 });
-  assert.equal(ui.el("team").value, "meadow");
+  assert.deepEqual(exported.inputs.settings.adjustments, { gonzaga: 250 });
+  assert.equal(ui.el("team").value, "gonzaga");
   assert.equal(ui.el("rating").value, "250");
   assert.ok(
-    exported.analysis.teams.find((team) => team.id === "meadow")
+    exported.analysis.teams.find((team) => team.id === "gonzaga")
       .champion_probability > before,
   );
 });
@@ -349,8 +349,8 @@ await test("higher temperature softens a non-tied direct matchup without changin
 await test("matchup changes obey swap symmetry and have an exact-width accessible comparison bar", async () => {
   const ui = browser();
   const original = await ui.export();
-  ui.change("team-a", "copper");
-  ui.change("team-b", "harbor");
+  ui.change("team-a", "uconn");
+  ui.change("team-b", "duke");
   const swapped = await ui.export();
   close(
     swapped.selected_matchup.probability_a,
@@ -362,20 +362,20 @@ await test("matchup changes obey swap symmetry and have an exact-width accessibl
   );
   assert.match(
     ui.el("matchup-bar").attributes["aria-label"],
-    /Copper Owls.*Harbor Foxes/,
+    /UConn.*Duke/,
   );
 });
 
 await test("invalid same-team matchups hide stale values and block export while preserving the valid bracket", () => {
   const ui = browser();
-  ui.change("team-b", "harbor");
+  ui.change("team-b", "duke");
   assert.equal(ui.el("matchup-output").hidden, true);
   assert.equal(ui.el("matchup-error").hidden, false);
   assert.equal(ui.el("export").disabled, true);
   assert.equal(buttonsIn(ui, "bracket").length, 24);
   ui.click("export");
   assert.equal(ui.blob(), null);
-  ui.change("team-b", "cedar");
+  ui.change("team-b", "houston");
   assert.equal(ui.el("matchup-output").hidden, false);
   assert.equal(ui.el("matchup-error").hidden, true);
   assert.equal(ui.el("export").disabled, false);
@@ -408,7 +408,7 @@ await test("reset restores every scenario, stage and matchup control", async () 
   ui.click("preset-challenger");
   ui.change("temperature", 700, "input");
   ui.change("round", 0);
-  ui.change("team-a", "mesa");
+  ui.change("team-a", "unc");
   ui.click("reset");
   const exported = await ui.export();
   assert.deepEqual(exported.inputs.settings, {
@@ -416,12 +416,12 @@ await test("reset restores every scenario, stage and matchup control", async () 
     adjustments: {},
   });
   assert.deepEqual(exported.selection, {
-    team: "harbor",
+    team: "duke",
     stage: 2,
     preset: "rated",
   });
-  assert.equal(exported.selected_matchup.team_a, "harbor");
-  assert.equal(exported.selected_matchup.team_b, "copper");
+  assert.equal(exported.selected_matchup.team_a, "duke");
+  assert.equal(exported.selected_matchup.team_b, "uconn");
 });
 
 await test("JSON export replays every exact probability and keeps fictional outcome evidence explicit", async () => {
@@ -500,7 +500,7 @@ await test("fixture display names remain literal text rather than HTML", () => {
   assert.equal(ui.el("error").hidden, true);
   assert.ok(
     ui
-      .el("bracket-0-harbor")
+      .el("bracket-0-duke")
       .textContent.includes("<img src=x onerror=alert(1)>"),
   );
   assert.equal(
@@ -536,6 +536,39 @@ await test("hidden states, visible labels, focus styles and local-only assets ar
     assert.ok(html.includes(`for="${id}"`), `Visible label for ${id}`);
   assert.match(html, /role="status"/);
   assert.match(html, /role="alert"/);
+});
+
+await test("Duke is the default and its headline uses the actual bracket engine", () => {
+  const ui = browser();
+  assert.equal(ui.el("team").value, "duke");
+  const duke = ui.engine().analyze(ui.data()).teams.find(t => t.id === "duke");
+  assert.equal(ui.el("duke-title-probability").textContent, percentage(duke.champion_probability));
+  assert.match(ui.el("duke-readout").textContent, /Duke/);
+});
+await test("hypothetical prices normalize without altering forecasts", async () => {
+  const ui = browser();
+  const before = await ui.export();
+  ui.change("price-a", 2, "input"); ui.change("price-b", 2, "input");
+  assert.equal(ui.el("price-no-vig").textContent, "50.0%");
+  assert.equal(ui.el("price-overround").textContent, "0.0%");
+  const after = await ui.export();
+  assert.deepEqual(before.analysis, after.analysis);
+  assert.equal(after.hypothetical_price_context.no_vig_probability_a, 0.5);
+});
+await test("invalid prices show no stale market result and leave valid bracket available", async () => {
+  const ui = browser(); ui.change("price-a", 1, "input");
+  assert.equal(ui.el("price-error").hidden, false);
+  assert.equal(ui.el("price-results").hidden, true);
+  assert.equal((await ui.export()).hypothetical_price_context, null);
+  ui.click("reset");
+  assert.equal(ui.el("price-results").hidden, false);
+});
+await test("price normalization rejects malformed inputs and has explicit zero-probability behavior", () => {
+  const e = browser().engine();
+  close(e.priceComparison(0.6, 1.8, 2.2).no_vig_probability_a, 0.55);
+  assert.equal(e.priceComparison(0, 2, 2).fair_decimal_a, null);
+  for (const p of [NaN, -0.1, 1.1]) assert.throws(() => e.priceComparison(p,2,2));
+  for (const price of [0,1,Infinity,1001]) assert.throws(() => e.priceComparison(0.5,price,2));
 });
 
 console.log(
