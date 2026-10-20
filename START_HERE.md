@@ -50,6 +50,8 @@ python -m http.server 8000
 
 Open **http://localhost:8000/public-demo/**. The static demo needs no build step. Check its engine and actual UI handlers with `node tools/test_public_demo_engine.mjs` and `node tools/test_public_demo.mjs`. [Demo guide](docs/public_demo.md)
 
+[Maintained scope and publication boundary](docs/PROJECT_SCOPE.md) distinguish the active framework from retired one-time report copies.
+
 ## Full framework review
 
 Python **3.12.13** and the project dependencies are locked in `uv.lock`:
