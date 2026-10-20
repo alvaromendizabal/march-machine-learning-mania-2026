@@ -65,15 +65,10 @@ upstream report hashes and exact output bytes. CI checks the saved files against
 fresh computation. The default notebook workflow continues to review the research;
 generating submission files remains an explicit later operation.
 
-## Next release
+## Historical catalogue and current delivery
 
-Freeze concrete model specifications using only the declared pre-2022 development
-predictions, then fit each unique component once through 2025. Reuse those components
-across pairings. Pooled components need their actual common-feature training
-population, and every procedure needs an explicit route for unseeded teams.
-
-Generate and validate the 50 complete Stage 2 CSVs, record exact checksums and model
-lineage, reject duplicate final probability vectors, archive models and files, and
-prove fresh-directory recovery without new fits. Development-vector uniqueness
-does not guarantee final-vector uniqueness. Generation is separate from an accepted
-Kaggle upload. The [completion plan](../../docs/completion_plan.md) records the gates.
+This is a recorded development catalogue, not the current private execution plan.
+The [featured scored artifact](../../docs/champion_result.md) has a separate identity
+and evidence. The [maintained scope](../../docs/PROJECT_SCOPE.md) explains public
+reproduction and ongoing private AWS work. Cleanup changes neither the catalogue's
+original metrics nor the recorded historical generation status in its manifest.
