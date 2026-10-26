@@ -1081,3 +1081,32 @@ button:focus-visible,a:focus-visible {outline-color:#da7c05}
 .share-panel button {border:1px solid #9aabc7;background:#fff;color:#123366;border-radius:8px;padding:11px 16px;font-weight:650;box-shadow:0 2px 3px #071d4a06}
 .share-panel button:hover:not(:disabled) {background:#e0eaff;border-color:#2457ad}
 body[data-focus="michigan"] .probability-row.selected .bar-fill {background:#d3a400}
+
+/* Engineering review: explicit evidence paths and optional acquisition detail. */
+.engineering-panel {border:1px solid #cbd6e7;border-radius:16px;background:#fff;margin:8px 0 28px;overflow:hidden}
+.engineering-heading {display:grid;grid-template-columns:1fr auto;align-items:center;gap:28px;padding:30px 32px 22px;background:linear-gradient(110deg,#eef4fd,#f8faff)}
+.engineering-heading h2 {font:500 32px/1.15 var(--serif);margin:8px 0 12px;color:#132d50}
+.engineering-heading p {max-width:76ch;margin:0;color:#536077}
+.engineering-heading .eyebrow {font-size:12px;letter-spacing:1.5px;color:#2e538b}
+.engineering-action {display:block;padding:14px 18px;background:#143b79;border:1px solid #143b79;border-radius:8px;color:white;font-size:13px;font-weight:650;white-space:nowrap;text-align:center}
+.engineering-action:hover {background:#092857;color:white}
+.engineering-pillars {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding:24px 12px}
+.engineering-pillars article {padding:0 20px;border-right:1px solid #dce3ef}
+.engineering-pillars article:last-child {border:0}
+.evidence-index {font:600 12px/1.5 var(--mono);letter-spacing:1px;color:#46628a}
+.engineering-pillars h3 {font:550 23px/1.2 var(--serif);margin:10px 0}
+.engineering-pillars p {font-size:13px;line-height:1.65;color:#536077;margin:0;max-width:45ch}
+.acquisition-detail {border-top:1px solid #dce3ef;background:#fafcff}
+.acquisition-detail summary {padding:18px 32px;cursor:pointer;font-size:14px;font-weight:650;color:#1c3d70}
+.acquisition-detail summary span {float:right;font-size:12px;font-weight:400;color:#536077}
+.acquisition-detail summary:focus-visible {outline:3px solid #da7c05;outline-offset:-4px}
+.acquisition-body {padding:0 32px 25px}
+.coverage-cards {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:8px 0 20px}
+.coverage-cards article {padding:18px;background:white;border:1px solid #dce3ef;border-radius:9px}
+.coverage-cards span {font-size:12px;color:#536077}
+.coverage-cards strong {display:block;font:650 29px/1.2 var(--mono);color:#163d78;margin:12px 0}
+.coverage-cards p,.evidence-scope {font-size:12px;line-height:1.65;color:#536077;margin-bottom:0}
+.acquisition-body > a {display:inline-block;margin-top:14px;font-size:13px;font-weight:650;color:#1747bb}
+@media(max-width:1000px){.engineering-heading{grid-template-columns:1fr}.engineering-action{justify-self:start}}
+@media(max-width:700px){.engineering-heading{padding:24px}.engineering-heading h2{font-size:28px}.engineering-pillars,.coverage-cards{grid-template-columns:1fr}.engineering-pillars{padding:0 24px}.engineering-pillars article{padding:20px 0;border-right:0;border-bottom:1px solid #dce3ef}.acquisition-detail summary{padding:20px 24px;line-height:1.6}.acquisition-detail summary span{display:block;float:none;margin-left:16px}.acquisition-body{padding:0 24px 24px}}
+@media print{.engineering-panel{display:none}}

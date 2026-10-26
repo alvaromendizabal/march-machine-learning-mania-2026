@@ -31,6 +31,9 @@ jobs:
           uv run --locked python portfolio/current_research.py --build --kernel march-portfolio
           uv run --locked python portfolio/current_research.py --check
 
+          uv run --locked python -m unittest discover -s tools -p 'test_review_project.py' -v
+          uv run --locked python tools/review_project.py --build-notebook --kernel march-portfolio
+
           uv run --locked python -m unittest discover -s portfolio -p 'test_frontier_research.py' -v
           uv run --locked python portfolio/frontier_research.py --check
           uv run --locked python -m ipykernel install --user --name march-frontier

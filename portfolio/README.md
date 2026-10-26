@@ -2,11 +2,13 @@
 
 **Alvaro Mendizabal · probability modeling · temporal validation · source provenance · AWS/SageMaker**
 
-The published October 8 Kaggle late-submission receipt records **0.1067095 Brier**, compared with the official winner's **0.1097454**: **0.0030359 lower, or 2.77% less probability loss**. This is a meaningful numerical reduction in the measured loss, not a 2.77-point increase in accuracy.
+The featured result is **0.1034347 retrospective Kaggle Brier**, submission 57122407. [Current score and context](../docs/champion_result.md). The [engineering review](engineering_review.ipynb) adds executed coverage analysis and a synthetic recovery demonstration.
 
-The official deadline was March 19, 2026; the project submitted this result on October 8 after outcomes were available. It is a retrospective improvement, not an official competition victory. The score alone does not establish statistical significance or isolate which method caused the improvement. [Read the comparison and its scope](../docs/benchmark_comparison.md).
+The latest acquisition record reports **133/221** numerical box-score candidates, 88 remaining, and **PARTIAL** venue qualification with 27 processing errors and only 6/583 required women's rows qualified. [Current snapshot](acquisition_progress.json). Source recovery is separate from training admission and forecast improvement.
 
-## Delivered result
+The earlier October 8 **0.1067095** scored case study and its comparison with the official winning reference remain below. Different submission dates and outcome availability prevent a prospective-superiority claim.
+
+## Earlier scored case study
 
 | Evidence | Value | State |
 |---|---:|---|
@@ -26,7 +28,7 @@ The submitted system adapts the men's probability composition and retains the wo
 - **Reliable execution:** self-tests, bounded concurrency, checkpoint integrity, resumable stages, and validated output bundles on AWS/SageMaker.
 - **Research judgment:** plausible experiments are retained as negative evidence when they fail declared historical requirements.
 
-## Latest inspected source audit
+## Earlier source foundation: v170
 
 The **v170 October 14** return completed source reconstruction over **14,311 team-season profiles** and recovered **132,133 valid existing matchup probabilities**. All **19 manifested members** passed integrity checks. It did not create a new candidate or submission, complete the full private forecast reconstruction, or pass historical admission. Injury transformation and exact source timing remain incomplete.
 
@@ -40,7 +42,7 @@ The [execution receipt](latest_execution.json) contains only allowlisted aggrega
 4. [Employer walkthrough](../docs/employer_walkthrough.md): technical contributions and interview discussion.
 5. [Reproduction matrix](../docs/reproduction_matrix.md): demonstrated mechanisms and remaining gaps.
 6. [2027 readiness](../docs/2027_readiness.md): prospective execution contract.
-7. [Release evidence](release_evidence.json): machine-readable current-release facts.
+7. [Release evidence](release_evidence.json): machine-readable facts for the earlier scored case study.
 8. [Disclosure](DISCLOSURE.md): publication and reproducibility boundaries.
 
 Earlier files in this directory preserve research snapshots. Their historical lifecycle labels do not override the current release evidence or [current research boundary](../docs/current_research.md).

@@ -4,6 +4,11 @@ Every headline should lead to an artifact and a bounded interpretation. This map
 
 | Claim | Inspect | What the evidence establishes | What it does not establish |
 |---|---|---|---|
+| 0.1034347 featured Kaggle Brier | [Normalized record](../reports/champion_result/kaggle_record.json) | Recorded retrospective public/private score, submission 57122407 | New account query, prospective performance or private-row publication |
+| 133/221 recovered numerical candidates; 88 remaining | [Current snapshot](../portfolio/acquisition_progress.json), [executed notebook](../portfolio/engineering_review.ipynb) | Aggregate accounting from the authenticated owner return | Historical admission, which remains zero for this recovered overlay |
+| 72 venue units, 62 new captures, 6/583 qualified women's rows | [Current snapshot](../portfolio/acquisition_progress.json) | Partial progress with 27 processing errors retained | Completed venue study or new model fits |
+| Stop, resume, warm reuse and corruption refusal | [Public recovery example](../tools/reliability_demo.py), [call-count tests](../tools/test_reliability_demo.py) | Actual qualification calls: cold4, stop1, resume3, warm0 | Private source adapters or malicious-tampering resistance |
+
 | 14,311 team-season profiles | [v170 receipt](../portfolio/latest_execution.json) | Rows independently counted in the supplied compressed profile table; 8,346 men's and 5,965 women's profiles | Pre-deadline provenance for every underlying observation |
 | 211,716 official regular-season games | [Execution summary](../portfolio/latest_execution.json) | Count reported by the runner; 124,529 men's plus 87,187 women's | Independent recount of the raw corpus, which was not in this return |
 | 132,133 valid matchup probabilities | [v170 receipt](../portfolio/latest_execution.json) | Recovered forecast has unique IDs and finite probabilities in range; checksum matched | A new model fit, a new submission or complete private-model reproduction |

@@ -15,16 +15,20 @@ The work spans source acquisition and qualification, team and matchup features, 
 | Data engineering | Provider identities, chronology checks, raw-to-feature replay, missingness and source receipts | [Source foundation](reproducible_source_foundation.md), [data audit notebook](../notebooks/00_data_audit_and_preparation.ipynb) |
 | Probability modeling | Separate men's/women's branches, ranking and strength features, calibrated outputs and controlled composition | [Model comparison](../notebooks/03_model_comparison_and_diagnostics.ipynb), [credited method lineage](benchmark_comparison.md) |
 | Evaluation design | Complete physical-game populations, season-based comparisons and separate development/confirmation evidence | [Reproduction matrix](reproduction_matrix.md), [split contracts](../configs/splits.yaml) |
-| ML operations | Bounded AWS jobs, checkpoint verification, resume behavior, heartbeats and diagnostic return bundles | [Runtime](../src/march_mania/runtime.py), [failure tests](../tests/test_runtime.py) |
+| ML operations | Resource-aware AWS jobs, checkpoint verification, resume behavior, heartbeats and diagnostic return bundles | [Runtime](../src/march_mania/runtime.py), [failure tests](../tests/test_runtime.py) |
 | Review experience | Executed notebooks, a synthetic Python evaluation lab, an interactive bracket demo and aggregate receipt checks | [Start here](../START_HERE.md), [evidence map](evidence_map.md) |
 
 The system builds on credited public methods. Their underlying ideas are not presented as my inventions. The integration, evaluation repairs, source qualification and operational controls are explicit project contributions.
 
 ## Measured delivery
 
-The public scoring receipt records **0.1067095 Brier** for a 132,133-row research forecast. The submission occurred after the 2026 tournament and after outcomes were inspected. It is numerically below the published 2026 winning reference, with the unequal evaluation conditions documented in the [comparison](benchmark_comparison.md).
+The featured result is **0.1034347 public/private Kaggle Brier**, submission 57122407, over a forecast of 132,133 possible matchups. It is a retrospective result obtained after outcomes were available. The earlier **0.1067095** receipt remains a separate, dated case study. [Score evidence](champion_result.md) · [Historical comparison](benchmark_comparison.md)
 
-The latest source audit is a separate engineering result: **14,311 team-season profiles**, a recovered **132,133-row forecast**, and **19 manifest members verified**. The run reports 211,716 regular-season games; those raw game records were not included for independent recounting. The private forecast reconstruction remains incomplete. [Latest execution receipt](../portfolio/latest_execution.json)
+Current acquisition has recovered **133 of 221** missing numerical box scores and reached **904/1,029** complete numerical team-seasons. The recovered overlay still has zero strict historical admissions. The venue run attempted 72 units and captured 62 new source bodies, but 27 processing errors and only six qualified women's rows leave the complete study **PARTIAL**. [Current aggregate evidence](../portfolio/acquisition_progress.json)
+
+## Demonstrate the recovery contract
+
+The [single-command review](engineering_review.md) runs a small, independently authored example. It stops after one committed unit, computes only the three remaining units on resume, and performs zero qualification calls on a warm repeat. Tests count actual function calls. Changed inputs, corrupt content, duplicate identities and an active lock fail visibly. This is an executable demonstration of the engineering principle without publishing private source adapters.
 
 ## Decisions and tradeoffs
 
