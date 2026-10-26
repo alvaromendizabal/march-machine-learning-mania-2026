@@ -4,15 +4,31 @@
 
 ## Evidence boundary
 
-Public review updated October 15, 2026 UTC (October 14 in Los Angeles). This page distinguishes a published Kaggle receipt, later owner execution records and synthetic public demonstrations. It does not inventory live AWS state.
+Public review updated October 26, 2026, America/Los_Angeles. This page distinguishes a published Kaggle receipt, later owner execution records and synthetic public demonstrations. It does not inventory live AWS state.
 
 ## Latest inspected research evidence
 
-The separately scoped [public review snapshot](../portfolio/review_snapshot.json) records an integrity-checked owner execution from October 15 at 02:34 UTC. It reports **0.1034347** as the protected, source-rebuilt retrospective Brier. The retained records identify Kaggle submission **57122407**; the owner reconfirmed the actual scored result for this publication. [Featured result](champion_result.md). No live account query occurred in this release. The run fitted no new models and made no new submissions. It strengthened original forecast/producer-lineage evidence but did not complete private end-to-end replay or establish untouched confirmation.
+The [current acquisition snapshot](../portfolio/acquisition_progress.json) records the authenticated v324 owner return. All 103 manifested members passed path, CRC, size and SHA-256 checks. This public record exposes only allowlisted aggregates; it does not publish raw source bodies or private orchestration.
 
-The directly published **0.1067095** Kaggle receipt below remains a dated earlier case study. The **v170** source-foundation receipt remains useful historical evidence; it is no longer described as the globally latest research run. Its open issues describe that execution, not the complete current private workspace.
+| Current observation | Meaning |
+|---|---|
+| 133/221 numerical box-score candidates | Two new recoveries; 88 still missing |
+| 904/1,029 complete team-seasons | Numerical history coverage; 125 affected |
+| Zero strict historical admissions from the recovered overlay | Valid numbers do not prove pre-cutoff availability |
+| 72/72 venue acquisition units attempted; 62 new captures | Acquisition progress, not completed qualification |
+| 27 source-processing errors | Avoidable post-capture failures remain visible |
+| 6/583 qualified women's venue rows | 577 unknown; 602 men's rows are carried controls |
+| PARTIAL, zero new fits or submissions | No completed model experiment or promoted forecast |
 
-The latest public demo features Duke and Michigan alongside other real school names with synthetic ratings and outcomes. Its no-vig price panel is a transparent display-only calculation, not an odds feed or a performance claim. [Duke walkthrough](scouting_walkthrough.md) · [Model card](model_card.md)
+The source stage finished in 5.638 seconds; the overall execution lasted 665.877 seconds. These are observed durations for this run, not a controlled throughput benchmark. Downloaded documents remain useful for cache-based reconciliation. [Executed engineering notebook](../portfolio/engineering_review.ipynb) · [Runnable public review](engineering_review.md)
+
+### Earlier evidence retained
+
+The [October 15 review snapshot](../portfolio/review_snapshot.json) reports the protected source-rebuilt retrospective Brier of **0.1034347**, submission **57122407**, subsequently reconfirmed by the owner. No live Kaggle account query occurred for this public update. That record strengthened producing-lineage evidence but did not complete private end-to-end replay or establish untouched confirmation.
+
+The **0.1067095** receipt below remains an earlier scored case study. The **v170** source-foundation receipt remains dated historical evidence. Its open issues describe that execution rather than the complete current private workspace.
+
+The Duke–Michigan demo uses authored synthetic ratings and outcomes. Its price panel is display-only, with no odds feed or predictive-performance claim. [Analyst walkthrough](scouting_walkthrough.md) · [Model card](model_card.md)
 
 ## Archived earlier result and metric contract
 

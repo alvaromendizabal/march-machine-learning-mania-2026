@@ -19,24 +19,23 @@ For a sports-first introduction, start with the [analyst walkthrough](docs/scout
 
 ## Ten-minute technical review
 
-From the repository root, with Python 3.12:
+From the repository root, with **Python 3.12 and Node**:
 
 ```bash
-python tools/reproduce_public.py --check
-python portfolio/reproduce_release.py --check
-python tools/summarize_execution.py --check
-python -m unittest discover -s tools -p 'test_public_reproduction.py'
+python tools/review_project.py
 ```
 
-The [synthetic evaluation lab](docs/public_reproduction.md) runs a complete public example with timestamped observations, identity-only prediction requests and separate scoring labels. Inspect its source and try a failing input. The other commands verify aggregate result and execution records. All three use the standard library and require no credentials or downloads.
+Open **outputs/review/index.html** for the executed checks and current evidence. **outputs/review/review.json** preserves the results and source hashes. This standard-library review needs no credentials, package installation or downloads. [Engineering review contract](docs/engineering_review.md)
 
 | Question | Start with |
 |---|---|
-| How is outcome leakage prevented? | [Synthetic reproduction](docs/public_reproduction.md), [split notebook](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) |
-| What did the author contribute? | [Case study](docs/employer_walkthrough.md), [method attribution](docs/benchmark_comparison.md#method-lineage-and-additional-work) |
-| What was actually delivered? | [Scored receipt](reports/verified_result/submission_receipt.json), [latest source audit](portfolio/latest_execution.json) |
-| What can I reproduce? | [Reproduction matrix](docs/reproduction_matrix.md), [disclosure](portfolio/DISCLOSURE.md) |
-| How are failures handled? | [Runtime code](src/march_mania/runtime.py), [runtime tests](tests/test_runtime.py), [publication gate](tools/check_publication.py) |
+| How is outcome leakage prevented? | [Synthetic forecast example](docs/public_reproduction.md), [split notebook](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) |
+| What did the author contribute? | [Engineering case study](docs/employer_walkthrough.md), [method attribution](docs/benchmark_comparison.md#method-lineage-and-additional-work) |
+| What was actually delivered? | [Featured scored record](reports/champion_result/kaggle_record.json), [current acquisition snapshot](portfolio/acquisition_progress.json) |
+| What is reproducible? | [Reproduction matrix](docs/reproduction_matrix.md), [executed engineering notebook](portfolio/engineering_review.ipynb) |
+| What happens after interruption? | [Runnable recovery example](tools/reliability_demo.py), [actual computation tests](tools/test_reliability_demo.py) |
+
+The latest acquisition snapshot reports **133/221 numerical candidates**, **88 remaining**, and a **PARTIAL** venue run with 27 processing errors and 6/583 qualified women's rows. These are current owner-run aggregates, separate from the scored forecast and synthetic examples.
 
 ## A portable, offline demo
 

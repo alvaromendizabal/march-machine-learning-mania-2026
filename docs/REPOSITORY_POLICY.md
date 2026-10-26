@@ -44,7 +44,7 @@ Private repeatability is not the same as distributing a public reproduction kit.
 
 The owner explicitly authorized a sourced comparison with the official winning score on October 8, 2026. Current pages may report the exact numerical difference while placing the late-submission, inspected-outcome setting alongside the result. Do not imply an official rank, prospective superiority, statistical significance, or unsupported causal attribution. Credit the original method and describe its documented scope respectfully. Private score targets and private implementation remain outside the public narrative.
 
-Historical comparisons remain preserved in Git history. The current result source is portfolio/release_evidence.json and its sanitized submission receipt.
+Historical comparisons remain preserved in Git history. The featured result source is reports/champion_result/kaggle_record.json. The earlier scored case study remains in portfolio/release_evidence.json and its sanitized submission receipt.
 
 ## Semi-reproducible standard
 
