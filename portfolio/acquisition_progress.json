@@ -3,12 +3,12 @@
   "evidence_type": "OWNER_EXECUTION_AGGREGATES",
   "reviewed_on": "2026-10-26",
   "review_timezone": "America/Los_Angeles",
-  "execution": "v324",
-  "status": "PARTIAL",
+  "execution": "v325",
+  "status": "SUCCESS",
   "scope": "Numerical recovery and venue qualification; no new forecast or model promotion",
   "provenance": {
     "source": "Owner-supplied execution return",
-    "manifest_members_verified": 103,
+    "manifest_members_verified": 114,
     "manifest_checks": [
       "CRC",
       "unique paths",
@@ -20,9 +20,9 @@
   },
   "box_scores": {
     "original_missing": 221,
-    "previous_recovered": 131,
+    "previous_recovered": 133,
     "recovered": 133,
-    "new_recovered": 2,
+    "new_recovered": 0,
     "remaining": 88,
     "unresolved": 66,
     "unverified": 10,
@@ -56,24 +56,24 @@
     "measure": "Numerical detailed-game coverage, not historical admission"
   },
   "venue": {
-    "planned_units": 72,
-    "completed_units": 72,
-    "unique_new_captures": 62,
-    "source_errors": 27,
+    "planned_units": 80,
+    "completed_units": 80,
+    "unique_new_captures": 8,
+    "source_errors": 0,
     "qualified_editions": 0,
-    "qualified_home_pods": 2,
-    "dated_court_assignments": 12,
+    "qualified_home_pods": 9,
+    "dated_court_assignments": 28,
     "women_rows_required": 583,
-    "women_rows_qualified": 6,
-    "women_rows_unknown": 577,
+    "women_rows_qualified": 27,
+    "women_rows_unknown": 556,
     "men_rows_carried": 602,
     "measure": "Played-game representation; carried controls are not new source gains"
   },
   "execution_counters": {
-    "elapsed_seconds": 665.877,
-    "source_elapsed_seconds": 5.638,
-    "source_http_requests": 1,
-    "venue_http_requests": 115,
+    "elapsed_seconds": 229.193124965,
+    "source_elapsed_seconds": 94.596606876,
+    "source_http_requests": 6,
+    "venue_http_requests": 15,
     "new_model_fits": 0,
     "new_submissions": 0,
     "champion_changed": false,
@@ -83,6 +83,6 @@
     "acquisition_milestone_completed": true,
     "full_model_study_completed": false,
     "prospective_validation_claimed": false,
-    "next_data_work": "Reparse saved source documents, repair post-capture failures, and qualify remaining source gaps"
+    "next_data_work": "Expand qualified court and home-context evidence; investigate remaining numerical-source exclusions"
   }
 }

@@ -8,19 +8,19 @@ Public review updated October 26, 2026, America/Los_Angeles. This page distingui
 
 ## Latest inspected research evidence
 
-The [current acquisition snapshot](../portfolio/acquisition_progress.json) records the authenticated v324 owner return. All 103 manifested members passed path, CRC, size and SHA-256 checks. This public record exposes only allowlisted aggregates; it does not publish raw source bodies or private orchestration.
+The [current acquisition snapshot](../portfolio/acquisition_progress.json) records the authenticated v325 owner return. All **114** manifested members passed path, CRC, size and SHA-256 checks. The [execution evidence ledger](execution_evidence.md) preserves the prior observation and verifies the transition. This public record exposes only allowlisted aggregates; it does not publish raw source bodies or private orchestration.
 
 | Current observation | Meaning |
 |---|---|
-| 133/221 numerical box-score candidates | Two new recoveries; 88 still missing |
+| 133/221 numerical box-score candidates | Prior candidates preserved; zero new recoveries and 88 still missing |
 | 904/1,029 complete team-seasons | Numerical history coverage; 125 affected |
 | Zero strict historical admissions from the recovered overlay | Valid numbers do not prove pre-cutoff availability |
-| 72/72 venue acquisition units attempted; 62 new captures | Acquisition progress, not completed qualification |
-| 27 source-processing errors | Avoidable post-capture failures remain visible |
-| 6/583 qualified women's venue rows | 577 unknown; 602 men's rows are carried controls |
-| PARTIAL, zero new fits or submissions | No completed model experiment or promoted forecast |
+| 80/80 venue acquisition units completed; 8 new captures | Acquisition milestone complete; study representation remains incomplete |
+| 62 prior bodies verified and reparsed; 27 prior errors resolved | Existing acquired evidence was reused productively |
+| 27/583 qualified women's venue rows, up from six | 556 unknown; 602 men's rows are carried controls |
+| SUCCESS, zero new fits or submissions | Acquisition success does not claim a completed model experiment or promoted forecast |
 
-The source stage finished in 5.638 seconds; the overall execution lasted 665.877 seconds. These are observed durations for this run, not a controlled throughput benchmark. Downloaded documents remain useful for cache-based reconciliation. [Executed engineering notebook](../portfolio/engineering_review.ipynb) · [Runnable public review](engineering_review.md)
+The source stage finished in **94.597 seconds**; the overall execution lasted **229.193 seconds**. These are observed durations for this run, not a controlled throughput benchmark. The source stage's six HTTP requests produced no numerical additions. Venue acquisition made 15 HTTP requests and qualified 21 additional rows. Downloaded documents remain useful for cache-based reconciliation. [Executed engineering notebook](../portfolio/engineering_review.ipynb) · [Runnable public review](engineering_review.md)
 
 ### Earlier evidence retained
 
