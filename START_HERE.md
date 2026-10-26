@@ -34,8 +34,9 @@ Open **outputs/review/index.html** for the executed checks and current evidence.
 | What was actually delivered? | [Featured scored record](reports/champion_result/kaggle_record.json), [current acquisition snapshot](portfolio/acquisition_progress.json) |
 | What is reproducible? | [Reproduction matrix](docs/reproduction_matrix.md), [executed engineering notebook](portfolio/engineering_review.ipynb) |
 | What happens after interruption? | [Runnable recovery example](tools/reliability_demo.py), [actual computation tests](tools/test_reliability_demo.py) |
+| Which evidence blocks the next qualification? | [Qualification frontier](docs/qualification_frontier.md), [partition validator](tools/qualification_frontier.py) |
 
-The latest acquisition snapshot reports **133/221 numerical candidates**, **88 remaining**, and **27/583** qualified women's venue rows, up from six. All **27** prior processing errors were resolved; **556** women's rows remain unknown. These owner-run aggregates are separate from the scored forecast and synthetic examples. The [execution evidence ledger](docs/execution_evidence.md) makes the gains, unchanged counts and qualification boundaries reviewable.
+The latest acquisition snapshot reports **133/221 numerical candidates**, **88 remaining**, and **102/583** qualified women's venue rows, up from 27. All prior qualifications were retained; **481** women's rows remain unresolved. The new frontier distinguishes 21 court-qualified rows lacking home context from 460 rows with both dimensions unqualified. These owner-run aggregates are separate from the scored forecast and synthetic examples. The [execution ledger](docs/execution_evidence.md) preserves the history, while the [frontier explorer](docs/qualification_frontier.md) makes the next evidence requirements inspectable.
 
 ## A portable, offline demo
 

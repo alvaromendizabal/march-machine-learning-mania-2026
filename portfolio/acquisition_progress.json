@@ -3,12 +3,12 @@
   "evidence_type": "OWNER_EXECUTION_AGGREGATES",
   "reviewed_on": "2026-10-26",
   "review_timezone": "America/Los_Angeles",
-  "execution": "v325",
+  "execution": "v326",
   "status": "SUCCESS",
-  "scope": "Numerical recovery and venue qualification; no new forecast or model promotion",
+  "scope": "Expanded venue qualification and cached numerical-source diagnosis; no new forecast or model promotion",
   "provenance": {
     "source": "Owner-supplied execution return",
-    "manifest_members_verified": 114,
+    "manifest_members_verified": 144,
     "manifest_checks": [
       "CRC",
       "unique paths",
@@ -56,24 +56,24 @@
     "measure": "Numerical detailed-game coverage, not historical admission"
   },
   "venue": {
-    "planned_units": 80,
-    "completed_units": 80,
-    "unique_new_captures": 8,
+    "planned_units": 107,
+    "completed_units": 107,
+    "unique_new_captures": 27,
     "source_errors": 0,
     "qualified_editions": 0,
-    "qualified_home_pods": 9,
-    "dated_court_assignments": 28,
+    "qualified_home_pods": 35,
+    "dated_court_assignments": 38,
     "women_rows_required": 583,
-    "women_rows_qualified": 27,
-    "women_rows_unknown": 556,
+    "women_rows_qualified": 102,
+    "women_rows_unknown": 481,
     "men_rows_carried": 602,
     "measure": "Played-game representation; carried controls are not new source gains"
   },
   "execution_counters": {
-    "elapsed_seconds": 229.193124965,
-    "source_elapsed_seconds": 94.596606876,
-    "source_http_requests": 6,
-    "venue_http_requests": 15,
+    "elapsed_seconds": 153.18018467500008,
+    "source_elapsed_seconds": 3.1313079029999926,
+    "source_http_requests": 0,
+    "venue_http_requests": 39,
     "new_model_fits": 0,
     "new_submissions": 0,
     "champion_changed": false,
@@ -83,6 +83,6 @@
     "acquisition_milestone_completed": true,
     "full_model_study_completed": false,
     "prospective_validation_claimed": false,
-    "next_data_work": "Expand qualified court and home-context evidence; investigate remaining numerical-source exclusions"
+    "next_data_work": "Expand qualified court and home-context evidence using explicit residual states; resolve cached numerical-source conflicts before new route admission"
   }
 }

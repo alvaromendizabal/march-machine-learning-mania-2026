@@ -4,7 +4,7 @@
 
 The featured result is **0.1034347 retrospective Kaggle Brier**, submission 57122407. [Current score and context](../docs/champion_result.md). The [engineering review](engineering_review.ipynb) adds executed coverage analysis and a synthetic recovery demonstration.
 
-The latest acquisition record reports **133/221** numerical box-score candidates, 88 remaining, and **27/583** required women's venue rows qualified, up from six. All 27 prior processing errors were resolved. The 80-unit acquisition milestone succeeded; 556 women's rows and the historical-admission gate remain open. [Current snapshot](acquisition_progress.json) · [Execution evidence ledger](../docs/execution_evidence.md). Source recovery is separate from training admission and forecast improvement.
+The latest acquisition record reports **133/221** numerical box-score candidates, 88 remaining, and **102/583** required women's venue rows qualified, up from 27 with zero losses. The **107-unit** acquisition milestone succeeded, including 27 fresh captures; **481** women's rows and the historical-admission gate remain open. The [qualification frontier](../docs/qualification_frontier.md) partitions that gap by edition and missing qualification dimension. [Current snapshot](acquisition_progress.json) · [Execution evidence ledger](../docs/execution_evidence.md). Source recovery is separate from training admission and forecast improvement.
 
 The earlier October 8 **0.1067095** scored case study and its comparison with the official winning reference remain below. Different submission dates and outcome availability prevent a prospective-superiority claim.
 

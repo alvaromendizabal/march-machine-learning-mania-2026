@@ -34,6 +34,9 @@ jobs:
           uv run --locked python -m unittest discover -s tools -p 'test_review_project.py' -v
           uv run --locked python -m unittest discover -s tools -p 'test_evidence_history.py' -v
           uv run --locked python tools/evidence_history.py --check
+          uv run --locked python -m unittest discover -s tools -p 'test_qualification_frontier.py' -v
+          uv run --locked python tools/qualification_frontier.py --check
+          node tools/test_qualification_frontier.mjs
           uv run --locked python tools/review_project.py --build-notebook --kernel march-portfolio
 
           uv run --locked python -m unittest discover -s portfolio -p 'test_frontier_research.py' -v

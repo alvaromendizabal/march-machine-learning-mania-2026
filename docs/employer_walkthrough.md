@@ -16,7 +16,7 @@ The work spans source acquisition and qualification, team and matchup features, 
 | Probability modeling | Separate men's/women's branches, ranking and strength features, calibrated outputs and controlled composition | [Model comparison](../notebooks/03_model_comparison_and_diagnostics.ipynb), [credited method lineage](benchmark_comparison.md) |
 | Evaluation design | Complete physical-game populations, season-based comparisons and separate development/confirmation evidence | [Reproduction matrix](reproduction_matrix.md), [split contracts](../configs/splits.yaml) |
 | ML operations | Resource-aware AWS jobs, checkpoint verification, resume behavior, heartbeats and diagnostic return bundles | [Runtime](../src/march_mania/runtime.py), [failure tests](../tests/test_runtime.py) |
-| Review experience | Executed notebooks, a synthetic Python evaluation lab, an interactive bracket demo and aggregate receipt checks | [Start here](../START_HERE.md), [evidence map](evidence_map.md) |
+| Review experience | Executed notebooks, a synthetic evaluation lab, an interactive bracket demo, and a validated qualification explorer | [Start here](../START_HERE.md), [qualification frontier](qualification_frontier.md) |
 
 The system builds on credited public methods. Their underlying ideas are not presented as my inventions. The integration, evaluation repairs, source qualification and operational controls are explicit project contributions.
 
@@ -24,7 +24,9 @@ The system builds on credited public methods. Their underlying ideas are not pre
 
 The featured result is **0.1034347 public/private Kaggle Brier**, submission 57122407, over a forecast of 132,133 possible matchups. It is a retrospective result obtained after outcomes were available. The earlier **0.1067095** receipt remains a separate, dated case study. [Score evidence](champion_result.md) · [Historical comparison](benchmark_comparison.md)
 
-Current acquisition has recovered **133 of 221** missing numerical box scores and reached **904/1,029** complete numerical team-seasons. The recovered overlay still has zero strict historical admissions. The latest venue run completed 80 units, verified and reparsed 62 prior bodies, resolved 27 prior processing errors and raised qualified women's rows from six to **27/583**. The acquisition milestone succeeded, while 556 unknown rows leave the complete study unfinished. [Current aggregate evidence](../portfolio/acquisition_progress.json) · [Validated execution history](execution_evidence.md)
+Current acquisition has recovered **133 of 221** missing numerical box scores and reached **904/1,029** complete numerical team-seasons. The recovered overlay still has zero strict historical admissions. The latest venue run completed **107 units**, captured **27 new bodies**, verified 70 prior bodies, and reused 64 prior analyses while reparsing seven. Qualified women's rows increased **27 → 102/583** with zero losses. The acquisition milestone succeeded, while 481 unresolved rows leave the complete study unfinished. [Current aggregate evidence](../portfolio/acquisition_progress.json) · [Validated execution history](execution_evidence.md)
+
+The [qualification frontier](qualification_frontier.md) makes the remaining work explainable: 21 rows already have qualified courts but lack home context, while 460 have both dimensions unqualified under the court-first contract. It checks exact parent identity and per-edition partitions, then presents the same evidence in an accessible offline explorer. Source acquisition, representation readiness and predictive improvement remain separate claims.
 
 ## Demonstrate the recovery contract
 

@@ -2,21 +2,23 @@
 
 An acquisition pipeline needs to explain what changed, what was retained and what remains unknown. A total alone cannot distinguish new work from a replay, and a successful process does not establish complete scientific coverage.
 
-The public [execution ledger](../portfolio/execution_history.json) preserves two published observations: the earlier partial acquisition and the subsequent successful reconciliation. The [current snapshot](../portfolio/acquisition_progress.json) must equal the ledger's final observation exactly. These are owner-execution aggregates; the underlying private return manifests were inspected separately.
+The public [execution ledger](../portfolio/execution_history.json) preserves three published observations: an earlier partial acquisition, successful reconciliation, and expanded acquisition. The [current snapshot](../portfolio/acquisition_progress.json) must equal the ledger's final observation exactly. These are owner-execution aggregates; the underlying private return manifests were inspected separately.
 
 ## The measured transition
 
-| Measure | Earlier execution | Latest inspected execution | Interpretation |
-|---|---:|---:|---|
-| Recovered numerical boxes | 133/221 | 133/221 | No new boxes; 88 remain |
-| Historically admitted recovered boxes | 0/133 | 0/133 | Source timing remains unproven |
-| Qualified women's venue rows | 6/583 | 27/583 | 21 additions, zero retractions; 556 unknown |
-| Dated court assignments | 12 | 28 | 16 additional court facts |
-| Qualified home-context pods | 2 | 9 | 7 additional home-context facts |
-| Source-processing errors | 27 | 0 | All prior errors resolved |
-| Acquisition units completed | 72/72 | 80/80 | Different planned workloads |
+| Measure | v324 | v325 | v326 · latest inspected |
+|---|---:|---:|---:|
+| Recovered numerical boxes | 133/221 | 133/221 | 133/221 |
+| Historically admitted recovered boxes | 0/133 | 0/133 | 0/133 |
+| Qualified women's venue rows | 6/583 | 27/583 | 102/583 |
+| Dated court assignments | 12 | 28 | 38 |
+| Qualified home-context pods | 2 | 9 | 35 |
+| Source-processing errors | 27 | 0 | 0 |
+| Acquisition units completed | 72/72 | 80/80 | 107/107 |
 
-The latest execution hash-verified and reparsed 62 prior bodies, then captured eight new bodies. Elapsed time fell from 665.9 to 229.2 seconds, but these workloads differ; this is an observation, not a controlled speedup claim. Both runs produced zero model fits, submissions and strict historical admissions.
+The v325 execution resolved all 27 prior processing errors and added 21 qualifications. The latest v326 execution then captured **27 new bodies**, verified **70 prior unique bodies**, and **reused 64 of 71 prior analyses while reparsing seven**. No prior capture was downloaded again. It retained all 27 prior qualified rows and added **75**, leaving **481** unresolved. The earlier 27 error resolutions are not counted again.
+
+Elapsed times were 665.9, 229.2 and 153.2 seconds, respectively. The work scopes differ, so these are observations rather than a controlled speed benchmark. All three executions produced zero model fits, submissions and strict historical admissions. The latest source stage performed cached conflict diagnosis with zero fresh HTTP requests and zero box additions; its successful diagnostic completion is separate from closing the 88-record numerical gap.
 
 ## Reproduce the accounting
 
@@ -26,7 +28,7 @@ python tools/review_project.py
 
 Open **outputs/review/index.html**. The evidence explorer switches between women's venue qualification, numerical box recovery and historical admission. Each view retains its denominator and unknown population. Keyboard-operable controls, a live text explanation and a static data table preserve the meaning without relying on bar length or color.
 
-The report is self-contained and runs offline. **outputs/review/review.json** contains the same observations, derived deltas and content digests. No credential, provider request, model fit or private adapter is required. The [executed notebook](../portfolio/engineering_review.ipynb) includes the venue history as an interactive chart and a PNG fallback.
+The report is self-contained and runs offline. **outputs/review/review.json** contains the same observations, derived deltas and content digests. No credential, provider request, model fit or private adapter is required. The [executed notebook](../portfolio/engineering_review.ipynb) includes the venue history as an interactive chart and a PNG fallback. The [qualification frontier](qualification_frontier.md) adds an edition-level partition of the remaining evidence requirements, bound to this exact current snapshot.
 
 ## Contract and failure behavior
 

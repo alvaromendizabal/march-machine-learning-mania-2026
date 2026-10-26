@@ -1,11 +1,11 @@
 <section class="history-panel" aria-labelledby="history-title">
 <div class="eyebrow">Measured execution history</div><h2 id="history-title">Work retained. Gaps made visible.</h2>
-<p>Inspect one population at a time. The bars show qualified records against that population's explicit denominator.</p>
-<div class="history-deltas"><article><span>New qualified women rows</span><strong>+$women_added</strong></article><article><span>Prior processing errors resolved</span><strong>$errors_resolved</strong></article><article><span>Prior bodies verified and reparsed</span><strong>$bodies_reparsed</strong></article></div>
+<p>Inspect one population at a time. Each bar retains that population's explicit denominator.</p>
+<div class="history-deltas"><article><span>New qualified women rows</span><strong>+$women_added</strong></article><article><span>New source bodies captured</span><strong>$new_captures</strong></article><article><span>Prior source bodies verified</span><strong>$bodies_verified</strong></article></div>
 <label class="history-picker" for="history-metric">Inspect coverage <select id="history-metric"><option value="venue">Women's venue qualification</option><option value="boxes">Numerical box-score recovery</option><option value="admission">Historical admission of recovered boxes</option></select></label>
 <div id="history-chart">$tracks</div><p id="history-live" class="history-note" aria-live="polite">Qualified women's rows: $qualified of $required; $unknown remain unknown.</p>
 <div class="history-table"><table><caption>Separate measures; elapsed times describe different workloads.</caption><thead><tr><th scope="col">Run</th><th scope="col">Acquisition</th><th scope="col">Box candidates</th><th scope="col">Women venue</th><th scope="col">Historical admissions</th><th scope="col">Elapsed</th></tr></thead><tbody>$rows</tbody></table></div>
-<p class="history-note">Numerical additions: $boxes_added. Qualified-row retractions: $women_removed. Dated courts: $courts; home-context facts: $home_pods. No new model, submission or predictive improvement is claimed.</p>
+<p class="history-note">Numerical additions: $boxes_added. Qualified-row retractions: $women_removed. Dated courts: $courts; home-context facts: $home_pods. Prior bodies reparsed: $bodies_reparsed; prior processing errors resolved in this execution: $errors_resolved. No new model, submission or predictive improvement is claimed.</p>
 <details><summary>What this public history verifies</summary><p>$scope</p><p>Content digests identify the published observations. The validator checks ordering, parent identity, denominators, additions, retractions and agreement with the current snapshot. A digest does not establish the withheld provider's authenticity.</p></details>
 <script type="application/json" id="history-data">$data</script>
 <script>

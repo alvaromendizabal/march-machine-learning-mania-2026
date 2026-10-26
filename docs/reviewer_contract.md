@@ -22,7 +22,11 @@ Both featured controls, all selectors and sliders work by keyboard. Invalid matc
 
 ## Current engineering evidence
 
-The single-command review executes eight public checks and writes HTML plus JSON evidence. The current snapshot preserves all denominators: 133/221 recovered numerical candidates, 88 remaining, 80 completed venue units and 27/583 qualified women's venue rows. All 27 prior processing errors were resolved, while 556 required rows remain unknown. The execution evidence ledger retains both observations and verifies parent identity, population continuity, additions, retractions and current-snapshot agreement. Its interactive report displays three separate coverage measures. The synthetic reliability example tests actual computation counts and verifies unknown-timing exclusion and corrupt-state refusal. CI executes the engineering notebook; both interactive figures include PNG fallbacks. Static demo metrics are checked against the same aggregate JSON to prevent headline drift.
+The single-command review executes ten public checks and writes HTML plus JSON evidence. The current snapshot preserves all denominators: 133/221 recovered numerical candidates, 88 remaining, 107 completed venue units and 102/583 qualified women's venue rows. The latest execution retained every prior qualification and added 75; 481 remain unresolved. The execution evidence ledger retains all three observations and verifies parent identity, population continuity, additions, retractions and current-snapshot agreement.
+
+The qualification frontier binds the exact snapshot and rejects changed edition populations, overlapping states, stale parent evidence, invalid counts and private fields. Its native focus and ordering controls never rescale the full-population bars; the complete static table remains available. An empty category preserves the overall unresolved count and explains the limits of the court-first classification. The actual control script is executed in tests, including empty-state and reset behavior.
+
+The synthetic reliability example tests actual computation counts and verifies unknown-timing exclusion and corrupt-state refusal. CI executes the engineering notebook; all three interactive figures include PNG fallbacks. Static demo metrics are checked against the same aggregate JSON to prevent headline drift.
 
 ## Publication boundary
 

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "evidence_type": "OWNER_QUALIFICATION_FRONTIER",
+  "execution": "v326",
+  "reviewed_on": "2026-10-26",
+  "snapshot_sha256": "259c9ddda7f8710604d9373e10b779d9fc687a35bbc3de86c4eaeb8ae78d495a",
+  "classification": "COURT_FIRST_QUALIFICATION_STATE",
+  "editions": [
+    {
+      "season": 2016,
+      "required": 63,
+      "qualified": 6,
+      "missing_home_only": 3,
+      "missing_court_only": 0,
+      "missing_both": 54
+    },
+    {
+      "season": 2017,
+      "required": 63,
+      "qualified": 15,
+      "missing_home_only": 3,
+      "missing_court_only": 0,
+      "missing_both": 45
+    },
+    {
+      "season": 2018,
+      "required": 63,
+      "qualified": 18,
+      "missing_home_only": 0,
+      "missing_court_only": 0,
+      "missing_both": 45
+    },
+    {
+      "season": 2019,
+      "required": 63,
+      "qualified": 12,
+      "missing_home_only": 0,
+      "missing_court_only": 0,
+      "missing_both": 51
+    },
+    {
+      "season": 2021,
+      "required": 63,
+      "qualified": 0,
+      "missing_home_only": 15,
+      "missing_court_only": 0,
+      "missing_both": 48
+    },
+    {
+      "season": 2022,
+      "required": 67,
+      "qualified": 7,
+      "missing_home_only": 0,
+      "missing_court_only": 0,
+      "missing_both": 60
+    },
+    {
+      "season": 2023,
+      "required": 67,
+      "qualified": 16,
+      "missing_home_only": 0,
+      "missing_court_only": 0,
+      "missing_both": 51
+    },
+    {
+      "season": 2024,
+      "required": 67,
+      "qualified": 9,
+      "missing_home_only": 0,
+      "missing_court_only": 0,
+      "missing_both": 58
+    },
+    {
+      "season": 2025,
+      "required": 67,
+      "qualified": 19,
+      "missing_home_only": 0,
+      "missing_court_only": 0,
+      "missing_both": 48
+    }
+  ],
+  "scope": "Allowlisted per-edition qualification states from the authenticated owner return. The nine frozen editions cover 583 women's played-game representation rows. Public checks validate a disjoint partition and its exact published snapshot; source routes, provider bodies and identity rules remain private."
+}
