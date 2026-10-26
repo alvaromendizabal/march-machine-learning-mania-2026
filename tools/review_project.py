@@ -20,6 +20,12 @@ from textwrap import dedent
 
 from evidence_contracts import require, validate_snapshot
 from evidence_history import HISTORY, load_history, render_history_panel, summarize_history
+from qualification_frontier import (
+    FRONTIER,
+    load_frontier,
+    render_frontier_panel,
+    summarize_frontier,
+)
 from reliability_demo import demonstrate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -60,6 +66,7 @@ def render_report(report: dict) -> str:
         "warm_computed": r["warm_computed"],
         "rows": rows,
         "history": render_history_panel(report["execution_history"]),
+        "frontier": render_frontier_panel(report["qualification_frontier"]),
     }
     return Template((ROOT / "tools/review_template.html").read_text()).substitute(values)
 
@@ -72,6 +79,7 @@ def run_review(output: Path) -> dict:
     output.mkdir(parents=True, exist_ok=True)
     d = load_snapshot()
     history = summarize_history(load_history())
+    frontier = summarize_frontier(load_frontier(), d)
     score = json.loads(SCORE.read_text())
     require(
         score["record_kind"] == "NORMALIZED_HISTORICAL_KAGGLE_RESULT"
@@ -128,6 +136,23 @@ def run_review(output: Path) -> dict:
             ],
         ),
         (
+            "Qualification frontier and parent binding",
+            [
+                sys.executable,
+                "-m",
+                "unittest",
+                "discover",
+                "-s",
+                "tools",
+                "-p",
+                "test_qualification_frontier.py",
+            ],
+        ),
+        (
+            "Qualification explorer controls",
+            [shutil.which("node") or "node", "tools/test_qualification_frontier.mjs"],
+        ),
+        (
             "Exact bracket engine",
             [shutil.which("node") or "node", "tools/test_public_demo_engine.mjs"],
         ),
@@ -154,12 +179,14 @@ def run_review(output: Path) -> dict:
         "status": "PASS" if all(c["status"] == "PASS" for c in checks) else "FAIL",
         "acquisition": d,
         "execution_history": history,
+        "qualification_frontier": frontier,
         "scored_result": score,
         "synthetic_reliability": reliability,
         "checks": checks,
         "source_hashes": {
             "acquisition_progress.json": sha(SOURCE),
             "execution_history.json": sha(HISTORY),
+            "qualification_frontier.json": sha(FRONTIER),
             "kaggle_record.json": sha(SCORE),
         },
         "network_requests": 0,
@@ -200,11 +227,13 @@ def build_notebook(kernel: str) -> dict:
         sys.path.insert(0, str(root / 'tools'))
         from review_project import load_snapshot
         from evidence_history import load_history, summarize_history
+        from qualification_frontier import load_frontier, summarize_frontier
         from reliability_demo import demonstrate
         import pandas as pd
         from IPython.display import display
         d = load_snapshot()
         history = summarize_history(load_history())
+        frontier = summarize_frontier(load_frontier(), d)
         display(pd.DataFrame(d['box_scores']['by_season']))
         print('Execution status:', d['status'])
         print('Strict historical admissions:', d['box_scores']['strict_historical_admissions'])
@@ -243,9 +272,9 @@ def build_notebook(kernel: str) -> dict:
         md("""
         ## Acquisition and qualification are separate milestones
 
-        The versioned history preserves the prior partial execution and its processing failures.
-        The next execution verified and reparsed retained bodies, resolved the prior errors,
-        and qualified additional rows. The chart keeps the unknown population visible.
+        The versioned history preserves a partial execution, its reconciliation and the next
+        expanded acquisition. Each transition distinguishes additions, verified reuse and
+        reparsing. The chart keeps the unknown population visible.
         Acquisition SUCCESS does not establish a completed model study or historical eligibility.
         The men's rows remain carried controls, separate from new women's qualifications.
         """),
@@ -277,6 +306,48 @@ def build_notebook(kernel: str) -> dict:
         display(pd.DataFrame([history['latest_change']]))
         """),
         md("""
+        ## The remaining gap has a shape
+
+        The frontier partitions each frozen edition into disjoint qualification states and
+        binds the exact current aggregate snapshot. Court-qualified rows lacking home context
+        need different evidence from rows without a qualified court. Counts describe played-game
+        representation rows, not distinct arenas or promised acquisitions.
+
+        Classification follows the original court-first contract. A row without a qualified court
+        may still have a standalone home witness: both dimensions unqualified does not mean no
+        source facts exist. The public validator checks accounting, not private provider bodies.
+        """),
+        code("""
+        frame = pd.DataFrame(frontier['editions']).set_index('season')
+        display(frame)
+        groups = [('qualified', 'Qualified', '#008477'),
+                  ('missing_home_only', 'Court qualified; home unresolved', '#bf7b20'),
+                  ('missing_court_only', 'Home qualified; court unresolved', '#7264b5'),
+                  ('missing_both', 'Court and context unqualified', '#d4deea')]
+        frontier_plot = go.Figure()
+        static, ax = plt.subplots(figsize=(10, 5.2), layout='constrained')
+        bottom = [0] * len(frame)
+        labels = [str(year) for year in frame.index]
+        for key, label, color in groups:
+            values = frame[key].tolist()
+            frontier_plot.add_bar(x=labels, y=values, name=label, marker_color=color)
+            ax.bar(labels, values, bottom=bottom, label=label, color=color)
+            bottom = [a + b for a, b in zip(bottom, values)]
+        frontier_plot.update_layout(title='What still blocks women venue qualification?',
+                                    barmode='stack', width=960, height=500,
+                                    template='plotly_white', yaxis_title='Representation rows')
+        ax.set(title='What still blocks women venue qualification?',
+               ylabel='Representation rows', xlabel='Tournament edition')
+        ax.legend(fontsize=8, loc='upper left', bbox_to_anchor=(0, 1.23), ncol=2)
+        image = io.BytesIO()
+        static.savefig(image, format='png', dpi=120)
+        plt.close(static)
+        display({'application/vnd.plotly.v1+json': json.loads(frontier_plot.to_json()),
+                 'image/png': base64.b64encode(image.getvalue()).decode()}, raw=True)
+        print('Bound snapshot SHA-256:', frontier['snapshot_sha256'])
+        print('Complete editions:', frontier['completed_editions'], 'of', len(frame))
+        """),
+        md("""
         ## Execute the recovery contract
 
         The authored example commits one unit, stops deliberately, resumes the remaining three,
@@ -306,17 +377,17 @@ def build_notebook(kernel: str) -> dict:
     require(not any(o.output_type == "error" for o in outputs), "Notebook execution failed")
     require("ENGINEERING_REVIEW_COMPLETE" in str(book.cells[-1].outputs), "Notebook incomplete")
     require(
-        sum("application/vnd.plotly.v1+json" in o.get("data", {}) for o in outputs) == 2,
+        sum("application/vnd.plotly.v1+json" in o.get("data", {}) for o in outputs) == 3,
         "Persisted interactive figure missing",
     )
-    require(sum("image/png" in o.get("data", {}) for o in outputs) == 2, "Static fallback missing")
+    require(sum("image/png" in o.get("data", {}) for o in outputs) == 3, "Static fallback missing")
     NOTEBOOK.write_text(nb.writes(book))
     return {
         "status": "PASS",
         "actual_kernel_execution": True,
-        "code_cells": 4,
-        "plotly_outputs": 2,
-        "png_fallbacks": 2,
+        "code_cells": 5,
+        "plotly_outputs": 3,
+        "png_fallbacks": 3,
         "model_fits": 0,
         "notebook_sha256": sha(NOTEBOOK),
     }

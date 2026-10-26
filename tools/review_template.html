@@ -3,42 +3,49 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tournament Lab · Engineering review</title>
 <style>
-:root{color-scheme:light;font-family:system-ui,sans-serif;color:#13233d;background:#f3f5f8}
-*{box-sizing:border-box}body{margin:0}main{max-width:1100px;margin:auto;padding:42px 24px}
-header{padding:36px;border-radius:18px;background:#0a2344;color:white}
+:root{color-scheme:light;font-family:system-ui,sans-serif;color:#13233d;background:#f0f3f7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}main{max-width:1160px;margin:auto;padding:42px 24px}
+header{padding:40px;border-radius:18px;background:linear-gradient(115deg,#071c37,#12385a);color:white;position:relative;overflow:hidden;border:1px solid #203e5e}
+header:after{content:"";position:absolute;right:-75px;top:-110px;width:300px;height:300px;border:1px solid #4c6580;border-radius:50%;pointer-events:none}header h1,header p,header small{position:relative;z-index:1}
 small,.eyebrow{font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
 h1{font:500 clamp(32px,6vw,58px)/1.05 Georgia,serif;margin:20px 0}
 p{line-height:1.7;max-width:80ch}header p{color:#c4d5e9}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:24px 0}
-article,section{background:white;border:1px solid #d6deea;border-radius:12px;padding:24px;margin-bottom:20px}
+article,section{background:white;border:1px solid #d6deea;border-radius:12px;padding:28px;margin-bottom:20px}
 article{margin:0}article strong{display:block;font:650 35px/1.2 ui-monospace,monospace;margin:14px 0}
 article span{font-size:13px;color:#52637a}h2{font:500 28px Georgia,serif}
 table{width:100%;border-collapse:collapse;font-size:14px}
 td,th{padding:13px 8px;border-bottom:1px solid #dce3ec;text-align:left}
 .pass{color:#08724c}.fail{color:#a52930}a{color:#164bb3}
 .flow{display:flex;flex-wrap:wrap;gap:10px}.flow span{background:#eaf0f8;padding:12px;border-radius:8px}
+.review-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:20px 0 28px}.review-nav a{font-size:13px;font-weight:650;border:1px solid #c8d5e3;border-radius:20px;padding:8px 14px;text-decoration:none;background:#fff;color:#25486d}.review-nav a:hover{background:#e4ecf6}.review-nav a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #1766b8;outline-offset:4px}.section-heading{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.section-heading h2{margin:12px 0 8px}.scope-tag{font-size:11px;color:#52637a;white-space:nowrap;border:1px solid #d6deea;border-radius:20px;padding:7px 12px}.frontier-panel{border-top:4px solid #bf7b20;scroll-margin-top:20px}.frontier-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}.frontier-stats article{padding:20px;background:#fbf7ef;border-color:#eee4d5}.frontier-stats strong{font-size:32px;color:#77501b;margin:10px 0}.frontier-stats article>span:first-child{color:#3d3b38;font-weight:650;display:block;min-height:36px}.frontier-controls{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin:28px 0 20px}.frontier-controls label{font-size:13px;font-weight:650;min-width:0}.frontier-controls select{display:block;width:100%;font:inherit;font-weight:500;color:#13233d;border:1px solid #8497b0;border-radius:8px;background:white;padding:11px 9px;margin-top:8px;max-width:100%}.frontier-legend{display:flex;flex-wrap:wrap;gap:10px 18px;color:#52637a;font-size:12px;margin-bottom:24px}.frontier-legend>span{display:flex;align-items:center;gap:7px}.frontier-legend i{display:inline-block;width:10px;height:10px;border-radius:2px}.frontier-edition{margin:18px 0}.frontier-edition[hidden]{display:none}.frontier-label{display:flex;justify-content:space-between;gap:10px;font-size:13px;margin-bottom:8px;font-variant-numeric:tabular-nums}.frontier-track{height:20px;display:flex;background:#edf1f6;overflow:hidden;border-radius:5px}.frontier-segment{display:block;height:100%}.qualified{background:#008477}.missing_home_only{background:#bf7b20}.missing_court_only{background:#7264b5}.missing_both{background:#d4deea}.frontier-note{font-size:13px;color:#52637a;line-height:1.65}.frontier-panel details{border-top:1px solid #d6deea;padding-top:18px;margin-top:24px}.frontier-panel summary{cursor:pointer;font-weight:650;font-size:14px}.frontier-table{overflow-x:auto;margin-top:18px}.frontier-table table{min-width:670px;font-variant-numeric:tabular-nums}.frontier-table caption{text-align:left;font-size:12px;color:#52637a;padding-bottom:12px}.frontier-table td{font-family:ui-monospace,monospace}.frontier-digest{font-size:12px;color:#52637a;word-break:break-all}.frontier-panel details p{font-size:13px}.review-footer{font-size:12px;color:#52637a;text-align:center;padding:10px}section[id]{scroll-margin-top:20px}
 .history-panel{border-top:4px solid #008477}.history-deltas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}.history-deltas article{background:#f1f7f7;border:0;padding:20px}.history-deltas strong{color:#006b60;margin-bottom:0}.history-picker{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-weight:600;margin:28px 0 20px}.history-picker select{font:inherit;font-size:14px;color:#13233d;border:1px solid #8497b0;border-radius:8px;background:white;padding:10px;max-width:100%}.history-picker select:focus-visible,summary:focus-visible{outline:3px solid #1766b8;outline-offset:4px}.history-observation{margin:18px 0}.history-label{display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:9px}.history-value{font-variant-numeric:tabular-nums}.history-track{height:20px;background:#dce5ee;border-radius:5px;overflow:hidden}.history-track span{display:block;height:100%;background:#008477}.history-note{font-size:13px;color:#52637a}.history-table{overflow-x:auto;margin-top:24px}.history-table table{min-width:650px;font-variant-numeric:tabular-nums}.history-table caption{text-align:left;font-size:13px;color:#52637a;padding:10px 0}.history-panel details{border-top:1px solid #d6deea;padding-top:18px}.history-panel summary{cursor:pointer;font-weight:600}
 @media(max-width:700px){.grid{grid-template-columns:1fr}header{padding:24px}main{padding:20px 16px}td,th{padding:12px 5px}}
 @media(max-width:700px){.history-deltas{grid-template-columns:1fr}.history-deltas article{display:flex;align-items:center;justify-content:space-between;gap:12px}.history-deltas strong{font-size:30px;margin:0}.history-picker{display:block}.history-picker select{display:block;width:100%;margin-top:10px}}
+@media(max-width:700px){article,section{padding:22px}.section-heading{display:block}.scope-tag{display:inline-block;margin:8px 0}.frontier-stats{grid-template-columns:1fr}.frontier-stats article{display:grid;grid-template-columns:1fr auto;gap:6px 15px}.frontier-stats article>span:first-child{min-height:0}.frontier-stats article>span:last-child{grid-column:1/-1}.frontier-stats strong{margin:0;grid-column:2;grid-row:1}.frontier-controls{grid-template-columns:1fr}.frontier-label{font-size:12px}.frontier-value{text-align:right}.review-nav a{font-size:12px}.frontier-legend{gap:10px 14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:#fff}main{max-width:none;padding:0}header{background:#0a2344!important;print-color-adjust:exact}.review-nav,.frontier-controls,.history-picker{display:none}section,article{break-inside:avoid}.frontier-track,.history-track{print-color-adjust:exact}}
 </style></head>
 <body><main>
 <header><div class="eyebrow">Alvaro Mendizabal / machine learning engineering</div>
 <h1>Evidence behind<br>the forecast.</h1>
 <p>A reproducible public review of probability calculations, source accounting and interrupted-work recovery. This report reads no private model or source bank.</p>
 <small>Public review: $status · snapshot reviewed $date</small></header>
+<nav class="review-nav" aria-label="Review sections"><a href="#history-title">Measured progress</a><a href="#frontier">Remaining evidence</a><a href="#recovery">Recovery contract</a><a href="#checks">Executed checks</a><a href="review.json">Machine-readable report ↗</a></nav>
 <div class="grid">
 <article><span>Recorded retrospective Kaggle Brier</span><strong>$brier</strong><span>Inherited scored evidence. No new submission.</span></article>
 <article><span>Numerical box-score candidates</span><strong>$recovered / $original</strong><span>$remaining missing; historical admission is a separate gate.</span></article>
 <article><span>Qualified women's venue rows</span><strong>$qualified / $required</strong><span>$unknown unknown. Acquisition does not automatically qualify a record.</span></article>
 </div>
 $history
-<section><h2>Interrupt. Resume. Verify.</h2>
+$frontier
+<section id="recovery"><h2>Interrupt. Resume. Verify.</h2>
 <p>The independent synthetic example stops after one committed unit, resumes without recomputing that unit, reuses completed work and rejects altered checkpoint content.</p>
 <div class="flow"><span>1 committed before stopping</span><span>$resume_computed new + $resume_reused reused on resume</span><span>$warm_computed qualifications recomputed on warm run</span><span>Corruption rejected</span></div>
 <p>Two synthetic observations qualify; one is late and one has unknown timing. Input fingerprints and content digests are still verified on every reuse. No network or model fitting.</p></section>
-<section><h2>Executed review checks</h2>
+<section id="checks"><h2>Executed review checks</h2>
 <table><thead><tr><th>Check</th><th>Result</th><th>Elapsed</th></tr></thead><tbody>$rows</tbody></table></section>
 <section><h2>Keep the claims distinct</h2>
 <p>The score is retrospective and its private row-level predictions are withheld. Acquisition counts come from an authenticated owner return; the public review checks their consistency, not the original providers. The recovery example and browser ratings are explicitly synthetic. None establishes prospective performance or profitability.</p>
 <p><a href="https://github.com/alvaromendizabal/march-machine-learning-mania-2026/blob/main/docs/engineering_review.md">Review contract</a> · <a href="https://github.com/alvaromendizabal/march-machine-learning-mania-2026/blob/main/docs/model_card.md">Model card</a></p></section>
+<footer class="review-footer">Tournament Lab · Executable public evidence · Built to inspect offline</footer>
 </main></body></html>

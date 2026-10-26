@@ -24,8 +24,17 @@ class HistoryTests(unittest.TestCase):
 
     def test_current_observed_gains(self):
         change = summarize_history(self.history)["latest_change"]
-        self.assertEqual((change["women_net_gain"], change["box_candidates_added"]), (21, 0))
-        self.assertEqual((change["dated_court_net_gain"], change["home_pod_net_gain"]), (16, 7))
+        self.assertEqual((change["women_net_gain"], change["box_candidates_added"]), (75, 0))
+        self.assertEqual((change["dated_court_net_gain"], change["home_pod_net_gain"]), (10, 26))
+
+    def test_prior_transition_is_still_inspectable(self):
+        earlier = copy.deepcopy(self.history)
+        earlier["snapshots"] = earlier["snapshots"][:2]
+        earlier["transitions"] = earlier["transitions"][:1]
+        change = summarize_history(earlier)["latest_change"]
+        self.assertEqual(
+            (change["women_net_gain"], change["prior_processing_errors_resolved"]), (21, 27)
+        )
 
     def test_duplicate_execution_rejected(self):
         self.reject(lambda d: d["snapshots"][1].update(execution="v324"))
@@ -57,6 +66,8 @@ class HistoryTests(unittest.TestCase):
 
     def test_explicit_retraction_is_accounted_for(self):
         d = copy.deepcopy(self.history)
+        d["snapshots"] = d["snapshots"][:2]
+        d["transitions"] = d["transitions"][:1]
         d["snapshots"][1]["venue"].update(women_rows_qualified=26, women_rows_unknown=557)
         d["transitions"][0]["women_rows_removed"] = 1
         self.assertEqual(
@@ -139,12 +150,13 @@ class HistoryTests(unittest.TestCase):
     def test_rendered_transition_has_resolved_values(self):
         rendered = render_history_panel(summarize_history(self.history))
         for text in (
-            "<strong>+21</strong>",
+            "<strong>+75</strong>",
             "<strong>27</strong>",
-            "<strong>62</strong>",
+            "<strong>70</strong>",
             "Numerical additions: 0.",
-            "Dated courts: +16",
-            "home-context facts: +7",
+            "Dated courts: +10",
+            "home-context facts: +26",
+            "Prior bodies reparsed: 7",
         ):
             self.assertIn(text, rendered)
         self.assertNotIn("{change[", rendered)

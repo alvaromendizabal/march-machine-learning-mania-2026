@@ -8,19 +8,22 @@ Public review updated October 26, 2026, America/Los_Angeles. This page distingui
 
 ## Latest inspected research evidence
 
-The [current acquisition snapshot](../portfolio/acquisition_progress.json) records the authenticated v325 owner return. All **114** manifested members passed path, CRC, size and SHA-256 checks. The [execution evidence ledger](execution_evidence.md) preserves the prior observation and verifies the transition. This public record exposes only allowlisted aggregates; it does not publish raw source bodies or private orchestration.
+The [current acquisition snapshot](../portfolio/acquisition_progress.json) records the authenticated v326 owner return. All **144** archive members passed path and CRC checks; the manifest verifies exact sizes and SHA-256 for the other **143** members. The [execution evidence ledger](execution_evidence.md) preserves the two prior observations and validates both transitions. This public record exposes only allowlisted aggregates; it does not publish raw source bodies or private orchestration.
 
 | Current observation | Meaning |
 |---|---|
 | 133/221 numerical box-score candidates | Prior candidates preserved; zero new recoveries and 88 still missing |
 | 904/1,029 complete team-seasons | Numerical history coverage; 125 affected |
 | Zero strict historical admissions from the recovered overlay | Valid numbers do not prove pre-cutoff availability |
-| 80/80 venue acquisition units completed; 8 new captures | Acquisition milestone complete; study representation remains incomplete |
-| 62 prior bodies verified and reparsed; 27 prior errors resolved | Existing acquired evidence was reused productively |
-| 27/583 qualified women's venue rows, up from six | 556 unknown; 602 men's rows are carried controls |
+| 107/107 venue acquisition units completed; 27 new captures | Acquisition milestone complete; study representation remains incomplete |
+| 70 prior bodies verified; 64 prior analyses reused and seven reparsed | No prior capture downloaded again; prior errors are not recounted as new resolutions |
+| 102/583 qualified women's venue rows, up from 27 with zero losses | 481 unresolved; 602 men's rows are carried controls |
+| 21 court-qualified rows lack home context; 460 have both dimensions unqualified | Explicit edition-level frontier; no complete women's edition |
 | SUCCESS, zero new fits or submissions | Acquisition success does not claim a completed model experiment or promoted forecast |
 
-The source stage finished in **94.597 seconds**; the overall execution lasted **229.193 seconds**. These are observed durations for this run, not a controlled throughput benchmark. The source stage's six HTTP requests produced no numerical additions. Venue acquisition made 15 HTTP requests and qualified 21 additional rows. Downloaded documents remain useful for cache-based reconciliation. [Executed engineering notebook](../portfolio/engineering_review.ipynb) · [Runnable public review](engineering_review.md)
+The source stage finished in **3.131 seconds**; the overall execution lasted **153.180 seconds**. These are observed durations for this run, not a controlled throughput benchmark. The source stage diagnosed cached conflicts with **zero fresh HTTP requests** and zero numerical additions. Venue acquisition made **39 HTTP requests**, captured 27 new bodies and qualified 75 additional rows. All four aggregate caps remained disabled; the run completed its declared scope. [Executed engineering notebook](../portfolio/engineering_review.ipynb) · [Runnable public review](engineering_review.md)
+
+The [qualification frontier](qualification_frontier.md) preserves all nine edition populations. Classification follows the existing court-first rule: “both dimensions unqualified” may include rows with standalone home witnesses that cannot yet qualify without a court assignment. The public explorer focuses and orders the evidence states without changing bar denominators or inferring full-study readiness.
 
 ### Earlier evidence retained
 

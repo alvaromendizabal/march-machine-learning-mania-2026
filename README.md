@@ -29,7 +29,7 @@ From a checkout, with **Python 3.12 and Node**:
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html**. Eight checks execute the public forecast and scoring example, historical receipt arithmetic, recovery tests, current aggregate checks, run-to-run evidence accounting, bracket engine and UI handlers, and deterministic offline demo packaging. The interactive report and its JSON companion show both measured gains and remaining gaps. It needs **no credentials, cloud account, private data or package installation**. [Setup and review contract](START_HERE.md#ten-minute-technical-review)
+Open **outputs/review/index.html**. Ten checks execute the public forecast and scoring example, historical receipt arithmetic, recovery tests, current aggregate checks, execution-history and qualification-frontier contracts, explorer controls, bracket engine and UI handlers, and deterministic offline demo packaging. Inspect progress across runs, then focus the remaining evidence by edition and qualification state. The report needs **no credentials, cloud account, private data or package installation**. [Setup and review contract](START_HERE.md#ten-minute-technical-review)
 
 The public examples reproduce their own calculations. Competitive forecasting recipes, learned weights, private source banks and row-level forecasts remain private. [Reproduction levels](docs/reproduction_matrix.md) · [Publication boundary](portfolio/DISCLOSURE.md)
 
@@ -59,9 +59,9 @@ flowchart TD
 
 ## Current research: acquisition is not qualification
 
-The latest inspected execution preserved **133 of 221** recovered numerical box scores, completed **80/80** venue acquisition units, verified and reparsed **62** prior source bodies, and resolved all **27** prior processing errors. Qualified women's venue rows increased **6 → 27 of 583**; **556** remain unknown. Acquisition completed successfully, while the full venue study and historical-admission gate remain open. This execution produced **zero new box scores, model fits or submissions**.
+The latest inspected execution preserved **133 of 221** recovered numerical box scores and completed **107/107** venue acquisition units, including **27 new source captures**. It verified **70** prior bodies, reused **64** prior analyses and reparsed seven. Qualified women's venue rows increased **27 → 102 of 583** with zero losses; **481** remain unresolved. Acquisition completed successfully, while the full venue study and historical-admission gate remain open. This execution produced **zero new box scores, model fits or submissions**.
 
-Downloaded pages, valid numerical records, historically eligible inputs and completed model experiments are different milestones. The [execution evidence ledger](docs/execution_evidence.md) checks parent identity, stable populations, additions and explicit retractions. The interactive review switches among venue qualification, numerical recovery and historical admission without blending them into a project completion percentage. [Current research](docs/current_research.md) · [Evidence map](docs/evidence_map.md)
+Downloaded pages, valid numerical records, historically eligible inputs and completed model experiments are different milestones. The [execution evidence ledger](docs/execution_evidence.md) checks parent identity, stable populations, additions and explicit retractions. The [qualification frontier](docs/qualification_frontier.md) exposes the remaining 21 court-qualified rows with unresolved home context and 460 rows with both dimensions unqualified. Its interactive explorer keeps each edition's denominator visible; it does not blend different gates into a project completion percentage. [Current research](docs/current_research.md) · [Evidence map](docs/evidence_map.md)
 
 ## What the scored result establishes
 

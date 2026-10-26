@@ -178,6 +178,94 @@
         "prospective_validation_claimed": false,
         "next_data_work": "Expand qualified court and home-context evidence; investigate remaining numerical-source exclusions"
       }
+    },
+    {
+      "schema_version": 1,
+      "evidence_type": "OWNER_EXECUTION_AGGREGATES",
+      "reviewed_on": "2026-10-26",
+      "review_timezone": "America/Los_Angeles",
+      "execution": "v326",
+      "status": "SUCCESS",
+      "scope": "Expanded venue qualification and cached numerical-source diagnosis; no new forecast or model promotion",
+      "provenance": {
+        "source": "Owner-supplied execution return",
+        "manifest_members_verified": 144,
+        "manifest_checks": [
+          "CRC",
+          "unique paths",
+          "exact sizes",
+          "SHA256"
+        ],
+        "raw_source_data_public": false,
+        "public_checks": "Aggregate consistency only; original provider bodies remain private"
+      },
+      "box_scores": {
+        "original_missing": 221,
+        "previous_recovered": 133,
+        "recovered": 133,
+        "new_recovered": 0,
+        "remaining": 88,
+        "unresolved": 66,
+        "unverified": 10,
+        "quarantined": 12,
+        "strict_historical_admissions": 0,
+        "by_season": [
+          {
+            "season": 2010,
+            "original_missing": 103,
+            "recovered": 53,
+            "remaining": 50
+          },
+          {
+            "season": 2011,
+            "original_missing": 54,
+            "recovered": 34,
+            "remaining": 20
+          },
+          {
+            "season": 2012,
+            "original_missing": 64,
+            "recovered": 46,
+            "remaining": 18
+          }
+        ]
+      },
+      "team_seasons": {
+        "total": 1029,
+        "complete": 904,
+        "affected": 125,
+        "measure": "Numerical detailed-game coverage, not historical admission"
+      },
+      "venue": {
+        "planned_units": 107,
+        "completed_units": 107,
+        "unique_new_captures": 27,
+        "source_errors": 0,
+        "qualified_editions": 0,
+        "qualified_home_pods": 35,
+        "dated_court_assignments": 38,
+        "women_rows_required": 583,
+        "women_rows_qualified": 102,
+        "women_rows_unknown": 481,
+        "men_rows_carried": 602,
+        "measure": "Played-game representation; carried controls are not new source gains"
+      },
+      "execution_counters": {
+        "elapsed_seconds": 153.18018467500008,
+        "source_elapsed_seconds": 3.1313079029999926,
+        "source_http_requests": 0,
+        "venue_http_requests": 39,
+        "new_model_fits": 0,
+        "new_submissions": 0,
+        "champion_changed": false,
+        "all_aggregate_caps_disabled": true
+      },
+      "interpretation": {
+        "acquisition_milestone_completed": true,
+        "full_model_study_completed": false,
+        "prospective_validation_claimed": false,
+        "next_data_work": "Expand qualified court and home-context evidence using explicit residual states; resolve cached numerical-source conflicts before new route admission"
+      }
     }
   ],
   "transitions": [
@@ -191,6 +279,17 @@
       "prior_bodies_reparsed": 62,
       "prior_processing_errors_resolved": 27,
       "notes": "All 62 retained capture bodies were verified and reparsed; eight additional captures were acquired, and qualified women rows increased by 21. Publisher exclusions left box recovery unchanged."
+    },
+    {
+      "from": "v325",
+      "to": "v326",
+      "box_candidates_added": 0,
+      "women_rows_added": 75,
+      "women_rows_removed": 0,
+      "prior_bodies_verified": 70,
+      "prior_bodies_reparsed": 7,
+      "prior_processing_errors_resolved": 0,
+      "notes": "The expanded execution captured 27 new bodies, verified 70 prior unique bodies and reused 64 of 71 prior analyses while reparsing seven. It retained all 27 prior qualifications and added 75. Different workloads are not a controlled speed comparison. Cached source diagnosis made zero fresh HTTP requests and added no boxes."
     }
   ],
   "scope": "Public aggregate transitions only. The private return and source bodies are not distributed; these checks do not establish provider authenticity or historical input eligibility."
