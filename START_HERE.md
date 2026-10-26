@@ -35,7 +35,7 @@ Open **outputs/review/index.html** for the executed checks and current evidence.
 | What is reproducible? | [Reproduction matrix](docs/reproduction_matrix.md), [executed engineering notebook](portfolio/engineering_review.ipynb) |
 | What happens after interruption? | [Runnable recovery example](tools/reliability_demo.py), [actual computation tests](tools/test_reliability_demo.py) |
 
-The latest acquisition snapshot reports **133/221 numerical candidates**, **88 remaining**, and a **PARTIAL** venue run with 27 processing errors and 6/583 qualified women's rows. These are current owner-run aggregates, separate from the scored forecast and synthetic examples.
+The latest acquisition snapshot reports **133/221 numerical candidates**, **88 remaining**, and **27/583** qualified women's venue rows, up from six. All **27** prior processing errors were resolved; **556** women's rows remain unknown. These owner-run aggregates are separate from the scored forecast and synthetic examples. The [execution evidence ledger](docs/execution_evidence.md) makes the gains, unchanged counts and qualification boundaries reviewable.
 
 ## A portable, offline demo
 

@@ -22,7 +22,7 @@ Both featured controls, all selectors and sliders work by keyboard. Invalid matc
 
 ## Current engineering evidence
 
-The single-command review executes seven public checks and writes HTML plus JSON evidence. The current snapshot preserves all denominators: 133/221 recovered numerical candidates, 88 remaining, 72 attempted venue units and 6/583 qualified women's venue rows. All 27 processing errors remain visible. The synthetic reliability example tests actual computation counts and verifies unknown-timing exclusion and corrupt-state refusal. CI executes the engineering notebook; its interactive figure includes a PNG fallback. Static demo metrics are checked against the same aggregate JSON to prevent headline drift.
+The single-command review executes eight public checks and writes HTML plus JSON evidence. The current snapshot preserves all denominators: 133/221 recovered numerical candidates, 88 remaining, 80 completed venue units and 27/583 qualified women's venue rows. All 27 prior processing errors were resolved, while 556 required rows remain unknown. The execution evidence ledger retains both observations and verifies parent identity, population continuity, additions, retractions and current-snapshot agreement. Its interactive report displays three separate coverage measures. The synthetic reliability example tests actual computation counts and verifies unknown-timing exclusion and corrupt-state refusal. CI executes the engineering notebook; both interactive figures include PNG fallbacks. Static demo metrics are checked against the same aggregate JSON to prevent headline drift.
 
 ## Publication boundary
 

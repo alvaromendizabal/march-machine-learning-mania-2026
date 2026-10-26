@@ -29,7 +29,7 @@ From a checkout, with **Python 3.12 and Node**:
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html**. The command executes the public forecast and scoring example, historical receipt checks, recovery tests, current aggregate checks, bracket engine and UI handlers, and deterministic offline demo packaging. It writes a readable report plus JSON evidence. It needs **no credentials, cloud account, private data or package installation**. [Setup and review contract](START_HERE.md#ten-minute-technical-review)
+Open **outputs/review/index.html**. Eight checks execute the public forecast and scoring example, historical receipt arithmetic, recovery tests, current aggregate checks, run-to-run evidence accounting, bracket engine and UI handlers, and deterministic offline demo packaging. The interactive report and its JSON companion show both measured gains and remaining gaps. It needs **no credentials, cloud account, private data or package installation**. [Setup and review contract](START_HERE.md#ten-minute-technical-review)
 
 The public examples reproduce their own calculations. Competitive forecasting recipes, learned weights, private source banks and row-level forecasts remain private. [Reproduction levels](docs/reproduction_matrix.md) · [Publication boundary](portfolio/DISCLOSURE.md)
 
@@ -59,9 +59,9 @@ flowchart TD
 
 ## Current research: acquisition is not qualification
 
-The latest inspected execution recovered **two** missing box scores and preserved prior validated candidates. It attempted all **72** venue acquisition units and captured **62** new source bodies, but **27** source-processing errors prevented a complete result. Only **6 of 583** required women's venue rows qualified. The run remains **PARTIAL**, with **zero new model fits or submissions**.
+The latest inspected execution preserved **133 of 221** recovered numerical box scores, completed **80/80** venue acquisition units, verified and reparsed **62** prior source bodies, and resolved all **27** prior processing errors. Qualified women's venue rows increased **6 → 27 of 583**; **556** remain unknown. Acquisition completed successfully, while the full venue study and historical-admission gate remain open. This execution produced **zero new box scores, model fits or submissions**.
 
-Downloaded pages, valid numerical records, historically eligible inputs and completed model experiments are different milestones. The snapshot makes their denominators explicit. [Current research](docs/current_research.md) · [Evidence map](docs/evidence_map.md)
+Downloaded pages, valid numerical records, historically eligible inputs and completed model experiments are different milestones. The [execution evidence ledger](docs/execution_evidence.md) checks parent identity, stable populations, additions and explicit retractions. The interactive review switches among venue qualification, numerical recovery and historical admission without blending them into a project completion percentage. [Current research](docs/current_research.md) · [Evidence map](docs/evidence_map.md)
 
 ## What the scored result establishes
 

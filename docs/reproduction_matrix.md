@@ -15,7 +15,8 @@ The featured result is **0.1034347 retrospective Kaggle Brier**, submission 5712
 | AP polling | Editions, rank semantics, and activation boundaries reconstructed | Several fixed model integrations failed validation |
 | Official raw-game features | 42 men's and 29 women's seasons; independent replay | Descriptive feature coverage is not evidence of a predictive gain |
 | Derived NCAA player-box bank | Historical identity, coverage, and model-contract work retained | Not relabeled as original ESPN data or an original-owned player archive |
-| Current original-source acquisition | 133/221 numerical candidates, 88 remaining; 72 venue units attempted and 62 new captures | Recovered overlay has zero strict historical admissions; venue run is PARTIAL with 27 processing errors |
+| Current original-source acquisition | 133/221 numerical candidates, 88 remaining; 80 venue units completed and 27/583 women's rows qualified | Recovered overlay has zero strict historical admissions; acquisition succeeded with 556 women's rows still unknown |
+| Execution evidence ledger | Two public observations, explicit population denominators, validated additions/retractions and an interactive offline report | Checks aggregate accounting; withheld providers are not independently authenticated by public reproduction |
 | BPI and market information | Partial original-source recovery | Broad dated history remains incomplete |
 | Publisher advancement probabilities | Complete 68-team fields reconstructed for 2025 and 2026 | Fixed blending recipe rejected; source success did not imply model success |
 | Earlier official feature rebuild | v170: 14,311 team-season profiles and 132,133 covered matchups | Existing forecast recovery is not a newly fitted model |

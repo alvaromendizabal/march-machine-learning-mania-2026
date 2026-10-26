@@ -17,7 +17,9 @@ table{width:100%;border-collapse:collapse;font-size:14px}
 td,th{padding:13px 8px;border-bottom:1px solid #dce3ec;text-align:left}
 .pass{color:#08724c}.fail{color:#a52930}a{color:#164bb3}
 .flow{display:flex;flex-wrap:wrap;gap:10px}.flow span{background:#eaf0f8;padding:12px;border-radius:8px}
+.history-panel{border-top:4px solid #008477}.history-deltas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}.history-deltas article{background:#f1f7f7;border:0;padding:20px}.history-deltas strong{color:#006b60;margin-bottom:0}.history-picker{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-weight:600;margin:28px 0 20px}.history-picker select{font:inherit;font-size:14px;color:#13233d;border:1px solid #8497b0;border-radius:8px;background:white;padding:10px;max-width:100%}.history-picker select:focus-visible,summary:focus-visible{outline:3px solid #1766b8;outline-offset:4px}.history-observation{margin:18px 0}.history-label{display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:9px}.history-value{font-variant-numeric:tabular-nums}.history-track{height:20px;background:#dce5ee;border-radius:5px;overflow:hidden}.history-track span{display:block;height:100%;background:#008477}.history-note{font-size:13px;color:#52637a}.history-table{overflow-x:auto;margin-top:24px}.history-table table{min-width:650px;font-variant-numeric:tabular-nums}.history-table caption{text-align:left;font-size:13px;color:#52637a;padding:10px 0}.history-panel details{border-top:1px solid #d6deea;padding-top:18px}.history-panel summary{cursor:pointer;font-weight:600}
 @media(max-width:700px){.grid{grid-template-columns:1fr}header{padding:24px}main{padding:20px 16px}td,th{padding:12px 5px}}
+@media(max-width:700px){.history-deltas{grid-template-columns:1fr}.history-deltas article{display:flex;align-items:center;justify-content:space-between;gap:12px}.history-deltas strong{font-size:30px;margin:0}.history-picker{display:block}.history-picker select{display:block;width:100%;margin-top:10px}}
 </style></head>
 <body><main>
 <header><div class="eyebrow">Alvaro Mendizabal / machine learning engineering</div>
@@ -29,6 +31,7 @@ td,th{padding:13px 8px;border-bottom:1px solid #dce3ec;text-align:left}
 <article><span>Numerical box-score candidates</span><strong>$recovered / $original</strong><span>$remaining missing; historical admission is a separate gate.</span></article>
 <article><span>Qualified women's venue rows</span><strong>$qualified / $required</strong><span>$unknown unknown. Acquisition does not automatically qualify a record.</span></article>
 </div>
+$history
 <section><h2>Interrupt. Resume. Verify.</h2>
 <p>The independent synthetic example stops after one committed unit, resumes without recomputing that unit, reuses completed work and rejects altered checkpoint content.</p>
 <div class="flow"><span>1 committed before stopping</span><span>$resume_computed new + $resume_reused reused on resume</span><span>$warm_computed qualifications recomputed on warm run</span><span>Corruption rejected</span></div>

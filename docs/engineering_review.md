@@ -20,17 +20,19 @@ From the repository root with Python 3.12 and Node:
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html**. Its machine-readable companion is **outputs/review/review.json**. Seven checks execute the synthetic forecast/scoring lab, earlier scored-receipt arithmetic, recovery failure contracts, current aggregate boundaries, exact bracket engine, actual UI handlers, and deterministic offline demo packaging. A failed check makes the review fail and retains its log.
+Open **outputs/review/index.html**. Its machine-readable companion is **outputs/review/review.json**. Eight checks execute the synthetic forecast/scoring lab, earlier scored-receipt arithmetic, recovery failure contracts, current aggregate boundaries, execution-history accounting, exact bracket engine, actual UI handlers, and deterministic offline demo packaging. A failed check makes the review fail and retains its log.
 
 No credentials, source download, model artifact or Python package installation is needed. Optional notebook regeneration uses the project's locked development environment. The browser demo still packages exactly five reviewed static source files.
 
 ## Current source accounting
 
-The latest authenticated return contains **133 of 221** originally missing numerical box scores, up from 131. **88** remain: 66 unresolved, 10 unverified and 12 quarantined. By season, recovery is 53/103 in 2010, 34/54 in 2011 and 46/64 in 2012. Numerical team-season completeness is **904/1,029**; this is not a historical-admission count. The recovered overlay still has **zero strict historical admissions**.
+The latest authenticated return preserves **133 of 221** originally missing numerical box scores, with no new additions in this execution. **88** remain: 66 unresolved, 10 unverified and 12 quarantined. By season, recovery is 53/103 in 2010, 34/54 in 2011 and 46/64 in 2012. Numerical team-season completeness is **904/1,029**; this is not a historical-admission count. The recovered overlay still has **zero strict historical admissions**.
 
-Venue acquisition attempted **72/72** units and saved **62 new source bodies**, but processing recorded **27 errors**. Only **6/583** required women's venue rows qualified; 577 remain unknown. The 602 men's rows are carried controls. Acquisition progress therefore remains **PARTIAL** as a complete study, with no new model fits or submissions.
+Venue acquisition completed **80/80** units, verified and reparsed **62** prior bodies, and saved **8 new source bodies**. All **27** prior processing errors were resolved. Qualified women's rows increased from **6 to 27/583**; **556** remain unknown. The 602 men's rows are carried controls. The acquisition milestone succeeded; the complete venue study remains unfinished, with no new model fits or submissions.
 
-These counts come from the supplied execution return, whose 103 manifested members were checked for unique paths, CRC, sizes and SHA-256. This public snapshot withholds raw records and source-specific identity logic. The public validator verifies the aggregate schema and arithmetic; it does not independently authenticate the original publishers.
+These counts come from the supplied execution return, whose **114** manifested members were checked for unique paths, CRC, sizes and SHA-256. This public snapshot withholds raw records and source-specific identity logic. The public validator verifies the aggregate schema and arithmetic; it does not independently authenticate the original publishers.
+
+The [execution evidence ledger](execution_evidence.md) retains both observations and validates their transition. Its interactive report shows numerical recovery, women's venue qualification and historical admission with separate denominators. Added rows and retracted rows are explicit, and the current snapshot must match the final historical observation exactly. Elapsed times describe different workloads and are not presented as a controlled speed benchmark.
 
 ## A recovery contract that runs
 
@@ -49,7 +51,7 @@ Writes use a temporary file, file synchronization and atomic replacement. These 
 
 ## Notebook review
 
-The [engineering review notebook](../portfolio/engineering_review.ipynb) executes four code cells, displays the season-level gaps and venue counts, persists an interactive Plotly figure with a PNG fallback, and executes the recovery demonstration. CI executes the notebook with the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
+The [engineering review notebook](../portfolio/engineering_review.ipynb) executes four code cells, displays season-level gaps and venue qualification over successive executions, persists two interactive Plotly figures with PNG fallbacks, and executes the recovery demonstration. CI executes the notebook with the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
 
 ## Questions this project is ready to discuss
 

@@ -31,8 +31,11 @@ def main() -> int:
         "scripts/women_challengers.py",
         "scripts/final_report.py",
         "tools/review_project.py",
+        "tools/evidence_contracts.py",
+        "tools/evidence_history.py",
         "tools/reliability_demo.py",
         "tools/test_review_project.py",
+        "tools/test_evidence_history.py",
         "tools/test_reliability_demo.py",
     ]
     typed_files = tomllib.loads((root / "pyproject.toml").read_text())["tool"]["mypy"]["files"]

@@ -24,7 +24,7 @@ The system builds on credited public methods. Their underlying ideas are not pre
 
 The featured result is **0.1034347 public/private Kaggle Brier**, submission 57122407, over a forecast of 132,133 possible matchups. It is a retrospective result obtained after outcomes were available. The earlier **0.1067095** receipt remains a separate, dated case study. [Score evidence](champion_result.md) · [Historical comparison](benchmark_comparison.md)
 
-Current acquisition has recovered **133 of 221** missing numerical box scores and reached **904/1,029** complete numerical team-seasons. The recovered overlay still has zero strict historical admissions. The venue run attempted 72 units and captured 62 new source bodies, but 27 processing errors and only six qualified women's rows leave the complete study **PARTIAL**. [Current aggregate evidence](../portfolio/acquisition_progress.json)
+Current acquisition has recovered **133 of 221** missing numerical box scores and reached **904/1,029** complete numerical team-seasons. The recovered overlay still has zero strict historical admissions. The latest venue run completed 80 units, verified and reparsed 62 prior bodies, resolved 27 prior processing errors and raised qualified women's rows from six to **27/583**. The acquisition milestone succeeded, while 556 unknown rows leave the complete study unfinished. [Current aggregate evidence](../portfolio/acquisition_progress.json) · [Validated execution history](execution_evidence.md)
 
 ## Demonstrate the recovery contract
 
