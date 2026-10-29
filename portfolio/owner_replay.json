@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "evidence_type": "AUDITABLE_PRIVATE_RUN_AGGREGATES",
+  "execution": "v347",
+  "reviewed_on": "2026-10-29",
+  "status": "PARTIAL",
+  "reason": "OWNED_SOURCE_CLOSURE_INCOMPLETE",
+  "provenance": {
+    "summary_sha256": "fe035276ef75739f61b859c630dd3b21f9a5382b13de138fa7db7eb0a5d5072c",
+    "qualification_sha256": "7d69cdcbe4b8886c07276e775f6e68aadc5a385649a86333833a70b99b8f082a",
+    "prediction_artifact_sha256": "784744fc12fb2af8c754ba66eed66b419ca07fde82f793008d51f4c4b7202316",
+    "return_parts": [
+      {
+        "part": 1,
+        "bytes": 113439041,
+        "sha256": "339cf6bc2c3314aca0df81fbdc76673d94676d53ebfa4dca343ed264c3153486"
+      },
+      {
+        "part": 2,
+        "bytes": 144205466,
+        "sha256": "4bd601e393552e0e0687a77553d56819d05122cc8a0d8feb7d0b8e4f9bffc00e"
+      },
+      {
+        "part": 3,
+        "bytes": 144366524,
+        "sha256": "bc084cc986534eb7b67fe55aabb107fc49dce237cd0b08b666e01330e9bdc44d"
+      },
+      {
+        "part": 4,
+        "bytes": 50745495,
+        "sha256": "44e32aa4517f446ccd0b10b8c1b67864edf2ec18d66d2b3d9107f37abc92290d"
+      }
+    ],
+    "manifest_payload_entries": 5358,
+    "logical_files": 5351,
+    "all_uploaded_payloads_verified": true,
+    "raw_source_data_public": false,
+    "check_scope": "Public checks verify aggregate consistency; private payloads were authenticated separately."
+  },
+  "execution_accounting": {
+    "coordinator_seconds": 997.7906422719999,
+    "start_to_return_status_seconds": 1036.231824,
+    "effective_cpus": 4,
+    "mean_cpu_cores_used": 0.4291722713673889,
+    "source_workers": 8,
+    "research_fits_reused": 66,
+    "science_fits_reused": 236,
+    "new_model_fits": 0,
+    "new_submissions": 0,
+    "final_free_disk_bytes": 1229553664,
+    "old_return_source_bytes_preserved": 797517357,
+    "old_return_allocated_bytes_released": 797519872,
+    "return_bytes": 452756526,
+    "bulk_derived_bytes_in_return": 437817964
+  },
+  "cohort": {
+    "unit": "physical_games",
+    "development_seasons": [
+      2018,
+      2019,
+      2021,
+      2022
+    ],
+    "later_seasons": [
+      2023,
+      2024,
+      2025
+    ],
+    "development_games": 523,
+    "later_games": 402,
+    "total_games": 925,
+    "arms": 4,
+    "prediction_rows": 3700,
+    "identical_arm_populations_verified": true,
+    "all_windows_previously_examined": true,
+    "fresh_holdout": false
+  },
+  "scorecards": [
+    {
+      "arm": "Accepted control",
+      "role": "accepted",
+      "development_brier": 0.1706970027706844,
+      "later_brier": 0.16773421970546898
+    },
+    {
+      "arm": "Challenger A",
+      "role": "challenger",
+      "development_brier": 0.17234184079490744,
+      "later_brier": 0.1635590059763984
+    },
+    {
+      "arm": "Challenger B",
+      "role": "challenger",
+      "development_brier": 0.1723122768586223,
+      "later_brier": 0.1649837559237408
+    },
+    {
+      "arm": "Challenger C",
+      "role": "challenger",
+      "development_brier": 0.1720262234802317,
+      "later_brier": 0.1647997683349628
+    }
+  ],
+  "market": {
+    "selection_records": 17012534,
+    "men_selection_records": 16084314,
+    "women_selection_records": 928220,
+    "priced_pregame_selection_records": 15259764,
+    "training_admissions": 0,
+    "unknown_owned_containers": 7768,
+    "candidate_requests": 3625,
+    "semantic_duplicates": 52,
+    "unresolved_requests": 3573,
+    "eligible_paid_requests": 0,
+    "paid_requests": 0,
+    "paid_credits": 0,
+    "source_closure_complete": false
+  },
+  "coverage": {
+    "measurement": "CARRIED_AUTHENTICATED_COVERAGE_NOT_A_NEW_RAW_CENSUS",
+    "defined_study_seasons": "2013\u20132025 excluding 2020",
+    "required_men_detailed_games": 63657,
+    "required_women_detailed_games": 61298,
+    "required_study_detail_complete": true,
+    "broader_project_data_complete": false,
+    "future_2027_data_complete": false,
+    "residuals": [
+      {
+        "family": "Original women missing-box queue",
+        "unit": "game_rows",
+        "have": 143,
+        "required": 221,
+        "missing": 78
+      },
+      {
+        "family": "Women venue court identity",
+        "unit": "tournament_game_rows",
+        "have": 522,
+        "required": 583,
+        "missing": 61
+      },
+      {
+        "family": "Women strict home/neutral context",
+        "unit": "tournament_game_rows",
+        "have": 367,
+        "required": 583,
+        "missing": 216
+      },
+      {
+        "family": "Player exact team-game joins",
+        "unit": "team_game_reconciliations",
+        "have": 13622,
+        "required": 14228,
+        "missing": 606
+      },
+      {
+        "family": "Seeded-team points features",
+        "unit": "seeded_team_seasons",
+        "have": 270,
+        "required": 272,
+        "missing": 2
+      }
+    ]
+  },
+  "decision": {
+    "selected_arm": "Accepted control",
+    "champion_changed": false,
+    "new_prospective_score_claimed": false,
+    "reason": "All three challengers worsen the declared development Brier; the later window is already exposed."
+  }
+}

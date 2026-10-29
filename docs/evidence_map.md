@@ -36,3 +36,7 @@ A private forecast's 2026 Brier cannot be compared as a like-for-like result wit
 4. **Private research replay:** retained data, fitted models, forecast rows and exact composition rules; intentionally outside this publication.
 
 The archive hash in a public receipt is a provenance reference. The archive itself stays private. A reviewer can rerun the public checks without acquiring it. [Disclosure](../portfolio/DISCLOSURE.md)
+
+## Latest private-run aggregate review
+
+[Owner replay](owner_replay.md) and its [allowlisted record](../portfolio/owner_replay.json) add the October 29 V347 result: 302 fitted operations reused, 925 matched games, retained accepted control, incomplete source closure, and measured runtime/return-size accounting. Run `python tools/owner_replay.py --check` or the full one-command reviewer. Raw bodies, per-game predictions and private recipes remain withheld. Earlier source ledgers retain their dated scope.

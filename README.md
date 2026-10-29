@@ -18,7 +18,7 @@ I built an NCAA forecasting research system across **data qualification, men's a
 |---|---|
 | **0.1034347 Kaggle Brier** | [Recorded public/private score](docs/champion_result.md), submission 57122407. Retrospective 2026 research; prospective performance is unproven. |
 | **132,133 possible-matchup probabilities** | [Normalized result record](reports/champion_result/kaggle_record.json), with separate men's and women's populations. These are forecast rows, not scored games. |
-| **133 of 221 missing detailed records recovered** | [Current acquisition snapshot](portfolio/acquisition_progress.json). Numerical research candidates; historical admission is a separate, still-open gate. |
+| **302 fitted operations reused; 925 matched games** | [October 29 owner replay](docs/owner_replay.md). Zero new fits; accepted control retained after all three challengers worsened development Brier. |
 | **Completed work survives and verifies** | [Runnable reliability example](tools/reliability_demo.py): exact resume, zero qualification recomputation on a warm run and corrupt-checkpoint rejection on synthetic inputs. |
 
 ## Review it in one command
@@ -29,7 +29,7 @@ From a checkout, with **Python 3.12 and Node**:
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html**. Ten checks execute the public forecast and scoring example, historical receipt arithmetic, recovery tests, current aggregate checks, execution-history and qualification-frontier contracts, explorer controls, bracket engine and UI handlers, and deterministic offline demo packaging. Inspect progress across runs, then focus the remaining evidence by edition and qualification state. The report needs **no credentials, cloud account, private data or package installation**. [Setup and review contract](START_HERE.md#ten-minute-technical-review)
+Open **outputs/review/index.html**. Eleven checks execute the public forecast and scoring example, historical receipt arithmetic, recovery tests, current aggregate checks, owner replay and storage accounting, execution-history and qualification-frontier contracts, explorer controls, bracket engine and UI handlers, and deterministic offline demo packaging. Inspect progress across runs, then focus the remaining evidence by edition and qualification state. The report needs **no credentials, cloud account, private data or package installation**. [Setup and review contract](START_HERE.md#ten-minute-technical-review)
 
 The public examples reproduce their own calculations. Competitive forecasting recipes, learned weights, private source banks and row-level forecasts remain private. [Reproduction levels](docs/reproduction_matrix.md) · [Publication boundary](portfolio/DISCLOSURE.md)
 
@@ -57,11 +57,15 @@ flowchart TD
 
 [Architecture](docs/architecture.md) · [Evaluation protocol](docs/research_protocol.md) · [Source ownership](docs/supplemental_source_ownership.md)
 
-## Current research: acquisition is not qualification
+## Latest verified owner run · October 29, 2026
 
-The latest inspected execution preserved **133 of 221** recovered numerical box scores and completed **107/107** venue acquisition units, including **27 new source captures**. It verified **70** prior bodies, reused **64** prior analyses and reparsed seven. Qualified women's venue rows increased **27 → 102 of 583** with zero losses; **481** remain unresolved. Acquisition completed successfully, while the full venue study and historical-admission gate remain open. This execution produced **zero new box scores, model fits or submissions**.
+**V347 completed the research, science and lineage stages; market-source reconciliation remains PARTIAL.** It reused **66 research and 236 science fitted operations**, with **zero new fits or submissions**. The matched study has **925 physical games** and **3,700 probability rows across four arms**. All three challengers worsened the predeclared development Brier, so the accepted control remains selected. The later window was already examined and is not a fresh holdout. [Matched results and runtime evidence](docs/owner_replay.md)
 
-Downloaded pages, valid numerical records, historically eligible inputs and completed model experiments are different milestones. The [execution evidence ledger](docs/execution_evidence.md) checks parent identity, stable populations, additions and explicit retractions. The [qualification frontier](docs/qualification_frontier.md) exposes the remaining 21 court-qualified rows with unresolved home context and 460 rows with both dimensions unqualified. Its interactive explorer keeps each edition's denominator visible; it does not blend different gates into a project completion percentage. [Current research](docs/current_research.md) · [Evidence map](docs/evidence_map.md)
+The run also exposed a concrete storage defect: **437.82 MB of bulk derived copies in a 452.76 MB review return**. Final reported free disk was **1.23 GB**. Integrity checks verified all four return parts and 5,358 manifested payload entries; these measurements identify what to optimize without claiming that unique research data is disposable or that the current configuration is fastest.
+
+**Do we have the data?** The defined 2013–2025 study has its required detailed-game inputs. Broader coverage is incomplete: 78 old women's boxes, venue/context and player-join gaps remain; **17,012,534 market selections have zero model-training admissions**. Source objects, selection records and eligible games are separate units. [Allowlisted aggregate record](portfolio/owner_replay.json) · [Executed engineering review](portfolio/engineering_review.ipynb)
+
+The [October 26 acquisition snapshot](portfolio/acquisition_progress.json), [execution ledger](docs/execution_evidence.md) and [qualification frontier](docs/qualification_frontier.md) retain their own dated populations and rules. They are historical evidence, not a relabeled census from the latest replay.
 
 ## What the scored result establishes
 
