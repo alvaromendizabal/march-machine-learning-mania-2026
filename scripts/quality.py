@@ -32,6 +32,8 @@ def main() -> int:
         "scripts/final_report.py",
         "tools/review_project.py",
         "tools/evidence_contracts.py",
+        "tools/owner_replay.py",
+        "tools/test_owner_replay.py",
         "tools/evidence_history.py",
         "tools/qualification_frontier.py",
         "tools/reliability_demo.py",

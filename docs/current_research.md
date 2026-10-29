@@ -4,13 +4,21 @@
 
 ## Evidence boundary
 
-Public review updated October 26, 2026, America/Los_Angeles. This page distinguishes a published Kaggle receipt, later owner execution records and synthetic public demonstrations. It does not inventory live AWS state.
+Public review updated October 29, 2026, America/Los_Angeles. This page distinguishes a published Kaggle receipt, later owner execution records and synthetic public demonstrations. It does not inventory live AWS state.
 
-## Latest inspected research evidence
+## Latest inspected research evidence · V347
 
-The [current acquisition snapshot](../portfolio/acquisition_progress.json) records the authenticated v326 owner return. All **144** archive members passed path and CRC checks; the manifest verifies exact sizes and SHA-256 for the other **143** members. The [execution evidence ledger](execution_evidence.md) preserves the two prior observations and validates both transitions. This public record exposes only allowlisted aggregates; it does not publish raw source bodies or private orchestration.
+The [October 29 replay record](../portfolio/owner_replay.json) exposes only allowlisted aggregates. All four uploaded return hashes and **5,358 per-part manifest entries** passed byte count, SHA-256 and CRC checks. There are **5,351 logical indexed files**. The private source files and methods are not published.
 
-| Current observation | Meaning |
+Research reused **66 fitted operations** and science reused **236**; both completed with zero new fits. The four-arm research study covers **925 matched physical games**, with **523 development** and **402 already-exposed later** games. Every challenger worsened development Brier, so the accepted control remains unchanged. **No fresh holdout, new score or submission is claimed.** [Scorecards and decision](owner_replay.md)
+
+Overall status remains **PARTIAL** because owned market-source closure is incomplete. The inventory contains **17,012,534 selection records**, with **zero training admissions**. Carried detailed inputs cover the defined 2013–2025 study; the broader project still has explicit source, venue/context and player-join gaps. The later coverage summary does not supply the row-level transitions needed to update the older qualification ledger below.
+
+## Dated acquisition evidence · October 26
+
+The [October 26 acquisition snapshot](../portfolio/acquisition_progress.json) records the authenticated v326 owner return. All **144** archive members passed path and CRC checks; the manifest verifies exact sizes and SHA-256 for the other **143** members. The [execution evidence ledger](execution_evidence.md) preserves the two prior observations and validates both transitions. This public record exposes only allowlisted aggregates; it does not publish raw source bodies or private orchestration.
+
+| Dated acquisition observation | Meaning |
 |---|---|
 | 133/221 numerical box-score candidates | Prior candidates preserved; zero new recoveries and 88 still missing |
 | 904/1,029 complete team-seasons | Numerical history coverage; 125 affected |

@@ -31,12 +31,14 @@ Open **outputs/review/index.html** for the executed checks and current evidence.
 |---|---|
 | How is outcome leakage prevented? | [Synthetic forecast example](docs/public_reproduction.md), [split notebook](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) |
 | What did the author contribute? | [Engineering case study](docs/employer_walkthrough.md), [method attribution](docs/benchmark_comparison.md#method-lineage-and-additional-work) |
-| What was actually delivered? | [Featured scored record](reports/champion_result/kaggle_record.json), [current acquisition snapshot](portfolio/acquisition_progress.json) |
+| What was actually delivered? | [Featured scored record](reports/champion_result/kaggle_record.json), [latest owner replay](portfolio/owner_replay.json) |
 | What is reproducible? | [Reproduction matrix](docs/reproduction_matrix.md), [executed engineering notebook](portfolio/engineering_review.ipynb) |
 | What happens after interruption? | [Runnable recovery example](tools/reliability_demo.py), [actual computation tests](tools/test_reliability_demo.py) |
 | Which evidence blocks the next qualification? | [Qualification frontier](docs/qualification_frontier.md), [partition validator](tools/qualification_frontier.py) |
 
-The latest acquisition snapshot reports **133/221 numerical candidates**, **88 remaining**, and **102/583** qualified women's venue rows, up from 27. All prior qualifications were retained; **481** women's rows remain unresolved. The new frontier distinguishes 21 court-qualified rows lacking home context from 460 rows with both dimensions unqualified. These owner-run aggregates are separate from the scored forecast and synthetic examples. The [execution ledger](docs/execution_evidence.md) preserves the history, while the [frontier explorer](docs/qualification_frontier.md) makes the next evidence requirements inspectable.
+The **October 29 V347 owner replay** reused 302 fitted operations and completed the 925-game research replay with zero new fits. The accepted control remains selected because all challengers worsened development Brier. Source reconciliation remains partial; all project data is not complete. The [latest replay review](docs/owner_replay.md) shows exact denominators, consumed-window boundaries and observed runtime/storage costs.
+
+The **October 26 acquisition snapshot** reports **133/221 numerical candidates**, **88 remaining**, and **102/583** qualified women's venue rows, up from 27. All prior qualifications were retained; **481** women's rows remain unresolved. The new frontier distinguishes 21 court-qualified rows lacking home context from 460 rows with both dimensions unqualified. These owner-run aggregates are separate from the scored forecast and synthetic examples. The [execution ledger](docs/execution_evidence.md) preserves the history, while the [frontier explorer](docs/qualification_frontier.md) makes the next evidence requirements inspectable.
 
 ## A portable, offline demo
 

@@ -24,13 +24,17 @@ td,th{padding:13px 8px;border-bottom:1px solid #dce3ec;text-align:left}
 @media(max-width:700px){.history-deltas{grid-template-columns:1fr}.history-deltas article{display:flex;align-items:center;justify-content:space-between;gap:12px}.history-deltas strong{font-size:30px;margin:0}.history-picker{display:block}.history-picker select{display:block;width:100%;margin-top:10px}}
 @media(max-width:700px){article,section{padding:22px}.section-heading{display:block}.scope-tag{display:inline-block;margin:8px 0}.frontier-stats{grid-template-columns:1fr}.frontier-stats article{display:grid;grid-template-columns:1fr auto;gap:6px 15px}.frontier-stats article>span:first-child{min-height:0}.frontier-stats article>span:last-child{grid-column:1/-1}.frontier-stats strong{margin:0;grid-column:2;grid-row:1}.frontier-controls{grid-template-columns:1fr}.frontier-label{font-size:12px}.frontier-value{text-align:right}.review-nav a{font-size:12px}.frontier-legend{gap:10px 14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:#fff}main{max-width:none;padding:0}header{background:#0a2344!important;print-color-adjust:exact}.review-nav,.frontier-controls,.history-picker{display:none}section,article{break-inside:avoid}.frontier-track,.history-track{print-color-adjust:exact}}
+.replay-panel{border-top:4px solid #1c5ba8}.replay-panel .grid article{background:#f2f6fb;padding:22px}.replay-panel .grid strong{color:#164b80}.replay-panel details{border-top:1px solid #d6deea;padding-top:18px;margin-top:22px}.replay-panel summary{font-weight:650;cursor:pointer}.replay-table{overflow-x:auto}.replay-table table{min-width:580px;font-variant-numeric:tabular-nums}.replay-table caption{text-align:left;padding:12px 0;color:#52637a;font-size:13px}.replay-table tbody th{font-weight:500}
 </style></head>
 <body><main>
 <header><div class="eyebrow">Alvaro Mendizabal / machine learning engineering</div>
 <h1>Evidence behind<br>the forecast.</h1>
 <p>A reproducible public review of probability calculations, source accounting and interrupted-work recovery. This report reads no private model or source bank.</p>
-<small>Public review: $status · snapshot reviewed $date</small></header>
-<nav class="review-nav" aria-label="Review sections"><a href="#history-title">Measured progress</a><a href="#frontier">Remaining evidence</a><a href="#recovery">Recovery contract</a><a href="#checks">Executed checks</a><a href="review.json">Machine-readable report ↗</a></nav>
+<small>Public review: $status · latest replay $latest_date · acquisition snapshot $date</small></header>
+<nav class="review-nav" aria-label="Review sections"><a href="#owner-replay">Latest owner replay</a><a href="#history-title">Acquisition history</a><a href="#frontier">Historical frontier</a><a href="#recovery">Recovery contract</a><a href="#checks">Executed checks</a><a href="review.json">Machine-readable report ↗</a></nav>
+$owner_replay
+<h2>Dated acquisition evidence · $date</h2>
+<p>These source-qualification panels preserve an earlier, independently scoped observation. The latest replay above carries a later coverage summary; it does not invent missing edition-level transitions for this historical ledger.</p>
 <div class="grid">
 <article><span>Recorded retrospective Kaggle Brier</span><strong>$brier</strong><span>Inherited scored evidence. No new submission.</span></article>
 <article><span>Numerical box-score candidates</span><strong>$recovered / $original</strong><span>$remaining missing; historical admission is a separate gate.</span></article>

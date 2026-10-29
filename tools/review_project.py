@@ -20,6 +20,7 @@ from textwrap import dedent
 
 from evidence_contracts import require, validate_snapshot
 from evidence_history import HISTORY, load_history, render_history_panel, summarize_history
+from owner_replay import REPLAY, load_replay, render_replay_panel
 from qualification_frontier import (
     FRONTIER,
     load_frontier,
@@ -67,6 +68,8 @@ def render_report(report: dict) -> str:
         "rows": rows,
         "history": render_history_panel(report["execution_history"]),
         "frontier": render_frontier_panel(report["qualification_frontier"]),
+        "owner_replay": render_replay_panel(report["owner_replay"]),
+        "latest_date": html.escape(report["owner_replay"]["reviewed_on"]),
     }
     return Template((ROOT / "tools/review_template.html").read_text()).substitute(values)
 
@@ -80,6 +83,7 @@ def run_review(output: Path) -> dict:
     d = load_snapshot()
     history = summarize_history(load_history())
     frontier = summarize_frontier(load_frontier(), d)
+    replay = load_replay()
     score = json.loads(SCORE.read_text())
     require(
         score["record_kind"] == "NORMALIZED_HISTORICAL_KAGGLE_RESULT"
@@ -120,6 +124,19 @@ def run_review(output: Path) -> dict:
                 "tools",
                 "-p",
                 "test_review_project.py",
+            ],
+        ),
+        (
+            "Owner replay, model selection and storage accounting",
+            [
+                sys.executable,
+                "-m",
+                "unittest",
+                "discover",
+                "-s",
+                "tools",
+                "-p",
+                "test_owner_replay.py",
             ],
         ),
         (
@@ -180,6 +197,7 @@ def run_review(output: Path) -> dict:
         "acquisition": d,
         "execution_history": history,
         "qualification_frontier": frontier,
+        "owner_replay": replay,
         "scored_result": score,
         "synthetic_reliability": reliability,
         "checks": checks,
@@ -187,6 +205,7 @@ def run_review(output: Path) -> dict:
             "acquisition_progress.json": sha(SOURCE),
             "execution_history.json": sha(HISTORY),
             "qualification_frontier.json": sha(FRONTIER),
+            "owner_replay.json": sha(REPLAY),
             "kaggle_record.json": sha(SCORE),
         },
         "network_requests": 0,
@@ -214,7 +233,7 @@ def build_notebook(kernel: str) -> dict:
         **Alvaro Mendizabal · source qualification · reproducible evaluation · reliable execution**
 
         Three evidence classes remain distinct: an inherited retrospective scored result,
-        current owner-execution aggregates, and an independently authored synthetic reliability
+        dated owner-execution aggregates, and an independently authored synthetic reliability
         example. This notebook executes public checks; private recipes and source banks
         stay private.
         """),
@@ -239,10 +258,37 @@ def build_notebook(kernel: str) -> dict:
         print('Strict historical admissions:', d['box_scores']['strict_historical_admissions'])
         """),
         md("""
+        ## Latest owner replay: the accepted control still wins development
+
+        The October 29 V347 run reused 302 fitted operations and completed the 925-game
+        matched research replay without new fits. The overall run remains PARTIAL because
+        owned market-source reconciliation is incomplete. Every challenger worsens development
+        Brier; lower Brier in the previously exposed later window does not justify promotion.
+
+        Public aggregate checks cannot recreate paired uncertainty or source-level authentication
+        without the withheld per-game evidence. Generic arm labels protect private recipes.
+        The earlier source-qualification panels below retain their October 26 scope; they are
+        not relabeled as a fresh census by this later replay.
+        """),
+        code("""
+        from owner_replay import load_replay
+        replay = load_replay()
+        display(pd.DataFrame(replay['scorecards']).set_index('arm'))
+        execution = replay['execution_accounting']
+        print('Owner execution:', replay['execution'], replay['status'])
+        print('Fits reused:', execution['research_fits_reused'] + execution['science_fits_reused'])
+        print('New fits:', execution['new_model_fits'])
+        print('Selected:', replay['decision']['selected_arm'])
+        print('Complete broader project data:', replay['coverage']['broader_project_data_complete'])
+        assert replay['cohort']['total_games'] == 925
+        assert replay['cohort']['prediction_rows'] == 3700
+        """),
+        md("""
         ## Numerical coverage has an explicit denominator
 
         The recovered overlay contains 133 of 221 originally missing numerical records;
-        88 remain. Numerical recovery does not establish historical timing: strict historical
+        88 remained at the October 26 acquisition snapshot. Numerical recovery does not establish
+        historical timing: strict historical
         admission remains zero. These are audited owner-run aggregates, not a public re-acquisition.
         """),
         code("""
@@ -385,7 +431,7 @@ def build_notebook(kernel: str) -> dict:
     return {
         "status": "PASS",
         "actual_kernel_execution": True,
-        "code_cells": 5,
+        "code_cells": 6,
         "plotly_outputs": 3,
         "png_fallbacks": 3,
         "model_fits": 0,

@@ -7,7 +7,8 @@ The project makes three different kinds of evidence inspectable. They answer dif
 | Evidence class | What is public | What it establishes |
 |---|---|---|
 | Historical scored result | Normalized Kaggle record: **0.1034347**, submission 57122407 | Recorded retrospective scoring; no prospective claim or new account query |
-| Current acquisition | Allowlisted owner-execution aggregates, reviewed October 26, 2026 | Coverage, residual gaps and processing failures; public checks validate accounting |
+| Latest owner replay | October 29 V347 allowlisted aggregates | Matched-game result, retained-control decision, fit reuse and observed storage/runtime accounting |
+| Dated acquisition | October 26 V326 source-qualification aggregates | Earlier coverage and residual gates; retained as a separate historical scope |
 | Runnable engineering | Authored synthetic observations, recovery example, forecast/scoring example and bracket engine | Executable contracts on public inputs; no claim of private-pipeline parity |
 
 [Featured score](champion_result.md) · [Aggregate snapshot](../portfolio/acquisition_progress.json) · [Executed notebook](../portfolio/engineering_review.ipynb)
@@ -20,13 +21,19 @@ From the repository root with Python 3.12 and Node:
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html**. Its machine-readable companion is **outputs/review/review.json**. Ten checks execute the synthetic forecast/scoring lab, earlier scored-receipt arithmetic, recovery failure contracts, current aggregate boundaries, execution-history accounting, qualification-frontier validation, actual frontier controls, exact bracket engine, actual demo handlers, and deterministic offline packaging. A failed check makes the review fail and retains its log.
+Open **outputs/review/index.html**. Its machine-readable companion is **outputs/review/review.json**. Eleven checks execute the synthetic forecast/scoring lab, earlier scored-receipt arithmetic, recovery failure contracts, current aggregate boundaries, owner replay and storage accounting, execution-history accounting, qualification-frontier validation, actual frontier controls, exact bracket engine, actual demo handlers, and deterministic offline packaging. A failed check makes the review fail and retains its log.
 
 No credentials, source download, model artifact or Python package installation is needed. Optional notebook regeneration uses the project's locked development environment. The browser demo still packages exactly five reviewed static source files.
 
-## Current source accounting
+## Latest owner replay and data readiness
 
-The latest authenticated return preserves **133 of 221** originally missing numerical box scores, with no new additions in this execution. **88** remain: 66 unresolved, 10 unverified and 12 quarantined. By season, recovery is 53/103 in 2010, 34/54 in 2011 and 46/64 in 2012. Numerical team-season completeness is **904/1,029**; this is not a historical-admission count. The recovered overlay still has **zero strict historical admissions**.
+The [V347 aggregate record](../portfolio/owner_replay.json) records 302 fitted operations reused, zero new fits, and a 925-game matched research study. The report shows development and already-exposed later Brier side by side and retains the accepted control. It never labels the replay as a fresh holdout. The validator rejects changed populations, overlapping seasons, nonfinite probabilities, unsupported promotion, private nested fields and incorrect storage/request partitions. [Full evidence and limitations](owner_replay.md)
+
+The record identifies a return-size defect and incomplete market qualification, alongside the complete scoped study inputs. It distinguishes 997.79 seconds of core work from 1,036.23 seconds through final return status. CPU measurements do not prove fastest-possible execution. The historical 1.23 GB free-disk observation does not assert current space.
+
+## Dated source accounting · October 26
+
+The October 26 authenticated return preserves **133 of 221** originally missing numerical box scores, with no new additions in this execution. **88** remain: 66 unresolved, 10 unverified and 12 quarantined. By season, recovery is 53/103 in 2010, 34/54 in 2011 and 46/64 in 2012. Numerical team-season completeness is **904/1,029**; this is not a historical-admission count. The recovered overlay still has **zero strict historical admissions**.
 
 Venue acquisition completed **107/107** units and saved **27 new source bodies**. It verified **70 prior bodies**, reused **64 of 71 prior analyses**, reparsed seven, and downloaded no prior capture again. Qualified women's rows increased from **27 to 102/583** with all prior qualifications retained; **481** remain unresolved. The 602 men's rows are carried controls. The acquisition milestone succeeded; the complete venue study remains unfinished, with no new model fits or submissions.
 
@@ -57,7 +64,7 @@ Writes use a temporary file, file synchronization and atomic replacement. These 
 
 ## Notebook review
 
-The [engineering review notebook](../portfolio/engineering_review.ipynb) executes five code cells, displays numerical season gaps, qualification over successive executions, and the edition-level qualification frontier. It persists three interactive Plotly figures with PNG fallbacks and executes the recovery demonstration. CI executes the notebook with the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
+The [engineering review notebook](../portfolio/engineering_review.ipynb) executes six code cells, displays the latest matched scorecards and numerical season gaps, qualification over successive executions, and the edition-level qualification frontier. It persists three interactive Plotly figures with PNG fallbacks and executes the recovery demonstration. CI executes the notebook with the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
 
 ## Questions this project is ready to discuss
 
