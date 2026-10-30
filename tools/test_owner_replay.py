@@ -140,8 +140,9 @@ class OwnerReplayTests(unittest.TestCase):
 
     def test_hardlink_alias_removal_does_not_count_as_new_physical_savings(self):
         self.assertGreater(self.replay["storage"]["cache_files_removed"], 0)
-        self.assertEqual(self.replay["storage"]["cache_allocated_bytes_released"], 0)
+        self.assertEqual(self.replay["storage"]["cache_allocated_bytes_released"], 38_309_888)
         self.reject("storage", "cache_allocated_bytes_released", 1)
+        self.assertEqual(self.replay["storage"]["unmanifested_cache_extras_preserved"], 3)
 
     def test_written_negative_cache_is_not_a_cache_hit_or_source_resolution(self):
         self.assertEqual(self.replay["systems"]["negative_cache_hits"], 0)
@@ -169,10 +170,66 @@ class OwnerReplayTests(unittest.TestCase):
         rows = comparison_rows(self.replay)
         self.assertEqual(len(rows), 6)
         self.assertEqual({r["unit"] for r in rows}, {"bytes", "seconds", "attempts", "responses"})
-        self.assertTrue(all(r["before"] > r["after"] for r in rows))
+        self.assertTrue(any(r["before"] > r["after"] for r in rows))
+        self.assertTrue(any(r["before"] < r["after"] for r in rows))
         self.assertTrue(
             all(set(r) == {"measure", "unit", "before", "after", "reduction_percent"} for r in rows)
         )
+
+    def test_increased_work_is_a_negative_reduction_not_hidden_improvement(self):
+        changes = self.replay["comparison"]["reduction_percent"]
+        self.assertLess(changes["odds_seconds"], 0)
+        self.assertLess(changes["download_bytes"], 0)
+        self.assertGreater(changes["end_to_end_seconds"], 0)
+        changes["odds_seconds"] = abs(changes["odds_seconds"])
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_decoder_repair_does_not_prove_semantic_source_resolution(self):
+        self.assertEqual(self.replay["source_transition"]["remaining_negative_objects"], 2)
+        self.assertEqual(self.replay["market"]["unknown_owned_containers"], 7774)
+        self.reject("source_transition", "all_former_failures_semantically_resolved", True)
+        self.reject("source_transition", "complete_positive_catalog_public", True)
+
+    def test_retry_population_includes_unchanged_non_hash_failures(self):
+        self.assertEqual(self.replay["source_transition"]["prior_hash_mismatch_objects"], 7698)
+        self.reject("source_transition", "decoder_change_reinspections", 7698)
+        self.reject("source_transition", "unchanged_other_failure_keys_and_body_hashes", 0)
+
+    def test_duplicate_invocation_is_not_a_new_owner_run(self):
+        rows = self.replay["execution_ledger"]["records"]
+        rows[1]["invocation_digest"] = rows[0]["invocation_digest"]
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_phase_success_does_not_increment_whole_run_success(self):
+        ledger = self.replay["execution_ledger"]
+        self.assertEqual(len(ledger["latest_completed_workstreams"]), 3)
+        self.assertEqual(ledger["counts"], {"SUCCESS": 0, "PARTIAL": 6, "FAILED": 0, "STOPPED": 4})
+        ledger["counts"]["SUCCESS"] = 3
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_latest_incomplete_run_is_counted_once(self):
+        self.reject(
+            "execution_ledger",
+            "latest_delta",
+            {"SUCCESS": 1, "PARTIAL": 1, "FAILED": 0, "STOPPED": 0},
+        )
+
+    def test_missing_history_cannot_become_an_all_time_total(self):
+        self.reject("execution_ledger", "all_time_totals", {"SUCCESS": 74, "PARTIAL": 6})
+        self.replay["execution_ledger"]["historical_snapshot"]["reported_not_reconstructed"] = False
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_historical_categories_must_keep_overlap_and_missing_history(self):
+        for key in ("categories_overlap", "intermediate_history_incomplete"):
+            with self.subTest(field=key):
+                changed = copy.deepcopy(self.replay)
+                changed["execution_ledger"]["historical_snapshot"][key] = False
+                with self.assertRaises(ValueError):
+                    validate_replay(changed)
 
 
 if __name__ == "__main__":
