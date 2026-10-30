@@ -260,7 +260,7 @@ def build_notebook(kernel: str) -> dict:
         md("""
         ## Latest owner replay: the accepted control still wins development
 
-        The October 30 V349 run (Pacific time) reused 302 fitted operations and completed
+        The October 30 V350 run (Pacific time) reused 302 fitted operations and completed
         the 925-game matched research replay without new fits. The overall run remains PARTIAL
         because owned market-source reconciliation is incomplete. Each challenger worsens
         development Brier; lower Brier in the exposed later window cannot justify promotion.
@@ -284,29 +284,38 @@ def build_notebook(kernel: str) -> dict:
         assert replay['cohort']['prediction_rows'] == 3700
         ledger = replay['execution_ledger']
         display(pd.DataFrame(ledger['records'])[['execution', 'status', 'evidence_level']])
-        print('Recent ten owner runs:', ledger['counts'])
+        print('Recent eleven owner runs:', ledger['counts'])
         print('Latest addition:', ledger['latest_delta'])
         print('Complete all-time totals:', ledger['all_time_totals'])
         print('Completed workstreams counted separately:', ledger['latest_completed_workstreams'])
         """),
         md("""
-        ## Faster overall, with the source bottleneck still visible
+        ## Faster source work, with consolidation cost still visible
 
         The same 302 fitted operations and accepted scientific result were preserved.
-        End-to-end elapsed time fell 26.61%, from 550.57 to 404.06 seconds.
-        The odds phase became slower and downloaded more bytes: a decoder change deliberately
-        reinspected 7,700 prior negative objects. One-time custody-verified cleanup released
-        496,082,944 allocated bytes; 2,795,630,592 bytes were free afterward.
+        End-to-end elapsed time grew 31.93%, from 404.06 to 533.10 seconds.
+        The odds phase improved 34.37%, from 306.54 to 201.17 seconds, while consolidation
+        took 257.06 seconds. Custody-verified cleanup released 366,530,560 allocated bytes;
+        2,781,872,128 bytes were free afterward. Physical notebook/HTML moves numbered 472;
+        1,659 protected links and 175 private references remain distinct from moves.
 
         These are sequential observations, not a controlled concurrency benchmark.
         Provider latency and background load were not controlled. Request counts cover
         the odds worker and exclude archival transfers. Negative percentage reductions mean
-        growth, not savings. All 7,698 former hash-failure keys left the negative ledger,
-        while two other deterministic failures remained. That does not prove semantic
-        resolution: 7,774 broader owned containers remain unknown, with zero market admissions.
+        growth, not savings. Broader unknown containers fell from 7,774 to 71, but source
+        closure is unfinished. All 3,482 new canonical selections came from current-sport
+        endpoints without historical snapshots and add zero training admissions.
+        The recovery ledger records 7,677 event-bearing objects with zero supported
+        h2h/spreads/totals rows and one zero-event object. This does not prove empty
+        original provider payloads. The same two deterministic decode failures remain.
 
-        The recent ten-run ledger has zero SUCCESS, six PARTIAL and four STOPPED owner outcomes.
-        Three completed V349 workstreams do not create an overall success. The older V48
+        The home census covers 578,227 files and 1,595 root entries; 109 selected project
+        roots are a narrower scope. It is not a full hash-based duplicate or feature-dependency
+        inventory. A nominal 250 ms sampling cadence still incurred 61,773 forced probes.
+
+        The recent eleven-run ledger has zero SUCCESS, seven PARTIAL
+        and four STOPPED owner outcomes.
+        Three completed V350 workstreams do not create an overall success. The older V48
         aggregate counters are reported history with overlapping categories; missing intermediate
         executions prevent an exact updated all-time total.
         """),
@@ -318,7 +327,15 @@ def build_notebook(kernel: str) -> dict:
         measured = pd.DataFrame(comparison_rows(replay))
         display(measured)
         display(pd.DataFrame([replay['storage']]).T.rename(columns={0: 'Observed'}))
-        display(pd.DataFrame([replay['source_transition']]).T.rename(columns={0: 'Observed'}))
+        display(pd.DataFrame(replay['source_recovery']['products']))
+        organization = replay['organization']
+        display(pd.DataFrame([{
+            'Physical moves': organization['physically_moved'],
+            'Protected index links': organization['protected_index_links'],
+            'Private references': organization['private_references_without_browse_links'],
+            'Files in home census': organization['census_files'],
+            'Root entries in home census': organization['census_root_entries'],
+            'Selected project roots': organization['selected_project_root_entries']}]))
         labels = ['Elapsed time', 'Odds duration', 'Odds GET responses',
                   'Odds HTTP attempts', 'Odds body bytes', 'Review return bytes']
         relative = (100 * measured['after'] / measured['before']).tolist()
@@ -348,7 +365,8 @@ def build_notebook(kernel: str) -> dict:
         plt.close(static)
         display({'application/vnd.plotly.v1+json': json.loads(comparison.to_json()),
                  'image/png': base64.b64encode(image.getvalue()).decode()}, raw=True)
-        assert replay['systems']['negative_cache_hits'] == 0
+        assert replay['systems']['negative_cache_hits'] == 2
+        assert replay['source_recovery']['new_historical_selection_records'] == 0
         assert replay['storage']['unique_scientific_bytes_discarded'] == 0
         """),
         md("""

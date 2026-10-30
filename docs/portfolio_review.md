@@ -1,6 +1,6 @@
 # Portfolio review and improvement contract
 
-**Repository:** `alvaromendizabal/march-machine-learning-mania-2026`, an independent project. **Baseline main:** `fb36b96930a0ddd9c41b67fda77c2f32f387273e`. Review date: October 30, 2026, Pacific time. This patch is prepared on `portfolio/verified-owner-replay-v349`. Live PR/rules checks, publication and final-main verification belong to the release receipt; local validation does not establish them. This update changes this repository only.
+**Repository:** `alvaromendizabal/march-machine-learning-mania-2026`, an independent project. **Baseline main:** `e4dbfe39d29eed96b0c23e3fb2fe78e4daa6e1f3`. Review date: October 30, 2026, Pacific time. This patch is prepared on `portfolio/verified-owner-replay-v350`. Live PR/rules checks, publication and final-main verification belong to the release receipt; local validation does not establish them. This update changes this repository only.
 
 ## Scoring method and baseline
 
@@ -38,16 +38,16 @@ The repository already contains a coherent notebook-led research framework, four
 
 ## Ten highest-impact gaps
 
-1. **Overall outcomes were missing from the latest panel:** the recent ten-run ledger now exposes zero SUCCESS, six PARTIAL and four STOPPED outcomes, with phase completion separate.
-2. **A comparison could suppress regression:** signed percentage reductions now show the slower odds phase and increased requests/bytes alongside the faster overall run.
-3. **Decoder repair could be overstated:** removal of 7,698 hash-failure keys from a negative ledger does not prove semantic interpretation or model eligibility.
-4. **Different source populations could be collapsed:** two deterministic decode failures and 7,774 broader unknown containers retain separate denominators.
-5. **Historical counters lack a complete membership ledger:** the V48 snapshot is reported history with overlapping categories; missing intervening runs keep all-time totals unknown.
-6. **Copied receipts could inflate execution counts:** invocation digests are unique; recovered summaries and local/CI tests are not additional owner runs.
-7. **Storage remains constrained:** 496,082,944 allocated bytes were released, but 109 historical root entries remain and broader consolidation is unfinished.
-8. **Frozen inventory and price work remain expensive:** 154.34 and 33.18 seconds are observed bottlenecks; private runtime changes need a new owner measurement.
-9. **Publication and accessibility require independent evidence:** exact-head CI, authorized merge and final-main verification remain release gates; no assistive-technology certification is claimed.
-10. **No prospective scientific gain:** the accepted control and exposed evaluation population are unchanged; operational progress does not replace valid new feature/model evidence.
+1. **Source recovery is incomplete:** unknown containers fell to 71, while 3,573 requests remain unresolved and training admissions remain zero.
+2. **Current observations could be mistaken for historical features:** all 3,482 new canonical selections are current-endpoint rows without historical snapshots.
+3. **Zero canonical rows could be called empty provider bodies:** 7,677 event-bearing objects yielded no supported rows; their raw payload content is not independently public.
+4. **A faster component could hide a slower whole run:** odds improved 34.37%, while total time grew 31.93% with consolidation work.
+5. **Sampling cadence could hide forced work:** 61,773 forced probes remain despite a nominal 250 ms interval; warm price-checkpoint reuse is unmeasured.
+6. **Organization references could be called physical relocation:** 472 moves, 1,659 indexed links and 175 private references have separate accounting.
+7. **A limited census could be called complete diagnostics:** 578,227 files and 1,595 root entries do not establish exact duplicate or feature-dependency coverage; 109 selected roots are narrower still.
+8. **Disk pressure remains:** 366,530,560 allocated bytes were released, but the main repository retains 22.06 GB across necessary research and unqualified cleanup candidates.
+9. **Incomplete history and publication need explicit gates:** eleven recent runs have no overall success; older aggregate memberships are incomplete; exact-head and merged-main checks remain required.
+10. **No prospective scientific gain:** the accepted control and exposed evaluation population remain unchanged; source recovery does not create a valid model promotion.
 
 ## Focused plan and acceptance criteria
 
@@ -55,8 +55,8 @@ One integration owner edits the existing public record, validator, notebook gene
 
 | Priority | Change | Acceptance evidence |
 |---|---|---|
-| 1 | Publish V349 and retain scoped V348 comparison in `portfolio/owner_replay.json` | Full nested allowlist, evidence hashes, signed regressions, source transitions and deduplicated run outcomes |
-| 2 | Extend `tools/owner_replay.py` and failure tests | Reject suppressed regressions, duplicate invocations, phase/run conflation, invented all-time totals and unsupported semantic source closure |
+| 1 | Publish V350 and retain scoped V349 comparison in `portfolio/owner_replay.json` | Nested allowlist, current-versus-historical recovery, signed regressions, presentation outcomes, census scope and deduplicated runs |
+| 2 | Extend `tools/owner_replay.py` and failure tests | 54 contracts reject false historical admission, empty-payload inference, false centralization, hidden regression and invented outcome totals |
 | 3 | Update existing case study and first-minute entry points | Same 925-game scientific outcome; measured systems gains with explicit limits |
 | 4 | Regenerate existing engineering notebook and public review | Real kernel execution, persisted comparative figure, credential-free checks and responsive layout |
 | 5 | Execute repository gates and publish one focused PR | Required canonical notebooks, quality, source/navigation checks, exact-head CI, permitted merge, final-main verification |

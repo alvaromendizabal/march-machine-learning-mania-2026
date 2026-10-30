@@ -7,7 +7,7 @@ The project makes three different kinds of evidence inspectable. They answer dif
 | Evidence class | What is public | What it establishes |
 |---|---|---|
 | Historical scored result | Normalized Kaggle record: **0.1034347**, submission 57122407 | Recorded retrospective scoring; no prospective claim or new account query |
-| Latest owner replay | October 30 V349 allowlisted aggregates (Pacific) | Matched-game result, retained-control decision, fit reuse and observed storage/runtime accounting |
+| Latest owner replay | October 30 V350 allowlisted aggregates (Pacific) | Matched-game result, retained-control decision, fit reuse and observed storage/runtime accounting |
 | Dated acquisition | October 26 V326 source-qualification aggregates | Earlier coverage and residual gates; retained as a separate historical scope |
 | Runnable engineering | Authored synthetic observations, recovery example, forecast/scoring example and bracket engine | Executable contracts on public inputs; no claim of private-pipeline parity |
 
@@ -27,9 +27,9 @@ No credentials, source download, model artifact or Python package installation i
 
 ## Latest owner replay and data readiness
 
-The [V349 aggregate record](../portfolio/owner_replay.json) records 302 fitted operations reused, zero new fits, and a 925-game matched research study. The report shows development and already-exposed later Brier side by side and retains the accepted control. It never labels the replay as a fresh holdout. The validator rejects changed populations, overlapping seasons, nonfinite probabilities, unsupported promotion, private nested fields and incorrect storage/request partitions. [Full evidence and limitations](owner_replay.md)
+The [V350 aggregate record](../portfolio/owner_replay.json) records 302 fitted operations reused, zero new fits, and a 925-game matched research study. The report shows development and already-exposed later Brier side by side and retains the accepted control. It never labels the replay as a fresh holdout. The validator rejects changed populations, overlapping seasons, nonfinite probabilities, unsupported promotion, private nested fields and incorrect storage/request partitions. [Full evidence and limitations](owner_replay.md)
 
-End-to-end elapsed time fell from 550.57 to 404.06 seconds, but the odds phase increased from 257.93 to 306.54 seconds during deliberate reinspection of 7,700 prior negatives. Cleanup released 496,082,944 allocated bytes; final free space was 2,795,630,592 bytes. The repaired negative ledger has two remaining deterministic failures while 7,774 broader owned containers remain unknown. These sequential observations do not prove optimal performance or semantic closure. The validator preserves signed regressions, separate free-space accounting, ten unique recent owner invocations, and the distinction between completed phases and whole-run outcomes. The older aggregate counter snapshot remains reported history with incomplete membership, not an invented all-time ledger.
+Odds reconciliation improved from 306.54 to 201.17 seconds, while total time grew from 404.06 to 533.10 seconds with 257.06 seconds of consolidation work. Cleanup released 366,530,560 allocated bytes; final free space was 2,781,872,128 bytes. Unknown sources fell to 71, but all 3,482 new selections came from current endpoints without historical snapshots. The 578,227-file home census, 472 physical notebook/HTML moves, protected references and unfinished dependency/duplicate diagnostics have distinct meanings. The validator rejects false historical admission, empty-payload claims inferred from zero canonical rows, false physical centralization, suppressed regressions and inflated run totals. Fifty-four accounting contracts cover those boundaries. The eleven recent invocations remain zero SUCCESS, seven PARTIAL and four STOPPED. Older overlapping counters and incomplete history stay separate.
 
 ## Dated source accounting · October 26
 
