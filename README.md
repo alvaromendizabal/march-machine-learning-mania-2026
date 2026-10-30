@@ -18,7 +18,7 @@ I built an NCAA forecasting research system across **data qualification, men's a
 |---|---|
 | **0.1034347 Kaggle Brier** | [Recorded public/private score](docs/champion_result.md), submission 57122407. Retrospective 2026 research; prospective performance is unproven. |
 | **132,133 possible-matchup probabilities** | [Normalized result record](reports/champion_result/kaggle_record.json), with separate men's and women's populations. These are forecast rows, not scored games. |
-| **302 fitted operations reused; 925 matched games** | [October 29 owner replay](docs/owner_replay.md). Zero new fits; accepted control retained after all three challengers worsened development Brier. |
+| **302 fitted operations reused; 925 matched games** | [Latest owner replay](docs/owner_replay.md). Zero new fits; accepted control retained after all three challengers worsened development Brier. |
 | **Completed work survives and verifies** | [Runnable reliability example](tools/reliability_demo.py): exact resume, zero qualification recomputation on a warm run and corrupt-checkpoint rejection on synthetic inputs. |
 
 ## Review it in one command
@@ -57,11 +57,11 @@ flowchart TD
 
 [Architecture](docs/architecture.md) · [Evaluation protocol](docs/research_protocol.md) · [Source ownership](docs/supplemental_source_ownership.md)
 
-## Latest verified owner run · October 29, 2026
+## Latest verified owner run · October 29, 2026 (Pacific)
 
-**V347 completed the research, science and lineage stages; market-source reconciliation remains PARTIAL.** It reused **66 research and 236 science fitted operations**, with **zero new fits or submissions**. The matched study has **925 physical games** and **3,700 probability rows across four arms**. All three challengers worsened the predeclared development Brier, so the accepted control remains selected. The later window was already examined and is not a fresh holdout. [Matched results and runtime evidence](docs/owner_replay.md)
+**V348 completed the research, science and lineage stages; market-source reconciliation remains PARTIAL.** It reused **66 research and 236 science fitted operations**, with **zero new fits or submissions**. The matched study has **925 physical games** and **3,700 probability rows across four arms**. All three challengers worsened the predeclared development Brier, so the accepted control remains selected. The later window was already examined and is not a fresh holdout. [Matched results and runtime evidence](docs/owner_replay.md)
 
-The run also exposed a concrete storage defect: **437.82 MB of bulk derived copies in a 452.76 MB review return**. Final reported free disk was **1.23 GB**. Integrity checks verified all four return parts and 5,358 manifested payload entries; these measurements identify what to optimize without claiming that unique research data is disposable or that the current configuration is fastest.
+The next measured run reduced elapsed time from **17m 16s to 9m 11s**, odds GET responses by **85.78%**, and the review return from **452.76 MB to 10.32 MB**. Verified cleanup released **1.492 GB of allocated disk**, leaving **2.572 GB free** after packaging. All **396 manifest entries** passed verification. These sequential owner observations preserve the same scientific result; they are not a controlled concurrency benchmark. Source closure remains open, and all historical folders have not been removed.
 
 **Do we have the data?** The defined 2013–2025 study has its required detailed-game inputs. Broader coverage is incomplete: 78 old women's boxes, venue/context and player-join gaps remain; **17,012,534 market selections have zero model-training admissions**. Source objects, selection records and eligible games are separate units. [Allowlisted aggregate record](portfolio/owner_replay.json) · [Executed engineering review](portfolio/engineering_review.ipynb)
 

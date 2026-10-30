@@ -4,11 +4,11 @@
 
 ## Evidence boundary
 
-Public review updated October 29, 2026, America/Los_Angeles. This page distinguishes a published Kaggle receipt, later owner execution records and synthetic public demonstrations. It does not inventory live AWS state.
+Public review updated October 30, 2026, America/Los_Angeles. This page distinguishes a published Kaggle receipt, later owner execution records and synthetic public demonstrations. It does not inventory live AWS state.
 
-## Latest inspected research evidence · V347
+## Latest inspected research evidence · V348
 
-The [October 29 replay record](../portfolio/owner_replay.json) exposes only allowlisted aggregates. All four uploaded return hashes and **5,358 per-part manifest entries** passed byte count, SHA-256 and CRC checks. There are **5,351 logical indexed files**. The private source files and methods are not published.
+The [October 29 replay record (Pacific)](../portfolio/owner_replay.json) exposes only allowlisted aggregates. The single uploaded return is **10,323,395 bytes**; all **397 ZIP members**, **396 manifest records**, and **392 logical files** passed integrity checks. It carries current summaries and review evidence while explicitly omitting retained bulk market data. The private source files and methods are not published. The systems comparison records 46.87% less elapsed time and 1.492 GB of allocated disk released without claiming complete source closure or maximum instance throughput.
 
 Research reused **66 fitted operations** and science reused **236**; both completed with zero new fits. The four-arm research study covers **925 matched physical games**, with **523 development** and **402 already-exposed later** games. Every challenger worsened development Brier, so the accepted control remains unchanged. **No fresh holdout, new score or submission is claimed.** [Scorecards and decision](owner_replay.md)
 

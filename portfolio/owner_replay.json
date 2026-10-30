@@ -1,57 +1,42 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "evidence_type": "AUDITABLE_PRIVATE_RUN_AGGREGATES",
-  "execution": "v347",
-  "reviewed_on": "2026-10-29",
+  "execution": "v348",
+  "reviewed_on": "2026-10-30",
   "status": "PARTIAL",
   "reason": "OWNED_SOURCE_CLOSURE_INCOMPLETE",
   "provenance": {
-    "summary_sha256": "fe035276ef75739f61b859c630dd3b21f9a5382b13de138fa7db7eb0a5d5072c",
-    "qualification_sha256": "7d69cdcbe4b8886c07276e775f6e68aadc5a385649a86333833a70b99b8f082a",
+    "summary_sha256": "c1941cc20920f586228ef451287b16609ad65f6603aa0ed56ee31bc53deb861c",
+    "qualification_sha256": "0dd7222e62bb355fe7be4f1c9c6588c7611da84b8b8352c98a872cde37701768",
     "prediction_artifact_sha256": "784744fc12fb2af8c754ba66eed66b419ca07fde82f793008d51f4c4b7202316",
     "return_parts": [
       {
         "part": 1,
-        "bytes": 113439041,
-        "sha256": "339cf6bc2c3314aca0df81fbdc76673d94676d53ebfa4dca343ed264c3153486"
-      },
-      {
-        "part": 2,
-        "bytes": 144205466,
-        "sha256": "4bd601e393552e0e0687a77553d56819d05122cc8a0d8feb7d0b8e4f9bffc00e"
-      },
-      {
-        "part": 3,
-        "bytes": 144366524,
-        "sha256": "bc084cc986534eb7b67fe55aabb107fc49dce237cd0b08b666e01330e9bdc44d"
-      },
-      {
-        "part": 4,
-        "bytes": 50745495,
-        "sha256": "44e32aa4517f446ccd0b10b8c1b67864edf2ec18d66d2b3d9107f37abc92290d"
+        "bytes": 10323395,
+        "sha256": "13c4adf0f4aae8fc9496e76d503a1dc5fc5ab6329d39361191f5a8458dc4f90b"
       }
     ],
-    "manifest_payload_entries": 5358,
-    "logical_files": 5351,
+    "manifest_payload_entries": 396,
+    "logical_files": 392,
     "all_uploaded_payloads_verified": true,
     "raw_source_data_public": false,
     "check_scope": "Public checks verify aggregate consistency; private payloads were authenticated separately."
   },
   "execution_accounting": {
-    "coordinator_seconds": 997.7906422719999,
-    "start_to_return_status_seconds": 1036.231824,
+    "coordinator_seconds": 546.628701028,
+    "start_to_return_status_seconds": 550.5686009579999,
     "effective_cpus": 4,
-    "mean_cpu_cores_used": 0.4291722713673889,
+    "mean_cpu_cores_used": 0.3561580186914254,
     "source_workers": 8,
     "research_fits_reused": 66,
     "science_fits_reused": 236,
     "new_model_fits": 0,
     "new_submissions": 0,
-    "final_free_disk_bytes": 1229553664,
-    "old_return_source_bytes_preserved": 797517357,
-    "old_return_allocated_bytes_released": 797519872,
-    "return_bytes": 452756526,
-    "bulk_derived_bytes_in_return": 437817964
+    "final_free_disk_bytes": 2572169216,
+    "old_return_source_bytes_preserved": 1480692559,
+    "old_return_allocated_bytes_released": 1480712192,
+    "return_bytes": 10323395,
+    "bulk_derived_bytes_in_return": 0
   },
   "cohort": {
     "unit": "physical_games",
@@ -133,6 +118,13 @@
         "missing": 78
       },
       {
+        "family": "Women 2010\u20132012 complete team-seasons",
+        "unit": "team_seasons",
+        "have": 915,
+        "required": 1029,
+        "missing": 114
+      },
+      {
         "family": "Women venue court identity",
         "unit": "tournament_game_rows",
         "have": 522,
@@ -167,5 +159,79 @@
     "champion_changed": false,
     "new_prospective_score_claimed": false,
     "reason": "All three challengers worsen the declared development Brier; the later window is already exposed."
+  },
+  "systems": {
+    "measurement": "OBSERVED_SEQUENTIAL_EXECUTIONS_NOT_A_CONTROLLED_BENCHMARK",
+    "request_scope": "ODDS_WORKER_ONLY_EXCLUDES_STORAGE_ARCHIVAL",
+    "fastest_possible_proven": false,
+    "odds_seconds": 257.9273982499999,
+    "s3_get_responses": 7701,
+    "s3_listing_pages": 90,
+    "s3_http_attempts_including_retries": 7791,
+    "download_bytes": 7801171,
+    "etag_serialization_reuses": 29067,
+    "prior_positive_checkpoint_reuses": 17378,
+    "negative_cache_entries_written": 7700,
+    "negative_cache_hits": 0,
+    "adapter_unresolved_objects": 7700,
+    "adapter_error_reasons": {
+      "CONTENT_ADDRESSED_OBJECT_HASH_MISMATCH": 7698,
+      "TEXT_ENCODING_INVALID": 1,
+      "UNSUPPORTED_JSON_ROOT": 1
+    },
+    "phase_seconds": {
+      "legacy_request_inventory": 135.1834573110002,
+      "baseline_price_restoration": 31.11662586400007,
+      "exact_metadata_reconciliation": 61.480668871000034,
+      "inventory_listing": 13.630086673999813,
+      "paid_request_proof": 11.042815261000214
+    }
+  },
+  "storage": {
+    "first_free_bytes": 1117794304,
+    "final_free_bytes": 2572169216,
+    "net_free_increase_bytes": 1454374912,
+    "old_deliveries_allocated_bytes_released": 1480712192,
+    "duplicate_estimator_allocated_bytes_released": 11378688,
+    "total_allocated_bytes_released": 1492090880,
+    "source_bytes_remotely_preserved": 1480692559,
+    "archived_deliveries": 8,
+    "verified_remote_body_and_manifest_readback": true,
+    "consolidated_research_files": 67,
+    "duplicate_estimator_files_removed": 476,
+    "cache_files_removed": 303,
+    "cache_allocated_bytes_released": 0,
+    "unmanifested_caches_preserved": 2,
+    "unique_scientific_bytes_discarded": 0,
+    "all_historical_work_folders_removed": false
+  },
+  "comparison": {
+    "baseline": {
+      "execution": "v347",
+      "summary_sha256": "fe035276ef75739f61b859c630dd3b21f9a5382b13de138fa7db7eb0a5d5072c",
+      "end_to_end_seconds": 1036.231824,
+      "odds_seconds": 784.681,
+      "s3_get_responses": 54152,
+      "s3_http_attempts_including_retries": 57921,
+      "download_bytes": 369923777,
+      "return_bytes": 452756526,
+      "effective_cpus": 4,
+      "source_workers": 8,
+      "reused_fits": 302,
+      "new_fits": 0,
+      "source_closure_complete": false
+    },
+    "reduction_percent": {
+      "end_to_end_seconds": 46.868201863099706,
+      "odds_seconds": 67.12964908669895,
+      "s3_get_responses": 85.77891859949771,
+      "s3_http_attempts_including_retries": 86.5489200807997,
+      "download_bytes": 97.891140963345,
+      "return_bytes": 97.71987935961855
+    },
+    "same_scientific_result": true,
+    "same_cpu_and_worker_counts": true,
+    "one_time_cleanup_in_current_duration": true,
+    "provider_latency_and_background_load_controlled": false
   }
 }
