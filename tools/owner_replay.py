@@ -42,10 +42,11 @@ def validate_replay(d: dict) -> dict:
         d,
         "schema_version evidence_type execution reviewed_on status reason provenance "
         "execution_accounting cohort scorecards market coverage decision "
-        "systems storage comparison source_transition execution_ledger",
+        "systems storage comparison source_transition source_recovery organization "
+        "execution_ledger",
         "Replay",
     )
-    require(type(d["schema_version"]) is int and d["schema_version"] == 3, "Replay schema")
+    require(type(d["schema_version"]) is int and d["schema_version"] == 4, "Replay schema")
     require(d["evidence_type"] == "AUDITABLE_PRIVATE_RUN_AGGREGATES", "Evidence class")
     require(re.fullmatch(r"v[0-9]+", d["execution"]) is not None, "Execution label")
     require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", d["reviewed_on"]) is not None, "Review date")
@@ -248,6 +249,8 @@ def validate_replay(d: dict) -> dict:
     require(c["arms"] == 4, "Decision describes exactly three challengers")
     validate_systems(d)
     validate_transitions(d)
+    validate_source_recovery(d)
+    validate_organization(d)
     validate_execution_ledger(d)
     require(
         re.search(
@@ -272,7 +275,9 @@ def validate_systems(d: dict) -> None:
         "s3_listing_pages s3_http_attempts_including_retries download_bytes "
         "exact_request_binding_reuses frozen_index_body_reuses prior_positive_checkpoint_reuses "
         "negative_cache_entries_written negative_cache_hits adapter_unresolved_objects "
-        "adapter_error_reasons phase_seconds",
+        "adapter_error_reasons phase_seconds resource_sampling_interval_seconds "
+        "resource_probes forced_resource_probes coalesced_resource_checks "
+        "price_checkpoint_created warm_price_checkpoint_reuse_observed",
         "Systems",
     )
     require(
@@ -296,8 +301,22 @@ def validate_systems(d: dict) -> None:
         "negative_cache_entries_written",
         "negative_cache_hits",
         "adapter_unresolved_objects",
+        "resource_probes",
+        "forced_resource_probes",
+        "coalesced_resource_checks",
     ):
         count(systems[key], key)
+    number(systems["resource_sampling_interval_seconds"], "Resource sampling interval")
+    require(
+        0 < systems["resource_sampling_interval_seconds"] <= 1
+        and systems["forced_resource_probes"] <= systems["resource_probes"],
+        "Resource sampling and forced-probe accounting",
+    )
+    require(
+        systems["price_checkpoint_created"] is True
+        and systems["warm_price_checkpoint_reuse_observed"] is False,
+        "First checkpoint creation is not measured warm owner reuse",
+    )
     require(
         systems["s3_http_attempts_including_retries"]
         >= systems["s3_get_responses"] + systems["s3_listing_pages"],
@@ -340,6 +359,7 @@ def validate_systems(d: dict) -> None:
         "verified_remote_body_and_manifest_readback consolidated_history_files "
         "duplicate_estimator_files_removed cache_files_removed cache_allocated_bytes_released "
         "unmanifested_cache_extras_preserved consolidated_history_roots "
+        "history_bytecode_allocated_bytes_released history_bytecode_files_removed "
         "unique_scientific_bytes_discarded "
         "all_historical_work_folders_removed",
         "Storage",
@@ -359,6 +379,7 @@ def validate_systems(d: dict) -> None:
         storage["old_deliveries_allocated_bytes_released"]
         + storage["duplicate_estimator_allocated_bytes_released"]
         + storage["cache_allocated_bytes_released"]
+        + storage["history_bytecode_allocated_bytes_released"]
         == storage["total_allocated_bytes_released"],
         "Physical release is the action sum, not net free-space change",
     )
@@ -374,9 +395,6 @@ def validate_systems(d: dict) -> None:
     require(storage["unique_scientific_bytes_discarded"] == 0, "Lossy cleanup cannot be advertised")
     require(
         storage["all_historical_work_folders_removed"] is False, "Unsupported cleanup completion"
-    )
-    require(
-        storage["unmanifested_cache_extras_preserved"] > 0, "Retained-content exception omitted"
     )
     fields(
         comparison,
@@ -456,15 +474,23 @@ def validate_transitions(d: dict) -> None:
         "remaining_negative_objects remaining_prior_hash_mismatch_keys "
         "unchanged_other_failure_keys_and_body_hashes "
         "all_former_failures_semantically_resolved complete_positive_catalog_public "
-        "representative_diagnostic_reads",
+        "representative_diagnostic_reads execution scope",
         "Source transition",
     )
     for key, value in t.items():
         if key not in {
             "all_former_failures_semantically_resolved",
             "complete_positive_catalog_public",
+            "execution",
+            "scope",
         }:
             count(value, key)
+    require(
+        t["scope"] == "HISTORICAL_DECODER_REPAIR_RETAINED_SEPARATELY"
+        and t["execution"] == "v349"
+        and int(t["execution"][1:]) < int(d["execution"][1:]),
+        "Carried decoder repair cannot be claimed as current reinspection",
+    )
     require(
         t["prior_hash_mismatch_objects"] + t["unchanged_other_failure_keys_and_body_hashes"]
         == t["prior_negative_objects"]
@@ -489,6 +515,204 @@ def validate_transitions(d: dict) -> None:
     )
 
 
+def validate_source_recovery(d: dict) -> None:
+    """Current quotes and zero supported rows cannot become historical coverage."""
+    r, m = d["source_recovery"], d["market"]
+    fields(
+        r,
+        "product_ledger_sha256 product_ledger_objects reported_general_recovered_counter "
+        "counter_difference_preserved prior_unknown_owned_containers "
+        "remaining_unknown_owned_containers prior_selection_records new_selection_records "
+        "new_current_selection_records new_historical_selection_records training_admissions "
+        "current_rows_have_historical_snapshot zero_canonical_row_objects "
+        "event_bearing_zero_canonical_objects zero_event_objects "
+        "provider_empty_payloads_independently_verified canonical_market_scope "
+        "original_raw_bodies_public source_closure_complete products",
+        "Source recovery",
+    )
+    require(re.fullmatch(r"[a-f0-9]{64}", r["product_ledger_sha256"]), "Product ledger hash")
+    for key in (
+        "product_ledger_objects",
+        "reported_general_recovered_counter",
+        "prior_unknown_owned_containers",
+        "remaining_unknown_owned_containers",
+        "prior_selection_records",
+        "new_selection_records",
+        "new_current_selection_records",
+        "new_historical_selection_records",
+        "training_admissions",
+        "zero_canonical_row_objects",
+        "event_bearing_zero_canonical_objects",
+        "zero_event_objects",
+    ):
+        count(r[key], key)
+    require(
+        r["counter_difference_preserved"] is True
+        and r["product_ledger_objects"] == r["reported_general_recovered_counter"] + 1,
+        "Separate object counters cannot be silently equated",
+    )
+    require(
+        0 < r["remaining_unknown_owned_containers"] < r["prior_unknown_owned_containers"]
+        and r["remaining_unknown_owned_containers"] == m["unknown_owned_containers"],
+        "Source unknown transition disagrees with current inventory",
+    )
+    require(
+        r["prior_selection_records"] + r["new_selection_records"] == m["selection_records"]
+        and r["new_current_selection_records"] == r["new_selection_records"]
+        and r["new_historical_selection_records"] == r["training_admissions"] == 0,
+        "Current-only recovery is not new historical or training coverage",
+    )
+    require(
+        r["current_rows_have_historical_snapshot"] is False
+        and r["provider_empty_payloads_independently_verified"] is False
+        and r["original_raw_bodies_public"] is False
+        and r["source_closure_complete"] is False,
+        "Recovery scope or unobserved source evidence overstated",
+    )
+    require(r["canonical_market_scope"] == "h2h/spreads/totals", "Canonical market scope")
+    require(
+        r["event_bearing_zero_canonical_objects"] + r["zero_event_objects"]
+        == r["zero_canonical_row_objects"],
+        "Zero canonical rows must keep event-bearing and zero-event objects separate",
+    )
+    require(type(r["products"]) is list, "Product groups")
+    kinds = {
+        "CURRENT_EVENT_ODDS",
+        "CURRENT_SPORT_ODDS",
+        "HISTORICAL_EVENT_ODDS",
+        "HISTORICAL_SPORT_ODDS",
+    }
+    require(
+        len(r["products"]) == len(kinds) and {x["kind"] for x in r["products"]} == kinds,
+        "Unique exact product groups",
+    )
+    for row in r["products"]:
+        fields(
+            row,
+            "kind objects event_count new_selection_rows historical_snapshot_objects "
+            "zero_canonical_row_objects",
+            "Product group",
+        )
+        for key in set(row) - {"kind"}:
+            count(row[key], key)
+        require(
+            row["historical_snapshot_objects"] <= row["objects"]
+            and row["zero_canonical_row_objects"] <= row["objects"],
+            "Product object partition",
+        )
+        if row["kind"].startswith("CURRENT_"):
+            require(
+                row["historical_snapshot_objects"] == 0,
+                "Current endpoint gains historical snapshot",
+            )
+        if row["kind"] != "CURRENT_SPORT_ODDS":
+            require(row["new_selection_rows"] == 0, "Unexpected historical/event row admission")
+        if row["kind"].endswith("EVENT_ODDS"):
+            require(row["event_count"] == row["objects"], "Single-event object count")
+    require(
+        sum(x["objects"] for x in r["products"]) == r["product_ledger_objects"],
+        "Product ledger population",
+    )
+    require(
+        sum(x["new_selection_rows"] for x in r["products"]) == r["new_selection_records"],
+        "Product row partition",
+    )
+    require(
+        sum(x["zero_canonical_row_objects"] for x in r["products"])
+        == r["zero_canonical_row_objects"],
+        "Zero-row population",
+    )
+
+
+def validate_organization(d: dict) -> None:
+    """Separate physical moves, indexed references, scoped census and actual release."""
+    o = d["organization"]
+    fields(
+        o,
+        "measurement census_timing census_files census_root_entries selected_project_root_entries "
+        "full_file_hash_duplicate_inventory_complete "
+        "feature_reproducibility_dependency_manifest_complete "
+        "notebook_html_entries physically_moved protected_index_links "
+        "private_references_without_browse_links "
+        "all_presentations_physically_centralized incomplete_moves unresolved_scan_exceptions "
+        "data_trees_copied allocated_bytes_released_by_moves new_full_version_workspaces "
+        "consolidation_seconds census_seconds repository_allocated_bytes "
+        "repository_major_categories",
+        "Organization",
+    )
+    require(
+        o["measurement"] == "OWNER_RECEIPTS_NOT_LIVE_PUBLIC_FILESYSTEM_INSPECTION",
+        "Organization evidence scope",
+    )
+    require(
+        o["census_timing"] == "BEFORE_PRESENTATION_MOVES_AND_DELIVERY_ARCHIVAL", "Census timing"
+    )
+    for key in (
+        "census_files",
+        "census_root_entries",
+        "selected_project_root_entries",
+        "notebook_html_entries",
+        "physically_moved",
+        "protected_index_links",
+        "private_references_without_browse_links",
+        "incomplete_moves",
+        "unresolved_scan_exceptions",
+        "data_trees_copied",
+        "allocated_bytes_released_by_moves",
+        "new_full_version_workspaces",
+        "repository_allocated_bytes",
+    ):
+        count(o[key], key)
+    require(
+        o["selected_project_root_entries"] < o["census_root_entries"] < o["census_files"],
+        "Selected project roots cannot replace the whole-home census",
+    )
+    require(
+        o["physically_moved"]
+        + o["protected_index_links"]
+        + o["private_references_without_browse_links"]
+        == o["notebook_html_entries"],
+        "Presentation outcome partition",
+    )
+    require(
+        o["all_presentations_physically_centralized"] is False
+        and o["full_file_hash_duplicate_inventory_complete"] is False
+        and o["feature_reproducibility_dependency_manifest_complete"] is False,
+        "Indexed references and aggregate census do not establish completed consolidation",
+    )
+    require(
+        o["data_trees_copied"]
+        == o["allocated_bytes_released_by_moves"]
+        == o["new_full_version_workspaces"]
+        == o["incomplete_moves"]
+        == 0,
+        "No-copy moves cannot claim physical release or another full workspace",
+    )
+    for key in ("consolidation_seconds", "census_seconds"):
+        number(o[key], key)
+    require(
+        0
+        < o["census_seconds"]
+        <= o["consolidation_seconds"]
+        <= d["execution_accounting"]["coordinator_seconds"],
+        "Organization timing intervals",
+    )
+    categories = o["repository_major_categories"]
+    require(
+        type(categories) is list
+        and len(categories) == 4
+        and {x["category"] for x in categories} == {"research", "outputs", "artifacts", ".tools"},
+        "Repository storage category scope",
+    )
+    for row in categories:
+        fields(row, "category allocated_bytes", "Storage category")
+        count(row["allocated_bytes"], "Category allocated bytes")
+    require(
+        sum(x["allocated_bytes"] for x in categories) <= o["repository_allocated_bytes"],
+        "Major categories exceed measured repository storage",
+    )
+
+
 def validate_execution_ledger(d: dict) -> None:
     """Count whole invocations once; keep phases and reported historical totals separate."""
     ledger = d["execution_ledger"]
@@ -499,11 +723,11 @@ def validate_execution_ledger(d: dict) -> None:
         "Execution ledger",
     )
     require(
-        ledger["scope"] == "TEN_IDENTIFIED_OWNER_INVOCATIONS_V340_THROUGH_V349"
+        ledger["scope"] == "ELEVEN_IDENTIFIED_OWNER_INVOCATIONS_V340_THROUGH_V350"
         and ledger["deduplication"] == "ONE_RECORD_PER_AUTHENTICATED_INVOCATION",
         "Ledger scope or deduplication changed",
     )
-    require(type(ledger["records"]) is list and len(ledger["records"]) == 10, "Ledger population")
+    require(type(ledger["records"]) is list and len(ledger["records"]) == 11, "Ledger population")
     labels, identities = set(), set()
     actual = dict.fromkeys(("SUCCESS", "PARTIAL", "FAILED", "STOPPED"), 0)
     for row in ledger["records"]:
@@ -520,7 +744,7 @@ def validate_execution_ledger(d: dict) -> None:
             row["evidence_level"] in {"VERIFIED_NATIVE_SUMMARY", "CARRIED_OWNER_AUDIT"},
             "Historical evidence tier",
         )
-    require(labels == {f"v{i}" for i in range(340, 350)}, "Recent execution scope")
+    require(labels == {f"v{i}" for i in range(340, 351)}, "Recent execution scope")
     fields(ledger["counts"], "SUCCESS PARTIAL FAILED STOPPED", "Run counts")
     for key, value in ledger["counts"].items():
         count(value, key)
@@ -636,6 +860,13 @@ def render_replay_panel(d: dict) -> str:
     )
     storage = d["storage"]
     transition, ledger = d["source_transition"], d["execution_ledger"]
+    recovery, organization = d["source_recovery"], d["organization"]
+    products = "".join(
+        f"<tr><th scope='row'>{html.escape(row['kind'].replace('_', ' ').lower())}</th>"
+        f"<td>{row['objects']:,}</td><td>{row['new_selection_rows']:,}</td>"
+        f"<td>{row['historical_snapshot_objects']:,}</td></tr>"
+        for row in recovery["products"]
+    )
     outcomes = "".join(
         f"<tr><th scope='row'>{row['execution']}</th><td>{row['status']}</td>"
         f"<td>{row['evidence_level'].replace('_', ' ').lower()}</td></tr>"
@@ -663,30 +894,57 @@ Negative reductions mean an increase. Values keep their stated units.
 Scroll horizontally to see all columns on narrow screens.</caption>
 <thead><tr><th>Measure</th><th>{d["comparison"]["baseline"]["execution"]}</th>
 <th>{d["execution"]}</th><th>Reduction</th><th>Unit</th></tr></thead><tbody>{changes}</tbody></table></div>
-<p>Observed savings include one-time cleanup. Provider latency and background load were
+<p>These observations include one-time cleanup. Provider latency and background load were
 not controlled. Odds request counts exclude historical-delivery archival transfers.
 This is not proof of the fastest configuration.</p>
 <p><strong>{storage["total_allocated_bytes_released"] / 1e9:.3f} GB of allocated disk
 released.</strong>
 {storage["archived_deliveries"]} old delivery files were released after full body and
-restoration-manifest readback. Removing {storage["cache_files_removed"]} reproducible cache
-files released {storage["cache_allocated_bytes_released"]:,} allocated bytes;
-{storage["unmanifested_cache_extras_preserved"]} unmanifested additions were preserved.
-{storage["consolidated_history_files"]} files from
-{storage["consolidated_history_roots"]} history folders moved without copying;
-those moves claim zero released bytes.
+restoration-manifest readback. Removing an authenticated package cache released
+{storage["cache_allocated_bytes_released"]:,} allocated bytes; qualified historical
+bytecode cleanup released another {storage["history_bytecode_allocated_bytes_released"]:,}.
 Net free-space change is a separate measurement from verified released blocks.</p>
-<h3>A repaired reader is not a completed source inventory.</h3>
-<p>{transition["decoder_change_reinspections"]:,} prior negative objects were reinspected.
-The {transition["prior_hash_mismatch_objects"]:,} former hash-failure keys are absent from
-the new negative ledger; {transition["remaining_negative_objects"]} other deterministic
-decode failures remain. The complete positive catalog is withheld, so no per-object semantic
-resolution claim is made. Broader unknown owned containers remain
-{d["market"]["unknown_owned_containers"]:,}; market training admissions remain zero.</p>
+<h3>Organization has measurable unfinished work.</h3>
+<p>The census visited {organization["census_files"]:,} files across
+{organization["census_root_entries"]:,} home-root entries; the
+{organization["selected_project_root_entries"]} selected project roots are a narrower scope.
+It ran before presentation moves and delivery archival, and is not a complete file-hash
+duplicate or feature-dependency inventory. The main repository held
+{organization["repository_allocated_bytes"] / 1e9:.2f} GB of allocated content.</p>
+<p>{organization["physically_moved"]} notebooks and HTML files physically moved with
+compatibility links; {organization["protected_index_links"]:,} protected files gained indexed
+links and {organization["private_references_without_browse_links"]} private files retained
+non-browsable references. These outcomes do not mean every file physically moved.
+No data tree was copied and moves claim zero freed content bytes.
+{organization["unresolved_scan_exceptions"]} scan exceptions remain.
+Consolidation took {organization["consolidation_seconds"]:.2f} seconds, including
+{organization["census_seconds"]:.2f} seconds for the census.</p>
+<h3>Source recovery preserves timing and market scope.</h3>
+<p>Broader unknown owned containers fell from
+{recovery["prior_unknown_owned_containers"]:,} to {recovery["remaining_unknown_owned_containers"]}.
+The complete recovery ledger records {recovery["product_ledger_objects"]:,} distinct objects.
+Its general recovered-original counter is {recovery["reported_general_recovered_counter"]:,};
+the separate counters remain visible. The {recovery["new_selection_records"]:,} new quote
+selections all came from current-sport endpoints, without historical snapshots.
+They add zero historical pregame selections and zero training admissions.</p>
+<div class="replay-table" tabindex="0" role="region" aria-label="Recovered product populations">
+<table><caption>Object and quote-row populations have different units.
+Original provider bodies remain private.</caption>
+<thead><tr><th>Product</th><th>Objects</th><th>New canonical rows</th>
+<th>Objects with historical snapshot</th></tr></thead><tbody>{products}</tbody></table></div>
+<p>{recovery["zero_canonical_row_objects"]:,} recovered objects produced zero supported
+h2h/spreads/totals rows. Of those, {recovery["event_bearing_zero_canonical_objects"]:,} contained
+event records in the recovery receipts and {recovery["zero_event_objects"]} had zero events.
+Zero canonical rows do not prove empty provider payloads or missing player markets.</p>
+<p>The earlier {transition["execution"].upper()} decoder repair removed
+{transition["prior_hash_mismatch_objects"]:,} hash-failure keys from its negative ledger.
+The same {transition["remaining_negative_objects"]} deterministic decode failures remain.
+There are still {d["market"]["unresolved_requests"]:,} unresolved follow-up requests;
+unknown owned sources do not establish absence or purchase eligibility.</p>
 <h3>Count the incomplete run as incomplete.</h3>
-<p>V349 adds one PARTIAL owner outcome and zero overall successes.
+<p>{d["execution"].upper()} adds one PARTIAL owner outcome and zero overall successes.
 Three completed workstreams do not become three successful owner invocations.
-The ten identified V340–V349 runs contain {ledger["counts"]["SUCCESS"]} SUCCESS,
+The eleven identified V340–V350 runs contain {ledger["counts"]["SUCCESS"]} SUCCESS,
 {ledger["counts"]["PARTIAL"]} PARTIAL, {ledger["counts"]["FAILED"]} FAILED and
 {ledger["counts"]["STOPPED"]} STOPPED statuses. This is a scoped history, not all-time totals.</p>
 <details><summary>Inspect the deduplicated recent run ledger</summary>
@@ -726,12 +984,14 @@ incomplete. The following carried counts are not a fresh raw-table census.</p>
 This is an observation, not proof of the fastest configuration.</p>
 <p>The compact return contains {e["return_bytes"] / 1e6:.2f} MB of current review evidence.
 Bulk market parts and the active database remain on the owner system and are explicitly
-listed as omissions. Two current negative parse checkpoints remain;
-zero negative-cache hits occurred in this decoder-change pass. Legacy inventory took
+listed as omissions. The two remaining negative parse checkpoints were reused.
+Legacy inventory took
 {d["systems"]["phase_seconds"]["legacy_request_inventory"]:.2f} seconds and baseline price
 restoration took {d["systems"]["phase_seconds"]["baseline_price_restoration"]:.2f} seconds.
-Uninterpreted sources remain unresolved.
-Historical folders still require custody-aware consolidation.</p></details></section>"""
+The first price checkpoint was created; warm owner reuse has not yet been measured.
+The 250 ms resource sampler still performed {d["systems"]["forced_resource_probes"]:,} forced
+probes of {d["systems"]["resource_probes"]:,} total probes.
+Uninterpreted sources and broader consolidation remain unfinished.</p></details></section>"""
 
 
 def main() -> int:

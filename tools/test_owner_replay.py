@@ -140,12 +140,13 @@ class OwnerReplayTests(unittest.TestCase):
 
     def test_hardlink_alias_removal_does_not_count_as_new_physical_savings(self):
         self.assertGreater(self.replay["storage"]["cache_files_removed"], 0)
-        self.assertEqual(self.replay["storage"]["cache_allocated_bytes_released"], 38_309_888)
+        self.assertEqual(self.replay["storage"]["cache_allocated_bytes_released"], 116_555_776)
         self.reject("storage", "cache_allocated_bytes_released", 1)
-        self.assertEqual(self.replay["storage"]["unmanifested_cache_extras_preserved"], 3)
+        self.assertEqual(self.replay["storage"]["unmanifested_cache_extras_preserved"], 0)
 
     def test_written_negative_cache_is_not_a_cache_hit_or_source_resolution(self):
-        self.assertEqual(self.replay["systems"]["negative_cache_hits"], 0)
+        self.assertEqual(self.replay["systems"]["negative_cache_hits"], 2)
+        self.assertEqual(self.replay["systems"]["negative_cache_entries_written"], 0)
         self.reject("systems", "negative_cache_hits", 7700)
         self.reject("systems", "adapter_unresolved_objects", 0)
         self.reject("market", "unknown_owned_containers", 0)
@@ -178,16 +179,16 @@ class OwnerReplayTests(unittest.TestCase):
 
     def test_increased_work_is_a_negative_reduction_not_hidden_improvement(self):
         changes = self.replay["comparison"]["reduction_percent"]
-        self.assertLess(changes["odds_seconds"], 0)
-        self.assertLess(changes["download_bytes"], 0)
-        self.assertGreater(changes["end_to_end_seconds"], 0)
-        changes["odds_seconds"] = abs(changes["odds_seconds"])
+        self.assertGreater(changes["odds_seconds"], 0)
+        self.assertGreater(changes["download_bytes"], 0)
+        self.assertLess(changes["end_to_end_seconds"], 0)
+        changes["end_to_end_seconds"] = abs(changes["end_to_end_seconds"])
         with self.assertRaises(ValueError):
             validate_replay(self.replay)
 
     def test_decoder_repair_does_not_prove_semantic_source_resolution(self):
         self.assertEqual(self.replay["source_transition"]["remaining_negative_objects"], 2)
-        self.assertEqual(self.replay["market"]["unknown_owned_containers"], 7774)
+        self.assertEqual(self.replay["market"]["unknown_owned_containers"], 71)
         self.reject("source_transition", "all_former_failures_semantically_resolved", True)
         self.reject("source_transition", "complete_positive_catalog_public", True)
 
@@ -205,7 +206,7 @@ class OwnerReplayTests(unittest.TestCase):
     def test_phase_success_does_not_increment_whole_run_success(self):
         ledger = self.replay["execution_ledger"]
         self.assertEqual(len(ledger["latest_completed_workstreams"]), 3)
-        self.assertEqual(ledger["counts"], {"SUCCESS": 0, "PARTIAL": 6, "FAILED": 0, "STOPPED": 4})
+        self.assertEqual(ledger["counts"], {"SUCCESS": 0, "PARTIAL": 7, "FAILED": 0, "STOPPED": 4})
         ledger["counts"]["SUCCESS"] = 3
         with self.assertRaises(ValueError):
             validate_replay(self.replay)
@@ -230,6 +231,93 @@ class OwnerReplayTests(unittest.TestCase):
                 changed["execution_ledger"]["historical_snapshot"][key] = False
                 with self.assertRaises(ValueError):
                     validate_replay(changed)
+
+    def test_current_quotes_cannot_become_historical_training_coverage(self):
+        self.assertEqual(self.replay["source_recovery"]["new_current_selection_records"], 3482)
+        self.reject("source_recovery", "new_historical_selection_records", 3482)
+        self.reject("source_recovery", "current_rows_have_historical_snapshot", True)
+        self.reject("source_recovery", "training_admissions", 3482)
+
+    def test_zero_canonical_rows_do_not_prove_provider_payload_empty(self):
+        source = self.replay["source_recovery"]
+        self.assertEqual(source["event_bearing_zero_canonical_objects"], 7677)
+        self.assertEqual(source["zero_event_objects"], 1)
+        self.reject("source_recovery", "provider_empty_payloads_independently_verified", True)
+        self.reject("source_recovery", "event_bearing_zero_canonical_objects", 0)
+
+    def test_recovered_objects_are_not_quote_rows_or_general_counter(self):
+        self.assertEqual(self.replay["source_recovery"]["product_ledger_objects"], 7707)
+        self.reject("source_recovery", "reported_general_recovered_counter", 7707)
+        self.reject("source_recovery", "product_ledger_objects", 3482)
+
+    def test_source_recovery_must_match_actual_selection_and_unknown_deltas(self):
+        self.reject("source_recovery", "new_selection_records", 3483)
+        self.reject("source_recovery", "remaining_unknown_owned_containers", 7774)
+        self.reject("source_recovery", "prior_selection_records", 0)
+
+    def test_product_population_cannot_be_duplicated_with_matching_grand_total(self):
+        rows = self.replay["source_recovery"]["products"]
+        rows[1]["kind"] = rows[0]["kind"]
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_product_current_snapshot_cannot_override_aggregate_disclaimer(self):
+        rows = self.replay["source_recovery"]["products"]
+        next(r for r in rows if r["kind"] == "CURRENT_SPORT_ODDS")[
+            "historical_snapshot_objects"
+        ] = 1
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_product_counts_must_reconcile_to_complete_ledger(self):
+        self.replay["source_recovery"]["products"][0]["objects"] += 1
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_presentation_links_are_not_physical_moves(self):
+        self.assertEqual(self.replay["organization"]["physically_moved"], 472)
+        self.reject("organization", "all_presentations_physically_centralized", True)
+        self.reject("organization", "physically_moved", 2306)
+
+    def test_census_scope_keeps_home_entries_distinct_from_project_roots(self):
+        self.assertEqual(self.replay["organization"]["census_files"], 578227)
+        self.assertEqual(self.replay["organization"]["census_root_entries"], 1595)
+        self.reject("organization", "census_root_entries", 109)
+        self.reject("organization", "census_timing", "AFTER_ALL_CLEANUP_AND_PACKAGING")
+
+    def test_moves_cannot_claim_released_blocks_or_duplicate_full_workspace(self):
+        self.reject("organization", "allocated_bytes_released_by_moves", 1)
+        self.reject("organization", "data_trees_copied", 1)
+        self.reject("organization", "new_full_version_workspaces", 1)
+
+    def test_aggregate_census_is_not_a_complete_feature_or_duplicate_inventory(self):
+        self.reject("organization", "full_file_hash_duplicate_inventory_complete", True)
+        self.reject("organization", "feature_reproducibility_dependency_manifest_complete", True)
+
+    def test_forced_probes_are_not_hidden_by_sampling_interval(self):
+        systems = self.replay["systems"]
+        self.assertEqual(systems["forced_resource_probes"], 61773)
+        self.reject("systems", "forced_resource_probes", systems["resource_probes"] + 1)
+        self.reject("systems", "resource_sampling_interval_seconds", 0)
+
+    def test_first_price_checkpoint_is_not_a_measured_warm_owner_speedup(self):
+        self.reject("systems", "warm_price_checkpoint_reuse_observed", True)
+        self.reject("systems", "price_checkpoint_created", False)
+
+    def test_historical_decoder_repair_cannot_be_recounted_as_current_work(self):
+        self.assertEqual(self.replay["source_transition"]["execution"], "v349")
+        self.reject("source_transition", "execution", "v350")
+
+    def test_repository_storage_categories_do_not_exceed_actual_total(self):
+        self.replay["organization"]["repository_major_categories"][0]["allocated_bytes"] = (
+            self.replay["organization"]["repository_allocated_bytes"]
+        )
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_partial_source_recovery_cannot_disclose_bodies_or_claim_completion(self):
+        self.reject("source_recovery", "original_raw_bodies_public", True)
+        self.reject("source_recovery", "source_closure_complete", True)
 
 
 if __name__ == "__main__":
