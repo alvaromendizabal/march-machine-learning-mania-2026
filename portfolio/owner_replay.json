@@ -1,41 +1,41 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "evidence_type": "AUDITABLE_PRIVATE_RUN_AGGREGATES",
-  "execution": "v348",
+  "execution": "v349",
   "reviewed_on": "2026-10-30",
   "status": "PARTIAL",
   "reason": "OWNED_SOURCE_CLOSURE_INCOMPLETE",
   "provenance": {
-    "summary_sha256": "c1941cc20920f586228ef451287b16609ad65f6603aa0ed56ee31bc53deb861c",
-    "qualification_sha256": "0dd7222e62bb355fe7be4f1c9c6588c7611da84b8b8352c98a872cde37701768",
+    "summary_sha256": "7434a5bf8e739a78e057604cdd9bda2dcd49306d44080b5a55289deee7741b10",
+    "qualification_sha256": "af9cfce5b74476c456831f2bf42606a196b54f446eb68c434ef3ba7052c2033a",
     "prediction_artifact_sha256": "784744fc12fb2af8c754ba66eed66b419ca07fde82f793008d51f4c4b7202316",
     "return_parts": [
       {
         "part": 1,
-        "bytes": 10323395,
-        "sha256": "13c4adf0f4aae8fc9496e76d503a1dc5fc5ab6329d39361191f5a8458dc4f90b"
+        "bytes": 9587771,
+        "sha256": "89a9c7f57219d917ca0bdbcb54344c564e12e4edfeee17ba5f01dc92b53f9eff"
       }
     ],
-    "manifest_payload_entries": 396,
-    "logical_files": 392,
+    "manifest_payload_entries": 399,
+    "logical_files": 395,
     "all_uploaded_payloads_verified": true,
     "raw_source_data_public": false,
     "check_scope": "Public checks verify aggregate consistency; private payloads were authenticated separately."
   },
   "execution_accounting": {
-    "coordinator_seconds": 546.628701028,
-    "start_to_return_status_seconds": 550.5686009579999,
+    "coordinator_seconds": 399.8629854569999,
+    "start_to_return_status_seconds": 404.059558787,
     "effective_cpus": 4,
-    "mean_cpu_cores_used": 0.3561580186914254,
+    "mean_cpu_cores_used": 0.9927866257795694,
     "source_workers": 8,
     "research_fits_reused": 66,
     "science_fits_reused": 236,
     "new_model_fits": 0,
     "new_submissions": 0,
-    "final_free_disk_bytes": 2572169216,
-    "old_return_source_bytes_preserved": 1480692559,
-    "old_return_allocated_bytes_released": 1480712192,
-    "return_bytes": 10323395,
+    "final_free_disk_bytes": 2795630592,
+    "old_return_source_bytes_preserved": 457764061,
+    "old_return_allocated_bytes_released": 457773056,
+    "return_bytes": 9587771,
     "bulk_derived_bytes_in_return": 0
   },
   "cohort": {
@@ -92,7 +92,7 @@
     "women_selection_records": 928220,
     "priced_pregame_selection_records": 15259764,
     "training_admissions": 0,
-    "unknown_owned_containers": 7768,
+    "unknown_owned_containers": 7774,
     "candidate_requests": 3625,
     "semantic_duplicates": 52,
     "unresolved_requests": 3573,
@@ -164,57 +164,60 @@
     "measurement": "OBSERVED_SEQUENTIAL_EXECUTIONS_NOT_A_CONTROLLED_BENCHMARK",
     "request_scope": "ODDS_WORKER_ONLY_EXCLUDES_STORAGE_ARCHIVAL",
     "fastest_possible_proven": false,
-    "odds_seconds": 257.9273982499999,
-    "s3_get_responses": 7701,
+    "odds_seconds": 306.54137219200015,
+    "s3_get_responses": 7852,
     "s3_listing_pages": 90,
-    "s3_http_attempts_including_retries": 7791,
-    "download_bytes": 7801171,
-    "etag_serialization_reuses": 29067,
+    "s3_http_attempts_including_retries": 7942,
+    "download_bytes": 12383344,
     "prior_positive_checkpoint_reuses": 17378,
-    "negative_cache_entries_written": 7700,
+    "negative_cache_entries_written": 2,
     "negative_cache_hits": 0,
-    "adapter_unresolved_objects": 7700,
+    "adapter_unresolved_objects": 2,
     "adapter_error_reasons": {
-      "CONTENT_ADDRESSED_OBJECT_HASH_MISMATCH": 7698,
+      "CONTENT_ADDRESSED_OBJECT_HASH_MISMATCH": 0,
       "TEXT_ENCODING_INVALID": 1,
       "UNSUPPORTED_JSON_ROOT": 1
     },
     "phase_seconds": {
-      "legacy_request_inventory": 135.1834573110002,
-      "baseline_price_restoration": 31.11662586400007,
-      "exact_metadata_reconciliation": 61.480668871000034,
-      "inventory_listing": 13.630086673999813,
-      "paid_request_proof": 11.042815261000214
-    }
+      "legacy_request_inventory": 154.34348951700008,
+      "baseline_price_restoration": 33.18466477800007,
+      "exact_metadata_reconciliation": 85.50181075299997,
+      "inventory_listing": 13.979329356000108,
+      "paid_request_proof": 10.6886062210001,
+      "source_diagnostics": 3.815433516000212
+    },
+    "exact_request_binding_reuses": 22077,
+    "frozen_index_body_reuses": 29067
   },
   "storage": {
-    "first_free_bytes": 1117794304,
-    "final_free_bytes": 2572169216,
-    "net_free_increase_bytes": 1454374912,
-    "old_deliveries_allocated_bytes_released": 1480712192,
-    "duplicate_estimator_allocated_bytes_released": 11378688,
-    "total_allocated_bytes_released": 1492090880,
-    "source_bytes_remotely_preserved": 1480692559,
-    "archived_deliveries": 8,
+    "first_free_bytes": 2452672512,
+    "final_free_bytes": 2795630592,
+    "net_free_increase_bytes": 342958080,
+    "old_deliveries_allocated_bytes_released": 457773056,
+    "duplicate_estimator_allocated_bytes_released": 0,
+    "total_allocated_bytes_released": 496082944,
+    "source_bytes_remotely_preserved": 457764061,
+    "archived_deliveries": 5,
     "verified_remote_body_and_manifest_readback": true,
-    "consolidated_research_files": 67,
-    "duplicate_estimator_files_removed": 476,
-    "cache_files_removed": 303,
-    "cache_allocated_bytes_released": 0,
-    "unmanifested_caches_preserved": 2,
+    "consolidated_history_files": 711,
+    "duplicate_estimator_files_removed": 0,
+    "cache_files_removed": 452,
+    "cache_allocated_bytes_released": 38309888,
+    "unmanifested_cache_extras_preserved": 3,
+    "consolidated_history_roots": 4,
     "unique_scientific_bytes_discarded": 0,
     "all_historical_work_folders_removed": false
   },
   "comparison": {
     "baseline": {
-      "execution": "v347",
-      "summary_sha256": "fe035276ef75739f61b859c630dd3b21f9a5382b13de138fa7db7eb0a5d5072c",
-      "end_to_end_seconds": 1036.231824,
-      "odds_seconds": 784.681,
-      "s3_get_responses": 54152,
-      "s3_http_attempts_including_retries": 57921,
-      "download_bytes": 369923777,
-      "return_bytes": 452756526,
+      "execution": "v348",
+      "summary_sha256": "c1941cc20920f586228ef451287b16609ad65f6603aa0ed56ee31bc53deb861c",
+      "end_to_end_seconds": 550.5686009579999,
+      "odds_seconds": 257.9273982499999,
+      "s3_get_responses": 7701,
+      "s3_http_attempts_including_retries": 7791,
+      "download_bytes": 7801171,
+      "return_bytes": 10323395,
       "effective_cpus": 4,
       "source_workers": 8,
       "reused_fits": 302,
@@ -222,16 +225,140 @@
       "source_closure_complete": false
     },
     "reduction_percent": {
-      "end_to_end_seconds": 46.868201863099706,
-      "odds_seconds": 67.12964908669895,
-      "s3_get_responses": 85.77891859949771,
-      "s3_http_attempts_including_retries": 86.5489200807997,
-      "download_bytes": 97.891140963345,
-      "return_bytes": 97.71987935961855
+      "end_to_end_seconds": 26.61049720526586,
+      "odds_seconds": -18.8479294064295,
+      "s3_get_responses": -1.9607843137254901,
+      "s3_http_attempts_including_retries": -1.9381337440636632,
+      "download_bytes": -58.736989613482386,
+      "return_bytes": 7.125795341551883
     },
     "same_scientific_result": true,
     "same_cpu_and_worker_counts": true,
     "one_time_cleanup_in_current_duration": true,
     "provider_latency_and_background_load_controlled": false
+  },
+  "source_transition": {
+    "prior_negative_objects": 7700,
+    "prior_hash_mismatch_objects": 7698,
+    "decoder_change_reinspections": 7700,
+    "remaining_negative_objects": 2,
+    "remaining_prior_hash_mismatch_keys": 0,
+    "unchanged_other_failure_keys_and_body_hashes": 2,
+    "all_former_failures_semantically_resolved": false,
+    "complete_positive_catalog_public": false,
+    "representative_diagnostic_reads": 7
+  },
+  "execution_ledger": {
+    "scope": "TEN_IDENTIFIED_OWNER_INVOCATIONS_V340_THROUGH_V349",
+    "deduplication": "ONE_RECORD_PER_AUTHENTICATED_INVOCATION",
+    "records": [
+      {
+        "execution": "v340",
+        "invocation_digest": "86b88d25418a91c7860e9b8f15c49cb5f78ddb23c9638103fcbe02838eba736d",
+        "status": "PARTIAL",
+        "evidence_level": "CARRIED_OWNER_AUDIT",
+        "evidence_sha256": "30aaf92b5e227de3f9963f85042a351b716f79e1cadccbbeffba81138526dac8"
+      },
+      {
+        "execution": "v341",
+        "invocation_digest": "503c95e8ba29ae4c26c0c6c2ebfc61e85d18f7b70291b4859cce0edaeeb75590",
+        "status": "PARTIAL",
+        "evidence_level": "VERIFIED_NATIVE_SUMMARY",
+        "evidence_sha256": "91f8607746c15cc212ab64e951425ee21c72515c3a18b7e751ad9d82dc51f735"
+      },
+      {
+        "execution": "v342",
+        "invocation_digest": "a9d0f18f989a160b35f1b36f0e4122fee3740551556fa8d0af656b6a4f1296a3",
+        "status": "STOPPED",
+        "evidence_level": "VERIFIED_NATIVE_SUMMARY",
+        "evidence_sha256": "5da476eaf02db3518fadc1dd11e783e3bba92ef315bf39fcc3e3b78d8f234172"
+      },
+      {
+        "execution": "v343",
+        "invocation_digest": "e1bf0695da4f86f5db695cf7b2ad82c413505277dd4abb1bed3f8531c09abb72",
+        "status": "STOPPED",
+        "evidence_level": "VERIFIED_NATIVE_SUMMARY",
+        "evidence_sha256": "2351fe5a9bf231eea49e0ae57c2e79d657432a4e90828ca0b82f2d16c686959d"
+      },
+      {
+        "execution": "v344",
+        "invocation_digest": "ce15cf98dcaa7cfca62f145388fee8758be5d38cf9d8ec29ddd850a1c3aa4ace",
+        "status": "STOPPED",
+        "evidence_level": "VERIFIED_NATIVE_SUMMARY",
+        "evidence_sha256": "f10fd7fad525d70dfa66bbee2ff1434709d466fb01b431deb1f56650ff189596"
+      },
+      {
+        "execution": "v345",
+        "invocation_digest": "30bf854df39cb4e26337e5a9550390a1264243df29f5b29a722d382ed2e278be",
+        "status": "STOPPED",
+        "evidence_level": "VERIFIED_NATIVE_SUMMARY",
+        "evidence_sha256": "c333af8aaaad5e42ea8c4637560e39c417dfbe183f36a7a06d89a4c0cc2b0467"
+      },
+      {
+        "execution": "v346",
+        "invocation_digest": "202762e19c71f23c9931e144df5c299efdbfabc9ffb530a45fc263f9473305cd",
+        "status": "PARTIAL",
+        "evidence_level": "CARRIED_OWNER_AUDIT",
+        "evidence_sha256": "6ad6e9e2fa7a091e6815d77d8821513d4156113b65cbe9e7caaeac1d3b258ee6"
+      },
+      {
+        "execution": "v347",
+        "invocation_digest": "adcaec18dcb5fde68be3040fce9c0a1cf44f071103f7ba10746d3e9f7fb396af",
+        "status": "PARTIAL",
+        "evidence_level": "VERIFIED_NATIVE_SUMMARY",
+        "evidence_sha256": "fe035276ef75739f61b859c630dd3b21f9a5382b13de138fa7db7eb0a5d5072c"
+      },
+      {
+        "execution": "v348",
+        "invocation_digest": "c44d5276f8b785d5ebc16a033346185130c3c9de0e2bcdec82a7e6f6e06a8d78",
+        "status": "PARTIAL",
+        "evidence_level": "VERIFIED_NATIVE_SUMMARY",
+        "evidence_sha256": "c1941cc20920f586228ef451287b16609ad65f6603aa0ed56ee31bc53deb861c"
+      },
+      {
+        "execution": "v349",
+        "invocation_digest": "e3394237175c391b621c755798f4de062739bb3bc5738c18f9bca78819536856",
+        "status": "PARTIAL",
+        "evidence_level": "VERIFIED_NATIVE_SUMMARY",
+        "evidence_sha256": "7434a5bf8e739a78e057604cdd9bda2dcd49306d44080b5a55289deee7741b10"
+      }
+    ],
+    "counts": {
+      "FAILED": 0,
+      "PARTIAL": 6,
+      "STOPPED": 4,
+      "SUCCESS": 0
+    },
+    "latest_delta": {
+      "SUCCESS": 0,
+      "PARTIAL": 1,
+      "FAILED": 0,
+      "STOPPED": 0
+    },
+    "latest_completed_workstreams": [
+      "lineage",
+      "research",
+      "science"
+    ],
+    "latest_incomplete_workstreams": [
+      "odds"
+    ],
+    "historical_snapshot": {
+      "execution": "v48",
+      "as_of_date": "2026-10-03",
+      "summary_sha256": "c1083aa5961ef06f2d68f56bc38bb9fcab8e5aa3bdefb30b5e10b7ac861e2c43",
+      "counters": {
+        "engineering_failures": 36,
+        "source_blocked": 16,
+        "submission_failures": 1,
+        "substantive_successes": 23,
+        "successful_intended": 74,
+        "valid_negative_experiments": 46
+      },
+      "reported_not_reconstructed": true,
+      "categories_overlap": true,
+      "intermediate_history_incomplete": true
+    },
+    "all_time_totals": null
   }
 }

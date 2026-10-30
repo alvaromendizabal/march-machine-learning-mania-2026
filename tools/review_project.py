@@ -260,7 +260,7 @@ def build_notebook(kernel: str) -> dict:
         md("""
         ## Latest owner replay: the accepted control still wins development
 
-        The October 29 V348 run (Pacific time) reused 302 fitted operations and completed
+        The October 30 V349 run (Pacific time) reused 302 fitted operations and completed
         the 925-game matched research replay without new fits. The overall run remains PARTIAL
         because owned market-source reconciliation is incomplete. Each challenger worsens
         development Brier; lower Brier in the exposed later window cannot justify promotion.
@@ -282,19 +282,33 @@ def build_notebook(kernel: str) -> dict:
         print('Complete broader project data:', replay['coverage']['broader_project_data_complete'])
         assert replay['cohort']['total_games'] == 925
         assert replay['cohort']['prediction_rows'] == 3700
+        ledger = replay['execution_ledger']
+        display(pd.DataFrame(ledger['records'])[['execution', 'status', 'evidence_level']])
+        print('Recent ten owner runs:', ledger['counts'])
+        print('Latest addition:', ledger['latest_delta'])
+        print('Complete all-time totals:', ledger['all_time_totals'])
+        print('Completed workstreams counted separately:', ledger['latest_completed_workstreams'])
         """),
         md("""
-        ## The next run did less repeated work
+        ## Faster overall, with the source bottleneck still visible
 
         The same 302 fitted operations and accepted scientific result were preserved.
-        End-to-end elapsed time fell 46.87%, odds GET responses fell 85.78%, and the
-        uploaded review set became 97.72% smaller. One-time custody-verified cleanup
-        released 1,492,090,880 allocated bytes; 2,572,169,216 bytes were free afterward.
+        End-to-end elapsed time fell 26.61%, from 550.57 to 404.06 seconds.
+        The odds phase became slower and downloaded more bytes: a decoder change deliberately
+        reinspected 7,700 prior negative objects. One-time custody-verified cleanup released
+        496,082,944 allocated bytes; 2,795,630,592 bytes were free afterward.
 
         These are sequential observations, not a controlled concurrency benchmark.
         Provider latency and background load were not controlled. Request counts cover
-        the odds worker and exclude archival transfers. Newly written negative parse
-        checkpoints are not cache hits; source closure remains incomplete.
+        the odds worker and exclude archival transfers. Negative percentage reductions mean
+        growth, not savings. All 7,698 former hash-failure keys left the negative ledger,
+        while two other deterministic failures remained. That does not prove semantic
+        resolution: 7,774 broader owned containers remain unknown, with zero market admissions.
+
+        The recent ten-run ledger has zero SUCCESS, six PARTIAL and four STOPPED owner outcomes.
+        Three completed V349 workstreams do not create an overall success. The older V48
+        aggregate counters are reported history with overlapping categories; missing intermediate
+        executions prevent an exact updated all-time total.
         """),
         code("""
         import io, base64
@@ -304,26 +318,30 @@ def build_notebook(kernel: str) -> dict:
         measured = pd.DataFrame(comparison_rows(replay))
         display(measured)
         display(pd.DataFrame([replay['storage']]).T.rename(columns={0: 'Observed'}))
+        display(pd.DataFrame([replay['source_transition']]).T.rename(columns={0: 'Observed'}))
         labels = ['Elapsed time', 'Odds duration', 'Odds GET responses',
                   'Odds HTTP attempts', 'Odds body bytes', 'Review return bytes']
         relative = (100 * measured['after'] / measured['before']).tolist()
+        before_label = replay['comparison']['baseline']['execution'].upper()
+        after_label = replay['execution'].upper()
         comparison = go.Figure()
-        comparison.add_bar(y=labels, x=[100] * len(labels), name='V347 reference',
+        comparison.add_bar(y=labels, x=[100] * len(labels), name=before_label + ' reference',
                            orientation='h', marker_color='#d4deea')
-        comparison.add_bar(y=labels, x=relative, name='V348 observed', orientation='h',
+        comparison.add_bar(y=labels, x=relative, name=after_label + ' observed', orientation='h',
                            marker_color='#008477')
-        comparison.update_layout(title='Observed work relative to V347 (=100%)',
+        comparison.update_layout(title='Observed work relative to ' + before_label + ' (=100%)',
                                  barmode='group', width=960, height=500,
                                  template='plotly_white',
                                  xaxis_title='Percent of prior observation')
         static, ax = plt.subplots(figsize=(10, 5.2), layout='constrained')
         yy = list(range(len(labels)))
         ax.barh([v + .18 for v in yy], [100] * len(yy), height=.34,
-                label='V347 reference', color='#d4deea')
+                label=before_label + ' reference', color='#d4deea')
         ax.barh([v - .18 for v in yy], relative, height=.34,
-                label='V348 observed', color='#008477')
+                label=after_label + ' observed', color='#008477')
         ax.set(yticks=yy, yticklabels=labels, xlabel='Percent of prior observation',
-               title='Observed work relative to V347 (=100%); not a controlled benchmark')
+               title='Observed work relative to ' + before_label
+                     + ' (=100%); not a controlled benchmark')
         ax.legend(loc='lower right')
         image = io.BytesIO()
         static.savefig(image, format='png', dpi=120)

@@ -42,10 +42,10 @@ def validate_replay(d: dict) -> dict:
         d,
         "schema_version evidence_type execution reviewed_on status reason provenance "
         "execution_accounting cohort scorecards market coverage decision "
-        "systems storage comparison",
+        "systems storage comparison source_transition execution_ledger",
         "Replay",
     )
-    require(type(d["schema_version"]) is int and d["schema_version"] == 2, "Replay schema")
+    require(type(d["schema_version"]) is int and d["schema_version"] == 3, "Replay schema")
     require(d["evidence_type"] == "AUDITABLE_PRIVATE_RUN_AGGREGATES", "Evidence class")
     require(re.fullmatch(r"v[0-9]+", d["execution"]) is not None, "Execution label")
     require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", d["reviewed_on"]) is not None, "Review date")
@@ -247,6 +247,8 @@ def validate_replay(d: dict) -> dict:
     )
     require(c["arms"] == 4, "Decision describes exactly three challengers")
     validate_systems(d)
+    validate_transitions(d)
+    validate_execution_ledger(d)
     require(
         re.search(
             r"s3://|arn:aws|/home/|/mnt/|sagemaker-|api[_-]?key|access[_-]?token",
@@ -268,7 +270,7 @@ def validate_systems(d: dict) -> None:
         systems,
         "measurement request_scope fastest_possible_proven odds_seconds s3_get_responses "
         "s3_listing_pages s3_http_attempts_including_retries download_bytes "
-        "etag_serialization_reuses prior_positive_checkpoint_reuses "
+        "exact_request_binding_reuses frozen_index_body_reuses prior_positive_checkpoint_reuses "
         "negative_cache_entries_written negative_cache_hits adapter_unresolved_objects "
         "adapter_error_reasons phase_seconds",
         "Systems",
@@ -288,7 +290,8 @@ def validate_systems(d: dict) -> None:
         "s3_listing_pages",
         "s3_http_attempts_including_retries",
         "download_bytes",
-        "etag_serialization_reuses",
+        "exact_request_binding_reuses",
+        "frozen_index_body_reuses",
         "prior_positive_checkpoint_reuses",
         "negative_cache_entries_written",
         "negative_cache_hits",
@@ -323,7 +326,7 @@ def validate_systems(d: dict) -> None:
     fields(
         systems["phase_seconds"],
         "legacy_request_inventory baseline_price_restoration exact_metadata_reconciliation "
-        "inventory_listing paid_request_proof",
+        "inventory_listing paid_request_proof source_diagnostics",
         "Measured phases",
     )
     for key, value in systems["phase_seconds"].items():
@@ -334,9 +337,10 @@ def validate_systems(d: dict) -> None:
         "first_free_bytes final_free_bytes net_free_increase_bytes "
         "old_deliveries_allocated_bytes_released duplicate_estimator_allocated_bytes_released "
         "total_allocated_bytes_released source_bytes_remotely_preserved archived_deliveries "
-        "verified_remote_body_and_manifest_readback consolidated_research_files "
+        "verified_remote_body_and_manifest_readback consolidated_history_files "
         "duplicate_estimator_files_removed cache_files_removed cache_allocated_bytes_released "
-        "unmanifested_caches_preserved unique_scientific_bytes_discarded "
+        "unmanifested_cache_extras_preserved consolidated_history_roots "
+        "unique_scientific_bytes_discarded "
         "all_historical_work_folders_removed",
         "Storage",
     )
@@ -371,7 +375,9 @@ def validate_systems(d: dict) -> None:
     require(
         storage["all_historical_work_folders_removed"] is False, "Unsupported cleanup completion"
     )
-    require(storage["unmanifested_caches_preserved"] > 0, "Retained-content exception omitted")
+    require(
+        storage["unmanifested_cache_extras_preserved"] > 0, "Retained-content exception omitted"
+    )
     fields(
         comparison,
         "baseline reduction_percent same_scientific_result same_cpu_and_worker_counts "
@@ -431,11 +437,135 @@ def validate_systems(d: dict) -> None:
     for key, current in comparison_values(d).items():
         require(b[key] > 0, "Missing positive comparison denominator")
         reduction = comparison["reduction_percent"][key]
-        number(reduction, key, maximum=100)
+        require(
+            type(reduction) in (int, float) and math.isfinite(reduction) and reduction <= 100,
+            "Invalid signed reduction: " + key,
+        )
         require(
             math.isclose(reduction, 100 * (b[key] - current) / b[key], abs_tol=1e-9),
             "Wrong reduction denominator or interval: " + key,
         )
+
+
+def validate_transitions(d: dict) -> None:
+    """A repaired decoder does not establish source interpretation or admission."""
+    t = d["source_transition"]
+    fields(
+        t,
+        "prior_negative_objects prior_hash_mismatch_objects decoder_change_reinspections "
+        "remaining_negative_objects remaining_prior_hash_mismatch_keys "
+        "unchanged_other_failure_keys_and_body_hashes "
+        "all_former_failures_semantically_resolved complete_positive_catalog_public "
+        "representative_diagnostic_reads",
+        "Source transition",
+    )
+    for key, value in t.items():
+        if key not in {
+            "all_former_failures_semantically_resolved",
+            "complete_positive_catalog_public",
+        }:
+            count(value, key)
+    require(
+        t["prior_hash_mismatch_objects"] + t["unchanged_other_failure_keys_and_body_hashes"]
+        == t["prior_negative_objects"]
+        == t["decoder_change_reinspections"],
+        "Decoder reinspection population",
+    )
+    require(
+        t["remaining_negative_objects"]
+        == d["systems"]["adapter_unresolved_objects"]
+        == t["unchanged_other_failure_keys_and_body_hashes"],
+        "Remaining decode failure population",
+    )
+    require(t["remaining_prior_hash_mismatch_keys"] == 0, "Hash failure transition changed")
+    require(
+        d["systems"]["adapter_error_reasons"]["CONTENT_ADDRESSED_OBJECT_HASH_MISMATCH"] == 0,
+        "Current hash failure count disagrees",
+    )
+    require(
+        t["all_former_failures_semantically_resolved"] is False
+        and t["complete_positive_catalog_public"] is False,
+        "Decode success cannot claim full semantic source closure",
+    )
+
+
+def validate_execution_ledger(d: dict) -> None:
+    """Count whole invocations once; keep phases and reported historical totals separate."""
+    ledger = d["execution_ledger"]
+    fields(
+        ledger,
+        "scope deduplication records counts latest_delta latest_completed_workstreams "
+        "latest_incomplete_workstreams historical_snapshot all_time_totals",
+        "Execution ledger",
+    )
+    require(
+        ledger["scope"] == "TEN_IDENTIFIED_OWNER_INVOCATIONS_V340_THROUGH_V349"
+        and ledger["deduplication"] == "ONE_RECORD_PER_AUTHENTICATED_INVOCATION",
+        "Ledger scope or deduplication changed",
+    )
+    require(type(ledger["records"]) is list and len(ledger["records"]) == 10, "Ledger population")
+    labels, identities = set(), set()
+    actual = dict.fromkeys(("SUCCESS", "PARTIAL", "FAILED", "STOPPED"), 0)
+    for row in ledger["records"]:
+        fields(row, "execution invocation_digest status evidence_level evidence_sha256", "Run")
+        require(row["execution"] not in labels, "Duplicate execution label")
+        require(row["invocation_digest"] not in identities, "Duplicate owner invocation")
+        labels.add(row["execution"])
+        identities.add(row["invocation_digest"])
+        require(row["status"] in actual, "Unknown terminal owner status")
+        actual[row["status"]] += 1
+        for key in ("invocation_digest", "evidence_sha256"):
+            require(re.fullmatch(r"[a-f0-9]{64}", row[key]) is not None, "Run evidence hash")
+        require(
+            row["evidence_level"] in {"VERIFIED_NATIVE_SUMMARY", "CARRIED_OWNER_AUDIT"},
+            "Historical evidence tier",
+        )
+    require(labels == {f"v{i}" for i in range(340, 350)}, "Recent execution scope")
+    fields(ledger["counts"], "SUCCESS PARTIAL FAILED STOPPED", "Run counts")
+    for key, value in ledger["counts"].items():
+        count(value, key)
+    require(ledger["counts"] == actual, "Whole-run counts disagree with unique invocations")
+    fields(ledger["latest_delta"], "SUCCESS PARTIAL FAILED STOPPED", "Latest run delta")
+    for key, value in ledger["latest_delta"].items():
+        count(value, key)
+    require(
+        ledger["latest_delta"] == {"SUCCESS": 0, "PARTIAL": 1, "FAILED": 0, "STOPPED": 0},
+        "Latest partial run counted as success or multiple invocations",
+    )
+    latest = next(row for row in ledger["records"] if row["execution"] == d["execution"])
+    require(latest["status"] == d["status"], "Ledger latest status disagrees")
+    require(
+        ledger["latest_completed_workstreams"] == ["lineage", "research", "science"]
+        and ledger["latest_incomplete_workstreams"] == ["odds"],
+        "Workstream and whole-run outcomes confused",
+    )
+    require(ledger["all_time_totals"] is None, "Unknown complete history cannot become totals")
+    historical = ledger["historical_snapshot"]
+    fields(
+        historical,
+        "execution as_of_date summary_sha256 counters reported_not_reconstructed "
+        "categories_overlap intermediate_history_incomplete",
+        "Historical snapshot",
+    )
+    require(
+        historical["execution"] == "v48" and historical["as_of_date"] == "2026-10-03",
+        "Historical snapshot scope",
+    )
+    require(re.fullmatch(r"[a-f0-9]{64}", historical["summary_sha256"]), "Snapshot evidence hash")
+    require(
+        historical["reported_not_reconstructed"] is True
+        and historical["categories_overlap"] is True
+        and historical["intermediate_history_incomplete"] is True,
+        "Historical aggregate counts misrepresented as reconstructed totals",
+    )
+    fields(
+        historical["counters"],
+        "successful_intended engineering_failures source_blocked valid_negative_experiments "
+        "substantive_successes submission_failures",
+        "Historical counters",
+    )
+    for key, value in historical["counters"].items():
+        count(value, key)
 
 
 def comparison_values(d: dict) -> dict:
@@ -505,6 +635,12 @@ def render_replay_panel(d: dict) -> str:
         for row in comparison_rows(d)
     )
     storage = d["storage"]
+    transition, ledger = d["source_transition"], d["execution_ledger"]
+    outcomes = "".join(
+        f"<tr><th scope='row'>{row['execution']}</th><td>{row['status']}</td>"
+        f"<td>{row['evidence_level'].replace('_', ' ').lower()}</td></tr>"
+        for row in ledger["records"]
+    )
     return f"""<section id="owner-replay" class="replay-panel" aria-labelledby="replay-title">
 <div class="eyebrow">Private run aggregates · reviewed {html.escape(d["reviewed_on"])}</div>
 <h2 id="replay-title">Completed work should survive the next run.</h2>
@@ -519,10 +655,11 @@ The public checks below validate aggregate consistency; private bodies stay priv
 <article><span>Free disk after packaging</span>
 <strong>{e["final_free_disk_bytes"] / 1e9:.2f} GB</strong>
 <span>Historical run measurement; current free space is not established.</span></article></div>
-<h3>Less repeated work, with the same scientific result.</h3>
+<h3>Measured progress with remaining bottlenecks.</h3>
 <div class="replay-table" tabindex="0" role="region" aria-label="Performance comparison">
 <table><caption>Sequential owner runs with the same four CPUs,
-eight source workers and 302 reused fitted operations. Values keep their stated units.
+eight source workers and 302 reused fitted operations. Source reinspection work differed.
+Negative reductions mean an increase. Values keep their stated units.
 Scroll horizontally to see all columns on narrow screens.</caption>
 <thead><tr><th>Measure</th><th>{d["comparison"]["baseline"]["execution"]}</th>
 <th>{d["execution"]}</th><th>Reduction</th><th>Unit</th></tr></thead><tbody>{changes}</tbody></table></div>
@@ -531,10 +668,38 @@ not controlled. Odds request counts exclude historical-delivery archival transfe
 This is not proof of the fastest configuration.</p>
 <p><strong>{storage["total_allocated_bytes_released"] / 1e9:.3f} GB of allocated disk
 released.</strong>
-Eight old delivery files were released after full body and restoration-manifest readback;
-476 exact duplicate estimator files were removed. Three hundred three cache aliases removed
-released no physical blocks. Two caches with unmanifested additions were preserved.
+{storage["archived_deliveries"]} old delivery files were released after full body and
+restoration-manifest readback. Removing {storage["cache_files_removed"]} reproducible cache
+files released {storage["cache_allocated_bytes_released"]:,} allocated bytes;
+{storage["unmanifested_cache_extras_preserved"]} unmanifested additions were preserved.
+{storage["consolidated_history_files"]} files from
+{storage["consolidated_history_roots"]} history folders moved without copying;
+those moves claim zero released bytes.
 Net free-space change is a separate measurement from verified released blocks.</p>
+<h3>A repaired reader is not a completed source inventory.</h3>
+<p>{transition["decoder_change_reinspections"]:,} prior negative objects were reinspected.
+The {transition["prior_hash_mismatch_objects"]:,} former hash-failure keys are absent from
+the new negative ledger; {transition["remaining_negative_objects"]} other deterministic
+decode failures remain. The complete positive catalog is withheld, so no per-object semantic
+resolution claim is made. Broader unknown owned containers remain
+{d["market"]["unknown_owned_containers"]:,}; market training admissions remain zero.</p>
+<h3>Count the incomplete run as incomplete.</h3>
+<p>V349 adds one PARTIAL owner outcome and zero overall successes.
+Three completed workstreams do not become three successful owner invocations.
+The ten identified V340–V349 runs contain {ledger["counts"]["SUCCESS"]} SUCCESS,
+{ledger["counts"]["PARTIAL"]} PARTIAL, {ledger["counts"]["FAILED"]} FAILED and
+{ledger["counts"]["STOPPED"]} STOPPED statuses. This is a scoped history, not all-time totals.</p>
+<details><summary>Inspect the deduplicated recent run ledger</summary>
+<div class="replay-table" tabindex="0" role="region" aria-label="Recent owner execution ledger">
+<table><caption>One record per authenticated invocation; technical FAILED remains distinct
+from incomplete PARTIAL and resource/operational STOPPED outcomes.</caption>
+<thead><tr><th>Execution</th><th>Recorded status</th><th>Evidence tier</th></tr></thead>
+<tbody>{outcomes}</tbody></table></div>
+<p>The older V48 snapshot reports 74 successful intended executions, 36 engineering failures,
+16 source-blocked outcomes, 46 valid negative experiments, 23 substantive successes and one
+submission failure. These categories overlap. Missing intermediate history prevents an
+exact updated all-time total; the historical aggregate is not relabeled a reconstructed ledger.</p>
+</details>
 <h3>A negative result is a model-selection result.</h3>
 <p>The accepted control remains selected. Every challenger worsens the declared development
 Brier. The later window was already examined; it cannot support a fresh-holdout claim.</p>
@@ -561,8 +726,11 @@ incomplete. The following carried counts are not a fresh raw-table census.</p>
 This is an observation, not proof of the fastest configuration.</p>
 <p>The compact return contains {e["return_bytes"] / 1e6:.2f} MB of current review evidence.
 Bulk market parts and the active database remain on the owner system and are explicitly
-listed as omissions. Seven thousand seven hundred negative parse checkpoints were written;
-zero negative-cache hits occurred in this first pass. Unreadable sources remain unresolved.
+listed as omissions. Two current negative parse checkpoints remain;
+zero negative-cache hits occurred in this decoder-change pass. Legacy inventory took
+{d["systems"]["phase_seconds"]["legacy_request_inventory"]:.2f} seconds and baseline price
+restoration took {d["systems"]["phase_seconds"]["baseline_price_restoration"]:.2f} seconds.
+Uninterpreted sources remain unresolved.
 Historical folders still require custody-aware consolidation.</p></details></section>"""
 
 

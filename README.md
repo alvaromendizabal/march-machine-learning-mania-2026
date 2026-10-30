@@ -57,11 +57,13 @@ flowchart TD
 
 [Architecture](docs/architecture.md) · [Evaluation protocol](docs/research_protocol.md) · [Source ownership](docs/supplemental_source_ownership.md)
 
-## Latest verified owner run · October 29, 2026 (Pacific)
+## Latest verified owner run · October 30, 2026 (Pacific)
 
-**V348 completed the research, science and lineage stages; market-source reconciliation remains PARTIAL.** It reused **66 research and 236 science fitted operations**, with **zero new fits or submissions**. The matched study has **925 physical games** and **3,700 probability rows across four arms**. All three challengers worsened the predeclared development Brier, so the accepted control remains selected. The later window was already examined and is not a fresh holdout. [Matched results and runtime evidence](docs/owner_replay.md)
+**V349 remains PARTIAL: research, science and lineage completed, while market-source closure is unfinished.** It reused **66 research and 236 science fitted operations**, with **zero new fits or submissions**. The matched study has **925 physical games** and **3,700 probability rows across four arms**. All three challengers worsened the predeclared development Brier, so the accepted control remains selected. The later window was already examined and is not a fresh holdout. [Matched results and runtime evidence](docs/owner_replay.md)
 
-The next measured run reduced elapsed time from **17m 16s to 9m 11s**, odds GET responses by **85.78%**, and the review return from **452.76 MB to 10.32 MB**. Verified cleanup released **1.492 GB of allocated disk**, leaving **2.572 GB free** after packaging. All **396 manifest entries** passed verification. These sequential owner observations preserve the same scientific result; they are not a controlled concurrency benchmark. Source closure remains open, and all historical folders have not been removed.
+Elapsed time fell from **9m 11s to 6m 44s**, a **26.61% reduction**. The odds phase became slower while a repaired decoder reinspected 7,700 earlier negative objects; the 7,698 old hash-failure keys left that negative ledger, but broader unknown containers remain **7,774**. Verified cleanup released **0.496 GB of allocated disk**, leaving **2.796 GB free** after packaging. All **399 manifest entries** passed verification. These sequential observations do not establish a controlled benchmark or the fastest possible configuration.
+
+**Incomplete outcomes stay visible.** The ten identified V340–V349 owner invocations contain **zero SUCCESS, six PARTIAL and four STOPPED statuses**. Three completed workstreams do not turn V349 into an overall success. Older reported counters are preserved separately; missing intermediate history prevents an exact all-time total. [Scoped execution accounting](docs/owner_replay.md#count-executions-once-and-preserve-missing-history)
 
 **Do we have the data?** The defined 2013–2025 study has its required detailed-game inputs. Broader coverage is incomplete: 78 old women's boxes, venue/context and player-join gaps remain; **17,012,534 market selections have zero model-training admissions**. Source objects, selection records and eligible games are separate units. [Allowlisted aggregate record](portfolio/owner_replay.json) · [Executed engineering review](portfolio/engineering_review.ipynb)
 
