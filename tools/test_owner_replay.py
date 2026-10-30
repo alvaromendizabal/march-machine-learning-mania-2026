@@ -3,7 +3,7 @@
 import copy
 import unittest
 
-from owner_replay import load_replay, render_replay_panel, validate_replay
+from owner_replay import comparison_rows, load_replay, render_replay_panel, validate_replay
 
 
 class OwnerReplayTests(unittest.TestCase):
@@ -60,7 +60,9 @@ class OwnerReplayTests(unittest.TestCase):
             validate_replay(self.replay)
 
     def test_duplicate_part_and_identity_rejected(self):
-        self.replay["provenance"]["return_parts"][1] = self.replay["provenance"]["return_parts"][0]
+        self.replay["provenance"]["return_parts"].append(
+            self.replay["provenance"]["return_parts"][0]
+        )
         with self.assertRaises(ValueError):
             validate_replay(self.replay)
 
@@ -103,6 +105,74 @@ class OwnerReplayTests(unittest.TestCase):
         self.assertIn("&lt;script&gt;", rendered)
         self.assertIn("Exposed later · 402 games", rendered)
         self.assertIn("not proof of the fastest configuration", rendered)
+
+    def test_observed_comparison_cannot_claim_controlled_or_optimal(self):
+        self.reject("systems", "fastest_possible_proven", True)
+        self.reject("comparison", "provider_latency_and_background_load_controlled", True)
+        self.reject("systems", "measurement", "CONTROLLED_BENCHMARK")
+
+    def test_all_derived_reductions_use_prior_value_denominator(self):
+        for key in self.replay["comparison"]["reduction_percent"]:
+            with self.subTest(metric=key):
+                changed = copy.deepcopy(self.replay)
+                changed["comparison"]["reduction_percent"][key] += 0.1
+                with self.assertRaises(ValueError):
+                    validate_replay(changed)
+
+    def test_changed_hardware_or_training_is_not_equal_work(self):
+        for key, value in (("effective_cpus", 8), ("source_workers", 16), ("new_fits", 1)):
+            with self.subTest(field=key):
+                changed = copy.deepcopy(self.replay)
+                changed["comparison"]["baseline"][key] = value
+                with self.assertRaises(ValueError):
+                    validate_replay(changed)
+
+    def test_physically_released_blocks_are_not_net_disk_change(self):
+        s = self.replay["storage"]
+        self.assertNotEqual(s["total_allocated_bytes_released"], s["net_free_increase_bytes"])
+        self.reject("storage", "total_allocated_bytes_released", s["net_free_increase_bytes"])
+        self.reject("storage", "net_free_increase_bytes", s["total_allocated_bytes_released"])
+
+    def test_readback_is_required_before_lossless_cleanup_claim(self):
+        self.reject("storage", "verified_remote_body_and_manifest_readback", False)
+        self.reject("storage", "unique_scientific_bytes_discarded", 1)
+        self.reject("storage", "all_historical_work_folders_removed", True)
+
+    def test_hardlink_alias_removal_does_not_count_as_new_physical_savings(self):
+        self.assertGreater(self.replay["storage"]["cache_files_removed"], 0)
+        self.assertEqual(self.replay["storage"]["cache_allocated_bytes_released"], 0)
+        self.reject("storage", "cache_allocated_bytes_released", 1)
+
+    def test_written_negative_cache_is_not_a_cache_hit_or_source_resolution(self):
+        self.assertEqual(self.replay["systems"]["negative_cache_hits"], 0)
+        self.reject("systems", "negative_cache_hits", 7700)
+        self.reject("systems", "adapter_unresolved_objects", 0)
+        self.reject("market", "unknown_owned_containers", 0)
+
+    def test_error_reasons_reconcile_without_claiming_complete_inventory(self):
+        self.replay["systems"]["adapter_error_reasons"][
+            "CONTENT_ADDRESSED_OBJECT_HASH_MISMATCH"
+        ] -= 1
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_http_scope_and_retry_accounting_are_preserved(self):
+        self.reject("systems", "s3_http_attempts_including_retries", 7700)
+        self.reject("systems", "request_scope", "ALL_AWS_TRAFFIC")
+
+    def test_phase_intervals_do_not_exceed_measured_worker(self):
+        self.replay["systems"]["phase_seconds"]["legacy_request_inventory"] = 999
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_public_comparison_rows_include_units_and_no_raw_records(self):
+        rows = comparison_rows(self.replay)
+        self.assertEqual(len(rows), 6)
+        self.assertEqual({r["unit"] for r in rows}, {"bytes", "seconds", "attempts", "responses"})
+        self.assertTrue(all(r["before"] > r["after"] for r in rows))
+        self.assertTrue(
+            all(set(r) == {"measure", "unit", "before", "after", "reduction_percent"} for r in rows)
+        )
 
 
 if __name__ == "__main__":

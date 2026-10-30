@@ -1,171 +1,184 @@
-# Reuse the work. Retain the scientific decision.
+# A faster replay that preserves the scientific result
 
-**Latest inspected owner execution: V347, October 29, 2026.** Research, science and
-lineage completed. Overall status is **PARTIAL** because owned market-source
-reconciliation remains incomplete. The [public aggregate record](../portfolio/owner_replay.json)
-is deliberately narrower than the private execution evidence.
+**Latest inspected owner execution: V348, October 29, 2026, Pacific time**
+(October 30 UTC). Research, science and lineage replay completed. Overall status
+remains **PARTIAL** because owned market-source closure is incomplete.
 
-This is useful engineering evidence even without a new winning model: completed
-states were verified and reused, the accepted model survived a negative comparison,
-and the return exposed a measurable storage defect to repair.
+V348 reduced end-to-end elapsed time **46.87%**, odds GET responses **85.78%**, and
+the uploaded review set **97.72%** relative to V347. It released **1,492,090,880
+allocated disk bytes** through verified archival and exact duplicate removal,
+while preserving the accepted scientific result and all unique source data.
+These are two sequential owner observations with the same four effective CPUs,
+eight source workers and 302 reused fitted operations. They are **not a controlled
+concurrency benchmark** or proof that the instance is running at its maximum rate.
 
-## Inspect it without credentials
+[Allowlisted aggregate record](../portfolio/owner_replay.json) ·
+[Public validator](../tools/owner_replay.py) ·
+[Executed engineering notebook](../portfolio/engineering_review.ipynb) ·
+[One-command reviewer](engineering_review.md)
+
+## What the public evidence establishes
+
+The original single return is **10,323,395 bytes**. All **397 ZIP members** passed
+CRC checks, **396 manifest entries** passed size and SHA-256 verification, and
+**392 logical indexed files** were accounted for. Six original bootstrap receipts
+and 368 included current-artifact hashes matched; 18 further pinned bulk outputs
+were explicitly omitted and retained on the owner system. The return is review
+evidence, not a full project backup.
+
+The public JSON contains only allowed aggregates and digests. Public checks verify
+schema, arithmetic, units, matched populations, decision rules and disclosure
+boundaries. They do not independently retrieve private payloads or authenticate
+upstream publishers. The private audit recomputed all 24 research scorecards from
+3,700 probabilities; the largest difference was approximately **1.1 × 10⁻¹⁶**.
+
+No new source dataset, per-game forecast, private model recipe, cloud locator,
+credential or fitted parameter is redistributed. Hashes identify withheld
+artifacts; they do not make private research publicly reproducible.
+
+## Measured systems improvement
+
+| Observation | V347 | V348 | Reduction |
+|---|---:|---:|---:|
+| Start through final return | 1,036.23 s | 550.57 s | 46.87% |
+| Owned-market worker | 784.68 s | 257.93 s | 67.13% |
+| Odds GET responses | 54,152 | 7,701 | 85.78% |
+| Odds HTTP attempts, including retries | 57,921 | 7,791 | 86.55% |
+| Odds downloaded body bytes | 369,923,777 | 7,801,171 | 97.89% |
+| Complete uploaded review set | 452,756,526 bytes, four parts | 10,323,395 bytes, one part | 97.72% |
+
+The arithmetic uses the prior value as its denominator. Intervals and request
+scopes are held explicit: odds traffic excludes historical-delivery archival
+uploads and readbacks. The end-to-end V348 interval includes substantial one-time
+cleanup. Provider latency and background activity were not controlled. This is
+measured reduction in repeated work, with no causal claim that one setting alone
+produced the whole elapsed-time improvement.
+
+Three changes have direct evidence:
+
+- **ETag serialization reuse:** 29,067 unchanged objects reused their metadata
+  despite quoted versus unquoted ETag representation. Another 17,378 positive
+  metadata checkpoints were reused.
+- **Compact review evidence:** repeated canonical market parts and export aliases
+  are explicitly omitted from the return while remaining on the owner system.
+  V347 carried 437,817,964 bytes of these bulk derived copies. V348 includes none
+  of that bulk category.
+- **Content-bound failure memory:** 7,700 complete-body failures were recorded as
+  deterministic negative checkpoints. There were **zero negative-cache hits in
+  this first pass**. These entries can avoid unchanged future downloads; they do
+  not turn unreadable owned sources into absent data or purchase eligibility.
+
+Peak combined process RSS was **680,501,248 bytes**. Mean accounted CPU use was
+**0.356 of four cores**, about 8.90% of available CPU capacity. The source phase
+still spent **135.18 seconds** importing the legacy request inventory,
+**31.12 seconds** checking/restoring existing prices and **61.48 seconds** on exact
+metadata reconciliation. Low CPU use does not establish whether every delay is
+network, disk, serial bookkeeping or a configured limit. These measurements
+prioritize content-bound reuse before increasing concurrency or instance size.
+
+## Storage accounting that respects custody
+
+| Action | Logical source bytes | Allocated bytes released | Evidence |
+|---|---:|---:|---|
+| Archive eight historical delivery files | 1,480,692,559 | 1,480,712,192 | Complete body and restoration-manifest readback before local release |
+| Remove 476 exact duplicate estimator files | Duplicate content retained in the canonical workspace | 11,378,688 | Exact content match and last-link accounting |
+| Remove 303 reproducible extracted-cache aliases | Reconstructable from retained packages | 0 | Other hardlinks retained the underlying blocks |
+| **Attributed total physical release** | Not a sum of unlike logical categories | **1,492,090,880** | Sum of action receipts |
+
+The run began with **1,117,794,304 free bytes** and ended with
+**2,572,169,216 free bytes** after packaging. The observed increase,
+**1,454,374,912 bytes**, is not equal to physical release: new output, metadata and
+other process activity affect the free-space measurement. The validator checks
+both quantities separately and rejects substituting one for the other.
+
+Sixty-seven research files moved into the existing permanent workspace without a
+second full copy. Two extracted caches with unmanifested additions were preserved,
+not guessed to be disposable. No unique scientific or source bytes were discarded.
+Historical work folders still need careful consolidation; this result does not
+claim every old directory was removed or all disk pressure is permanently solved.
+
+Remote readback is an owner execution receipt authenticated by the returned
+manifest. The public demo does not claim it independently contacted the private
+archive. Restore receipts, current models, source catalogs and meaningful negative
+research remain part of the durable project history.
+
+## The accepted control remains selected
+
+The replay uses the same **925 physical games** for each of four arms:
+**523 development games** from 2018, 2019, 2021 and 2022, and **402 later games**
+from 2023–2025. The 3,700 probability rows are four predictions per physical game,
+not 3,700 independent evaluation events.
+
+| Public arm label | Development Brier, 523 games | Exposed later Brier, 402 games | Decision |
+|---|---:|---:|---|
+| Accepted control | 0.170697002771 | 0.167734219705 | Retain |
+| Challenger A | 0.172341840795 | 0.163559005976 | Worse on development |
+| Challenger B | 0.172312276859 | 0.164983755924 | Worse on development |
+| Challenger C | 0.172026223480 | 0.164799768335 | Worse on development |
+
+Every challenger worsens the declared development comparison. The later window
+was already examined, so its lower challenger Brier cannot justify promotion or
+an untouched-holdout claim. All **66 research and 236 science fitted operations**
+were reused; **zero new fits or submissions** occurred. A separate 132-member
+native receipt inventory authenticated successfully, without executing those
+native estimators.
+
+Generic challenger labels protect private implementation details. Without public
+per-game errors, an employer cannot recompute paired uncertainty from this table;
+no significance claim is made. The [historical Kaggle result](champion_result.md)
+and the separate 126-game retrospective audit retain their own populations and
+provenance. They are not directly interchangeable with this 925-game study.
+
+## Do the data support the next experiment?
+
+**The defined study has its required detailed regular-season inputs. The broader
+project does not yet have every desired source.** Carried authenticated coverage
+for the 2013–2025 study, excluding 2020, is 63,657 required men's games and 61,298
+required women's games. V348 is not a fresh raw-table census and makes no claim
+that future 2027 data is complete.
+
+| Remaining broader family | Have / required | Missing | Unit |
+|---|---:|---:|---|
+| Original women missing-box queue | 143 / 221 | 78 | Game rows, 2010–2012 |
+| Women 2010–2012 complete team-seasons | 915 / 1,029 | 114 | Complete team-seasons |
+| Women venue court identity | 522 / 583 | 61 | Tournament game rows |
+| Women strict home/neutral context | 367 / 583 | 216 | Tournament game rows |
+| Player exact team-game joins | 13,622 / 14,228 | 606 | Team-game reconciliations |
+| Seeded-team points features | 270 / 272 | 2 | Seeded team-seasons |
+
+The old 2010–2012 box-score gaps do not block the covered study. Near-complete game
+rows must not be reported as near-complete project readiness: venue context,
+player identities and market qualification have different denominators and gates.
+
+Market inventory remains **17,012,534 selections**, including **15,259,764** tagged
+priced/pregame records, with **zero model-training admissions**. The broader proof
+contains **7,768 unknown owned containers**. A separate attempted-reconciliation
+ledger contains **7,700 deterministic unresolved objects**: 7,698 content-address
+hash mismatches, one encoding error and one unsupported JSON root. Their failed
+source bodies are not in the compact return, so those reason codes do not prove
+which upstream transformation caused the mismatch.
+
+The 3,625 proposed paid requests still partition into **52 semantic duplicates**
+and **3,573 unresolved requests**. Zero are eligible and zero paid credits were
+used. Owned unreadable data cannot be repurchased on an unsupported absence claim.
+The dated October 26 qualification ledger remains a separate historical scope;
+these later carried totals do not invent missing row-level transition evidence.
+
+## Public reproduction and remaining acceptance criteria
 
 ```bash
 python tools/review_project.py
 ```
 
-Open `outputs/review/index.html`. Eleven checks cover the public examples, aggregate
-contracts, actual demo controls and deterministic packaging. For just this record:
+With Python 3.12 and Node, this builds `outputs/review/index.html` and
+`outputs/review/review.json` without credentials, cloud access or private model
+fitting. `python tools/owner_replay.py --check` runs the narrower aggregate contract.
+The locked environment regenerates the executed engineering notebook, including a
+comparison figure with both interactive and PNG outputs.
 
-```bash
-python tools/owner_replay.py --check
-python -m unittest discover -s tools -p 'test_owner_replay.py' -v
-```
-
-These commands use the Python standard library. The complete reviewer also uses
-Node for the existing JavaScript demo tests. The [executed engineering notebook](../portfolio/engineering_review.ipynb)
-preserves the latest score table and three historical interactive figures with PNG
-fallbacks. No private model is fitted or provider queried by this public review.
-
-## What actually ran
-
-| Workstream | State | Observed seconds | Verified result |
-| - | - | -: | - |
-| Research replay | COMPLETE | 5.159 | 66 fitted operations reused, zero new; 925 matched games across four arms |
-| Broader science replay | COMPLETE | 19.119 | 236 fitted operations reused, zero new; its own 112-arm evaluation |
-| Historical lineage | SUCCESS | 3.452 | 132 native receipts authenticated; native estimators were not executed |
-| Market-source reconciliation | PARTIAL | 784.681 | More request relationships reconciled; no new selections or model admissions |
-
-The two replay fit counts sum to **302**. This does not mean 302 new experiments,
-newly acquired games or independent evaluations. The broader science and four-arm
-research studies remain separate protocols.
-
-Four return ZIPs total **452,756,526 bytes**. Each is below 150,000,000 bytes.
-Their SHA-256 values match the owner execution log. All **5,358 per-part manifested
-payload entries** passed exact size, SHA-256 and streaming CRC checks. The logical
-index contains **5,351 files**, without missing or duplicate logical payloads.
-The public record contains the part and evidence digests; the underlying private
-archives are intentionally withheld.
-
-The private audit recalculated all **24 research scorecards** from 3,700 returned
-probability/target records with zero discrepancy. The public aggregate checker
-validates the resulting accounting and decision. It cannot independently rerun
-the withheld per-game calculation or authenticate original publishers.
-
-## The comparison uses the same games
-
-All four arms use the same 925 physical-game population. Development contains
-**523 games in 2018, 2019, 2021 and 2022**. The already-exposed later window contains
-**402 games in 2023–2025**. There are 3,700 probability records, not 3,700 independent
-games. Lower Brier is better.
-
-| Public arm label | Development Brier | Exposed later Brier | Selection consequence |
-| - | -: | -: | - |
-| Accepted control | 0.170697002771 | 0.167734219705 | Retained |
-| Challenger A | 0.172341840795 | 0.163559005976 | Worse on development |
-| Challenger B | 0.172312276859 | 0.164983755924 | Worse on development |
-| Challenger C | 0.172026223480 | 0.164799768335 | Worse on development |
-
-**Every challenger worsens the declared development Brier.** Lower later-window
-loss does not authorize selecting a challenger after viewing that window.
-The accepted control remains unchanged, no fresh holdout is claimed, and this run
-created no new submission or prospective score.
-
-Generic arm labels protect private composition rules. Per-game errors remain
-private, so this publication does not manufacture paired confidence intervals,
-significance claims or an exact competitive reproduction recipe. The historical
-126-game scored result elsewhere in the repository is a different population;
-directly comparing it to these 925 games would be invalid.
-
-## Data readiness depends on the question
-
-The carried source audit reports all **63,657 men's** and **61,298 women's** detailed
-regular-season inputs required by the defined **2013–2025 study, excluding 2020**.
-V347 confirms that the existing study replays successfully. It did not perform a
-new full raw-table census.
-
-| Broader evidence family | Have / required | Missing | Unit |
-| - | -: | -: | - |
-| Original women 2010–2012 missing-box queue | 143 / 221 | 78 | Game rows |
-| Women venue court identity | 522 / 583 | 61 | Tournament game rows |
-| Women strict home/neutral context | 367 / 583 | 216 | Tournament game rows |
-| Exact player team-game joins | 13,622 / 14,228 | 606 | Team-game reconciliations |
-| Seeded-team points features | 270 / 272 | 2 | Team-seasons |
-
-These are **carried authenticated scope counts**, not newly recovered rows in
-V347. The old women's gaps do not block the defined study. The broader inventory
-and future 2027 inputs remain incomplete.
-
-Market inventory contains **17,012,534 selections**, including 16,084,314 men's and
-928,220 women's selections. A parser tags 15,259,764 as priced and pregame, but
-**zero are admitted to model training**. Selections are quote/outcome records,
-not distinct games or bracket-cutoff-certified features. There are **7,768 unknown
-owned containers** in the source-closure proof. Of **3,625 candidate requests**, 52
-are semantic duplicates and 3,573 remain unresolved; zero are eligible for paid
-follow-up and no paid requests or credits were used.
-
-The earlier [October 26 acquisition ledger](execution_evidence.md) and
-[qualification frontier](qualification_frontier.md) retain their own definitions,
-edition populations and source timing. This later summary lacks the row-level
-transition evidence needed to rewrite those panels. Differences between those
-dated scopes must not be disguised as a uniform completion percentage.
-
-## The system finding: a compact return must exclude both aliases
-
-The run preserved a **797,517,357-byte** prior return remotely, fully verified the
-body and restoration manifest, then released **797,519,872 allocated local bytes**.
-Logical file size and filesystem allocation differ. The final observed free disk
-after new packaging was **1,229,553,664 bytes**, about 1.23 GB; this is a historical
-measurement, not a statement about current free space.
-
-The new review return included **4,960 derived parts totaling 437,817,964 bytes**,
-or **96.70%** of its ZIP bytes. Its filter excluded export aliases but missed the
-corresponding canonical derived parts. This is a concrete, testable packaging
-defect. It identifies approximately 438 MB that need not be copied into every
-review return. It does **not** establish that the canonical research data can be
-deleted: 4,960 local parts and 6,429 remote parts represent different sets.
-
-The appropriate next implementation should keep one authoritative active catalog,
-retain unique scientific states, consolidate inactive byte-identical artifacts
-only after verification, preserve a restoration route before releasing originals,
-and omit both bulk path families from review returns. A complete filesystem census
-and active-writer checks are needed before claiming an amount of additional space
-reclaimed. The private runtime implementation is outside this public aggregate
-publication; its next owner execution must verify the actual result.
-
-## Runtime observations guide the next change
-
-Core coordinator work took **997.79 seconds**. Recorded start through final return
-status took **1,036.23 seconds**, including about 38.44 seconds of final packaging
-and verification. The instance exposed **four effective CPUs**, roughly 16 GB RAM
-and eight source workers. Mean accounted CPU use was **0.429 cores**, approximately
-10.7% of available CPU capacity.
-
-Most elapsed work occurred in odds metadata/inventory, request reconciliation,
-derived-part offload and storage bootstrap; model replay took seconds. Progress
-boundaries suggest approximately 130 seconds replaying the frozen legacy request
-index and approximately 166 seconds in derived-part offload. Those are log-boundary
-estimates, not a causal profiler attribution.
-
-The next performance work should remove verified redundant warm scans, fingerprint
-completed stages, overlap safe bounded reads, retain a disciplined catalog writer,
-and avoid packaging duplicate bulk data. Low CPU alone does not prove every delay
-is network-bound. No controlled concurrency benchmark establishes fastest-possible
-execution, and timings across different workloads should not be presented as one.
-
-## Publication and licensing boundary
-
-This update adds aggregate values, evidence hashes, a standard-library validator,
-failure tests, integrated review output and notebook interpretation. It publishes
-no private cloud locations, credentials, raw bodies, licensed feeds, checkpoint
-weights, per-game forecast rows, exact private blends or tuned configurations.
-
-The repository's [publication checker](../tools/check_publication.py) checks the
-exact changed Git blobs for recognized private artifacts and credential patterns.
-The new aggregate schema also rejects unexpected nested fields and private locator
-patterns. These are concrete controls with documented limits, not a claim that an
-automated scan can recognize every possible secret or licensing issue.
-
-[Current research](current_research.md) · [Engineering review](engineering_review.md)
-· [Model card](model_card.md) · [Reproduction levels](reproduction_matrix.md)
+The next valuable improvements require evidence: a verified warm-path inventory
+checkpoint, strict diagnosis of representative unresolved bodies, restoration-safe
+consolidation of retained historical work, and measured concurrency experiments
+only where the remaining bottleneck benefits. A new model must still satisfy the
+established development selection rule. These operational gains do not substitute
+for source closure, prospective validation or a new scientific result.

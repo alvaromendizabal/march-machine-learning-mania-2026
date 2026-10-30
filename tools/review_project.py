@@ -260,10 +260,10 @@ def build_notebook(kernel: str) -> dict:
         md("""
         ## Latest owner replay: the accepted control still wins development
 
-        The October 29 V347 run reused 302 fitted operations and completed the 925-game
-        matched research replay without new fits. The overall run remains PARTIAL because
-        owned market-source reconciliation is incomplete. Every challenger worsens development
-        Brier; lower Brier in the previously exposed later window does not justify promotion.
+        The October 29 V348 run (Pacific time) reused 302 fitted operations and completed
+        the 925-game matched research replay without new fits. The overall run remains PARTIAL
+        because owned market-source reconciliation is incomplete. Each challenger worsens
+        development Brier; lower Brier in the exposed later window cannot justify promotion.
 
         Public aggregate checks cannot recreate paired uncertainty or source-level authentication
         without the withheld per-game evidence. Generic arm labels protect private recipes.
@@ -282,6 +282,56 @@ def build_notebook(kernel: str) -> dict:
         print('Complete broader project data:', replay['coverage']['broader_project_data_complete'])
         assert replay['cohort']['total_games'] == 925
         assert replay['cohort']['prediction_rows'] == 3700
+        """),
+        md("""
+        ## The next run did less repeated work
+
+        The same 302 fitted operations and accepted scientific result were preserved.
+        End-to-end elapsed time fell 46.87%, odds GET responses fell 85.78%, and the
+        uploaded review set became 97.72% smaller. One-time custody-verified cleanup
+        released 1,492,090,880 allocated bytes; 2,572,169,216 bytes were free afterward.
+
+        These are sequential observations, not a controlled concurrency benchmark.
+        Provider latency and background load were not controlled. Request counts cover
+        the odds worker and exclude archival transfers. Newly written negative parse
+        checkpoints are not cache hits; source closure remains incomplete.
+        """),
+        code("""
+        import io, base64
+        import matplotlib.pyplot as plt
+        import plotly.graph_objects as go
+        from owner_replay import comparison_rows
+        measured = pd.DataFrame(comparison_rows(replay))
+        display(measured)
+        display(pd.DataFrame([replay['storage']]).T.rename(columns={0: 'Observed'}))
+        labels = ['Elapsed time', 'Odds duration', 'Odds GET responses',
+                  'Odds HTTP attempts', 'Odds body bytes', 'Review return bytes']
+        relative = (100 * measured['after'] / measured['before']).tolist()
+        comparison = go.Figure()
+        comparison.add_bar(y=labels, x=[100] * len(labels), name='V347 reference',
+                           orientation='h', marker_color='#d4deea')
+        comparison.add_bar(y=labels, x=relative, name='V348 observed', orientation='h',
+                           marker_color='#008477')
+        comparison.update_layout(title='Observed work relative to V347 (=100%)',
+                                 barmode='group', width=960, height=500,
+                                 template='plotly_white',
+                                 xaxis_title='Percent of prior observation')
+        static, ax = plt.subplots(figsize=(10, 5.2), layout='constrained')
+        yy = list(range(len(labels)))
+        ax.barh([v + .18 for v in yy], [100] * len(yy), height=.34,
+                label='V347 reference', color='#d4deea')
+        ax.barh([v - .18 for v in yy], relative, height=.34,
+                label='V348 observed', color='#008477')
+        ax.set(yticks=yy, yticklabels=labels, xlabel='Percent of prior observation',
+               title='Observed work relative to V347 (=100%); not a controlled benchmark')
+        ax.legend(loc='lower right')
+        image = io.BytesIO()
+        static.savefig(image, format='png', dpi=120)
+        plt.close(static)
+        display({'application/vnd.plotly.v1+json': json.loads(comparison.to_json()),
+                 'image/png': base64.b64encode(image.getvalue()).decode()}, raw=True)
+        assert replay['systems']['negative_cache_hits'] == 0
+        assert replay['storage']['unique_scientific_bytes_discarded'] == 0
         """),
         md("""
         ## Numerical coverage has an explicit denominator
@@ -423,17 +473,17 @@ def build_notebook(kernel: str) -> dict:
     require(not any(o.output_type == "error" for o in outputs), "Notebook execution failed")
     require("ENGINEERING_REVIEW_COMPLETE" in str(book.cells[-1].outputs), "Notebook incomplete")
     require(
-        sum("application/vnd.plotly.v1+json" in o.get("data", {}) for o in outputs) == 3,
+        sum("application/vnd.plotly.v1+json" in o.get("data", {}) for o in outputs) == 4,
         "Persisted interactive figure missing",
     )
-    require(sum("image/png" in o.get("data", {}) for o in outputs) == 3, "Static fallback missing")
+    require(sum("image/png" in o.get("data", {}) for o in outputs) == 4, "Static fallback missing")
     NOTEBOOK.write_text(nb.writes(book))
     return {
         "status": "PASS",
         "actual_kernel_execution": True,
-        "code_cells": 6,
-        "plotly_outputs": 3,
-        "png_fallbacks": 3,
+        "code_cells": 7,
+        "plotly_outputs": 4,
+        "png_fallbacks": 4,
         "model_fits": 0,
         "notebook_sha256": sha(NOTEBOOK),
     }

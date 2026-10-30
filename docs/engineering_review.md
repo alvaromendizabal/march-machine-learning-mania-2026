@@ -7,7 +7,7 @@ The project makes three different kinds of evidence inspectable. They answer dif
 | Evidence class | What is public | What it establishes |
 |---|---|---|
 | Historical scored result | Normalized Kaggle record: **0.1034347**, submission 57122407 | Recorded retrospective scoring; no prospective claim or new account query |
-| Latest owner replay | October 29 V347 allowlisted aggregates | Matched-game result, retained-control decision, fit reuse and observed storage/runtime accounting |
+| Latest owner replay | October 29 V348 allowlisted aggregates (Pacific) | Matched-game result, retained-control decision, fit reuse and observed storage/runtime accounting |
 | Dated acquisition | October 26 V326 source-qualification aggregates | Earlier coverage and residual gates; retained as a separate historical scope |
 | Runnable engineering | Authored synthetic observations, recovery example, forecast/scoring example and bracket engine | Executable contracts on public inputs; no claim of private-pipeline parity |
 
@@ -27,9 +27,9 @@ No credentials, source download, model artifact or Python package installation i
 
 ## Latest owner replay and data readiness
 
-The [V347 aggregate record](../portfolio/owner_replay.json) records 302 fitted operations reused, zero new fits, and a 925-game matched research study. The report shows development and already-exposed later Brier side by side and retains the accepted control. It never labels the replay as a fresh holdout. The validator rejects changed populations, overlapping seasons, nonfinite probabilities, unsupported promotion, private nested fields and incorrect storage/request partitions. [Full evidence and limitations](owner_replay.md)
+The [V348 aggregate record](../portfolio/owner_replay.json) records 302 fitted operations reused, zero new fits, and a 925-game matched research study. The report shows development and already-exposed later Brier side by side and retains the accepted control. It never labels the replay as a fresh holdout. The validator rejects changed populations, overlapping seasons, nonfinite probabilities, unsupported promotion, private nested fields and incorrect storage/request partitions. [Full evidence and limitations](owner_replay.md)
 
-The record identifies a return-size defect and incomplete market qualification, alongside the complete scoped study inputs. It distinguishes 997.79 seconds of core work from 1,036.23 seconds through final return status. CPU measurements do not prove fastest-possible execution. The historical 1.23 GB free-disk observation does not assert current space.
+The comparison measures the return-size repair and verified cleanup while retaining incomplete market qualification. End-to-end time fell from 1,036.23 to 550.57 seconds, odds GET responses from 54,152 to 7,701, and uploaded bytes from 452.76 to 10.32 MB. Cleanup released 1,492,090,880 allocated bytes; the final observation was 2,572,169,216 free bytes. These are sequential runs with one-time cleanup and uncontrolled background/provider conditions. The validator rejects conflating free-space change with physical release, claiming a controlled benchmark, or counting newly written negative checkpoints as cache hits.
 
 ## Dated source accounting · October 26
 
@@ -64,7 +64,7 @@ Writes use a temporary file, file synchronization and atomic replacement. These 
 
 ## Notebook review
 
-The [engineering review notebook](../portfolio/engineering_review.ipynb) executes six code cells, displays the latest matched scorecards and numerical season gaps, qualification over successive executions, and the edition-level qualification frontier. It persists three interactive Plotly figures with PNG fallbacks and executes the recovery demonstration. CI executes the notebook with the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
+The [engineering review notebook](../portfolio/engineering_review.ipynb) executes seven code cells, displays the latest matched scorecards and a measured systems comparison, numerical season gaps, qualification over successive executions, and the edition-level qualification frontier. It persists four interactive Plotly figures with PNG fallbacks and executes the recovery demonstration. CI executes the notebook with the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
 
 ## Questions this project is ready to discuss
 

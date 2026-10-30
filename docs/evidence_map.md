@@ -39,4 +39,4 @@ The archive hash in a public receipt is a provenance reference. The archive itse
 
 ## Latest private-run aggregate review
 
-[Owner replay](owner_replay.md) and its [allowlisted record](../portfolio/owner_replay.json) add the October 29 V347 result: 302 fitted operations reused, 925 matched games, retained accepted control, incomplete source closure, and measured runtime/return-size accounting. Run `python tools/owner_replay.py --check` or the full one-command reviewer. Raw bodies, per-game predictions and private recipes remain withheld. Earlier source ledgers retain their dated scope.
+[Owner replay](owner_replay.md) and its [allowlisted record](../portfolio/owner_replay.json) add the October 29 V348 result (Pacific): 302 fitted operations reused, 925 matched games, retained accepted control, incomplete source closure, and measured runtime/return-size comparison, and remote-readback-gated disk cleanup. Run `python tools/owner_replay.py --check` or the full one-command reviewer. Raw bodies, per-game predictions and private recipes remain withheld. Earlier source ledgers retain their dated scope.
