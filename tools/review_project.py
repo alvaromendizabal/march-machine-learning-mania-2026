@@ -260,7 +260,7 @@ def build_notebook(kernel: str) -> dict:
         md("""
         ## Latest owner replay: the accepted control still wins development
 
-        The October 30 V350 run (Pacific time) reused 302 fitted operations and completed
+        The October 30 V351 run (Pacific time) reused 302 fitted operations and completed
         the 925-game matched research replay without new fits. The overall run remains PARTIAL
         because owned market-source reconciliation is incomplete. Each challenger worsens
         development Brier; lower Brier in the exposed later window cannot justify promotion.
@@ -284,7 +284,7 @@ def build_notebook(kernel: str) -> dict:
         assert replay['cohort']['prediction_rows'] == 3700
         ledger = replay['execution_ledger']
         display(pd.DataFrame(ledger['records'])[['execution', 'status', 'evidence_level']])
-        print('Recent eleven owner runs:', ledger['counts'])
+        print('Recent twelve owner runs:', ledger['counts'])
         print('Latest addition:', ledger['latest_delta'])
         print('Complete all-time totals:', ledger['all_time_totals'])
         print('Completed workstreams counted separately:', ledger['latest_completed_workstreams'])
@@ -293,31 +293,32 @@ def build_notebook(kernel: str) -> dict:
         ## Faster source work, with consolidation cost still visible
 
         The same 302 fitted operations and accepted scientific result were preserved.
-        End-to-end elapsed time grew 31.93%, from 404.06 to 533.10 seconds.
-        The odds phase improved 34.37%, from 306.54 to 201.17 seconds, while consolidation
-        took 257.06 seconds. Custody-verified cleanup released 366,530,560 allocated bytes;
-        2,781,872,128 bytes were free afterward. Physical notebook/HTML moves numbered 472;
-        1,659 protected links and 175 private references remain distinct from moves.
+        End-to-end elapsed time grew 35.98%, from 533.10 to 724.91 seconds.
+        The odds phase improved 60.45%, from 201.17 to 79.57 seconds, with authenticated
+        warm price reuse in 0.107 seconds. Consolidation took 582.02 seconds, including
+        423.68 seconds of diagnostics. Actual allocated release was 243,220,480 bytes;
+        final free space was 2,647,855,104 bytes, a net increase of only 1,417,216 bytes.
 
-        These are sequential observations, not a controlled concurrency benchmark.
-        Provider latency and background load were not controlled. Request counts cover
-        the odds worker and exclude archival transfers. Negative percentage reductions mean
-        growth, not savings. Broader unknown containers fell from 7,774 to 71, but source
-        closure is unfinished. All 3,482 new canonical selections came from current-sport
-        endpoints without historical snapshots and add zero training admissions.
-        The recovery ledger records 7,677 event-bearing objects with zero supported
-        h2h/spreads/totals rows and one zero-event object. This does not prove empty
-        original provider payloads. The same two deterministic decode failures remain.
+        All eight current diagnostics were authenticated. The complete scoped metadata census
+        has 650,791 records: 587,969 regular files, 55,580 directories, 7,231 symlinks and
+        11 explicit exceptions. It includes 1,583 immediate home entries before later moves,
+        including 591 ZIPs and 450 PYZs. This is not a final post-action clean-layout claim.
+        Sixty-seven historical roots moved with compatibility aliases; 204 were preserved,
+        including 100 lease failures. The 472 notebook/HTML moves are cumulative prior work.
+        The 29,590 duplicate candidate groups have a 4,972,310,528-byte upper bound, not
+        qualified reclaimable space. Features, mutable roles and restoration contracts
+        remain protected.
 
-        The home census covers 578,227 files and 1,595 root entries; 109 selected project
-        roots are a narrower scope. It is not a full hash-based duplicate or feature-dependency
-        inventory. A nominal 250 ms sampling cadence still incurred 61,773 forced probes.
+        These are sequential observations, not a controlled benchmark. Provider latency and
+        background load were uncontrolled. Source GETs fell to 71, while downloaded bytes grew
+        because all 71 remaining blockers were inspected. None closed. The cumulative product
+        ledger's 3,482 current-endpoint rows are V350 work; V351 added zero quote rows and zero
+        training admissions. Zero supported core rows do not prove empty provider payloads.
+        Forced resource probes fell from 61,773 to 196; unchanged product requeues were zero.
 
-        The recent eleven-run ledger has zero SUCCESS, seven PARTIAL
-        and four STOPPED owner outcomes.
-        Three completed V350 workstreams do not create an overall success. The older V48
-        aggregate counters are reported history with overlapping categories; missing intermediate
-        executions prevent an exact updated all-time total.
+        The recent twelve-run ledger has zero SUCCESS, eight PARTIAL and four STOPPED outcomes.
+        Three completed workstreams do not create an overall success. Older V48 aggregate
+        categories overlap; missing intervening history keeps current all-time totals unknown.
         """),
         code("""
         import io, base64
@@ -330,7 +331,9 @@ def build_notebook(kernel: str) -> dict:
         display(pd.DataFrame(replay['source_recovery']['products']))
         organization = replay['organization']
         display(pd.DataFrame([{
-            'Physical moves': organization['physically_moved'],
+            'Cumulative notebook moves': organization['physically_moved'],
+            'Historical roots moved now': organization['physical_historical_roots_moved'],
+            'Root migration blockers': organization['root_migration_blockers'],
             'Protected index links': organization['protected_index_links'],
             'Private references': organization['private_references_without_browse_links'],
             'Files in home census': organization['census_files'],
@@ -349,14 +352,16 @@ def build_notebook(kernel: str) -> dict:
         comparison.update_layout(title='Observed work relative to ' + before_label + ' (=100%)',
                                  barmode='group', width=960, height=500,
                                  template='plotly_white',
-                                 xaxis_title='Percent of prior observation')
+                                 xaxis_type='log',
+                                 xaxis_title='Percent of prior observation (log scale)')
         static, ax = plt.subplots(figsize=(10, 5.2), layout='constrained')
         yy = list(range(len(labels)))
         ax.barh([v + .18 for v in yy], [100] * len(yy), height=.34,
                 label=before_label + ' reference', color='#d4deea')
         ax.barh([v - .18 for v in yy], relative, height=.34,
                 label=after_label + ' observed', color='#008477')
-        ax.set(yticks=yy, yticklabels=labels, xlabel='Percent of prior observation',
+        ax.set_xscale('log')
+        ax.set(yticks=yy, yticklabels=labels, xlabel='Percent of prior observation (log scale)',
                title='Observed work relative to ' + before_label
                      + ' (=100%); not a controlled benchmark')
         ax.legend(loc='lower right')

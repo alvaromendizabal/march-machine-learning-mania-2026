@@ -46,7 +46,7 @@ def validate_replay(d: dict) -> dict:
         "execution_ledger",
         "Replay",
     )
-    require(type(d["schema_version"]) is int and d["schema_version"] == 4, "Replay schema")
+    require(type(d["schema_version"]) is int and d["schema_version"] == 5, "Replay schema")
     require(d["evidence_type"] == "AUDITABLE_PRIVATE_RUN_AGGREGATES", "Evidence class")
     require(re.fullmatch(r"v[0-9]+", d["execution"]) is not None, "Execution label")
     require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", d["reviewed_on"]) is not None, "Review date")
@@ -277,7 +277,9 @@ def validate_systems(d: dict) -> None:
         "negative_cache_entries_written negative_cache_hits adapter_unresolved_objects "
         "adapter_error_reasons phase_seconds resource_sampling_interval_seconds "
         "resource_probes forced_resource_probes coalesced_resource_checks "
-        "price_checkpoint_created warm_price_checkpoint_reuse_observed",
+        "price_checkpoint_created warm_price_checkpoint_reuse_observed "
+        "warm_price_checkpoint_seconds bounded_force_checks_coalesced "
+        "exact_product_registrations_reused product_originals_requeued",
         "Systems",
     )
     require(
@@ -304,6 +306,9 @@ def validate_systems(d: dict) -> None:
         "resource_probes",
         "forced_resource_probes",
         "coalesced_resource_checks",
+        "bounded_force_checks_coalesced",
+        "exact_product_registrations_reused",
+        "product_originals_requeued",
     ):
         count(systems[key], key)
     number(systems["resource_sampling_interval_seconds"], "Resource sampling interval")
@@ -313,9 +318,21 @@ def validate_systems(d: dict) -> None:
         "Resource sampling and forced-probe accounting",
     )
     require(
-        systems["price_checkpoint_created"] is True
-        and systems["warm_price_checkpoint_reuse_observed"] is False,
-        "First checkpoint creation is not measured warm owner reuse",
+        systems["price_checkpoint_created"] is False
+        and systems["warm_price_checkpoint_reuse_observed"] is True,
+        "Authenticated warm reuse cannot be recounted as a new full join",
+    )
+    number(systems["warm_price_checkpoint_seconds"], "Warm price checkpoint duration")
+    require(
+        0
+        < systems["warm_price_checkpoint_seconds"]
+        <= systems["phase_seconds"]["baseline_price_restoration"],
+        "Warm checkpoint interval exceeds its measured parent phase",
+    )
+    require(
+        systems["exact_product_registrations_reused"] > 0
+        and systems["product_originals_requeued"] == 0,
+        "Retained product reuse cannot become newly queued source work",
     )
     require(
         systems["s3_http_attempts_including_retries"]
@@ -527,7 +544,9 @@ def validate_source_recovery(d: dict) -> None:
         "current_rows_have_historical_snapshot zero_canonical_row_objects "
         "event_bearing_zero_canonical_objects zero_event_objects "
         "provider_empty_payloads_independently_verified canonical_market_scope "
-        "original_raw_bodies_public source_closure_complete products",
+        "original_raw_bodies_public source_closure_complete products "
+        "product_ledger_scope cumulative_product_selection_rows new_verified_blocker_reads "
+        "verified_blocker_records new_blocker_closures diagnostic_status_counts",
         "Source recovery",
     )
     require(re.fullmatch(r"[a-f0-9]{64}", r["product_ledger_sha256"]), "Product ledger hash")
@@ -544,6 +563,10 @@ def validate_source_recovery(d: dict) -> None:
         "zero_canonical_row_objects",
         "event_bearing_zero_canonical_objects",
         "zero_event_objects",
+        "cumulative_product_selection_rows",
+        "new_verified_blocker_reads",
+        "verified_blocker_records",
+        "new_blocker_closures",
     ):
         count(r[key], key)
     require(
@@ -552,7 +575,7 @@ def validate_source_recovery(d: dict) -> None:
         "Separate object counters cannot be silently equated",
     )
     require(
-        0 < r["remaining_unknown_owned_containers"] < r["prior_unknown_owned_containers"]
+        0 < r["remaining_unknown_owned_containers"] == r["prior_unknown_owned_containers"]
         and r["remaining_unknown_owned_containers"] == m["unknown_owned_containers"],
         "Source unknown transition disagrees with current inventory",
     )
@@ -561,6 +584,26 @@ def validate_source_recovery(d: dict) -> None:
         and r["new_current_selection_records"] == r["new_selection_records"]
         and r["new_historical_selection_records"] == r["training_admissions"] == 0,
         "Current-only recovery is not new historical or training coverage",
+    )
+    require(
+        r["product_ledger_scope"] == "CUMULATIVE_V350_REUSED_WITHOUT_NEW_PRODUCT_ROWS"
+        and r["new_selection_records"] == r["new_blocker_closures"] == 0
+        and r["new_verified_blocker_reads"]
+        == r["verified_blocker_records"]
+        == r["remaining_unknown_owned_containers"],
+        "Inspected source bodies and historical product rows cannot become new closures",
+    )
+    fields(
+        r["diagnostic_status_counts"],
+        "FULL_BODY_VERIFIED_STRUCTURAL_MEMORY_GUARD FULL_BODY_VERIFIED_STRUCTURE_SIZE_GUARD "
+        "VERIFIED_ARCHIVE_METADATA_ONLY VERIFIED_BODY_DECODE_UNRESOLVED VERIFIED_JSON_STRUCTURE",
+        "Source diagnostic statuses",
+    )
+    for key, value in r["diagnostic_status_counts"].items():
+        count(value, key)
+    require(
+        sum(r["diagnostic_status_counts"].values()) == r["verified_blocker_records"],
+        "Source diagnostic population must equal the fully verified blocker population",
     )
     require(
         r["current_rows_have_historical_snapshot"] is False
@@ -589,7 +632,7 @@ def validate_source_recovery(d: dict) -> None:
     for row in r["products"]:
         fields(
             row,
-            "kind objects event_count new_selection_rows historical_snapshot_objects "
+            "kind objects event_count original_selection_rows historical_snapshot_objects "
             "zero_canonical_row_objects",
             "Product group",
         )
@@ -606,7 +649,9 @@ def validate_source_recovery(d: dict) -> None:
                 "Current endpoint gains historical snapshot",
             )
         if row["kind"] != "CURRENT_SPORT_ODDS":
-            require(row["new_selection_rows"] == 0, "Unexpected historical/event row admission")
+            require(
+                row["original_selection_rows"] == 0, "Unexpected historical/event row admission"
+            )
         if row["kind"].endswith("EVENT_ODDS"):
             require(row["event_count"] == row["objects"], "Single-event object count")
     require(
@@ -614,8 +659,9 @@ def validate_source_recovery(d: dict) -> None:
         "Product ledger population",
     )
     require(
-        sum(x["new_selection_rows"] for x in r["products"]) == r["new_selection_records"],
-        "Product row partition",
+        sum(x["original_selection_rows"] for x in r["products"])
+        == r["cumulative_product_selection_rows"],
+        "Cumulative product row partition cannot be counted as current additions",
     )
     require(
         sum(x["zero_canonical_row_objects"] for x in r["products"])
@@ -637,7 +683,17 @@ def validate_organization(d: dict) -> None:
         "all_presentations_physically_centralized incomplete_moves unresolved_scan_exceptions "
         "data_trees_copied allocated_bytes_released_by_moves new_full_version_workspaces "
         "consolidation_seconds census_seconds repository_allocated_bytes "
-        "repository_major_categories",
+        "repository_major_categories metadata_records metadata_directories metadata_symlinks "
+        "root_aggregate_count root_regular_files root_directories root_symlinks root_exceptions "
+        "root_zip_files root_pyz_files current_diagnostic_files_verified "
+        "metadata_census_complete_within_declared_scope final_post_action_census_available "
+        "asset_records duplicate_hashed_files duplicate_hashed_bytes "
+        "exact_duplicate_candidate_groups already_shared_inode_groups "
+        "duplicate_candidate_upper_bound_bytes duplicate_candidate_bytes_released "
+        "duplicate_hash_blockers duplicate_hash_seconds current_feature_columns "
+        "current_feature_physical_games feature_evaluated_games physical_historical_roots_moved "
+        "root_migration_blockers root_migration_blocker_counts notebook_counts_are_cumulative "
+        "notebook_moves_newly_recorded",
         "Organization",
     )
     require(
@@ -661,11 +717,86 @@ def validate_organization(d: dict) -> None:
         "allocated_bytes_released_by_moves",
         "new_full_version_workspaces",
         "repository_allocated_bytes",
+        "metadata_records",
+        "metadata_directories",
+        "metadata_symlinks",
+        "root_aggregate_count",
+        "root_regular_files",
+        "root_directories",
+        "root_symlinks",
+        "root_exceptions",
+        "root_zip_files",
+        "root_pyz_files",
+        "current_diagnostic_files_verified",
+        "asset_records",
+        "duplicate_hashed_files",
+        "duplicate_hashed_bytes",
+        "exact_duplicate_candidate_groups",
+        "already_shared_inode_groups",
+        "duplicate_candidate_upper_bound_bytes",
+        "duplicate_candidate_bytes_released",
+        "duplicate_hash_blockers",
+        "current_feature_columns",
+        "current_feature_physical_games",
+        "feature_evaluated_games",
+        "physical_historical_roots_moved",
+        "root_migration_blockers",
+        "notebook_moves_newly_recorded",
     ):
         count(o[key], key)
     require(
         o["selected_project_root_entries"] < o["census_root_entries"] < o["census_files"],
         "Selected project roots cannot replace the whole-home census",
+    )
+    require(
+        o["census_files"]
+        + o["metadata_directories"]
+        + o["metadata_symlinks"]
+        + o["unresolved_scan_exceptions"]
+        == o["metadata_records"],
+        "Full metadata census partition",
+    )
+    require(
+        o["root_regular_files"] + o["root_directories"] + o["root_symlinks"] + o["root_exceptions"]
+        == o["census_root_entries"]
+        and o["root_zip_files"] + o["root_pyz_files"] <= o["root_regular_files"]
+        and o["root_aggregate_count"] <= o["census_root_entries"],
+        "Immediate HOME entries and file aggregates have different denominators",
+    )
+    require(
+        o["current_diagnostic_files_verified"] == 8
+        and o["metadata_census_complete_within_declared_scope"] is True
+        and o["final_post_action_census_available"] is False,
+        "Complete scoped metadata cannot imply final cleanup completion",
+    )
+    require(
+        o["duplicate_hashed_files"] < o["census_files"]
+        and o["asset_records"] <= o["census_files"]
+        and o["duplicate_candidate_bytes_released"] == 0,
+        "Candidate duplicates are not proved reclaimable disk savings",
+    )
+    require(
+        o["current_feature_physical_games"]
+        > o["feature_evaluated_games"]
+        == d["cohort"]["total_games"]
+        and o["current_feature_columns"] > 0,
+        "Feature population cannot replace the evaluated game denominator",
+    )
+    fields(
+        o["root_migration_blocker_counts"],
+        "lease symlink_relationships canonical_or_frozen database_or_sidecar git_checkout",
+        "Migration blockers",
+    )
+    for key, value in o["root_migration_blocker_counts"].items():
+        count(value, key)
+    require(
+        sum(o["root_migration_blocker_counts"].values()) == o["root_migration_blockers"]
+        and o["physical_historical_roots_moved"] == d["storage"]["consolidated_history_roots"],
+        "Historical moves and retained blockers must retain their counted populations",
+    )
+    require(
+        o["notebook_counts_are_cumulative"] is True and o["notebook_moves_newly_recorded"] == 0,
+        "Inherited notebook moves cannot become new work",
     )
     require(
         o["physically_moved"]
@@ -688,7 +819,7 @@ def validate_organization(d: dict) -> None:
         == 0,
         "No-copy moves cannot claim physical release or another full workspace",
     )
-    for key in ("consolidation_seconds", "census_seconds"):
+    for key in ("consolidation_seconds", "census_seconds", "duplicate_hash_seconds"):
         number(o[key], key)
     require(
         0
@@ -697,6 +828,7 @@ def validate_organization(d: dict) -> None:
         <= d["execution_accounting"]["coordinator_seconds"],
         "Organization timing intervals",
     )
+    require(o["duplicate_hash_seconds"] <= o["census_seconds"], "Hash time exceeds diagnostics")
     categories = o["repository_major_categories"]
     require(
         type(categories) is list
@@ -723,11 +855,11 @@ def validate_execution_ledger(d: dict) -> None:
         "Execution ledger",
     )
     require(
-        ledger["scope"] == "ELEVEN_IDENTIFIED_OWNER_INVOCATIONS_V340_THROUGH_V350"
+        ledger["scope"] == "TWELVE_IDENTIFIED_OWNER_INVOCATIONS_V340_THROUGH_V351"
         and ledger["deduplication"] == "ONE_RECORD_PER_AUTHENTICATED_INVOCATION",
         "Ledger scope or deduplication changed",
     )
-    require(type(ledger["records"]) is list and len(ledger["records"]) == 11, "Ledger population")
+    require(type(ledger["records"]) is list and len(ledger["records"]) == 12, "Ledger population")
     labels, identities = set(), set()
     actual = dict.fromkeys(("SUCCESS", "PARTIAL", "FAILED", "STOPPED"), 0)
     for row in ledger["records"]:
@@ -744,7 +876,7 @@ def validate_execution_ledger(d: dict) -> None:
             row["evidence_level"] in {"VERIFIED_NATIVE_SUMMARY", "CARRIED_OWNER_AUDIT"},
             "Historical evidence tier",
         )
-    require(labels == {f"v{i}" for i in range(340, 351)}, "Recent execution scope")
+    require(labels == {f"v{i}" for i in range(340, 352)}, "Recent execution scope")
     fields(ledger["counts"], "SUCCESS PARTIAL FAILED STOPPED", "Run counts")
     for key, value in ledger["counts"].items():
         count(value, key)
@@ -863,7 +995,7 @@ def render_replay_panel(d: dict) -> str:
     recovery, organization = d["source_recovery"], d["organization"]
     products = "".join(
         f"<tr><th scope='row'>{html.escape(row['kind'].replace('_', ' ').lower())}</th>"
-        f"<td>{row['objects']:,}</td><td>{row['new_selection_rows']:,}</td>"
+        f"<td>{row['objects']:,}</td><td>{row['original_selection_rows']:,}</td>"
         f"<td>{row['historical_snapshot_objects']:,}</td></tr>"
         for row in recovery["products"]
     )
@@ -905,32 +1037,43 @@ restoration-manifest readback. Removing an authenticated package cache released
 bytecode cleanup released another {storage["history_bytecode_allocated_bytes_released"]:,}.
 Net free-space change is a separate measurement from verified released blocks.</p>
 <h3>Organization has measurable unfinished work.</h3>
-<p>The census visited {organization["census_files"]:,} files across
-{organization["census_root_entries"]:,} home-root entries; the
-{organization["selected_project_root_entries"]} selected project roots are a narrower scope.
-It ran before presentation moves and delivery archival, and is not a complete file-hash
-duplicate or feature-dependency inventory. The main repository held
+<p>All eight current diagnostics were authenticated. The scoped metadata census includes
+{organization["metadata_records"]:,} entries, including {organization["census_files"]:,} regular
+files and {organization["census_root_entries"]:,} immediate home entries. Those home entries
+include {organization["root_zip_files"]} ZIPs and {organization["root_pyz_files"]} PYZs.
+The {organization["selected_project_root_entries"]} selected project roots are a narrower scope.
+This is a complete metadata inventory within stated exclusions, taken before later moves;
+it does not establish the final layout, a hash of every file or a complete dependency graph.
+The main repository held
 {organization["repository_allocated_bytes"] / 1e9:.2f} GB of allocated content.</p>
-<p>{organization["physically_moved"]} notebooks and HTML files physically moved with
-compatibility links; {organization["protected_index_links"]:,} protected files gained indexed
-links and {organization["private_references_without_browse_links"]} private files retained
-non-browsable references. These outcomes do not mean every file physically moved.
+<p>The inherited notebook registry retains {organization["physically_moved"]} physical moves
+with compatibility links, {organization["protected_index_links"]:,} protected indexed links
+and {organization["private_references_without_browse_links"]} private non-browsable references.
+Those are cumulative outcomes, not new moves this invocation. They do not mean every file moved.
 No data tree was copied and moves claim zero freed content bytes.
 {organization["unresolved_scan_exceptions"]} scan exceptions remain.
 Consolidation took {organization["consolidation_seconds"]:.2f} seconds, including
-{organization["census_seconds"]:.2f} seconds for the census.</p>
+{organization["census_seconds"]:.2f} seconds for diagnostics.</p>
+<p>{organization["physical_historical_roots_moved"]} historical roots were physically moved,
+with compatibility aliases retained; {organization["root_migration_blockers"]} roots were
+preserved, including {organization["root_migration_blocker_counts"]["lease"]} lease failures.
+The {organization["exact_duplicate_candidate_groups"]:,} exact-content candidate groups have
+an upper bound of {organization["duplicate_candidate_upper_bound_bytes"] / 1e9:.3f} GB.
+None of that candidate upper bound is claimed as released storage. Already shared inodes,
+mutable path roles and unproven restore dependencies require separate treatment.</p>
 <h3>Source recovery preserves timing and market scope.</h3>
-<p>Broader unknown owned containers fell from
-{recovery["prior_unknown_owned_containers"]:,} to {recovery["remaining_unknown_owned_containers"]}.
-The complete recovery ledger records {recovery["product_ledger_objects"]:,} distinct objects.
-Its general recovered-original counter is {recovery["reported_general_recovered_counter"]:,};
-the separate counters remain visible. The {recovery["new_selection_records"]:,} new quote
-selections all came from current-sport endpoints, without historical snapshots.
-They add zero historical pregame selections and zero training admissions.</p>
+<p>All {recovery["new_verified_blocker_reads"]} remaining source bodies were read and verified,
+but broader unknown owned containers remain {recovery["remaining_unknown_owned_containers"]}.
+The unchanged cumulative V350 product ledger records {recovery["product_ledger_objects"]:,}
+distinct objects and its separate general counter remains
+{recovery["reported_general_recovered_counter"]:,}. Its
+{recovery["cumulative_product_selection_rows"]:,} current-endpoint rows were prior work.
+This invocation added {recovery["new_selection_records"]} selections,
+{recovery["new_blocker_closures"]} source closures and zero training admissions.</p>
 <div class="replay-table" tabindex="0" role="region" aria-label="Recovered product populations">
-<table><caption>Object and quote-row populations have different units.
-Original provider bodies remain private.</caption>
-<thead><tr><th>Product</th><th>Objects</th><th>New canonical rows</th>
+<table><caption>Cumulative V350 product evidence reused by this run.
+Objects and original quote rows have different units; provider bodies remain private.</caption>
+<thead><tr><th>Product</th><th>Objects</th><th>Original canonical rows</th>
 <th>Objects with historical snapshot</th></tr></thead><tbody>{products}</tbody></table></div>
 <p>{recovery["zero_canonical_row_objects"]:,} recovered objects produced zero supported
 h2h/spreads/totals rows. Of those, {recovery["event_bearing_zero_canonical_objects"]:,} contained
@@ -944,7 +1087,7 @@ unknown owned sources do not establish absence or purchase eligibility.</p>
 <h3>Count the incomplete run as incomplete.</h3>
 <p>{d["execution"].upper()} adds one PARTIAL owner outcome and zero overall successes.
 Three completed workstreams do not become three successful owner invocations.
-The eleven identified V340–V350 runs contain {ledger["counts"]["SUCCESS"]} SUCCESS,
+The twelve identified V340–V351 runs contain {ledger["counts"]["SUCCESS"]} SUCCESS,
 {ledger["counts"]["PARTIAL"]} PARTIAL, {ledger["counts"]["FAILED"]} FAILED and
 {ledger["counts"]["STOPPED"]} STOPPED statuses. This is a scoped history, not all-time totals.</p>
 <details><summary>Inspect the deduplicated recent run ledger</summary>
@@ -988,9 +1131,12 @@ listed as omissions. The two remaining negative parse checkpoints were reused.
 Legacy inventory took
 {d["systems"]["phase_seconds"]["legacy_request_inventory"]:.2f} seconds and baseline price
 restoration took {d["systems"]["phase_seconds"]["baseline_price_restoration"]:.2f} seconds.
-The first price checkpoint was created; warm owner reuse has not yet been measured.
-The 250 ms resource sampler still performed {d["systems"]["forced_resource_probes"]:,} forced
+The existing price checkpoint was authenticated and reused in
+{d["systems"]["warm_price_checkpoint_seconds"]:.3f} seconds.
+The 250 ms resource sampler performed {d["systems"]["forced_resource_probes"]:,} forced
 probes of {d["systems"]["resource_probes"]:,} total probes.
+The {d["systems"]["exact_product_registrations_reused"]:,} exact product registrations
+were reused without writes or unchanged-product requeues.
 Uninterpreted sources and broader consolidation remain unfinished.</p></details></section>"""
 
 
