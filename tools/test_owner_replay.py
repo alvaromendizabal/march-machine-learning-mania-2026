@@ -140,7 +140,7 @@ class OwnerReplayTests(unittest.TestCase):
 
     def test_hardlink_alias_removal_does_not_count_as_new_physical_savings(self):
         self.assertGreater(self.replay["storage"]["cache_files_removed"], 0)
-        self.assertEqual(self.replay["storage"]["cache_allocated_bytes_released"], 116_555_776)
+        self.assertEqual(self.replay["storage"]["cache_allocated_bytes_released"], 117_338_112)
         self.reject("storage", "cache_allocated_bytes_released", 1)
         self.assertEqual(self.replay["storage"]["unmanifested_cache_extras_preserved"], 0)
 
@@ -180,7 +180,7 @@ class OwnerReplayTests(unittest.TestCase):
     def test_increased_work_is_a_negative_reduction_not_hidden_improvement(self):
         changes = self.replay["comparison"]["reduction_percent"]
         self.assertGreater(changes["odds_seconds"], 0)
-        self.assertGreater(changes["download_bytes"], 0)
+        self.assertLess(changes["download_bytes"], 0)
         self.assertLess(changes["end_to_end_seconds"], 0)
         changes["end_to_end_seconds"] = abs(changes["end_to_end_seconds"])
         with self.assertRaises(ValueError):
@@ -206,7 +206,7 @@ class OwnerReplayTests(unittest.TestCase):
     def test_phase_success_does_not_increment_whole_run_success(self):
         ledger = self.replay["execution_ledger"]
         self.assertEqual(len(ledger["latest_completed_workstreams"]), 3)
-        self.assertEqual(ledger["counts"], {"SUCCESS": 0, "PARTIAL": 7, "FAILED": 0, "STOPPED": 4})
+        self.assertEqual(ledger["counts"], {"SUCCESS": 0, "PARTIAL": 8, "FAILED": 0, "STOPPED": 4})
         ledger["counts"]["SUCCESS"] = 3
         with self.assertRaises(ValueError):
             validate_replay(self.replay)
@@ -233,7 +233,8 @@ class OwnerReplayTests(unittest.TestCase):
                     validate_replay(changed)
 
     def test_current_quotes_cannot_become_historical_training_coverage(self):
-        self.assertEqual(self.replay["source_recovery"]["new_current_selection_records"], 3482)
+        self.assertEqual(self.replay["source_recovery"]["new_current_selection_records"], 0)
+        self.assertEqual(self.replay["source_recovery"]["cumulative_product_selection_rows"], 3482)
         self.reject("source_recovery", "new_historical_selection_records", 3482)
         self.reject("source_recovery", "current_rows_have_historical_snapshot", True)
         self.reject("source_recovery", "training_admissions", 3482)
@@ -280,8 +281,8 @@ class OwnerReplayTests(unittest.TestCase):
         self.reject("organization", "physically_moved", 2306)
 
     def test_census_scope_keeps_home_entries_distinct_from_project_roots(self):
-        self.assertEqual(self.replay["organization"]["census_files"], 578227)
-        self.assertEqual(self.replay["organization"]["census_root_entries"], 1595)
+        self.assertEqual(self.replay["organization"]["census_files"], 587969)
+        self.assertEqual(self.replay["organization"]["census_root_entries"], 1583)
         self.reject("organization", "census_root_entries", 109)
         self.reject("organization", "census_timing", "AFTER_ALL_CLEANUP_AND_PACKAGING")
 
@@ -296,13 +297,52 @@ class OwnerReplayTests(unittest.TestCase):
 
     def test_forced_probes_are_not_hidden_by_sampling_interval(self):
         systems = self.replay["systems"]
-        self.assertEqual(systems["forced_resource_probes"], 61773)
+        self.assertEqual(systems["forced_resource_probes"], 196)
         self.reject("systems", "forced_resource_probes", systems["resource_probes"] + 1)
         self.reject("systems", "resource_sampling_interval_seconds", 0)
 
-    def test_first_price_checkpoint_is_not_a_measured_warm_owner_speedup(self):
-        self.reject("systems", "warm_price_checkpoint_reuse_observed", True)
-        self.reject("systems", "price_checkpoint_created", False)
+    def test_authenticated_warm_checkpoint_is_not_a_new_full_join(self):
+        self.reject("systems", "warm_price_checkpoint_reuse_observed", False)
+        self.reject("systems", "price_checkpoint_created", True)
+        self.reject("systems", "warm_price_checkpoint_seconds", 31.31)
+
+    def test_cumulative_product_rows_cannot_be_recounted_as_new(self):
+        self.reject("source_recovery", "new_current_selection_records", 3482)
+        self.reject("source_recovery", "cumulative_product_selection_rows", 0)
+
+    def test_verified_blocker_bodies_do_not_prove_source_closure(self):
+        self.reject("source_recovery", "new_blocker_closures", 71)
+        self.reject("source_recovery", "verified_blocker_records", 70)
+
+    def test_source_structure_status_counts_cover_every_verified_body(self):
+        self.replay["source_recovery"]["diagnostic_status_counts"]["VERIFIED_JSON_STRUCTURE"] += 1
+        with self.assertRaises(ValueError):
+            validate_replay(self.replay)
+
+    def test_complete_metadata_is_not_a_final_post_action_census(self):
+        self.reject("organization", "final_post_action_census_available", True)
+        self.reject("organization", "current_diagnostic_files_verified", 7)
+
+    def test_complete_census_keeps_file_directory_and_link_denominators(self):
+        self.reject("organization", "metadata_records", 587969)
+        self.reject("organization", "root_regular_files", 1583)
+
+    def test_duplicate_upper_bound_is_not_released_space(self):
+        self.reject("organization", "duplicate_candidate_bytes_released", 4972310528)
+
+    def test_cumulative_notebook_moves_cannot_become_current_progress(self):
+        self.reject("organization", "notebook_moves_newly_recorded", 472)
+        self.reject("organization", "notebook_counts_are_cumulative", False)
+
+    def test_feature_population_cannot_replace_matched_evaluation_games(self):
+        self.reject("organization", "feature_evaluated_games", 1575)
+
+    def test_root_migration_blockers_cannot_be_hidden(self):
+        self.reject("organization", "root_migration_blockers", 0)
+        self.reject("organization", "physical_historical_roots_moved", 271)
+
+    def test_reused_products_cannot_be_claimed_as_new_acquisition(self):
+        self.reject("systems", "product_originals_requeued", 7791)
 
     def test_historical_decoder_repair_cannot_be_recounted_as_current_work(self):
         self.assertEqual(self.replay["source_transition"]["execution"], "v349")

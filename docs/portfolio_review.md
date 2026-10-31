@@ -1,6 +1,6 @@
 # Portfolio review and improvement contract
 
-**Repository:** `alvaromendizabal/march-machine-learning-mania-2026`, an independent project. **Baseline main:** `e4dbfe39d29eed96b0c23e3fb2fe78e4daa6e1f3`. Review date: October 30, 2026, Pacific time. This patch is prepared on `portfolio/verified-owner-replay-v350`. Live PR/rules checks, publication and final-main verification belong to the release receipt; local validation does not establish them. This update changes this repository only.
+**Repository:** `alvaromendizabal/march-machine-learning-mania-2026`, an independent project. **Baseline main:** `40de688b9573e30af827a93e494f18c0d6045ac3`. Review date: October 30, 2026, Pacific time. This patch is prepared on `portfolio/verified-owner-replay-v351`. Live PR/rules checks, publication and final-main verification belong to the release receipt; local validation does not establish them. This update changes this repository only.
 
 ## Scoring method and baseline
 
@@ -10,7 +10,7 @@ AFTER remains **NOT VERIFIED** until checks pass on the proposed head, merge is 
 
 | Dimension | Before /10 | Verified after /10 | Target | Evidence and remaining gap |
 |---|---:|---|---:|---|
-| Technical architecture and engineering depth | 8.7 | NOT VERIFIED | 9.9 | Modular runtime and verified reuse now have observed comparative evidence; further warm-path optimization remains. |
+| Technical architecture and engineering depth | 8.7 | NOT VERIFIED | 9.9 | Modular runtime and verified reuse now have observed comparative evidence; warm price reuse is observed, while diagnostics dominate total runtime. |
 | Scientific rigor, leakage prevention and evaluation | 9.0 | NOT VERIFIED | 9.9 | Identical 925-game cohort and retained-control decision preserved; no new prospective evaluation. |
 | ML breadth and feature engineering | 8.4 | NOT VERIFIED | 9.9 | Existing model families and lineage preserved; no newly admitted feature or fitted arm. |
 | Data provenance and reliability | 8.5 | NOT VERIFIED | 9.9 | Measured custody-gated cleanup and separate unresolved error populations; source closure incomplete. |
@@ -38,16 +38,16 @@ The repository already contains a coherent notebook-led research framework, four
 
 ## Ten highest-impact gaps
 
-1. **Source recovery is incomplete:** unknown containers fell to 71, while 3,573 requests remain unresolved and training admissions remain zero.
-2. **Current observations could be mistaken for historical features:** all 3,482 new canonical selections are current-endpoint rows without historical snapshots.
-3. **Zero canonical rows could be called empty provider bodies:** 7,677 event-bearing objects yielded no supported rows; their raw payload content is not independently public.
-4. **A faster component could hide a slower whole run:** odds improved 34.37%, while total time grew 31.93% with consolidation work.
-5. **Sampling cadence could hide forced work:** 61,773 forced probes remain despite a nominal 250 ms interval; warm price-checkpoint reuse is unmeasured.
-6. **Organization references could be called physical relocation:** 472 moves, 1,659 indexed links and 175 private references have separate accounting.
-7. **A limited census could be called complete diagnostics:** 578,227 files and 1,595 root entries do not establish exact duplicate or feature-dependency coverage; 109 selected roots are narrower still.
-8. **Disk pressure remains:** 366,530,560 allocated bytes were released, but the main repository retains 22.06 GB across necessary research and unqualified cleanup candidates.
-9. **Incomplete history and publication need explicit gates:** eleven recent runs have no overall success; older aggregate memberships are incomplete; exact-head and merged-main checks remain required.
-10. **No prospective scientific gain:** the accepted control and exposed evaluation population remain unchanged; source recovery does not create a valid model promotion.
+1. **Source closure remains incomplete:** all 71 blocker bodies were verified, but none closed; 3,573 requests remain unresolved.
+2. **Reused rows could be called new work:** 3,482 cumulative V350 selections coexist with zero V351 additions and zero training admissions.
+3. **Zero canonical rows could be called empty bodies:** 7,677 event-bearing objects yielded no supported core rows; original payloads remain private.
+4. **A faster component could hide a slower run:** odds improved 60.45%, while total runtime grew 35.98% with 582.02 seconds of consolidation.
+5. **Repeated diagnostics can dominate:** 423.68 seconds of diagnostics include 180.69 seconds of content hashing; unchanged evidence should be reused.
+6. **Home still contains visible clutter:** 1,583 immediate entries, including 591 ZIPs and 450 PYZs, appear in the pre-move census; final layout is unmeasured.
+7. **Candidate bytes could be called savings:** the 4.972 GB duplicate upper bound is unqualified; actual release is 0.243 GB and net free gain only 1.4 MB.
+8. **Aliases and inherited moves could inflate progress:** 67 roots moved with compatibility links, 204 were retained, and 472 notebook moves are cumulative prior work.
+9. **Scoped failures and publication need explicit gates:** twelve recent runs have no overall success; older overlapping categories and exact-head/main validation stay separate.
+10. **No prospective scientific gain:** the accepted control and exposed evaluation population remain unchanged; operations progress does not justify promotion.
 
 ## Focused plan and acceptance criteria
 
@@ -55,8 +55,8 @@ One integration owner edits the existing public record, validator, notebook gene
 
 | Priority | Change | Acceptance evidence |
 |---|---|---|
-| 1 | Publish V350 and retain scoped V349 comparison in `portfolio/owner_replay.json` | Nested allowlist, current-versus-historical recovery, signed regressions, presentation outcomes, census scope and deduplicated runs |
-| 2 | Extend `tools/owner_replay.py` and failure tests | 54 contracts reject false historical admission, empty-payload inference, false centralization, hidden regression and invented outcome totals |
+| 1 | Publish V351 and retain scoped V350 comparison in `portfolio/owner_replay.json` | Nested allowlist, current-versus-historical recovery, signed regressions, presentation outcomes, census scope and deduplicated runs |
+| 2 | Extend `tools/owner_replay.py` and failure tests | 64 contracts reject false current additions, source closure, candidate-byte reclamation, cumulative moves, hidden regression and invented totals |
 | 3 | Update existing case study and first-minute entry points | Same 925-game scientific outcome; measured systems gains with explicit limits |
 | 4 | Regenerate existing engineering notebook and public review | Real kernel execution, persisted comparative figure, credential-free checks and responsive layout |
 | 5 | Execute repository gates and publish one focused PR | Required canonical notebooks, quality, source/navigation checks, exact-head CI, permitted merge, final-main verification |
@@ -67,6 +67,6 @@ Public reproduction remains `python tools/review_project.py` with Python 3.12 an
 
 ## What would earn the remaining improvement
 
-Source closure and justified feature admissions, measured warm-path throughput, restoration-tested historical consolidation, actual prospective 2027 validation, owner-chosen branch enforcement and independent accessibility review remain substantive gaps. They cannot be resolved by assigning the target score or repeating a successful retrospective pipeline.
+Source closure and justified feature admissions, measured reuse of expensive diagnostics, restoration-tested historical consolidation, actual prospective 2027 validation, owner-chosen branch enforcement and independent accessibility review remain substantive gaps. They cannot be resolved by assigning the target score or repeating a successful retrospective pipeline.
 
 [Measured owner comparison](owner_replay.md) · [Review contract](engineering_review.md) · [Evidence map](evidence_map.md)
