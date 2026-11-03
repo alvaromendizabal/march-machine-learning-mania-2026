@@ -51,11 +51,21 @@ jobs:
         run: |
           node tools/test_public_demo_engine.mjs
           node tools/test_public_demo.mjs
+          node tools/test_public_demo_browser.mjs
+      - name: Render desktop and mobile with the runner's installed Chrome
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [[ "$BASE_SHA" =~ ^[a-f0-9]{40}$ && ! "$BASE_SHA" =~ ^0+$ ]]; then
+            node tools/check_public_demo_browser.mjs --baseline-ref "$BASE_SHA"
+          else
+            node tools/check_public_demo_browser.mjs
+          fi
       - name: Build and verify deterministic offline review artifacts
         run: |
           python -m unittest discover -s tools -p 'test_demo_package.py'
           python tools/package_public_demo.py
-      - name: Retain the portable Duke workbench
+      - name: Retain the portable Tournament Lab
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: tournament-lab-offline
@@ -75,6 +85,14 @@ jobs:
           name: engineering-review
           path: outputs/review/
           if-no-files-found: error
+          retention-days: 30
+      - name: Retain actual browser screenshots and rendering evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: public-demo-browser-review
+          path: outputs/browser-review/
+          if-no-files-found: warn
           retention-days: 30
       - name: Retain content hashes for the reviewed demo
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7

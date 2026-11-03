@@ -1,7 +1,8 @@
-"""Assemble a public employer review without private data, credentials, or fitting.
+"""Assemble an employer review without credentials, private data, or private fitting.
 
 Default mode requires only Python 3.12 and Node. Optional notebook generation uses
-the locked development environment and a real Jupyter kernel.
+the locked development environment and a real Jupyter kernel. The explicitly
+synthetic temporal example performs three actual numerical fits on authored data.
 """
 
 from __future__ import annotations
@@ -28,6 +29,8 @@ from qualification_frontier import (
     summarize_frontier,
 )
 from reliability_demo import demonstrate
+from source_readiness import SOURCE_READINESS, load_source_readiness, render_source_panel
+from temporal_model_demo import DEFAULT_OUTPUT, calibration_svg, run_demo
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "portfolio/acquisition_progress.json"
@@ -41,6 +44,55 @@ def sha(path: Path) -> str:
 
 def load_snapshot() -> dict:
     return validate_snapshot(json.loads(SOURCE.read_text()))
+
+
+def render_temporal_panel(evaluation: dict) -> str:
+    """Render actual synthetic learning separately from private owner aggregates."""
+    require(evaluation["evidence_scope"] == "SYNTHETIC_ONLY", "Synthetic scope missing")
+    require(evaluation["owner_research_fits"] == 0, "Synthetic work is not owner research")
+    metrics = evaluation["pooled_game_weighted"]
+    rows = "".join(
+        f"<tr><th scope='row'>{fold['evaluation_season']}</th>"
+        f"<td>{', '.join(map(str, fold['training_seasons']))}</td>"
+        f"<td>{fold['physical_training_games']}</td>"
+        f"<td>{fold['physical_evaluation_games']}</td>"
+        f"<td>{evaluation['per_season'][str(fold['evaluation_season'])]['brier']:.6f}</td>"
+        "</tr>"
+        for fold in evaluation["folds"]
+    )
+    return (
+        "<section id='temporal-model' class='temporal-panel' aria-labelledby='temporal-title'>"
+        "<div class='eyebrow'>Runnable learning system · synthetic only</div>"
+        "<h2 id='temporal-title'>A model that really trains. A boundary you can test.</h2>"
+        "<p>Fit a regularized logistic model on earlier fictional seasons, freeze its "
+        "predictions, then score later seasons. Scaling sees training rows only; late "
+        "observations and unavailable labels are rejected. This compact teaching "
+        "implementation is independent of the private competition system.</p>"
+        "<div class='grid'><article><span>Actual synthetic fits</span>"
+        f"<strong>{evaluation['synthetic_model_fits']}</strong>"
+        "<span>Zero owner research fits; no private data</span></article>"
+        "<article><span>Synthetic out-of-season games</span>"
+        f"<strong>{metrics['physical_games']}</strong>"
+        "<span>One forecast per physical game</span></article>"
+        "<article><span>Synthetic Brier / log loss</span>"
+        f"<strong class='metric-pair'>{metrics['brier']:.4f} / {metrics['log_loss']:.4f}</strong>"
+        "<span>Teaching diagnostics, not NCAA results</span></article></div>"
+        "<div class='replay-table' tabindex='0' role='region' "
+        "aria-label='Synthetic temporal folds'>"
+        "<table><caption>Expanding windows; fixed teaching settings, no evaluation tuning</caption>"
+        "<thead><tr><th scope='col'>Forecast season</th><th scope='col'>Training seasons</th>"
+        "<th scope='col'>Training games</th><th scope='col'>Evaluation games</th>"
+        "<th scope='col'>Synthetic Brier</th></tr></thead><tbody>"
+        + rows
+        + "</tbody></table></div><figure class='reliability-figure'>"
+        + calibration_svg(evaluation).decode()
+        + "<figcaption>Five fixed probability bins; the small authored sample is not "
+        "evidence of prospective calibration or competitive advantage.</figcaption></figure>"
+        "<p>The public artifacts include the complete fictional inputs, predictions, "
+        "fitted coefficients, training-only scalers and exact content manifest. "
+        "The existing unfitted rating example remains a separate baseline.</p>"
+        "<p><code>python tools/temporal_model_demo.py --check</code></p></section>"
+    )
 
 
 def render_report(report: dict) -> str:
@@ -70,6 +122,9 @@ def render_report(report: dict) -> str:
         "frontier": render_frontier_panel(report["qualification_frontier"]),
         "owner_replay": render_replay_panel(report["owner_replay"]),
         "latest_date": html.escape(report["owner_replay"]["reviewed_on"]),
+        "current_date": html.escape(report["source_readiness"]["reviewed_on"]),
+        "source_readiness": render_source_panel(report["source_readiness"]),
+        "temporal_model": render_temporal_panel(report["synthetic_temporal_model"]),
     }
     return Template((ROOT / "tools/review_template.html").read_text()).substitute(values)
 
@@ -84,6 +139,8 @@ def run_review(output: Path) -> dict:
     history = summarize_history(load_history())
     frontier = summarize_frontier(load_frontier(), d)
     replay = load_replay()
+    source_readiness = load_source_readiness()
+    temporal_model = run_demo(DEFAULT_OUTPUT, check=True)
     score = json.loads(SCORE.read_text())
     require(
         score["record_kind"] == "NORMALIZED_HISTORICAL_KAGGLE_RESULT"
@@ -95,6 +152,32 @@ def run_review(output: Path) -> dict:
         (
             "Synthetic forecast and scoring",
             [sys.executable, "tools/reproduce_public.py", "--check"],
+        ),
+        (
+            "Actual synthetic training, time splits and inference contracts",
+            [
+                sys.executable,
+                "-m",
+                "unittest",
+                "discover",
+                "-s",
+                "tools",
+                "-p",
+                "test_temporal_model_demo.py",
+            ],
+        ),
+        (
+            "Current V019 source-custody and eligibility boundaries",
+            [
+                sys.executable,
+                "-m",
+                "unittest",
+                "discover",
+                "-s",
+                "tools",
+                "-p",
+                "test_source_readiness.py",
+            ],
         ),
         (
             "Historical receipt arithmetic",
@@ -198,8 +281,10 @@ def run_review(output: Path) -> dict:
         "execution_history": history,
         "qualification_frontier": frontier,
         "owner_replay": replay,
+        "source_readiness": source_readiness,
         "scored_result": score,
         "synthetic_reliability": reliability,
+        "synthetic_temporal_model": temporal_model,
         "checks": checks,
         "source_hashes": {
             "acquisition_progress.json": sha(SOURCE),
@@ -207,9 +292,16 @@ def run_review(output: Path) -> dict:
             "qualification_frontier.json": sha(FRONTIER),
             "owner_replay.json": sha(REPLAY),
             "kaggle_record.json": sha(SCORE),
+            "source_readiness.json": sha(SOURCE_READINESS),
+            "tools/source_readiness.py": sha(ROOT / "tools/source_readiness.py"),
+            "tools/temporal_model_demo.py": sha(ROOT / "tools/temporal_model_demo.py"),
+            "examples/temporal_model_demo/evaluation.json": sha(DEFAULT_OUTPUT / "evaluation.json"),
+            "examples/temporal_model_demo/manifest.json": sha(DEFAULT_OUTPUT / "manifest.json"),
         },
         "network_requests": 0,
         "private_model_fits": 0,
+        "synthetic_example_model_fits": 3,
+        "fit_count_scope": "Three example folds; contract-test fits are separate synthetic tests.",
     }
     (output / "review.json").write_text(json.dumps(report, indent=2) + "\n")
     (output / "index.html").write_text(render_report(report))
@@ -233,13 +325,23 @@ def build_notebook(kernel: str) -> dict:
         **Alvaro Mendizabal · source qualification · reproducible evaluation · reliable execution**
 
         Three evidence classes remain distinct: an inherited retrospective scored result,
-        dated owner-execution aggregates, and an independently authored synthetic reliability
-        example. This notebook executes public checks; private recipes and source banks
-        stay private.
+        dated owner-execution aggregates, and independently authored synthetic examples.
+        This notebook executes three actual synthetic model fits and the recovery contract.
+        No owner research fit is created; private recipes and source banks stay private.
+
+        ## Current source audit: integrity is necessary, not sufficient
+
+        V019 verified all 67 registered source bodies. It remains **PARTIAL**: one payload
+        reached the JSON scalar-size guard; one Parquet body is schema-only; seven tiny text
+        members inside ZIPs were hashed but not semantically interpreted. Fifty-three distinct
+        container analyses are not 53 fully qualified sources. There are still 3,573 unresolved
+        requests and zero new admitted historical features or private model fits.
+
+        These public aggregate checks do not reread the private bodies or manufacture clocks.
         """),
         code("""
         from pathlib import Path
-        import sys, json
+        import sys, json, io, base64, hashlib
         root = Path.cwd()
         if not (root / 'tools').is_dir():
             root = root.parent
@@ -248,17 +350,125 @@ def build_notebook(kernel: str) -> dict:
         from evidence_history import load_history, summarize_history
         from qualification_frontier import load_frontier, summarize_frontier
         from reliability_demo import demonstrate
+        from source_readiness import load_source_readiness
         import pandas as pd
+        import matplotlib.pyplot as plt
+        import plotly.graph_objects as go
         from IPython.display import display
         d = load_snapshot()
         history = summarize_history(load_history())
         frontier = summarize_frontier(load_frontier(), d)
-        display(pd.DataFrame(d['box_scores']['by_season']))
-        print('Execution status:', d['status'])
-        print('Strict historical admissions:', d['box_scores']['strict_historical_admissions'])
+        source = load_source_readiness()
+        source_audit = source['source_audit']
+        print('Current source audit:', source['execution'], source['status'])
+        display(pd.DataFrame([{
+            'Complete body verification': source_audit['complete_bodies_verified'],
+            'Registered locations': source_audit['registered_locations'],
+            'Unresolved requests': source_audit['unresolved_requests'],
+            'New historical features': source_audit['historical_features_admitted'],
+            'New owner fits': source_audit['new_private_model_fits']}]))
+        source_categories = ['JSON traversed', 'ZIP inspected', 'Parquet schema only',
+                             'Prior content analysis reused', 'Payload interpretation failed']
+        source_counts = [source_audit['json_interpretations'], source_audit['zip_interpretations'],
+                         source_audit['parquet_schema_only'],
+                         source_audit['reused_interpretations'],
+                         source_audit['payload_uninterpreted']]
+        colors = ['#1c5ba8', '#1c5ba8', '#bf7b20', '#7389a1', '#b6484d']
+        assert sum(source_counts) == 67
+        source_plot = go.Figure(go.Bar(y=source_categories, x=source_counts, orientation='h',
+                                       marker_color=colors, text=source_counts,
+                                       textposition='outside'))
+        source_plot.update_layout(title='V019: integrity passed; semantic admission still blocked',
+                                  width=960, height=460, template='plotly_white',
+                                  xaxis_title='Registered object locations',
+                                  xaxis_range=[0, 45], margin=dict(l=240))
+        static, ax = plt.subplots(figsize=(10, 4.8), layout='constrained')
+        ax.barh(source_categories, source_counts, color=colors)
+        for index, count in enumerate(source_counts):
+            ax.text(count + .4, index, str(count), va='center')
+        ax.set(xlim=(0, 45), xlabel='Registered object locations',
+               title='V019: integrity passed; semantic admission still blocked')
+        image = io.BytesIO()
+        static.savefig(image, format='png', dpi=120)
+        plt.close(static)
+        display({'application/vnd.plotly.v1+json': json.loads(source_plot.to_json()),
+                 'image/png': base64.b64encode(image.getvalue()).decode()}, raw=True)
+        print('ZIP inspection includes 7 tiny text members not semantically interpreted.')
+        print('Actual billing:', source['resources']['aws_cost'])
+        print('V018 completed frozen replay, 925 games; all later labels exposed:')
+        display(pd.DataFrame(source['matched_replay']['aggregate_scores']).set_index('arm'))
+        print('218 feature-bearing games; 707 unchanged control fallbacks; no promotion.')
+        print('Both candidates passed 0/5 screens; every paired interval includes zero.')
+        print('Aggregate source SHA-256:', hashlib.sha256(
+            (root / 'portfolio/source_readiness.json').read_bytes()).hexdigest())
         """),
         md("""
-        ## Latest owner replay: the accepted control still wins development
+        ## Actual learning on an inspectable, fictional temporal fixture
+
+        The public model really fits coefficients: train-only symmetric scaling followed by
+        L2-regularized logistic regression. The configuration is fixed before evaluation:
+        250 gradient steps, learning rate 0.12, penalty 0.04, no early stopping or search.
+        Expanding training windows use only earlier seasons and labels available before fitting.
+        Three later seasons contribute 66 physical games each, for 198 synthetic forecasts.
+
+        Mirrored representations receive half weight, retain one physical-game unit and enforce
+        team-order symmetry. The latest observation must have been published by the forecast
+        cutoff, at least one hour before the game. Outcome fields cannot enter inference.
+        This is a separate teaching implementation, not a public version of the private recipe.
+
+        The following cell **executes all three fits**, freezes predictions before scoring and
+        displays actual results. Dates are authored fixture clocks, not historical source proof.
+        Synthetic scores are not NCAA performance, a new submission or prospective validation.
+        """),
+        code("""
+        from temporal_model_demo import run_demo
+        learned = run_demo()
+        assert learned['evidence_scope'] == 'SYNTHETIC_ONLY'
+        assert learned['synthetic_model_fits'] == 3 and learned['owner_research_fits'] == 0
+        assert learned['network_requests'] == learned['private_artifacts_read'] == 0
+        display(pd.DataFrame(learned['folds'])[[
+            'evaluation_season', 'training_seasons', 'physical_training_games',
+            'physical_evaluation_games', 'train_evaluation_ID_intersection',
+            'training_labels_available_before_fit', 'scaler_fit_on_training_only']])
+        display(pd.DataFrame(learned['per_season']).T)
+        display(pd.DataFrame([learned['pooled_game_weighted']])
+                .rename(index={0: 'Synthetic pooled'}))
+        bins = [item for item in learned['reliability']['bins'] if item['count']]
+        x = [item['mean_prediction'] for item in bins]
+        y = [item['observed_frequency'] for item in bins]
+        counts = [item['count'] for item in bins]
+        calibration = go.Figure()
+        calibration.add_scatter(x=[0, 1], y=[0, 1], mode='lines', name='Reference diagonal',
+                                line=dict(color='#7389a1', dash='dash'))
+        calibration.add_scatter(x=x, y=y, mode='lines+markers', name='Synthetic reliability',
+                                text=[f'n={count}' for count in counts],
+                                line=dict(color='#008477'), marker_size=10)
+        calibration.update_layout(title='Synthetic only: does confidence match frequency?',
+                                   width=960, height=500, template='plotly_white',
+                                   xaxis_title='Mean forecast probability',
+                                   yaxis_title='Observed frequency',
+                                   xaxis_range=[0, 1], yaxis_range=[0, 1])
+        static, ax = plt.subplots(figsize=(10, 5.2), layout='constrained')
+        ax.plot([0, 1], [0, 1], '--', color='#7389a1', label='Reference diagonal')
+        ax.plot(x, y, '-o', color='#008477', label='Synthetic reliability')
+        for px, py, count in zip(x, y, counts):
+            ax.annotate(f'n={count}', (px, py), xytext=(8, 8), textcoords='offset points')
+        ax.set(xlim=(0, 1), ylim=(0, 1), xlabel='Mean forecast probability',
+               ylabel='Observed frequency',
+               title='Synthetic only: does confidence match frequency?')
+        ax.legend(loc='lower right')
+        image = io.BytesIO()
+        static.savefig(image, format='png', dpi=120)
+        plt.close(static)
+        display({'application/vnd.plotly.v1+json': json.loads(calibration.to_json()),
+                 'image/png': base64.b64encode(image.getvalue()).decode()}, raw=True)
+        print('Small authored sample, five fixed bins; not a calibration guarantee.')
+        print('Synthetic prediction SHA-256:', learned['forecast_pin_before_scoring']['sha256'])
+        print('Generator SHA-256:', hashlib.sha256(
+            (root / 'tools/temporal_model_demo.py').read_bytes()).hexdigest())
+        """),
+        md("""
+        ## Historical owner replay: the accepted control still wins development
 
         The October 30 V351 run (Pacific time) reused 302 fitted operations and completed
         the 925-game matched research replay without new fits. The overall run remains PARTIAL
@@ -290,7 +500,7 @@ def build_notebook(kernel: str) -> dict:
         print('Completed workstreams counted separately:', ledger['latest_completed_workstreams'])
         """),
         md("""
-        ## Faster source work, with consolidation cost still visible
+        ## Historical systems comparison: consolidation cost stays visible
 
         The same 302 fitted operations and accepted scientific result were preserved.
         End-to-end elapsed time grew 35.98%, from 533.10 to 724.91 seconds.
@@ -316,9 +526,11 @@ def build_notebook(kernel: str) -> dict:
         training admissions. Zero supported core rows do not prove empty provider payloads.
         Forced resource probes fell from 61,773 to 196; unchanged product requeues were zero.
 
-        The recent twelve-run ledger has zero SUCCESS, eight PARTIAL and four STOPPED outcomes.
+        That dated twelve-run ledger has zero SUCCESS, eight PARTIAL and four STOPPED outcomes.
         Three completed workstreams do not create an overall success. Older V48 aggregate
         categories overlap; missing intervening history keeps current all-time totals unknown.
+        V352 later added another PARTIAL. This historical chart is not the current V019 census,
+        a new run count or evidence that the current source debt has closed.
         """),
         code("""
         import io, base64
@@ -491,7 +703,8 @@ def build_notebook(kernel: str) -> dict:
         then reuses all four without recomputing qualification. It rejects altered checkpoint
         content. Tests separately spy on actual qualification calls: cold four, stop one,
         resume three, warm zero. Input fingerprints and digests are still verified on reuse.
-        Late and unknown timestamps never become eligible. No network or model fitting occurs.
+        Late and unknown timestamps never become eligible. This recovery example does not fit
+        a model; the three actual synthetic fits above remain a separate public demonstration.
         """),
         code("""
         result = demonstrate()
@@ -499,7 +712,7 @@ def build_notebook(kernel: str) -> dict:
         assert result['warm_computed'] == 0 and result['corruption_rejected']
         assert result['qualification_counts'] == {
             'ELIGIBLE': 2, 'LATE_SOURCE': 1, 'UNKNOWN_TIMING': 1}
-        print('ENGINEERING_REVIEW_COMPLETE — public evidence; zero model fits')
+        print('ENGINEERING_REVIEW_COMPLETE — zero owner fits; three synthetic example fits')
         """),
     ]
     book = nb.v4.new_notebook(
@@ -514,18 +727,19 @@ def build_notebook(kernel: str) -> dict:
     require(not any(o.output_type == "error" for o in outputs), "Notebook execution failed")
     require("ENGINEERING_REVIEW_COMPLETE" in str(book.cells[-1].outputs), "Notebook incomplete")
     require(
-        sum("application/vnd.plotly.v1+json" in o.get("data", {}) for o in outputs) == 4,
+        sum("application/vnd.plotly.v1+json" in o.get("data", {}) for o in outputs) == 6,
         "Persisted interactive figure missing",
     )
-    require(sum("image/png" in o.get("data", {}) for o in outputs) == 4, "Static fallback missing")
+    require(sum("image/png" in o.get("data", {}) for o in outputs) == 6, "Static fallback missing")
     NOTEBOOK.write_text(nb.writes(book))
     return {
         "status": "PASS",
         "actual_kernel_execution": True,
-        "code_cells": 7,
-        "plotly_outputs": 4,
-        "png_fallbacks": 4,
-        "model_fits": 0,
+        "code_cells": sum(cell.cell_type == "code" for cell in book.cells),
+        "plotly_outputs": 6,
+        "png_fallbacks": 6,
+        "synthetic_model_fits": 3,
+        "owner_research_fits": 0,
         "notebook_sha256": sha(NOTEBOOK),
     }
 

@@ -2,14 +2,16 @@
 
 **Alvaro Mendizabal · ML engineering, data systems and applied probability**
 
-The project makes three different kinds of evidence inspectable. They answer different questions and are checked separately.
+The project makes historical scoring, dated owner aggregates and runnable synthetic engineering inspectable. They answer different questions and are checked separately.
 
 | Evidence class | What is public | What it establishes |
 |---|---|---|
 | Historical scored result | Normalized Kaggle record: **0.1034347**, submission 57122407 | Recorded retrospective scoring; no prospective claim or new account query |
-| Latest owner replay | October 30 V351 allowlisted aggregates (Pacific) | Matched-game result, retained-control decision, fit reuse and observed storage/runtime accounting |
+| Current source audit | November 3 V019 allowlisted aggregates | 67 complete body verifications, a partial interpretation outcome, unchanged debt and zero new eligibility |
+| Earlier matched replay | V018 frozen 925-game aggregate comparison | Descriptive paired comparison; exposed later seasons and no model promotion |
+| Historical owner replay | October 30 V351 allowlisted aggregates (Pacific) | Earlier matched result, fit reuse and observed storage/runtime accounting; retained as a dated scope |
 | Dated acquisition | October 26 V326 source-qualification aggregates | Earlier coverage and residual gates; retained as a separate historical scope |
-| Runnable engineering | Authored synthetic observations, recovery example, forecast/scoring example and bracket engine | Executable contracts on public inputs; no claim of private-pipeline parity |
+| Runnable engineering | Actual synthetic temporal model, unfitted forecast/scoring example, recovery example and bracket engine | Three real synthetic fits plus executable contracts; no claim of private-pipeline parity |
 
 [Featured score](champion_result.md) · [Aggregate snapshot](../portfolio/acquisition_progress.json) · [Executed notebook](../portfolio/engineering_review.ipynb)
 
@@ -21,13 +23,21 @@ From the repository root with Python 3.12 and Node:
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html**. Its machine-readable companion is **outputs/review/review.json**. Eleven checks execute the synthetic forecast/scoring lab, earlier scored-receipt arithmetic, recovery failure contracts, current aggregate boundaries, owner replay and storage accounting, execution-history accounting, qualification-frontier validation, actual frontier controls, exact bracket engine, actual demo handlers, and deterministic offline packaging. A failed check makes the review fail and retains its log.
+Open **outputs/review/index.html**. Its machine-readable companion is **outputs/review/review.json**. The runner first reconstructs and fits the three-fold synthetic temporal example and verifies its six committed artifacts exactly. Thirteen checks then execute the synthetic forecast/scoring lab, actual-learning contracts, current V019 source-readiness contracts, earlier scored-receipt arithmetic, recovery failure contracts, historical aggregate boundaries, owner replay/storage accounting, execution history, qualification frontier, actual frontier controls, exact bracket engine, actual demo handlers, and deterministic offline packaging. A failed subprocess check makes the review fail and retains its log. Invalid aggregate contracts or mismatched committed synthetic artifacts fail before the report is issued.
 
 No credentials, source download, model artifact or Python package installation is needed. Optional notebook regeneration uses the project's locked development environment. The browser demo still packages exactly five reviewed static source files.
 
-## Latest owner replay and data readiness
+## Current audit and actual synthetic learning
 
-The [V351 aggregate record](../portfolio/owner_replay.json) records 302 fitted operations reused, zero new fits, and a 925-game matched research study. The report shows development and already-exposed later Brier side by side and retains the accepted control. It never labels the replay as a fresh holdout. The validator rejects changed populations, overlapping seasons, nonfinite probabilities, unsupported promotion, private nested fields and incorrect storage/request partitions. [Full evidence and limitations](owner_replay.md)
+The [current V019 aggregate record](../portfolio/source_readiness.json) is explicitly PARTIAL. All 67 original source bodies were verified; 54 distinct content identities yielded 53 container analyses and one `JSON_SCALAR_SIZE_BOUND` interruption. Seven ZIP text members were not semantically interpreted, and one Parquet body was schema-only. Complete body custody is not historical feature eligibility: 3,573 requests remain unresolved, with zero exact new request matches, debt closures, new admitted features or owner model fits. The dated metadata snapshot is not relabeled as a current census. [Source readiness and limitations](source_readiness.md)
+
+The same panel preserves V018's completed frozen replay separately: 925 games, 218 feature-bearing, 523 development and 402 already-exposed later games. Both candidates passed 0/5 development screens; all paired intervals include zero. No candidate is promoted. Public aggregate arithmetic is not a reconstruction of the withheld private predictions or a public bootstrap replay.
+
+The [learned temporal demo](temporal_model_demo.md) is executable with no credentials or third-party Python packages. Three real L2-logistic fits use expanding earlier fictional seasons and train-only scaling, then freeze 198 predictions before evaluation. Fixed teaching hyperparameters, exact physical-game identity, pregame observation clocks, available training labels and swap symmetry are tested. Its synthetic Brier 0.17836297204902107 and log loss 0.5332119916892536 are teaching diagnostics—not NCAA results. The exact inputs, coefficients, scalers, predictions, metrics and manifest are public. Owner research fits remain zero; contract-test fits are separately synthetic.
+
+## Historical owner replay and systems evidence
+
+The [V351 aggregate record](../portfolio/owner_replay.json) records 302 fitted operations reused, zero new fits, and an earlier 925-game matched research study. It is not merged into current invocation counters or relabeled as V018. The report shows development and already-exposed later Brier side by side and retains the accepted control. It never labels the replay as a fresh holdout. The validator rejects changed populations, overlapping seasons, nonfinite probabilities, unsupported promotion, private nested fields and incorrect storage/request partitions. [Full evidence and limitations](owner_replay.md)
 
 Odds reconciliation improved from 201.17 to 79.57 seconds; authenticated warm price reuse took 0.107 seconds. Total runtime grew from 533.10 to 724.91 seconds as consolidation took 582.02 seconds. The eight current diagnostics contain 650,791 metadata records, with 587,969 regular files and 1,583 immediate home entries, before later moves. There were 67 root moves and 204 preserved roots. Duplicate groups carry a 4,972,310,528-byte candidate upper bound, separate from the 243,220,480 bytes actually released. Final free space was 2,647,855,104 bytes. All 71 source blockers remain, with zero new selections or training admissions. Sixty-four accounting contracts reject false current-row additions, false source closure, candidate-byte reclamation, erased blockers and cumulative notebook moves counted as new work. The twelve recent invocations remain zero SUCCESS, eight PARTIAL and four STOPPED. Older overlapping counters and missing history stay separate.
 
@@ -64,7 +74,7 @@ Writes use a temporary file, file synchronization and atomic replacement. These 
 
 ## Notebook review
 
-The [engineering review notebook](../portfolio/engineering_review.ipynb) executes seven code cells, displays the latest matched scorecards and a measured systems comparison, numerical season gaps, qualification over successive executions, and the edition-level qualification frontier. It persists four interactive Plotly figures with PNG fallbacks and executes the recovery demonstration. CI executes the notebook with the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
+The [engineering review notebook](../portfolio/engineering_review.ipynb) executes eight code cells. It starts with the current V019 partial-source audit and V018 matched aggregates, then actually fits the three synthetic temporal models. It retains the historical V351 systems comparison, numerical season gaps, qualification history and edition-level frontier in explicitly dated sections. Six interactive Plotly figures persist with six PNG fallbacks; the final cell executes the recovery demonstration. Source and generator pins are displayed. CI executes the notebook with the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
 
 ## Questions this project is ready to discuss
 

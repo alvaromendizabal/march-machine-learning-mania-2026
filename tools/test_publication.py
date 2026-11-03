@@ -58,6 +58,18 @@ class ContentTests(unittest.TestCase):
         ).encode()
         self.assertEqual(inspect_blob("portfolio/release.json", raw), [])
 
+    def test_cloud_location_blocked_without_printing_private_value(self):
+        location = "s3:" + "//fictional-private-bucket/owned/body.json"
+        findings = inspect_blob("docs/notes.md", location.encode())
+        self.assertEqual(findings, ["private cloud locator requires separate publication review"])
+        self.assertNotIn(location, str(findings))
+
+    def test_account_bearing_bucket_blocked(self):
+        bucket = "sagemaker-" + "fictional-" + "123456789012" + "-us-west-2"
+        self.assertTrue(
+            inspect_blob("reports/example.json", json.dumps({"bucket": bucket}).encode())
+        )
+
     def test_existing_public_recipe_allowed(self):
         raw = json.dumps(
             {"weights": [0.25, 0.75], "feature_names": ["seed", "elo"], "threshold": 0.6}

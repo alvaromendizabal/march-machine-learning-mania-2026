@@ -1,72 +1,66 @@
-# Portfolio review and improvement contract
+# Employer-facing review and acceptance rubric
 
-**Repository:** `alvaromendizabal/march-machine-learning-mania-2026`, an independent project. **Baseline main:** `40de688b9573e30af827a93e494f18c0d6045ac3`. Review date: October 30, 2026, Pacific time. This patch is prepared on `portfolio/verified-owner-replay-v351`. Live PR/rules checks, publication and final-main verification belong to the release receipt; local validation does not establish them. This update changes this repository only.
+**Independent repository:** `alvaromendizabal/march-machine-learning-mania-2026`
 
-## Scoring method and baseline
+**Baseline main:** `0e4212030a32bf4b1f1295eda986bd4b1bd2fbcf`
 
-The baseline carries forward the prior release’s verified editorial AFTER assessment at the baseline commit, using the same twelve equally weighted dimensions. This evidence update proposes no automatic numerical increase; signed regressions and incomplete outcomes improve accountability without creating new scientific evidence. Zero means absent; 5 means significant gaps; 8 means strong reviewable evidence with material limits; 9 means comprehensive and verified; 9.9 requires only negligible remaining gaps. The target is a goal, not an automatic score.
+**Review date:** November 3, 2026. This is an editorial technical assessment, not a recruiter survey or an objective industry ranking.
 
-AFTER remains **NOT VERIFIED** until checks pass on the proposed head, merge is permitted and completed, and final main is independently checked. The final release report records those outcomes. Local validation alone cannot establish publication.
+## Same rubric before and after
 
-| Dimension | Before /10 | Verified after /10 | Target | Evidence and remaining gap |
-|---|---:|---|---:|---|
-| Technical architecture and engineering depth | 8.7 | NOT VERIFIED | 9.9 | Modular runtime and verified reuse now have observed comparative evidence; warm price reuse is observed, while diagnostics dominate total runtime. |
-| Scientific rigor, leakage prevention and evaluation | 9.0 | NOT VERIFIED | 9.9 | Identical 925-game cohort and retained-control decision preserved; no new prospective evaluation. |
-| ML breadth and feature engineering | 8.4 | NOT VERIFIED | 9.9 | Existing model families and lineage preserved; no newly admitted feature or fitted arm. |
-| Data provenance and reliability | 8.5 | NOT VERIFIED | 9.9 | Measured custody-gated cleanup and separate unresolved error populations; source closure incomplete. |
-| Reproducibility and documentation | 8.9 | NOT VERIFIED | 9.9 | One arithmetic source feeds strict validator, comparison table and executed notebook. |
-| Testing, CI/CD and merge safety | 9.0 | NOT VERIFIED | 9.9 | New adversarial accounting tests; exact-head CI and merged-main verification still required. |
-| Security, privacy, licenses and protected IP | 8.9 | NOT VERIFIED | 9.9 | New public systems record is allowlisted, contains no cloud locators, and separates withheld payload authentication. |
-| Interactive UX and accessibility | 8.7 | NOT VERIFIED | 9.9 | Existing review exposes scoped comparison and retained exceptions; independent assistive-technology audit remains. |
-| Visual design and professional polish | 8.8 | NOT VERIFIED | 9.9 | Persisted comparative chart, exact table and responsive evidence panel; no fabricated progress. |
-| Five-minute employer review experience | 8.9 | NOT VERIFIED | 9.9 | Visible measured speed, storage and integrity tradeoffs joined with honest unchanged science. |
-| Four-project consistency and maintainability | 8.6 | NOT VERIFIED | 9.9 | Independent repository, stable aggregate filename and shared rendering source; no cross-project score invented. |
-| Hiring relevance for ML Engineer, AI Engineer and Data Scientist | 9.0 | NOT VERIFIED | 9.9 | Concrete performance and lossless-storage case study strengthens systems evidence while preserving scientific judgment. |
-| **Equal-weight overall mean** | **8.783** | **NOT VERIFIED** | **9.9** | Independent-repository assessment. |
+Twelve dimensions are equally weighted. A 5 has significant gaps; 8 has strong inspectable work with material limits; 9 is comprehensive and reviewable; 9.9 requires only negligible remaining gaps. The requested 9.9 is the goal, not an automatic rating. The baseline below is a fresh review of the actual current main, not an inherited numerical endorsement.
 
-### Role-specific baseline
+Candidate-after ratings are conditional on the focused change passing exact-head CI, permitted merge and merged-main verification. **They are not a claim that this document itself proves those remote events.** The release receipt supplies commit, PR and check identities. Local tests alone cannot establish publication.
 
-| Role | Before /10 | Verified after | Evidence and limit |
-|---|---:|---|---|
-| Machine Learning Engineer | 9.0 | NOT VERIFIED | Reusable models, chronological evaluation, recovery and pinned evidence; complete source qualification remains unfinished. |
-| AI Engineer | 8.7 | NOT VERIFIED | Concrete orchestration, APIs, custody gates and CI; no unimplemented LLM capability claimed. |
-| Data Scientist | 9.0 | NOT VERIFIED | Matched cohorts, exposed-window discipline and meaningful negatives; prospective evidence remains future work. |
+| Dimension | Before /10 | Candidate after /10 | Evidence and remaining limit |
+|---|---:|---:|---|
+| Architecture and engineering depth | 8.7 | 9.2 | Fixed selection-to-evaluation direction; train-only public pipeline and bounded source-state contracts. Distributed production service operation is not demonstrated. |
+| Scientific rigor and leakage prevention | 9.0 | 9.3 | Actual future-outcome mutation tests, matched denominators, no promotion from exposed labels. Prospective outcomes remain unavailable. |
+| ML implementation and feature engineering | 8.4 | 9.0 | Real regularized logistic fits and scaler receipts on public synthetic data complement the existing framework. No new competitive-model gain is claimed. |
+| Provenance and data reliability | 8.5 | 9.2 | Strict current source aggregate, byte/interpretation/eligibility separation and honest partial results. Original request debt remains unresolved. |
+| Reproducibility and documentation | 8.4 | 9.4 | Credential-free actual training, deterministic outputs, tests and integrated executed review. Private-pipeline parity is intentionally unavailable. |
+| Testing, CI/CD and merge discipline | 8.9 | 9.4 | New adversarial source and temporal-model tests, actual browser checks and exact-head gate. Owner branch-enforcement configuration remains unchanged. |
+| Privacy, licensing and protected implementation | 8.9 | 9.4 | Public allowlists, fictional data and explicit reproduction levels; no private bodies, cloud paths, weights or recipes added. Manual review still matters. |
+| Interactive UX and accessibility | 8.0 | 9.0 | Clear navigation, employer/scenario paths, keyboard focus and mobile review. Independent assistive-technology evaluation remains. |
+| Visual design and professional polish | 8.4 | 9.3 | Employer-first hero, restrained hierarchy, responsive cards and distinct evidence states. External design review is not claimed. |
+| Five-minute employer experience | 7.2 | 9.5 | Role-specific entry points, actual runnable fit and direct links from claims to evidence. Hiring outcomes are unknown. |
+| Independent-project maintainability | 8.6 | 9.2 | Existing engine preserved, one new source aggregate feeds strict validation and reporting, stable canonical notebooks. No other project is scored or changed. |
+| Hiring relevance | 8.7 | 9.3 | Concrete modeling, data-contract, orchestration and product evidence; no unimplemented LLM capability claimed. |
+| **Equal-weight mean** | **8.475** | **9.267** | Conditional editorial assessment, not a measured predictive metric. |
 
-## Existing strengths
+| Role | Before /10 | Candidate after /10 | Interpretation |
+|---|---:|---:|---|
+| Machine Learning Engineer | 8.8 | 9.4 | End-to-end training, validation, versioned artifacts, recovery, tests and deployment discipline |
+| Data Scientist | 8.7 | 9.2 | Clear hypotheses, population/split discipline, calibration diagnostics and retained negative findings |
+| AI Engineer | 8.3 | 8.9 | Strong ML systems and orchestration evidence; not a generative-AI application portfolio |
 
-The repository already contains a coherent notebook-led research framework, four current model families, model and source contracts, deterministic public examples, a responsive analyst lab, executed notebooks, exact-head CI and an evidence map. The previous update made the latest 925-game replay and retained-control decision inspectable. This change preserves those substantial assets and improves their systems evidence.
+## What the baseline already did well
 
-## Ten highest-impact gaps
+The repository already had a substantial maintained Python package, six canonical notebooks, model families, explicit attribution, retrospective receipts, recovery tests, a working analyst lab and CI. This change builds on that work. It does not substitute a new skeleton repo or claim earlier implementation as new.
 
-1. **Source closure remains incomplete:** all 71 blocker bodies were verified, but none closed; 3,573 requests remain unresolved.
-2. **Reused rows could be called new work:** 3,482 cumulative V350 selections coexist with zero V351 additions and zero training admissions.
-3. **Zero canonical rows could be called empty bodies:** 7,677 event-bearing objects yielded no supported core rows; original payloads remain private.
-4. **A faster component could hide a slower run:** odds improved 60.45%, while total runtime grew 35.98% with 582.02 seconds of consolidation.
-5. **Repeated diagnostics can dominate:** 423.68 seconds of diagnostics include 180.69 seconds of content hashing; unchanged evidence should be reused.
-6. **Home still contains visible clutter:** 1,583 immediate entries, including 591 ZIPs and 450 PYZs, appear in the pre-move census; final layout is unmeasured.
-7. **Candidate bytes could be called savings:** the 4.972 GB duplicate upper bound is unqualified; actual release is 0.243 GB and net free gain only 1.4 MB.
-8. **Aliases and inherited moves could inflate progress:** 67 roots moved with compatibility links, 204 were retained, and 472 notebook moves are cumulative prior work.
-9. **Scoped failures and publication need explicit gates:** twelve recent runs have no overall success; older overlapping categories and exact-head/main validation stay separate.
-10. **No prospective scientific gain:** the accepted control and exposed evaluation population remain unchanged; operations progress does not justify promotion.
+## Ten weaknesses found, and the focused response
 
-## Focused plan and acceptance criteria
-
-One integration owner edits the existing public record, validator, notebook generator, review panel and entry points. No parallel repository editors or fictitious multi-project locks are introduced.
-
-| Priority | Change | Acceptance evidence |
+| Baseline gap | Change | Acceptance evidence |
 |---|---|---|
-| 1 | Publish V351 and retain scoped V350 comparison in `portfolio/owner_replay.json` | Nested allowlist, current-versus-historical recovery, signed regressions, presentation outcomes, census scope and deduplicated runs |
-| 2 | Extend `tools/owner_replay.py` and failure tests | 64 contracts reject false current additions, source closure, candidate-byte reclamation, cumulative moves, hidden regression and invented totals |
-| 3 | Update existing case study and first-minute entry points | Same 925-game scientific outcome; measured systems gains with explicit limits |
-| 4 | Regenerate existing engineering notebook and public review | Real kernel execution, persisted comparative figure, credential-free checks and responsive layout |
-| 5 | Execute repository gates and publish one focused PR | Required canonical notebooks, quality, source/navigation checks, exact-head CI, permitted merge, final-main verification |
+| Sports-first landing hid engineering ownership | Employer-first hero, three review routes | Actual browser rendering and preserved scenario handlers |
+| Reproduction emphasized aggregate arithmetic | Added genuinely trained temporal ML example | Fold receipts, train-only scalers, deterministic predictions and leakage tests |
+| Public status stopped at V351 | Added V018/V019 scoped source status | Strict public aggregate plus current report; old V351 remains historical |
+| Custody could be mistaken for model eligibility | Separate bytes, grammar, identity, clocks and admission | Adversarial tests reject automatic debt closure or new fits |
+| Architecture suggested later evaluation fed selection | Corrected immutable policy before later observation | Diagram and protocol agree |
+| Dense operations paragraphs obscured hiring relevance | Short evidence-linked role paths and tables | README and START_HERE navigation checks |
+| Private/public reproduction limits were scattered | Explicit trained-demo and private-parity boundaries | Reproduction matrix, model card and publication scan |
+| Mobile and keyboard evidence was incomplete | Focus/navigation/overflow checks at three viewports | Real Chrome CI report and screenshots, not fake DOM-only rendering claims |
+| New UI could break an already capable engine | Preserve engine/data/app implementation | Existing exact-bracket and handler regression suites |
+| Ratings could become self-congratulatory claims | Fixed rubric and conditional release gate | Before/after evidence, exact commit checks and explicit remaining gaps |
 
-## Public and private boundary
+## Publication boundary
 
-Public reproduction remains `python tools/review_project.py` with Python 3.12 and Node. The public record contains aggregates and artifact digests. It contains no raw source bodies, cloud paths, credentials, per-game predictions, weights, exact private blends or feature recipes. The publication scan and nested allowlist provide concrete checks; they do not replace every possible license review or authenticate private publishers independently. No new third-party dataset is distributed.
+No private raw source, owner executable, Return ZIP, cloud locator, competitive weight, exact private blend or row-level competitive forecast is part of this publication. Authored synthetic records are explicitly labeled. Existing public methods retain their attribution. No new external dataset is redistributed.
 
-## What would earn the remaining improvement
+The new synthetic fits are teaching and engineering evidence—not new private owner research, source eligibility or competition improvement. V019 stays partial with zero fits; later source interpretation remains unexecuted until an authenticated owner Return establishes it.
 
-Source closure and justified feature admissions, measured reuse of expensive diagnostics, restoration-tested historical consolidation, actual prospective 2027 validation, owner-chosen branch enforcement and independent accessibility review remain substantive gaps. They cannot be resolved by assigning the target score or repeating a successful retrospective pipeline.
+## What still prevents a defensible 9.9
 
-[Measured owner comparison](owner_replay.md) · [Review contract](engineering_review.md) · [Evidence map](evidence_map.md)
+Prospective frozen-season evidence, closure of historical source-clock gaps, independent accessibility review and broader production-service evidence are substantive missing proof. They cannot be supplied by visual polish or assigning a larger number. The improvement targets make those gaps visible instead of hiding them.
+
+[Start here](../START_HERE.md) · [Architecture](architecture.md) · [Public training](temporal_model_demo.md) · [Source status](source_readiness.md)

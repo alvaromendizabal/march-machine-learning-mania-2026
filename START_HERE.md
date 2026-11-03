@@ -1,21 +1,23 @@
-# Start here · sports ML with inspectable evidence
+# Start here · inspect the engineering, then the result
 
-**Featured result: 0.1034347 Kaggle public/private Brier · submission 57122407.** [Score and scope](docs/champion_result.md)
+**Alvaro Mendizabal · independent March Machine Learning Mania**
 
-Start with the [Duke × Michigan demo](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html), then inspect the [analyst walkthrough](docs/scouting_walkthrough.md) or the [release acceptance contract](docs/reviewer_contract.md). The champions edition adds paired sensitivity, path attribution, scenario replay and print without exposing private forecasting assets.
+This is a probability-research system, not just a competition notebook. Ask three questions: what did I build, what can you run, and which conclusions does the evidence support?
 
+## Five-minute employer review
 
-**A short review path for ML engineers, data scientists and hiring teams.**
+1. **See the product:** [Tournament Lab](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html) turns synthetic assumptions into bracket paths, sensitivity analysis and an analyst brief.
+2. **Inspect the ML:** [Temporal training example](docs/temporal_model_demo.md) fits regularized logistic models, learns preprocessing inside each training window and emits probability diagnostics. Fictional data make it fully reproducible.
+3. **Inspect a difficult engineering decision:** [Source-readiness case study](docs/source_readiness.md) explains why verified bytes alone do not admit historical features. A partial result remains partial.
+4. **Check the research claim:** [Model card](docs/model_card.md) and [score receipt](docs/champion_result.md) separate retrospective performance from future generalization.
 
-I built this project around two questions: are the probabilities useful, and can the evidence behind them be trusted? Start with an executable demonstration, then inspect the research evidence and implementation at the depth you need.
+| Hiring lens | Concrete contribution | Review entry |
+|---|---|---|
+| ML Engineer | Temporal transforms, model evaluation, artifact integrity, recovery and CI | [Training code](tools/temporal_model_demo.py), [architecture](docs/architecture.md) |
+| Data Scientist | Matched populations, development-only selection, uncertainty and negatives | [Executed engineering notebook](portfolio/engineering_review.ipynb), [protocol](docs/research_protocol.md) |
+| AI Engineer | Data contracts, bounded orchestration, reproducible releases and failure delivery | [Recovery tests](tools/test_reliability_demo.py), [source gates](tools/source_readiness.py) |
 
-## Three-minute review
-
-For a sports-first introduction, start with the [analyst walkthrough](docs/scouting_walkthrough.md). For use limits and evidence classes, read the [model card](docs/model_card.md).
-
-1. **Explore:** [Tournament Lab](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html) starts with Duke and propagates illustrative team strengths through an eight-team bracket. The calculations are exact under the demo's declared assumptions.
-2. **Understand the contribution:** [Engineering case study](docs/employer_walkthrough.md) connects source qualification, forecast construction, evaluation repairs and recoverable execution.
-3. **Check the evidence:** [Evidence map](docs/evidence_map.md) identifies the proof and limitation behind each headline result.
+AI-engineering relevance here is systems engineering for ML, not an unimplemented LLM, agent or RAG capability.
 
 ## Ten-minute technical review
 
@@ -25,38 +27,28 @@ From the repository root, with **Python 3.12 and Node**:
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html** for the executed checks and current evidence. **outputs/review/review.json** preserves the results and source hashes. This standard-library review needs no credentials, package installation or downloads. [Engineering review contract](docs/engineering_review.md)
+Open **outputs/review/index.html** and its **review.json** companion. No credentials, downloads or package installation are needed. This executes public synthetic training, aggregate validators, recovery tests and browser calculations. Synthetic fits are not counted as private owner research.
 
-| Question | Start with |
+| Question | Evidence |
 |---|---|
-| How is outcome leakage prevented? | [Synthetic forecast example](docs/public_reproduction.md), [split notebook](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) |
-| What did the author contribute? | [Engineering case study](docs/employer_walkthrough.md), [method attribution](docs/benchmark_comparison.md#method-lineage-and-additional-work) |
-| What was actually delivered? | [Featured scored record](reports/champion_result/kaggle_record.json), [latest owner replay](portfolio/owner_replay.json) |
-| What is reproducible? | [Reproduction matrix](docs/reproduction_matrix.md), [executed engineering notebook](portfolio/engineering_review.ipynb) |
-| What happens after interruption? | [Runnable recovery example](tools/reliability_demo.py), [actual computation tests](tools/test_reliability_demo.py) |
-| Which evidence blocks the next qualification? | [Qualification frontier](docs/qualification_frontier.md), [partition validator](tools/qualification_frontier.py) |
+| Can I inspect an actual fit? | [Training code and tests](docs/temporal_model_demo.md) |
+| Can future labels change earlier forecasts? | Temporal mutation tests; [split notebook](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) |
+| What is new versus historical? | [V019 source status](portfolio/source_readiness.json), separate [V351 replay](portfolio/owner_replay.json) |
+| What stays private? | [Reproduction matrix](docs/reproduction_matrix.md) |
+| What survives interruption? | [Recovery example](tools/reliability_demo.py) and actual-call-count tests |
+| Can public claims be checked? | [Aggregate contracts](tools/source_readiness.py), [publication guard](tools/check_publication.py) |
 
-The **October 30 V351 owner replay (Pacific)** reused **302 fitted operations**, with **zero new fits** on **925 matched games**, and retained the accepted control. The overall result remains **PARTIAL**. Odds reconciliation improved **60.45%**, including authenticated **0.107-second warm price reuse**; total runtime grew **35.98%** as consolidation took **582.02 seconds**. All eight diagnostics verified, but the pre-move census still had **1,583 home entries**. Sixty-seven historical roots moved and 204 were preserved. Actual release was **0.243 GB**; the **4.972 GB duplicate upper bound is not qualified savings**. All 71 source blockers remain, with zero new selections or training admissions. The 472 notebook/HTML moves are cumulative prior work. Twelve recent outcomes remain **zero SUCCESS, eight PARTIAL and four STOPPED**. [Latest replay review](docs/owner_replay.md)
+## Focused examples
 
-The **October 26 acquisition snapshot** reports **133/221 numerical candidates**, **88 remaining**, and **102/583** qualified women's venue rows, up from 27. All prior qualifications were retained; **481** women's rows remain unresolved. The new frontier distinguishes 21 court-qualified rows lacking home context from 460 rows with both dimensions unqualified. These owner-run aggregates are separate from the scored forecast and synthetic examples. The [execution ledger](docs/execution_evidence.md) preserves the history, while the [frontier explorer](docs/qualification_frontier.md) makes the next evidence requirements inspectable.
+**Actual synthetic training:** `python tools/temporal_model_demo.py --out-dir outputs/temporal-demo` generates fictional inputs, fold-fit receipts, predictions, evaluation, a calibration SVG and manifest. [Fixed protocol](docs/temporal_model_demo.md)
 
-## A portable, offline demo
+**Portable lab:** `python tools/package_public_demo.py`, then open **outputs/public-demo/Tournament_Lab.html**. Deterministic HTML and a five-file ZIP work offline without a server or npm install.
 
-Run `python tools/package_public_demo.py`, then open **outputs/public-demo/Tournament_Lab.html** directly. Packaging verifies the public boundary first and produces deterministic HTML, a five-file ZIP and content hashes. No server, credentials or npm install is required for the packaged browser demo.
+**Browser development:** `python -m http.server 8000`, then visit **http://localhost:8000/public-demo/**. [Demo guide](docs/public_demo.md)
 
-## Browser demo locally
+## Full locked-framework review
 
-```bash
-python -m http.server 8000
-```
-
-Open **http://localhost:8000/public-demo/**. The static demo needs no build step. Check its engine and actual UI handlers with `node tools/test_public_demo_engine.mjs` and `node tools/test_public_demo.mjs`. [Demo guide](docs/public_demo.md)
-
-[Maintained scope and publication boundary](docs/PROJECT_SCOPE.md) distinguish the active framework from retired one-time report copies.
-
-## Full framework review
-
-Python **3.12.13** and the project dependencies are locked in `uv.lock`:
+Python **3.12.13** and dependencies are pinned in **uv.lock**:
 
 ```bash
 uv sync --locked --group dev
@@ -65,19 +57,17 @@ uv run --locked python -m ipykernel install --user --name march-mania
 uv run --locked python scripts/notebook.py --execute --publish
 ```
 
-Default review mode reads published aggregate evidence. Submission generation is default-off. Public framework outputs and private forecasts retain separate lineages.
+Submission generation is default-off. Public framework outputs, private forecasts and synthetic demonstrations retain separate lineages.
 
-| Notebook | Review question |
+| Canonical notebook | Review question |
 |---|---|
-| [00 — Data audit](notebooks/00_data_audit_and_preparation.ipynb) | Are tables and physical game identities coherent? |
-| [01 — Splits and snapshots](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | What was available at the prediction cutoff? |
+| [00 — Data audit](notebooks/00_data_audit_and_preparation.ipynb) | Are physical game identities and tables coherent? |
+| [01 — Splits and snapshots](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) | What was knowable before the cutoff? |
 | [02 — Feature store](notebooks/02_feature_store_and_diagnostics.ipynb) | How are features and provenance organized? |
 | [03 — Model comparison](notebooks/03_model_comparison_and_diagnostics.ipynb) | How are model families compared? |
 | [04 — Historical benchmark](notebooks/04_locked_benchmark_and_final_submission.ipynb) | What does the consumed benchmark establish? |
-| [05 — Feature research](notebooks/05_feature_research.ipynb) | How are hypotheses, ablations and failures recorded? |
+| [05 — Feature research](notebooks/05_feature_research.ipynb) | How are ablations and negative findings recorded? |
 
-These six notebooks document public-framework lineages. [Verified result](portfolio/verified_result.ipynb) documents the separate receipted retrospective submission. Historical research notebooks preserve dated experiments; they do not supersede [current evidence](docs/current_research.md).
+The featured **0.1034347 Kaggle Brier** is recorded retrospective submission 57122407. The 925-game study and historical 126-game retrospective are different populations. Synthetic scores establish no NCAA accuracy; the source audit admitted no new historical feature. No new champion or untouched holdout is claimed.
 
-## Read the results correctly
-
-The featured scored result is **0.1034347 Kaggle Brier, submission 57122407**. [Result and evidence](docs/champion_result.md). Older receipts remain archival records; the demonstration's synthetic scores establish no NCAA performance. Prospective evaluation requires a forecast frozen before future outcomes. [Evaluation disclosure](portfolio/DISCLOSURE.md)
+[Review contract](docs/engineering_review.md) · [Source status](docs/source_readiness.md) · [Scope](docs/PROJECT_SCOPE.md) · [Disclosure](portfolio/DISCLOSURE.md)

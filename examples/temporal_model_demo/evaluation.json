@@ -1,0 +1,197 @@
+{
+  "evidence_scope": "SYNTHETIC_ONLY",
+  "feature_audit": {
+    "excluded_post_cutoff_observations": 72,
+    "feature_names": [
+      "rating_difference",
+      "form_difference",
+      "rest_days_difference"
+    ],
+    "labels_received_by_feature_builder": false,
+    "latest_eligible_snapshot_rule": true,
+    "selected_team_season_observations": 72,
+    "source_observations": 216
+  },
+  "folds": [
+    {
+      "evaluation_season": 2024,
+      "physical_evaluation_games": 66,
+      "physical_training_games": 198,
+      "prediction_pin": {
+        "bytes": 15396,
+        "sha256": "43891009745a8001ec3e7edf7cea352bf9cd32e87f46e0bc7e0a504b37e8746d"
+      },
+      "predictions_frozen_before_evaluation": true,
+      "scaler_fit_on_training_only": true,
+      "train_evaluation_ID_intersection": 0,
+      "training_input_pin": {
+        "bytes": 47433,
+        "sha256": "cc19c3e3c03eee63245da5443b2b949a1c8e0e8085dd359142982ef7ca5f4b47"
+      },
+      "training_labels_available_before_fit": true,
+      "training_seasons": [
+        2021,
+        2022,
+        2023
+      ]
+    },
+    {
+      "evaluation_season": 2025,
+      "physical_evaluation_games": 66,
+      "physical_training_games": 264,
+      "prediction_pin": {
+        "bytes": 15395,
+        "sha256": "4a1e980d643541fd798557dc089166a03f53f5a836a0a214641caac7db03c6c5"
+      },
+      "predictions_frozen_before_evaluation": true,
+      "scaler_fit_on_training_only": true,
+      "train_evaluation_ID_intersection": 0,
+      "training_input_pin": {
+        "bytes": 63176,
+        "sha256": "ba2295a4934da7797e612c049ba5eeeb96b8f0b8f2cc545f863e69401c91057c"
+      },
+      "training_labels_available_before_fit": true,
+      "training_seasons": [
+        2021,
+        2022,
+        2023,
+        2024
+      ]
+    },
+    {
+      "evaluation_season": 2026,
+      "physical_evaluation_games": 66,
+      "physical_training_games": 330,
+      "prediction_pin": {
+        "bytes": 15395,
+        "sha256": "521b8cd7d8c72ce405f3fb14be25c1ee9b2c4ed2e7824504f2eb1f7da7acc1e2"
+      },
+      "predictions_frozen_before_evaluation": true,
+      "scaler_fit_on_training_only": true,
+      "train_evaluation_ID_intersection": 0,
+      "training_input_pin": {
+        "bytes": 78907,
+        "sha256": "cbc5884210717bdf16fa2fd9b284eb3cb54332fa16faf2cc1465560e5c8a4ded"
+      },
+      "training_labels_available_before_fit": true,
+      "training_seasons": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    }
+  ],
+  "forecast_pin_before_scoring": {
+    "bytes": 49803,
+    "sha256": "1728d7086ad2e7eb2753f85197ba01d7f30b9af182e5c6f7299ba2fc89202622"
+  },
+  "interpretation": "Synthetic out-of-season diagnostics, not NCAA performance evidence.",
+  "log_loss_probability_clip": 1e-15,
+  "network_requests": 0,
+  "owner_research_fits": 0,
+  "per_season": {
+    "2024": {
+      "accuracy_ties_half_credit": 0.7575757575757576,
+      "brier": 0.15372648304908176,
+      "log_loss": 0.4735758582677937,
+      "physical_games": 66,
+      "roc_auc": 0.8713886300093197
+    },
+    "2025": {
+      "accuracy_ties_half_credit": 0.696969696969697,
+      "brier": 0.1964790113851632,
+      "log_loss": 0.5783521187365721,
+      "physical_games": 66,
+      "roc_auc": 0.7765419615773509
+    },
+    "2026": {
+      "accuracy_ties_half_credit": 0.6666666666666666,
+      "brier": 0.1848834217128183,
+      "log_loss": 0.547707998063395,
+      "physical_games": 66,
+      "roc_auc": 0.7977941176470589
+    }
+  },
+  "pooled_game_weighted": {
+    "accuracy_ties_half_credit": 0.7070707070707071,
+    "brier": 0.17836297204902107,
+    "log_loss": 0.5332119916892536,
+    "physical_games": 198,
+    "roc_auc": 0.8087928153717627
+  },
+  "private_artifacts_read": 0,
+  "protocol_pin_before_fitting": {
+    "bytes": 621,
+    "sha256": "f1b90d5c71a36b20225c71395d44221e5172328a534a665335388a17d1dc2628"
+  },
+  "reference_50_percent": {
+    "accuracy_ties_half_credit": 0.5,
+    "brier": 0.25,
+    "log_loss": 0.6931471805599453,
+    "physical_games": 198,
+    "roc_auc": 0.5
+  },
+  "reliability": {
+    "bins": [
+      {
+        "count": 28,
+        "lower": 0.0,
+        "mean_prediction": 0.14500366177741925,
+        "observed_frequency": 0.07142857142857142,
+        "upper": 0.2
+      },
+      {
+        "count": 48,
+        "lower": 0.2,
+        "mean_prediction": 0.30782692756686963,
+        "observed_frequency": 0.14583333333333334,
+        "upper": 0.4
+      },
+      {
+        "count": 64,
+        "lower": 0.4,
+        "mean_prediction": 0.4927487152873277,
+        "observed_frequency": 0.46875,
+        "upper": 0.6
+      },
+      {
+        "count": 31,
+        "lower": 0.6,
+        "mean_prediction": 0.6940651228752529,
+        "observed_frequency": 0.7096774193548387,
+        "upper": 0.8
+      },
+      {
+        "count": 27,
+        "lower": 0.8,
+        "mean_prediction": 0.8527852040263847,
+        "observed_frequency": 0.8518518518518519,
+        "upper": 1.0
+      }
+    ],
+    "expected_calibration_error": 0.060004517833060614
+  },
+  "schema_version": 1,
+  "scope_limit": "Reproduces this authored example only, not private research or Kaggle scores.",
+  "synthetic_model_fits": 3,
+  "teaching_protocol": {
+    "calibration_bins": 5,
+    "evaluation_seasons": [
+      2024,
+      2025,
+      2026
+    ],
+    "iterations": 250,
+    "l2_penalty": 0.04,
+    "learning_rate": 0.12,
+    "mirrors": "Original and team-swapped rows each weight one half; one physical-game unit",
+    "model": "L2 logistic regression with zero intercept and symmetric training augmentation",
+    "scaling": "Mean and population SD fitted on symmetric training pairs only",
+    "scope": "SYNTHETIC_ONLY",
+    "selection": "Fixed teaching configuration; no evaluation-season tuning or search",
+    "training": "Expanding earlier seasons; labels available strictly before fit time"
+  },
+  "unweighted_mean_season_brier": 0.17836297204902107
+}
