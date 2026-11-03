@@ -117,7 +117,7 @@ class SourceReadinessTests(unittest.TestCase):
         self.assertNotIn("s3://", page)
 
     def test_history_and_followup_are_distinct(self):
-        self.assertEqual(self.data["schema_version"], 2)
+        self.assertEqual(self.data["schema_version"], 3)
         self.assertEqual((self.data["execution"], self.data["status"]), ("V019", "PARTIAL"))
         followup = self.data["latest_followup"]
         self.assertEqual(followup["execution"], "V020")
@@ -128,6 +128,29 @@ class SourceReadinessTests(unittest.TestCase):
 
     def test_followup_does_not_relabel_parent_success(self):
         self.reject_path(("status",), "SUCCESS")
+
+    def test_offline_qualification_is_separate_from_source_admission(self):
+        q = self.data["offline_qualification"]
+        self.assertEqual((q["execution"], q["parent_execution"]), ("V021", "V020"))
+        self.assertEqual((q["complete_content_masks"], q["complete_location_masks"]), (47, 60))
+        self.assertEqual((q["original_locations"], q["unresolved_requests"]), (67, 3573))
+        self.assertEqual(q["new_historical_feature_admissions"], 0)
+
+    def test_owner_inprocess_parity_is_not_public_fresh_process_proof(self):
+        self.reject_path(
+            ("offline_qualification", "public_inference", "fresh_subprocess_proof"), True
+        )
+
+    def test_qualification_cannot_turn_mask_completion_into_debt_closure(self):
+        self.reject_path(("offline_qualification", "new_debt_closures"), 60)
+
+    def test_zero_operation_offline_scope_is_not_cumulative_cloud_work(self):
+        self.reject_path(("offline_qualification", "operations", "s3_calls"), 4)
+
+    def test_public_owner_check_does_not_claim_private_model_parity(self):
+        self.reject_path(
+            ("offline_qualification", "public_inference", "private_model_parity_claimed"), True
+        )
 
     def test_all_recursive_objects_reject_unknown_fields(self):
         for path, value in paths(self.data):

@@ -17,7 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_READINESS = ROOT / "portfolio/source_readiness.json"
 FIELDS = {
     "root": "schema_version project reviewed_on evidence_class execution status public_scope "
-    "source_audit coverage resources matched_replay interpretation latest_followup",
+    "source_audit coverage resources matched_replay interpretation latest_followup "
+    "offline_qualification",
     "source_audit": "registered_locations complete_bodies_verified source_bytes_verified "
     "distinct_content_identities distinct_interpretations_completed reused_interpretations "
     "complete_json_container_traversals zip_text_members_semantically_uninspected "
@@ -136,6 +137,62 @@ FOLLOWUP_EXPECTED = {
     "next_action": "NO_SOURCE_REREAD_EVIDENCE_QUALIFICATION_AND_FROZEN_PUBLIC_DELIVERY_PARITY",
 }
 
+OFFLINE_QUALIFICATION_EXPECTED = {
+    "execution": "V021",
+    "parent_execution": "V020",
+    "status": "OFFLINE_QUALIFICATION_COMPLETE_GAPS_REMAIN",
+    "evidence_class": "AUDITABLE_PRIVATE_AGGREGATE",
+    "registered_stages_completed": 6,
+    "original_locations": 67,
+    "distinct_content_identities": 54,
+    "excluded_previously_closed_objects": 4,
+    "complete_content_masks": 47,
+    "complete_location_masks": 60,
+    "uninspected_archive_text_members": 7,
+    "original_request_rows": 3625,
+    "unresolved_requests": 3573,
+    "prior_semantic_duplicates": 52,
+    "new_debt_closures": 0,
+    "new_historical_feature_admissions": 0,
+    "new_private_model_fits": 0,
+    "masks_are_not_source_identity_or_feature_admission": True,
+    "public_inference": {
+        "scope": "PUBLIC_SYNTHETIC_IN_PROCESS",
+        "frozen_models": 3,
+        "label_free_predictions": 198,
+        "exact_response_byte_parity": True,
+        "new_fits": 0,
+        "new_label_scoring": 0,
+        "fresh_subprocess_proof": False,
+        "private_model_parity_claimed": False,
+    },
+    "operations": {
+        "source_rereads": 0,
+        "source_bytes_read": 0,
+        "s3_calls": 0,
+        "sts_calls": 0,
+        "provider_calls": 0,
+        "provider_purchases": 0,
+        "subprocesses": 0,
+        "blocked_offline_attempts": 0,
+    },
+    "owner_tests": {
+        "passed": 118,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "scope": "INVENTED_CONTRACT_FIXTURES_NOT_RESEARCH",
+    },
+    "resources": {
+        "body_seconds_before_packaging": 14.338099397000008,
+        "total_seconds_from_postwrite_log": 15.147032547000038,
+        "postwrite_observations_outside_sealed_return": True,
+        "cost": "UNKNOWN",
+    },
+    "next_action": "OFFLINE_PUBLIC_EXECUTION_EVIDENCE_CUSTODY_AUDIT_NO_SOURCE_REREADS_OR_REFITS",
+}
+
+
 FROZEN_HISTORY_COUNTS = {
     "source_audit": {
         "registered_locations": 67,
@@ -241,7 +298,7 @@ def validate_source_readiness(data: dict) -> dict:
             isinstance(obj, dict) and set(obj) == set(fields.split()),
             f"Unexpected or missing {section} fields",
         )
-    require_frozen_tree(data["schema_version"], 2, "schema_version")
+    require_frozen_tree(data["schema_version"], 3, "schema_version")
     require_frozen_tree(data["reviewed_on"], "2026-11-03", "reviewed_on")
     require_frozen_tree(
         data["public_scope"],
@@ -250,6 +307,9 @@ def validate_source_readiness(data: dict) -> dict:
         "public_scope",
     )
     require_frozen_tree(data["latest_followup"], FOLLOWUP_EXPECTED, "latest_followup")
+    require_frozen_tree(
+        data["offline_qualification"], OFFLINE_QUALIFICATION_EXPECTED, "offline_qualification"
+    )
     require(data["project"] == "independent_march_machine_learning_mania", "Wrong project")
     require(data["execution"] == "V019" and data["status"] == "PARTIAL", "Execution scope drift")
     require(data["evidence_class"] == "AUDITABLE_PRIVATE_AGGREGATE", "Evidence class drift")
@@ -451,6 +511,7 @@ def render_source_panel(data: dict) -> str:
     d = validate_source_readiness(data)
     a, m, followup = d["source_audit"], d["matched_replay"], d["latest_followup"]
     csv, parquet = followup["csv"], followup["parquet"]
+    q = d["offline_qualification"]
     rows = "".join(
         "<tr><th scope='row'>" + html.escape(row["arm"]) + "</th>"
         f"<td>{row['brier']:.9f}</td><td>{row['log_loss']:.9f}</td></tr>"
@@ -460,6 +521,14 @@ def render_source_panel(data: dict) -> str:
         "<section id='source-readiness' class='replay-panel' aria-labelledby='source-title'>"
         "<div class='eyebrow'>Authenticated private aggregates · November 3, 2026</div>"
         "<h2 id='source-title'>Verified bytes. Unresolved eligibility.</h2>"
+        "<p><strong>V021 completed the offline qualification audit</strong> for all "
+        f"{q['original_locations']} original locations and {q['original_request_rows']:,} "
+        "request rows, with no new source reads or private fits. "
+        f"{q['complete_content_masks']} / {q['distinct_content_identities']} content masks "
+        f"and {q['complete_location_masks']} / {q['original_locations']} location masks "
+        "are complete interpretations—not proven source identity or feature eligibility. "
+        "Three frozen public teaching models reproduced 198 label-free responses exactly "
+        "in process; the fresh-process public demonstration below is a separate scope.</p>"
         "<p>V020 completed <strong>2 / 2 bounded source diagnostics</strong>, not a model run. "
         f"The earlier parser-blocked object is complete CSV: {csv['records']:,} records, "
         f"{csv['columns']} columns and {csv['physical_lines']:,} physical lines. "
@@ -492,8 +561,10 @@ def render_source_panel(data: dict) -> str:
         "<thead><tr><th scope='col'>Registered arm</th><th scope='col'>Brier</th>"
         "<th scope='col'>Log loss</th></tr></thead><tbody>" + rows + "</tbody></table></div>"
         "</details><p>Public checks verify this aggregate contract, not withheld source bodies. "
-        "The next task is zero-source-read evidence qualification and frozen public delivery "
-        "parity. Completed source inspections and metadata reads are not repeated.</p></section>"
+        "The next bounded, zero-source-read task audits retained public CI execution evidence, "
+        "without "
+        "repeating completed source inspections, qualification algorithms or model inference. "
+        "Private source identity and clock gaps remain unresolved.</p></section>"
     )
 
 
@@ -511,6 +582,8 @@ def main() -> int:
                 "owner_execution": data["execution"],
                 "latest_followup_execution": data["latest_followup"]["execution"],
                 "latest_followup_status": data["latest_followup"]["status"],
+                "offline_qualification_execution": data["offline_qualification"]["execution"],
+                "offline_qualification_status": data["offline_qualification"]["status"],
                 "new_private_model_fits": 0,
             }
         )

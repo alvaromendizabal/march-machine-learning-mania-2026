@@ -47,6 +47,8 @@ def main() -> int:
         "tools/test_temporal_model_demo.py",
         "tools/model_delivery_demo.py",
         "tools/test_model_delivery_demo.py",
+        "tools/evidence_bundle.py",
+        "tools/test_evidence_bundle.py",
     ]
     typed_files = tomllib.loads((root / "pyproject.toml").read_text())["tool"]["mypy"]["files"]
     typed_files = [
@@ -95,6 +97,7 @@ def main() -> int:
                 "--cov=march_mania.modeling",
                 "--cov=march_mania.model_report",
                 "--cov=march_mania.publication.notebooks",
+                "--cov=march_mania.publication.evidence_bundle",
                 "--cov=march_mania.notebook_support",
                 "--cov=march_mania.publication.submission",
                 "--cov=march_mania.publication.inference",

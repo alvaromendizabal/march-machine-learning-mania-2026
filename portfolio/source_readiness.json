@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "project": "independent_march_machine_learning_mania",
   "reviewed_on": "2026-11-03",
   "evidence_class": "AUDITABLE_PRIVATE_AGGREGATE",
@@ -177,6 +177,60 @@
     "new_private_model_fits": 0,
     "accepted_control_changed": false,
     "next_action": "NO_SOURCE_REREAD_EVIDENCE_QUALIFICATION_AND_FROZEN_PUBLIC_DELIVERY_PARITY"
+  },
+  "offline_qualification": {
+    "execution": "V021",
+    "parent_execution": "V020",
+    "status": "OFFLINE_QUALIFICATION_COMPLETE_GAPS_REMAIN",
+    "evidence_class": "AUDITABLE_PRIVATE_AGGREGATE",
+    "registered_stages_completed": 6,
+    "original_locations": 67,
+    "distinct_content_identities": 54,
+    "excluded_previously_closed_objects": 4,
+    "complete_content_masks": 47,
+    "complete_location_masks": 60,
+    "uninspected_archive_text_members": 7,
+    "original_request_rows": 3625,
+    "unresolved_requests": 3573,
+    "prior_semantic_duplicates": 52,
+    "new_debt_closures": 0,
+    "new_historical_feature_admissions": 0,
+    "new_private_model_fits": 0,
+    "masks_are_not_source_identity_or_feature_admission": true,
+    "public_inference": {
+      "scope": "PUBLIC_SYNTHETIC_IN_PROCESS",
+      "frozen_models": 3,
+      "label_free_predictions": 198,
+      "exact_response_byte_parity": true,
+      "new_fits": 0,
+      "new_label_scoring": 0,
+      "fresh_subprocess_proof": false,
+      "private_model_parity_claimed": false
+    },
+    "operations": {
+      "source_rereads": 0,
+      "source_bytes_read": 0,
+      "s3_calls": 0,
+      "sts_calls": 0,
+      "provider_calls": 0,
+      "provider_purchases": 0,
+      "subprocesses": 0,
+      "blocked_offline_attempts": 0
+    },
+    "owner_tests": {
+      "passed": 118,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "scope": "INVENTED_CONTRACT_FIXTURES_NOT_RESEARCH"
+    },
+    "resources": {
+      "body_seconds_before_packaging": 14.338099397000008,
+      "total_seconds_from_postwrite_log": 15.147032547000038,
+      "postwrite_observations_outside_sealed_return": true,
+      "cost": "UNKNOWN"
+    },
+    "next_action": "OFFLINE_PUBLIC_EXECUTION_EVIDENCE_CUSTODY_AUDIT_NO_SOURCE_REREADS_OR_REFITS"
   },
   "interpretation": {
     "body_integrity_is_feature_eligibility": false,

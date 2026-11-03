@@ -18,6 +18,7 @@ The featured result is **0.1034347 retrospective Kaggle Brier**, submission 5712
 | Dated original-source acquisition | October 26: 133/221 numerical candidates, 88 remaining; 107 venue units completed and 102/583 women's rows qualified | Recovered overlay has zero strict historical admissions; this historical scope is not the latest source census |
 | Current V019 source-custody audit | 67 registered source bodies verified; 53 distinct container analyses plus one bounded parsing interruption | PARTIAL; one Parquet schema-only and seven ZIP text members uninspected; 3,573 unresolved requests, zero debt closure or new historical eligibility |
 | V020 targeted source follow-up | Complete grammar of 2,283 CSV records and all 1,629 Parquet rows inspected | Two diagnostics completed; source identity and clocks remain unproven; V019 history and 67/3,573 debts unchanged |
+| V021 offline qualification | All 67 original location and 3,625 request gates; 198 public synthetic in-process response matches | 47/54 content and 60/67 location completeness masks are not source admission; zero new reads, fits or debt closure |
 | Execution evidence ledger | Three public observations, explicit population denominators, validated additions/retractions and an interactive offline report | Checks aggregate accounting; withheld providers are not independently authenticated by public reproduction |
 | Qualification frontier | Nine frozen editions, disjoint qualification states, exact snapshot binding, and tested focus/order controls | Representation states do not enumerate every standalone witness, guarantee yield or establish full-study readiness |
 | BPI and market information | Partial original-source recovery | Broad dated history remains incomplete |
@@ -26,6 +27,7 @@ The featured result is **0.1034347 retrospective Kaggle Brier**, submission 5712
 | Public synthetic forecast/evaluation lab | Fully executable cutoff, identity, probability and scoring contracts | Authored fixtures; no claim of private-model parity |
 | Public learned temporal model | Three actual regularized-logistic fits; training-only scaling, expanding season windows, 198 frozen synthetic predictions and calibration diagnostics | Complete fictional data and parameters; no NCAA performance, private recipe, owner research fit or prospective validation claim |
 | Frozen public model delivery | Exact artifact loading and 198 byte-identical predictions in three isolated Python processes, zero new fits | Pure local inference boundary; no hosted service, production SLA or private-model deployment claim |
+| Public CI evidence bundle | Closed payload manifest, reconstructed source tree, canonical checkpoint dependencies and nested runtime bodies | Requires independently trusted archive/run bindings; byte integrity does not prove authorship or scientific validity |
 
 ## Independent validation repairs
 
@@ -47,6 +49,7 @@ A lineup-stint pilot stopped before fitting because the producer's interval sema
 |---|---|
 | Public examples | Actual three-fold synthetic learning, unfitted forecast/scoring, exact bracket propagation, and stop/resume/corruption checks; executable without credentials |
 | Public review | One-command HTML/JSON report, executed engineering notebook, aggregate arithmetic, provenance boundaries and architecture |
+| Public execution audit | Verify a retained CI bundle offline with only the standard library; no downloaded code is executed |
 | Private artifact replay | Exact saved inputs, configurations, predictions, model receipts, and checkpoints |
 | Source-to-feature replay | Rebuilt normalized tables from retained raw source objects |
 | Fresh-season reproduction | Newly acquired season inputs through a frozen candidate before outcomes |

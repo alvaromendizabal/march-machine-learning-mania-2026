@@ -10,12 +10,13 @@ This is a probability-research system, not just a competition notebook. Ask thre
 2. **Inspect the ML lifecycle:** [Temporal training](docs/temporal_model_demo.md) fits actual models with train-only preprocessing. [Frozen-model delivery](docs/model_delivery.md) loads the artifacts in an isolated process and reproduces all 198 synthetic forecasts without refitting. Fictional data make both sides inspectable.
 3. **Inspect a difficult engineering decision:** [Source-readiness case study](docs/source_readiness.md) explains why verified bytes alone do not admit historical features. A partial result remains partial.
 4. **Check the research claim:** [Model card](docs/model_card.md) and [score receipt](docs/champion_result.md) separate retrospective performance from future generalization.
+5. **Audit a specific execution:** [Evidence-bundle verification](docs/evidence_bundle.md) traces a pinned CI run to source, executed notebook bodies and every declared dependency. It does not execute downloaded code or rerun a private model.
 
 | Hiring lens | Concrete contribution | Review entry |
 |---|---|---|
 | ML Engineer | Temporal transforms, model evaluation, strict artifact loading, recovery and CI | [Training](tools/temporal_model_demo.py), [pure inference](src/march_mania/public_reference.py), [architecture](docs/architecture.md) |
 | Data Scientist | Matched populations, development-only selection, uncertainty and negatives | [Executed engineering notebook](portfolio/engineering_review.ipynb), [protocol](docs/research_protocol.md) |
-| AI Engineer | Data contracts, bounded orchestration, reproducible releases and failure delivery | [Recovery tests](tools/test_reliability_demo.py), [source gates](tools/source_readiness.py) |
+| AI Engineer | Data contracts, bounded orchestration, reproducible releases and failure delivery | [Evidence verifier](docs/evidence_bundle.md), [recovery tests](tools/test_reliability_demo.py), [source gates](tools/source_readiness.py) |
 
 AI-engineering relevance here is systems engineering for ML, not an unimplemented LLM, agent or RAG capability.
 
@@ -27,23 +28,26 @@ From the repository root, with **Python 3.12 and Node**:
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html** and its **review.json** companion. No credentials, downloads or package installation are needed. Fourteen checks cover public synthetic training, fresh-process inference, aggregate validators, recovery and browser calculations. Synthetic fits are not counted as private owner research; the artifact-delivery step adds zero fits.
+Open **outputs/review/index.html** and its **review.json** companion. No credentials, downloads or package installation are needed. Fifteen checks cover public synthetic training, fresh-process inference, aggregate validators, evidence-verifier contracts, recovery and browser calculations. Synthetic fits are not counted as private owner research; artifact delivery and evidence verification add zero fits. Fixture tests do not claim to authenticate a real CI run.
 
 | Question | Evidence |
 |---|---|
 | Can I inspect an actual fit? | [Training code and tests](docs/temporal_model_demo.md) |
 | Does the exported model work without its trainer? | [Model delivery](docs/model_delivery.md), three isolated processes and 198 byte-exact forecasts |
 | Can future labels change earlier forecasts? | Temporal mutation tests; [split notebook](notebooks/01_split_protocol_and_pre_tournament_snapshots.ipynb) |
-| What is new versus historical? | [V020 follow-up with preserved V019 history](portfolio/source_readiness.json), separate [V351 replay](portfolio/owner_replay.json) |
+| What is new versus historical? | [V021 offline qualification with preserved V020/V019 history](portfolio/source_readiness.json), separate [V351 replay](portfolio/owner_replay.json) |
 | What stays private? | [Reproduction matrix](docs/reproduction_matrix.md) |
 | What survives interruption? | [Recovery example](tools/reliability_demo.py) and actual-call-count tests |
 | Can public claims be checked? | [Aggregate contracts](tools/source_readiness.py), [publication guard](tools/check_publication.py) |
+| Does each execution receipt have its actual file? | [Closed-bundle verifier](docs/evidence_bundle.md), including nested notebook and figure bodies—not a hash-only claim |
 
 ## Focused examples
 
 **Actual synthetic training:** `python tools/temporal_model_demo.py --out-dir outputs/temporal-demo` generates fictional inputs, fold-fit receipts, predictions, evaluation, a calibration SVG and manifest. [Fixed protocol](docs/temporal_model_demo.md)
 
 **Frozen inference, zero new fits:** `python tools/model_delivery_demo.py demo --out-dir outputs/model-delivery` validates and reloads all three frozen models in fresh isolated processes. Each fold includes the exact model, label-free request, response and checksummed evidence. [Contract and failure cases](docs/model_delivery.md)
+
+**Independent execution audit:** `python tools/evidence_bundle.py verify --bundle PATH --binding PATH` verifies a downloaded public evidence bundle using only Python's standard library. Obtain the expected binding from the trusted run/release record; a digest supplied by an untrusted archive is not an independent trust anchor. [What is checked, and what is not](docs/evidence_bundle.md)
 
 **Portable lab:** `python tools/package_public_demo.py`, then open **outputs/public-demo/Tournament_Lab.html**. Deterministic HTML and a five-file ZIP work offline without a server or npm install.
 

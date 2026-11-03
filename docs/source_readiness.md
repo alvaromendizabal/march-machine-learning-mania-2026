@@ -1,8 +1,25 @@
 # From verified bytes to eligible features
 
-**V020 follow-up · reviewed November 3, 2026 · independent March Machine Learning Mania**
+**V021 offline qualification · reviewed November 3, 2026 · independent March Machine Learning Mania**
 
 Historical features require exact source identity, correct game mapping and evidence that observations were available before prediction. A byte-perfect artifact can still fail those requirements.
+
+## Offline qualification completed; source eligibility remains open
+
+V021 completed all six registered stages and all 118 invented contract tests, without a new source request, source byte, subprocess or private model fit. It inspected the existing compact evidence for all **67 original object locations / 54 content identities** and **3,625 original request rows**. Four previously closed internal objects remained excluded. The request set still contains **3,573 unresolved requests and 52 prior semantic duplicates**.
+
+| Qualification layer | Completed scope | Interpretation |
+|---|---:|---|
+| Original object rows | 67 / 67 | Each receives explicit custody, identity, mapping and timing gates |
+| Original request rows | 3,625 / 3,625 | Original order and duplicate status retained; zero new matches |
+| Complete content-interpretation masks | 47 / 54 | Existing format evidence; not proven source identity |
+| Complete location masks | 60 / 67 | Exact-content reuse; not 60 admitted sources |
+| Remaining archive text | 7 members | Semantically uninspected; not silently passed |
+| New debt closures / historical admissions / private fits | 0 / 0 / 0 | No model promotion or new private scientific result |
+
+A separate owner **in-process** check loaded three frozen **public synthetic** models and reproduced all **198 label-free response rows** byte-for-byte. It did not score labels, import a trainer or demonstrate private-model parity. The public repository's three isolated-process demonstration is a different execution scope.
+
+Owner body time was **14.338099397 seconds** before packaging and **15.147032547 seconds** including packaging, the latter from the matching post-write log. New S3, identity-service and provider calls were all zero; dollar cost remains **UNKNOWN**. Public checks validate these sanitized aggregate claims, not the withheld owner archive or source bodies.
 
 ## Two completed diagnostics, no new feature admission
 
@@ -37,7 +54,7 @@ V019 remains **PARTIAL**. Its history is not rewritten to success by a later rep
 | Requests | 3,625 = 3,573 unresolved + 52 prior duplicates | Zero exact matches and debt closures |
 | New clock witnesses / model fits | 0 / 0 | No feature admissions or promotion |
 
-A format candidate or timestamp-shaped value is not a proven request join or admissible pregame observation. The schema-2 public record retains every V019 parent field and the separately scoped V018 replay, then adds `latest_followup` for V020.
+A format candidate or timestamp-shaped value is not a proven request join or admissible pregame observation. The schema-3 public record retains every V019 parent field, the separately scoped V018 replay and V020 `latest_followup`, then adds V021 `offline_qualification`. Historical `next_source_scope` text remains a dated V019 instruction, not current read authority.
 
 ## Measured resources
 
@@ -84,9 +101,9 @@ The historical 126-game retrospective and separately recorded Kaggle submission 
 - CollegeBasketballData: **15,028 men's exact game joins**, **15,027 paired-stat games**, **14,704 nonempty-line games**, but no newly admitted historical pregame clock witnesses.
 - Provider completeness and freshness cannot be claimed from this audit.
 
-## Next decision: no repeated source read
+## Next decision: verify execution evidence, without repeating completed work
 
-Both registered source diagnostics are complete. Another GET of the same bytes is not justified by the result. The next bounded task is **offline evidence qualification and frozen public-model delivery parity**: retain exact source and request identities, preserve unknown eligibility masks, check frozen inference contracts, and keep engineering verification separate from scientific evidence. This requires no new source, provider or cloud read and no new private scientific fit.
+Both registered source diagnostics, all V021 qualification rows and the frozen public response-parity check are complete. Another GET, qualification rerun or model refit is not justified by that result. The next bounded task is an **offline audit of retained public CI evidence**: verify exact run/source identity, closed artifact membership, canonical notebook dependencies and nested executed notebook bodies. It is useful reproducibility work, not a new source admission. [Audit contract](evidence_bundle.md)
 
 Source identity, exact request/game linkage and pre-cutoff availability remain prerequisites. All-null URLs and 2027 season candidates do not repair older market-clock gaps. Shared storage does not establish sport identity; football is not basketball.
 

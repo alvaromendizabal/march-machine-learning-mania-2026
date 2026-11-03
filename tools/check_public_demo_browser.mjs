@@ -149,7 +149,7 @@ export function checkReducedMotion(motion) {
   assert.deepEqual(motion.animations, [], "reduced motion disables animations including pseudo-elements");
 }
 
-function installedBrowser() {
+export function installedBrowser() {
   const configured = process.env.CHROME_BIN;
   const names = configured ? [configured] : ["google-chrome", "google-chrome-stable", "chromium", "chromium-browser"];
   for (const name of names) {

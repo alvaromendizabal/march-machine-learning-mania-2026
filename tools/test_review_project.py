@@ -61,6 +61,26 @@ class ReviewTests(unittest.TestCase):
     def test_bool_is_not_a_count(self):
         self.reject("venue", "source_errors", True)
 
+    def test_evidence_audit_panel_has_accessible_named_target(self):
+        page = (Path(__file__).resolve().parents[1] / "tools/review_template.html").read_text()
+        self.assertIn('href="#execution-proof"', page)
+        self.assertIn('id="execution-proof"', page)
+        self.assertIn('aria-labelledby="proof-title"', page)
+        self.assertIn('id="proof-title"', page)
+
+    def test_evidence_audit_panel_does_not_certify_unobserved_run(self):
+        page = (Path(__file__).resolve().parents[1] / "tools/review_template.html").read_text()
+        self.assertIn("invented acceptance/rejection contract tests", page)
+        self.assertIn("not</strong> silently download or certify a real CI run", page)
+        self.assertIn("internal consistency is not authorship", page)
+        self.assertIn("no downloaded code execution", page)
+
+    def test_evidence_audit_panel_preserves_public_and_science_boundary(self):
+        page = (Path(__file__).resolve().parents[1] / "tools/review_template.html").read_text()
+        self.assertIn("no training, inference or private-source request", page)
+        self.assertIn("exposed retrospective study", page)
+        self.assertNotIn("s3://", page)
+
 
 if __name__ == "__main__":
     unittest.main()
