@@ -639,7 +639,7 @@ await test("historical score and synthetic scenario have visibly different evide
   assert.match(score, /prospective performance is unproven/);
   assert.match(score, /not<\/strong> produced by the synthetic scenario/);
   assert.match(html, /PUBLIC SCENARIO LAB · SYNTHETIC INPUTS/);
-  assert.match(html, /V019 · PARTIAL · ZERO FITS/);
+  assert.match(html, /V020 · ZERO ADMISSIONS · ZERO FITS/);
   assert.match(html, /Verification does not prove model eligibility/);
 });
 
@@ -658,13 +658,73 @@ await test("source audit scope does not relabel verified bodies as interpreted o
   const update = html.match(/<div class="evidence-update"[\s\S]*?<details class="acquisition-detail"/)?.[0];
   assert.ok(update);
   assert.match(update, /67 \/ 67/);
-  assert.match(update, /45 JSON traversals/);
+  assert.match(update, /Original bodies verified in V019/);
+  assert.match(update, /Bounded format diagnostics in V020/);
   assert.match(update, /seven archives retain uninspected text/);
-  assert.match(update, /Parquet is schema-only/);
-  assert.match(update, /payload is parser-blocked/);
-  assert.match(update, /3,573 unresolved requests/);
+  assert.match(update, /CSV records/);
+  assert.match(update, /Parquet rows inspected/);
+  assert.match(update, /Format completion is not source-debt closure/);
+  assert.match(update, /3,573<\/data> unresolved requests/);
   assert.match(update, /zero.*fits|ZERO FITS|No provider purchases, new model fits/);
   assert.doesNotMatch(update, /all sources (?:complete|qualified)|all.*67.*parsed/i);
+});
+
+await test("visible source aggregates agree with the separate canonical custody and follow-up records", () => {
+  const source = JSON.parse(fs.readFileSync(path.join(root, "portfolio/source_readiness.json"), "utf8"));
+  assert.equal(source.execution, "V019");
+  assert.equal(source.latest_followup.execution, "V020");
+  const text = key => {
+    const match = html.match(new RegExp(`<(?:strong|data)[^>]*data-source-check="${key}"[^>]*>([^<]+)</(?:strong|data)>`));
+    assert.ok(match, `Visible source field: ${key}`);
+    return match[1];
+  };
+  assert.equal(text("body-custody"), `${source.source_audit.complete_bodies_verified} / ${source.source_audit.registered_locations}`);
+  assert.equal(text("format-diagnostics"), `${source.latest_followup.complete_format_or_row_inspections} / ${source.latest_followup.registered_targets}`);
+  assert.equal(Number(text("clock-witnesses")), source.coverage.new_historical_clock_witnesses);
+  for (const [key, expected] of [
+    ["csv-records", source.latest_followup.csv.records],
+    ["parquet-rows", source.latest_followup.parquet.rows],
+    ["content-identities", source.source_audit.distinct_content_identities],
+    ["object-debt", source.latest_followup.unresolved_objects],
+    ["request-debt", source.latest_followup.unresolved_requests],
+  ]) {
+    assert.equal(Number(text(key).replaceAll(",", "")), expected, `${key} displayed count`);
+    const value = html.match(new RegExp(`<data value="(\\d+)" data-source-check="${key}">`));
+    assert.ok(value, `Machine-readable count: ${key}`);
+    assert.equal(Number(value[1]), expected, `${key} machine-readable count`);
+  }
+});
+
+await test("mobile input-first layout also puts controls before bracket output in keyboard order", () => {
+  assert.ok(html.indexOf('<aside class="controls"') < html.indexOf('<section class="bracket-panel"'));
+  assert.match(css, /grid-template-areas:\s*"bracket controls"/);
+  assert.match(css, /@media \(max-width: 850px\)[\s\S]*?grid-template-areas:\s*"controls" "bracket"/);
+  assert.match(css, /\.controls\s*\{\s*grid-area:\s*controls/);
+  assert.match(css, /\.bracket-panel\s*\{\s*grid-area:\s*bracket/);
+});
+
+await test("keyboard reviewers can bypass either the introduction or the interactive lab", () => {
+  const links = [...html.matchAll(/<a class="skip-link" href="([^"]+)">([^<]+)<\/a>/g)];
+  assert.deepEqual(links.map(match => match[1]), ["#workbench", "#engineering-evidence"]);
+  assert.match(links[1][2], /engineering evidence/);
+  assert.match(css, /\.skip-link:focus/);
+  assert.match(css, /\*::before,[\s\S]*?\*::after[\s\S]*?animation:\s*none\s*!important/);
+});
+
+await test("engineering evidence links lead to inspectable public contracts in the checkout", () => {
+  const section = html.match(/<div class="engineering-pillars"[\s\S]*?<div class="evidence-update"/)?.[0];
+  assert.ok(section);
+  const prefix = "https://github.com/alvaromendizabal/march-machine-learning-mania-2026/blob/main/";
+  const links = [...section.matchAll(/href="([^"]+)"/g)].map(match => match[1]);
+  assert.deepEqual(links.map(link => link.slice(prefix.length)), [
+    "tools/test_temporal_model_demo.py", "tools/test_source_readiness.py", "docs/model_delivery.md",
+  ]);
+  for (const link of links) {
+    assert.ok(link.startsWith(prefix));
+    assert.ok(fs.statSync(path.join(root, link.slice(prefix.length))).isFile(), `Public evidence exists: ${link}`);
+  }
+  assert.match(section, /synthetic model/);
+  assert.match(section, /without refitting/);
 });
 
 await test("ordinary section fragments preserve the baseline and scenario-link replay", async () => {

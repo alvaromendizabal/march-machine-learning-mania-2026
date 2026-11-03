@@ -161,12 +161,14 @@ h1 em {
 .lab {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 296px;
+  grid-template-areas: "bracket controls";
   border: 1px solid #cdd0d2;
   border-radius: 5px;
   overflow: hidden;
   background: var(--white);
 }
 .bracket-panel {
+  grid-area: bracket;
   padding: 26px 25px 18px;
   background: var(--navy);
   color: #fff5e4;
@@ -363,6 +365,7 @@ h1 em {
   max-width: 70%;
 }
 .controls {
+  grid-area: controls;
   padding: 25px 22px;
   border-left: 1px solid #cdd0d2;
 }
@@ -808,10 +811,11 @@ footer {
 @media (max-width: 850px) {
   .lab {
     grid-template-columns: 1fr;
+    grid-template-areas: "controls" "bracket";
   }
   .controls {
     border-left: 0;
-    border-top: 1px solid #cdd0d2;
+    border-bottom: 1px solid #cdd0d2;
     padding: 24px;
   }
   .presets {
@@ -982,9 +986,12 @@ footer {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *::before,
+  *::after {
     scroll-behavior: auto !important;
     transition: none !important;
+    animation: none !important;
   }
 }
 
@@ -1082,6 +1089,7 @@ body[data-focus="michigan"] .probability-row.selected .bar-fill {background:#d3a
 .evidence-index {font:600 12px/1.5 var(--mono);letter-spacing:1px;color:#46628a}
 .engineering-pillars h3 {font:550 23px/1.2 var(--serif);margin:10px 0}
 .engineering-pillars p {font-size:13px;line-height:1.65;color:#536077;margin:0;max-width:45ch}
+.contract-link {display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-top:12px;color:#1c4b94;font-size:12px;font-weight:650}
 .acquisition-detail {border-top:1px solid #dce3ef;background:#fafcff}
 .acquisition-detail summary {padding:18px 32px;cursor:pointer;font-size:14px;font-weight:650;color:#1c3d70}
 .acquisition-detail summary span {float:right;font-size:12px;font-weight:400;color:#536077}

@@ -1,7 +1,7 @@
 /** Invented protocol/layout fixtures; these are NOT real browser rendering. */
 import assert from "node:assert/strict";
 import { PassThrough } from "node:stream";
-import { checkLayout, PipeClient, validateBaselineRef } from "./check_public_demo_browser.mjs";
+import { checkCaptureOrigin, checkControlsLayout, checkLayout, checkNavigation, checkReducedMotion, PipeClient, validateBaselineRef } from "./check_public_demo_browser.mjs";
 
 let checks = 0;
 async function test(name, run) {
@@ -35,6 +35,43 @@ await test("review evidence and focus destinations are mandatory for current sou
   assert.throws(() => checkLayout({ ...fixture(), hasEvidenceBoundary: false }, 390));
   assert.throws(() => checkLayout({ ...fixture(), focusTargets: [] }, 390));
   checkLayout({ ...fixture(), navLinks: 0, focusTargets: [], hasEvidenceBoundary: false }, 390, { current: false });
+});
+await test("initial capture must prove a settled document origin and measured dimensions", () => {
+  const origin = { scrollX: 0, scrollY: 0, viewportHeight: 844, pageHeight: 6200 };
+  checkCaptureOrigin(origin);
+  assert.throws(() => checkCaptureOrigin({ ...origin, scrollY: 102 }));
+  assert.throws(() => checkCaptureOrigin({ ...origin, scrollX: 3 }));
+  assert.throws(() => checkCaptureOrigin({ ...origin, pageHeight: 0 }));
+  assert.throws(() => checkCaptureOrigin({ viewportHeight: 844, pageHeight: 6200 }));
+});
+await test("mobile controls must be before output in both DOM and visual geometry", () => {
+  const layout = { inputBeforeOutputInDom: true, controls: { top: 100, bottom: 700 }, bracket: { top: 700, bottom: 1300 } };
+  checkControlsLayout(layout, 390);
+  assert.throws(() => checkControlsLayout({ ...layout, inputBeforeOutputInDom: false }, 390));
+  assert.throws(() => checkControlsLayout({ ...layout, controls: layout.bracket, bracket: layout.controls }, 390));
+});
+await test("desktop retains side-by-side panels without reversing keyboard order", () => {
+  const layout = { inputBeforeOutputInDom: true, controls: { top: 100, left: 1000 }, bracket: { top: 100, right: 1000 } };
+  checkControlsLayout(layout, 1440);
+  assert.throws(() => checkControlsLayout({ ...layout, controls: { top: 200, left: 1000 } }, 1440));
+  assert.throws(() => checkControlsLayout({ ...layout, controls: { top: 100, left: 800 } }, 1440));
+});
+await test("all four navigation destinations require focus, visibility and unchanged probabilities", () => {
+  const navigation = ["overview", "workbench", "engineering-evidence", "reproduce-public"].map(target => ({
+    target, hash: `#${target}`, focused: target, targetTop: 116, navigationBottom: 102, viewportHeight: 844, probabilitySum: "100.0%",
+  }));
+  checkNavigation(navigation);
+  assert.throws(() => checkNavigation(navigation.slice(1)));
+  for (const changed of [{ focused: "" }, { targetTop: 50 }, { targetTop: 900 }, { hash: "#scenario=x" }, { probabilitySum: "99.0%" }]) {
+    assert.throws(() => checkNavigation([{ ...navigation[0], ...changed }, ...navigation.slice(1)]));
+  }
+});
+await test("reduced-motion evidence cannot be inferred from stylesheet text alone", () => {
+  const motion = { requestedPreferenceMatches: true, rootScrollBehavior: "auto", transitions: [], animations: [] };
+  checkReducedMotion(motion);
+  for (const changed of [{ requestedPreferenceMatches: false }, { rootScrollBehavior: "smooth" }, { transitions: ["button"] }, { animations: ["a::before"] }]) {
+    assert.throws(() => checkReducedMotion({ ...motion, ...changed }));
+  }
 });
 await test("Chrome pipe requests use a session and null-delimited JSON", async () => {
   const reader = new PassThrough(), writer = new PassThrough();

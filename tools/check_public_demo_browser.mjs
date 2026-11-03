@@ -115,6 +115,40 @@ export function checkLayout(layout, width, { current = true } = {}) {
   }
 }
 
+export function checkCaptureOrigin(origin) {
+  assert.equal(origin.scrollX, 0, "initial viewport capture starts at the left document edge");
+  assert.equal(origin.scrollY, 0, "initial viewport capture starts at the top, not a restored scroll offset");
+  assert.ok(origin.viewportHeight > 0 && origin.pageHeight >= origin.viewportHeight, "capture dimensions are measured");
+}
+
+export function checkControlsLayout(layout, width) {
+  assert.equal(layout.inputBeforeOutputInDom, true, "keyboard order presents inputs before the bracket output");
+  if (width <= 850) {
+    assert.ok(layout.controls.bottom <= layout.bracket.top + 1, "mobile controls appear before the tall bracket");
+  } else {
+    assert.ok(Math.abs(layout.controls.top - layout.bracket.top) <= 1, "desktop panels share their top edge");
+    assert.ok(layout.controls.left >= layout.bracket.right - 1, "desktop controls remain beside the bracket");
+  }
+}
+
+export function checkNavigation(navigation) {
+  assert.deepEqual(navigation.map(item => item.target), ["overview", "workbench", "engineering-evidence", "reproduce-public"]);
+  for (const item of navigation) {
+    assert.equal(item.hash, `#${item.target}`, "ordinary navigation reaches the requested section");
+    assert.equal(item.focused, item.target, "anchor navigation transfers keyboard focus");
+    assert.ok(item.targetTop >= item.navigationBottom - 1, `${item.target} must not be hidden behind sticky navigation`);
+    assert.ok(item.targetTop < item.viewportHeight, `${item.target} must be visible in the viewport`);
+    assert.equal(item.probabilitySum, "100.0%", "ordinary navigation does not mutate a scenario");
+  }
+}
+
+export function checkReducedMotion(motion) {
+  assert.equal(motion.requestedPreferenceMatches, true, "the browser actually emulates reduced motion");
+  assert.equal(motion.rootScrollBehavior, "auto", "reduced-motion scrolling is immediate");
+  assert.deepEqual(motion.transitions, [], "reduced motion disables animated transitions");
+  assert.deepEqual(motion.animations, [], "reduced motion disables animations including pseudo-elements");
+}
+
 function installedBrowser() {
   const configured = process.env.CHROME_BIN;
   const names = configured ? [configured] : ["google-chrome", "google-chrome-stable", "chromium", "chromium-browser"];
@@ -155,6 +189,25 @@ async function evaluate(client, session, expression) {
   return result.result.value;
 }
 
+async function settle(client, session) {
+  await evaluate(client, session, "new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve(true))))");
+}
+
+async function pressKey(client, session, key, code, windowsVirtualKeyCode) {
+  for (const type of ["keyDown", "keyUp"]) {
+    await client.send("Input.dispatchKeyEvent", { type, key, code, windowsVirtualKeyCode }, session);
+  }
+  await settle(client, session);
+}
+
+async function screenshot(client, session, result, kind, extra = {}) {
+  const pageOrigin = await evaluate(client, session, "({ x: scrollX, y: scrollY })");
+  const captured = await client.send("Page.captureScreenshot", { format: "png", ...extra }, session);
+  const name = `${result.source}-${result.viewport.name}-${kind}.png`;
+  fs.writeFileSync(path.join(OUTPUT, name), Buffer.from(captured.data, "base64"));
+  result.screenshots.push({ file: name, pageOrigin, ...filePin(path.join(OUTPUT, name)) });
+}
+
 async function render(client, filename, viewport, label, report) {
   const { targetId } = await client.send("Target.createTarget", { url: "about:blank" });
   const { sessionId: session } = await client.send("Target.attachToTarget", { targetId, flatten: true });
@@ -183,8 +236,26 @@ async function render(client, filename, viewport, label, report) {
     }
     assert.ok(ready, "real browser did not render a complete probability-conserving forecast");
     await evaluate(client, session, "document.fonts.ready.then(() => true)");
+    // Native focus restoration can move a newly loaded page. Normalize the origin
+    // explicitly; viewport screenshots must not silently start partway down it.
+    await evaluate(client, session, `(() => {
+      document.activeElement?.blur();
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.getElementById('bracket-viewport').scrollLeft = 0;
+    })()`);
+    await settle(client, session);
+    result.captureOrigin = await evaluate(client, session, `({
+      scrollX, scrollY, viewportHeight: innerHeight,
+      pageHeight: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight),
+    })`);
+    checkCaptureOrigin(result.captureOrigin);
     result.layout = await evaluate(client, session, `(() => {
       const ids = [...document.querySelectorAll('[id]')].map(node => node.id);
+      const controls = document.querySelector('.controls'), bracket = document.querySelector('.bracket-panel');
+      const bounds = node => {
+        const { top, bottom, left, right } = node.getBoundingClientRect();
+        return { top, bottom, left, right };
+      };
       return {
         viewportWidth: window.innerWidth,
         pageWidth: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth),
@@ -197,6 +268,10 @@ async function render(client, filename, viewport, label, report) {
         hasPublicCommand: document.body.textContent.includes('python tools/review_project.py'),
         hasEvidenceBoundary: document.body.textContent.includes('PRIVATE FORECAST · PUBLIC AGGREGATE') && document.body.textContent.includes('PUBLIC SCENARIO LAB · SYNTHETIC INPUTS'),
         bracketViewport: { client: document.getElementById('bracket-viewport').clientWidth, scroll: document.getElementById('bracket-viewport').scrollWidth },
+        controlsOrder: {
+          inputBeforeOutputInDom: Boolean(controls.compareDocumentPosition(bracket) & Node.DOCUMENT_POSITION_FOLLOWING),
+          controls: bounds(controls), bracket: bounds(bracket),
+        },
       };
     })()`);
     // Save honest screenshots even if a layout assertion subsequently fails.
@@ -207,16 +282,37 @@ async function render(client, filename, viewport, label, report) {
       ["viewport", {}],
       ["full-page", { captureBeyondViewport: true, clip: { x: 0, y: 0, width: viewport.width, height, scale: 1 } }],
     ]) {
-      const screenshot = await client.send("Page.captureScreenshot", { format: "png", ...extra }, session);
-      const name = `${label}-${viewport.name}-${kind}.png`;
-      fs.writeFileSync(path.join(OUTPUT, name), Buffer.from(screenshot.data, "base64"));
-      result.screenshots.push({ file: name, ...filePin(path.join(OUTPUT, name)) });
+      await screenshot(client, session, result, kind, extra);
     }
+    await evaluate(client, session, "document.querySelector('.lab').scrollIntoView({ block: 'start', behavior: 'instant' })");
+    await settle(client, session);
+    await screenshot(client, session, result, "workbench");
     if (label === "baseline") {
       // Before-images document the original source; old UX is not made to pass new requirements.
       try { checkLayout(result.layout, viewport.width, { current: false }); }
       catch (error) { result.baselineFinding = error.message; }
-    } else checkLayout(result.layout, viewport.width);
+    } else {
+      checkLayout(result.layout, viewport.width);
+      checkControlsLayout(result.layout.controlsOrder, viewport.width);
+    }
+
+    result.reducedMotion = await evaluate(client, session, `(() => {
+      const transitions = [], animations = [];
+      for (const node of document.querySelectorAll('*')) {
+        for (const pseudo of [null, '::before', '::after']) {
+          const style = getComputedStyle(node, pseudo);
+          const label = (node.id || node.tagName.toLowerCase()) + (pseudo || '');
+          if (style.transitionDuration.split(',').some(value => parseFloat(value) > 0)) transitions.push(label);
+          if (style.animationName.split(',').some(value => value.trim() !== 'none')) animations.push(label);
+        }
+      }
+      return {
+        requestedPreferenceMatches: matchMedia('(prefers-reduced-motion: reduce)').matches,
+        rootScrollBehavior: getComputedStyle(document.documentElement).scrollBehavior,
+        transitions, animations,
+      };
+    })()`);
+    if (label === "current") checkReducedMotion(result.reducedMotion);
 
     result.interactions = await evaluate(client, session, `(() => {
       const byId = id => document.getElementById(id);
@@ -240,23 +336,40 @@ async function render(client, filename, viewport, label, report) {
 
     // Native keyboard events, not only a fake DOM or programmatic focus assertion.
     await evaluate(client, session, 'document.activeElement?.blur(); window.scrollTo(0, 0); document.body.tabIndex = -1; document.body.focus();');
-    await client.send("Input.dispatchKeyEvent", { type: "keyDown", key: "Tab", code: "Tab", windowsVirtualKeyCode: 9 }, session);
-    await client.send("Input.dispatchKeyEvent", { type: "keyUp", key: "Tab", code: "Tab", windowsVirtualKeyCode: 9 }, session);
+    await pressKey(client, session, "Tab", "Tab", 9);
     result.keyboard = await evaluate(client, session, `({ firstTarget: document.activeElement?.getAttribute('href'), firstText: document.activeElement?.textContent.trim() })`);
     assert.equal(result.keyboard.firstTarget, "#workbench", "first keyboard destination is the skip link");
-    await client.send("Input.dispatchKeyEvent", { type: "keyDown", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13 }, session);
-    await client.send("Input.dispatchKeyEvent", { type: "keyUp", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13 }, session);
+    await pressKey(client, session, "Enter", "Enter", 13);
     result.keyboard.afterSkip = await evaluate(client, session, "document.activeElement?.id");
     if (label === "current") assert.equal(result.keyboard.afterSkip, "workbench", "skip link transfers focus to main content");
 
     if (label === "current") {
-      result.navigation = await evaluate(client, session, `(() => {
-        const link = document.querySelector('.review-nav a[href="#reproduce-public"]');
-        link.click();
-        return { hash: location.hash, probabilitySum: document.getElementById('total-probability').textContent };
-      })()`);
-      assert.equal(result.navigation.hash, "#reproduce-public");
-      assert.equal(result.navigation.probabilitySum, "100.0%", "ordinary navigation does not mutate a scenario");
+      await evaluate(client, session, 'document.activeElement?.blur(); window.scrollTo(0, 0); document.body.focus();');
+      await pressKey(client, session, "Tab", "Tab", 9);
+      await pressKey(client, session, "Tab", "Tab", 9);
+      result.keyboard.secondTarget = await evaluate(client, session, "document.activeElement?.getAttribute('href')");
+      assert.equal(result.keyboard.secondTarget, "#engineering-evidence", "second skip link bypasses the interactive lab for evidence review");
+      await pressKey(client, session, "Enter", "Enter", 13);
+      result.keyboard.afterEvidenceSkip = await evaluate(client, session, "document.activeElement?.id");
+      assert.equal(result.keyboard.afterEvidenceSkip, "engineering-evidence");
+      await evaluate(client, session, "document.querySelector('a[href=\"#controls-title\"]').click()");
+      await settle(client, session);
+      await pressKey(client, session, "Tab", "Tab", 9);
+      result.keyboard.afterControlsJumpAndTab = await evaluate(client, session, "document.activeElement?.id");
+      assert.equal(result.keyboard.afterControlsJumpAndTab, "preset-rated", "jump to controls leads directly to an actionable input");
+
+      result.navigation = [];
+      for (const target of ["overview", "workbench", "engineering-evidence", "reproduce-public"]) {
+        await evaluate(client, session, `document.querySelector('.review-nav a[href="#${target}"]').click()`);
+        await settle(client, session);
+        result.navigation.push(await evaluate(client, session, `({
+          target: '${target}', hash: location.hash, focused: document.activeElement?.id,
+          targetTop: document.getElementById('${target}').getBoundingClientRect().top,
+          navigationBottom: document.querySelector('.review-nav').getBoundingClientRect().bottom,
+          viewportHeight: innerHeight, probabilitySum: document.getElementById('total-probability').textContent,
+        })`));
+      }
+      checkNavigation(result.navigation);
     }
     const events = client.events.filter((event) => event.sessionId === session);
     result.pageHttpAttempts = events.filter((event) => event.method === "Network.requestWillBeSent" && /^https?:/.test(event.params.request.url)).map((event) => event.params.request.url);
@@ -279,7 +392,7 @@ export async function main(args = process.argv.slice(2)) {
     return 0;
   }
   const report = {
-    schema: "march.public_browser_review.v1", status: "STARTED", rendererVerified: false,
+    schema: "march.public_browser_review.v2", status: "STARTED", rendererVerified: false,
     startedAtUtc: new Date().toISOString(),
     scope: "Public synthetic UI only. Not private model validation, a SageMaker owner run or an accessibility conformance certification.",
     runtimeDownloads: 0, externalAppRequestsAllowed: false, baselineRef: null, renders: [],

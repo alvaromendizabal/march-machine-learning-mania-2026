@@ -45,6 +45,8 @@ def main() -> int:
         "tools/test_source_readiness.py",
         "tools/temporal_model_demo.py",
         "tools/test_temporal_model_demo.py",
+        "tools/model_delivery_demo.py",
+        "tools/test_model_delivery_demo.py",
     ]
     typed_files = tomllib.loads((root / "pyproject.toml").read_text())["tool"]["mypy"]["files"]
     typed_files = [
@@ -53,6 +55,7 @@ def main() -> int:
         "scripts/women_challengers.py",
         "scripts/final_report.py",
         "src/march_mania/publication",
+        "src/march_mania/public_reference.py",
         *[
             "src/march_mania/" + name + ".py"
             for name in (

@@ -12,7 +12,9 @@ The first screen separates the private historical result from the public synthet
 - Inspect the [source-readiness summary](source_readiness.md) for the distinction between verified stored bytes, semantic interpretation, clock eligibility and unresolved debt. A completed body verification is not a new eligible feature or successful model.
 - Run `python tools/review_project.py` for a credential-free local review, including a separately labeled synthetic chronological training demonstration. This reproduces public engineering contracts, not the private competition model.
 
-The original bracket, team controls, hypothetical-price context, sensitivity, final-opponent paths, scenario sharing and export remain available. Small screens retain an independently scrollable bracket and provide a direct jump to its controls.
+The original bracket, team controls, hypothetical-price context, sensitivity, final-opponent paths, scenario sharing and export remain available. On small screens the controls come **before** the tall bracket, in both reading and keyboard order; desktop retains the side-by-side view. The bracket remains independently scrollable. Two skip links lead directly to the workbench or past the interactive lab to engineering evidence. The direct controls link places the next keyboard action on the first preset.
+
+The engineering cards link to inspectable temporal tests, source-admission contracts and the [frozen model-delivery example](model_delivery.md). The latest source panel separately labels V019 body custody and V020 format diagnostics. Its visible counts are checked against the canonical public aggregate record; inspecting more records does not silently reduce unresolved source debt or admit historical features.
 
 ## Try it in two minutes
 
@@ -76,7 +78,9 @@ With an already-installed Chrome or Chromium and Node available, run:
 node tools/check_public_demo_browser.mjs
 ```
 
-The checker uses Chrome's local debugging pipe, not a network service. It opens the source directly as local files, blocks page HTTP(S) requests, renders desktop (1440px), tablet (768px), mobile (390px) and narrow mobile (320px), and records viewport/full-page screenshots. Assertions cover page overflow, duplicate IDs, resolved in-page links, navigation, the evidence boundary, real controls, first-tab/skip-link behavior, probability conservation and uncaught page errors. Outputs are under **outputs/browser-review/**, including **browser_review.json**. The independently scrollable bracket is deliberate; horizontal overflow of the page is a failure.
+The checker uses Chrome's local debugging pipe, not a network service. It opens the source directly as local files, blocks page HTTP(S) requests, and renders desktop (1440px), tablet (768px), mobile (390px) and narrow mobile (320px). It resets and settles the document scroll position before the initial viewport and full-page screenshots, records that origin, and also captures the workbench at each width. This avoids mistaking a restored scroll position for a cropped header.
+
+Assertions cover page overflow, duplicate IDs, resolved in-page links, the evidence boundary, real controls, both native keyboard skip links, input-before-output order on mobile, and the next keyboard destination after jumping to controls. All four reviewer navigation destinations must receive focus and remain visible below sticky navigation without changing scenario probabilities. Reduced-motion emulation is checked using actual computed transition, animation and scroll styles, including pseudo-elements. Uncaught browser errors and attempted page HTTP(S) requests fail the check. Outputs are under **outputs/browser-review/**, including **browser_review.json**. The independently scrollable bracket is deliberate; horizontal overflow of the page is a failure.
 
 Set `CHROME_BIN` only if the existing executable is outside `PATH`. The checker never installs or downloads a browser. A missing browser writes **BLOCKED**, leaves `rendererVerified` false and exits nonzero. Screenshots and a **PASS** are only produced by an actual render; fixture-test success is not substituted. These targeted checks are not a full accessibility conformance certification or manual aesthetic review.
 

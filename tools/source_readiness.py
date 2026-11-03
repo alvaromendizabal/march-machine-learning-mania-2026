@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_READINESS = ROOT / "portfolio/source_readiness.json"
 FIELDS = {
     "root": "schema_version project reviewed_on evidence_class execution status public_scope "
-    "source_audit coverage resources matched_replay interpretation",
+    "source_audit coverage resources matched_replay interpretation latest_followup",
     "source_audit": "registered_locations complete_bodies_verified source_bytes_verified "
     "distinct_content_identities distinct_interpretations_completed reused_interpretations "
     "complete_json_container_traversals zip_text_members_semantically_uninspected "
@@ -46,10 +46,191 @@ FIELDS = {
     "new_model_promotion all_time_fit_total next_source_scope",
 }
 
+# This is a versioned, frozen evidence snapshot, not a user-editable telemetry
+# endpoint. Exact public facts are pinned independently of the data file. The
+# recursive contract rejects unknown fields at every depth, including fields
+# hidden inside year histograms. It is not a substitute for private-body auth.
+FOLLOWUP_EXPECTED = {
+    "execution": "V020",
+    "parent_execution": "V019",
+    "status": "TWO_TARGET_DIAGNOSTICS_COMPLETE_GAPS_REMAIN",
+    "evidence_class": "AUDITABLE_PRIVATE_AGGREGATE",
+    "registered_targets": 2,
+    "complete_bodies_verified": 2,
+    "complete_format_or_row_inspections": 2,
+    "fresh_verified_stored_bytes": 4423048,
+    "original_locations_not_reread": 65,
+    "metadata_snapshot_reread": False,
+    "csv": {
+        "format": "COMMA_DELIMITED_TEXT",
+        "records": 2283,
+        "columns": 96,
+        "physical_lines": 15982,
+        "unique_physical_games_proven": False,
+        "independent_sport_identity_proven": False,
+        "historical_feature_availability_proven": False,
+        "raw_rows_published": False,
+    },
+    "parquet": {
+        "rows": 1629,
+        "columns": 83,
+        "batches": 13,
+        "canonical_typed_row_bytes": 4712668,
+        "game_json_url_null": 1629,
+        "provider_host_candidates": 0,
+        "sport_token_candidates": 0,
+        "season_candidates": {"2027": 1629},
+        "event_years_as_stored": {
+            "date": {"2026": 636, "2027": 993},
+            "start_date": {"2026": 636, "2027": 993},
+            "game_date_time": {"2026": 637, "2027": 992},
+            "game_date": {"2026": 637, "2027": 992},
+        },
+        "event_year_basis": "CALENDAR_YEAR_AS_STORED_NO_TIMEZONE_NORMALIZATION",
+        "event_value_classes": {
+            "date": "AWARE_EVENT_NOT_FEATURE_AVAILABILITY",
+            "start_date": "AWARE_EVENT_NOT_FEATURE_AVAILABILITY",
+            "game_date_time": "AWARE_EVENT_NOT_FEATURE_AVAILABILITY",
+            "game_date": "DATE_ONLY_NOT_FEATURE_AVAILABILITY",
+        },
+        "boolean_presence_fields": ["game_json", "PBP", "team_box", "player_box"],
+        "presence_is_not_underlying_body_custody": True,
+        "unique_physical_games_proven": False,
+        "independent_sport_identity_proven": False,
+        "historical_feature_availability_proven": False,
+        "raw_rows_published": False,
+    },
+    "resources": {
+        "head_calls": 2,
+        "get_calls": 2,
+        "sts_calls": 1,
+        "observed_http_attempts": 5,
+        "observed_sdk_retries": 0,
+        "write_calls": 0,
+        "list_calls": 0,
+        "provider_calls": 0,
+        "provider_purchases": 0,
+        "source_body_strategy": "TWO_TARGETS_SEQUENTIAL",
+        "raw_local_mirror": False,
+        "verified_stored_bytes": 4423048,
+        "source_audit_seconds": 0.8570781009999564,
+        "body_seconds_excluding_packaging": 11.079313356,
+        "return_packaging_seconds_from_live_log": 0.6167312489999972,
+        "total_seconds_from_live_log": 11.786151601999961,
+        "free_disk_before_packaging_bytes": 1245544448,
+        "free_disk_after_packaging_bytes_from_live_log": 1165094912,
+        "peak_rss_kib": 1154084,
+        "os_cpus": 4,
+        "aws_cost": "UNKNOWN",
+        "postwrite_observations_are_outside_sealed_return": True,
+    },
+    "request_rows": 3625,
+    "unresolved_objects": 67,
+    "unresolved_requests": 3573,
+    "prior_semantic_duplicates": 52,
+    "exact_request_candidates": 0,
+    "new_debt_closures": 0,
+    "new_historical_features": 0,
+    "new_private_model_fits": 0,
+    "accepted_control_changed": False,
+    "next_action": "NO_SOURCE_REREAD_EVIDENCE_QUALIFICATION_AND_FROZEN_PUBLIC_DELIVERY_PARITY",
+}
+
+FROZEN_HISTORY_COUNTS = {
+    "source_audit": {
+        "registered_locations": 67,
+        "complete_bodies_verified": 67,
+        "source_bytes_verified": 148994102,
+        "distinct_content_identities": 54,
+        "distinct_interpretations_completed": 53,
+        "reused_interpretations": 13,
+        "complete_json_container_traversals": 45,
+        "zip_text_members_semantically_uninspected": 7,
+        "interpretation_errors": 1,
+        "json_interpretations": 40,
+        "zip_interpretations": 12,
+        "parquet_schema_only": 1,
+        "payload_uninterpreted": 1,
+        "failed_payload_bytes": 4289729,
+        "metadata_snapshot_records": 90886,
+        "metadata_snapshot_receipts": 90886,
+        "request_rows": 3625,
+        "unresolved_requests": 3573,
+        "prior_semantic_duplicates": 52,
+        "exact_request_matches": 0,
+        "new_debt_closures": 0,
+        "historical_features_admitted": 0,
+        "provider_calls": 0,
+        "provider_purchases": 0,
+        "new_private_model_fits": 0,
+    },
+    "coverage": {
+        "men_60m_edges": 6765,
+        "men_2018_2019_edges": 0,
+        "women_edges": 0,
+        "cbbd_men_exact_game_joins": 15028,
+        "cbbd_paired_stats": 15027,
+        "cbbd_nonempty_lines": 14704,
+        "new_historical_clock_witnesses": 0,
+    },
+    "resources": {
+        "head_calls": 69,
+        "get_calls": 69,
+        "sts_calls": 1,
+        "write_calls": 0,
+        "list_calls": 0,
+        "observed_sdk_retries": 0,
+        "verified_stored_bytes": 187256496,
+        "source_audit_seconds": 69.36314928799993,
+        "body_seconds_excluding_packaging": 78.816266397,
+        "total_seconds_from_live_log": 79.5091949109999,
+        "return_packaging_seconds_from_live_log": 0.606110172,
+        "free_disk_before_packaging_bytes": 1406443520,
+        "free_disk_after_packaging_bytes_from_live_log": 1327349760,
+        "peak_rss_kib": 882536,
+        "os_cpus": 4,
+    },
+    "matched_replay": {
+        "games": 925,
+        "feature_games": 218,
+        "control_fallback_games": 707,
+        "development_games": 523,
+        "exposed_later_games": 402,
+        "bootstrap_replications": 1024,
+        "bootstrap_seed": 10010,
+        "screens_per_candidate": 5,
+        "first_four_feature_games": 6,
+        "first_four_games": 44,
+        "first_four_metric_minimum": 20,
+    },
+}
+
+FROZEN_SCORES = [
+    {"arm": "Accepted control", "brier": 0.16940939326558535, "log_loss": 0.504349701696621},
+    {"arm": "Registered reference", "brier": 0.16762873051435492, "log_loss": 0.4972804843645902},
+    {"arm": "Registered candidate A", "brier": 0.16758810464578947, "log_loss": 0.4972281959983217},
+    {"arm": "Registered candidate B", "brier": 0.16764848874668442, "log_loss": 0.4973564428498034},
+]
+
 
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise ValueError(message)
+
+
+def require_frozen_tree(actual: object, expected: object, path: str) -> None:
+    """Reject type drift, unknown nested keys and altered registered values."""
+    require(type(actual) is type(expected), f"Unexpected type at {path}")
+    if isinstance(expected, dict):
+        require(set(actual) == set(expected), f"Unexpected or missing fields at {path}")
+        for key, value in expected.items():
+            require_frozen_tree(actual[key], value, f"{path}.{key}")
+    elif isinstance(expected, list):
+        require(len(actual) == len(expected), f"Unexpected list length at {path}")
+        for index, (value, registered) in enumerate(zip(actual, expected, strict=True)):
+            require_frozen_tree(value, registered, f"{path}[{index}]")
+    else:
+        require(actual == expected, f"Registered value changed at {path}")
 
 
 def validate_source_readiness(data: dict) -> dict:
@@ -60,13 +241,33 @@ def validate_source_readiness(data: dict) -> dict:
             isinstance(obj, dict) and set(obj) == set(fields.split()),
             f"Unexpected or missing {section} fields",
         )
-    require(data["schema_version"] == 1, "Unsupported aggregate schema")
+    require_frozen_tree(data["schema_version"], 2, "schema_version")
+    require_frozen_tree(data["reviewed_on"], "2026-11-03", "reviewed_on")
+    require_frozen_tree(
+        data["public_scope"],
+        "Sanitized authenticated owner aggregates; public checks do not access or independently "
+        "reauthenticate withheld source bodies.",
+        "public_scope",
+    )
+    require_frozen_tree(data["latest_followup"], FOLLOWUP_EXPECTED, "latest_followup")
     require(data["project"] == "independent_march_machine_learning_mania", "Wrong project")
     require(data["execution"] == "V019" and data["status"] == "PARTIAL", "Execution scope drift")
     require(data["evidence_class"] == "AUDITABLE_PRIVATE_AGGREGATE", "Evidence class drift")
     a, c, r, m, i = (
         data[key]
         for key in ("source_audit", "coverage", "resources", "matched_replay", "interpretation")
+    )
+    for section, values in FROZEN_HISTORY_COUNTS.items():
+        for key, value in values.items():
+            require_frozen_tree(data[section][key], value, f"{section}.{key}")
+    require_frozen_tree(c["covered_men_seasons"], list(range(2021, 2026)), "covered_men_seasons")
+    require_frozen_tree(m["candidate_development_screens_passed"], [0, 0], "development_screens")
+    require_frozen_tree(m["aggregate_scores"], FROZEN_SCORES, "matched_replay.aggregate_scores")
+    require_frozen_tree(
+        i["next_source_scope"],
+        "Only the one bounded-parser payload and the previously schema-only Parquet object; "
+        "no repeat of the complete 67-body audit or metadata census.",
+        "interpretation.next_source_scope",
     )
     for obj in (a, c, r, m):
         for key, value in obj.items():
@@ -248,7 +449,8 @@ def load_source_readiness() -> dict:
 
 def render_source_panel(data: dict) -> str:
     d = validate_source_readiness(data)
-    a, m = d["source_audit"], d["matched_replay"]
+    a, m, followup = d["source_audit"], d["matched_replay"], d["latest_followup"]
+    csv, parquet = followup["csv"], followup["parquet"]
     rows = "".join(
         "<tr><th scope='row'>" + html.escape(row["arm"]) + "</th>"
         f"<td>{row['brier']:.9f}</td><td>{row['log_loss']:.9f}</td></tr>"
@@ -258,17 +460,28 @@ def render_source_panel(data: dict) -> str:
         "<section id='source-readiness' class='replay-panel' aria-labelledby='source-title'>"
         "<div class='eyebrow'>Authenticated private aggregates · November 3, 2026</div>"
         "<h2 id='source-title'>Verified bytes. Unresolved eligibility.</h2>"
-        "<p>V019 is <strong>PARTIAL</strong>, not a successful model run. "
-        "All source bodies passed full integrity verification. One payload remains "
-        "uninterpreted; recognizing a Parquet schema does not qualify its rows. "
-        "Seven tiny archive text members also remain semantically uninspected.</p>"
+        "<p>V020 completed <strong>2 / 2 bounded source diagnostics</strong>, not a model run. "
+        f"The earlier parser-blocked object is complete CSV: {csv['records']:,} records, "
+        f"{csv['columns']} columns and {csv['physical_lines']:,} physical lines. "
+        f"The Parquet inspection read {parquet['rows']:,} rows across {parquet['columns']} "
+        "columns. Record counts are not proven unique physical games.</p>"
+        "<p>All Parquet season values are 2027 candidates; every source-URL field is null. "
+        "Stored event years are 2026–2027, not historical feature-availability clocks. "
+        "Four presence fields are booleans, not custody of underlying JSON, play-by-play "
+        "or box-score bodies. No new historical feature qualifies.</p>"
         "<div class='grid'><article><span>Original bodies verified</span>"
         f"<strong>{a['complete_bodies_verified']} / {a['registered_locations']}</strong>"
-        "<span>Complete stored-byte and SHA checks</span></article>"
+        "<span>V019 custody; only two bodies re-read in V020</span></article>"
         "<article><span>Unresolved requests</span>"
         f"<strong>{a['unresolved_requests']:,}</strong><span>No fabricated closure</span></article>"
         "<article><span>New eligible features / model fits</span><strong>0 / 0</strong>"
         "<span>Preserve the accepted control</span></article></div>"
+        "<details><summary>Preserved V019 history: PARTIAL, November 3, 2026</summary>"
+        "<p>V019's <strong>PARTIAL</strong> status is unchanged: it verified 67 stored bodies "
+        "representing 54 content identities, with one grammar-blocked object and one "
+        "schema-only Parquet inspection. V020 completed those two follow-up inspections; "
+        "it did not relabel the earlier run. Seven tiny archive text members remain "
+        "semantically uninspected. All 67 original object debts remain unresolved.</p></details>"
         "<details><summary>Earlier matched replay: 925 games, 218 feature-bearing</summary>"
         "<p>V018 completed this frozen descriptive replay. Development 523; exposed later 402; "
         "707 unchanged control fallbacks. Both candidates passed 0/5 development screens. "
@@ -279,8 +492,8 @@ def render_source_panel(data: dict) -> str:
         "<thead><tr><th scope='col'>Registered arm</th><th scope='col'>Brier</th>"
         "<th scope='col'>Log loss</th></tr></thead><tbody>" + rows + "</tbody></table></div>"
         "</details><p>Public checks verify this aggregate contract, not withheld source bodies. "
-        "The next private task targets only the failed payload and schema-only Parquet; "
-        "the completed 67-body audit and metadata census are not repeated.</p></section>"
+        "The next task is zero-source-read evidence qualification and frozen public delivery "
+        "parity. Completed source inspections and metadata reads are not repeated.</p></section>"
     )
 
 
@@ -295,6 +508,9 @@ def main() -> int:
                 "status": "PASS",
                 "evidence_class": data["evidence_class"],
                 "owner_status": data["status"],
+                "owner_execution": data["execution"],
+                "latest_followup_execution": data["latest_followup"]["execution"],
+                "latest_followup_status": data["latest_followup"]["status"],
                 "new_private_model_fits": 0,
             }
         )
