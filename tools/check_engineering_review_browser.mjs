@@ -84,6 +84,12 @@ async function render(client, width, height, report) {
         duplicateIds:ids.filter((id,i)=>ids.indexOf(id)!==i),
         missingTargets:[...document.querySelectorAll('.review-nav a[href^="#"]')].map(n=>n.hash.slice(1)).filter(id=>!document.getElementById(id)),
         primaryHeadings:document.querySelectorAll('h1').length,
+        outsideRequestedWidth:[...document.querySelectorAll('body *')].filter(n=>{
+          const b=n.getBoundingClientRect();
+          if(b.right<=${width}+1 || b.width===0) return false;
+          for(let p=n.parentElement;p;p=p.parentElement) if(['auto','scroll','hidden','clip'].includes(getComputedStyle(p).overflowX)) return false;
+          return true;
+        }).slice(0,20).map(n=>({tag:n.tagName,id:n.id,className:String(n.className),...bounds(n)})),
         cards:[...document.querySelectorAll('.proof-grid li')].map(bounds),
         scopeDisclosed:document.querySelector('#execution-proof').textContent.includes('not silently download or certify a real CI run'),
         trustDisclosed:document.querySelector('#execution-proof').textContent.includes('internal consistency is not authorship')

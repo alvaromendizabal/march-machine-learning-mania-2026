@@ -81,6 +81,16 @@ class ReviewTests(unittest.TestCase):
         self.assertIn("exposed retrospective study", page)
         self.assertNotIn("s3://", page)
 
+    def test_proof_badge_wraps_without_hiding_narrow_screen_overflow(self):
+        page = (Path(__file__).resolve().parents[1] / "tools/review_template.html").read_text()
+        self.assertIn(".proof-kicker{max-width:100%}", page)
+        self.assertIn(
+            "@media(max-width:700px){.proof-kicker{white-space:normal;line-height:1.5;",
+            page,
+        )
+        self.assertNotIn("body{overflow-x:hidden", page)
+        self.assertNotIn("html{overflow-x:hidden", page)
+
 
 if __name__ == "__main__":
     unittest.main()
