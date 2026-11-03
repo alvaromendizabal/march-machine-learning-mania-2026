@@ -7,11 +7,11 @@ The project makes historical scoring, dated owner aggregates and runnable synthe
 | Evidence class | What is public | What it establishes |
 |---|---|---|
 | Historical scored result | Normalized Kaggle record: **0.1034347**, submission 57122407 | Recorded retrospective scoring; no prospective claim or new account query |
-| Current source audit | November 3 V019 allowlisted aggregates | 67 complete body verifications, a partial interpretation outcome, unchanged debt and zero new eligibility |
+| Current source audit | November 3 V020 follow-up plus immutable V019 aggregates | Two completed format diagnostics; 67 earlier complete body verifications; unchanged debt and zero new eligibility |
 | Earlier matched replay | V018 frozen 925-game aggregate comparison | Descriptive paired comparison; exposed later seasons and no model promotion |
 | Historical owner replay | October 30 V351 allowlisted aggregates (Pacific) | Earlier matched result, fit reuse and observed storage/runtime accounting; retained as a dated scope |
 | Dated acquisition | October 26 V326 source-qualification aggregates | Earlier coverage and residual gates; retained as a separate historical scope |
-| Runnable engineering | Actual synthetic temporal model, unfitted forecast/scoring example, recovery example and bracket engine | Three real synthetic fits plus executable contracts; no claim of private-pipeline parity |
+| Runnable engineering | Actual synthetic training, isolated frozen-artifact inference, recovery example and bracket engine | Three real synthetic fits; zero-fit delivery with exact parity; no claim of private-pipeline parity |
 
 [Featured score](champion_result.md) · [Aggregate snapshot](../portfolio/acquisition_progress.json) · [Executed notebook](../portfolio/engineering_review.ipynb)
 
@@ -23,17 +23,23 @@ From the repository root with Python 3.12 and Node:
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html**. Its machine-readable companion is **outputs/review/review.json**. The runner first reconstructs and fits the three-fold synthetic temporal example and verifies its six committed artifacts exactly. Thirteen checks then execute the synthetic forecast/scoring lab, actual-learning contracts, current V019 source-readiness contracts, earlier scored-receipt arithmetic, recovery failure contracts, historical aggregate boundaries, owner replay/storage accounting, execution history, qualification frontier, actual frontier controls, exact bracket engine, actual demo handlers, and deterministic offline packaging. A failed subprocess check makes the review fail and retains its log. Invalid aggregate contracts or mismatched committed synthetic artifacts fail before the report is issued.
+Open **outputs/review/index.html**. Its machine-readable companion is **outputs/review/review.json**. The runner reconstructs the three-fold synthetic temporal example and verifies its six committed artifacts exactly. It also loads the frozen models in fresh isolated processes and checks all 198 response rows without refitting. Fourteen checks cover synthetic scoring, actual-learning and model-delivery contracts, current source-readiness contracts, historical receipt arithmetic, recovery, aggregate boundaries, owner replay/storage accounting, execution history, qualification frontier and controls, exact bracket calculations, actual demo handlers and deterministic offline packaging. A failed check makes the review fail and retains its log. Invalid aggregate contracts or mismatched committed synthetic artifacts fail before the report is issued.
 
-No credentials, source download, model artifact or Python package installation is needed. Optional notebook regeneration uses the project's locked development environment. The browser demo still packages exactly five reviewed static source files.
+No credentials, source download, private model artifact or Python package installation is needed. Frozen synthetic model artifacts are committed publicly. Optional notebook regeneration uses the project's locked development environment. The browser demo still packages exactly five reviewed static source files.
 
 ## Current audit and actual synthetic learning
 
-The [current V019 aggregate record](../portfolio/source_readiness.json) is explicitly PARTIAL. All 67 original source bodies were verified; 54 distinct content identities yielded 53 container analyses and one `JSON_SCALAR_SIZE_BOUND` interruption. Seven ZIP text members were not semantically interpreted, and one Parquet body was schema-only. Complete body custody is not historical feature eligibility: 3,573 requests remain unresolved, with zero exact new request matches, debt closures, new admitted features or owner model fits. The dated metadata snapshot is not relabeled as a current census. [Source readiness and limitations](source_readiness.md)
+The [source record](../portfolio/source_readiness.json) preserves V019 as PARTIAL: 67 complete body verifications, 54 distinct content identities, 53 container analyses and one parser interruption. A separate V020 follow-up completed the two registered format diagnostics. The former failure is a 2,283-record, 96-column CSV; the 83-column Parquet has 1,629 rows with season-2027 candidates and all game JSON URLs null. Neither observation establishes basketball source identity or historical availability. Seven ZIP text members remain semantically uninspected. There are still 67 unresolved object identities and 3,573 unresolved requests, zero debt closures, zero new historical feature-clock witnesses and zero owner model fits. The dated metadata snapshot is not relabeled as a current census. [Source readiness and limitations](source_readiness.md)
 
 The same panel preserves V018's completed frozen replay separately: 925 games, 218 feature-bearing, 523 development and 402 already-exposed later games. Both candidates passed 0/5 development screens; all paired intervals include zero. No candidate is promoted. Public aggregate arithmetic is not a reconstruction of the withheld private predictions or a public bootstrap replay.
 
 The [learned temporal demo](temporal_model_demo.md) is executable with no credentials or third-party Python packages. Three real L2-logistic fits use expanding earlier fictional seasons and train-only scaling, then freeze 198 predictions before evaluation. Fixed teaching hyperparameters, exact physical-game identity, pregame observation clocks, available training labels and swap symmetry are tested. Its synthetic Brier 0.17836297204902107 and log loss 0.5332119916892536 are teaching diagnostics—not NCAA results. The exact inputs, coefficients, scalers, predictions, metrics and manifest are public. Owner research fits remain zero; contract-test fits are separately synthetic.
+
+## Artifact delivery is independently executable
+
+The [frozen-model delivery example](model_delivery.md) stages only a tiny CLI, the pure inference module and three synthetic model/request pairs. Three fresh `-I -S` Python processes produce byte-identical responses for all 198 forecasts with zero new fits. The loader requires an externally expected content digest, closed schema, fixed feature order, valid training metadata and finite numerical bounds. Requests reject outcome fields, repeated physical games, unavailable observations and invalid pregame cutoffs. Team swapping preserves complementary probabilities.
+
+This demonstrates a portable inference boundary and an executable model-artifact contract. It does not claim a hosted API, latency SLA, distributed deployment or production monitoring. The private competition engine remains a separate lineage.
 
 ## Historical owner replay and systems evidence
 
@@ -74,7 +80,7 @@ Writes use a temporary file, file synchronization and atomic replacement. These 
 
 ## Notebook review
 
-The [engineering review notebook](../portfolio/engineering_review.ipynb) executes eight code cells. It starts with the current V019 partial-source audit and V018 matched aggregates, then actually fits the three synthetic temporal models. It retains the historical V351 systems comparison, numerical season gaps, qualification history and edition-level frontier in explicitly dated sections. Six interactive Plotly figures persist with six PNG fallbacks; the final cell executes the recovery demonstration. Source and generator pins are displayed. CI executes the notebook with the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
+The [engineering review notebook](../portfolio/engineering_review.ipynb) executes nine code cells. It starts with the V020 follow-up, unchanged V019 history and V018 matched aggregates; it actually fits the three synthetic temporal models, then separately verifies their frozen artifact delivery. Historical V351 systems evidence, numerical gaps, qualification history and the edition-level frontier retain their dated sections. Six interactive Plotly figures persist with six PNG fallbacks; the final cell executes recovery. Source and generator pins are displayed. CI executes the notebook in the locked environment. The six canonical research notebooks remain separate, preserving their modeling and evaluation lineages.
 
 ## Questions this project is ready to discuss
 

@@ -36,6 +36,8 @@ jobs:
           uv run --locked python tools/source_readiness.py --check
           uv run --locked python -m unittest discover -s tools -p 'test_temporal_model_demo.py' -v
           uv run --locked python tools/temporal_model_demo.py --check
+          uv run --locked python -m unittest discover -s tools -p 'test_model_delivery_demo.py' -v
+          uv run --locked python tools/model_delivery_demo.py demo --out-dir outputs/model-delivery
           uv run --locked python -m unittest discover -s tools -p 'test_owner_replay.py' -v
           uv run --locked python -m unittest discover -s tools -p 'test_evidence_history.py' -v
           uv run --locked python tools/evidence_history.py --check

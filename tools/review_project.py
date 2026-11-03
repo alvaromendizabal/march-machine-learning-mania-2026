@@ -21,6 +21,7 @@ from textwrap import dedent
 
 from evidence_contracts import require, validate_snapshot
 from evidence_history import HISTORY, load_history, render_history_panel, summarize_history
+from model_delivery_demo import run_demo as run_delivery_demo
 from owner_replay import REPLAY, load_replay, render_replay_panel
 from qualification_frontier import (
     FRONTIER,
@@ -44,6 +45,39 @@ def sha(path: Path) -> str:
 
 def load_snapshot() -> dict:
     return validate_snapshot(json.loads(SOURCE.read_text()))
+
+
+def render_delivery_panel(receipt: dict) -> str:
+    """Keep serving-contract evidence separate from training and private research."""
+    require(
+        receipt["status"] == "PASS" and receipt["scope"] == "SYNTHETIC_ONLY",
+        "Synthetic delivery receipt missing",
+    )
+    require(
+        receipt["new_model_fits"] == 0 and receipt["exact_prediction_parity"] is True,
+        "Delivery must reuse frozen models without fitting",
+    )
+    return (
+        "<section id='model-delivery' class='delivery-panel' aria-labelledby='delivery-title'>"
+        "<div class='eyebrow'>Model delivery · fresh-process evidence</div>"
+        "<h2 id='delivery-title'>A saved model is a contract, not just a file.</h2>"
+        "<p>Reload three frozen teaching models in isolated Python processes with no trainer "
+        "module, labels, network or private inputs. Validate the expected digest, exact schema, "
+        "feature order, finite values and prediction clocks before inference.</p>"
+        "<div class='grid'><article><span>Frozen artifacts loaded</span><strong>"
+        f"{receipt['model_count']}</strong><span>No new model fits</span></article>"
+        "<article><span>Byte-exact prediction parity</span><strong>"
+        f"{receipt['predictions_checked']}</strong>"
+        "<span>All three synthetic evaluation seasons</span>"
+        "</article><article><span>Maximum probability difference</span><strong>"
+        f"{receipt['maximum_absolute_probability_difference']:.1f}</strong>"
+        "<span>Measured against frozen responses</span></article></div>"
+        "<p><code>python tools/model_delivery_demo.py demo "
+        "--out-dir outputs/model-delivery</code></p>"
+        "<p>This is a tested local inference interface, not a deployed service, production SLA "
+        "or claim about the private competition model. Altered artifacts, leaked outcomes and "
+        "invalid clocks are rejected before producing a response.</p></section>"
+    )
 
 
 def render_temporal_panel(evaluation: dict) -> str:
@@ -125,6 +159,7 @@ def render_report(report: dict) -> str:
         "current_date": html.escape(report["source_readiness"]["reviewed_on"]),
         "source_readiness": render_source_panel(report["source_readiness"]),
         "temporal_model": render_temporal_panel(report["synthetic_temporal_model"]),
+        "model_delivery": render_delivery_panel(report["synthetic_model_delivery"]),
     }
     return Template((ROOT / "tools/review_template.html").read_text()).substitute(values)
 
@@ -141,6 +176,7 @@ def run_review(output: Path) -> dict:
     replay = load_replay()
     source_readiness = load_source_readiness()
     temporal_model = run_demo(DEFAULT_OUTPUT, check=True)
+    delivery = run_delivery_demo(output / "model-delivery")
     score = json.loads(SCORE.read_text())
     require(
         score["record_kind"] == "NORMALIZED_HISTORICAL_KAGGLE_RESULT"
@@ -167,7 +203,7 @@ def run_review(output: Path) -> dict:
             ],
         ),
         (
-            "Current V019 source-custody and eligibility boundaries",
+            "V019 custody and V020 source-diagnostic eligibility boundaries",
             [
                 sys.executable,
                 "-m",
@@ -177,6 +213,19 @@ def run_review(output: Path) -> dict:
                 "tools",
                 "-p",
                 "test_source_readiness.py",
+            ],
+        ),
+        (
+            "Frozen artifact loading, isolated inference and fail-closed contracts",
+            [
+                sys.executable,
+                "-m",
+                "unittest",
+                "discover",
+                "-s",
+                "tools",
+                "-p",
+                "test_model_delivery_demo.py",
             ],
         ),
         (
@@ -285,6 +334,7 @@ def run_review(output: Path) -> dict:
         "scored_result": score,
         "synthetic_reliability": reliability,
         "synthetic_temporal_model": temporal_model,
+        "synthetic_model_delivery": delivery,
         "checks": checks,
         "source_hashes": {
             "acquisition_progress.json": sha(SOURCE),
@@ -295,6 +345,10 @@ def run_review(output: Path) -> dict:
             "source_readiness.json": sha(SOURCE_READINESS),
             "tools/source_readiness.py": sha(ROOT / "tools/source_readiness.py"),
             "tools/temporal_model_demo.py": sha(ROOT / "tools/temporal_model_demo.py"),
+            "tools/model_delivery_demo.py": sha(ROOT / "tools/model_delivery_demo.py"),
+            "src/march_mania/public_reference.py": sha(
+                ROOT / "src/march_mania/public_reference.py"
+            ),
             "examples/temporal_model_demo/evaluation.json": sha(DEFAULT_OUTPUT / "evaluation.json"),
             "examples/temporal_model_demo/manifest.json": sha(DEFAULT_OUTPUT / "manifest.json"),
         },
@@ -331,11 +385,13 @@ def build_notebook(kernel: str) -> dict:
 
         ## Current source audit: integrity is necessary, not sufficient
 
-        V019 verified all 67 registered source bodies. It remains **PARTIAL**: one payload
-        reached the JSON scalar-size guard; one Parquet body is schema-only; seven tiny text
-        members inside ZIPs were hashed but not semantically interpreted. Fifty-three distinct
-        container analyses are not 53 fully qualified sources. There are still 3,573 unresolved
-        requests and zero new admitted historical features or private model fits.
+        V019 verified all 67 registered source bodies and remains an immutable **PARTIAL**
+        historical record. V020 then completed two narrowly registered diagnostics: the failed
+        payload is a 2,283-record CSV; the Parquet contains 1,629 season-2027 candidate rows,
+        with every game JSON URL null. Those format observations are not proof of source,
+        basketball identity, physical-game alignment or historical feature availability.
+        Seven tiny archive text members remain semantically uninspected. The original
+        67 object / 3,573 request debts and zero new historical feature admissions are unchanged.
 
         These public aggregate checks do not reread the private bodies or manufacture clocks.
         """),
@@ -360,7 +416,9 @@ def build_notebook(kernel: str) -> dict:
         frontier = summarize_frontier(load_frontier(), d)
         source = load_source_readiness()
         source_audit = source['source_audit']
-        print('Current source audit:', source['execution'], source['status'])
+        followup = source['latest_followup']
+        print('Historical source audit:', source['execution'], source['status'])
+        print('Latest follow-up:', followup['execution'], followup['status'])
         display(pd.DataFrame([{
             'Complete body verification': source_audit['complete_bodies_verified'],
             'Registered locations': source_audit['registered_locations'],
@@ -394,6 +452,10 @@ def build_notebook(kernel: str) -> dict:
         display({'application/vnd.plotly.v1+json': json.loads(source_plot.to_json()),
                  'image/png': base64.b64encode(image.getvalue()).decode()}, raw=True)
         print('ZIP inspection includes 7 tiny text members not semantically interpreted.')
+        print('V020 CSV records:', followup['csv']['records'])
+        print('V020 Parquet rows:', followup['parquet']['rows'])
+        print('These are records, not independently verified unique basketball games.')
+        print('V020 new historical features:', followup['new_historical_features'])
         print('Actual billing:', source['resources']['aws_cost'])
         print('V018 completed frozen replay, 925 games; all later labels exposed:')
         display(pd.DataFrame(source['matched_replay']['aggregate_scores']).set_index('arm'))
@@ -468,6 +530,36 @@ def build_notebook(kernel: str) -> dict:
             (root / 'tools/temporal_model_demo.py').read_bytes()).hexdigest())
         """),
         md("""
+        ## Deliver the frozen artifact without importing the trainer
+
+        Training and inference have different contracts. This cell loads the already committed
+        public synthetic artifacts in three isolated Python processes and compares the complete
+        response bytes with frozen expectations. No new fit occurs. Requests contain features,
+        identities and clocks, never outcome labels. The pure loader validates the externally
+        supplied SHA, exact schema, finite bounds, feature order and training-cutoff metadata.
+
+        The interface is local and testable, not a deployed API or production-availability claim.
+        The same inference module is used by the command line; there is no notebook-only path.
+        """),
+        code("""
+        from model_delivery_demo import run_demo as run_delivery_demo
+        delivery = run_delivery_demo()
+        assert delivery['status'] == 'PASS' and delivery['scope'] == 'SYNTHETIC_ONLY'
+        assert delivery['model_count'] == 3 and delivery['predictions_checked'] == 198
+        assert delivery['exact_prediction_parity'] is True
+        assert delivery['maximum_absolute_probability_difference'] == 0.0
+        assert delivery['new_model_fits'] == delivery['network_requests'] == 0
+        assert delivery['private_inputs_read'] == 0
+        assert delivery['inference_loaded_training_module'] is False
+        display(pd.DataFrame([{key: delivery[key] for key in (
+            'model_count', 'predictions_checked', 'exact_prediction_parity',
+            'maximum_absolute_probability_difference', 'new_model_fits',
+            'network_requests', 'inference_loaded_training_module')}]))
+        print('Fresh-process test:', delivery['fresh_process_test'])
+        print('Inference module SHA-256:', hashlib.sha256(
+            (root / 'src/march_mania/public_reference.py').read_bytes()).hexdigest())
+        """),
+        md("""
         ## Historical owner replay: the accepted control still wins development
 
         The October 30 V351 run (Pacific time) reused 302 fitted operations and completed
@@ -529,7 +621,7 @@ def build_notebook(kernel: str) -> dict:
         That dated twelve-run ledger has zero SUCCESS, eight PARTIAL and four STOPPED outcomes.
         Three completed workstreams do not create an overall success. Older V48 aggregate
         categories overlap; missing intervening history keeps current all-time totals unknown.
-        V352 later added another PARTIAL. This historical chart is not the current V019 census,
+        V352 later added another PARTIAL. This historical chart is not the V020 source follow-up,
         a new run count or evidence that the current source debt has closed.
         """),
         code("""
