@@ -1,6 +1,6 @@
 # Tournament Lab
 
-**Alvaro Mendizabal · Machine learning engineering · Applied data science**
+**Alvaro Mendizabal · ML engineering · Applied data science · Reliable AI systems**
 
 [![Research quality](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/ci.yml)
 [![Public demo](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/public-demo.yml/badge.svg)](https://github.com/alvaromendizabal/march-machine-learning-mania-2026/actions/workflows/public-demo.yml)
@@ -8,71 +8,75 @@
 
 [![Tournament Lab: probability, provenance and recovery. Inspectable engineering behind a forecast.](docs/assets/forecasting-system.svg)](START_HERE.md)
 
-## A probability is only useful when its evidence holds up.
+## A forecast is only as useful as the evidence behind it.
 
-I built an NCAA forecasting research system across **data qualification, men's and women's probability models, chronological evaluation and recoverable AWS execution**. This repository makes the work inspectable: a basketball scenario lab, six executed research notebooks, a public evaluation pipeline, and an independently authored recovery example that stops, resumes and rejects corrupted state.
+I built a basketball probability-research system connecting **source qualification, chronological ML, probability evaluation and recoverable cloud execution**. This independent March Machine Learning Mania project exposes the engineering decisions—not just a leaderboard number.
 
-**[Explore Duke × Michigan ↗](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)** · **[Review the engineering](START_HERE.md)** · **[Inspect current evidence](docs/engineering_review.md)**
+**[Explore the interactive lab ↗](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html)** · **[Five-minute engineering review](START_HERE.md)** · **[Run a real training example](docs/temporal_model_demo.md)**
 
-| Result | Evidence and interpretation |
-|---|---|
-| **0.1034347 Kaggle Brier** | [Recorded public/private score](docs/champion_result.md), submission 57122407. Retrospective 2026 research; prospective performance is unproven. |
-| **132,133 possible-matchup probabilities** | [Normalized result record](reports/champion_result/kaggle_record.json), with separate men's and women's populations. These are forecast rows, not scored games. |
-| **302 fitted operations reused; 925 matched games** | [Latest owner replay](docs/owner_replay.md). Zero new fits; accepted control retained after all three challengers worsened development Brier. |
-| **Completed work survives and verifies** | [Runnable reliability example](tools/reliability_demo.py): exact resume, zero qualification recomputation on a warm run and corrupt-checkpoint rejection on synthetic inputs. |
+| Engineering question | Inspectable evidence | Important boundary |
+|---|---|---|
+| Can you build and evaluate an ML pipeline? | [Actual temporal training](tools/temporal_model_demo.py), train-only transforms, probability diagnostics and deterministic artifacts | Fictional data, not NCAA performance |
+| Can you prevent leakage and resist misleading gains? | [925-game matched replay](docs/source_readiness.md#the-matched-study-is-not-a-new-holdout), development screens and unchanged control | Later labels were already exposed; no score-selected promotion |
+| Can you own data and production reliability? | [Source audit](docs/source_readiness.md), [interrupt/resume/corruption tests](tools/test_reliability_demo.py), immutable evidence and failure returns | 67 bodies verified; identity and eligibility remain unresolved |
+| Can you communicate a model as a product? | Bracket propagation, sensitivity, path attribution, scenario replay and printable briefs | Browser ratings, prices and outcomes are authored synthetic scenarios |
 
-## Review it in one command
+## Run the public review
 
-From a checkout, with **Python 3.12 and Node**:
+From a checkout with **Python 3.12 and Node**, no credentials or package installation:
 
 ```bash
 python tools/review_project.py
 ```
 
-Open **outputs/review/index.html**. Eleven checks execute the public forecast and scoring example, historical receipt arithmetic, recovery tests, current aggregate checks, owner replay and storage accounting, execution-history and qualification-frontier contracts, explorer controls, bracket engine and UI handlers, and deterministic offline demo packaging. Inspect progress across runs, then focus the remaining evidence by edition and qualification state. The report needs **no credentials, cloud account, private data or package installation**. [Setup and review contract](START_HERE.md#ten-minute-technical-review)
+Open **outputs/review/index.html**. Thirteen checks cover actual synthetic ML training and evaluation, source contracts, recovery, evidence arithmetic, browser calculations and offline packaging. **review.json** records results and source hashes. [Setup and reproduction levels](START_HERE.md#ten-minute-technical-review)
 
-The public examples reproduce their own calculations. Competitive forecasting recipes, learned weights, private source banks and row-level forecasts remain private. [Reproduction levels](docs/reproduction_matrix.md) · [Publication boundary](portfolio/DISCLOSURE.md)
+For training alone:
 
-## Three ways to inspect the work
+```bash
+python tools/temporal_model_demo.py --out-dir outputs/temporal-demo
+```
 
-| Review path | What it demonstrates | Start here |
+This fits regularized logistic models on expanding prior-season windows. Scaling is learned from training rows only; future outcomes cannot alter earlier forecasts. The fixed protocol and tests are public, independent of the private competitive model.
+
+## Results, with their denominators
+
+| Evidence | What it establishes | What it does not establish |
 |---|---|---|
-| **Applied modeling** | Separate men's/women's branches, calibration, season-forward evaluation, matched comparisons and negative results | [Model card](docs/model_card.md) · [Model-comparison notebook](notebooks/03_model_comparison_and_diagnostics.ipynb) |
-| **Data and ML systems** | Source identities, timing boundaries, explicit missingness, content verification, independent stages and durable recovery | [Engineering case study](docs/employer_walkthrough.md) · [Executed engineering review](portfolio/engineering_review.ipynb) |
-| **Product communication** | Duke–Michigan scenarios, exact bracket propagation, sensitivity, path attribution, scenario replay and printable briefs | [Interactive lab](https://raw.githack.com/alvaromendizabal/march-machine-learning-mania-2026/main/public-demo/index.html) · [Analyst walkthrough](docs/scouting_walkthrough.md) |
+| **0.1034347 Kaggle Brier** | [Recorded retrospective score](docs/champion_result.md), submission 57122407 | Prospective performance, an official competition win or profitability |
+| **132,133 possible-matchup probabilities** | [Normalized submission record](reports/champion_result/kaggle_record.json) | 132,133 scored games |
+| **925 matched games / 218 common feature games** | [V018 study](portfolio/source_readiness.json): control Brier 0.1694094; candidate A 0.1675881 | A selected replacement or new holdout; every paired interval includes zero |
+| **67/67 bodies verified / zero admissions** | [V019 source audit](docs/source_readiness.md), 54 distinct content identities | Complete provider acquisition, closed debt or proven pregame clocks |
 
-## From source to decision
+The 925-game study, historical 126-game retrospective and Kaggle receipt are **different populations**, not equivalent tests. Control remains unchanged.
+
+## Architecture: qualify before you learn
 
 ```mermaid
 flowchart TD
-    A[Source observations] --> B{Identity and timing qualify?}
-    B -->|Yes| C[Versioned features]
+    A[Source observations] --> B{Identity and timing proven?}
+    B -->|Yes| C[Train-only feature pipeline]
     B -->|No or unknown| D[Retained evidence and explicit gaps]
-    C --> E[Season-forward model comparison]
-    E --> F{Declared evaluation passes?}
-    F -->|Yes| G[Versioned forecast artifact]
-    F -->|No| H[Retained negative result]
-    G --> I[Independent integrity and delivery checks]
+    C --> E[Earlier-season model selection]
+    E --> F[Frozen policy and predictions]
+    F --> G[Later-season observation]
+    G --> H[Matched evaluation and release evidence]
 ```
 
-[Architecture](docs/architecture.md) · [Evaluation protocol](docs/research_protocol.md) · [Source ownership](docs/supplemental_source_ownership.md)
+[Architecture](docs/architecture.md) · [Evaluation protocol](docs/research_protocol.md) · [Model card](docs/model_card.md) · [Attribution](docs/benchmark_comparison.md#method-lineage-and-additional-work)
 
-## Latest verified owner run · October 30, 2026 (Pacific)
+## Latest owner evidence · reviewed November 3, 2026
 
-**V351 remains PARTIAL: research, science and lineage completed, while market-source closure is unfinished.** It reused **66 research and 236 science fitted operations**, with **zero new fits or submissions**. The matched study has **925 physical games** and **3,700 probability rows across four arms**. All three challengers worsened the predeclared development Brier, so the accepted control remains selected. The later window was already examined and is not a fresh holdout. [Matched results and runtime evidence](docs/owner_replay.md)
+**V019 is PARTIAL, with zero new model fits.** All 67 registered bodies passed complete byte and SHA checks. One payload hit a parser contract; one Parquet object was schema-only; seven tiny archive text members were byte-verified but not semantically inspected. Forty-five unique JSON containers were fully traversed. These are distinct evidence levels—not 67 successful scientific inputs.
 
-The odds phase improved **60.45%**, with an authenticated **0.107-second warm price reuse**, while total time grew **35.98% to 12m 05s** as consolidation took **582.02 seconds**. All eight current diagnostics were authenticated. The census still found **1,583 immediate home entries**, including **591 ZIPs and 450 PYZs**, before later moves. **67 historical roots moved**; **204 were preserved**. The **4.972 GB duplicate upper bound is unqualified**, while actual release was **0.243 GB** and final free space **2.648 GB**. All **417 manifest entries** verified. Source blockers remain **71**, with zero new selections or model admissions. The 472 notebook/HTML moves are inherited work, not new relocation.
+The run replayed a **90,886-record saved metadata snapshot**, not a fresh listing. It produced **zero exact request matches, debt closures or historical feature-clock witnesses**. The original **67 objects / 3,573 unresolved requests** remain unresolved. [Measured resources and blockers](docs/source_readiness.md)
 
-**Incomplete outcomes stay visible.** The twelve identified V340–V351 owner invocations contain **zero SUCCESS, eight PARTIAL and four STOPPED statuses**. Three completed workstreams do not turn V351 into an overall success. Older reported categories remain separate and overlapping; all-time totals are unknown. [Scoped execution accounting](docs/owner_replay.md#count-executions-once-and-preserve-missing-history)
+The [V351 systems comparison](docs/owner_replay.md) and [October 26 acquisition snapshot](portfolio/acquisition_progress.json) remain dated historical records, not relabeled latest results.
 
-The [October 26 acquisition snapshot](portfolio/acquisition_progress.json), [execution ledger](docs/execution_evidence.md) and [qualification frontier](docs/qualification_frontier.md) retain their own dated populations and rules. They are historical evidence, not a relabeled census from the latest replay.
+## Publicly reproducible. Privately bounded.
 
-## What the scored result establishes
+The public tree contains the maintained Python framework, six canonical executed notebooks, an actually trained synthetic example, browser calculations, tests, CI and aggregate evidence. Private provider bodies, cloud locations, competitive weights, exact blend recipes and row-level competitive forecasts stay withheld. [Reproduction matrix](docs/reproduction_matrix.md) · [Disclosure](portfolio/DISCLOSURE.md) · [Publication guard](tools/check_publication.py)
 
-**0.1034347** is the recorded Kaggle public/private Brier for the featured retrospective submission. Lower Brier indicates lower probability error on scored games. Outcomes were already available; the score does not establish an official competition victory, untouched validation, accuracy percentage or profitability. The demo's ratings, bracket positions, prices and outcomes are authored synthetic scenarios, separate from the scored forecast.
+**Stack:** Python, pandas, scikit-learn, XGBoost, LightGBM, Plotly, AWS SageMaker and GitHub Actions. Portable examples have dependency-free paths. No LLM or generative-AI capability is claimed for this forecasting project.
 
-Earlier scored receipts and method attribution remain in the [historical comparison](docs/benchmark_comparison.md). The [2027 evaluation contract](docs/2027_readiness.md) defines what future evidence must establish.
-
-**Stack:** Python, pandas, scikit-learn, XGBoost, LightGBM, Plotly, AWS SageMaker, GitHub Actions and dependency-free browser calculations.
-
-**Author:** [Alvaro Mendizabal](https://github.com/alvaromendizabal) · [MIT license](LICENSE) · [Attribution and disclosure](portfolio/DISCLOSURE.md)
+**Author:** [Alvaro Mendizabal](https://github.com/alvaromendizabal) · [MIT license](LICENSE) · [Technical review rubric](docs/portfolio_review.md)

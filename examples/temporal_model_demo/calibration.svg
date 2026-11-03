@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="430" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
+<title id="title">Synthetic temporal model reliability</title>
+<desc id="desc">Authored fictional data only. Each game was predicted by an earlier-season fit. Circles show five reliability bins.</desc>
+<rect width="760" height="430" rx="14" fill="#f8fafc"/>
+<g font-family="system-ui, sans-serif" fill="#14283f">
+<text x="46" y="36" font-size="22" font-weight="700">Does confidence match frequency?</text>
+<text x="46" y="60" font-size="12" fill="#526477">SYNTHETIC ONLY · three expanding-window folds</text>
+<path d="M84 350.0H654" stroke="#dbe4ec"/>
+<text x="66" y="354.0" text-anchor="end" font-size="11">0.0</text>
+<text x="84.0" y="371" text-anchor="middle" font-size="11">0.0</text>
+<path d="M84 300.0H654" stroke="#dbe4ec"/>
+<text x="66" y="304.0" text-anchor="end" font-size="11">0.2</text>
+<text x="198.0" y="371" text-anchor="middle" font-size="11">0.2</text>
+<path d="M84 250.0H654" stroke="#dbe4ec"/>
+<text x="66" y="254.0" text-anchor="end" font-size="11">0.4</text>
+<text x="312.0" y="371" text-anchor="middle" font-size="11">0.4</text>
+<path d="M84 200.0H654" stroke="#dbe4ec"/>
+<text x="66" y="204.0" text-anchor="end" font-size="11">0.6</text>
+<text x="426.0" y="371" text-anchor="middle" font-size="11">0.6</text>
+<path d="M84 150.0H654" stroke="#dbe4ec"/>
+<text x="66" y="154.0" text-anchor="end" font-size="11">0.8</text>
+<text x="540.0" y="371" text-anchor="middle" font-size="11">0.8</text>
+<path d="M84 100.0H654" stroke="#dbe4ec"/>
+<text x="66" y="104.0" text-anchor="end" font-size="11">1.0</text>
+<text x="654.0" y="371" text-anchor="middle" font-size="11">1.0</text>
+<path d="M84 350L654 100" stroke="#697e93" stroke-dasharray="5 5"/>
+<polyline points="166.65,332.14 259.46,313.54 364.87,232.81 479.62,172.58 570.09,137.04" fill="none" stroke="#087e8b" stroke-width="3"/>
+<circle cx="166.65" cy="332.14" r="6" fill="#087e8b" stroke="#fff" stroke-width="2"><title>n=28; mean probability 0.145; observed 0.071</title></circle>
+<circle cx="259.46" cy="313.54" r="6" fill="#087e8b" stroke="#fff" stroke-width="2"><title>n=48; mean probability 0.308; observed 0.146</title></circle>
+<circle cx="364.87" cy="232.81" r="6" fill="#087e8b" stroke="#fff" stroke-width="2"><title>n=64; mean probability 0.493; observed 0.469</title></circle>
+<circle cx="479.62" cy="172.58" r="6" fill="#087e8b" stroke="#fff" stroke-width="2"><title>n=31; mean probability 0.694; observed 0.710</title></circle>
+<circle cx="570.09" cy="137.04" r="6" fill="#087e8b" stroke="#fff" stroke-width="2"><title>n=27; mean probability 0.853; observed 0.852</title></circle>
+<text x="369" y="397" text-anchor="middle" font-size="12">Predicted probability</text>
+<text transform="translate(23 225) rotate(-90)" text-anchor="middle" font-size="12">Observed frequency</text>
+<text x="46" y="420" font-size="10" fill="#526477">Small synthetic sample; this is not a calibration guarantee or a competition score.</text>
+</g></svg>

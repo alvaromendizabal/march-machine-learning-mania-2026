@@ -25,16 +25,21 @@ td,th{padding:13px 8px;border-bottom:1px solid #dce3ec;text-align:left}
 @media(max-width:700px){article,section{padding:22px}.section-heading{display:block}.scope-tag{display:inline-block;margin:8px 0}.frontier-stats{grid-template-columns:1fr}.frontier-stats article{display:grid;grid-template-columns:1fr auto;gap:6px 15px}.frontier-stats article>span:first-child{min-height:0}.frontier-stats article>span:last-child{grid-column:1/-1}.frontier-stats strong{margin:0;grid-column:2;grid-row:1}.frontier-controls{grid-template-columns:1fr}.frontier-label{font-size:12px}.frontier-value{text-align:right}.review-nav a{font-size:12px}.frontier-legend{gap:10px 14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:#fff}main{max-width:none;padding:0}header{background:#0a2344!important;print-color-adjust:exact}.review-nav,.frontier-controls,.history-picker{display:none}section,article{break-inside:avoid}.frontier-track,.history-track{print-color-adjust:exact}}
 .replay-panel{border-top:4px solid #1c5ba8}.replay-panel .grid article{background:#f2f6fb;padding:22px}.replay-panel .grid strong{color:#164b80}.replay-panel details{border-top:1px solid #d6deea;padding-top:18px;margin-top:22px}.replay-panel summary{font-weight:650;cursor:pointer}.replay-table{overflow-x:auto}.replay-table:focus-visible{outline:3px solid #1766b8;outline-offset:3px}.replay-table table{min-width:580px;font-variant-numeric:tabular-nums}.replay-table caption{text-align:left;padding:12px 0;color:#52637a;font-size:13px}.replay-table tbody th{font-weight:500}
+.temporal-panel{border-top:4px solid #008477}.temporal-panel .grid article{background:#f1f8f6;padding:22px}.temporal-panel .grid strong{color:#006b60}.temporal-panel .metric-pair{font-size:25px;line-height:1.6}.reliability-figure{margin:24px 0 12px}.reliability-figure svg{display:block;width:100%;height:auto;max-width:760px;margin:auto}.reliability-figure figcaption{font-size:13px;color:#52637a;line-height:1.7;margin-top:12px}code{background:#edf2f7;border-radius:4px;padding:3px 6px;overflow-wrap:anywhere}.historical-label{border-left:3px solid #8da0b5;padding-left:18px;color:#52637a}
 </style></head>
 <body><main>
 <header><div class="eyebrow">Alvaro Mendizabal / machine learning engineering</div>
 <h1>Evidence behind<br>the forecast.</h1>
-<p>A reproducible public review of probability calculations, source accounting and interrupted-work recovery. This report reads no private model or source bank.</p>
-<small>Public review: $status · latest replay $latest_date · acquisition snapshot $date</small></header>
-<nav class="review-nav" aria-label="Review sections"><a href="#owner-replay">Latest owner replay</a><a href="#history-title">Acquisition history</a><a href="#frontier">Historical frontier</a><a href="#recovery">Recovery contract</a><a href="#checks">Executed checks</a><a href="review.json">Machine-readable report ↗</a></nav>
+<p>Train a real model on fictional seasons. Inspect source-custody boundaries, chronological evaluation and interrupted-work recovery. This report reads no private model or source bank.</p>
+<small>Public review: $status · source audit $current_date · historical replay $latest_date</small></header>
+<nav class="review-nav" aria-label="Review sections"><a href="#source-readiness">Current source audit</a><a href="#temporal-model">Train a synthetic model</a><a href="#owner-replay">Historical replay</a><a href="#history-title">Acquisition history</a><a href="#frontier">Historical frontier</a><a href="#recovery">Recovery contract</a><a href="#checks">Executed checks</a><a href="review.json">Machine-readable report ↗</a></nav>
+$source_readiness
+$temporal_model
+<h2>Historical owner replay · $latest_date</h2>
+<p class="historical-label">The V351 observation below preserves an earlier study, denominator and systems comparison. It is not the current V019 source audit, a fresh holdout or another owner invocation. Historical counts are not added to current counters.</p>
 $owner_replay
 <h2>Dated acquisition evidence · $date</h2>
-<p>These source-qualification panels preserve an earlier, independently scoped observation. The latest replay above carries a later coverage summary; it does not invent missing edition-level transitions for this historical ledger.</p>
+<p>These source-qualification panels preserve an earlier, independently scoped observation. They are not a new census and do not invent missing edition-level transitions for this historical ledger.</p>
 <div class="grid">
 <article><span>Recorded retrospective Kaggle Brier</span><strong>$brier</strong><span>Inherited scored evidence. No new submission.</span></article>
 <article><span>Numerical box-score candidates</span><strong>$recovered / $original</strong><span>$remaining missing; historical admission is a separate gate.</span></article>
@@ -45,11 +50,11 @@ $frontier
 <section id="recovery"><h2>Interrupt. Resume. Verify.</h2>
 <p>The independent synthetic example stops after one committed unit, resumes without recomputing that unit, reuses completed work and rejects altered checkpoint content.</p>
 <div class="flow"><span>1 committed before stopping</span><span>$resume_computed new + $resume_reused reused on resume</span><span>$warm_computed qualifications recomputed on warm run</span><span>Corruption rejected</span></div>
-<p>Two synthetic observations qualify; one is late and one has unknown timing. Input fingerprints and content digests are still verified on every reuse. No network or model fitting.</p></section>
+<p>Two synthetic observations qualify; one is late and one has unknown timing. Input fingerprints and content digests are still verified on every reuse. This recovery example makes no network request and fits no model; the learned temporal example above is separate.</p></section>
 <section id="checks"><h2>Executed review checks</h2>
 <table><thead><tr><th>Check</th><th>Result</th><th>Elapsed</th></tr></thead><tbody>$rows</tbody></table></section>
 <section><h2>Keep the claims distinct</h2>
-<p>The score is retrospective and its private row-level predictions are withheld. Acquisition counts come from an authenticated owner return; the public review checks their consistency, not the original providers. The recovery example and browser ratings are explicitly synthetic. None establishes prospective performance or profitability.</p>
+<p>The competition score is retrospective and its private row-level predictions are withheld. Acquisition counts come from authenticated owner returns; the public review checks aggregate consistency, not the original providers. The learned temporal model, recovery example and browser ratings are explicitly synthetic. Three public example fits are not owner research fits. None establishes prospective performance or profitability.</p>
 <p><a href="https://github.com/alvaromendizabal/march-machine-learning-mania-2026/blob/main/docs/engineering_review.md">Review contract</a> · <a href="https://github.com/alvaromendizabal/march-machine-learning-mania-2026/blob/main/docs/model_card.md">Model card</a></p></section>
 <footer class="review-footer">Tournament Lab · Executable public evidence · Built to inspect offline</footer>
 </main></body></html>

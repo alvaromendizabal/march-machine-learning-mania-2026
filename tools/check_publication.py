@@ -71,6 +71,10 @@ SECRET_PATTERNS = (
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     re.compile(r"[?&](?:X-Amz-Signature|X-Goog-Signature)=[a-fA-F0-9]{32,}"),
 )
+CLOUD_LOCATION_PATTERNS = (
+    re.compile(r"s3://[a-z0-9][a-z0-9.-]{2,62}/[^\s\"'<>]+", re.IGNORECASE),
+    re.compile(r"sagemaker-[a-z0-9-]+-\d{12}-[a-z]{2}-[a-z]+-\d"),
+)
 
 
 def git(root: Path, *args: str) -> bytes:
@@ -123,6 +127,8 @@ def inspect_blob(path: str, content: bytes, *, symlink: bool = False) -> list[st
         return reasons
     if any(pattern.search(text) for pattern in SECRET_PATTERNS):
         reasons.append("credential-like material or signed download URL")
+    if any(pattern.search(text) for pattern in CLOUD_LOCATION_PATTERNS):
+        reasons.append("private cloud locator requires separate publication review")
     suffix = relative.suffix.lower()
     if suffix == ".csv":
         try:

@@ -41,6 +41,10 @@ def main() -> int:
         "tools/test_evidence_history.py",
         "tools/test_qualification_frontier.py",
         "tools/test_reliability_demo.py",
+        "tools/source_readiness.py",
+        "tools/test_source_readiness.py",
+        "tools/temporal_model_demo.py",
+        "tools/test_temporal_model_demo.py",
     ]
     typed_files = tomllib.loads((root / "pyproject.toml").read_text())["tool"]["mypy"]["files"]
     typed_files = [

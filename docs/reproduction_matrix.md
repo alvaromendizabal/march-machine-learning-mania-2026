@@ -15,13 +15,15 @@ The featured result is **0.1034347 retrospective Kaggle Brier**, submission 5712
 | AP polling | Editions, rank semantics, and activation boundaries reconstructed | Several fixed model integrations failed validation |
 | Official raw-game features | 42 men's and 29 women's seasons; independent replay | Descriptive feature coverage is not evidence of a predictive gain |
 | Derived NCAA player-box bank | Historical identity, coverage, and model-contract work retained | Not relabeled as original ESPN data or an original-owned player archive |
-| Current original-source acquisition | 133/221 numerical candidates, 88 remaining; 107 venue units completed and 102/583 women's rows qualified | Recovered overlay has zero strict historical admissions; acquisition succeeded with 481 women's rows unresolved |
+| Dated original-source acquisition | October 26: 133/221 numerical candidates, 88 remaining; 107 venue units completed and 102/583 women's rows qualified | Recovered overlay has zero strict historical admissions; this historical scope is not the latest source census |
+| Current V019 source-custody audit | 67 registered source bodies verified; 53 distinct container analyses plus one bounded parsing interruption | PARTIAL; one Parquet schema-only and seven ZIP text members uninspected; 3,573 unresolved requests, zero debt closure or new historical eligibility |
 | Execution evidence ledger | Three public observations, explicit population denominators, validated additions/retractions and an interactive offline report | Checks aggregate accounting; withheld providers are not independently authenticated by public reproduction |
 | Qualification frontier | Nine frozen editions, disjoint qualification states, exact snapshot binding, and tested focus/order controls | Representation states do not enumerate every standalone witness, guarantee yield or establish full-study readiness |
 | BPI and market information | Partial original-source recovery | Broad dated history remains incomplete |
 | Publisher advancement probabilities | Complete 68-team fields reconstructed for 2025 and 2026 | Fixed blending recipe rejected; source success did not imply model success |
 | Earlier official feature rebuild | v170: 14,311 team-season profiles and 132,133 covered matchups | Existing forecast recovery is not a newly fitted model |
 | Public synthetic forecast/evaluation lab | Fully executable cutoff, identity, probability and scoring contracts | Authored fixtures; no claim of private-model parity |
+| Public learned temporal model | Three actual regularized-logistic fits; training-only scaling, expanding season windows, 198 frozen synthetic predictions and calibration diagnostics | Complete fictional data and parameters; no NCAA performance, private recipe, owner research fit or prospective validation claim |
 
 ## Independent validation repairs
 
@@ -41,12 +43,14 @@ A lineup-stint pilot stopped before fitting because the producer's interval sema
 
 | Level | What a reviewer should expect |
 |---|---|
-| Public examples | Synthetic forecast/scoring, exact bracket propagation, and stop/resume/corruption checks; executable without credentials |
+| Public examples | Actual three-fold synthetic learning, unfitted forecast/scoring, exact bracket propagation, and stop/resume/corruption checks; executable without credentials |
 | Public review | One-command HTML/JSON report, executed engineering notebook, aggregate arithmetic, provenance boundaries and architecture |
 | Private artifact replay | Exact saved inputs, configurations, predictions, model receipts, and checkpoints |
 | Source-to-feature replay | Rebuilt normalized tables from retained raw source objects |
 | Fresh-season reproduction | Newly acquired season inputs through a frozen candidate before outcomes |
 
 The [public notebook](../portfolio/verified_result.ipynb) and [audit CLI](../portfolio/reproduce_release.py) reproduce aggregate release checks. They do not rerun private training or recreate the private prediction rows.
+
+The separate [temporal learning example](temporal_model_demo.md) does fit models, but only on transparent authored fictional inputs. `python tools/temporal_model_demo.py --check` recreates its three fits and checks six artifact files byte for byte. Its 32 contract tests include training-only transforms, clock boundaries, physical-game uniqueness, symmetry, metric reference calculations and tamper rejection. The distinction is intentional: reviewers can inspect a complete learned system without receiving the competition recipes or confusing a teaching score with private research evidence.
 
 Private artifact and source-to-feature replay have substantial evidence, with scope varying by source and model family. Fresh-season reproduction remains an explicit [2027 readiness requirement](2027_readiness.md). Private weights, detailed correction logic, fitted competition artifacts, and row-level private forecasts are withheld.

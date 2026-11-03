@@ -8,14 +8,17 @@ flowchart TD
     B[Original-provider observations] --> C
     C --> D[Normalized feature stores]
     D --> E[Chronological development]
-    D --> F[Later-season evaluation]
     E --> G[Fixed forecast policy]
-    F --> G
     G --> H[Immutable forecast artifact]
-    H --> I[Evaluation and release evidence]
+    H --> F[Later-season evaluation]
+    F --> I[Evaluation and release evidence]
 ```
 
 The architecture deliberately separates **source eligibility**, **historical model evaluation**, and **final retrospective audit**. A lower audit score alone does not override failed historical promotion gates.
+
+Only earlier chronological development selects a policy. Later evaluation observes that frozen policy and its forecasts; it does not feed back into the same claimed evaluation. Already-exposed labels are not relabeled as untouched.
+
+The [public temporal ML example](temporal_model_demo.md) demonstrates actual training-only preprocessing and model fits on fictional data. The [source audit](source_readiness.md) demonstrates the earlier admission boundary: exact bytes alone do not establish feature eligibility.
 
 ## Execution and publication flow
 

@@ -32,6 +32,10 @@ jobs:
           uv run --locked python portfolio/current_research.py --check
 
           uv run --locked python -m unittest discover -s tools -p 'test_review_project.py' -v
+          uv run --locked python -m unittest discover -s tools -p 'test_source_readiness.py' -v
+          uv run --locked python tools/source_readiness.py --check
+          uv run --locked python -m unittest discover -s tools -p 'test_temporal_model_demo.py' -v
+          uv run --locked python tools/temporal_model_demo.py --check
           uv run --locked python -m unittest discover -s tools -p 'test_owner_replay.py' -v
           uv run --locked python -m unittest discover -s tools -p 'test_evidence_history.py' -v
           uv run --locked python tools/evidence_history.py --check
@@ -45,3 +49,10 @@ jobs:
           uv run --locked python -m ipykernel install --user --name march-frontier
           uv run --locked python portfolio/frontier_research.py --build --kernel march-frontier
           uv run --locked python portfolio/frontier_research.py --check
+      - name: Retain the actual clean-kernel engineering notebook
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: executed-engineering-notebook
+          path: portfolio/engineering_review.ipynb
+          if-no-files-found: error
+          retention-days: 30

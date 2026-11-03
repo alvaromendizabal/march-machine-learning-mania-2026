@@ -1,0 +1,38 @@
+{
+  "artifact_closure": "Exactly the five named payloads; manifest excludes its own hash",
+  "evidence_scope": "SYNTHETIC_ONLY",
+  "generator": "tools/temporal_model_demo.py",
+  "generator_pin": {
+    "bytes": 31030,
+    "sha256": "c7c4201e5431adce9f146290e692ca081e40ffb463ceb31013dd3a61d5060fcd"
+  },
+  "owner_research_fits": 0,
+  "payloads": {
+    "calibration.svg": {
+      "bytes": 3043,
+      "sha256": "759a2214072e94a01dcb79fd8293cd82b371fb7af953c74f2dcdf1023388077f"
+    },
+    "evaluation.json": {
+      "bytes": 5908,
+      "sha256": "bf2f05278247949d29565a25b49a1e6b992d2c10c18f62cf825affc59f2ed74e"
+    },
+    "predictions.json": {
+      "bytes": 49803,
+      "sha256": "1728d7086ad2e7eb2753f85197ba01d7f30b9af182e5c6f7299ba2fc89202622"
+    },
+    "synthetic_fits.json": {
+      "bytes": 31962,
+      "sha256": "695f3a41e6f66588f3cc64cc8ce57c88a51974407611676951027d3bba5d01c9"
+    },
+    "synthetic_fixture.json": {
+      "bytes": 191441,
+      "sha256": "33e8d8cc941792590e8554d7a266e8bd0a72106be5c629c1daa56ea2f889bfc1"
+    }
+  },
+  "protocol_pin": {
+    "bytes": 621,
+    "sha256": "f1b90d5c71a36b20225c71395d44221e5172328a534a665335388a17d1dc2628"
+  },
+  "schema_version": 1,
+  "synthetic_model_fits": 3
+}

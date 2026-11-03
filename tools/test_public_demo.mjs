@@ -613,6 +613,88 @@ await test("print brief contains all scenario ratings and synthetic scope",()=>{
 await test("champion fact and current Kaggle score are visible without altering prediction inputs",()=>{
   assert.match(html,/0\.1034347/);assert.match(html,/57122407/);assert.match(html,/2026 NCAA MEN’S CHAMPION/);assert.match(html,/ncaa\.com/);assert.doesNotMatch(html,/0\.1067095/);
 });
+
+await test("employer review navigation has real focusable in-page destinations", () => {
+  const navigation = html.match(/<nav class="review-nav"[\s\S]*?<\/nav>/)?.[0];
+  assert.ok(navigation, "The review route is a semantic navigation landmark");
+  assert.match(navigation, /aria-label="Review sections"/);
+  for (const id of ["overview", "workbench", "engineering-evidence", "reproduce-public"]) {
+    assert.ok(navigation.includes(`href="#${id}"`), `Navigation to ${id}`);
+    const target = html.match(new RegExp(`<[^>]*id="${id}"[^>]*>`))?.[0];
+    assert.ok(target, `Destination ${id} exists`);
+    assert.ok(target.includes('tabindex="-1"'), `Destination ${id} accepts keyboard focus`);
+  }
+  const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(new Set(ids).size, ids.length, "No duplicated DOM identities");
+  for (const match of html.matchAll(/href="#([^"]+)"/g)) {
+    assert.ok(ids.includes(match[1]), `Internal link target ${match[1]} exists`);
+  }
+});
+
+await test("historical score and synthetic scenario have visibly different evidence classes", () => {
+  const score = html.match(/<aside class="intro-note result-lockup"[\s\S]*?<\/aside>/)?.[0];
+  assert.ok(score);
+  assert.match(score, /PRIVATE FORECAST · PUBLIC AGGREGATE/);
+  assert.match(score, /Outcomes were already available/);
+  assert.match(score, /prospective performance is unproven/);
+  assert.match(score, /not<\/strong> produced by the synthetic scenario/);
+  assert.match(html, /PUBLIC SCENARIO LAB · SYNTHETIC INPUTS/);
+  assert.match(html, /V019 · PARTIAL · ZERO FITS/);
+  assert.match(html, /Verification does not prove model eligibility/);
+});
+
+await test("public reproduction command and all three reproduction levels are visible without JavaScript", () => {
+  const section = html.match(/<section class="reproduce-panel"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(section);
+  assert.match(section, /<code>python tools\/review_project\.py<\/code>/);
+  assert.match(section, /Publicly reproducible/);
+  assert.match(section, /Auditable aggregates/);
+  assert.match(section, /Privately reproducible/);
+  assert.match(section, /does not retrain or regenerate the private competition forecast/);
+  assert.match(section, /No credentials, cloud account or private data/);
+});
+
+await test("source audit scope does not relabel verified bodies as interpreted or admitted rows", () => {
+  const update = html.match(/<div class="evidence-update"[\s\S]*?<details class="acquisition-detail"/)?.[0];
+  assert.ok(update);
+  assert.match(update, /67 \/ 67/);
+  assert.match(update, /45 JSON traversals/);
+  assert.match(update, /seven archives retain uninspected text/);
+  assert.match(update, /Parquet is schema-only/);
+  assert.match(update, /payload is parser-blocked/);
+  assert.match(update, /3,573 unresolved requests/);
+  assert.match(update, /zero.*fits|ZERO FITS|No provider purchases, new model fits/);
+  assert.doesNotMatch(update, /all sources (?:complete|qualified)|all.*67.*parsed/i);
+});
+
+await test("ordinary section fragments preserve the baseline and scenario-link replay", async () => {
+  const plainUI = browser();
+  const sectionUI = browser({ hash: "#engineering-evidence" });
+  assert.deepEqual((await sectionUI.export()).analysis, (await plainUI.export()).analysis);
+  assert.equal(sectionUI.el("share-status").textContent, "");
+  sectionUI.click("share-scenario");
+  assert.ok(sectionUI.el("scenario-link").value.startsWith("https://example.org/lab/#scenario="));
+});
+
+await test("review typography has readable contrast and small-screen navigation rules", () => {
+  const luminance = hex => {
+    const channels = hex.match(/[a-f\d]{2}/gi).map(value => parseInt(value, 16) / 255)
+      .map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4);
+    return channels[0] * .2126 + channels[1] * .7152 + channels[2] * .0722;
+  };
+  for (const [foreground, background] of [
+    ["314765", "f3f5fa"], ["536077", "ffffff"], ["674711", "fff5de"],
+    ["f5f8ff", "0d2348"], ["cbd9ef", "0d2348"], ["1c4b94", "ffffff"],
+  ]) {
+    const a = luminance(foreground), b = luminance(background);
+    const contrast = (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
+    assert.ok(contrast >= 4.5, `${foreground} on ${background}: ${contrast}`);
+  }
+  assert.match(css, /\.review-nav\s*\{[\s\S]*?position:\s*sticky/);
+  assert.match(css, /@media \(max-width: 700px\)/);
+  assert.match(css, /scroll-padding-top:\s*116px/);
+  assert.match(css, /\.command-panel pre\s*\{[\s\S]*?overflow-x:\s*auto/);
+});
 console.log(
   `PASS: ${checks} Tournament Lab UI checks (real handlers + real engine; no browser renderer).`,
 );
