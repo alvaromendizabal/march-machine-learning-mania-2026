@@ -203,7 +203,7 @@ def run_review(output: Path) -> dict:
             ],
         ),
         (
-            "V019 custody and V020 source-diagnostic eligibility boundaries",
+            "V019 custody, V020 diagnostics and V021 offline eligibility boundaries",
             [
                 sys.executable,
                 "-m",
@@ -226,6 +226,19 @@ def run_review(output: Path) -> dict:
                 "tools",
                 "-p",
                 "test_model_delivery_demo.py",
+            ],
+        ),
+        (
+            "Closed evidence bundle, exact source and dependency rejection contracts",
+            [
+                sys.executable,
+                "-m",
+                "unittest",
+                "discover",
+                "-s",
+                "tools",
+                "-p",
+                "test_evidence_bundle.py",
             ],
         ),
         (
@@ -394,6 +407,11 @@ def build_notebook(kernel: str) -> dict:
         67 object / 3,573 request debts and zero new historical feature admissions are unchanged.
 
         These public aggregate checks do not reread the private bodies or manufacture clocks.
+
+        V021 then completed all six offline stages: 67 location gates and 3,625 request gates.
+        Its 47/54 content and 60/67 location completeness masks are not new source admission.
+        It reproduced 198 public synthetic responses in process with zero fits or source reads.
+        Public fresh-process delivery and public CI evidence verification have separate scopes.
         """),
         code("""
         from pathlib import Path
@@ -418,7 +436,11 @@ def build_notebook(kernel: str) -> dict:
         source_audit = source['source_audit']
         followup = source['latest_followup']
         print('Historical source audit:', source['execution'], source['status'])
-        print('Latest follow-up:', followup['execution'], followup['status'])
+        print('Source-format follow-up:', followup['execution'], followup['status'])
+        qualification = source['offline_qualification']
+        print('Latest offline qualification:', qualification['execution'], qualification['status'])
+        print('Location / request gates:', qualification['original_locations'],
+              qualification['original_request_rows'])
         display(pd.DataFrame([{
             'Complete body verification': source_audit['complete_bodies_verified'],
             'Registered locations': source_audit['registered_locations'],

@@ -149,7 +149,7 @@ export function checkReducedMotion(motion) {
   assert.deepEqual(motion.animations, [], "reduced motion disables animations including pseudo-elements");
 }
 
-function installedBrowser() {
+export function installedBrowser() {
   const configured = process.env.CHROME_BIN;
   const names = configured ? [configured] : ["google-chrome", "google-chrome-stable", "chromium", "chromium-browser"];
   for (const name of names) {
@@ -399,6 +399,7 @@ export async function main(args = process.argv.slice(2)) {
   };
   fs.mkdirSync(OUTPUT, { recursive: true });
   let temporary, browser, client;
+  let stderr = "";
   const start = performance.now();
   try {
     let baselineRef;
@@ -419,7 +420,6 @@ export async function main(args = process.argv.slice(2)) {
       "--remote-debugging-pipe", `--user-data-dir=${path.join(temporary, "chrome-profile")}`, "about:blank",
     ], { stdio: ["ignore", "ignore", "pipe", "pipe", "pipe"] });
     client = new PipeClient(browser.stdio[4], browser.stdio[3]);
-    let stderr = "";
     browser.stderr.on("data", (chunk) => { stderr = (stderr + chunk.toString()).slice(-12000); });
     browser.on("error", (error) => client.close(error));
     browser.on("exit", (code) => client.close(new Error(`Chrome exited (${code}). ${stderr.slice(-2000)}`)));
@@ -443,6 +443,7 @@ export async function main(args = process.argv.slice(2)) {
     console.error(error.message);
     return 1;
   } finally {
+    if (report.status !== "PASS") report.browserStderrTail = stderr.slice(-2000);
     if (client) await client.send("Browser.close").catch(() => {});
     // Only the child launched above is stopped; never an existing user browser.
     if (browser && browser.exitCode === null) browser.kill("SIGTERM");
