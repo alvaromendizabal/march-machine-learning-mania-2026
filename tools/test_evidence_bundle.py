@@ -159,6 +159,9 @@ def fixture_payloads(job: str = "quality") -> tuple[dict[str, bytes], dict]:
         inputs_raw = canonical(inputs)
         payloads[VALIDATION + name] = payloads[prefix + name] = body
         payloads[prefix + "inputs.json"] = inputs_raw
+        # The real TaskStore collector sees these hidden synchronization files;
+        # a default GitHub artifact download omits them outside a sealed ZIP.
+        payloads[prefix + ".lock"] = b""
         payloads[prefix + "checkpoint.json"] = canonical(
             {
                 "fingerprint": fingerprint,
@@ -283,6 +286,7 @@ class EvidenceBundleTests(unittest.TestCase):
         self.assertEqual(result["canonical_notebooks"]["dependency_associations"], 12)
         self.assertEqual(result["canonical_notebooks"]["runtime_dependency_associations"], 6)
         self.assertEqual(result["verified_result"]["nested_pins_verified"], 4)
+        self.assertEqual(result["retained_empty_task_locks"], 6)
         self.assertEqual(result["notebooks_executed_by_verifier"], 0)
 
     def test_publication_scope_is_committed_not_fresh_execution(self):
@@ -416,6 +420,26 @@ class EvidenceBundleTests(unittest.TestCase):
 
     def test_unknown_validation_payload_rejected_even_when_manifest_closed(self):
         self.payloads[VALIDATION + "unrelated_private_payload.json"] = b"{}"
+        self.reject("finite registered validation")
+
+    def test_no_task_locks_is_not_fabricated_as_retained(self):
+        self.payloads = {
+            name: body for name, body in self.payloads.items() if not name.endswith("/.lock")
+        }
+        self.assertEqual(self.verify()["retained_empty_task_locks"], 0)
+
+    def test_nonempty_registered_task_lock_rejected(self):
+        name = next(name for name in self.payloads if name.endswith("/.lock"))
+        self.payloads[name] = b"Unexpected content is not a synchronization lock."
+        self.reject("canonical task locks must be empty")
+
+    def test_unregistered_task_lock_rejected(self):
+        self.payloads[VALIDATION + "notebook_runs/" + "f" * 64 + "/unregistered/.lock"] = b""
+        self.reject("finite registered validation")
+
+    def test_other_hidden_file_in_registered_task_rejected(self):
+        name = next(name for name in self.payloads if name.endswith("/.lock"))
+        self.payloads[name.removesuffix(".lock") + ".other"] = b""
         self.reject("finite registered validation")
 
     def test_missing_runtime_notebook_rejected(self):

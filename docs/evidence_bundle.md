@@ -49,6 +49,16 @@ Both jobs retain their raw validation artifacts as well. Failed or interrupted
 checks remain failures; raw diagnostic uploads do not turn into successful
 bundles. No protective rule is disabled to obtain a green check.
 
+The task runner also leaves an empty `.lock` file in each canonical task
+directory. The closed bundle retains these six operational files at the exact
+paths derived from the verified notebook fingerprints; only empty contents are
+accepted. Other hidden files remain rejected. A lock is not execution evidence,
+and the report counts only locks actually retained. This explicit handling
+corrects the initial bundle-builder failure, which happened after successful
+canonical execution because its finite path list omitted the runner's locks.
+The ordinary raw-artifact upload omits hidden files, so its downloaded path
+inventory alone did not reproduce that builder failure.
+
 ## Audit a downloaded bundle
 
 Open the exact **Research quality** workflow run for the commit being reviewed

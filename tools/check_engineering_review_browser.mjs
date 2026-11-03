@@ -123,6 +123,7 @@ export async function main() {
     scope: "Actual installed Chrome, four emulated viewports; not full accessibility or cross-browser certification.",
     source: {}, startedAt: new Date().toISOString() };
   let temporary, browser, client;
+  let stderr = "";
   const start = performance.now();
   try {
     for (const file of ["outputs/review/index.html", "outputs/review/review.json", "tools/review_template.html", "tools/review_project.py", "tools/check_engineering_review_browser.mjs"])
@@ -133,7 +134,6 @@ export async function main() {
       "--no-proxy-server", "--host-resolver-rules=MAP * ~NOTFOUND", "--remote-debugging-pipe",
       `--user-data-dir=${path.join(temporary,"profile")}`, "about:blank"], { stdio:["ignore","ignore","pipe","pipe","pipe"] });
     client = new PipeClient(browser.stdio[4],browser.stdio[3]);
-    let stderr = "";
     browser.stderr.on("data", chunk=>{stderr=(stderr+chunk.toString()).slice(-2000);});
     browser.on("error", e=>client.close(e));
     browser.on("exit", code=>client.close(new Error(`Chrome exited ${code}: ${stderr}`)));
@@ -147,6 +147,7 @@ export async function main() {
     report.status=report.renders.length?"FAIL":"BLOCKED";report.error=error.message;
     return 1;
   } finally {
+    if(report.status!=="PASS") report.browserStderrTail=stderr;
     if(client) await client.send("Browser.close").catch(()=>{});
     if(browser && browser.exitCode===null) browser.kill("SIGTERM");
     if(temporary) {try {fs.rmSync(temporary,{recursive:true,force:true,maxRetries:3});} catch(error) {report.cleanupWarning=error.message;}}

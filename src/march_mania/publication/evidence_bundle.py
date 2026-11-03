@@ -672,6 +672,7 @@ def verify_public_bundle(
         require(identity["workflow_path"] in source, "workflow body retained in reviewed tree")
         canonical_report = verify_notebooks(payloads, source)
         allowed = set(RUNTIME_PATHS) | {VALIDATION + name for name in VALIDATION_FILES}
+        task_locks = set()
         for row in canonical_report["notebooks"]:
             name, fingerprint = row["notebook"], row["fingerprint"]
             prefix = VALIDATION + f"notebook_runs/{fingerprint}/{PurePosixPath(name).stem}/"
@@ -681,9 +682,19 @@ def verify_public_bundle(
                     prefix + name,
                     prefix + "inputs.json",
                     prefix + "checkpoint.json",
+                    prefix + ".lock",
                 }
             )
+            task_locks.add(prefix + ".lock")
         require(set(payloads) <= allowed, "finite registered validation payload paths")
+        # TaskStore leaves one empty FileLock in each exact canonical task
+        # directory. Retain those operational bodies in the manifest, without
+        # allowing other hidden files or interpreting locks as execution proof.
+        retained_task_locks = task_locks & set(payloads)
+        require(
+            all(payloads[name] == b"" for name in retained_task_locks),
+            "registered canonical task locks must be empty",
+        )
         runtime_report = verify_runtime(payloads, source, identity["job"])
         quality_report = verify_quality(payloads) if identity["job"] == "quality" else None
     except (KeyError, TypeError, AttributeError, IndexError) as error:
@@ -703,6 +714,7 @@ def verify_public_bundle(
         "source_sha256": sha256(source_raw),
         "source_tree_reconstructed": identity["source_tree"],
         "canonical_notebooks": canonical_report,
+        "retained_empty_task_locks": len(retained_task_locks),
         "verified_result": runtime_report,
         "quality": quality_report,
         "notebooks_executed_by_verifier": 0,
