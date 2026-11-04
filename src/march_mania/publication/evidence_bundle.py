@@ -21,6 +21,7 @@ import zipfile
 import zlib
 from collections import Counter
 from collections.abc import Mapping
+from datetime import datetime, timedelta
 from pathlib import PurePosixPath
 from typing import Any
 
@@ -343,6 +344,219 @@ def execution_state(value: Mapping[str, Any]) -> list[dict[str, Any]]:
     return codes
 
 
+def _event_clock(row: Mapping[str, Any]) -> tuple[datetime, float]:
+    """Read recorded clocks, not external proof of execution or source availability."""
+    stamp = row.get("timestamp")
+    require(
+        type(stamp) is str
+        and re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|\+00:00)", stamp)
+        is not None,
+        "lifecycle event has an explicit UTC timestamp",
+    )
+    assert isinstance(stamp, str)
+    try:
+        parsed = datetime.fromisoformat(stamp)
+    except ValueError as error:
+        raise EvidenceBundleError("lifecycle event has a valid UTC timestamp") from error
+    require(parsed.utcoffset() == timedelta(0), "lifecycle event UTC offset")
+    elapsed = row.get("elapsed_seconds")
+    require(
+        isinstance(elapsed, (int, float))
+        and type(elapsed) in (int, float)
+        and math.isfinite(elapsed)
+        and elapsed >= 0,
+        "lifecycle event has finite nonnegative elapsed seconds, not a boolean",
+    )
+    assert isinstance(elapsed, (int, float))
+    for field in ("cell_elapsed_seconds", "task_elapsed_seconds"):
+        if field in row:
+            value = row[field]
+            require(
+                type(value) in (int, float) and math.isfinite(value) and value >= 0,
+                "lifecycle event has finite nonnegative duration",
+            )
+    return parsed, float(elapsed)
+
+
+def verify_notebook_event_lifecycle(
+    log_bytes: bytes, expected_cells: Mapping[str, list[int]]
+) -> dict[str, Any]:
+    """Check a finite serial cold-then-warm execution trace without executing it.
+
+    The caller must derive the exact cell-index map from authenticated native
+    notebook bodies. This function checks sequence and recorded clock consistency;
+    it does not replace external run/source binding or independently prove runtime.
+
+    Equal UTC timestamps and millisecond-rounded elapsed values are permitted and
+    reported, never used as unique event IDs. TaskStore heartbeat timestamps are
+    captured by a separate thread before its append lock, so an otherwise in-bound
+    heartbeat may appear after a later-captured critical event. That is not license
+    to reorder task/cell transitions or to move a heartbeat outside its cold task.
+    """
+    require(
+        type(log_bytes) is bytes and 0 < len(log_bytes) <= MAX_MEMBER_BYTES,
+        "bounded nonempty lifecycle log bytes",
+    )
+    require(
+        isinstance(expected_cells, Mapping) and set(expected_cells) == set(NOTEBOOKS),
+        "lifecycle map contains exactly six canonical notebooks",
+    )
+    for cells in expected_cells.values():
+        require(
+            type(cells) is list
+            and 0 < len(cells) <= 10_000
+            and all(type(cell) is int and 0 <= cell < 10_000 for cell in cells)
+            and cells == sorted(set(cells)),
+            "lifecycle map has ordered unique native integer cell indices",
+        )
+    expected: list[dict[str, Any]] = []
+    for cold in (True, False):
+        expected.append({"event": "run_started", "notebooks": 6, "publish": True})
+        for position, name in enumerate(NOTEBOOKS, start=1):
+            task = PurePosixPath(name).stem
+            if cold:
+                expected.append({"event": "task_started", "task": task})
+                for cell in expected_cells[name]:
+                    expected.extend(
+                        (
+                            {
+                                "event": "cell_started",
+                                "notebook": name,
+                                "cell": cell,
+                                "position": position,
+                            },
+                            {
+                                "event": "cell_finished",
+                                "notebook": name,
+                                "cell": cell,
+                                "status": "ok",
+                            },
+                        )
+                    )
+                expected.append({"event": "task_completed", "task": task})
+            else:
+                expected.append({"event": "task_reused", "task": task})
+            expected.append(
+                {
+                    "event": "notebook_completed",
+                    "notebook": name,
+                    "completed": position,
+                    "total": 6,
+                }
+            )
+        expected.append({"event": "run_completed", "notebooks": 6})
+
+    lines = log_bytes.splitlines()
+    require(0 < len(lines) <= 200_000, "bounded lifecycle event inventory")
+    cursor, run_index, heartbeat_count = 0, -1, 0
+    utc_ties, elapsed_ties, reordered_heartbeats = 0, 0, 0
+    previous_utc: datetime | None = None
+    previous_elapsed: float | None = None
+    active_task: str | None = None
+    task_clock: tuple[datetime, float] | None = None
+    pending_heartbeats: list[tuple[datetime, float]] = []
+    runs: list[dict[str, Any]] = []
+    for line_number, line in enumerate(lines, start=1):
+        row = strict_json(line)
+        require(type(row) is dict, "lifecycle event is an object")
+        stamp, elapsed = _event_clock(row)
+        event = row.get("event")
+        if event == "heartbeat":
+            require(
+                run_index == 0
+                and active_task is not None
+                and row.get("task") == active_task
+                and task_clock is not None,
+                "lifecycle heartbeat belongs to an active cold task",
+            )
+            assert task_clock is not None
+            require(
+                stamp >= task_clock[0] and elapsed >= task_clock[1],
+                "lifecycle heartbeat clock is within its cold task",
+            )
+            require("task_elapsed_seconds" in row, "lifecycle heartbeat duration is recorded")
+            pending_heartbeats.append((stamp, elapsed))
+            heartbeat_count += 1
+            reordered_heartbeats += int(
+                (previous_utc is not None and stamp < previous_utc)
+                or (previous_elapsed is not None and elapsed < previous_elapsed)
+            )
+            continue
+        require(cursor < len(expected), "no lifecycle event after final warm completion")
+        contract = expected[cursor]
+        require(
+            all(
+                type(row.get(key)) is type(value) and row[key] == value
+                for key, value in contract.items()
+            ),
+            f"ordered lifecycle transition at line {line_number}: expected {contract['event']}",
+        )
+        require(
+            previous_utc is None or stamp >= previous_utc,
+            "nondecreasing recorded UTC clock for critical lifecycle events",
+        )
+        utc_ties += int(previous_utc is not None and stamp == previous_utc)
+        if event == "run_started":
+            run_index += 1
+            previous_elapsed = None
+            runs.append(
+                {
+                    "phase": "cold" if run_index == 0 else "warm",
+                    "start_timestamp": row["timestamp"],
+                    "start_elapsed_seconds": elapsed,
+                }
+            )
+        require(
+            previous_elapsed is None or elapsed >= previous_elapsed,
+            "nondecreasing per-run elapsed lifecycle clock",
+        )
+        elapsed_ties += int(previous_elapsed is not None and elapsed == previous_elapsed)
+        if event == "task_started":
+            active_task, task_clock = row["task"], (stamp, elapsed)
+        elif event == "notebook_completed":
+            require(
+                all(clock[0] <= stamp and clock[1] <= elapsed for clock in pending_heartbeats),
+                "lifecycle heartbeat clock is within its cold task",
+            )
+            active_task, task_clock, pending_heartbeats = None, None, []
+        elif event == "run_completed":
+            runs[-1].update(
+                {
+                    "end_timestamp": row["timestamp"],
+                    "end_elapsed_seconds": elapsed,
+                    "observed_interval_seconds": elapsed - runs[-1]["start_elapsed_seconds"],
+                }
+            )
+        previous_utc, previous_elapsed = stamp, elapsed
+        cursor += 1
+    require(cursor == len(expected), "complete cold then warm lifecycle event closure")
+    return {
+        "schema": "MARCH_CANONICAL_NOTEBOOK_EVENT_LIFECYCLE_V1",
+        "status": "PASS",
+        "log_pin": pin(log_bytes),
+        "expected_cell_map_pin": pin(canonical(dict(expected_cells))),
+        "events": len(lines),
+        "critical_lifecycle_events": cursor,
+        "heartbeat_events": heartbeat_count,
+        "cold_notebooks": 6,
+        "cold_code_cells": sum(map(len, expected_cells.values())),
+        "warm_reused_notebooks": 6,
+        "closed_ordered_runs": 2,
+        "critical_utc_clock_ties": utc_ties,
+        "critical_elapsed_clock_ties": elapsed_ties,
+        "heartbeats_with_cross_thread_capture_order": reordered_heartbeats,
+        "runs": runs,
+        "notebooks_executed_by_audit": 0,
+        "model_fits_by_audit": 0,
+        "network_calls_by_audit": 0,
+        "limits": [
+            "Requires an independently authenticated log and exact native cell-index map.",
+            "Recorded clock consistency is not external execution or provider-availability proof.",
+            "Clock collisions are legal; task/cell identities and file order define transitions.",
+        ],
+    }
+
+
 def verify_notebooks(payloads: Mapping[str, bytes], source: Mapping[str, bytes]) -> dict[str, Any]:
     receipt = strict_json(payloads[VALIDATION + "notebook_execution.json"])
     require(receipt.get("status") == "completed", "completed canonical notebook receipt")
@@ -354,6 +568,7 @@ def verify_notebooks(payloads: Mapping[str, bytes], source: Mapping[str, bytes])
     results: list[dict[str, Any]] = []
     all_dependencies: dict[str, str] = {}
     cells_expected: set[tuple[str, int]] = set()
+    cell_indices: dict[str, list[int]] = {}
     total_source, total_runtime = 0, 0
     for row in rows:
         require(row.get("status") == "completed", "completed notebook row")
@@ -399,6 +614,9 @@ def verify_notebooks(payloads: Mapping[str, bytes], source: Mapping[str, bytes])
             for index, cell in enumerate(value["cells"])
             if cell["cell_type"] == "code"
         )
+        cell_indices[name] = [
+            index for index, cell in enumerate(value["cells"]) if cell["cell_type"] == "code"
+        ]
         dependencies = inputs.get("dependencies")
         require(type(dependencies) is dict and bool(dependencies), "nonempty declared dependencies")
         source_count = runtime_count = 0
@@ -457,6 +675,9 @@ def verify_notebooks(payloads: Mapping[str, bytes], source: Mapping[str, bytes])
         not any(events[key] for key in ("run_failed", "task_failed", "checkpoint_invalid")),
         "no hidden notebook failure",
     )
+    lifecycle = verify_notebook_event_lifecycle(
+        payloads[VALIDATION + "notebooks.jsonl"], cell_indices
+    )
     return {
         "notebooks": results,
         "cold_notebooks": 6,
@@ -468,6 +689,7 @@ def verify_notebooks(payloads: Mapping[str, bytes], source: Mapping[str, bytes])
         "runtime_dependency_associations": total_runtime,
         "missing_declared_dependency_bodies": 0,
         "event_counts": dict(events),
+        "event_lifecycle": lifecycle,
     }
 
 

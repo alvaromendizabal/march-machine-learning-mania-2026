@@ -29,7 +29,7 @@ Historical artifacts are not retroactively relabeled complete.
 | Bundle → every retained payload | Safe unique regular names, complete CRC checks, byte counts, SHA-256 and exact manifest set closure; no unregistered validation path |
 | Source archive → reviewed code | Every Git blob and nested tree is reconstructed in memory; the exact root tree and archive commit must match |
 | Six canonical notebooks → checkpoints | Actual notebook bodies, checkpoint output set, all input hashes, notebook definitions and every declared dependency body |
-| Cold execution → warm reuse | Exact notebook/cell identities and successful cell events, with one cold run and one whole-notebook reuse run |
+| Cold execution → warm reuse | Exact ordered run/task/cell transitions, native cell indices, per-notebook progress and successful completion before any warm reuse |
 | Five-cell result receipt → native output | All four body pins; reviewed code and narrative; five ordered code cells; no errors/warnings; matching embedded and standalone PNG |
 | Quality job → tests | All five quality gates pass; JUnit totals reconcile with unique cases and no failures, errors or skips |
 
@@ -58,6 +58,41 @@ corrects the initial bundle-builder failure, which happened after successful
 canonical execution because its finite path list omitted the runner's locks.
 The ordinary raw-artifact upload omits hidden files, so its downloaded path
 inventory alone did not reproduce that builder failure.
+
+## An ordered execution trace, not just matching totals
+
+Matching sets of event IDs do not establish their order. A local authored
+counterexample showed that the preceding verifier accepted a reversed trace,
+or six reuse events moved before cold completion, when the event totals and
+resealed fixture pins still matched. This is a contract-test finding, not
+evidence that an actual prior CI run was reversed or that its byte custody failed.
+
+The pure `verify_notebook_event_lifecycle` function now consumes the exact
+cell-index map from the retained native notebooks. It requires six serial cold
+tasks, each cell start followed by its matching successful finish, exact
+per-notebook progress, cold run completion, then a separate six-task warm reuse
+run. Unknown, missing, duplicated or out-of-order transitions fail closed.
+The tests cover every adjacent transition swap and every single-event deletion
+and duplication in a deliberately invented trace. This audit executes no cells.
+
+Recorded UTC clocks must be explicit and nondecreasing for the critical
+transitions. Recorded elapsed time must be nondecreasing within each run and
+may reset only at the second run boundary. Equal wall timestamps and rounded
+elapsed values are legal and counted: time is not a unique event ID or an
+external feature-availability witness.
+
+Optional heartbeats are associated only with the active cold task, including
+the runner's shutdown window before its notebook-progress event. Their clocks
+must stay within that task's bounds. A heartbeat thread captures its timestamp
+before acquiring the append lock, so a later-written heartbeat can have an
+earlier captured timestamp; that observed case is reported without permitting
+reordered cell/task transitions. No heartbeat is counted as a notebook or fit.
+
+The standalone [lifecycle tests](../tests/test_evidence_lifecycle.py) use only the
+standard library and the public verifier. They are intentionally synthetic
+acceptance/rejection fixtures, separate from real CI execution evidence. An
+already-retained real log can receive this stronger semantic audit without
+rerunning its notebooks or relabeling an older verification's scope.
 
 ## Audit a downloaded bundle
 
