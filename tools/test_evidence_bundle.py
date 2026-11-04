@@ -11,6 +11,7 @@ import sys
 import unittest
 import warnings
 import zipfile
+from datetime import UTC, datetime, timedelta
 from pathlib import Path, PurePosixPath
 from unittest.mock import patch
 
@@ -43,6 +44,25 @@ from march_mania.publication.evidence_bundle import (  # noqa: E402
 PNG = base64.b64decode(
     "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="
 )
+
+
+def fixture_clocks(rows: list[dict]) -> list[dict]:
+    """Invent deterministic clocks for test fixtures, never rewrite actual logs."""
+    start = datetime(2025, 1, 1, tzinfo=UTC)
+    run_start, task_start = 0, 0
+    for index, row in enumerate(rows):
+        event = row["event"]
+        if event == "run_started":
+            run_start = index
+        if event == "task_started":
+            task_start = index
+        row["timestamp"] = (start + timedelta(milliseconds=index * 10)).isoformat()
+        row["elapsed_seconds"] = round((index - run_start) * 0.01, 3)
+        if event == "cell_finished":
+            row["cell_elapsed_seconds"] = 0.01
+        if event == "task_completed":
+            row["task_elapsed_seconds"] = round((index - task_start) * 0.01, 3)
+    return rows
 
 
 def fixture_notebook(cells: int, *, release: bool = False) -> dict:
@@ -140,8 +160,10 @@ def fixture_payloads(job: str = "quality") -> tuple[dict[str, bytes], dict]:
     }
     if job == "quality":
         source[RUNTIME_RECEIPT] = canonical({"scope": "old committed fixture receipt"})
-    rows, logs = [], [{"event": "run_started"}]
-    for name, count in zip(NOTEBOOKS, (4, 3, 12, 16, 18, 4), strict=True):
+    rows, logs = [], [{"event": "run_started", "notebooks": 6, "publish": True}]
+    for position, (name, count) in enumerate(
+        zip(NOTEBOOKS, (4, 3, 12, 16, 18, 4), strict=True), start=1
+    ):
         value = fixture_notebook(count)
         body = canonical(value)
         unexecuted = copy.deepcopy(value)
@@ -182,15 +204,34 @@ def fixture_payloads(job: str = "quality") -> tuple[dict[str, bytes], dict]:
         for index in range(count):
             logs.extend(
                 [
-                    {"event": "cell_started", "notebook": name, "cell": index},
+                    {
+                        "event": "cell_started",
+                        "notebook": name,
+                        "cell": index,
+                        "position": position,
+                    },
                     {"event": "cell_finished", "notebook": name, "cell": index, "status": "ok"},
                 ]
             )
         logs.append({"event": "task_completed", "task": task})
-    logs.extend([{"event": "run_completed"}, {"event": "run_started"}])
-    logs.extend({"event": "task_reused", "task": PurePosixPath(name).stem} for name in NOTEBOOKS)
-    logs.append({"event": "run_completed"})
-    payloads[VALIDATION + "notebooks.jsonl"] = b"".join(canonical(row) for row in logs)
+        logs.append(
+            {"event": "notebook_completed", "notebook": name, "completed": position, "total": 6}
+        )
+    logs.extend(
+        [
+            {"event": "run_completed", "notebooks": 6},
+            {"event": "run_started", "notebooks": 6, "publish": True},
+        ]
+    )
+    for position, name in enumerate(NOTEBOOKS, start=1):
+        logs.append({"event": "task_reused", "task": PurePosixPath(name).stem})
+        logs.append(
+            {"event": "notebook_completed", "notebook": name, "completed": position, "total": 6}
+        )
+    logs.append({"event": "run_completed", "notebooks": 6})
+    payloads[VALIDATION + "notebooks.jsonl"] = b"".join(
+        canonical(row) for row in fixture_clocks(logs)
+    )
     payloads[VALIDATION + "notebook_execution.json"] = canonical(
         {"status": "completed", "notebooks": rows}
     )
@@ -279,6 +320,11 @@ class EvidenceBundleTests(unittest.TestCase):
         checkpoint["outputs"][name] = sha256(body)
         self.payloads[prefix + "checkpoint.json"] = canonical(checkpoint)
 
+    def event_rows(self):
+        return [
+            strict_json(line) for line in self.payloads[VALIDATION + "notebooks.jsonl"].splitlines()
+        ]
+
     def test_complete_quality_fixture_with_measured_counts(self):
         result = self.verify()
         self.assertEqual(result["status"], "PASS")
@@ -288,6 +334,23 @@ class EvidenceBundleTests(unittest.TestCase):
         self.assertEqual(result["verified_result"]["nested_pins_verified"], 4)
         self.assertEqual(result["retained_empty_task_locks"], 6)
         self.assertEqual(result["notebooks_executed_by_verifier"], 0)
+        lifecycle = result["canonical_notebooks"]["event_lifecycle"]
+        self.assertEqual(lifecycle["events"], 148)
+        self.assertEqual(lifecycle["closed_ordered_runs"], 2)
+
+    def test_lifecycle_rejects_reversed_log_with_unchanged_event_counts(self):
+        self.payloads[VALIDATION + "notebooks.jsonl"] = b"".join(
+            canonical(row) for row in reversed(self.event_rows())
+        )
+        self.reject("ordered lifecycle transition")
+
+    def test_lifecycle_rejects_warm_reuse_before_cold_completion(self):
+        rows = self.event_rows()
+        reused = [row for row in rows if row["event"] == "task_reused"]
+        rows = [row for row in rows if row["event"] != "task_reused"]
+        rows[1:1] = reused
+        self.payloads[VALIDATION + "notebooks.jsonl"] = b"".join(canonical(row) for row in rows)
+        self.reject("ordered lifecycle transition")
 
     def test_publication_scope_is_committed_not_fresh_execution(self):
         payloads, identity = fixture_payloads("notebook-publication")
